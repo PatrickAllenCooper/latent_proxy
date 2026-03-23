@@ -60,7 +60,40 @@ Components implemented:
 - [x] `scripts/train_alignment.py` -- Phase 2 training script
 - [x] `tests/` -- 4 new test files (serialization, DPO data, alignment metrics, reward model)
 
-### Milestone 3: Active Learning Loop -- NOT STARTED
+### Milestone 3: Active Learning Loop -- COMPLETE
+
+Scope:
+- Upgraded posterior tracking: PosteriorBase ABC, ParticlePosterior (weighted particles
+  with systematic resampling), GaussianPosterior (importance-weighted update from choices)
+- Diagnostic scenario library generating gamma/alpha/lambda-discriminating binary queries
+- MC-based Expected Information Gain computation
+- Agent module: StructuredQueryGenerator (EIG-maximizing), RandomQueryGenerator (baseline),
+  PreferenceTracker (posterior + convergence), ResponseGenerator, ElicitationLoop
+- Elicitation metrics: efficiency comparison, recovery curves, benchmark runner
+- CURC SLURM scripts for A100 training and evaluation
+- 208 total tests passing
+
+Components implemented:
+- [x] `src/utils/posterior.py` -- PosteriorBase, GaussianPosterior, ParticlePosterior
+- [x] `src/utils/diagnostic_scenarios.py` -- DiagnosticScenario, ScenarioLibrary
+- [x] `src/utils/information_gain.py` -- compute_eig_mc, compute_eig_batch
+- [x] `src/agents/base.py` -- BaseAgent ABC
+- [x] `src/agents/query_generator.py` -- StructuredQueryGenerator, RandomQueryGenerator
+- [x] `src/agents/preference_tracker.py` -- PreferenceTracker with convergence checking
+- [x] `src/agents/response_generator.py` -- ResponseGenerator
+- [x] `src/agents/elicitation_loop.py` -- ElicitationLoop orchestrator
+- [x] `src/evaluation/elicitation_metrics.py` -- efficiency, recovery curves, benchmarks
+- [x] `configs/active_learning/default.yaml`
+- [x] `scripts/run_elicitation.py` -- local CPU benchmark
+- [x] `scripts/slurm/` -- CURC deployment scripts
+
+Benchmark results (10 users, 8 rounds, 500 particles, 200 EIG samples):
+- Active: 0.364 mean error, Random: 0.367 mean error
+- Error reduction: 0.8% (below 30% target)
+- Root cause: small-scale parameters limit EIG discrimination quality.
+  Requires tuning in Milestone 4: more particles (2000+), more EIG samples (1000+),
+  more rounds (15+), and potentially multi-period scenario evaluation.
+
 ### Milestone 4: Evaluation + Game Domain Results -- NOT STARTED
 ### Milestone 5: Stock Backtesting Domain -- NOT STARTED
 ### Milestone 6: Generalization Study -- NOT STARTED
@@ -118,6 +151,19 @@ Bridges structured game data and LLM text:
    advantage, pushing them toward safer allocations compared to impatient users.
    Without this nonlinearity, the horizon cancels in simplex normalization.
 
+### Active Learning Architecture (Milestone 3)
+- Structured elicitation (Option A from README Section 6.1): a ScenarioLibrary
+  generates diagnostic binary choices, each scored by EIG to select the most
+  informative query at each round.
+- PosteriorBase ABC with two implementations:
+  GaussianPosterior (fast, unimodal) and ParticlePosterior (flexible, handles
+  multimodality). Both update from observed binary choices via softmax-rational
+  likelihood model.
+- Convergence criteria: per-parameter variance thresholds, max query budget,
+  and robust-action check (same optimal action across 90% credible region).
+- Elicitation loop operates entirely on CPU with synthetic users; GPU needed
+  only for LLM rendering of queries (future integration).
+
 ## Design Decisions (Milestone 2)
 
 8. Natural language user profiles for type conditioning rather than structured
@@ -132,6 +178,21 @@ Bridges structured game data and LLM text:
     perturbations. Once a model is trained, its outputs seed future pair construction.
 12. Separate Phase 1 and Phase 2 training scripts matching the curriculum in
     README Section 5.3.
+
+## Design Decisions (Milestone 3)
+
+13. ParticlePosterior as default over GaussianPosterior. Particles handle
+    non-Gaussian posteriors and parameter coupling without parametric assumptions.
+    Systematic resampling when ESS drops below 50% of particle count.
+14. Diagnostic scenarios constructed with extreme parameter contrasts rather than
+    just optimal-action differences. For alpha: 75% safe vs 50% aggressive. For
+    gamma: safe-heavy vs aggressive-heavy (gamma only affects multi-period value,
+    not single-period utility ranking).
+15. EIG estimation via nested Monte Carlo with importance-weighted entropy.
+    Trades accuracy for speed: 500 samples scores a scenario in ~20ms on CPU.
+16. CURC SLURM scripts placed under scripts/slurm/ for A100 GPU training.
+    Local 3080 used for inference and small-scale testing; CURC for full
+    DPO training and large-scale evaluation.
 
 ## Technology Stack
 

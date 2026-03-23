@@ -1,0 +1,18 @@
+active_learning:
+  posterior_type: particle
+  n_particles: 1000
+  max_rounds: 10
+  n_scenarios_per_round: 50
+  n_eig_samples: 500
+  temperature: 0.1
+
+  convergence:
+    gamma_variance_threshold: 0.005
+    alpha_variance_threshold: 0.05
+    lambda_variance_threshold: 0.05
+    robust_action_level: 0.9
+    max_rounds: 10
+
+benchmark:
+  n_users: 20
+  seed: 42

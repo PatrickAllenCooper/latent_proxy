@@ -1,0 +1,41 @@
+#!/bin/bash
+#SBATCH --job-name=latent-proxy-eval
+#SBATCH --partition=aa100
+#SBATCH --gres=gpu:1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=32G
+#SBATCH --time=02:00:00
+#SBATCH --output=logs/evaluation-%j.out
+#SBATCH --error=logs/evaluation-%j.err
+
+set -euo pipefail
+
+PROJECT_DIR="/projects/paco0228/latent_proxy"
+CONDA_ENV="/projects/paco0228/software/anaconda/envs/latent-proxy-env"
+HF_CACHE="/scratch/alpine/paco0228/hf_cache"
+
+export HF_HOME="$HF_CACHE"
+export TRANSFORMERS_CACHE="$HF_CACHE"
+
+cd "$PROJECT_DIR"
+mkdir -p logs
+
+source activate "$CONDA_ENV" 2>/dev/null || conda activate "$CONDA_ENV"
+
+echo "Running elicitation benchmark (CPU portion)"
+python scripts/run_elicitation.py \
+    --n-users 50 \
+    --max-rounds 10 \
+    --n-particles 2000 \
+    --posterior-type particle
+
+echo "Running DPO evaluation (Phase 1)"
+python scripts/train_quality.py --action evaluate \
+    --checkpoint outputs/dpo/phase1/final
+
+echo "Running alignment evaluation (Phase 2)"
+python scripts/train_alignment.py --action evaluate \
+    --checkpoint outputs/dpo/phase2/final
+
+echo "Evaluation complete."
