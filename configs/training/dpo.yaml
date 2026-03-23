@@ -1,0 +1,44 @@
+model:
+  model_name: "mistralai/Mistral-7B-Instruct-v0.3"
+  quantization_bits: 4
+  lora_rank: 16
+  lora_alpha: 32
+  lora_dropout: 0.1
+  lora_target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+  max_length: 1024
+  padding_side: left
+
+data:
+  n_candidates: 8
+  n_game_states: 500
+  dirichlet_alpha: 1.0
+  perturbation_std: 0.1
+  seed: 42
+
+training:
+  beta: 0.1
+  learning_rate: 5.0e-5
+  num_epochs: 3
+  per_device_batch_size: 4
+  gradient_accumulation_steps: 4
+  warmup_ratio: 0.1
+  max_length: 1024
+  max_prompt_length: 768
+  logging_steps: 10
+  save_steps: 500
+
+wandb:
+  enabled: true
+  project: latent-proxy
+
+phase1:
+  n_pairs: 10000
+  output_dir: outputs/dpo/phase1
+
+phase2:
+  n_pairs: 20000
+  output_dir: outputs/dpo/phase2

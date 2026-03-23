@@ -21,6 +21,13 @@ dependencies = [
     "hydra-core>=1.3",
     "wandb>=0.19",
     "omegaconf>=2.3",
+    "torch>=2.0",
+    "transformers>=4.48",
+    "trl>=0.29",
+    "peft>=0.14",
+    "bitsandbytes>=0.45",
+    "accelerate>=1.3",
+    "datasets>=3.0",
 ]
 
 [dependency-groups]

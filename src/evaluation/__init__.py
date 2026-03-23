@@ -10,4 +10,7 @@ __all__ = [
     "check_dominance",
     "check_diversification",
     "estimate_bankruptcy_prob",
+    "compute_alignment_score",
+    "compute_quality_floor_violation_rate",
+    "evaluate_actions",
 ]
