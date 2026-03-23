@@ -1,0 +1,55 @@
+game:
+  n_rounds: 20
+  initial_wealth: 1000.0
+
+  channels:
+    - name: safe
+      mu: 0.02
+      sigma: 0.01
+      regime_sensitivity: 0.2
+      correlation_sign: 1.0
+    - name: growth
+      mu: 0.06
+      sigma: 0.04
+      regime_sensitivity: 0.6
+      correlation_sign: 1.0
+    - name: aggressive
+      mu: 0.12
+      sigma: 0.10
+      regime_sensitivity: 1.0
+      correlation_sign: 1.0
+    - name: volatile
+      mu: 0.08
+      sigma: 0.20
+      regime_sensitivity: 1.5
+      correlation_sign: -1.0
+
+  regime_transition_matrix:
+    - [0.70, 0.15, 0.15]
+    - [0.15, 0.70, 0.15]
+    - [0.15, 0.15, 0.70]
+
+  channel_correlation: 0.3
+
+  quality_floor:
+    min_channels: 2
+    max_bankruptcy_prob: 0.05
+    bankruptcy_mc_samples: 5000
+
+user_priors:
+  gamma:
+    distribution: beta
+    a: 2.0
+    b: 2.0
+  alpha:
+    distribution: lognormal
+    mu: 0.0
+    sigma: 0.5
+  lambda_:
+    distribution: uniform
+    low: 1.0
+    high: 3.0
+
+synthetic_user:
+  temperature: 0.1
+  reference_point: 0.0
