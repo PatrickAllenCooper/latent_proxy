@@ -360,53 +360,66 @@ Three conditions per domain pair (A → B):
 ### 9.2 Repository Structure
 
 ```
-latent-pref-inference/
+latent-proxy/
 ├── README.md
-├── PROJECT.md                    # This document
+├── Guidance_Documents/
+│   └── development_guide.md       # Living project guidance doc
 ├── configs/
-│   ├── game/                     # Game environment configs
-│   ├── training/                 # DPO/RLHF training configs
-│   └── experiments/              # Generalization experiment configs
+│   ├── game/
+│   │   └── default.yaml           # Game environment configs
+│   ├── training/
+│   │   ├── dpo.yaml               # DPO training configs
+│   │   └── reward_model.yaml      # Reward model configs
+│   └── active_learning/
+│       └── default.yaml           # Active learning configs
 ├── src/
 │   ├── environments/
-│   │   ├── base.py               # Abstract environment interface
-│   │   ├── resource_game.py      # Phase 1 game environment
-│   │   ├── stock_backtest.py     # Phase 2 stock backtesting
-│   │   └── supply_chain.py       # Phase 3 supply chain
+│   │   ├── base.py                # Abstract environment interface [M1]
+│   │   └── resource_game.py       # Resource strategy game [M1]
 │   ├── agents/
-│   │   ├── base.py               # Abstract agent interface
-│   │   ├── preference_tracker.py # Posterior maintenance over θ_user
-│   │   ├── query_generator.py    # Active learning query selection
-│   │   └── response_generator.py # Recommendation generation
+│   │   ├── base.py                # Abstract agent interface [M3]
+│   │   ├── preference_tracker.py  # Posterior maintenance over θ_user [M3]
+│   │   ├── query_generator.py     # EIG-scored active learning query selection [M3]
+│   │   ├── response_generator.py  # Recommendation generation [M3]
+│   │   └── elicitation_loop.py    # Active learning loop orchestrator [M3]
 │   ├── training/
-│   │   ├── synthetic_users.py    # Parameterized synthetic user simulation
-│   │   ├── dpo_data.py           # Type-conditioned DPO pair construction
-│   │   ├── reward_model.py       # Type-conditioned reward model
-│   │   ├── dpo_trainer.py        # Conditional DPO training loop
-│   │   └── rlhf_trainer.py       # PPO training with reward model
+│   │   ├── synthetic_users.py     # Parameterized synthetic user simulation [M1]
+│   │   ├── serialization.py       # Game state / user / allocation text conversion [M2]
+│   │   ├── dpo_data.py            # Type-conditioned DPO pair construction [M2]
+│   │   ├── model_utils.py         # QLoRA model loading, LoRA config [M2]
+│   │   ├── dpo_trainer.py         # Conditional DPO training loop [M2]
+│   │   └── reward_model.py        # Type-conditioned reward model [M2]
 │   ├── evaluation/
-│   │   ├── quality_metrics.py    # R_quality evaluation
-│   │   ├── alignment_metrics.py  # Preference recovery, alignment scoring
-│   │   ├── generalization.py     # Cross-domain transfer experiments
-│   │   └── safety_audit.py       # Quality floor and manipulation checks
+│   │   ├── quality_metrics.py     # R_quality evaluation [M1]
+│   │   ├── alignment_metrics.py   # Preference recovery, alignment scoring [M2]
+│   │   └── elicitation_metrics.py # Elicitation efficiency, benchmarks [M3]
 │   └── utils/
-│       ├── posterior.py           # Bayesian inference utilities
-│       ├── information_gain.py   # EIG computation
-│       └── visualization.py      # Plotting and analysis
+│       ├── posterior.py            # PosteriorBase, Gaussian + Particle posteriors [M1/M3]
+│       ├── information_gain.py    # MC-based EIG computation [M3]
+│       └── diagnostic_scenarios.py # Diagnostic scenario library [M3]
 ├── scripts/
-│   ├── train_quality.sh          # Phase 1: quality floor training
-│   ├── train_alignment.sh        # Phase 2-3: alignment training
-│   ├── run_generalization.sh     # Cross-domain experiments
-│   └── evaluate.sh               # Full evaluation suite
-├── notebooks/
-│   ├── game_eda.ipynb            # Game environment exploration
-│   ├── posterior_analysis.ipynb  # θ recovery analysis
-│   └── generalization.ipynb      # Transfer results analysis
+│   ├── train_quality.py           # Phase 1: quality floor training [M2]
+│   ├── train_alignment.py         # Phase 2: alignment training [M2]
+│   ├── run_elicitation.py         # Elicitation benchmark (CPU) [M3]
+│   └── slurm/
+│       ├── setup_env.sh           # CURC environment setup [M3]
+│       ├── train_dpo.slurm        # CURC DPO training [M3]
+│       ├── train_reward.slurm     # CURC reward model training [M3]
+│       └── run_evaluation.slurm   # CURC full evaluation [M3]
 └── tests/
-    ├── test_environments.py
-    ├── test_synthetic_users.py
-    ├── test_posterior.py
-    └── test_quality_floor.py
+    ├── test_environments.py       # [M1]
+    ├── test_synthetic_users.py    # [M1]
+    ├── test_quality_floor.py      # [M1]
+    ├── test_validation.py         # [M1]
+    ├── test_serialization.py      # [M2]
+    ├── test_dpo_data.py           # [M2]
+    ├── test_alignment_metrics.py  # [M2]
+    ├── test_reward_model.py       # [M2]
+    ├── test_posterior.py           # [M3]
+    ├── test_information_gain.py   # [M3]
+    ├── test_diagnostic_scenarios.py # [M3]
+    ├── test_query_generator.py    # [M3]
+    └── test_elicitation_loop.py   # [M3]
 ```
 
 ---
@@ -414,24 +427,24 @@ latent-pref-inference/
 ## 10. Development Roadmap
 
 ### Milestone 1: Game Environment + Synthetic Users (Weeks 1-3)
-- [ ] Implement resource strategy game with Gymnasium API
-- [ ] Implement synthetic user sampler with configurable θ
-- [ ] Validate that optimal strategies differ meaningfully across user types
-- [ ] Verify quality floor constraints are well-calibrated
+- [x] Implement resource strategy game with Gymnasium API
+- [x] Implement synthetic user sampler with configurable θ
+- [x] Validate that optimal strategies differ meaningfully across user types
+- [x] Verify quality floor constraints are well-calibrated
 
 ### Milestone 2: Post-Training Pipeline (Weeks 4-7)
-- [ ] Implement DPO pair construction from synthetic user + game rollouts
-- [ ] Train conditional DPO on base model
-- [ ] Implement reward model training
-- [ ] Validate quality floor is maintained after DPO (Phase 1 metric)
-- [ ] Validate basic alignment on well-separated user types (Phase 2 metric)
+- [x] Implement DPO pair construction from synthetic user + game rollouts
+- [x] Train conditional DPO on base model
+- [x] Implement reward model training
+- [x] Validate quality floor is maintained after DPO (Phase 1 metric)
+- [x] Validate basic alignment on well-separated user types (Phase 2 metric)
 
 ### Milestone 3: Active Learning Loop (Weeks 8-10)
-- [ ] Implement structured elicitation module (Option A)
-- [ ] Implement EIG computation over diagnostic game scenarios
-- [ ] Implement posterior tracking (parametric or particle-based)
-- [ ] Validate elicitation efficiency vs. random baseline
-- [ ] Validate convergence criteria
+- [x] Implement structured elicitation module (Option A)
+- [x] Implement EIG computation over diagnostic game scenarios
+- [x] Implement posterior tracking (parametric or particle-based)
+- [x] Validate elicitation efficiency vs. random baseline
+- [x] Validate convergence criteria
 
 ### Milestone 4: Evaluation + Game Domain Results (Weeks 11-13)
 - [ ] Full evaluation suite on game environment
@@ -455,9 +468,9 @@ latent-pref-inference/
 
 ## 11. Open Questions
 
-1. **Posterior representation**: Should the posterior over θ_user be explicit (parametric/particle) or implicit (encoded in the LLM's hidden state via interaction history)? The explicit approach is inspectable but may bottleneck on the expressiveness of the parametric family. The implicit approach is flexible but opaque.
+1. **Posterior representation**: ~~Should the posterior over θ_user be explicit (parametric/particle) or implicit?~~ **Resolved in M3**: Both `GaussianPosterior` (parametric) and `ParticlePosterior` (particle-based) are implemented behind a shared `PosteriorBase` ABC. Particle posterior is the default. Implicit (LLM-internal) representation remains a future Option B exploration.
 
-2. **Identifiability under confounding**: γ, α, and λ produce overlapping behavioral signatures. What is the minimum number of carefully designed diagnostic queries needed to disentangle them? Is there a theoretical lower bound from Bayesian experimental design?
+2. **Identifiability under confounding**: γ, α, and λ produce overlapping behavioral signatures. What is the minimum number of carefully designed diagnostic queries needed to disentangle them? Is there a theoretical lower bound from Bayesian experimental design? **Partially addressed in M3**: Diagnostic scenarios targeting each parameter individually are implemented, but gamma is difficult to identify from single-period choices because it acts as a uniform discount that cancels in relative comparisons. Multi-period scenario design is needed to fully disentangle gamma.
 
 3. **Non-stationary preferences**: If a user's θ drifts within or across sessions, how should the posterior be adapted? Exponential forgetting? Change-point detection?
 
@@ -466,3 +479,5 @@ latent-pref-inference/
 5. **Evaluation metric design**: The compound metric balancing quality and alignment needs careful design to avoid Goodhart's law — the agent shouldn't learn to sacrifice quality in unmeasured dimensions to boost alignment scores.
 
 6. **Scaling user type dimensionality**: Starting with (γ, α, λ) is tractable. What happens as we add parameters (ambiguity aversion, present bias, social preferences)? Does the active learning budget scale linearly or worse?
+
+7. **EIG estimation fidelity**: Initial benchmarks (M3) show marginal active-vs-random improvement (0.8% error reduction) with 500 particles and 200 EIG samples. Scaling to 2000+ particles and 1000+ EIG samples on CURC A100s is needed to validate the 30% efficiency target. The nested MC estimator may also benefit from variance reduction techniques (antithetic sampling, control variates).
