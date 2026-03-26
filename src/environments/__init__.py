@@ -5,6 +5,11 @@ from src.environments.stock_backtest import (
     StockBacktestEnv,
     create_default_stock_env,
 )
+from src.environments.supply_chain import (
+    SupplyChainConfig,
+    SupplyChainEnv,
+    create_default_supply_chain_env,
+)
 
 __all__ = [
     "BaseEnvironment",
@@ -12,4 +17,7 @@ __all__ = [
     "StockBacktestConfig",
     "StockBacktestEnv",
     "create_default_stock_env",
+    "SupplyChainConfig",
+    "SupplyChainEnv",
+    "create_default_supply_chain_env",
 ]

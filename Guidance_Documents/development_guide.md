@@ -105,8 +105,9 @@ Scope:
 - Ablation runner: query budget, posterior type, and beta proxy (post-hoc theta blend)
 - Matplotlib visualization utilities and JSON/Markdown export
 - CURC: `run_full_evaluation.py`, `run_ablation.slurm`, expanded `run_evaluation.slurm`
-- **224** tests at M4 closure; **251** after Milestone 5 (includes `test_multiperiod_eval`,
-  `test_game_variants`, `test_experiment_runner`, `test_ablation`, stock/cross-domain tests)
+- **224** tests at M4 closure; **251** after Milestone 5; **286** after Milestone 6 (includes
+  `test_multiperiod_eval`, `test_game_variants`, `test_experiment_runner`, `test_ablation`,
+  stock/cross-domain tests, supply chain, statistical analysis, stability, generalization)
 
 Components implemented:
 - [x] `src/training/synthetic_users.py` -- `evaluate_allocation_multiperiod`,
@@ -169,7 +170,54 @@ Validation:
 - ``python -m pytest tests/`` (251 passed, ~47s local)
 - ``python scripts/run_cross_domain.py --n-users 2 --max-rounds 2 ...`` smoke OK
 
-### Milestone 6: Generalization Study -- NOT STARTED
+### Milestone 6: Generalization Study -- COMPLETE (code, tests, local smoke; large-run paper metrics ongoing)
+
+Scope:
+- Supply chain procurement environment (third domain on README Section 8.2 ladder)
+  with 5-supplier regime-switching model, YAML config, quality floor (diversification,
+  concentration cap, tail-risk bound), and ``get_optimal_action`` with diversification
+  enforcement
+- Supply chain scenarios, serialization, and DPO pair generator
+- Statistical hypothesis testing framework for H1-H4: Wilcoxon signed-rank,
+  rank-biserial effect sizes, Holm-Bonferroni correction, ICC(2,1) for stability
+- Theta stability test-retest: two independent elicitation sessions per user,
+  ICC and Pearson per parameter
+- Unified generalization protocol across four domain pairs with per-parameter
+  transfer decomposition and H1-H4 testing in a single pass
+- Paper-quality visualization: hypothesis panel, parameter heatmap, transfer matrix,
+  stability scatter
+- Results report (``paper.tex``) with section structure and figure/table placeholders
+- **286** tests passing (six new M6 test modules + prior suite)
+
+Components implemented:
+- [x] ``src/environments/supply_chain.py`` -- ``SupplyChainConfig``, ``SupplyChainEnv``
+- [x] ``configs/supply_chain/default.yaml`` -- five supplier archetypes
+- [x] ``src/utils/supply_chain_scenarios.py`` -- ``SupplyChainScenarioLibrary``
+- [x] ``src/training/supply_chain_serialization.py`` -- procurement serializers
+- [x] ``src/training/supply_chain_dpo_data.py`` -- ``SupplyChainDPOPairGenerator``
+- [x] ``src/evaluation/statistical_analysis.py`` -- H1-H4 tests, effect sizes, ICC, Holm
+- [x] ``src/evaluation/theta_stability.py`` -- ``run_theta_stability_test``
+- [x] ``src/evaluation/generalization_protocol.py`` -- ``run_generalization_study``
+- [x] ``src/utils/visualization.py`` -- four new paper-quality plot functions
+- [x] ``paper.tex`` -- structured results report
+- [x] ``scripts/run_generalization_study.py`` -- CLI with ``--quick`` flag
+- [x] ``scripts/slurm/run_evaluation.slurm`` -- M6 step
+- [x] tests: ``test_supply_chain.py``, ``test_supply_chain_scenarios.py``,
+  ``test_supply_chain_serialization.py``, ``test_statistical_analysis.py``,
+  ``test_theta_stability.py``, ``test_generalization_protocol.py``
+
+Design notes:
+- Supply chain ``get_optimal_action`` enforces ``min_suppliers`` and
+  ``max_single_supplier_share`` constraints directly (capping + redistributing
+  residual) so optimals always pass the quality floor.
+- ``run_test_h*`` function names (not ``test_h*``) avoid pytest collection
+  from ``src/``.
+- Structural similarity scores for domain pairs are hardcoded based on shared
+  architecture and domain semantics; future work can learn similarity from data.
+
+Validation:
+- ``python -m pytest tests/`` (286 passed, ~70s local)
+- ``python scripts/run_generalization_study.py --quick --skip-stability --skip-h4`` smoke OK
 
 ## Architecture
 
@@ -288,6 +336,24 @@ Bridges structured game data and LLM text:
     uses ``StockScenarioLibrary`` on the same ``ElicitationConfig`` particle/EIG settings.
 22. Experiment JSON export omits non-serializable ``scenario_library`` instances;
     ``run_full_evaluation`` records the class name string instead.
+
+## Design Decisions (Milestone 6)
+
+23. Supply chain procurement uses the same ``BaseEnvironment`` observation layout
+    and ``certainty_equivalent`` scoring path as game and stock, enabling full
+    code reuse for elicitation, posterior tracking, and evaluation.
+24. ``get_optimal_action`` in supply chain enforces quality-floor-compatible
+    allocations (cap single-supplier share, ensure minimum supplier count)
+    rather than returning raw CE scores. This guarantees optimal actions pass
+    ``check_quality_floor`` for any sampled user type.
+25. Statistical tests use ``run_test_h*`` naming (not ``test_h*``) to prevent
+    pytest from collecting functions inside ``src/evaluation/statistical_analysis.py``.
+26. Structural similarity between domain pairs is assigned by hand (0.40-0.95)
+    based on shared theta parameterization and domain semantics. With only four
+    directed pairs, the H3 Spearman test has low power; effect sizes and
+    bootstrap CIs are the primary H3 evidence.
+27. ICC(2,1) implemented from the ANOVA formula (no external dependency beyond
+    scipy) to keep the stack minimal.
 
 ## Technology Stack
 

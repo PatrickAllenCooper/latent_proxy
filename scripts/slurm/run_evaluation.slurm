@@ -52,6 +52,18 @@ python scripts/run_cross_domain.py \
     --seed 43 \
     --output outputs/evaluation_m5/cross_domain_transfer.json
 
+echo "Running Milestone 6 generalization study (game, stock, supply chain)"
+mkdir -p outputs/generalization
+python scripts/run_generalization_study.py \
+    --n-users 30 \
+    --max-rounds 10 \
+    --n-particles 2000 \
+    --n-eig-samples 800 \
+    --n-scenarios-per-round 50 \
+    --posterior-type particle \
+    --seed 44 \
+    --output-dir outputs/generalization
+
 echo "Running DPO evaluation (Phase 1)"
 python scripts/train_quality.py --action evaluate \
     --checkpoint outputs/dpo/phase1/final

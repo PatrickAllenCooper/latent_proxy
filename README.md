@@ -371,6 +371,8 @@ latent-proxy/
 │   │   └── variant_b.yaml         # Game variant B (6 channels, T=50) [M4]
 │   ├── stock/
 │   │   └── default.yaml           # Five-asset stock backtest defaults [M5]
+│   ├── supply_chain/
+│   │   └── default.yaml           # Five-supplier procurement defaults [M6]
 │   ├── training/
 │   │   ├── dpo.yaml               # DPO training configs
 │   │   └── reward_model.yaml      # Reward model configs
@@ -382,6 +384,7 @@ latent-proxy/
 │   │   ├── resource_game.py       # Resource strategy game [M1]
 │   │   ├── env_utils.py           # Shared CE + PD helpers [M5]
 │   │   ├── stock_backtest.py      # Multi-asset stock backtest [M5]
+│   │   ├── supply_chain.py        # Supply chain procurement [M6]
 │   │   └── game_variants.py       # Variant A/B factories and YAML loaders [M4]
 │   ├── agents/
 │   │   ├── base.py                # Abstract agent interface [M3]
@@ -393,8 +396,10 @@ latent-proxy/
 │   │   ├── synthetic_users.py     # Parameterized synthetic user simulation [M1]
 │   │   ├── serialization.py       # Game state / user / allocation text conversion [M2]
 │   │   ├── stock_serialization.py # Stock portfolio prompts / allocations [M5]
+│   │   ├── supply_chain_serialization.py # Procurement prompts / allocations [M6]
 │   │   ├── dpo_data.py            # Type-conditioned DPO pair construction [M2]
 │   │   ├── stock_dpo_data.py      # Stock-domain DPO pairs [M5]
+│   │   ├── supply_chain_dpo_data.py # Supply chain DPO pairs [M6]
 │   │   ├── model_utils.py         # QLoRA model loading, LoRA config [M2]
 │   │   ├── dpo_trainer.py         # Conditional DPO training loop [M2]
 │   │   └── reward_model.py        # Type-conditioned reward model [M2]
@@ -403,12 +408,16 @@ latent-proxy/
 │   │   ├── alignment_metrics.py   # Preference recovery, alignment scoring [M2]
 │   │   ├── elicitation_metrics.py # Elicitation efficiency, benchmarks [M3]
 │   │   ├── experiment_runner.py   # Full eval, A->B transfer, game->stock [M4/M5]
-│   │   └── ablation_runner.py     # Query budget, posterior, beta proxy sweeps [M4]
+│   │   ├── ablation_runner.py     # Query budget, posterior, beta proxy sweeps [M4]
+│   │   ├── statistical_analysis.py # H1-H4 tests, effect sizes, ICC, Holm [M6]
+│   │   ├── theta_stability.py     # Test-retest reliability [M6]
+│   │   └── generalization_protocol.py # Unified study across all domain pairs [M6]
 │   └── utils/
 │       ├── posterior.py            # PosteriorBase, Gaussian + Particle posteriors [M1/M3]
 │       ├── information_gain.py    # MC-based EIG computation [M3]
 │       ├── diagnostic_scenarios.py # ScenarioLibraryBase + game/stock libraries [M3/M5]
 │       ├── stock_scenarios.py      # Stock diagnostic scenarios [M5]
+│       ├── supply_chain_scenarios.py # Supply chain diagnostic scenarios [M6]
 │       └── visualization.py       # Result plots and export helpers [M4]
 ├── scripts/
 │   ├── train_quality.py           # Phase 1: quality floor training [M2]
@@ -416,11 +425,12 @@ latent-proxy/
 │   ├── run_elicitation.py         # Elicitation benchmark (CPU) [M3]
 │   ├── run_full_evaluation.py     # M4 pipeline: variants, transfer, ablations [M4]
 │   ├── run_cross_domain.py        # Game -> stock cross-domain transfer [M5]
+│   ├── run_generalization_study.py # M6 full generalization protocol [M6]
 │   └── slurm/
 │       ├── setup_env.sh           # CURC environment setup [M3]
 │       ├── train_dpo.slurm        # CURC DPO training [M3]
 │       ├── train_reward.slurm     # CURC reward model training [M3]
-│       ├── run_evaluation.slurm   # CURC full evaluation + M5 cross-domain [M3/M5]
+│       ├── run_evaluation.slurm   # CURC full eval + M5 cross-domain + M6 study [M3/M6]
 │       └── run_ablation.slurm     # CURC CPU ablation sweeps [M4]
 └── tests/
     ├── test_environments.py       # [M1]
@@ -441,7 +451,13 @@ latent-proxy/
     ├── test_stock_serialization.py # [M5]
     ├── test_stock_dpo_data.py     # [M5]
     ├── test_cross_domain_transfer.py # [M5]
-    └── test_interface_generalization.py # [M5]
+    ├── test_interface_generalization.py # [M5]
+    ├── test_supply_chain.py       # [M6]
+    ├── test_supply_chain_scenarios.py # [M6]
+    ├── test_supply_chain_serialization.py # [M6]
+    ├── test_statistical_analysis.py # [M6]
+    ├── test_theta_stability.py    # [M6]
+    └── test_generalization_protocol.py # [M6]
 ```
 
 ---
@@ -481,10 +497,10 @@ latent-proxy/
 - [ ] Within-domain stock personalization results (large-scale runs / paper tables; code path ready)
 
 ### Milestone 6: Generalization Study (Weeks 19-22)
-- [ ] Implement additional domains as needed
-- [ ] Full cross-domain experimental protocol
-- [ ] Statistical analysis of H1-H4
-- [ ] Paper draft
+- [x] Implement additional domains as needed (supply chain procurement)
+- [x] Full cross-domain experimental protocol (`run_generalization_study`)
+- [x] Statistical analysis of H1-H4 (`statistical_analysis.py`, `theta_stability.py`)
+- [ ] Paper draft (skeleton `paper.tex` created; results tables pending large-scale runs)
 
 ---
 

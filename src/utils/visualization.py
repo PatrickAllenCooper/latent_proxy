@@ -12,6 +12,7 @@ from matplotlib.figure import Figure
 from src.agents.elicitation_loop import ElicitationResult
 from src.evaluation.ablation_runner import AblationResults
 from src.evaluation.experiment_runner import TransferExperimentResult
+from src.evaluation.statistical_analysis import HypothesisTestResult
 
 
 def plot_recovery_curves(
@@ -131,6 +132,142 @@ def format_results_table(full_eval: dict[str, Any], targets: dict[str, float] | 
     for k, v in targets.items():
         lines.append(f"| {k} | {v} |")
     return "\n".join(lines)
+
+
+def plot_hypothesis_panel(
+    hypothesis_results: dict[str, list[HypothesisTestResult]],
+) -> Figure:
+    """2x2 grid summarizing H1-H4 test results with significance markers."""
+    fig, axes = plt.subplots(2, 2, figsize=(12, 9))
+    panels = [("H1", axes[0, 0]), ("H2", axes[0, 1]), ("H3", axes[1, 0]), ("H4", axes[1, 1])]
+
+    for h_key, ax in panels:
+        results = hypothesis_results.get(h_key, [])
+        if not results:
+            ax.set_title(f"{h_key}: no data")
+            ax.set_visible(False)
+            continue
+        labels = [r.hypothesis.replace(f"{h_key}_", "") for r in results]
+        effects = [r.effect_size for r in results]
+        colors = ["#55a868" if r.conclusion == "reject_null" else "#c44e52" for r in results]
+        x = np.arange(len(labels))
+        ax.barh(x, effects, color=colors, edgecolor="white")
+        for j, r in enumerate(results):
+            marker = "*" if r.conclusion == "reject_null" else ""
+            ax.text(
+                effects[j] + 0.02, j,
+                f"p={r.p_value:.3f}{marker}", va="center", fontsize=8,
+            )
+        ax.set_yticks(x)
+        ax.set_yticklabels(labels, fontsize=8)
+        ax.set_xlabel("Effect size")
+        ax.set_title(h_key)
+
+    fig.tight_layout()
+    return fig
+
+
+def plot_parameter_transfer_heatmap(
+    per_parameter_transfer: dict[str, dict[str, float]],
+) -> Figure:
+    """Heatmap: domain pairs (rows) x parameters (columns), cell = cross-domain MAE."""
+    params = sorted(per_parameter_transfer.keys())
+    if not params:
+        fig, ax = plt.subplots()
+        ax.text(0.5, 0.5, "No data", ha="center", va="center")
+        return fig
+
+    pair_keys = sorted(next(iter(per_parameter_transfer.values())).keys())
+    data = np.array([
+        [per_parameter_transfer[p].get(pk, 0.0) for p in params]
+        for pk in pair_keys
+    ])
+
+    fig, ax = plt.subplots(figsize=(6, max(3, len(pair_keys) * 0.6 + 1)))
+    im = ax.imshow(data, cmap="YlOrRd", aspect="auto")
+    ax.set_xticks(np.arange(len(params)))
+    ax.set_xticklabels(params, fontsize=9)
+    ax.set_yticks(np.arange(len(pair_keys)))
+    ax.set_yticklabels(pair_keys, fontsize=9)
+    for i in range(len(pair_keys)):
+        for j in range(len(params)):
+            ax.text(j, i, f"{data[i, j]:.3f}", ha="center", va="center", fontsize=8)
+    fig.colorbar(im, ax=ax, label="MAE")
+    ax.set_title("Per-parameter cross-domain transfer error")
+    fig.tight_layout()
+    return fig
+
+
+def plot_transfer_matrix(
+    pairwise_alignment: dict[str, float],
+    domain_order: list[str] | None = None,
+) -> Figure:
+    """NxN alignment matrix across domain pairs."""
+    if domain_order is None:
+        names: set[str] = set()
+        for key in pairwise_alignment:
+            parts = key.split("->")
+            if len(parts) == 2:
+                names.update(parts)
+        domain_order = sorted(names)
+
+    n = len(domain_order)
+    mat = np.full((n, n), np.nan)
+    idx_map = {d: i for i, d in enumerate(domain_order)}
+    for key, val in pairwise_alignment.items():
+        parts = key.split("->")
+        if len(parts) == 2 and parts[0] in idx_map and parts[1] in idx_map:
+            mat[idx_map[parts[0]], idx_map[parts[1]]] = val
+
+    fig, ax = plt.subplots(figsize=(6, 5))
+    im = ax.imshow(mat, cmap="Blues", vmin=0, vmax=1, aspect="auto")
+    ax.set_xticks(np.arange(n))
+    ax.set_xticklabels(domain_order, fontsize=9, rotation=30, ha="right")
+    ax.set_yticks(np.arange(n))
+    ax.set_yticklabels(domain_order, fontsize=9)
+    ax.set_xlabel("Target")
+    ax.set_ylabel("Source")
+    for i in range(n):
+        for j in range(n):
+            if not np.isnan(mat[i, j]):
+                ax.text(j, i, f"{mat[i, j]:.2f}", ha="center", va="center", fontsize=8)
+    fig.colorbar(im, ax=ax, label="Cross-domain alignment")
+    ax.set_title("Cross-domain transfer alignment matrix")
+    fig.tight_layout()
+    return fig
+
+
+def plot_stability_scatter(
+    session1: dict[str, list[float]],
+    session2: dict[str, list[float]],
+    param_names: list[str] | None = None,
+) -> Figure:
+    """Per-parameter test-retest scatter (session 1 vs session 2)."""
+    if param_names is None:
+        param_names = sorted(session1.keys())
+    n_params = len(param_names)
+    fig, axes = plt.subplots(1, n_params, figsize=(4 * n_params, 4))
+    if n_params == 1:
+        axes = [axes]
+
+    for ax, p in zip(axes, param_names):
+        s1 = np.asarray(session1.get(p, []))
+        s2 = np.asarray(session2.get(p, []))
+        mn = min(len(s1), len(s2))
+        if mn == 0:
+            ax.set_title(f"{p}: no data")
+            continue
+        ax.scatter(s1[:mn], s2[:mn], alpha=0.7, edgecolor="white", s=40)
+        lo = min(float(s1[:mn].min()), float(s2[:mn].min())) - 0.05
+        hi = max(float(s1[:mn].max()), float(s2[:mn].max())) + 0.05
+        ax.plot([lo, hi], [lo, hi], "k--", alpha=0.4, linewidth=1)
+        ax.set_xlabel(f"{p} (session 1)")
+        ax.set_ylabel(f"{p} (session 2)")
+        ax.set_title(p)
+
+    fig.suptitle("Theta stability: test-retest", fontsize=12)
+    fig.tight_layout()
+    return fig
 
 
 def save_results(data: dict[str, Any], path: str | Path) -> None:

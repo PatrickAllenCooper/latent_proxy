@@ -1,0 +1,194 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{xcolor}
+
+\title{Latent Preference Inference via Conversational Active Learning:\\
+  Cross-Domain Generalization Results}
+\author{Patrick Cooper}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+% ---------------------------------------------------------------------------
+\section{Introduction}
+
+This report presents the generalization study for the latent preference
+inference system.  The system infers latent user preference parameters
+(discount factor $\gamma$, risk aversion $\alpha$, loss aversion $\lambda$)
+from structured binary-choice interactions, then transfers the inferred
+parameters to produce personalized recommendations in new decision domains.
+
+Three environments are evaluated:
+\begin{enumerate}
+  \item \textbf{Resource Strategy Game} -- a sequential allocation game with
+    regime switching (4-channel variant A; 6-channel variant B).
+  \item \textbf{Stock Backtesting} -- a multi-asset portfolio with five
+    historical-calibrated asset classes.
+  \item \textbf{Supply Chain Procurement} -- budget allocation across five
+    suppliers with different cost, reliability, and disruption profiles.
+\end{enumerate}
+
+The study tests four hypotheses (README Section 8.3):
+\begin{description}
+  \item[H1] Within-domain personalization significantly outperforms generic
+    (non-personalized) recommendations.
+  \item[H2] Cross-domain transfer outperforms generic but underperforms
+    within-domain personalization.
+  \item[H3] The magnitude of cross-domain transfer correlates with structural
+    similarity between domains; $\gamma$ (time preference) transfers better
+    than $\alpha$ or $\lambda$ (domain-specific risk parameters).
+  \item[H4] Active learning elicitation converges faster than random querying
+    across all domains.
+\end{description}
+
+% ---------------------------------------------------------------------------
+\section{Methods}
+
+\subsection{Environments}
+
+All environments extend a shared \texttt{BaseEnvironment} interface and expose
+the same observation layout (wealth vector, market-state matrix, round index),
+action space (simplex over $K$ channels), and preference-aware API
+(\texttt{quality\_score}, \texttt{check\_quality\_floor},
+\texttt{get\_optimal\_action}).
+
+Regime switching uses a $3 \times 3$ Markov transition matrix shared across
+all domains (bull/bear/neutral for the game and stock; normal/disrupted/crisis
+for supply chain).
+
+\subsection{Elicitation}
+
+Preference elicitation uses a particle-filter posterior with EIG-maximizing
+binary-choice queries.  Each domain has its own
+\texttt{ScenarioLibraryBase} subclass generating $\gamma$, $\alpha$, and
+$\lambda$-discriminating scenarios.  Gamma scenarios use multi-period
+compounding horizons so that the discount factor is identifiable.
+
+\subsection{Statistical Tests}
+
+All pairwise comparisons use the Wilcoxon signed-rank test (one-sided where
+directional hypotheses are stated).  Effect sizes are reported as rank-biserial
+$r$ with Cohen's $d$ as a secondary measure.  Multiple comparisons across the
+full family of tests are corrected with the Holm--Bonferroni step-down
+procedure.
+
+Theta stability is measured via ICC(2,1) (two-way random, single measures)
+computed from an ANOVA decomposition.
+
+% ---------------------------------------------------------------------------
+\section{Experimental Setup}
+
+\subsection{Domain Pairs}
+
+Four directed domain pairs are evaluated:
+\begin{itemize}
+  \item Game variant A $\to$ Game variant B (structural similarity $\approx 0.95$)
+  \item Game variant A $\to$ Stock ($\approx 0.55$)
+  \item Game variant A $\to$ Supply Chain ($\approx 0.40$)
+  \item Stock $\to$ Supply Chain ($\approx 0.50$)
+\end{itemize}
+
+\subsection{Parameters}
+
+% Fill in after large-scale run
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+\toprule
+Parameter & Value \\
+\midrule
+Synthetic users per condition & \textit{(n\_users)} \\
+Elicitation rounds & \textit{(max\_rounds)} \\
+Particles & \textit{(n\_particles)} \\
+EIG samples & \textit{(n\_eig\_samples)} \\
+Stability sessions & 2 \\
+\bottomrule
+\end{tabular}
+\caption{Experimental parameters.}
+\label{tab:params}
+\end{table}
+
+% ---------------------------------------------------------------------------
+\section{Results}
+
+\subsection{H1: Within-Domain Personalization}
+
+% Placeholder for H1 bar chart
+% \begin{figure}[h]
+%   \centering
+%   \includegraphics[width=0.8\textwidth]{figures/hypothesis_panel.png}
+%   \caption{H1--H4 hypothesis test results.}
+%   \label{fig:hypothesis_panel}
+% \end{figure}
+
+\textit{Results to be populated from \texttt{outputs/generalization/results\_bundle.json}.}
+
+\subsection{H2: Cross-Domain Transfer}
+
+\textit{Cross-domain alignment scores vs.\ generic and within-domain baselines,
+per domain pair.}
+
+\subsection{H3: Parameter-Level Transfer}
+
+% Placeholder for heatmap
+% \begin{figure}[h]
+%   \centering
+%   \includegraphics[width=0.7\textwidth]{figures/parameter_heatmap.png}
+%   \caption{Per-parameter cross-domain MAE.}
+%   \label{fig:param_heatmap}
+% \end{figure}
+
+\textit{Per-parameter MAE decomposition showing whether $\gamma$ transfers
+better than $\alpha$ or $\lambda$.}
+
+\subsection{H4: Active vs.\ Random Elicitation}
+
+\textit{Error reduction percentages and paired test results across all three
+domains.}
+
+\subsection{Theta Stability}
+
+\textit{ICC(2,1) and Pearson correlations for test-retest reliability, per
+parameter, per domain.}
+
+% ---------------------------------------------------------------------------
+\section{Discussion}
+
+\subsection{Limitations}
+
+\begin{itemize}
+  \item The number of directed domain pairs (four) limits the power of the
+    H3 similarity--transfer correlation; bootstrap confidence intervals
+    supplement the Spearman test.
+  \item All users are synthetic (softmax-rational).  Transfer to real human
+    decision noise remains untested.
+  \item Supply chain and stock environments use simplified regime models;
+    real-world fidelity is limited.
+\end{itemize}
+
+\subsection{Structural Similarity Interpretation}
+
+The structural similarity scores ($0.40$--$0.95$) are assigned based on
+shared architecture (same $\gamma$/$\alpha$/$\lambda$ parameterization,
+regime switching) and domain semantics.  Future work could learn similarity
+from data.
+
+% ---------------------------------------------------------------------------
+\appendix
+\section{Full Metric Tables}
+
+\textit{Exported from \texttt{outputs/generalization/results\_bundle.json}.}
+
+% Placeholder tables
+% \input{tables/h1_results.tex}
+% \input{tables/h2_results.tex}
+% \input{tables/transfer_matrix.tex}
+% \input{tables/stability.tex}
+
+\end{document}

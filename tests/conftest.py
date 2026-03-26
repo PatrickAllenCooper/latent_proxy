@@ -5,6 +5,7 @@ import pytest
 
 from src.environments.resource_game import ChannelConfig, GameConfig, ResourceStrategyGame
 from src.environments.stock_backtest import StockBacktestConfig, StockBacktestEnv
+from src.environments.supply_chain import SupplyChainConfig, SupplyChainEnv
 from src.training.synthetic_users import (
     PriorConfig,
     SyntheticUser,
@@ -79,5 +80,22 @@ def stock_config_short() -> StockBacktestConfig:
 @pytest.fixture
 def stock_env(stock_config_short: StockBacktestConfig) -> StockBacktestEnv:
     env = StockBacktestEnv(config=stock_config_short)
+    env.reset(seed=SEED)
+    return env
+
+
+@pytest.fixture
+def supply_chain_config_short() -> SupplyChainConfig:
+    """Small supply chain env for fast tests."""
+    return SupplyChainConfig(
+        n_periods=20,
+        initial_budget=50_000.0,
+        resilience_mc_samples=400,
+    )
+
+
+@pytest.fixture
+def supply_chain_env(supply_chain_config_short: SupplyChainConfig) -> SupplyChainEnv:
+    env = SupplyChainEnv(config=supply_chain_config_short)
     env.reset(seed=SEED)
     return env
