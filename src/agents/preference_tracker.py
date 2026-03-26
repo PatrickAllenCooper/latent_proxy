@@ -62,6 +62,7 @@ class PreferenceTracker:
             current_wealth=scenario.current_wealth,
             rounds_remaining=scenario.rounds_remaining,
             temperature=self.temperature,
+            multiperiod_horizon=scenario.multiperiod_horizon,
         )
         self.n_observations += 1
 

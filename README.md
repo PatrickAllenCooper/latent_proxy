@@ -352,6 +352,7 @@ Three conditions per domain pair (A → B):
 | Base LLM | LLaMA-3-8B or Mistral-7B | Open weights, well-supported fine-tuning ecosystem |
 | Fine-tuning framework | TRL (Hugging Face) | Native DPO, PPO, reward model training |
 | Game environment | Custom Python (Gymnasium API) | Standard RL env interface, easy integration |
+| Result plots | matplotlib | Publication-style figures for benchmarks and ablations |
 | Stock backtesting | Custom or Backtrader | Extensible, Python-native |
 | Posterior inference | NumPyro or Pyro | Probabilistic programming for Bayesian user modeling |
 | Experiment tracking | Weights & Biases | Logging, hyperparameter sweeps, artifact versioning |
@@ -366,7 +367,8 @@ latent-proxy/
 │   └── development_guide.md       # Living project guidance doc
 ├── configs/
 │   ├── game/
-│   │   └── default.yaml           # Game environment configs
+│   │   ├── default.yaml           # Game variant A (4 channels, T=20)
+│   │   └── variant_b.yaml         # Game variant B (6 channels, T=50) [M4]
 │   ├── training/
 │   │   ├── dpo.yaml               # DPO training configs
 │   │   └── reward_model.yaml      # Reward model configs
@@ -375,7 +377,8 @@ latent-proxy/
 ├── src/
 │   ├── environments/
 │   │   ├── base.py                # Abstract environment interface [M1]
-│   │   └── resource_game.py       # Resource strategy game [M1]
+│   │   ├── resource_game.py       # Resource strategy game [M1]
+│   │   └── game_variants.py       # Variant A/B factories and YAML loaders [M4]
 │   ├── agents/
 │   │   ├── base.py                # Abstract agent interface [M3]
 │   │   ├── preference_tracker.py  # Posterior maintenance over θ_user [M3]
@@ -392,20 +395,25 @@ latent-proxy/
 │   ├── evaluation/
 │   │   ├── quality_metrics.py     # R_quality evaluation [M1]
 │   │   ├── alignment_metrics.py   # Preference recovery, alignment scoring [M2]
-│   │   └── elicitation_metrics.py # Elicitation efficiency, benchmarks [M3]
+│   │   ├── elicitation_metrics.py # Elicitation efficiency, benchmarks [M3]
+│   │   ├── experiment_runner.py   # Full eval + transfer protocol [M4]
+│   │   └── ablation_runner.py     # Query budget, posterior, beta proxy sweeps [M4]
 │   └── utils/
 │       ├── posterior.py            # PosteriorBase, Gaussian + Particle posteriors [M1/M3]
 │       ├── information_gain.py    # MC-based EIG computation [M3]
-│       └── diagnostic_scenarios.py # Diagnostic scenario library [M3]
+│       ├── diagnostic_scenarios.py # Diagnostic scenario library [M3]
+│       └── visualization.py       # Result plots and export helpers [M4]
 ├── scripts/
 │   ├── train_quality.py           # Phase 1: quality floor training [M2]
 │   ├── train_alignment.py         # Phase 2: alignment training [M2]
 │   ├── run_elicitation.py         # Elicitation benchmark (CPU) [M3]
+│   ├── run_full_evaluation.py     # M4 pipeline: variants, transfer, ablations [M4]
 │   └── slurm/
 │       ├── setup_env.sh           # CURC environment setup [M3]
 │       ├── train_dpo.slurm        # CURC DPO training [M3]
 │       ├── train_reward.slurm     # CURC reward model training [M3]
-│       └── run_evaluation.slurm   # CURC full evaluation [M3]
+│       ├── run_evaluation.slurm   # CURC full evaluation [M3/M4]
+│       └── run_ablation.slurm     # CURC CPU ablation sweeps [M4]
 └── tests/
     ├── test_environments.py       # [M1]
     ├── test_synthetic_users.py    # [M1]

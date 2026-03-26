@@ -28,7 +28,17 @@ python scripts/run_elicitation.py \
     --n-users 50 \
     --max-rounds 10 \
     --n-particles 2000 \
+    --n-eig-samples 800 \
     --posterior-type particle
+
+echo "Running Milestone 4 full evaluation (variants, transfer, ablations)"
+python scripts/run_full_evaluation.py \
+    --n-users 30 \
+    --max-rounds 10 \
+    --n-particles 2000 \
+    --n-eig-samples 800 \
+    --posterior-type particle \
+    --output-dir outputs/evaluation_m4
 
 echo "Running DPO evaluation (Phase 1)"
 python scripts/train_quality.py --action evaluate \

@@ -48,6 +48,7 @@ class PosteriorBase(ABC):
         current_wealth: float,
         rounds_remaining: int,
         temperature: float,
+        multiperiod_horizon: int | None = None,
     ) -> None: ...
 
     def to_dict(self) -> dict[str, float]:
@@ -101,6 +102,7 @@ def _choice_log_likelihood(
     rounds_remaining: int,
     temperature: float,
     rng: np.random.Generator | None = None,
+    multiperiod_horizon: int | None = None,
 ) -> float:
     """Log-probability of the observed choice under softmax-rational model for a given theta."""
     from src.training.synthetic_users import SyntheticUser, UserType
@@ -114,13 +116,21 @@ def _choice_log_likelihood(
     user = SyntheticUser(ut, temperature=temperature, seed=None)
     user._rng = rng or np.random.default_rng(0)
 
-    eu_a = user.evaluate_allocation(
-        option_a_alloc, channel_means, channel_variances,
-        current_wealth, rounds_remaining,
+    eu_a = user.evaluate_for_query(
+        option_a_alloc,
+        channel_means,
+        channel_variances,
+        current_wealth,
+        rounds_remaining,
+        multiperiod_horizon=multiperiod_horizon,
     )
-    eu_b = user.evaluate_allocation(
-        option_b_alloc, channel_means, channel_variances,
-        current_wealth, rounds_remaining,
+    eu_b = user.evaluate_for_query(
+        option_b_alloc,
+        channel_means,
+        channel_variances,
+        current_wealth,
+        rounds_remaining,
+        multiperiod_horizon=multiperiod_horizon,
     )
 
     diff = (eu_a - eu_b) / max(temperature, 1e-10)
@@ -201,6 +211,7 @@ class GaussianPosterior(PosteriorBase):
         current_wealth: float,
         rounds_remaining: int,
         temperature: float,
+        multiperiod_horizon: int | None = None,
     ) -> None:
         """Approximate Bayesian update from an observed binary choice.
 
@@ -217,6 +228,7 @@ class GaussianPosterior(PosteriorBase):
                 channel_means, channel_variances,
                 current_wealth, rounds_remaining, temperature,
                 rng=np.random.default_rng(i),
+                multiperiod_horizon=multiperiod_horizon,
             )
             for i, s in enumerate(samples)
         ])
@@ -318,6 +330,7 @@ class ParticlePosterior(PosteriorBase):
         current_wealth: float,
         rounds_remaining: int,
         temperature: float,
+        multiperiod_horizon: int | None = None,
     ) -> None:
         log_likelihoods = np.array([
             _choice_log_likelihood(
@@ -326,6 +339,7 @@ class ParticlePosterior(PosteriorBase):
                 channel_means, channel_variances,
                 current_wealth, rounds_remaining, temperature,
                 rng=np.random.default_rng(i),
+                multiperiod_horizon=multiperiod_horizon,
             )
             for i in range(self.n_particles)
         ])

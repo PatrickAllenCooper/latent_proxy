@@ -183,7 +183,7 @@ class SyntheticUser:
         the discounted prospect-theory utility.
         """
         allocation = np.asarray(allocation, dtype=np.float64)
-        n_samples = 1000
+        n_samples = 400
 
         port_mean = float(np.dot(allocation, channel_means))
         port_var = float(np.dot(allocation**2, channel_variances))
@@ -198,6 +198,73 @@ class SyntheticUser:
         )
         discount = self.user_type.gamma ** rounds_remaining
         return float(np.mean(utilities)) * discount
+
+    def evaluate_allocation_multiperiod(
+        self,
+        allocation: NDArray[np.floating[Any]],
+        channel_means: NDArray[np.floating[Any]],
+        channel_variances: NDArray[np.floating[Any]],
+        current_wealth: float,
+        n_periods: int,
+        n_samples: int = 256,
+    ) -> float:
+        """Monte Carlo expected utility over multiple compounding rounds.
+
+        For each simulated path, wealth compounds with i.i.d. portfolio returns.
+        Per-round utility uses prospect theory on end-of-period wealth; each
+        period is discounted by gamma**t so patience changes the relative
+        value of stable vs volatile allocation paths (gamma is identifiable).
+        """
+        if n_periods < 1:
+            raise ValueError(f"n_periods must be >= 1, got {n_periods}")
+
+        allocation = np.asarray(allocation, dtype=np.float64)
+        port_mean = float(np.dot(allocation, channel_means))
+        port_var = float(np.dot(allocation**2, channel_variances))
+        port_std = max(np.sqrt(port_var), 1e-10)
+
+        gamma = self.user_type.gamma
+        alpha = self.user_type.alpha
+        lambda_ = self.user_type.lambda_
+        ref = self.reference_point
+
+        returns = self._rng.normal(
+            port_mean, port_std, size=(n_samples, n_periods),
+        )
+        wealth = np.full(n_samples, current_wealth, dtype=np.float64)
+        path_u = np.zeros(n_samples, dtype=np.float64)
+        for t in range(n_periods):
+            wealth *= 1.0 + returns[:, t]
+            u_step = prospect_utility(wealth, alpha, lambda_, ref)
+            path_u += (gamma**t) * np.asarray(u_step, dtype=np.float64)
+
+        return float(np.mean(path_u))
+
+    def evaluate_for_query(
+        self,
+        allocation: NDArray[np.floating[Any]],
+        channel_means: NDArray[np.floating[Any]],
+        channel_variances: NDArray[np.floating[Any]],
+        current_wealth: float,
+        rounds_remaining: int,
+        multiperiod_horizon: int | None = None,
+    ) -> float:
+        """Expected utility for a diagnostic query (single- or multi-period)."""
+        if multiperiod_horizon is not None and multiperiod_horizon > 1:
+            return self.evaluate_allocation_multiperiod(
+                allocation,
+                channel_means,
+                channel_variances,
+                current_wealth,
+                int(multiperiod_horizon),
+            )
+        return self.evaluate_allocation(
+            allocation,
+            channel_means,
+            channel_variances,
+            current_wealth,
+            rounds_remaining,
+        )
 
     def choose(
         self,

@@ -112,19 +112,21 @@ class ElicitationLoop:
 
             scenario = query_gen.select_query(env, tracker.posterior)
 
-            eu_a = user.evaluate_allocation(
+            eu_a = user.evaluate_for_query(
                 scenario.option_a,
                 scenario.channel_means,
                 scenario.channel_variances,
                 scenario.current_wealth,
                 scenario.rounds_remaining,
+                multiperiod_horizon=scenario.multiperiod_horizon,
             )
-            eu_b = user.evaluate_allocation(
+            eu_b = user.evaluate_for_query(
                 scenario.option_b,
                 scenario.channel_means,
                 scenario.channel_variances,
                 scenario.current_wealth,
                 scenario.rounds_remaining,
+                multiperiod_horizon=scenario.multiperiod_horizon,
             )
             choice = user.choose(eu_a, eu_b)
 

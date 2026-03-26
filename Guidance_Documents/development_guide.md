@@ -71,7 +71,7 @@ Scope:
   PreferenceTracker (posterior + convergence), ResponseGenerator, ElicitationLoop
 - Elicitation metrics: efficiency comparison, recovery curves, benchmark runner
 - CURC SLURM scripts for A100 training and evaluation
-- 208 total tests passing
+- 208+ tests at M3 closure; see Milestone 4 for current count
 
 Components implemented:
 - [x] `src/utils/posterior.py` -- PosteriorBase, GaussianPosterior, ParticlePosterior
@@ -87,14 +87,48 @@ Components implemented:
 - [x] `scripts/run_elicitation.py` -- local CPU benchmark
 - [x] `scripts/slurm/` -- CURC deployment scripts
 
-Benchmark results (10 users, 8 rounds, 500 particles, 200 EIG samples):
+Benchmark results (10 users, 8 rounds, 500 particles, 200 EIG samples, pre-M4):
 - Active: 0.364 mean error, Random: 0.367 mean error
 - Error reduction: 0.8% (below 30% target)
-- Root cause: small-scale parameters limit EIG discrimination quality.
-  Requires tuning in Milestone 4: more particles (2000+), more EIG samples (1000+),
-  more rounds (15+), and potentially multi-period scenario evaluation.
+- Root cause (historical): gamma was weakly identifiable under single-period EU;
+  Milestone 4 adds multi-period evaluation for gamma scenarios and raises MC defaults.
 
-### Milestone 4: Evaluation + Game Domain Results -- NOT STARTED
+### Milestone 4: Evaluation + Game Domain Results -- COMPLETE (code, tests, local smoke; large-run targets ongoing)
+
+Scope:
+- Multi-period expected utility for gamma diagnostic scenarios (compounding wealth +
+  per-round discounted prospect utility) wired through elicitation, posterior
+  likelihood, and EIG
+- Game variant B (6 channels, T=50) YAML + factory helpers for transfer experiments
+- Full experiment runner (README 7.1 metrics + target checks) and A->B transfer
+  protocol (Generic / Within-Domain / Cross-Domain, README 8.1)
+- Ablation runner: query budget, posterior type, and beta proxy (post-hoc theta blend)
+- Matplotlib visualization utilities and JSON/Markdown export
+- CURC: `run_full_evaluation.py`, `run_ablation.slurm`, expanded `run_evaluation.slurm`
+- **224** tests passing (includes `test_multiperiod_eval`, `test_game_variants`,
+  `test_experiment_runner`, `test_ablation`)
+
+Components implemented:
+- [x] `src/training/synthetic_users.py` -- `evaluate_allocation_multiperiod`,
+  `evaluate_for_query`
+- [x] `src/utils/diagnostic_scenarios.py` -- `multiperiod_horizon` on gamma scenarios
+- [x] `src/utils/posterior.py` / `information_gain.py` -- multi-period likelihood + EIG
+- [x] `src/agents/preference_tracker.py`, `elicitation_loop.py` -- scenario-aware EU
+- [x] `configs/game/variant_b.yaml`, `src/environments/game_variants.py`
+- [x] `src/evaluation/experiment_runner.py` -- `run_full_evaluation`,
+  `run_transfer_experiment`, target checks
+- [x] `src/evaluation/ablation_runner.py` -- `run_sweep`
+- [x] `src/utils/visualization.py` -- plots, tables, `save_results`
+- [x] `scripts/run_full_evaluation.py`, `scripts/slurm/run_ablation.slurm`
+- [x] `pyproject.toml` -- `matplotlib` dependency
+
+Validation notes:
+- Local smoke: `python scripts/run_full_evaluation.py` produces variant metrics,
+  transfer plot, `results_bundle.json`, and `results_summary.md`.
+- README 7.1 efficiency target (>=30% error reduction vs random) remains **data-dependent**;
+  use `--n-particles 2000`, `--n-eig-samples 800`, `--max-rounds 10+`, and larger
+  `--n-users` on CURC; multi-period gamma scenarios improve identifiability but do
+  not guarantee the threshold on every small-sample run.
 ### Milestone 5: Stock Backtesting Domain -- NOT STARTED
 ### Milestone 6: Generalization Study -- NOT STARTED
 
@@ -186,13 +220,25 @@ Bridges structured game data and LLM text:
     Systematic resampling when ESS drops below 50% of particle count.
 14. Diagnostic scenarios constructed with extreme parameter contrasts rather than
     just optimal-action differences. For alpha: 75% safe vs 50% aggressive. For
-    gamma: safe-heavy vs aggressive-heavy (gamma only affects multi-period value,
-    not single-period utility ranking).
+    gamma: safe-heavy vs aggressive-heavy; **Milestone 4** attaches
+    `multiperiod_horizon` so EU is computed on compounding paths (gamma identifiable).
 15. EIG estimation via nested Monte Carlo with importance-weighted entropy.
-    Trades accuracy for speed: 500 samples scores a scenario in ~20ms on CPU.
+    Trades accuracy for speed; default EIG sample count tunable via
+    `ElicitationConfig.n_eig_samples` (800+ recommended for production runs).
 16. CURC SLURM scripts placed under scripts/slurm/ for A100 GPU training.
     Local 3080 used for inference and small-scale testing; CURC for full
     DPO training and large-scale evaluation.
+
+## Design Decisions (Milestone 4)
+
+17. Multi-period Monte Carlo for gamma scenarios uses vectorized path simulation
+    (batch of paths x horizons) with default 256 path samples per EU call to keep
+    EIG inner loops tractable; increase for final paper runs if variance is high.
+18. Beta ablation in code uses **post-hoc blending** of prior mean and inferred
+    theta when scoring recommendations; full DPO beta sweeps still require
+    retraining (see `scripts/train_alignment.py`).
+19. `save_results` JSON export accepts nested dataclasses via `dataclasses.asdict`
+    recursion in `visualization._convert`.
 
 ## Technology Stack
 
@@ -214,3 +260,4 @@ Bridges structured game data and LLM text:
 | Testing | pytest | >= 8.0 |
 | Linting | ruff | >= 0.9 |
 | Type Checking | mypy | >= 1.14 |
+| Plotting | matplotlib | >= 3.8 |

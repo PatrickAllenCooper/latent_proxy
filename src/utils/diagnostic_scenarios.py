@@ -23,6 +23,9 @@ class DiagnosticScenario:
         channel_variances: Channel return variances in the current regime.
         current_wealth: Total portfolio value at query time.
         rounds_remaining: Rounds left in the game.
+        multiperiod_horizon: If set (>1), expected utility uses multi-period
+            compounding (for gamma-identifiable scenarios). None uses single-period
+            evaluation with rounds_remaining discounting.
     """
 
     game_state: dict[str, Any]
@@ -34,6 +37,7 @@ class DiagnosticScenario:
     channel_variances: NDArray[np.floating[Any]]
     current_wealth: float
     rounds_remaining: int
+    multiperiod_horizon: int | None = None
 
 
 class ScenarioLibrary:
@@ -75,6 +79,9 @@ class ScenarioLibrary:
             aggressive_heavy[2] = 0.60
             aggressive_heavy[3] = 0.40
 
+            rounds_left = env.config.n_rounds - obs["round"]
+            mp_horizon = max(10, min(rounds_left, 20))
+
             scenarios.append(DiagnosticScenario(
                 game_state=obs,
                 option_a=safe_heavy,
@@ -87,7 +94,8 @@ class ScenarioLibrary:
                 channel_means=stats["means"],
                 channel_variances=stats["variances"],
                 current_wealth=float(obs["wealth"].sum()),
-                rounds_remaining=env.config.n_rounds - obs["round"],
+                rounds_remaining=rounds_left,
+                multiperiod_horizon=mp_horizon,
             ))
 
         return scenarios
