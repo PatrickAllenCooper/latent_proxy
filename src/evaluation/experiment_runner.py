@@ -10,7 +10,8 @@ from numpy.typing import NDArray
 from src.agents.elicitation_loop import ElicitationConfig, ElicitationLoop, ElicitationResult
 from src.agents.preference_tracker import ConvergenceConfig
 from src.environments.game_variants import create_variant_a, create_variant_b
-from src.environments.resource_game import ResourceStrategyGame
+from src.environments.base import BaseEnvironment
+from src.environments.stock_backtest import StockBacktestConfig, StockBacktestEnv
 from src.evaluation.alignment_metrics import (
     compute_alignment_score,
     compute_quality_floor_violation_rate,
@@ -18,6 +19,8 @@ from src.evaluation.alignment_metrics import (
 )
 from src.evaluation.elicitation_metrics import run_elicitation_benchmark
 from src.training.synthetic_users import SyntheticUser, SyntheticUserSampler
+from src.utils.diagnostic_scenarios import ScenarioLibrary
+from src.utils.stock_scenarios import StockScenarioLibrary
 
 logger = logging.getLogger(__name__)
 
@@ -39,7 +42,32 @@ def _theta_dict(ut: Any) -> dict[str, float]:
     return {"gamma": ut.gamma, "alpha": ut.alpha, "lambda_": ut.lambda_}
 
 
-def _make_env(variant: str) -> ResourceStrategyGame:
+def _experiment_config_to_dict(config: ExperimentConfig) -> dict[str, Any]:
+    """Serialize experiment config; scenario library objects are not JSON-safe."""
+    elic = config.elicitation
+    lib = elic.scenario_library
+    elic_dict = {
+        "posterior_type": elic.posterior_type,
+        "n_particles": elic.n_particles,
+        "max_rounds": elic.max_rounds,
+        "n_scenarios_per_round": elic.n_scenarios_per_round,
+        "n_eig_samples": elic.n_eig_samples,
+        "temperature": elic.temperature,
+        "convergence": asdict(elic.convergence),
+        "seed": elic.seed,
+        "scenario_library": None if lib is None else type(lib).__name__,
+    }
+    return {
+        "variants": list(config.variants),
+        "n_users": config.n_users,
+        "seed": config.seed,
+        "conditions": list(config.conditions),
+        "elicitation": elic_dict,
+        "ablation_params": config.ablation_params,
+    }
+
+
+def _make_env(variant: str) -> BaseEnvironment:
     v = variant.lower()
     if v in ("b", "variant_b"):
         return create_variant_b()
@@ -99,7 +127,7 @@ def check_targets(
 
 
 def _alignment_inferred_vs_true(
-    env: ResourceStrategyGame,
+    env: BaseEnvironment,
     inferred: dict[str, float],
     true_theta: Any,
     seed: int,
@@ -115,7 +143,7 @@ def run_full_evaluation(
 ) -> dict[str, Any]:
     """Per-variant elicitation benchmark plus README 7.1-style aggregates."""
     config = config or ExperimentConfig()
-    out: dict[str, Any] = {"variants": {}, "config": asdict(config)}
+    out: dict[str, Any] = {"variants": {}, "config": _experiment_config_to_dict(config)}
 
     for variant in config.variants:
         env = _make_env(variant)
@@ -293,6 +321,114 @@ def run_transfer_experiment(
         res_a = loop_a.run(env_a, user_c, query_type="active")
         opt_hat_cross = env_b.get_optimal_action(res_a.inferred_theta)
         c_scores.append(compute_alignment_score([opt_hat_cross], [opt_b]))
+
+    def pack(xs: list[float]) -> dict[str, float]:
+        m, lo, hi = _normal_ci(xs)
+        return {"mean": m, "ci_low": lo, "ci_high": hi}
+
+    return TransferExperimentResult(
+        generic=pack(g_scores),
+        within_domain=pack(w_scores),
+        cross_domain=pack(c_scores),
+        per_user={
+            "generic": g_scores,
+            "within_domain": w_scores,
+            "cross_domain": c_scores,
+        },
+        n_users=n_users,
+    )
+
+
+def run_cross_domain_transfer(
+    n_users: int = 15,
+    elicitation: ElicitationConfig | None = None,
+    seed: int = 42,
+    stock_config: StockBacktestConfig | None = None,
+) -> TransferExperimentResult:
+    """Generic / within-stock / game-to-stock cross-domain (README Section 8.1, stock).
+
+    Generic: uniform allocation in the stock environment vs optimal for true theta.
+    Within-domain: elicit on stock with ``StockScenarioLibrary``, recommend in stock.
+    Cross-domain: elicit on resource game variant A, recommend in stock using inferred
+    theta (tests transfer of preferences across domains).
+    """
+    elicitation = elicitation or ElicitationConfig()
+    convergence = elicitation.convergence
+    if convergence.max_rounds < elicitation.max_rounds:
+        convergence = ConvergenceConfig(
+            gamma_variance_threshold=convergence.gamma_variance_threshold,
+            alpha_variance_threshold=convergence.alpha_variance_threshold,
+            lambda_variance_threshold=convergence.lambda_variance_threshold,
+            robust_action_level=convergence.robust_action_level,
+            max_rounds=elicitation.max_rounds,
+        )
+        elicitation = ElicitationConfig(
+            posterior_type=elicitation.posterior_type,
+            n_particles=elicitation.n_particles,
+            max_rounds=elicitation.max_rounds,
+            n_scenarios_per_round=elicitation.n_scenarios_per_round,
+            n_eig_samples=elicitation.n_eig_samples,
+            temperature=elicitation.temperature,
+            convergence=convergence,
+            seed=elicitation.seed,
+            scenario_library=elicitation.scenario_library,
+        )
+
+    env_game = create_variant_a()
+    stock_env = StockBacktestEnv(config=stock_config or StockBacktestConfig())
+    sampler = SyntheticUserSampler(seed=seed)
+
+    g_scores: list[float] = []
+    w_scores: list[float] = []
+    c_scores: list[float] = []
+
+    for i in range(n_users):
+        ut = sampler.sample()
+        theta_d = _theta_dict(ut)
+
+        stock_env.reset(seed=seed + i)
+        opt_stock = stock_env.get_optimal_action(theta_d)
+        ks = stock_env.config.n_channels
+        uniform = np.ones(ks, dtype=np.float64) / ks
+        g_scores.append(compute_alignment_score([uniform], [opt_stock]))
+
+        user_w = SyntheticUser(ut, temperature=elicitation.temperature, seed=seed + i + 333)
+        lib_stock = StockScenarioLibrary(seed=seed + i + 4000)
+        cfg_w = ElicitationConfig(
+            posterior_type=elicitation.posterior_type,
+            n_particles=elicitation.n_particles,
+            max_rounds=elicitation.max_rounds,
+            n_scenarios_per_round=elicitation.n_scenarios_per_round,
+            n_eig_samples=elicitation.n_eig_samples,
+            temperature=elicitation.temperature,
+            convergence=elicitation.convergence,
+            seed=seed + i * 1000 + 7,
+            scenario_library=lib_stock,
+        )
+        loop_b = ElicitationLoop(cfg_w)
+        stock_env.reset(seed=seed + i + 9000)
+        res_b = loop_b.run(stock_env, user_w, query_type="active")
+        opt_hat_stock = stock_env.get_optimal_action(res_b.inferred_theta)
+        w_scores.append(compute_alignment_score([opt_hat_stock], [opt_stock]))
+
+        user_c = SyntheticUser(ut, temperature=elicitation.temperature, seed=seed + i + 777)
+        lib_game = ScenarioLibrary(seed=seed + i + 5000)
+        cfg_c = ElicitationConfig(
+            posterior_type=elicitation.posterior_type,
+            n_particles=elicitation.n_particles,
+            max_rounds=elicitation.max_rounds,
+            n_scenarios_per_round=elicitation.n_scenarios_per_round,
+            n_eig_samples=elicitation.n_eig_samples,
+            temperature=elicitation.temperature,
+            convergence=elicitation.convergence,
+            seed=seed + i * 1000 + 99,
+            scenario_library=lib_game,
+        )
+        loop_a = ElicitationLoop(cfg_c)
+        env_game.reset(seed=seed + i + 8000)
+        res_a = loop_a.run(env_game, user_c, query_type="active")
+        opt_hat_cross = stock_env.get_optimal_action(res_a.inferred_theta)
+        c_scores.append(compute_alignment_score([opt_hat_cross], [opt_stock]))
 
     def pack(xs: list[float]) -> dict[str, float]:
         m, lo, hi = _normal_ci(xs)

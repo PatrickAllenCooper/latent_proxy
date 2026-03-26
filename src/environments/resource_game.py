@@ -9,6 +9,7 @@ from gymnasium import spaces
 from numpy.typing import NDArray
 
 from src.environments.base import BaseEnvironment
+from src.environments.env_utils import certainty_equivalent, nearest_positive_definite
 
 BULL = 0
 BEAR = 1
@@ -201,18 +202,17 @@ class ResourceStrategyGame(BaseEnvironment):
 
         scores = np.zeros(K)
         for i in range(K):
-            ce = _certainty_equivalent(
+            ce = certainty_equivalent(
                 means[i], variances[i], alpha, lambda_, effective_horizon
             )
             scores[i] = ce
 
-        scores = np.maximum(scores, 0.0)
-        total = scores.sum()
-        if total <= 0:
-            return np.ones(K) / K
-
-        action = scores / total
-        return action
+        pos = np.maximum(scores, 0.0)
+        total = pos.sum()
+        if total > 1e-15:
+            return pos / total
+        shifted = scores - float(np.min(scores)) + 1e-10
+        return shifted / float(np.sum(shifted))
 
     def get_channel_stats(self) -> dict[str, NDArray[np.floating[Any]]]:
         K = self.config.n_channels
@@ -292,7 +292,7 @@ class ResourceStrategyGame(BaseEnvironment):
         np.fill_diagonal(corr_matrix, 1.0)
 
         cov_matrix = np.outer(stds, stds) * corr_matrix
-        cov_matrix = _nearest_positive_definite(cov_matrix)
+        cov_matrix = nearest_positive_definite(cov_matrix)
 
         returns = self._rng.multivariate_normal(means, cov_matrix)
         return returns
@@ -360,38 +360,3 @@ class ResourceStrategyGame(BaseEnvironment):
                 f"threshold {self.config.max_bankruptcy_prob:.3f}"
             )
         return True, ""
-
-
-def _certainty_equivalent(
-    mu: float, var: float, alpha: float, lambda_: float,
-    effective_horizon: float = 1.0,
-) -> float:
-    """Approximate certainty equivalent under prospect-theory utility.
-
-    Returns grow linearly with horizon (mu * h) but the risk penalty
-    scales as sqrt(var * h) -- the standard deviation of cumulative
-    returns under i.i.d. assumptions. This sub-linear scaling means
-    patient users (large h) see relatively more risk penalty on volatile
-    channels compared to their return advantage, producing meaningfully
-    different allocations from impatient users.
-    """
-    compounded_return = mu * effective_horizon
-    if alpha <= 0:
-        return compounded_return
-
-    cumulative_risk = np.sqrt(max(var * effective_horizon, 0.0))
-    risk_penalty = 0.5 * alpha * cumulative_risk
-    ce = compounded_return - risk_penalty
-    if ce < 0:
-        ce *= lambda_
-    return ce
-
-
-def _nearest_positive_definite(
-    matrix: NDArray[np.floating[Any]],
-) -> NDArray[np.floating[Any]]:
-    """Find the nearest positive-definite matrix via symmetric polar decomposition."""
-    sym = (matrix + matrix.T) / 2.0
-    eigenvalues, eigenvectors = np.linalg.eigh(sym)
-    eigenvalues = np.maximum(eigenvalues, 1e-10)
-    return eigenvectors @ np.diag(eigenvalues) @ eigenvectors.T

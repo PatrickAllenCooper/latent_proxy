@@ -40,6 +40,18 @@ python scripts/run_full_evaluation.py \
     --posterior-type particle \
     --output-dir outputs/evaluation_m4
 
+echo "Running Milestone 5 cross-domain transfer (game -> stock)"
+mkdir -p outputs/evaluation_m5
+python scripts/run_cross_domain.py \
+    --n-users 30 \
+    --max-rounds 10 \
+    --n-particles 2000 \
+    --n-eig-samples 800 \
+    --n-scenarios-per-round 50 \
+    --posterior-type particle \
+    --seed 43 \
+    --output outputs/evaluation_m5/cross_domain_transfer.json
+
 echo "Running DPO evaluation (Phase 1)"
 python scripts/train_quality.py --action evaluate \
     --checkpoint outputs/dpo/phase1/final

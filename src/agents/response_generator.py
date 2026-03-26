@@ -5,7 +5,7 @@ from typing import Any
 import numpy as np
 from numpy.typing import NDArray
 
-from src.environments.resource_game import ResourceStrategyGame
+from src.environments.base import BaseEnvironment
 from src.training.serialization import AllocationSerializer
 from src.utils.posterior import PosteriorBase
 
@@ -23,7 +23,7 @@ class ResponseGenerator:
 
     def generate(
         self,
-        env: ResourceStrategyGame,
+        env: BaseEnvironment,
         posterior: PosteriorBase,
     ) -> NDArray[np.floating[Any]]:
         """Compute the recommended allocation for the current posterior mean."""
@@ -39,7 +39,7 @@ class ResponseGenerator:
 
     def generate_text(
         self,
-        env: ResourceStrategyGame,
+        env: BaseEnvironment,
         posterior: PosteriorBase,
     ) -> str:
         """Generate a text recommendation."""

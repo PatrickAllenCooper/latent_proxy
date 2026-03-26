@@ -10,7 +10,8 @@ from numpy.typing import NDArray
 from src.agents.preference_tracker import ConvergenceConfig, PreferenceTracker
 from src.agents.query_generator import RandomQueryGenerator, StructuredQueryGenerator
 from src.agents.response_generator import ResponseGenerator
-from src.environments.resource_game import ResourceStrategyGame
+from src.environments.base import BaseEnvironment
+from src.utils.diagnostic_scenarios import ScenarioLibraryBase
 from src.evaluation.alignment_metrics import compute_preference_recovery_error
 from src.training.synthetic_users import SyntheticUser, UserType
 from src.utils.diagnostic_scenarios import DiagnosticScenario
@@ -30,6 +31,7 @@ class ElicitationConfig:
     temperature: float = 0.1
     convergence: ConvergenceConfig = field(default_factory=ConvergenceConfig)
     seed: int = 42
+    scenario_library: ScenarioLibraryBase | None = None
 
 
 @dataclass
@@ -67,7 +69,7 @@ class ElicitationLoop:
 
     def run(
         self,
-        env: ResourceStrategyGame,
+        env: BaseEnvironment,
         user: SyntheticUser,
         query_type: str = "active",
     ) -> ElicitationResult:
@@ -91,9 +93,13 @@ class ElicitationLoop:
                 n_eig_samples=self.config.n_eig_samples,
                 temperature=self.config.temperature,
                 seed=self.config.seed,
+                library=self.config.scenario_library,
             )
         else:
-            query_gen = RandomQueryGenerator(seed=self.config.seed)
+            query_gen = RandomQueryGenerator(
+                seed=self.config.seed,
+                library=self.config.scenario_library,
+            )
 
         history: list[tuple[DiagnosticScenario, int]] = []
         variance_trajectory: list[dict[str, float]] = []

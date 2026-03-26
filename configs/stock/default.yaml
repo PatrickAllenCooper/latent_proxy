@@ -1,0 +1,48 @@
+stock:
+  n_periods: 252
+  initial_capital: 100000.0
+  channel_correlation: 0.25
+  rebalance_frequency: 1
+
+  regime_transition_matrix:
+    - [0.70, 0.15, 0.15]
+    - [0.15, 0.70, 0.15]
+    - [0.15, 0.15, 0.70]
+
+  quality_floor:
+    min_assets: 2
+    max_catastrophic_loss_prob: 0.10
+    catastrophic_return_threshold: -0.50
+    drawdown_mc_samples: 5000
+
+  assets:
+    - name: us_treasury
+      sector: fixed_income
+      annual_mu: 0.03
+      annual_sigma: 0.04
+      regime_sensitivity: 0.1
+      correlation_sign: 1.0
+    - name: us_large_cap
+      sector: equity
+      annual_mu: 0.10
+      annual_sigma: 0.16
+      regime_sensitivity: 0.8
+      correlation_sign: 1.0
+    - name: us_small_cap
+      sector: equity
+      annual_mu: 0.12
+      annual_sigma: 0.22
+      regime_sensitivity: 1.0
+      correlation_sign: 1.0
+    - name: international
+      sector: equity
+      annual_mu: 0.08
+      annual_sigma: 0.18
+      regime_sensitivity: 0.9
+      correlation_sign: -0.3
+    - name: reits
+      sector: real_estate
+      annual_mu: 0.09
+      annual_sigma: 0.20
+      regime_sensitivity: 1.2
+      correlation_sign: 0.5

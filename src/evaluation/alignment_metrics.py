@@ -6,7 +6,7 @@ import numpy as np
 from numpy.typing import NDArray
 from scipy import stats
 
-from src.environments.resource_game import ResourceStrategyGame
+from src.environments.base import BaseEnvironment
 from src.training.serialization import AllocationSerializer, build_prompt
 from src.training.synthetic_users import UserType
 
@@ -39,7 +39,7 @@ def compute_alignment_score(
 
 def compute_quality_floor_violation_rate(
     agent_actions: list[NDArray[np.floating[Any]]],
-    env: ResourceStrategyGame,
+    env: BaseEnvironment,
 ) -> float:
     """Fraction of agent actions that violate quality floor constraints."""
     if len(agent_actions) == 0:
@@ -79,7 +79,7 @@ def compute_preference_recovery_error(
 
 def evaluate_actions(
     agent_actions: list[NDArray[np.floating[Any]]],
-    env: ResourceStrategyGame,
+    env: BaseEnvironment,
     user_types: list[UserType],
 ) -> dict[str, Any]:
     """Evaluate a set of agent actions against optimal actions for given user types.
@@ -106,7 +106,7 @@ def evaluate_actions(
 
 def evaluate_model_outputs(
     model_responses: list[str],
-    env: ResourceStrategyGame,
+    env: BaseEnvironment,
     user_types: list[UserType],
     channel_names: list[str] | None = None,
 ) -> dict[str, Any]:

@@ -5,8 +5,12 @@ from typing import Any
 import numpy as np
 from numpy.typing import NDArray
 
-from src.environments.resource_game import ResourceStrategyGame
-from src.utils.diagnostic_scenarios import DiagnosticScenario, ScenarioLibrary
+from src.environments.base import BaseEnvironment
+from src.utils.diagnostic_scenarios import (
+    DiagnosticScenario,
+    ScenarioLibrary,
+    ScenarioLibraryBase,
+)
 from src.utils.information_gain import compute_eig_batch
 from src.utils.posterior import PosteriorBase
 
@@ -25,16 +29,19 @@ class StructuredQueryGenerator:
         n_eig_samples: int = 500,
         temperature: float = 0.1,
         seed: int = 42,
+        library: ScenarioLibraryBase | None = None,
     ) -> None:
         self.n_scenarios_per_round = n_scenarios_per_round
         self.n_eig_samples = n_eig_samples
         self.temperature = temperature
-        self._library = ScenarioLibrary(seed=seed)
+        self._library: ScenarioLibraryBase = (
+            library if library is not None else ScenarioLibrary(seed=seed)
+        )
         self._rng = np.random.default_rng(seed)
 
     def select_query(
         self,
-        env: ResourceStrategyGame,
+        env: BaseEnvironment,
         posterior: PosteriorBase,
     ) -> DiagnosticScenario:
         """Select the diagnostic scenario with the highest EIG."""
@@ -57,7 +64,7 @@ class StructuredQueryGenerator:
         return scenarios[best_idx]
 
     def _fallback_scenario(
-        self, env: ResourceStrategyGame,
+        self, env: BaseEnvironment,
     ) -> DiagnosticScenario:
         """Generate a simple fallback scenario when the library is empty."""
         env.reset(seed=int(self._rng.integers(0, 2**31)))
@@ -65,11 +72,20 @@ class StructuredQueryGenerator:
         stats = env.get_channel_stats()
         K = env.config.n_channels
         a = np.zeros(K)
-        a[0] = 0.6
-        a[1] = 0.4
         b = np.zeros(K)
-        b[2] = 0.5
-        b[3] = 0.5
+        if K >= 4:
+            a[0] = 0.6
+            a[1] = 0.4
+            b[2] = 0.5
+            b[3] = 0.5
+        elif K >= 2:
+            a[0] = 0.7
+            a[1] = 0.3
+            b[0] = 0.3
+            b[1] = 0.7
+        else:
+            a[0] = 1.0
+            b[0] = 1.0
         return DiagnosticScenario(
             game_state=obs,
             option_a=a, option_b=b,
@@ -85,13 +101,17 @@ class StructuredQueryGenerator:
 class RandomQueryGenerator:
     """Baseline that picks diagnostic scenarios at random."""
 
-    def __init__(self, seed: int = 42) -> None:
-        self._library = ScenarioLibrary(seed=seed)
+    def __init__(
+        self, seed: int = 42, library: ScenarioLibraryBase | None = None,
+    ) -> None:
+        self._library: ScenarioLibraryBase = (
+            library if library is not None else ScenarioLibrary(seed=seed)
+        )
         self._rng = np.random.default_rng(seed)
 
     def select_query(
         self,
-        env: ResourceStrategyGame,
+        env: BaseEnvironment,
         posterior: PosteriorBase,
     ) -> DiagnosticScenario:
         scenarios = self._library.generate_all(env, n_per_param=5)

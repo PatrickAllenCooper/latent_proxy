@@ -4,6 +4,7 @@ import numpy as np
 import pytest
 
 from src.environments.resource_game import ChannelConfig, GameConfig, ResourceStrategyGame
+from src.environments.stock_backtest import StockBacktestConfig, StockBacktestEnv
 from src.training.synthetic_users import (
     PriorConfig,
     SyntheticUser,
@@ -63,3 +64,20 @@ def sampler() -> SyntheticUserSampler:
 @pytest.fixture
 def rng() -> np.random.Generator:
     return np.random.default_rng(SEED)
+
+
+@pytest.fixture
+def stock_config_short() -> StockBacktestConfig:
+    """Small stock backtest for fast tests."""
+    return StockBacktestConfig(
+        n_periods=24,
+        initial_capital=50_000.0,
+        drawdown_mc_samples=400,
+    )
+
+
+@pytest.fixture
+def stock_env(stock_config_short: StockBacktestConfig) -> StockBacktestEnv:
+    env = StockBacktestEnv(config=stock_config_short)
+    env.reset(seed=SEED)
+    return env

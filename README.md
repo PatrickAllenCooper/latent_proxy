@@ -369,6 +369,8 @@ latent-proxy/
 │   ├── game/
 │   │   ├── default.yaml           # Game variant A (4 channels, T=20)
 │   │   └── variant_b.yaml         # Game variant B (6 channels, T=50) [M4]
+│   ├── stock/
+│   │   └── default.yaml           # Five-asset stock backtest defaults [M5]
 │   ├── training/
 │   │   ├── dpo.yaml               # DPO training configs
 │   │   └── reward_model.yaml      # Reward model configs
@@ -378,6 +380,8 @@ latent-proxy/
 │   ├── environments/
 │   │   ├── base.py                # Abstract environment interface [M1]
 │   │   ├── resource_game.py       # Resource strategy game [M1]
+│   │   ├── env_utils.py           # Shared CE + PD helpers [M5]
+│   │   ├── stock_backtest.py      # Multi-asset stock backtest [M5]
 │   │   └── game_variants.py       # Variant A/B factories and YAML loaders [M4]
 │   ├── agents/
 │   │   ├── base.py                # Abstract agent interface [M3]
@@ -388,7 +392,9 @@ latent-proxy/
 │   ├── training/
 │   │   ├── synthetic_users.py     # Parameterized synthetic user simulation [M1]
 │   │   ├── serialization.py       # Game state / user / allocation text conversion [M2]
+│   │   ├── stock_serialization.py # Stock portfolio prompts / allocations [M5]
 │   │   ├── dpo_data.py            # Type-conditioned DPO pair construction [M2]
+│   │   ├── stock_dpo_data.py      # Stock-domain DPO pairs [M5]
 │   │   ├── model_utils.py         # QLoRA model loading, LoRA config [M2]
 │   │   ├── dpo_trainer.py         # Conditional DPO training loop [M2]
 │   │   └── reward_model.py        # Type-conditioned reward model [M2]
@@ -396,23 +402,25 @@ latent-proxy/
 │   │   ├── quality_metrics.py     # R_quality evaluation [M1]
 │   │   ├── alignment_metrics.py   # Preference recovery, alignment scoring [M2]
 │   │   ├── elicitation_metrics.py # Elicitation efficiency, benchmarks [M3]
-│   │   ├── experiment_runner.py   # Full eval + transfer protocol [M4]
+│   │   ├── experiment_runner.py   # Full eval, A->B transfer, game->stock [M4/M5]
 │   │   └── ablation_runner.py     # Query budget, posterior, beta proxy sweeps [M4]
 │   └── utils/
 │       ├── posterior.py            # PosteriorBase, Gaussian + Particle posteriors [M1/M3]
 │       ├── information_gain.py    # MC-based EIG computation [M3]
-│       ├── diagnostic_scenarios.py # Diagnostic scenario library [M3]
+│       ├── diagnostic_scenarios.py # ScenarioLibraryBase + game/stock libraries [M3/M5]
+│       ├── stock_scenarios.py      # Stock diagnostic scenarios [M5]
 │       └── visualization.py       # Result plots and export helpers [M4]
 ├── scripts/
 │   ├── train_quality.py           # Phase 1: quality floor training [M2]
 │   ├── train_alignment.py         # Phase 2: alignment training [M2]
 │   ├── run_elicitation.py         # Elicitation benchmark (CPU) [M3]
 │   ├── run_full_evaluation.py     # M4 pipeline: variants, transfer, ablations [M4]
+│   ├── run_cross_domain.py        # Game -> stock cross-domain transfer [M5]
 │   └── slurm/
 │       ├── setup_env.sh           # CURC environment setup [M3]
 │       ├── train_dpo.slurm        # CURC DPO training [M3]
 │       ├── train_reward.slurm     # CURC reward model training [M3]
-│       ├── run_evaluation.slurm   # CURC full evaluation [M3/M4]
+│       ├── run_evaluation.slurm   # CURC full evaluation + M5 cross-domain [M3/M5]
 │       └── run_ablation.slurm     # CURC CPU ablation sweeps [M4]
 └── tests/
     ├── test_environments.py       # [M1]
@@ -427,7 +435,13 @@ latent-proxy/
     ├── test_information_gain.py   # [M3]
     ├── test_diagnostic_scenarios.py # [M3]
     ├── test_query_generator.py    # [M3]
-    └── test_elicitation_loop.py   # [M3]
+    ├── test_elicitation_loop.py   # [M3]
+    ├── test_stock_backtest.py     # [M5]
+    ├── test_stock_scenarios.py    # [M5]
+    ├── test_stock_serialization.py # [M5]
+    ├── test_stock_dpo_data.py     # [M5]
+    ├── test_cross_domain_transfer.py # [M5]
+    └── test_interface_generalization.py # [M5]
 ```
 
 ---
@@ -461,10 +475,10 @@ latent-proxy/
 - [ ] Write up Phase 1 results
 
 ### Milestone 5: Stock Backtesting Domain (Weeks 14-18)
-- [ ] Implement stock backtesting environment
-- [ ] Adapt training pipeline to stock domain
-- [ ] Cross-domain transfer: game → stocks
-- [ ] Within-domain stock personalization results
+- [x] Implement stock backtesting environment (`StockBacktestEnv`, `configs/stock/default.yaml`)
+- [x] Adapt training pipeline to stock domain (serialization + `StockDPOPairGenerator`)
+- [x] Cross-domain transfer: game → stocks (`run_cross_domain_transfer`, `run_cross_domain.py`, SLURM)
+- [ ] Within-domain stock personalization results (large-scale runs / paper tables; code path ready)
 
 ### Milestone 6: Generalization Study (Weeks 19-22)
 - [ ] Implement additional domains as needed

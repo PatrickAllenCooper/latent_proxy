@@ -6,7 +6,7 @@ from typing import Any
 import numpy as np
 
 from src.agents.elicitation_loop import ElicitationConfig, ElicitationLoop, ElicitationResult
-from src.environments.resource_game import ResourceStrategyGame
+from src.environments.base import BaseEnvironment
 from src.training.synthetic_users import SyntheticUser, SyntheticUserSampler
 
 logger = logging.getLogger(__name__)
@@ -85,7 +85,7 @@ def compute_recovery_curve(
 
 
 def run_elicitation_benchmark(
-    env: ResourceStrategyGame,
+    env: BaseEnvironment,
     n_users: int = 20,
     config: ElicitationConfig | None = None,
     seed: int = 42,
@@ -117,6 +117,7 @@ def run_elicitation_benchmark(
             temperature=config.temperature,
             convergence=config.convergence,
             seed=seed + i * 1000,
+            scenario_library=config.scenario_library,
         )
 
         loop_active = ElicitationLoop(active_config)
@@ -130,6 +131,7 @@ def run_elicitation_benchmark(
             temperature=config.temperature,
             convergence=config.convergence,
             seed=seed + i * 2000,
+            scenario_library=config.scenario_library,
         )
 
         loop_random = ElicitationLoop(random_config)

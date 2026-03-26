@@ -6,7 +6,7 @@ from typing import Any
 import numpy as np
 from numpy.typing import NDArray
 
-from src.environments.resource_game import ResourceStrategyGame
+from src.environments.base import BaseEnvironment
 from src.utils.diagnostic_scenarios import DiagnosticScenario
 from src.utils.posterior import GaussianPosterior, ParticlePosterior, PosteriorBase
 
@@ -90,7 +90,7 @@ class PreferenceTracker:
         return False, ""
 
     def check_robust_action(
-        self, env: ResourceStrategyGame, level: float | None = None,
+        self, env: BaseEnvironment, level: float | None = None,
     ) -> bool:
         """Check whether the optimal action is robust to posterior uncertainty.
 

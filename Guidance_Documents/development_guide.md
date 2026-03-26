@@ -75,7 +75,7 @@ Scope:
 
 Components implemented:
 - [x] `src/utils/posterior.py` -- PosteriorBase, GaussianPosterior, ParticlePosterior
-- [x] `src/utils/diagnostic_scenarios.py` -- DiagnosticScenario, ScenarioLibrary
+- [x] `src/utils/diagnostic_scenarios.py` -- DiagnosticScenario, ScenarioLibraryBase, ScenarioLibrary
 - [x] `src/utils/information_gain.py` -- compute_eig_mc, compute_eig_batch
 - [x] `src/agents/base.py` -- BaseAgent ABC
 - [x] `src/agents/query_generator.py` -- StructuredQueryGenerator, RandomQueryGenerator
@@ -105,8 +105,8 @@ Scope:
 - Ablation runner: query budget, posterior type, and beta proxy (post-hoc theta blend)
 - Matplotlib visualization utilities and JSON/Markdown export
 - CURC: `run_full_evaluation.py`, `run_ablation.slurm`, expanded `run_evaluation.slurm`
-- **224** tests passing (includes `test_multiperiod_eval`, `test_game_variants`,
-  `test_experiment_runner`, `test_ablation`)
+- **224** tests at M4 closure; **251** after Milestone 5 (includes `test_multiperiod_eval`,
+  `test_game_variants`, `test_experiment_runner`, `test_ablation`, stock/cross-domain tests)
 
 Components implemented:
 - [x] `src/training/synthetic_users.py` -- `evaluate_allocation_multiperiod`,
@@ -129,7 +129,46 @@ Validation notes:
   use `--n-particles 2000`, `--n-eig-samples 800`, `--max-rounds 10+`, and larger
   `--n-users` on CURC; multi-period gamma scenarios improve identifiability but do
   not guarantee the threshold on every small-sample run.
-### Milestone 5: Stock Backtesting Domain -- NOT STARTED
+### Milestone 5: Stock Backtesting Domain -- COMPLETE (code, tests, local smoke; large-run paper metrics ongoing)
+
+Scope:
+- Interface generalization: agents and evaluation typed on ``BaseEnvironment``;
+  ``ScenarioLibraryBase`` ABC in ``diagnostic_scenarios.py``; shared
+  ``certainty_equivalent`` / ``nearest_positive_definite`` in ``env_utils.py``
+- Five-asset stock backtest with regime switching, YAML config, quality floor
+  (diversification, dominance, tail-loss Monte Carlo bound)
+- Stock diagnostic scenarios, text serialization, and DPO pair generator
+- Cross-domain transfer experiment: game variant A elicitation vs stock
+  recommendations; CLI and SLURM hook
+- **251** tests passing (six new M5 test modules + prior suite)
+
+Components implemented:
+- [x] ``src/environments/env_utils.py`` -- shared CE and PD matrix helper
+- [x] ``src/environments/stock_backtest.py`` -- ``StockBacktestConfig``, ``StockBacktestEnv``
+- [x] ``configs/stock/default.yaml`` -- default five asset classes
+- [x] ``src/utils/stock_scenarios.py`` -- ``StockScenarioLibrary``
+- [x] ``src/training/stock_serialization.py`` -- portfolio prompts and allocation text
+- [x] ``src/training/stock_dpo_data.py`` -- ``StockDPOPairGenerator``
+- [x] ``src/evaluation/experiment_runner.py`` -- ``run_cross_domain_transfer``,
+  JSON-safe ``ExperimentConfig`` serialization (scenario library name only)
+- [x] ``scripts/run_cross_domain.py`` -- smoke / CURC driver
+- [x] ``scripts/slurm/run_evaluation.slurm`` -- M5 cross-domain step
+- [x] ``tests/test_stock_backtest.py``, ``test_stock_scenarios.py``,
+  ``test_stock_serialization.py``, ``test_stock_dpo_data.py``,
+  ``test_cross_domain_transfer.py``, ``test_interface_generalization.py``
+
+Design notes:
+- ``get_optimal_action`` in both game and stock: if all raw certainty equivalents
+  are non-positive, the old ``maximum(ce,0)`` normalization collapsed to uniform;
+  we now shift by ``min(ce)`` before normalizing so preferences still produce a
+  differentiated simplex when possible.
+- Stock quality score: per-period Sharpe-style ratio (mean / std of portfolio)
+  from regime-adjusted channel moments.
+
+Validation:
+- ``python -m pytest tests/`` (251 passed, ~47s local)
+- ``python scripts/run_cross_domain.py --n-users 2 --max-rounds 2 ...`` smoke OK
+
 ### Milestone 6: Generalization Study -- NOT STARTED
 
 ## Architecture
@@ -239,6 +278,16 @@ Bridges structured game data and LLM text:
     retraining (see `scripts/train_alignment.py`).
 19. `save_results` JSON export accepts nested dataclasses via `dataclasses.asdict`
     recursion in `visualization._convert`.
+
+## Design Decisions (Milestone 5)
+
+20. Stock environment reuses the same observation layout as the resource game
+    (wealth, market_state, round) so elicitation and metrics code stay shared.
+21. Cross-domain transfer evaluates ``stock_env.get_optimal_action(inferred_theta)``
+    after eliciting on game variant A with the game ``ScenarioLibrary``; within-stock
+    uses ``StockScenarioLibrary`` on the same ``ElicitationConfig`` particle/EIG settings.
+22. Experiment JSON export omits non-serializable ``scenario_library`` instances;
+    ``run_full_evaluation`` records the class name string instead.
 
 ## Technology Stack
 

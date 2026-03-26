@@ -8,7 +8,8 @@ from typing import Any
 import numpy as np
 from numpy.typing import NDArray
 
-from src.environments.resource_game import ResourceStrategyGame, GameConfig
+from src.environments.base import BaseEnvironment
+from src.environments.resource_game import GameConfig, ResourceStrategyGame
 from src.training.serialization import (
     AllocationSerializer,
     build_prompt,
@@ -52,7 +53,7 @@ class CandidateGenerator:
 
     def __init__(
         self,
-        env: ResourceStrategyGame,
+        env: BaseEnvironment,
         sampler: SyntheticUserSampler,
         rng: np.random.Generator,
     ) -> None:
@@ -170,7 +171,7 @@ class DPOPairGenerator:
     def _make_phase1_pair(
         self,
         obs: dict[str, Any],
-        env: ResourceStrategyGame,
+        env: BaseEnvironment,
         candidate_gen: CandidateGenerator,
         alloc_serializer: AllocationSerializer,
     ) -> DPOPair | None:
@@ -215,7 +216,7 @@ class DPOPairGenerator:
     def _make_phase2_pair(
         self,
         obs: dict[str, Any],
-        env: ResourceStrategyGame,
+        env: BaseEnvironment,
         candidate_gen: CandidateGenerator,
         alloc_serializer: AllocationSerializer,
         user_type: UserType,

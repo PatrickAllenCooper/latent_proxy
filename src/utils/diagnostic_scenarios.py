@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import Any
 
@@ -40,8 +41,39 @@ class DiagnosticScenario:
     multiperiod_horizon: int | None = None
 
 
-class ScenarioLibrary:
-    """Generates diagnostic scenarios from the game environment.
+class ScenarioLibraryBase(ABC):
+    """Abstract scenario library for structured elicitation (game, stock, etc.)."""
+
+    @abstractmethod
+    def generate_gamma_scenarios(
+        self, env: Any, n: int = 10,
+    ) -> list[DiagnosticScenario]:
+        """Scenarios targeting discount factor (gamma)."""
+
+    @abstractmethod
+    def generate_alpha_scenarios(
+        self, env: Any, n: int = 10,
+    ) -> list[DiagnosticScenario]:
+        """Scenarios targeting risk aversion (alpha)."""
+
+    @abstractmethod
+    def generate_lambda_scenarios(
+        self, env: Any, n: int = 10,
+    ) -> list[DiagnosticScenario]:
+        """Scenarios targeting loss aversion (lambda_)."""
+
+    def generate_all(
+        self, env: Any, n_per_param: int = 10,
+    ) -> list[DiagnosticScenario]:
+        scenarios: list[DiagnosticScenario] = []
+        scenarios.extend(self.generate_gamma_scenarios(env, n_per_param))
+        scenarios.extend(self.generate_alpha_scenarios(env, n_per_param))
+        scenarios.extend(self.generate_lambda_scenarios(env, n_per_param))
+        return scenarios
+
+
+class ScenarioLibrary(ScenarioLibraryBase):
+    """Generates diagnostic scenarios from the resource strategy game.
 
     Each generator produces scenarios where the two options differ along a
     specific preference dimension (gamma, alpha, or lambda_), so the user's
@@ -189,14 +221,4 @@ class ScenarioLibrary:
                 rounds_remaining=env.config.n_rounds - obs["round"],
             ))
 
-        return scenarios
-
-    def generate_all(
-        self, env: ResourceStrategyGame, n_per_param: int = 10,
-    ) -> list[DiagnosticScenario]:
-        """Generate a full set of diagnostic scenarios for all parameters."""
-        scenarios = []
-        scenarios.extend(self.generate_gamma_scenarios(env, n_per_param))
-        scenarios.extend(self.generate_alpha_scenarios(env, n_per_param))
-        scenarios.extend(self.generate_lambda_scenarios(env, n_per_param))
         return scenarios
