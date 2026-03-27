@@ -62,7 +62,7 @@ class TestRewardDataPreparation:
 class TestModelConfig:
     def test_defaults(self) -> None:
         config = ModelConfig()
-        assert config.model_name == "mistralai/Mistral-7B-Instruct-v0.3"
+        assert config.model_name == "Qwen/Qwen2.5-1.5B-Instruct"
         assert config.quantization_bits == 4
         assert config.lora_rank == 16
         assert config.lora_alpha == 32

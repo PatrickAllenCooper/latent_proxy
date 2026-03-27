@@ -31,15 +31,17 @@ class DPOTrainingConfig:
     beta: float = 0.1
     learning_rate: float = 5e-5
     num_epochs: int = 3
-    per_device_batch_size: int = 4
-    gradient_accumulation_steps: int = 4
+    per_device_batch_size: int = 1
+    gradient_accumulation_steps: int = 8
     warmup_ratio: float = 0.1
-    max_length: int = 1024
-    max_prompt_length: int = 768
+    max_length: int = 512
+    max_prompt_length: int = 384
     output_dir: str = "outputs/dpo"
     logging_steps: int = 10
     save_steps: int = 500
-    use_wandb: bool = True
+    gradient_checkpointing: bool = True
+    optim: str = "paged_adamw_8bit"
+    use_wandb: bool = False
     wandb_project: str = "latent-proxy"
 
 
@@ -104,6 +106,8 @@ class ConditionalDPOTrainer:
             save_steps=self.config.save_steps,
             bf16=True,
             remove_unused_columns=False,
+            gradient_checkpointing=self.config.gradient_checkpointing,
+            optim=self.config.optim,
             report_to="wandb" if self.config.use_wandb else "none",
         )
 

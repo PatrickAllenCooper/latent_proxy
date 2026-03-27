@@ -11,13 +11,13 @@ logger = logging.getLogger(__name__)
 class ModelConfig:
     """Configuration for base model loading and LoRA setup."""
 
-    model_name: str = "mistralai/Mistral-7B-Instruct-v0.3"
+    model_name: str = "Qwen/Qwen2.5-1.5B-Instruct"
     quantization_bits: int = 4
     lora_rank: int = 16
     lora_alpha: int = 32
     lora_dropout: float = 0.1
     lora_target_modules: list[str] | None = None
-    max_length: int = 1024
+    max_length: int = 512
     padding_side: str = "left"
 
     def __post_init__(self) -> None:

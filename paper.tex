@@ -7,8 +7,7 @@
 \usepackage{natbib}
 \usepackage{xcolor}
 
-\title{Latent Preference Inference via Conversational Active Learning:\\
-  Cross-Domain Generalization Results}
+\title{DPO-Driven Preference Elicitation over Optimization Problems}
 \author{Patrick Cooper}
 \date{\today}
 
@@ -18,13 +17,16 @@
 % ---------------------------------------------------------------------------
 \section{Introduction}
 
-This report presents the generalization study for the latent preference
-inference system.  The system infers latent user preference parameters
-(discount factor $\gamma$, risk aversion $\alpha$, loss aversion $\lambda$)
-from structured binary-choice interactions, then transfers the inferred
-parameters to produce personalized recommendations in new decision domains.
+This report investigates whether Direct Preference Optimization (DPO) enables
+a language model to efficiently surface user preferences through an active
+elicitation loop over optimization problems.
 
-Three environments are evaluated:
+The core question is: when an LLM conducts the full preference elicitation
+cycle --- generating diagnostic queries, interpreting user responses, and
+producing allocation recommendations --- does DPO fine-tuning improve the
+quality and efficiency of this process compared to a base model?
+
+We evaluate across three optimization domains:
 \begin{enumerate}
   \item \textbf{Resource Strategy Game} -- a sequential allocation game with
     regime switching (4-channel variant A; 6-channel variant B).
@@ -34,18 +36,30 @@ Three environments are evaluated:
     suppliers with different cost, reliability, and disruption profiles.
 \end{enumerate}
 
-The study tests four hypotheses (README Section 8.3):
+The system infers latent user preference parameters
+(discount factor $\gamma$, risk aversion $\alpha$, loss aversion $\lambda$)
+through structured binary-choice interactions. DPO training is applied in two
+curriculum phases: Phase~1 (quality floor enforcement) and Phase~2
+(type-conditioned alignment). The trained model is compared against the base
+model and an analytical baseline (particle filter + EIG) to measure DPO's
+contribution to elicitation effectiveness.
+
+\subsection{Hypotheses}
+
 \begin{description}
-  \item[H1] Within-domain personalization significantly outperforms generic
-    (non-personalized) recommendations.
-  \item[H2] Cross-domain transfer outperforms generic but underperforms
-    within-domain personalization.
-  \item[H3] The magnitude of cross-domain transfer correlates with structural
-    similarity between domains; $\gamma$ (time preference) transfers better
-    than $\alpha$ or $\lambda$ (domain-specific risk parameters).
-  \item[H4] Active learning elicitation converges faster than random querying
-    across all domains.
+  \item[H1] DPO Phase~2 produces significantly higher-alignment recommendations
+    than the base model across all environments.
+  \item[H2] DPO Phase~1 reduces quality floor violations compared to the base
+    model.
+  \item[H3] The LLM-driven elicitation loop shows improving recommendation
+    quality over successive rounds (convergence).
+  \item[H4] The analytical baseline (EIG + particle filter) provides an upper
+    bound on alignment; DPO narrows the gap relative to the base model.
 \end{description}
+
+The prior generalization results (cross-domain transfer, theta stability) are
+retained as supporting evidence that the underlying preference framework is
+sound, but the primary contribution is the DPO elicitation study.
 
 % ---------------------------------------------------------------------------
 \section{Methods}
@@ -62,13 +76,26 @@ Regime switching uses a $3 \times 3$ Markov transition matrix shared across
 all domains (bull/bear/neutral for the game and stock; normal/disrupted/crisis
 for supply chain).
 
-\subsection{Elicitation}
+\subsection{Elicitation: Two Paradigms}
 
-Preference elicitation uses a particle-filter posterior with EIG-maximizing
-binary-choice queries.  Each domain has its own
-\texttt{ScenarioLibraryBase} subclass generating $\gamma$, $\alpha$, and
-$\lambda$-discriminating scenarios.  Gamma scenarios use multi-period
-compounding horizons so that the discount factor is identifiable.
+\textbf{Analytical baseline.} A particle-filter posterior with EIG-maximizing
+binary-choice queries; each domain has a \texttt{ScenarioLibraryBase} subclass
+generating $\gamma$, $\alpha$, $\lambda$-discriminating scenarios. The optimal
+recommendation is computed analytically via \texttt{get\_optimal\_action}.
+
+\textbf{LLM-in-the-loop.} The language model drives the full cycle: given the
+serialized environment state and interaction history, the model generates two
+allocation options as a diagnostic query; a synthetic user responds via
+softmax-rational choice; after $N$ rounds, the model produces a final
+recommendation. Three LLM conditions are compared: base model (no DPO),
+DPO Phase~1 (quality-only), and DPO Phase~2 (quality + alignment).
+
+\subsection{DPO Training}
+
+Training uses QLoRA (4-bit NF4, LoRA rank 16, $\alpha=32$) on
+Qwen2.5-1.5B-Instruct. Phase~1 pairs have chosen = high quality score,
+rejected = floor-violating. Phase~2 pairs are type-conditioned: chosen =
+optimal for sampled user, rejected = optimal for a contrasting type.
 
 \subsection{Statistical Tests}
 
@@ -78,21 +105,22 @@ $r$ with Cohen's $d$ as a secondary measure.  Multiple comparisons across the
 full family of tests are corrected with the Holm--Bonferroni step-down
 procedure.
 
-Theta stability is measured via ICC(2,1) (two-way random, single measures)
-computed from an ANOVA decomposition.
-
 % ---------------------------------------------------------------------------
 \section{Experimental Setup}
 
-\subsection{Domain Pairs}
+\subsection{Study Conditions}
 
-Four directed domain pairs are evaluated:
-\begin{itemize}
-  \item Game variant A $\to$ Game variant B (structural similarity $\approx 0.95$)
-  \item Game variant A $\to$ Stock ($\approx 0.55$)
-  \item Game variant A $\to$ Supply Chain ($\approx 0.40$)
-  \item Stock $\to$ Supply Chain ($\approx 0.50$)
-\end{itemize}
+Four conditions evaluated on each of three environments (game, stock, supply
+chain):
+\begin{enumerate}
+  \item \textbf{Analytical baseline} -- EIG query selection, particle filter
+    posterior, closed-form optimal recommendation.
+  \item \textbf{Base LLM} -- Qwen2.5-1.5B-Instruct generating queries and
+    recommendations without DPO.
+  \item \textbf{DPO Phase 1} -- same architecture, trained on quality-only pairs.
+  \item \textbf{DPO Phase 2} -- further trained on type-conditioned alignment
+    pairs.
+\end{enumerate}
 
 \subsection{Parameters}
 

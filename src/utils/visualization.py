@@ -270,6 +270,85 @@ def plot_stability_scatter(
     return fig
 
 
+def plot_dpo_comparison(
+    per_env: dict[str, dict[str, Any]],
+) -> Figure:
+    """Bar chart: alignment by condition (analytical / base / P1 / P2) per environment."""
+    env_names = list(per_env.keys())
+    all_conditions = set()
+    for conds in per_env.values():
+        all_conditions.update(conds.keys())
+    condition_order = [c for c in ["analytical", "base", "dpo_phase1", "dpo_phase2"] if c in all_conditions]
+
+    n_envs = len(env_names)
+    n_conds = len(condition_order)
+    x = np.arange(n_envs)
+    width = 0.8 / max(n_conds, 1)
+    colors = ["#4c72b0", "#c44e52", "#dd8452", "#55a868"]
+
+    fig, ax = plt.subplots(figsize=(8, 5))
+    for j, cond in enumerate(condition_order):
+        vals = []
+        for env_name in env_names:
+            cr = per_env[env_name].get(cond)
+            if cr is None:
+                vals.append(0.0)
+            elif hasattr(cr, "mean_alignment"):
+                vals.append(cr.mean_alignment)
+            elif isinstance(cr, dict):
+                vals.append(cr.get("mean_alignment", 0.0))
+            else:
+                vals.append(0.0)
+        ax.bar(x + j * width, vals, width, label=cond, color=colors[j % len(colors)])
+
+    ax.set_xticks(x + width * (n_conds - 1) / 2)
+    ax.set_xticklabels(env_names, fontsize=10)
+    ax.set_ylabel("Mean alignment score")
+    ax.set_title("DPO elicitation study: alignment by condition")
+    ax.legend(fontsize=8)
+    ax.set_ylim(-0.2, 1.05)
+    fig.tight_layout()
+    return fig
+
+
+def plot_convergence_by_condition(
+    per_env: dict[str, dict[str, Any]],
+) -> Figure:
+    """Per-round alignment curves showing convergence for each condition."""
+    env_names = list(per_env.keys())
+    n_envs = len(env_names)
+    fig, axes = plt.subplots(1, n_envs, figsize=(5 * n_envs, 4), squeeze=False)
+
+    for col, env_name in enumerate(env_names):
+        ax = axes[0, col]
+        conditions = per_env[env_name]
+        for cond_name, cr in conditions.items():
+            per_round = None
+            if hasattr(cr, "per_round_alignments"):
+                per_round = cr.per_round_alignments
+            elif isinstance(cr, dict):
+                per_round = cr.get("per_round_alignments")
+            if not per_round or not any(per_round):
+                continue
+            max_len = max(len(r) for r in per_round if r)
+            if max_len == 0:
+                continue
+            means = []
+            for t in range(max_len):
+                vals = [r[t] for r in per_round if len(r) > t]
+                means.append(float(np.mean(vals)))
+            ax.plot(range(1, max_len + 1), means, marker="o", markersize=4, label=cond_name)
+        ax.set_xlabel("Round")
+        ax.set_ylabel("Mean alignment")
+        ax.set_title(env_name)
+        ax.legend(fontsize=7)
+        ax.set_ylim(-0.3, 1.05)
+
+    fig.suptitle("Convergence by condition", fontsize=12)
+    fig.tight_layout()
+    return fig
+
+
 def save_results(data: dict[str, Any], path: str | Path) -> None:
     """JSON export (numpy arrays converted to lists)."""
 
