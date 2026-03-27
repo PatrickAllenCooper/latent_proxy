@@ -20,6 +20,10 @@ htmlcov/
 
 wandb/
 outputs/
+!outputs/**/*.json
+!outputs/**/*.md
+!outputs/**/*.png
+data/
 multirun/
 
 .DS_Store

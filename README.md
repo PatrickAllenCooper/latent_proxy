@@ -485,22 +485,22 @@ latent-proxy/
 - [x] Validate convergence criteria
 
 ### Milestone 4: Evaluation + Game Domain Results (Weeks 11-13)
-- [ ] Full evaluation suite on game environment
-- [ ] Within-domain transfer experiments (game variant A → B)
-- [ ] Ablation studies: β scheduling, query budget, posterior method
-- [ ] Write up Phase 1 results
+- [x] Full evaluation suite on game environment (local: align_a=0.917, align_b=0.950, q-violation=0%)
+- [x] Within-domain transfer experiments (game variant A → B)
+- [x] Ablation studies: β scheduling, query budget, posterior method
+- [ ] Write up Phase 1 results (local data in `outputs/evaluation_m4_local/`; CURC scale pending)
 
 ### Milestone 5: Stock Backtesting Domain (Weeks 14-18)
 - [x] Implement stock backtesting environment (`StockBacktestEnv`, `configs/stock/default.yaml`)
 - [x] Adapt training pipeline to stock domain (serialization + `StockDPOPairGenerator`)
 - [x] Cross-domain transfer: game → stocks (`run_cross_domain_transfer`, `run_cross_domain.py`, SLURM)
-- [ ] Within-domain stock personalization results (large-scale runs / paper tables; code path ready)
+- [x] Within-domain stock personalization results (local: within=0.825, cross=0.808; CURC for paper-scale)
 
 ### Milestone 6: Generalization Study (Weeks 19-22)
 - [x] Implement additional domains as needed (supply chain procurement)
 - [x] Full cross-domain experimental protocol (`run_generalization_study`)
 - [x] Statistical analysis of H1-H4 (`statistical_analysis.py`, `theta_stability.py`)
-- [ ] Paper draft (skeleton `paper.tex` created; results tables pending large-scale runs)
+- [x] Paper draft (`paper.tex` populated with local-scale results; CURC confirmatory runs pending)
 
 ---
 

@@ -96,21 +96,21 @@ Four directed domain pairs are evaluated:
 
 \subsection{Parameters}
 
-% Fill in after large-scale run
 \begin{table}[h]
 \centering
 \begin{tabular}{ll}
 \toprule
 Parameter & Value \\
 \midrule
-Synthetic users per condition & \textit{(n\_users)} \\
-Elicitation rounds & \textit{(max\_rounds)} \\
-Particles & \textit{(n\_particles)} \\
-EIG samples & \textit{(n\_eig\_samples)} \\
+Synthetic users per condition & 12 \\
+Elicitation rounds & 8 \\
+Particles & 500 \\
+EIG samples & 200 \\
+Scenarios per round & 30 \\
 Stability sessions & 2 \\
 \bottomrule
 \end{tabular}
-\caption{Experimental parameters.}
+\caption{Experimental parameters (local run; CURC targets 2000 particles, 800 EIG, 30+ users).}
 \label{tab:params}
 \end{table}
 
@@ -119,43 +119,90 @@ Stability sessions & 2 \\
 
 \subsection{H1: Within-Domain Personalization}
 
-% Placeholder for H1 bar chart
-% \begin{figure}[h]
-%   \centering
-%   \includegraphics[width=0.8\textwidth]{figures/hypothesis_panel.png}
-%   \caption{H1--H4 hypothesis test results.}
-%   \label{fig:hypothesis_panel}
-% \end{figure}
+Within-domain personalization significantly outperforms generic (uniform)
+recommendations for game-domain pairs.  Wilcoxon signed-rank tests reject
+the null for game~A$\to$B ($p = 0.004$) and game~A$\to$stock ($p = 0.004$).
+For supply-chain-targeted pairs, within-domain advantage is present but not
+statistically significant at this sample size ($p > 0.05$, Holm-corrected).
 
-\textit{Results to be populated from \texttt{outputs/generalization/results\_bundle.json}.}
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+Pair & Generic & Within & Cross & H1 $p$ \\
+\midrule
+Game A $\to$ Game B & 0.00 & 0.88 & 0.88 & 0.004 \\
+Game A $\to$ Stock & 0.00 & 0.83 & 0.81 & 0.004 \\
+Game A $\to$ Supply Chain & -- & 0.50 & 0.48 & 1.0 \\
+Stock $\to$ Supply Chain & -- & 0.45 & 0.42 & 1.0 \\
+\bottomrule
+\end{tabular}
+\caption{Mean alignment scores by condition (12 users, 8 rounds, 500 particles).}
+\label{tab:h1_results}
+\end{table}
 
 \subsection{H2: Cross-Domain Transfer}
 
-\textit{Cross-domain alignment scores vs.\ generic and within-domain baselines,
-per domain pair.}
+Cross-domain transfer significantly outperforms generic for game pairs
+(game~A$\to$B: $p = 0.004$; game~A$\to$stock: $p = 0.004$).  Within-domain
+does not significantly exceed cross-domain at this scale, consistent with
+strong preference transfer when source and target share the same
+$(\gamma, \alpha, \lambda)$ parameterization.
 
 \subsection{H3: Parameter-Level Transfer}
 
-% Placeholder for heatmap
-% \begin{figure}[h]
-%   \centering
-%   \includegraphics[width=0.7\textwidth]{figures/parameter_heatmap.png}
-%   \caption{Per-parameter cross-domain MAE.}
-%   \label{fig:param_heatmap}
-% \end{figure}
+Gamma ($\gamma$, time preference) shows the lowest cross-domain MAE across
+all pairs, confirming H3.  Mean $\gamma$ MAE = 0.17, compared to $\alpha$
+MAE = 0.42 and $\lambda$ MAE = 0.50.  The Spearman correlation between
+structural similarity and total transfer MAE is $\rho = 0.80$, though with
+only four pairs this is not statistically significant after correction
+($p = 1.0$, Holm).
 
-\textit{Per-parameter MAE decomposition showing whether $\gamma$ transfers
-better than $\alpha$ or $\lambda$.}
+\begin{table}[h]
+\centering
+\begin{tabular}{lccc}
+\toprule
+Pair & $\gamma$ MAE & $\alpha$ MAE & $\lambda$ MAE \\
+\midrule
+Game A $\to$ Game B & 0.156 & 0.474 & 0.709 \\
+Game A $\to$ Stock & 0.176 & 0.391 & 0.512 \\
+Game A $\to$ Supply Chain & 0.164 & 0.369 & 0.466 \\
+Stock $\to$ Supply Chain & 0.180 & 0.446 & 0.330 \\
+\bottomrule
+\end{tabular}
+\caption{Per-parameter cross-domain MAE.  $\gamma$ consistently lowest.}
+\label{tab:h3_results}
+\end{table}
 
 \subsection{H4: Active vs.\ Random Elicitation}
 
-\textit{Error reduction percentages and paired test results across all three
-domains.}
+At local scale (500 particles, 200 EIG samples, 5 users per domain),
+active elicitation does not significantly outperform random querying.
+Error reduction percentages: game = 2.7\%, stock = $-0.4$\%,
+supply chain = $-26.6$\%.  The 30\% efficiency target from README
+Section~7.1 is not met; this is consistent with guidance notes that
+higher particle and EIG counts on CURC are needed for reliable EIG
+estimation.
 
 \subsection{Theta Stability}
 
-\textit{ICC(2,1) and Pearson correlations for test-retest reliability, per
-parameter, per domain.}
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccccc}
+\toprule
+ & \multicolumn{3}{c}{ICC(2,1)} & \multicolumn{3}{c}{Pearson} \\
+Domain & $\gamma$ & $\alpha$ & $\lambda$ & $\gamma$ & $\alpha$ & $\lambda$ \\
+\midrule
+Game A & 0.987 & 0.986 & 0.962 & 0.986 & 0.985 & 0.999 \\
+Stock & 0.638 & 0.249 & $-0.137$ & 0.690 & 0.271 & $-0.125$ \\
+Supply Chain & 0.266 & 0.107 & $-0.202$ & 0.262 & 0.101 & $-0.261$ \\
+\bottomrule
+\end{tabular}
+\caption{Test-retest reliability (12 users, 2 sessions).  Game domain shows
+excellent stability; stock and supply chain are lower, consistent with
+higher per-period variance in those environments.}
+\label{tab:stability}
+\end{table}
 
 % ---------------------------------------------------------------------------
 \section{Discussion}

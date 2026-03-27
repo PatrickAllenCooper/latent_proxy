@@ -1,0 +1,261 @@
+{
+  "full_evaluation": {
+    "variants": {
+      "a": {
+        "efficiency": {
+          "mean_active_rounds": 8.0,
+          "mean_random_rounds": 8.0,
+          "round_reduction_pct": 0.0,
+          "mean_active_error": 0.3753942319394113,
+          "mean_random_error": 0.37845831097085475,
+          "error_reduction_pct": 0.809621282614513
+        },
+        "mean_alignment_active": 0.9166666666666669,
+        "mean_gamma_mae": 0.14307201371340927,
+        "mean_total_recovery_error": 0.3753942319394113,
+        "quality_floor_violation_rate": 0.0,
+        "mean_quality_score": 1.5369426110024993,
+        "targets": {
+          "alignment_above_threshold": true,
+          "quality_floor_clean": true,
+          "gamma_mae_below_threshold": false,
+          "elicitation_efficiency_met": false,
+          "details": {
+            "mean_alignment": 0.9166666666666669,
+            "violation_rate": 0.0,
+            "mean_gamma_mae": 0.14307201371340927,
+            "error_reduction_pct": 0.809621282614513,
+            "alignment_threshold": 0.8,
+            "gamma_mae_threshold": 0.1,
+            "efficiency_threshold_pct": 30.0
+          }
+        },
+        "n_users": 12
+      },
+      "b": {
+        "efficiency": {
+          "mean_active_rounds": 8.0,
+          "mean_random_rounds": 8.0,
+          "round_reduction_pct": 0.0,
+          "mean_active_error": 0.37810618910163624,
+          "mean_random_error": 0.38995492079842636,
+          "error_reduction_pct": 3.038487544285899
+        },
+        "mean_alignment_active": 0.9499482374474383,
+        "mean_gamma_mae": 0.1574786627494789,
+        "mean_total_recovery_error": 0.37810618910163624,
+        "quality_floor_violation_rate": 0.0,
+        "mean_quality_score": 1.7604251215541689,
+        "targets": {
+          "alignment_above_threshold": true,
+          "quality_floor_clean": true,
+          "gamma_mae_below_threshold": false,
+          "elicitation_efficiency_met": false,
+          "details": {
+            "mean_alignment": 0.9499482374474383,
+            "violation_rate": 0.0,
+            "mean_gamma_mae": 0.1574786627494789,
+            "error_reduction_pct": 3.038487544285899,
+            "alignment_threshold": 0.8,
+            "gamma_mae_threshold": 0.1,
+            "efficiency_threshold_pct": 30.0
+          }
+        },
+        "n_users": 12
+      }
+    },
+    "config": {
+      "variants": [
+        "a",
+        "b"
+      ],
+      "n_users": 12,
+      "seed": 42,
+      "conditions": [
+        "generic",
+        "within_domain",
+        "cross_domain"
+      ],
+      "elicitation": {
+        "posterior_type": "particle",
+        "n_particles": 500,
+        "max_rounds": 8,
+        "n_scenarios_per_round": 50,
+        "n_eig_samples": 200,
+        "temperature": 0.1,
+        "convergence": {
+          "gamma_variance_threshold": 0.005,
+          "alpha_variance_threshold": 0.05,
+          "lambda_variance_threshold": 0.05,
+          "robust_action_level": 0.9,
+          "max_rounds": 8
+        },
+        "seed": 42,
+        "scenario_library": null
+      },
+      "ablation_params": {}
+    }
+  },
+  "transfer": {
+    "generic": {
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    "within_domain": {
+      "mean": 0.5886341481926427,
+      "ci_low": 0.3943812974297516,
+      "ci_high": 0.7828869989555338
+    },
+    "cross_domain": {
+      "mean": 0.6727322074131648,
+      "ci_low": 0.4886256773096963,
+      "ci_high": 0.8568387375166332
+    },
+    "n_users": 12
+  },
+  "ablations": {
+    "query_budget": {
+      "param_name": "max_rounds",
+      "values": [
+        3,
+        5,
+        8,
+        10
+      ],
+      "metrics_by_value": {
+        "3": {
+          "mean_active_rounds": 3.0,
+          "mean_random_rounds": 3.0,
+          "error_reduction_pct": 3.270289722026694,
+          "round_reduction_pct": 0.0,
+          "mean_active_error": 0.3437049803275922,
+          "mean_random_error": 0.35532514192369974,
+          "mean_alignment_active": 0.9333333333333332,
+          "wall_clock_s": 126.76879380003083
+        },
+        "5": {
+          "mean_active_rounds": 5.0,
+          "mean_random_rounds": 5.0,
+          "error_reduction_pct": 4.9379292361187455,
+          "round_reduction_pct": 0.0,
+          "mean_active_error": 0.3442020110394249,
+          "mean_random_error": 0.3620813309383579,
+          "mean_alignment_active": 0.9333333333333332,
+          "wall_clock_s": 215.2502308000112
+        },
+        "8": {
+          "mean_active_rounds": 8.0,
+          "mean_random_rounds": 8.0,
+          "error_reduction_pct": 4.554667767492686,
+          "round_reduction_pct": 0.0,
+          "mean_active_error": 0.34478942008517804,
+          "mean_random_error": 0.3612428308649626,
+          "mean_alignment_active": 0.9333333333333332,
+          "wall_clock_s": 352.4446096000029
+        },
+        "10": {
+          "mean_active_rounds": 10.0,
+          "mean_random_rounds": 10.0,
+          "error_reduction_pct": 5.126783798217244,
+          "round_reduction_pct": 0.0,
+          "mean_active_error": 0.3449867028899713,
+          "mean_random_error": 0.36362918503387753,
+          "mean_alignment_active": 0.9333333333333332,
+          "wall_clock_s": 444.1171188999433
+        }
+      },
+      "wall_clock_s": {
+        "3": 126.76879380003083,
+        "5": 215.2502308000112,
+        "8": 352.4446096000029,
+        "10": 444.1171188999433
+      }
+    },
+    "posterior_type": {
+      "param_name": "posterior_type",
+      "values": [
+        "gaussian",
+        "particle"
+      ],
+      "metrics_by_value": {
+        "gaussian": {
+          "mean_active_rounds": 8.0,
+          "mean_random_rounds": 8.0,
+          "error_reduction_pct": -4.112781953079268,
+          "round_reduction_pct": 0.0,
+          "mean_active_error": 0.3326608742429596,
+          "mean_random_error": 0.31951972467019524,
+          "mean_alignment_active": 0.8999999999999999,
+          "wall_clock_s": 335.94398769992404
+        },
+        "particle": {
+          "mean_active_rounds": 8.0,
+          "mean_random_rounds": 8.0,
+          "error_reduction_pct": 5.816551086586304,
+          "round_reduction_pct": 0.0,
+          "mean_active_error": 0.3306179172291074,
+          "mean_random_error": 0.35103611201693896,
+          "mean_alignment_active": 0.8666666666666666,
+          "wall_clock_s": 343.9432920999825
+        }
+      },
+      "wall_clock_s": {
+        "gaussian": 335.94398769992404,
+        "particle": 343.9432920999825
+      }
+    },
+    "beta_blend": {
+      "param_name": "beta",
+      "values": [
+        0.0,
+        0.1,
+        0.3,
+        0.5,
+        0.7,
+        1.0
+      ],
+      "metrics_by_value": {
+        "0.0": {
+          "mean_alignment_blended": 0.8666666666666666,
+          "mean_active_error": 0.31385715537950015,
+          "error_reduction_pct": 3.2904564263719482
+        },
+        "0.1": {
+          "mean_alignment_blended": 0.8666666666666666,
+          "mean_active_error": 0.31385715537950015,
+          "error_reduction_pct": 3.2904564263719482
+        },
+        "0.3": {
+          "mean_alignment_blended": 0.8666666666666666,
+          "mean_active_error": 0.31385715537950015,
+          "error_reduction_pct": 3.2904564263719482
+        },
+        "0.5": {
+          "mean_alignment_blended": 0.8666666666666666,
+          "mean_active_error": 0.31385715537950015,
+          "error_reduction_pct": 3.2904564263719482
+        },
+        "0.7": {
+          "mean_alignment_blended": 0.8666666666666666,
+          "mean_active_error": 0.31385715537950015,
+          "error_reduction_pct": 3.2904564263719482
+        },
+        "1.0": {
+          "mean_alignment_blended": 0.8666666666666666,
+          "mean_active_error": 0.31385715537950015,
+          "error_reduction_pct": 3.2904564263719482
+        }
+      },
+      "wall_clock_s": {
+        "_benchmark": 356.83905189996585,
+        "0.0": 0.0,
+        "0.1": 0.0,
+        "0.3": 0.0,
+        "0.5": 0.0,
+        "0.7": 0.0,
+        "1.0": 0.0
+      }
+    }
+  }
+}
