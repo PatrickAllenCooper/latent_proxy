@@ -63,6 +63,7 @@ class ConditionalDPOTrainer:
         self._model = None
         self._tokenizer = None
         self._trainer = None
+        self._dataset = None
 
     def prepare(self) -> None:
         """Load model, tokenizer, and generate training data."""
@@ -86,16 +87,22 @@ class ConditionalDPOTrainer:
         """Run DPO training."""
         if self._model is None or self._tokenizer is None:
             self.prepare()
+        if self._dataset is None:
+            logger.info("Generating DPO pairs for phase %d...", self.config.curriculum_phase)
+            generator = DPOPairGenerator(self.config.data)
+            pairs = generator.generate_dataset()
+            from datasets import Dataset
+            self._dataset = Dataset.from_dict(pairs_to_hf_dict(pairs))
+            logger.info("Dataset ready: %d pairs", len(self._dataset))
 
-        from transformers import TrainingArguments
-        from trl import DPOTrainer
+        from trl import DPOConfig, DPOTrainer
 
         phase_dir = (
             f"{self.config.output_dir}/phase{self.config.curriculum_phase}"
         )
         Path(phase_dir).mkdir(parents=True, exist_ok=True)
 
-        training_args = TrainingArguments(
+        training_args = DPOConfig(
             output_dir=phase_dir,
             num_train_epochs=self.config.num_epochs,
             per_device_train_batch_size=self.config.per_device_batch_size,
@@ -109,6 +116,8 @@ class ConditionalDPOTrainer:
             gradient_checkpointing=self.config.gradient_checkpointing,
             optim=self.config.optim,
             report_to="wandb" if self.config.use_wandb else "none",
+            beta=self.config.beta,
+            max_length=self.config.max_length,
         )
 
         self._trainer = DPOTrainer(
@@ -116,9 +125,6 @@ class ConditionalDPOTrainer:
             args=training_args,
             train_dataset=self._dataset,
             processing_class=self._tokenizer,
-            beta=self.config.beta,
-            max_length=self.config.max_length,
-            max_prompt_length=self.config.max_prompt_length,
         )
 
         logger.info(

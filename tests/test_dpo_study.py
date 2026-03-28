@@ -51,4 +51,4 @@ def test_study_config_defaults():
     cfg = DPOStudyConfig()
     assert cfg.n_users == 5
     assert "game" in cfg.environments
-    assert cfg.base_model_path == "Qwen/Qwen2.5-3B-Instruct"
+    assert cfg.base_model_path == "Qwen/Qwen2.5-1.5B-Instruct"

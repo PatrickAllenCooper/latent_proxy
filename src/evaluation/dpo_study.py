@@ -37,7 +37,7 @@ class DPOStudyConfig:
     n_users: int = 5
     max_rounds: int = 5
     environments: list[str] = field(default_factory=lambda: ["game", "stock", "supply_chain"])
-    base_model_path: str = "Qwen/Qwen2.5-3B-Instruct"
+    base_model_path: str = "Qwen/Qwen2.5-1.5B-Instruct"
     phase1_checkpoint: str | None = None
     phase2_checkpoint: str | None = None
     llm_config: LLMElicitationConfig = field(default_factory=LLMElicitationConfig)
