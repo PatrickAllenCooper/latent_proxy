@@ -1,6 +1,8 @@
 #!/bin/bash
 #SBATCH --job-name=latent-proxy-eval
 #SBATCH --partition=aa100
+#SBATCH --qos=long
+#SBATCH --nodes=1
 #SBATCH --gres=gpu:1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
