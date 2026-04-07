@@ -27,35 +27,50 @@ mkdir -p outputs/{evaluation_m4_azure,evaluation_m5_azure,generalization_azure}
 
 log() { echo "[analytical] $(date '+%H:%M:%S') $*"; }
 
+run_with_skip() {
+    local NAME="$1"
+    local DONE_FILE="logs/.done_${NAME}"
+    local LOGFILE="logs/analytical_${NAME}.log"
+    shift
+
+    if [ -f "${DONE_FILE}" ]; then
+        log "  ${NAME}: already complete -- skipping"
+        return 0
+    fi
+
+    log "Starting ${NAME}..."
+    "$@" > "${LOGFILE}" 2>&1
+    touch "${DONE_FILE}"
+    log "  ${NAME} complete."
+}
+
 # --------------------------------------------------------------------------
 # A1: Elicitation benchmark (runs fastest, ~30 min on 48 cores)
 # --------------------------------------------------------------------------
-log "A1: Elicitation benchmark..."
-python scripts/run_elicitation.py \
-    --n-users 50 \
-    --max-rounds 10 \
-    --n-particles 2000 \
-    --n-eig-samples 800 \
-    --n-scenarios 50 \
-    --posterior-type particle \
-    --seed 42 \
-    > "${LOG_DIR}/analytical_elicitation.log" 2>&1 &
+run_with_skip "elicitation" \
+    python scripts/run_elicitation.py \
+        --n-users 50 \
+        --max-rounds 10 \
+        --n-particles 2000 \
+        --n-eig-samples 800 \
+        --n-scenarios 50 \
+        --posterior-type particle \
+        --seed 42 &
 PID_A1=$!
 log "A1 started (PID ${PID_A1})"
 
 # --------------------------------------------------------------------------
 # A2: M4 full evaluation (variants + transfer + ablations, ~4 hours)
 # --------------------------------------------------------------------------
-log "A2: M4 full evaluation..."
-python scripts/run_full_evaluation.py \
-    --n-users 30 \
-    --max-rounds 10 \
-    --n-particles 2000 \
-    --n-eig-samples 800 \
-    --posterior-type particle \
-    --seed 42 \
-    --output-dir outputs/evaluation_m4_azure \
-    > "${LOG_DIR}/analytical_m4.log" 2>&1 &
+run_with_skip "m4" \
+    python scripts/run_full_evaluation.py \
+        --n-users 30 \
+        --max-rounds 10 \
+        --n-particles 2000 \
+        --n-eig-samples 800 \
+        --posterior-type particle \
+        --seed 42 \
+        --output-dir outputs/evaluation_m4_azure &
 PID_A2=$!
 log "A2 started (PID ${PID_A2})"
 
@@ -65,18 +80,16 @@ log "A2 started (PID ${PID_A2})"
 log "Waiting for A1 to finish before starting A3..."
 wait "${PID_A1}" && log "A1 complete" || log "WARNING: A1 exited non-zero"
 
-log "A3: M5 cross-domain transfer (game -> stock)..."
-mkdir -p outputs/evaluation_m5_azure
-python scripts/run_cross_domain.py \
-    --n-users 30 \
-    --max-rounds 10 \
-    --n-particles 2000 \
-    --n-eig-samples 800 \
-    --n-scenarios-per-round 50 \
-    --posterior-type particle \
-    --seed 43 \
-    --output outputs/evaluation_m5_azure/cross_domain.json \
-    > "${LOG_DIR}/analytical_m5.log" 2>&1 &
+run_with_skip "m5" \
+    python scripts/run_cross_domain.py \
+        --n-users 30 \
+        --max-rounds 10 \
+        --n-particles 2000 \
+        --n-eig-samples 800 \
+        --n-scenarios-per-round 50 \
+        --posterior-type particle \
+        --seed 43 \
+        --output outputs/evaluation_m5_azure/cross_domain.json &
 PID_A3=$!
 log "A3 started (PID ${PID_A3})"
 
@@ -86,17 +99,16 @@ log "A3 started (PID ${PID_A3})"
 log "Waiting for A2 to finish before starting A4..."
 wait "${PID_A2}" && log "A2 complete" || log "WARNING: A2 exited non-zero"
 
-log "A4: M6 generalization study..."
-python scripts/run_generalization_study.py \
-    --n-users 30 \
-    --max-rounds 10 \
-    --n-particles 2000 \
-    --n-eig-samples 800 \
-    --n-scenarios-per-round 50 \
-    --posterior-type particle \
-    --seed 44 \
-    --output-dir outputs/generalization_azure \
-    > "${LOG_DIR}/analytical_m6.log" 2>&1 &
+run_with_skip "m6" \
+    python scripts/run_generalization_study.py \
+        --n-users 30 \
+        --max-rounds 10 \
+        --n-particles 2000 \
+        --n-eig-samples 800 \
+        --n-scenarios-per-round 50 \
+        --posterior-type particle \
+        --seed 44 \
+        --output-dir outputs/generalization_azure &
 PID_A4=$!
 log "A4 started (PID ${PID_A4})"
 

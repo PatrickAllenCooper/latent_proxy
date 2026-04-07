@@ -38,6 +38,12 @@ run_model() {
     local GPU_ID="$3"
     local OUT="outputs/gamma_scaling/${LABEL}"
     local LOGFILE="${LOG_DIR}/gamma_${LABEL}.log"
+    local DONE_MARKER="${OUT}/.done"
+
+    if [ -f "${DONE_MARKER}" ]; then
+        log "  ${LABEL}: already complete (${DONE_MARKER} exists) -- skipping"
+        return 0
+    fi
 
     log "Starting ${LABEL} on GPU ${GPU_ID}..."
     CUDA_VISIBLE_DEVICES="${GPU_ID}" python scripts/run_gamma_study.py \
@@ -50,6 +56,7 @@ run_model() {
         --seed "${SEED}" \
         --output-dir "${OUT}" \
         > "${LOGFILE}" 2>&1
+    touch "${DONE_MARKER}"
     log "Finished ${LABEL}. Log: ${LOGFILE}"
 }
 

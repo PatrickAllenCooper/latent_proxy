@@ -133,7 +133,13 @@ class ConditionalDPOTrainer:
             self.config.beta,
             self.config.num_epochs,
         )
-        self._trainer.train()
+        # Resume from latest checkpoint automatically if one exists (spot-instance safety)
+        resume = None
+        checkpoints = sorted(Path(phase_dir).glob("checkpoint-*"))
+        if checkpoints:
+            resume = str(checkpoints[-1])
+            logger.info("Resuming from checkpoint: %s", resume)
+        self._trainer.train(resume_from_checkpoint=resume)
 
         self._model.save_pretrained(f"{phase_dir}/final")
         self._tokenizer.save_pretrained(f"{phase_dir}/final")

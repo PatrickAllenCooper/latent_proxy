@@ -30,6 +30,10 @@ logger = logging.getLogger(__name__)
 
 
 def generate_gamma_data(n_pairs: int, phase: int, seed: int, output_path: str) -> None:
+    # Skip if data already exists
+    if Path(output_path).exists() and any(Path(output_path).iterdir()):
+        logger.info("Gamma data phase %d already exists at %s -- skipping", phase, output_path)
+        return
     cfg = DPOPairConfig(n_pairs=n_pairs, curriculum_phase=phase, seed=seed)
     gen = GammaDPOPairGenerator(cfg)
     pairs = gen.generate_dataset()
@@ -46,6 +50,11 @@ def train_gamma_dpo(
     output_dir: str,
     seed: int,
 ) -> None:
+    phase_final = Path(output_dir) / f"phase{phase}" / "final" / "adapter_config.json"
+    if phase_final.exists():
+        logger.info("Phase %d final checkpoint already exists at %s -- skipping training",
+                    phase, phase_final.parent)
+        return
     mcfg = ModelConfig(model_name=model_name)
     dcfg = DPOPairConfig(n_pairs=n_pairs, curriculum_phase=phase, seed=seed)
     tcfg = DPOTrainingConfig(
@@ -184,38 +193,42 @@ def main() -> None:
         )
 
     if args.action in ("eval", "full"):
-        p1_ckpt = str(out / "dpo_p1" / "phase1" / "final")
-        p2_ckpt = str(out / "dpo_p2" / "phase2" / "final")
+        results_file = out / "gamma_study_results.json"
+        if results_file.exists():
+            logger.info("Evaluation results already exist at %s -- skipping eval", results_file)
+        else:
+            p1_ckpt = str(out / "dpo_p1" / "phase1" / "final")
+            p2_ckpt = str(out / "dpo_p2" / "phase2" / "final")
 
-        results: dict = {}
+            results: dict = {}
 
-        logger.info("=== Evaluating base model ===")
-        results["base"] = run_gamma_eval(
-            args.model_name, None, "base",
-            args.n_users, args.max_rounds, args.seed + 10,
-        )
-
-        if Path(p1_ckpt).exists():
-            logger.info("=== Evaluating DPO Phase 1 ===")
-            results["dpo_phase1"] = run_gamma_eval(
-                args.model_name, p1_ckpt, "dpo_phase1",
+            logger.info("=== Evaluating base model ===")
+            results["base"] = run_gamma_eval(
+                args.model_name, None, "base",
                 args.n_users, args.max_rounds, args.seed + 10,
             )
 
-        if Path(p2_ckpt).exists():
-            logger.info("=== Evaluating DPO Phase 2 ===")
-            results["dpo_phase2"] = run_gamma_eval(
-                args.model_name, p2_ckpt, "dpo_phase2",
-                args.n_users, args.max_rounds, args.seed + 10,
-            )
+            if Path(p1_ckpt).exists():
+                logger.info("=== Evaluating DPO Phase 1 ===")
+                results["dpo_phase1"] = run_gamma_eval(
+                    args.model_name, p1_ckpt, "dpo_phase1",
+                    args.n_users, args.max_rounds, args.seed + 10,
+                )
 
-        summary = {
-            cond: {"mean_alignment": r["mean_alignment"], "mean_gamma_error": r["mean_gamma_error"]}
-            for cond, r in results.items()
-        }
-        save_results(results, out / "gamma_study_results.json")
-        logger.info("Results:\n%s", json.dumps(summary, indent=2))
-        logger.info("Wrote %s", out / "gamma_study_results.json")
+            if Path(p2_ckpt).exists():
+                logger.info("=== Evaluating DPO Phase 2 ===")
+                results["dpo_phase2"] = run_gamma_eval(
+                    args.model_name, p2_ckpt, "dpo_phase2",
+                    args.n_users, args.max_rounds, args.seed + 10,
+                )
+
+            summary = {
+                cond: {"mean_alignment": r["mean_alignment"], "mean_gamma_error": r["mean_gamma_error"]}
+                for cond, r in results.items()
+            }
+            save_results(results, results_file)
+            logger.info("Results:\n%s", json.dumps(summary, indent=2))
+            logger.info("Wrote %s", results_file)
 
 
 if __name__ == "__main__":
