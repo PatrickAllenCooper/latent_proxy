@@ -5,7 +5,6 @@
 set -euo pipefail
 
 PROJECT_DIR="/projects/paco0228/latent_proxy"
-CONDA_BASE="/projects/paco0228/software/anaconda"
 ENV_NAME="latent-proxy-env"
 HF_CACHE="/scratch/alpine/paco0228/hf_cache"
 
@@ -21,9 +20,9 @@ cd "$PROJECT_DIR"
 git pull
 
 echo "Creating conda environment: $ENV_NAME"
-"$CONDA_BASE/bin/conda" create -n "$ENV_NAME" python=3.12 -y 2>/dev/null || true
+conda create -n "$ENV_NAME" python=3.12 -y
 
-source activate "$ENV_NAME" 2>/dev/null || conda activate "$ENV_NAME"
+conda activate "$ENV_NAME"
 
 echo "Installing dependencies..."
 pip install -e ".[dev]"

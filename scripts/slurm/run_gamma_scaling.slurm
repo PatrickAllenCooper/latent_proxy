@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH --job-name=gamma-scaling
 #SBATCH --partition=aa100
-#SBATCH --qos=long
+#SBATCH --qos=gpu-normal
+#SBATCH --gres=gpu:a100-40gb:1
 #SBATCH --nodes=1
-#SBATCH --gres=gpu:1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G
@@ -27,7 +27,7 @@
 set -euo pipefail
 
 PROJECT_DIR="/projects/paco0228/latent_proxy"
-CONDA_ENV="/projects/paco0228/software/anaconda/envs/latent-proxy-env"
+CONDA_ENV_NAME="latent-proxy-env"
 HF_CACHE="/scratch/alpine/paco0228/hf_cache"
 
 export HF_HOME="$HF_CACHE"
@@ -37,7 +37,8 @@ export TOKENIZERS_PARALLELISM=false
 cd "$PROJECT_DIR"
 mkdir -p logs outputs/gamma_scaling
 
-source activate "$CONDA_ENV" 2>/dev/null || conda activate "$CONDA_ENV"
+source ~/.bashrc
+conda activate "$CONDA_ENV_NAME"
 
 echo "========================================"
 echo "Gamma scaling study -- $(date)"

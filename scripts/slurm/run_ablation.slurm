@@ -1,6 +1,8 @@
 #!/bin/bash
 #SBATCH --job-name=latent-proxy-ablation
-#SBATCH --partition=amem
+#SBATCH --partition=acpu
+#SBATCH --qos=cpu-normal
+#SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=16G
@@ -11,12 +13,13 @@
 set -euo pipefail
 
 PROJECT_DIR="/projects/paco0228/latent_proxy"
-CONDA_ENV="/projects/paco0228/software/anaconda/envs/latent-proxy-env"
+CONDA_ENV_NAME="latent-proxy-env"
 
 cd "$PROJECT_DIR"
 mkdir -p logs outputs/evaluation_m4
 
-source activate "$CONDA_ENV" 2>/dev/null || conda activate "$CONDA_ENV"
+source ~/.bashrc
+conda activate "$CONDA_ENV_NAME"
 
 python scripts/run_full_evaluation.py \
     --n-users 20 \

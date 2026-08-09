@@ -312,9 +312,67 @@ Bridges structured game data and LLM text:
 15. EIG estimation via nested Monte Carlo with importance-weighted entropy.
     Trades accuracy for speed; default EIG sample count tunable via
     `ElicitationConfig.n_eig_samples` (800+ recommended for production runs).
-16. CURC SLURM scripts placed under scripts/slurm/ for A100 GPU training.
+16. CURC SLURM scripts placed under scripts/slurm/ for GPU training.
     Local 3080 used for inference and small-scale testing; CURC for full
-    DPO training and large-scale evaluation.
+    DPO training and large-scale evaluation. **As of Aug 2026 these scripts
+    are stale relative to Alpine's upgraded GPU inventory** (see CURC Status).
+
+## CURC Status (Aug 2026)
+
+Active development on this project has been dormant for some time. The
+codebase and local smoke outputs in `outputs/*_local/` are more recent than
+any confirmed paper-scale CURC run synced back to the repo. Treat CURC job
+state as unknown until checked live on the cluster (`squeue` / `sacct` /
+`outputs/` under `/projects/paco0228/latent_proxy`).
+
+### Planned jobs (scripts exist; live status unverified)
+
+| Script | Purpose | Notes |
+|--------|---------|-------|
+| `train_dpo.slurm` | Phase 1 then Phase 2 DPO | Writes `outputs/dpo/phase{1,2}/final` |
+| `run_evaluation.slurm` | M3–M6 eval + DPO checkpoint eval | Depends on DPO checkpoints; `set -e` |
+| `run_ablation.slurm` | CPU ablation sweeps | `amem` partition |
+| `train_reward.slurm` | Type-conditioned reward model | Optional RLHF path |
+
+No CURC-scale result directories (`outputs/evaluation_m4/`, `outputs/generalization/`,
+`outputs/dpo/`) are present in the local clone. Either jobs never completed,
+results remain only on the cluster, or the env/queue state drifted while the
+project was idle.
+
+### Alpine hardware upgrade (scripts need refresh)
+
+Alpine now exposes a broader GPU set beyond the A100-era scripts
+([CURC Alpine hardware](https://curc.readthedocs.io/en/latest/clusters/alpine/alpine-hardware.html)):
+
+| Partition | GPUs | Relevant GRES |
+|-----------|------|---------------|
+| `aa100` | 3x A100 / node | `a100-40gb`, `a100_80gb`, MIG `a100_3g.20gb` |
+| `ah200` | 4x H200 / node (new) | `h200` (141 GB), MIG slices |
+| `artxpro6000` | 4x RTX Pro 6000 / node (new) | `rtx_pro_6000` (96 GB), MIG slices |
+| `al40` | 3x L40 / node | `l40` (48 GB) |
+| `ami100` | 3x MI100 / node | `mi100` (AMD; CUDA stack N/A) |
+| `gh200` | Grace-Hopper (request-only) | `gh200` |
+
+Current scripts use `#SBATCH --partition=aa100` and bare `--gres=gpu:1`
+without a typed GRES and without `#SBATCH --qos=gpu-normal`. On modern Alpine,
+GPU jobs should specify both QoS and GRES type, e.g.:
+
+```bash
+#SBATCH --partition=aa100
+#SBATCH --qos=gpu-normal
+#SBATCH --gres=gpu:a100-40gb:1
+```
+
+For DPO / LLM elicitation (Qwen2.5-1.5B QLoRA), prefer `a100-40gb` or
+`a100_80gb` for continuity; `ah200` / `h200` is available if queue wait on
+`aa100` is high (requires CUDA ≥ 12). CPU-only elicitation/ablation should
+use `acpu` (default) rather than assuming `amem` unless high memory is needed
+(`amem` now requires `mem-normal`/`mem-long` and ≥256 GB RAM).
+
+Before resubmitting: re-run `setup_env.sh` (or recreate the conda env),
+confirm CUDA/PyTorch match the target GPU generation, `git pull` on
+`/projects/paco0228/latent_proxy`, then submit `train_dpo` before
+`run_evaluation`.
 
 ## Design Decisions (Milestone 4)
 
