@@ -2,19 +2,26 @@ from __future__ import annotations
 
 import logging
 from dataclasses import dataclass, field
-from typing import Any
+from functools import partial
+from typing import Any, Callable
 
 import numpy as np
 from numpy.typing import NDArray
 
 from src.agents.preference_tracker import ConvergenceConfig, PreferenceTracker
-from src.agents.query_generator import RandomQueryGenerator, StructuredQueryGenerator
+from src.agents.query_generator import (
+    DirichletQueryGenerator,
+    FixedQueryGenerator,
+    RandomQueryGenerator,
+    StructuredQueryGenerator,
+)
 from src.agents.response_generator import ResponseGenerator
 from src.environments.base import BaseEnvironment
 from src.utils.diagnostic_scenarios import ScenarioLibraryBase
 from src.evaluation.alignment_metrics import compute_preference_recovery_error
 from src.training.synthetic_users import SyntheticUser, UserType
 from src.utils.diagnostic_scenarios import DiagnosticScenario
+from src.utils.posterior import GaussianPosterior, ParticlePosterior, PosteriorBase
 
 logger = logging.getLogger(__name__)
 
@@ -79,7 +86,9 @@ class ElicitationLoop:
         Args:
             env: The game environment.
             user: A synthetic user with known theta.
-            query_type: "active" for EIG-based selection, "random" for baseline.
+            query_type: "active" for EIG-based selection, "fixed" for a static
+                prior-EIG-ranked questionnaire, "dirichlet" for fully random
+                Dirichlet option pairs, "random" for the library baseline.
         """
         tracker = PreferenceTracker(
             posterior_type=self.config.posterior_type,
@@ -89,13 +98,31 @@ class ElicitationLoop:
         )
 
         if query_type == "active":
-            query_gen = StructuredQueryGenerator(
+            query_gen: Any = StructuredQueryGenerator(
                 n_scenarios_per_round=self.config.n_scenarios_per_round,
                 n_eig_samples=self.config.n_eig_samples,
                 temperature=self.config.temperature,
                 seed=self.config.seed,
                 library=self.config.scenario_library,
             )
+        elif query_type == "fixed":
+            if self.config.posterior_type == "gaussian":
+                posterior_factory: Callable[[], PosteriorBase] = GaussianPosterior
+            else:
+                posterior_factory = partial(
+                    ParticlePosterior, n_particles=self.config.n_particles,
+                )
+            query_gen = FixedQueryGenerator(
+                n_scenarios_per_round=self.config.n_scenarios_per_round,
+                n_eig_samples=self.config.n_eig_samples,
+                temperature=self.config.temperature,
+                seed=self.config.seed,
+                library=self.config.scenario_library,
+                n_particles=self.config.n_particles,
+                posterior_factory=posterior_factory,
+            )
+        elif query_type == "dirichlet":
+            query_gen = DirichletQueryGenerator(seed=self.config.seed)
         else:
             query_gen = RandomQueryGenerator(
                 seed=self.config.seed,
