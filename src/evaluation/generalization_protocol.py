@@ -143,6 +143,7 @@ def _run_pair_transfer(
             convergence=convergence,
             seed=seed + i * 1000 + 7,
             scenario_library=lib_target,
+            reference_point_mode=elicitation.reference_point_mode,
         )
         loop_w = ElicitationLoop(cfg_w)
         target_env.reset(seed=seed + i + 9000)
@@ -162,6 +163,7 @@ def _run_pair_transfer(
             convergence=convergence,
             seed=seed + i * 1000 + 99,
             scenario_library=lib_source,
+            reference_point_mode=elicitation.reference_point_mode,
         )
         source_env = source_factory()
         loop_c = ElicitationLoop(cfg_c)
@@ -234,6 +236,7 @@ def run_generalization_study(
                     convergence=elic.convergence,
                     seed=elic.seed,
                     scenario_library=lib,
+                    reference_point_mode=elic.reference_point_mode,
                 )
             stab = run_theta_stability_test(
                 factory,
@@ -293,6 +296,7 @@ def run_generalization_study(
                     convergence=elic.convergence,
                     seed=elic.seed,
                     scenario_library=lib,
+                    reference_point_mode=elic.reference_point_mode,
                 )
             env = factory()
             bench = run_elicitation_benchmark(

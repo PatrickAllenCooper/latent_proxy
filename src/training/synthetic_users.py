@@ -176,14 +176,22 @@ class SyntheticUser:
         channel_variances: NDArray[np.floating[Any]],
         current_wealth: float,
         rounds_remaining: int = 1,
+        reference_point: float | None = None,
     ) -> float:
         """Score an allocation under this user's utility using Monte Carlo.
 
         Simulates outcomes from a single-period return model and averages
         the discounted prospect-theory utility.
+
+        Args:
+            reference_point: Optional per-call override for the prospect-theory
+                reference point (e.g. the scenario's current wealth so negative
+                returns register as losses). Uses ``self.reference_point``
+                when None, preserving prior behavior.
         """
         allocation = np.asarray(allocation, dtype=np.float64)
         n_samples = 400
+        ref = self.reference_point if reference_point is None else float(reference_point)
 
         port_mean = float(np.dot(allocation, channel_means))
         port_var = float(np.dot(allocation**2, channel_variances))
@@ -194,7 +202,7 @@ class SyntheticUser:
 
         utilities = prospect_utility(
             sim_wealth, self.user_type.alpha,
-            self.user_type.lambda_, self.reference_point,
+            self.user_type.lambda_, ref,
         )
         discount = self.user_type.gamma ** rounds_remaining
         return float(np.mean(utilities)) * discount
@@ -207,6 +215,7 @@ class SyntheticUser:
         current_wealth: float,
         n_periods: int,
         n_samples: int = 256,
+        reference_point: float | None = None,
     ) -> float:
         """Monte Carlo expected utility over multiple compounding rounds.
 
@@ -214,6 +223,10 @@ class SyntheticUser:
         Per-round utility uses prospect theory on end-of-period wealth; each
         period is discounted by gamma**t so patience changes the relative
         value of stable vs volatile allocation paths (gamma is identifiable).
+
+        Args:
+            reference_point: Optional per-call override for the prospect-theory
+                reference point. Uses ``self.reference_point`` when None.
         """
         if n_periods < 1:
             raise ValueError(f"n_periods must be >= 1, got {n_periods}")
@@ -226,7 +239,7 @@ class SyntheticUser:
         gamma = self.user_type.gamma
         alpha = self.user_type.alpha
         lambda_ = self.user_type.lambda_
-        ref = self.reference_point
+        ref = self.reference_point if reference_point is None else float(reference_point)
 
         returns = self._rng.normal(
             port_mean, port_std, size=(n_samples, n_periods),
@@ -248,8 +261,15 @@ class SyntheticUser:
         current_wealth: float,
         rounds_remaining: int,
         multiperiod_horizon: int | None = None,
+        reference_point: float | None = None,
     ) -> float:
-        """Expected utility for a diagnostic query (single- or multi-period)."""
+        """Expected utility for a diagnostic query (single- or multi-period).
+
+        Args:
+            reference_point: Optional per-call override for the prospect-theory
+                reference point (e.g. the query's own current wealth). Uses
+                ``self.reference_point`` when None.
+        """
         if multiperiod_horizon is not None and multiperiod_horizon > 1:
             return self.evaluate_allocation_multiperiod(
                 allocation,
@@ -257,6 +277,7 @@ class SyntheticUser:
                 channel_variances,
                 current_wealth,
                 int(multiperiod_horizon),
+                reference_point=reference_point,
             )
         return self.evaluate_allocation(
             allocation,
@@ -264,6 +285,7 @@ class SyntheticUser:
             channel_variances,
             current_wealth,
             rounds_remaining,
+            reference_point=reference_point,
         )
 
     def choose(

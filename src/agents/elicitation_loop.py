@@ -39,6 +39,7 @@ class ElicitationConfig:
     convergence: ConvergenceConfig = field(default_factory=ConvergenceConfig)
     seed: int = 42
     scenario_library: ScenarioLibraryBase | None = None
+    reference_point_mode: str = "zero"
 
 
 @dataclass
@@ -95,6 +96,7 @@ class ElicitationLoop:
             n_particles=self.config.n_particles,
             temperature=self.config.temperature,
             convergence=self.config.convergence,
+            reference_point_mode=self.config.reference_point_mode,
         )
 
         if query_type == "active":
@@ -104,6 +106,7 @@ class ElicitationLoop:
                 temperature=self.config.temperature,
                 seed=self.config.seed,
                 library=self.config.scenario_library,
+                reference_point_mode=self.config.reference_point_mode,
             )
         elif query_type == "fixed":
             if self.config.posterior_type == "gaussian":
@@ -148,6 +151,15 @@ class ElicitationLoop:
 
             scenario = query_gen.select_query(env, tracker.posterior)
 
+            # In "current_wealth" mode the simulated user evaluates each
+            # query against the scenario's own wealth as reference point,
+            # matching the likelihood used for inference. None preserves
+            # the user's own reference point (historical behavior).
+            if self.config.reference_point_mode == "current_wealth":
+                query_ref: float | None = float(scenario.current_wealth)
+            else:
+                query_ref = None
+
             eu_a = user.evaluate_for_query(
                 scenario.option_a,
                 scenario.channel_means,
@@ -155,6 +167,7 @@ class ElicitationLoop:
                 scenario.current_wealth,
                 scenario.rounds_remaining,
                 multiperiod_horizon=scenario.multiperiod_horizon,
+                reference_point=query_ref,
             )
             eu_b = user.evaluate_for_query(
                 scenario.option_b,
@@ -163,6 +176,7 @@ class ElicitationLoop:
                 scenario.current_wealth,
                 scenario.rounds_remaining,
                 multiperiod_horizon=scenario.multiperiod_horizon,
+                reference_point=query_ref,
             )
             choice = user.choose(eu_a, eu_b)
 
