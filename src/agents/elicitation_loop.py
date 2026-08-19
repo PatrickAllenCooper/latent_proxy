@@ -44,6 +44,7 @@ class ElicitationResult:
     n_rounds: int
     convergence_reason: str
     variance_trajectory: list[dict[str, float]]
+    mean_trajectory: list[dict[str, float]] = field(default_factory=list)
 
     def preference_recovery_error(self) -> dict[str, float] | None:
         if self.true_theta is None:
@@ -103,12 +104,14 @@ class ElicitationLoop:
 
         history: list[tuple[DiagnosticScenario, int]] = []
         variance_trajectory: list[dict[str, float]] = []
+        mean_trajectory: list[dict[str, float]] = []
         convergence_reason = "max_rounds"
 
         variance_trajectory.append({
             name: float(tracker.posterior.variance[i])
             for i, name in enumerate(tracker.posterior.param_names)
         })
+        mean_trajectory.append(tracker.posterior.to_dict())
 
         for round_idx in range(self.config.max_rounds):
             converged, reason = tracker.check_convergence()
@@ -143,6 +146,7 @@ class ElicitationLoop:
                 name: float(tracker.posterior.variance[i])
                 for i, name in enumerate(tracker.posterior.param_names)
             })
+            mean_trajectory.append(tracker.posterior.to_dict())
 
             logger.debug(
                 "Round %d: choice=%d, mean=%s, var=%s",
@@ -166,4 +170,5 @@ class ElicitationLoop:
             n_rounds=len(history),
             convergence_reason=convergence_reason,
             variance_trajectory=variance_trajectory,
+            mean_trajectory=mean_trajectory,
         )

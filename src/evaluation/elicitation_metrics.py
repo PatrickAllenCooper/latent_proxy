@@ -62,8 +62,6 @@ def compute_recovery_curve(
     result: ElicitationResult,
 ) -> dict[str, Any]:
     """Per-round trajectory of posterior variance and recovery error."""
-    trajectory = result.variance_trajectory
-
     per_round_error = []
     if result.true_theta is not None:
         true = {
@@ -71,13 +69,15 @@ def compute_recovery_curve(
             "alpha": result.true_theta.alpha,
             "lambda_": result.true_theta.lambda_,
         }
-        for var_dict in trajectory:
-            round_err = sum(abs(var_dict.get(k, 0.5) - true.get(k, 0.5))
+        for mean_dict in result.mean_trajectory:
+            round_err = sum(abs(mean_dict.get(k, 0.5) - true[k])
                            for k in true) / len(true)
             per_round_error.append(round_err)
 
     return {
-        "variance_trajectory": trajectory,
+        "variance_trajectory": result.variance_trajectory,
+        "mean_trajectory": result.mean_trajectory,
+        "per_round_error": per_round_error,
         "n_rounds": result.n_rounds,
         "convergence_reason": result.convergence_reason,
         "final_error": result.preference_recovery_error(),
@@ -128,6 +128,8 @@ def run_elicitation_benchmark(
             posterior_type=config.posterior_type,
             n_particles=config.n_particles,
             max_rounds=config.max_rounds,
+            n_scenarios_per_round=config.n_scenarios_per_round,
+            n_eig_samples=config.n_eig_samples,
             temperature=config.temperature,
             convergence=config.convergence,
             seed=seed + i * 2000,
