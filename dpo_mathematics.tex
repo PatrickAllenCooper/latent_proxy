@@ -1,0 +1,272 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\title{Mathematical Formulation of DPO Training\\for Preference-Conditioned Elicitation}
+\author{Patrick Cooper}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{User Preference Model}
+
+A user's latent type is a parameter vector
+$\theta = (\gamma, \alpha, \lambda)$ drawn from independent priors:
+\begin{align}
+  \gamma &\sim \mathrm{Beta}(a, b), \quad \gamma \in (0,1] \label{eq:gamma} \\
+  \alpha &\sim \mathrm{LogNormal}(\mu, \sigma), \quad \alpha \ge 0 \label{eq:alpha} \\
+  \lambda &\sim \mathrm{Uniform}(1, 3), \quad \lambda \ge 1 \label{eq:lambda}
+\end{align}
+where $\gamma$ is a discount factor encoding patience, $\alpha$ controls risk
+aversion, and $\lambda$ controls loss aversion.
+
+\subsection{Prospect-Theory Utility}
+
+Given a wealth outcome $w$ and reference point $w_{\mathrm{ref}}$, the
+value function follows Kahneman--Tversky prospect theory:
+\begin{equation}\label{eq:prospect}
+  u(w;\, \alpha, \lambda) =
+  \begin{cases}
+    (w - w_{\mathrm{ref}})^{\,1/(1+\alpha)}
+      & \text{if } w \ge w_{\mathrm{ref}}, \\[4pt]
+    -\lambda \cdot |w - w_{\mathrm{ref}}|^{\,1/(1+\alpha)}
+      & \text{if } w < w_{\mathrm{ref}}.
+  \end{cases}
+\end{equation}
+The exponent $1/(1+\alpha)$ produces concavity over gains and convexity over
+losses. Increasing $\alpha$ increases curvature, i.e., strengthens risk
+aversion. The multiplier $\lambda \ge 1$ makes losses hurt $\lambda$ times
+more than equivalent gains.
+
+\subsection{Single-Period Expected Utility}
+
+An allocation $a \in \Delta^K$ (the probability simplex over $K$ channels)
+induces a portfolio return distribution. Let $\mu, \sigma^2 \in \mathbb{R}^K$
+denote the per-channel return means and variances conditioned on the current
+regime. The portfolio moments are:
+\begin{equation}\label{eq:portfolio}
+  r_p = a^\top \mu, \qquad
+  \sigma_p^2 = a^\top \mathrm{diag}(\sigma^2)\, a.
+\end{equation}
+Expected utility is estimated by Monte Carlo. Draw $N$ samples
+$r_i \sim \mathcal{N}(r_p, \sigma_p^2)$, compute simulated wealth
+$w_i = w_{\mathrm{current}} \cdot (1 + r_i)$, and average:
+\begin{equation}\label{eq:eu-single}
+  \mathrm{EU}(a;\, \theta)
+  = \gamma^{\,T_{\mathrm{rem}}} \cdot
+    \frac{1}{N}\sum_{i=1}^{N} u(w_i;\, \alpha, \lambda),
+\end{equation}
+where $T_{\mathrm{rem}}$ is the number of rounds remaining and
+$\gamma^{T_{\mathrm{rem}}}$ discounts the entire payoff by the user's
+patience.
+
+\subsection{Multi-Period Expected Utility}
+
+To make $\gamma$ identifiable from binary choices, diagnostic scenarios
+targeting the discount factor use a compounding multi-period formulation.
+Over $H$ periods, wealth compounds as
+$w_i^{(t+1)} = w_i^{(t)} \cdot (1 + r_{i,t})$ with i.i.d.\ returns, and
+per-round utility is discounted:
+\begin{equation}\label{eq:eu-multi}
+  \mathrm{EU}_{\mathrm{multi}}(a;\, \theta)
+  = \frac{1}{N}\sum_{i=1}^{N} \sum_{t=0}^{H-1}
+    \gamma^{\,t}\; u\!\left(w_i^{(t)};\, \alpha, \lambda\right).
+\end{equation}
+A patient user ($\gamma \approx 1$) weights later rounds nearly equally,
+favoring low-variance allocations that compound reliably. An impatient user
+($\gamma \ll 1$) effectively cares only about $t = 0$, so the discount
+factor drops out of single-period comparisons but remains identifiable in the
+multi-period setting.
+
+
+\section{Synthetic User Choice Model}
+
+When presented with two allocations $a_A, a_B$, a synthetic user with
+parameters $\theta$ responds via softmax-rational choice:
+\begin{equation}\label{eq:choice}
+  P(\text{choose } A)
+  = \sigma\!\left(\frac{\mathrm{EU}(a_A;\,\theta)
+                       - \mathrm{EU}(a_B;\,\theta)}{\tau}\right),
+\end{equation}
+where $\sigma$ is the logistic sigmoid and $\tau > 0$ is a temperature
+controlling noise (bounded rationality). This choice model provides the
+supervised signal for both the analytical posterior and DPO pair construction.
+
+
+\section{Reward Decomposition}
+
+The system decomposes the reward for a recommendation action $a$ given
+environment context $x$ and user type $\theta$ as:
+\begin{equation}\label{eq:reward}
+  R(a, x, \theta)
+  = R_{\mathrm{quality}}(a, \mathrm{env})
+  + \beta \cdot R_{\mathrm{alignment}}(a, \theta).
+\end{equation}
+$R_{\mathrm{quality}}$ is an objective, user-independent score (a
+regime-adjusted Sharpe-like ratio). $R_{\mathrm{alignment}}$ measures how
+well the recommendation matches the user's true optimal action.
+The weight $\beta$ governs the quality--alignment tradeoff and is realized
+through curriculum phasing: Phase~1 sets $\beta = 0$ (quality only);
+Phase~2 introduces alignment through contrastive type-conditioned pairs.
+
+
+\section{DPO Pair Construction}
+
+Training data consists of triples $(x, y_w, y_l)$: a prompt $x$, a
+preferred (``chosen'') completion $y_w$, and a dispreferred (``rejected'')
+completion $y_l$. Both completions are allocation texts serialized as
+channel-percentage lists. Pair construction differs across curriculum phases.
+
+\subsection{Phase 1: Quality Floor Enforcement}
+
+Given a game state $s$, generate $n$ candidate allocations by pooling:
+optimal actions $a^*(\theta_j)$ for several randomly sampled $\theta_j$,
+Dirichlet-random points $a \sim \mathrm{Dir}(\mathbf{1}_K)$, and
+Gaussian perturbations of the optimals. Score each candidate by
+$R_{\mathrm{quality}}(a)$ and check the quality floor
+(diversification, dominance, bankruptcy probability).
+
+The prompt $x$ is a natural-language rendering of $s$ with no user profile.
+\begin{align}
+  y_w &= \arg\max_{a \in \mathcal{C}} R_{\mathrm{quality}}(a),
+    \label{eq:p1-chosen} \\
+  y_l &=
+    \begin{cases}
+      \text{a floor-violating candidate} & \text{if one exists,} \\
+      \arg\min_{a \in \mathcal{C}} R_{\mathrm{quality}}(a) & \text{otherwise.}
+    \end{cases}
+    \label{eq:p1-rejected}
+\end{align}
+
+\subsection{Phase 2: Type-Conditioned Alignment}
+
+Given a game state $s$ and a sampled user type $\theta$, the prompt $x$
+includes a natural-language user profile (time horizon, risk tolerance, loss
+sensitivity with numerical parameters). Candidates again include
+$a^*(\theta)$ for the target user plus contrasting and random allocations.
+
+For the target user, score each candidate by expected utility:
+\begin{equation}\label{eq:p2-chosen}
+  y_w = \arg\max_{a \in \mathcal{C}}\; \mathrm{EU}(a;\, \theta).
+\end{equation}
+
+Sample a contrasting user $\theta'$ such that $|\gamma - \gamma'| \ge 0.2$
+or $|\alpha - \alpha'| \ge 0.3$, then set:
+\begin{equation}\label{eq:p2-rejected}
+  y_l = a^*(\theta'),
+\end{equation}
+the allocation that is optimal for a different user type. The rejected
+response is not a degenerate action---it is a high-quality action for the
+wrong user. This forces the model to attend to the user profile in the
+prompt, since the same allocation text switches between chosen and rejected
+depending on $\theta$.
+
+
+\section{DPO Loss}
+
+With constructed pairs $(x, y_w, y_l)$, the model is trained via the
+DPO loss from Rafailov et al.:
+\begin{equation}\label{eq:dpo}
+  \mathcal{L}_{\mathrm{DPO}}(\pi_\phi;\, \pi_{\mathrm{ref}})
+  = -\mathbb{E}\!\left[
+    \log\sigma\!\left(
+      \beta_{\mathrm{dpo}} \cdot \left[
+        \log\frac{\pi_\phi(y_w \mid x)}{\pi_{\mathrm{ref}}(y_w \mid x)}
+        - \log\frac{\pi_\phi(y_l \mid x)}{\pi_{\mathrm{ref}}(y_l \mid x)}
+      \right]
+    \right)
+  \right],
+\end{equation}
+where $\pi_\phi$ is the trainable policy (base model with LoRA adapters),
+$\pi_{\mathrm{ref}}$ is the frozen reference policy (the unmodified base
+model), and $\beta_{\mathrm{dpo}} = 0.1$ controls the strength of the KL
+divergence penalty against the reference.
+
+Intuitively, minimizing~\eqref{eq:dpo} increases the log-probability of
+$y_w$ relative to $y_l$ under $\pi_\phi$, but only insofar as the shift from
+$\pi_{\mathrm{ref}}$ is justified by the preference signal. The
+$\beta_{\mathrm{dpo}}$ term prevents the policy from collapsing away from the
+reference distribution.
+
+\paragraph{Why this is ``conditional'' DPO.}
+The loss function~\eqref{eq:dpo} is identical to standard DPO. What makes the
+training type-conditioned is the structure of $x$. In Phase~2, the prompt
+contains the user profile (e.g., ``Time horizon: Very long-term, discount
+factor 0.95; Risk tolerance: Low, alpha 2.00''). Because $y_w$ is optimal for
+the user described in $x$ and $y_l$ is optimal for a different user, the
+gradient signal forces the model to learn the mapping from profile text to
+appropriate allocation ordering. Standard DPO over unconditional prompts
+would see contradictory preference signals across user types;
+conditioning on the profile resolves the contradiction.
+
+
+\section{Model Architecture}
+
+The base model is Qwen2.5-1.5B-Instruct, loaded in 4-bit NF4 quantization
+(QLoRA). Only low-rank adapters are trained:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+\toprule
+Component & Setting \\
+\midrule
+Quantization & 4-bit NF4, double quantization, bfloat16 compute \\
+LoRA rank / alpha & 16 / 32 \\
+LoRA dropout & 0.1 \\
+Target modules & \texttt{q\_proj}, \texttt{k\_proj}, \texttt{v\_proj}, \texttt{o\_proj} \\
+Optimizer & Paged AdamW 8-bit \\
+Batch size (effective) & $1 \times 8$ gradient accumulation \\
+Epochs & 3 \\
+DPO $\beta$ & 0.1 \\
+\bottomrule
+\end{tabular}
+\caption{QLoRA and DPO training hyperparameters.}
+\label{tab:arch}
+\end{table}
+
+The curriculum is sequential: Phase~1 trains on quality-only pairs, producing
+a checkpoint. Phase~2 loads the Phase~1 checkpoint and continues training on
+type-conditioned pairs, so quality floor compliance is established before
+alignment is introduced.
+
+
+\section{Deployment: LLM-in-the-Loop Elicitation}
+
+After DPO training, the model drives the full elicitation cycle. At each
+round $t$:
+
+\begin{enumerate}
+  \item The model receives the serialized environment state and interaction
+    history, then generates a diagnostic query: two allocation options
+    $(a_A, a_B)$.
+  \item A synthetic user responds via~\eqref{eq:choice}.
+  \item The choice is appended to the history.
+  \item The model generates an interim recommendation $\hat{a}_t$
+    conditioned on all choices observed so far.
+\end{enumerate}
+
+After $N$ rounds, the final recommendation $\hat{a}_N$ is evaluated by
+Spearman rank correlation against $a^*(\theta_{\mathrm{true}})$ (alignment
+score) and by quality floor constraint checks (violation rate).
+
+The model maintains no explicit posterior over $\theta$; preference tracking
+is implicit in the in-context conditioning on the choice history. This is
+compared against an analytical baseline that maintains an explicit particle
+filter posterior updated via the softmax-rational likelihood
+of~\eqref{eq:choice}, with queries selected by expected information gain:
+\begin{equation}\label{eq:eig}
+  q^* = \arg\max_q \;
+  H[\theta \mid h_t]
+  - \mathbb{E}_{r \sim p(r|q, h_t)}\!\left[
+    H[\theta \mid h_t, q, r]
+  \right].
+\end{equation}
+
+The analytical baseline provides an upper bound on elicitation efficiency;
+the DPO study measures how much of this bound the LLM can recover.
+
+\end{document}
