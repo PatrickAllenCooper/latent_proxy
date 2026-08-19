@@ -1,0 +1,1698 @@
+{
+  "config": {
+    "domains": [
+      "game_a",
+      "game_b",
+      "stock",
+      "supply_chain"
+    ],
+    "n_thetas": 200,
+    "n_per_param": 17,
+    "temperature": 0.1,
+    "rel_step": 0.01,
+    "n_probe_seeds": 3,
+    "seed": 42
+  },
+  "domains": {
+    "game_a": {
+      "n_scenarios": 51,
+      "n_thetas": 200,
+      "crn_max_abs_eu_discrepancy": 0.0,
+      "target_param_counts": {
+        "gamma": 17,
+        "alpha": 17,
+        "lambda_": 17
+      },
+      "overall": {
+        "gamma": {
+          "median_fisher": 1.2931882862726613e-08,
+          "p10_fisher": 2.445607382411933e-121,
+          "p90_fisher": 0.5418011831194804,
+          "frac_fisher_above_1e-6": 0.4130392156862745
+        },
+        "alpha": {
+          "median_fisher": 7.322686933824652e-11,
+          "p10_fisher": 1.0195685377424646e-135,
+          "p90_fisher": 0.016529780012037355,
+          "frac_fisher_above_1e-6": 0.31333333333333335
+        },
+        "lambda_": {
+          "median_fisher": 0.0,
+          "p10_fisher": 0.0,
+          "p90_fisher": 0.0,
+          "frac_fisher_above_1e-6": 0.0
+        },
+        "median_abs_eu_diff_over_tau": 0.006989500845349609,
+        "saturated_fraction": 0.32823529411764707,
+        "n_pairs": 10200
+      },
+      "by_target_param": {
+        "gamma": {
+          "gamma": {
+            "median_fisher": 7.18395879776312e-43,
+            "p10_fisher": 0.0,
+            "p90_fisher": 0.011010188485581586,
+            "frac_fisher_above_1e-6": 0.2223529411764706
+          },
+          "alpha": {
+            "median_fisher": 1.3323885684293666e-43,
+            "p10_fisher": 0.0,
+            "p90_fisher": 0.0023497175997297297,
+            "frac_fisher_above_1e-6": 0.20911764705882352
+          },
+          "lambda_": {
+            "median_fisher": 0.0,
+            "p10_fisher": 0.0,
+            "p90_fisher": 0.0,
+            "frac_fisher_above_1e-6": 0.0
+          },
+          "median_abs_eu_diff_over_tau": 68.77442059109974,
+          "saturated_fraction": 0.97,
+          "n_pairs": 3400
+        },
+        "alpha": {
+          "gamma": {
+            "median_fisher": 3.42906251020984e-05,
+            "p10_fisher": 4.871669344001751e-16,
+            "p90_fisher": 13.281428027152627,
+            "frac_fisher_above_1e-6": 0.6008823529411764
+          },
+          "alpha": {
+            "median_fisher": 1.7157292429333824e-07,
+            "p10_fisher": 4.836503841078154e-19,
+            "p90_fisher": 0.2991590037652022,
+            "frac_fisher_above_1e-6": 0.4597058823529412
+          },
+          "lambda_": {
+            "median_fisher": 0.0,
+            "p10_fisher": 0.0,
+            "p90_fisher": 0.0,
+            "frac_fisher_above_1e-6": 0.0
+          },
+          "median_abs_eu_diff_over_tau": 0.0003812532193949022,
+          "saturated_fraction": 0.013529411764705882,
+          "n_pairs": 3400
+        },
+        "lambda_": {
+          "gamma": {
+            "median_fisher": 4.879127472202761e-08,
+            "p10_fisher": 1.981825569411713e-19,
+            "p90_fisher": 0.06524861048623345,
+            "frac_fisher_above_1e-6": 0.4158823529411765
+          },
+          "alpha": {
+            "median_fisher": 2.507985490146173e-10,
+            "p10_fisher": 1.446412721701766e-22,
+            "p90_fisher": 0.001282083487182402,
+            "frac_fisher_above_1e-6": 0.2711764705882353
+          },
+          "lambda_": {
+            "median_fisher": 0.0,
+            "p10_fisher": 0.0,
+            "p90_fisher": 0.0,
+            "frac_fisher_above_1e-6": 0.0
+          },
+          "median_abs_eu_diff_over_tau": 1.3786921774080682e-05,
+          "saturated_fraction": 0.001176470588235294,
+          "n_pairs": 3400
+        }
+      },
+      "loss_branch_probe": {
+        "n_probes": 153,
+        "max_fraction_below_ref": 0.0,
+        "mean_fraction_below_ref": 0.0,
+        "any_draw_below_ref": false,
+        "per_scenario_max": [
+          {
+            "scenario_idx": 0,
+            "target_param": "gamma",
+            "multiperiod_horizon": 13,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 1,
+            "target_param": "gamma",
+            "multiperiod_horizon": 16,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 2,
+            "target_param": "gamma",
+            "multiperiod_horizon": 12,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 3,
+            "target_param": "gamma",
+            "multiperiod_horizon": 14,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 4,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 5,
+            "target_param": "gamma",
+            "multiperiod_horizon": 11,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 6,
+            "target_param": "gamma",
+            "multiperiod_horizon": 13,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 7,
+            "target_param": "gamma",
+            "multiperiod_horizon": 13,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 8,
+            "target_param": "gamma",
+            "multiperiod_horizon": 19,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 9,
+            "target_param": "gamma",
+            "multiperiod_horizon": 16,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 10,
+            "target_param": "gamma",
+            "multiperiod_horizon": 17,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 11,
+            "target_param": "gamma",
+            "multiperiod_horizon": 11,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 12,
+            "target_param": "gamma",
+            "multiperiod_horizon": 14,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 13,
+            "target_param": "gamma",
+            "multiperiod_horizon": 12,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 14,
+            "target_param": "gamma",
+            "multiperiod_horizon": 16,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 15,
+            "target_param": "gamma",
+            "multiperiod_horizon": 18,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 16,
+            "target_param": "gamma",
+            "multiperiod_horizon": 15,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 17,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 18,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 19,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 20,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 21,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 22,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 23,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 24,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 25,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 26,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 27,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 28,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 29,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 30,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 31,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 32,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 33,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 34,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 35,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 36,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 37,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 38,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 39,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 40,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 41,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 42,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 43,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 44,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 45,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 46,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 47,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 48,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 49,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 50,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          }
+        ]
+      },
+      "lambda_identifiable_anywhere": false,
+      "max_lambda_fisher": 0.0
+    },
+    "game_b": {
+      "n_scenarios": 51,
+      "n_thetas": 200,
+      "crn_max_abs_eu_discrepancy": 0.0,
+      "target_param_counts": {
+        "gamma": 17,
+        "alpha": 17,
+        "lambda_": 17
+      },
+      "overall": {
+        "gamma": {
+          "median_fisher": 2.774345649697556e-25,
+          "p10_fisher": 0.0,
+          "p90_fisher": 0.000123746902268816,
+          "frac_fisher_above_1e-6": 0.1438235294117647
+        },
+        "alpha": {
+          "median_fisher": 4.539022008280881e-28,
+          "p10_fisher": 0.0,
+          "p90_fisher": 8.979959036621627e-07,
+          "frac_fisher_above_1e-6": 0.0992156862745098
+        },
+        "lambda_": {
+          "median_fisher": 0.0,
+          "p10_fisher": 0.0,
+          "p90_fisher": 0.0,
+          "frac_fisher_above_1e-6": 0.0
+        },
+        "median_abs_eu_diff_over_tau": 1.4379670615949833e-06,
+        "saturated_fraction": 0.33215686274509804,
+        "n_pairs": 10200
+      },
+      "by_target_param": {
+        "gamma": {
+          "gamma": {
+            "median_fisher": 5.648872050903844e-167,
+            "p10_fisher": 0.0,
+            "p90_fisher": 1.3055424804313767e-08,
+            "frac_fisher_above_1e-6": 0.0861764705882353
+          },
+          "alpha": {
+            "median_fisher": 2.351390343295692e-167,
+            "p10_fisher": 0.0,
+            "p90_fisher": 4.967723030567748e-09,
+            "frac_fisher_above_1e-6": 0.07764705882352942
+          },
+          "lambda_": {
+            "median_fisher": 0.0,
+            "p10_fisher": 0.0,
+            "p90_fisher": 0.0,
+            "frac_fisher_above_1e-6": 0.0
+          },
+          "median_abs_eu_diff_over_tau": 215.5824361402091,
+          "saturated_fraction": 0.9894117647058823,
+          "n_pairs": 3400
+        },
+        "alpha": {
+          "gamma": {
+            "median_fisher": 2.500568165297698e-16,
+            "p10_fisher": 0.0,
+            "p90_fisher": 0.018369987774510748,
+            "frac_fisher_above_1e-6": 0.2223529411764706
+          },
+          "alpha": {
+            "median_fisher": 3.2791153202668316e-19,
+            "p10_fisher": 0.0,
+            "p90_fisher": 8.321123443903015e-05,
+            "frac_fisher_above_1e-6": 0.15088235294117647
+          },
+          "lambda_": {
+            "median_fisher": 0.0,
+            "p10_fisher": 0.0,
+            "p90_fisher": 0.0,
+            "frac_fisher_above_1e-6": 0.0
+          },
+          "median_abs_eu_diff_over_tau": 4.049519925336779e-10,
+          "saturated_fraction": 0.006470588235294118,
+          "n_pairs": 3400
+        },
+        "lambda_": {
+          "gamma": {
+            "median_fisher": 6.4127763898395474e-21,
+            "p10_fisher": 0.0,
+            "p90_fisher": 7.717085479562303e-06,
+            "frac_fisher_above_1e-6": 0.12294117647058823
+          },
+          "alpha": {
+            "median_fisher": 6.2654161151124844e-24,
+            "p10_fisher": 0.0,
+            "p90_fisher": 2.6352194252675456e-08,
+            "frac_fisher_above_1e-6": 0.06911764705882353
+          },
+          "lambda_": {
+            "median_fisher": 0.0,
+            "p10_fisher": 0.0,
+            "p90_fisher": 0.0,
+            "frac_fisher_above_1e-6": 0.0
+          },
+          "median_abs_eu_diff_over_tau": 1.932038832785563e-12,
+          "saturated_fraction": 0.000588235294117647,
+          "n_pairs": 3400
+        }
+      },
+      "loss_branch_probe": {
+        "n_probes": 153,
+        "max_fraction_below_ref": 0.0,
+        "mean_fraction_below_ref": 0.0,
+        "any_draw_below_ref": false,
+        "per_scenario_max": [
+          {
+            "scenario_idx": 0,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 1,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 2,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 3,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 4,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 5,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 6,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 7,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 8,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 9,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 10,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 11,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 12,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 13,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 14,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 15,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 16,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 17,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 18,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 19,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 20,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 21,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 22,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 23,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 24,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 25,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 26,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 27,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 28,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 29,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 30,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 31,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 32,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 33,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 34,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 35,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 36,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 37,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 38,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 39,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 40,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 41,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 42,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 43,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 44,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 45,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 46,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 47,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 48,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 49,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 50,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          }
+        ]
+      },
+      "lambda_identifiable_anywhere": false,
+      "max_lambda_fisher": 0.0
+    },
+    "stock": {
+      "n_scenarios": 51,
+      "n_thetas": 200,
+      "crn_max_abs_eu_discrepancy": 0.0,
+      "target_param_counts": {
+        "gamma": 17,
+        "alpha": 17,
+        "lambda_": 17
+      },
+      "overall": {
+        "gamma": {
+          "median_fisher": 0.0,
+          "p10_fisher": 0.0,
+          "p90_fisher": 2.613754008287449,
+          "frac_fisher_above_1e-6": 0.3163725490196078
+        },
+        "alpha": {
+          "median_fisher": 0.0,
+          "p10_fisher": 0.0,
+          "p90_fisher": 2.6424236535334438,
+          "frac_fisher_above_1e-6": 0.3115686274509804
+        },
+        "lambda_": {
+          "median_fisher": 0.0,
+          "p10_fisher": 0.0,
+          "p90_fisher": 0.0,
+          "frac_fisher_above_1e-6": 0.0
+        },
+        "median_abs_eu_diff_over_tau": 2.036801096799604e-35,
+        "saturated_fraction": 0.0919607843137255,
+        "n_pairs": 10200
+      },
+      "by_target_param": {
+        "gamma": {
+          "gamma": {
+            "median_fisher": 0.5973026224919974,
+            "p10_fisher": 0.00026404835026309177,
+            "p90_fisher": 10.333435298003272,
+            "frac_fisher_above_1e-6": 0.9411764705882353
+          },
+          "alpha": {
+            "median_fisher": 0.5497279222858735,
+            "p10_fisher": 7.442854260772362e-05,
+            "p90_fisher": 6.664587313049777,
+            "frac_fisher_above_1e-6": 0.9347058823529412
+          },
+          "lambda_": {
+            "median_fisher": 0.0,
+            "p10_fisher": 0.0,
+            "p90_fisher": 0.0,
+            "frac_fisher_above_1e-6": 0.0
+          },
+          "median_abs_eu_diff_over_tau": 1.3242115046915615,
+          "saturated_fraction": 0.27588235294117647,
+          "n_pairs": 3400
+        },
+        "alpha": {
+          "gamma": {
+            "median_fisher": 0.0,
+            "p10_fisher": 0.0,
+            "p90_fisher": 0.0,
+            "frac_fisher_above_1e-6": 0.005588235294117647
+          },
+          "alpha": {
+            "median_fisher": 0.0,
+            "p10_fisher": 0.0,
+            "p90_fisher": 0.0,
+            "frac_fisher_above_1e-6": 0.0
+          },
+          "lambda_": {
+            "median_fisher": 0.0,
+            "p10_fisher": 0.0,
+            "p90_fisher": 0.0,
+            "frac_fisher_above_1e-6": 0.0
+          },
+          "median_abs_eu_diff_over_tau": 1.2534736832148785e-55,
+          "saturated_fraction": 0.0,
+          "n_pairs": 3400
+        },
+        "lambda_": {
+          "gamma": {
+            "median_fisher": 0.0,
+            "p10_fisher": 0.0,
+            "p90_fisher": 0.0,
+            "frac_fisher_above_1e-6": 0.002352941176470588
+          },
+          "alpha": {
+            "median_fisher": 0.0,
+            "p10_fisher": 0.0,
+            "p90_fisher": 0.0,
+            "frac_fisher_above_1e-6": 0.0
+          },
+          "lambda_": {
+            "median_fisher": 0.0,
+            "p10_fisher": 0.0,
+            "p90_fisher": 0.0,
+            "frac_fisher_above_1e-6": 0.0
+          },
+          "median_abs_eu_diff_over_tau": 6.384313200423979e-60,
+          "saturated_fraction": 0.0,
+          "n_pairs": 3400
+        }
+      },
+      "loss_branch_probe": {
+        "n_probes": 153,
+        "max_fraction_below_ref": 0.0,
+        "mean_fraction_below_ref": 0.0,
+        "any_draw_below_ref": false,
+        "per_scenario_max": [
+          {
+            "scenario_idx": 0,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 1,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 2,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 3,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 4,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 5,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 6,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 7,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 8,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 9,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 10,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 11,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 12,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 13,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 14,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 15,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 16,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 17,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 18,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 19,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 20,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 21,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 22,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 23,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 24,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 25,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 26,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 27,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 28,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 29,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 30,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 31,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 32,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 33,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 34,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 35,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 36,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 37,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 38,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 39,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 40,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 41,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 42,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 43,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 44,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 45,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 46,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 47,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 48,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 49,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 50,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          }
+        ]
+      },
+      "lambda_identifiable_anywhere": false,
+      "max_lambda_fisher": 0.0
+    },
+    "supply_chain": {
+      "n_scenarios": 51,
+      "n_thetas": 200,
+      "crn_max_abs_eu_discrepancy": 0.0,
+      "target_param_counts": {
+        "gamma": 17,
+        "alpha": 17,
+        "lambda_": 17
+      },
+      "overall": {
+        "gamma": {
+          "median_fisher": 2.0318785947892997e-66,
+          "p10_fisher": 0.0,
+          "p90_fisher": 0.000383184480837231,
+          "frac_fisher_above_1e-6": 0.1468627450980392
+        },
+        "alpha": {
+          "median_fisher": 1.3979006920864283e-135,
+          "p10_fisher": 0.0,
+          "p90_fisher": 3.223989240363702e-06,
+          "frac_fisher_above_1e-6": 0.10931372549019608
+        },
+        "lambda_": {
+          "median_fisher": 0.0,
+          "p10_fisher": 0.0,
+          "p90_fisher": 0.0,
+          "frac_fisher_above_1e-6": 0.0
+        },
+        "median_abs_eu_diff_over_tau": 1.4773143709376134e-06,
+        "saturated_fraction": 0.33784313725490195,
+        "n_pairs": 10200
+      },
+      "by_target_param": {
+        "gamma": {
+          "gamma": {
+            "median_fisher": 0.0,
+            "p10_fisher": 0.0,
+            "p90_fisher": 6.2470682676415675e-27,
+            "frac_fisher_above_1e-6": 0.05823529411764706
+          },
+          "alpha": {
+            "median_fisher": 0.0,
+            "p10_fisher": 0.0,
+            "p90_fisher": 3.1055528692454365e-27,
+            "frac_fisher_above_1e-6": 0.055
+          },
+          "lambda_": {
+            "median_fisher": 0.0,
+            "p10_fisher": 0.0,
+            "p90_fisher": 0.0,
+            "frac_fisher_above_1e-6": 0.0
+          },
+          "median_abs_eu_diff_over_tau": 895.3349663304186,
+          "saturated_fraction": 0.985,
+          "n_pairs": 3400
+        },
+        "alpha": {
+          "gamma": {
+            "median_fisher": 4.610887947206044e-19,
+            "p10_fisher": 0.0,
+            "p90_fisher": 0.026942717566243626,
+            "frac_fisher_above_1e-6": 0.20705882352941177
+          },
+          "alpha": {
+            "median_fisher": 1.087867062639128e-21,
+            "p10_fisher": 0.0,
+            "p90_fisher": 0.0001727164513770841,
+            "frac_fisher_above_1e-6": 0.1514705882352941
+          },
+          "lambda_": {
+            "median_fisher": 0.0,
+            "p10_fisher": 0.0,
+            "p90_fisher": 0.0,
+            "frac_fisher_above_1e-6": 0.0
+          },
+          "median_abs_eu_diff_over_tau": 1.7882460329040782e-11,
+          "saturated_fraction": 0.018235294117647058,
+          "n_pairs": 3400
+        },
+        "lambda_": {
+          "gamma": {
+            "median_fisher": 3.7437702954993814e-21,
+            "p10_fisher": 0.0,
+            "p90_fisher": 0.0021485046408775896,
+            "frac_fisher_above_1e-6": 0.17529411764705882
+          },
+          "alpha": {
+            "median_fisher": 5.741835984032784e-24,
+            "p10_fisher": 0.0,
+            "p90_fisher": 9.576566744737543e-06,
+            "frac_fisher_above_1e-6": 0.12147058823529412
+          },
+          "lambda_": {
+            "median_fisher": 0.0,
+            "p10_fisher": 0.0,
+            "p90_fisher": 0.0,
+            "frac_fisher_above_1e-6": 0.0
+          },
+          "median_abs_eu_diff_over_tau": 1.2682591879514964e-12,
+          "saturated_fraction": 0.010294117647058823,
+          "n_pairs": 3400
+        }
+      },
+      "loss_branch_probe": {
+        "n_probes": 153,
+        "max_fraction_below_ref": 0.0,
+        "mean_fraction_below_ref": 0.0,
+        "any_draw_below_ref": false,
+        "per_scenario_max": [
+          {
+            "scenario_idx": 0,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 1,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 2,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 3,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 4,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 5,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 6,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 7,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 8,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 9,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 10,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 11,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 12,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 13,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 14,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 15,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 16,
+            "target_param": "gamma",
+            "multiperiod_horizon": 20,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 17,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 18,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 19,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 20,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 21,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 22,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 23,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 24,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 25,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 26,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 27,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 28,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 29,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 30,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 31,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 32,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 33,
+            "target_param": "alpha",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 34,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 35,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 36,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 37,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 38,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 39,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 40,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 41,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 42,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 43,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 44,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 45,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 46,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 47,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 48,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 49,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          },
+          {
+            "scenario_idx": 50,
+            "target_param": "lambda_",
+            "multiperiod_horizon": null,
+            "max_frac_below_ref": 0.0
+          }
+        ]
+      },
+      "lambda_identifiable_anywhere": false,
+      "max_lambda_fisher": 6.769339268489994e-27
+    }
+  }
+}
