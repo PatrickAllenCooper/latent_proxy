@@ -35,9 +35,23 @@ class PreferenceTracker:
         n_particles: int = 1000,
         temperature: float = 0.1,
         convergence: ConvergenceConfig | None = None,
+        reference_point_mode: str = "zero",
     ) -> None:
+        """Args:
+            reference_point_mode: How the prospect-theory reference point is
+                derived for likelihood evaluation. "zero" (default) keeps the
+                historical ref=0.0 behavior; "current_wealth" uses each
+                scenario's own current wealth so negative returns register
+                as losses (making lambda_ identifiable).
+        """
+        if reference_point_mode not in ("zero", "current_wealth"):
+            raise ValueError(
+                f"Unknown reference_point_mode: {reference_point_mode!r} "
+                "(expected 'zero' or 'current_wealth')"
+            )
         self.temperature = temperature
         self.convergence = convergence or ConvergenceConfig()
+        self.reference_point_mode = reference_point_mode
         self.n_observations = 0
 
         if posterior_type == "particle":
@@ -53,6 +67,10 @@ class PreferenceTracker:
         scenario: DiagnosticScenario,
     ) -> None:
         """Update the posterior after observing the user's choice."""
+        if self.reference_point_mode == "current_wealth":
+            reference_point = float(scenario.current_wealth)
+        else:
+            reference_point = 0.0
         self.posterior.update_from_choice(
             choice=choice,
             option_a_alloc=scenario.option_a,
@@ -63,6 +81,7 @@ class PreferenceTracker:
             rounds_remaining=scenario.rounds_remaining,
             temperature=self.temperature,
             multiperiod_horizon=scenario.multiperiod_horizon,
+            reference_point=reference_point,
         )
         self.n_observations += 1
 

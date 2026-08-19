@@ -49,6 +49,7 @@ class PosteriorBase(ABC):
         rounds_remaining: int,
         temperature: float,
         multiperiod_horizon: int | None = None,
+        reference_point: float = 0.0,
     ) -> None: ...
 
     def to_dict(self) -> dict[str, float]:
@@ -103,6 +104,7 @@ def _choice_log_likelihood(
     temperature: float,
     rng: np.random.Generator | None = None,
     multiperiod_horizon: int | None = None,
+    reference_point: float = 0.0,
 ) -> float:
     """Log-probability of the observed choice under softmax-rational model for a given theta."""
     from src.training.synthetic_users import SyntheticUser, UserType
@@ -113,7 +115,10 @@ def _choice_log_likelihood(
     lambda_ = max(lambda_, 1.0)
 
     ut = UserType(gamma=gamma, alpha=alpha, lambda_=lambda_)
-    user = SyntheticUser(ut, temperature=temperature, seed=None)
+    user = SyntheticUser(
+        ut, temperature=temperature,
+        reference_point=reference_point, seed=None,
+    )
     user._rng = rng or np.random.default_rng(0)
 
     eu_a = user.evaluate_for_query(
@@ -212,6 +217,7 @@ class GaussianPosterior(PosteriorBase):
         rounds_remaining: int,
         temperature: float,
         multiperiod_horizon: int | None = None,
+        reference_point: float = 0.0,
     ) -> None:
         """Approximate Bayesian update from an observed binary choice.
 
@@ -229,6 +235,7 @@ class GaussianPosterior(PosteriorBase):
                 current_wealth, rounds_remaining, temperature,
                 rng=np.random.default_rng(i),
                 multiperiod_horizon=multiperiod_horizon,
+                reference_point=reference_point,
             )
             for i, s in enumerate(samples)
         ])
@@ -331,6 +338,7 @@ class ParticlePosterior(PosteriorBase):
         rounds_remaining: int,
         temperature: float,
         multiperiod_horizon: int | None = None,
+        reference_point: float = 0.0,
     ) -> None:
         log_likelihoods = np.array([
             _choice_log_likelihood(
@@ -340,6 +348,7 @@ class ParticlePosterior(PosteriorBase):
                 current_wealth, rounds_remaining, temperature,
                 rng=np.random.default_rng(i),
                 multiperiod_horizon=multiperiod_horizon,
+                reference_point=reference_point,
             )
             for i in range(self.n_particles)
         ])

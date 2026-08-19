@@ -118,6 +118,7 @@ def run_elicitation_benchmark(
             convergence=config.convergence,
             seed=seed + i * 1000,
             scenario_library=config.scenario_library,
+            reference_point_mode=config.reference_point_mode,
         )
 
         loop_active = ElicitationLoop(active_config)
@@ -134,6 +135,7 @@ def run_elicitation_benchmark(
             convergence=config.convergence,
             seed=seed + i * 2000,
             scenario_library=config.scenario_library,
+            reference_point_mode=config.reference_point_mode,
         )
 
         loop_random = ElicitationLoop(random_config)

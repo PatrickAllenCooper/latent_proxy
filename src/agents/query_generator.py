@@ -30,10 +30,12 @@ class StructuredQueryGenerator:
         temperature: float = 0.1,
         seed: int = 42,
         library: ScenarioLibraryBase | None = None,
+        reference_point_mode: str = "zero",
     ) -> None:
         self.n_scenarios_per_round = n_scenarios_per_round
         self.n_eig_samples = n_eig_samples
         self.temperature = temperature
+        self.reference_point_mode = reference_point_mode
         self._library: ScenarioLibraryBase = (
             library if library is not None else ScenarioLibrary(seed=seed)
         )
@@ -58,6 +60,7 @@ class StructuredQueryGenerator:
         eig_scores = compute_eig_batch(
             scenarios, posterior, self.n_eig_samples,
             self.temperature, self._rng,
+            reference_point_mode=self.reference_point_mode,
         )
 
         best_idx = int(np.argmax(eig_scores))
