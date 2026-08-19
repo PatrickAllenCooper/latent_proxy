@@ -185,17 +185,36 @@ def _generate_text(model: Any, tokenizer: Any, prompt: str, config: LLMElicitati
 
 
 class LLMElicitationLoop:
-    """Full LLM-driven elicitation: the model generates queries and recommendations."""
+    """Full LLM-driven elicitation: the model generates queries and recommendations.
+
+    Text generation is pluggable: pass ``generator`` (any object with a
+    ``generate(prompt: str) -> str`` method, see
+    :mod:`src.agents.text_backends`) to use an API or stub backend. When no
+    generator is given, the historical local transformers path is used
+    unchanged via ``model`` + ``tokenizer``.
+    """
 
     def __init__(
         self,
-        model: Any,
-        tokenizer: Any,
+        model: Any = None,
+        tokenizer: Any = None,
         config: LLMElicitationConfig | None = None,
+        *,
+        generator: Any | None = None,
     ) -> None:
         self.model = model
         self.tokenizer = tokenizer
         self.config = config or LLMElicitationConfig()
+        self.generator = generator
+        if generator is None and (model is None or tokenizer is None):
+            raise ValueError(
+                "LLMElicitationLoop needs either a generator or a model+tokenizer"
+            )
+
+    def _generate(self, prompt: str) -> str:
+        if self.generator is not None:
+            return self.generator.generate(prompt)
+        return _generate_text(self.model, self.tokenizer, prompt, self.config)
 
     def run(
         self,
@@ -226,7 +245,7 @@ class LLMElicitationLoop:
                 channel_list_b=channel_tpl,
             )
 
-            raw_query = _generate_text(self.model, self.tokenizer, query_prompt, self.config)
+            raw_query = self._generate(query_prompt)
             option_a, option_b = parse_two_options(raw_query, K)
 
             stats = env.get_channel_stats()
@@ -253,7 +272,7 @@ class LLMElicitationLoop:
                 history_summary=_build_history_summary(history, names),
                 channel_list=channel_tpl,
             )
-            raw_rec = _generate_text(self.model, self.tokenizer, rec_prompt, self.config)
+            raw_rec = self._generate(rec_prompt)
             rec = serializer.parse(raw_rec)
             per_round_recs.append(rec)
 

@@ -31,6 +31,12 @@ STUDY_ENV_FACTORIES: dict[str, Callable[[], BaseEnvironment]] = {
     "supply_chain": lambda: SupplyChainEnv(config=SupplyChainConfig()),
 }
 
+# Conditions that run purely on CPU (no text generation involved).
+NON_LLM_CONDITIONS = ("analytical", "random")
+# Conditions that require a text-generation backend.
+LLM_CONDITIONS = ("base", "dpo_phase1", "dpo_phase2")
+ALL_CONDITIONS = NON_LLM_CONDITIONS + LLM_CONDITIONS
+
 
 @dataclass
 class DPOStudyConfig:
@@ -43,6 +49,16 @@ class DPOStudyConfig:
     llm_config: LLMElicitationConfig = field(default_factory=LLMElicitationConfig)
     analytical_elicitation: ElicitationConfig = field(default_factory=ElicitationConfig)
     seed: int = 42
+    # Text-generation backend for LLM conditions: "local" (transformers,
+    # historical path), "azure" (Azure OpenAI API), or "stub" (offline).
+    backend: str = "local"
+    # Azure deployment name (azure backend only).
+    deployment: str | None = None
+    # JSONL path for raw API completions (azure backend only).
+    generation_log: str | None = None
+    # Which conditions to run; None = historical default (analytical + base,
+    # plus dpo_phase1/dpo_phase2 when checkpoints are provided).
+    conditions: list[str] | None = None
 
 
 @dataclass
@@ -74,8 +90,10 @@ def _run_analytical_condition(
     elicitation: ElicitationConfig,
     max_rounds: int,
     seed: int,
+    query_type: str = "active",
+    condition_name: str = "analytical",
 ) -> ConditionResult:
-    """Run the analytical (EIG + particle filter) baseline."""
+    """Run a non-LLM baseline: particle filter with EIG ("active") or random queries."""
     from src.agents.preference_tracker import ConvergenceConfig
 
     sampler = SyntheticUserSampler(seed=seed)
@@ -103,7 +121,7 @@ def _run_analytical_condition(
 
         user = SyntheticUser(ut, temperature=cfg.temperature, seed=seed + i + 100)
         loop = ElicitationLoop(cfg)
-        res = loop.run(env, user, query_type="active")
+        res = loop.run(env, user, query_type=query_type)
 
         opt_true = env.get_optimal_action(theta_d)
         opt_hat = env.get_optimal_action(res.inferred_theta)
@@ -114,7 +132,7 @@ def _run_analytical_condition(
         per_round.append([])
 
     return ConditionResult(
-        condition="analytical",
+        condition=condition_name,
         alignment_scores=align_scores,
         violation_rates=violations,
         per_round_alignments=per_round,
@@ -129,6 +147,7 @@ def _run_llm_condition(
     n_users: int,
     llm_config: LLMElicitationConfig,
     seed: int,
+    generator: Any | None = None,
 ) -> ConditionResult:
     """Run a single LLM condition (base, phase1, or phase2)."""
     sampler = SyntheticUserSampler(seed=seed)
@@ -136,7 +155,7 @@ def _run_llm_condition(
     violations: list[float] = []
     per_round: list[list[float]] = []
 
-    loop = LLMElicitationLoop(model, tokenizer, config=llm_config)
+    loop = LLMElicitationLoop(model, tokenizer, config=llm_config, generator=generator)
 
     for i in range(n_users):
         ut = sampler.sample()
@@ -191,6 +210,24 @@ def _load_model_and_tokenizer(
     return model, tokenizer
 
 
+def _resolve_conditions(config: DPOStudyConfig) -> list[str]:
+    """Determine which conditions to run, preserving historical defaults."""
+    if config.conditions is None:
+        conditions = ["analytical", "base"]
+        if config.phase1_checkpoint:
+            conditions.append("dpo_phase1")
+        if config.phase2_checkpoint:
+            conditions.append("dpo_phase2")
+        return conditions
+
+    unknown = [c for c in config.conditions if c not in ALL_CONDITIONS]
+    if unknown:
+        raise ValueError(
+            f"Unknown conditions: {unknown}. Valid conditions: {list(ALL_CONDITIONS)}"
+        )
+    return list(config.conditions)
+
+
 def run_dpo_study(config: DPOStudyConfig) -> DPOStudyResult:
     """Execute the full DPO elicitation study."""
     per_env: dict[str, dict[str, ConditionResult]] = {}
@@ -199,19 +236,47 @@ def run_dpo_study(config: DPOStudyConfig) -> DPOStudyResult:
     llm_cfg = config.llm_config
     llm_cfg.max_rounds = config.max_rounds
 
-    base_model, base_tok = _load_model_and_tokenizer(config.base_model_path)
+    conditions = _resolve_conditions(config)
+    llm_conditions = [c for c in conditions if c in LLM_CONDITIONS]
+    logger.info("Conditions: %s (backend=%s)", conditions, config.backend)
 
+    base_model, base_tok = None, None
     p1_model, p1_tok = None, None
-    if config.phase1_checkpoint:
-        p1_model, p1_tok = _load_model_and_tokenizer(
-            config.base_model_path, config.phase1_checkpoint,
-        )
-
     p2_model, p2_tok = None, None
-    if config.phase2_checkpoint:
-        p2_model, p2_tok = _load_model_and_tokenizer(
-            config.base_model_path, config.phase2_checkpoint,
-        )
+    generator = None
+
+    if llm_conditions:
+        if config.backend == "local":
+            base_model, base_tok = _load_model_and_tokenizer(config.base_model_path)
+            if "dpo_phase1" in llm_conditions:
+                if not config.phase1_checkpoint:
+                    raise ValueError("dpo_phase1 condition requires phase1_checkpoint")
+                p1_model, p1_tok = _load_model_and_tokenizer(
+                    config.base_model_path, config.phase1_checkpoint,
+                )
+            if "dpo_phase2" in llm_conditions:
+                if not config.phase2_checkpoint:
+                    raise ValueError("dpo_phase2 condition requires phase2_checkpoint")
+                p2_model, p2_tok = _load_model_and_tokenizer(
+                    config.base_model_path, config.phase2_checkpoint,
+                )
+        else:
+            dpo_conds = [c for c in llm_conditions if c != "base"]
+            if dpo_conds:
+                raise ValueError(
+                    f"Conditions {dpo_conds} need LoRA checkpoints and are only "
+                    f"available with backend='local' (got backend={config.backend!r})"
+                )
+            from src.agents.text_backends import create_generator
+
+            generator = create_generator(
+                config.backend,
+                deployment=config.deployment,
+                log_path=config.generation_log,
+                temperature=llm_cfg.temperature,
+                max_tokens=llm_cfg.max_new_tokens,
+                seed=config.seed,
+            )
 
     for env_name in config.environments:
         if env_name not in STUDY_ENV_FACTORIES:
@@ -223,35 +288,39 @@ def run_dpo_study(config: DPOStudyConfig) -> DPOStudyResult:
 
         logger.info("=== Environment: %s ===", env_name)
 
-        logger.info("Running analytical baseline...")
-        env_results["analytical"] = _run_analytical_condition(
-            factory, config.n_users, config.analytical_elicitation,
-            config.max_rounds, seed=config.seed,
-        )
-
-        logger.info("Running base LLM...")
-        env_results["base"] = _run_llm_condition(
-            factory, base_model, base_tok, "base",
-            config.n_users, llm_cfg, seed=config.seed,
-        )
-
-        if p1_model is not None:
-            logger.info("Running DPO Phase 1...")
-            env_results["dpo_phase1"] = _run_llm_condition(
-                factory, p1_model, p1_tok, "dpo_phase1",
-                config.n_users, llm_cfg, seed=config.seed,
-            )
-
-        if p2_model is not None:
-            logger.info("Running DPO Phase 2...")
-            env_results["dpo_phase2"] = _run_llm_condition(
-                factory, p2_model, p2_tok, "dpo_phase2",
-                config.n_users, llm_cfg, seed=config.seed,
-            )
+        for condition in conditions:
+            logger.info("Running condition: %s...", condition)
+            if condition == "analytical":
+                env_results["analytical"] = _run_analytical_condition(
+                    factory, config.n_users, config.analytical_elicitation,
+                    config.max_rounds, seed=config.seed,
+                )
+            elif condition == "random":
+                env_results["random"] = _run_analytical_condition(
+                    factory, config.n_users, config.analytical_elicitation,
+                    config.max_rounds, seed=config.seed,
+                    query_type="random", condition_name="random",
+                )
+            elif condition == "base":
+                env_results["base"] = _run_llm_condition(
+                    factory, base_model, base_tok, "base",
+                    config.n_users, llm_cfg, seed=config.seed,
+                    generator=generator,
+                )
+            elif condition == "dpo_phase1":
+                env_results["dpo_phase1"] = _run_llm_condition(
+                    factory, p1_model, p1_tok, "dpo_phase1",
+                    config.n_users, llm_cfg, seed=config.seed,
+                )
+            elif condition == "dpo_phase2":
+                env_results["dpo_phase2"] = _run_llm_condition(
+                    factory, p2_model, p2_tok, "dpo_phase2",
+                    config.n_users, llm_cfg, seed=config.seed,
+                )
 
         per_env[env_name] = env_results
 
-        if "dpo_phase2" in env_results:
+        if "dpo_phase2" in env_results and "base" in env_results:
             h_test = run_test_h1_within_domain(
                 env_results["dpo_phase2"].alignment_scores,
                 env_results["base"].alignment_scores,
@@ -276,6 +345,9 @@ def run_dpo_study(config: DPOStudyConfig) -> DPOStudyResult:
             "n_users": config.n_users,
             "max_rounds": config.max_rounds,
             "environments": config.environments,
+            "conditions": conditions,
+            "backend": config.backend,
+            "deployment": config.deployment,
             "base_model": config.base_model_path,
             "phase1_checkpoint": config.phase1_checkpoint,
             "phase2_checkpoint": config.phase2_checkpoint,
