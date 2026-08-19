@@ -36,7 +36,33 @@ def main() -> None:
     parser.add_argument("--n-particles", type=int, default=200)
     parser.add_argument("--n-eig-samples", type=int, default=100)
     parser.add_argument("--skip-plots", action="store_true")
+    parser.add_argument(
+        "--backend", choices=["local", "azure", "stub"], default="local",
+        help="Text-generation backend for LLM conditions "
+             "(local=transformers, azure=Azure OpenAI API, stub=offline canned)",
+    )
+    parser.add_argument(
+        "--deployment", default=None,
+        help="Azure OpenAI deployment name (azure backend; "
+             "falls back to AZURE_OPENAI_DEPLOYMENT)",
+    )
+    parser.add_argument(
+        "--conditions", default=None,
+        help="Comma-separated conditions to run, e.g. 'analytical,random' or "
+             "'analytical,base'. Valid: analytical, random, base, dpo_phase1, "
+             "dpo_phase2. Default: analytical,base (+dpo phases when "
+             "checkpoints are given).",
+    )
+    parser.add_argument(
+        "--generation-log", default=None,
+        help="JSONL path for raw Azure completions "
+             "(default: <output-dir>/azure_completions.jsonl)",
+    )
     args = parser.parse_args()
+
+    conditions = None
+    if args.conditions:
+        conditions = [c.strip() for c in args.conditions.split(",") if c.strip()]
 
     out_dir = Path(args.output_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -58,6 +84,10 @@ def main() -> None:
         temperature=0.3,
     )
 
+    generation_log = args.generation_log
+    if generation_log is None and args.backend == "azure":
+        generation_log = str(out_dir / "azure_completions.jsonl")
+
     study_cfg = DPOStudyConfig(
         n_users=args.n_users,
         max_rounds=args.max_rounds,
@@ -68,6 +98,10 @@ def main() -> None:
         llm_config=llm_cfg,
         analytical_elicitation=analytical_cfg,
         seed=args.seed,
+        backend=args.backend,
+        deployment=args.deployment,
+        generation_log=generation_log,
+        conditions=conditions,
     )
 
     logger.info("Starting DPO elicitation study (n_users=%d, max_rounds=%d)", args.n_users, args.max_rounds)
