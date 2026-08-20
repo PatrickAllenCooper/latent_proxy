@@ -159,6 +159,36 @@ def _run_task(payload: dict[str, Any]) -> dict[str, Any]:
     return stability_task(payload)
 
 
+def _task_key(p: dict[str, Any]) -> str:
+    return f"{p['kind']}__{p['mode']}__{p['domain']}__{p['user_index']}"
+
+
+def _checkpoint_path(out_dir: Path) -> Path:
+    return out_dir / "task_checkpoints.jsonl"
+
+
+def _load_checkpoints(out_dir: Path) -> dict[str, dict[str, Any]]:
+    """Load previously completed task results, keyed by task key.
+
+    Tolerates a truncated last line (process killed mid-write).
+    """
+    path = _checkpoint_path(out_dir)
+    done: dict[str, dict[str, Any]] = {}
+    if not path.exists():
+        return done
+    with open(path) as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                rec = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            done[_task_key(rec)] = rec
+    return done
+
+
 def _sample_users(seed: int, n_users: int) -> list[dict[str, float]]:
     sampler = SyntheticUserSampler(seed=seed)
     return [
@@ -229,33 +259,44 @@ def main() -> None:
                     "n_sessions": args.n_sessions,
                 })
 
+    checkpointed = _load_checkpoints(out_dir)
+    remaining = [p for p in payloads if _task_key(p) not in checkpointed]
     logger.info(
         "Submitting %d tasks (%d modes x %d domains x %d users x {recovery, stability}) "
-        "on %d workers",
+        "on %d workers -- %d already checkpointed, %d to run",
         len(payloads), len(modes), len(domains), args.n_users, args.workers,
+        len(checkpointed), len(remaining),
     )
 
     t0 = time.time()
-    results: list[dict[str, Any]] = []
-    with ProcessPoolExecutor(max_workers=args.workers) as pool:
-        futures = {pool.submit(_run_task, p): p for p in payloads}
-        for n_done, fut in enumerate(as_completed(futures), start=1):
-            p = futures[fut]
-            try:
-                results.append(fut.result())
-            except Exception:
-                logger.exception(
-                    "Task failed: %s %s/%s user %s",
-                    p["kind"], p["mode"], p["domain"], p["user_index"],
-                )
-                raise
-            if n_done % 10 == 0 or n_done == len(payloads):
-                elapsed = time.time() - t0
-                logger.info(
-                    "%d/%d tasks done (%.1fs elapsed, est total %.1fs)",
-                    n_done, len(payloads), elapsed,
-                    elapsed / n_done * len(payloads),
-                )
+    results: list[dict[str, Any]] = list(checkpointed.values())
+    n_done = len(results)
+    if remaining:
+        with open(_checkpoint_path(out_dir), "a", buffering=1) as ckpt_f, \
+                ProcessPoolExecutor(max_workers=args.workers) as pool:
+            futures = {pool.submit(_run_task, p): p for p in remaining}
+            for fut in as_completed(futures):
+                p = futures[fut]
+                try:
+                    r = fut.result()
+                except Exception:
+                    logger.exception(
+                        "Task failed: %s %s/%s user %s",
+                        p["kind"], p["mode"], p["domain"], p["user_index"],
+                    )
+                    raise
+                results.append(r)
+                ckpt_f.write(json.dumps(r) + "\n")
+                n_done += 1
+                if n_done % 10 == 0 or n_done == len(payloads):
+                    elapsed = time.time() - t0
+                    rate = n_done / elapsed if elapsed > 0 else 0
+                    remaining_n = len(payloads) - n_done
+                    logger.info(
+                        "%d/%d tasks done (%.1fs elapsed, est remaining %.1fs)",
+                        n_done, len(payloads), elapsed,
+                        remaining_n / rate if rate > 0 else float("nan"),
+                    )
 
     # ---- Aggregate per cell -------------------------------------------------
     summary: dict[str, Any] = {
