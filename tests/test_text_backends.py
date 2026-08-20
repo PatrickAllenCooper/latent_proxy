@@ -13,6 +13,7 @@ from src.agents.llm_elicitation import LLMElicitationConfig, LLMElicitationLoop
 from src.agents.text_backends import (
     AzureChatGenerator,
     FoundryClaudeGenerator,
+    FoundryOpenAIGenerator,
     LocalHFGenerator,
     StubGenerator,
     TextGenerator,
@@ -484,6 +485,181 @@ def test_create_generator_foundry_claude(tmp_path, monkeypatch):
     )
     assert isinstance(gen, FoundryClaudeGenerator)
     assert gen.deployment == "claude-opus-5"
+
+
+# ---------------------------------------------------------------------------
+# FoundryOpenAIGenerator (openai client, Responses API, mocked; no network)
+# ---------------------------------------------------------------------------
+
+
+def _fake_foundry_openai_response(text="Option A:\n  safe: 60%\n", status="completed"):
+    return SimpleNamespace(
+        output=[
+            SimpleNamespace(
+                type="message",
+                content=[SimpleNamespace(type="output_text", text=text)],
+            )
+        ],
+        output_text=text,
+        status=status,
+        usage=SimpleNamespace(input_tokens=85, output_tokens=25),
+    )
+
+
+class _FakeResponses:
+    def __init__(self, outcomes):
+        self.outcomes = list(outcomes)
+        self.calls = []
+
+    def create(self, **kwargs):
+        self.calls.append(kwargs)
+        outcome = self.outcomes.pop(0)
+        if isinstance(outcome, Exception):
+            raise outcome
+        return outcome
+
+
+def _fake_foundry_openai_client(outcomes):
+    responses = _FakeResponses(outcomes)
+    client = SimpleNamespace(responses=responses)
+    return client, responses
+
+
+def test_foundry_openai_request_shape_and_jsonl_logging(tmp_path):
+    log_path = tmp_path / "completions.jsonl"
+    client, responses = _fake_foundry_openai_client(
+        [_fake_foundry_openai_response("hello world")]
+    )
+
+    gen = FoundryOpenAIGenerator(
+        "gpt-4o-mini",
+        endpoint="https://unit.test/openai/v1",
+        api_key="not-a-real-key",
+        log_path=log_path,
+        client=client,
+    )
+
+    out = gen.generate("What is your allocation?")
+    assert out == "hello world"
+
+    assert len(responses.calls) == 1
+    call = responses.calls[0]
+    assert call["model"] == "gpt-4o-mini"
+    assert call["input"] == "What is your allocation?"
+    assert call["temperature"] == pytest.approx(0.3)
+    assert call["max_output_tokens"] == 256
+
+    lines = log_path.read_text().strip().splitlines()
+    assert len(lines) == 1
+    rec = json.loads(lines[0])
+    assert rec["timestamp"] == 0
+    assert rec["deployment"] == "gpt-4o-mini"
+    assert rec["finish_reason"] == "completed"
+    assert rec["completion"] == "hello world"
+    assert len(rec["prompt_sha256"]) == 64
+    assert rec["usage"] == {"input_tokens": 85, "output_tokens": 25}
+
+
+def test_foundry_openai_retries_on_rate_limit_then_succeeds(tmp_path, monkeypatch):
+    sleeps: list[float] = []
+    monkeypatch.setattr(
+        "src.agents.text_backends.time.sleep", lambda s: sleeps.append(s),
+    )
+
+    client, responses = _fake_foundry_openai_client([
+        _rate_limit_error(),
+        _rate_limit_error(),
+        _fake_foundry_openai_response("finally"),
+    ])
+    gen = FoundryOpenAIGenerator(
+        "gpt-4o-mini",
+        endpoint="https://unit.test/openai/v1",
+        api_key="k",
+        log_path=tmp_path / "log.jsonl",
+        client=client,
+    )
+
+    assert gen.generate("p") == "finally"
+    assert len(responses.calls) == 3
+    assert sleeps == [1.0, 2.0]
+    lines = (tmp_path / "log.jsonl").read_text().strip().splitlines()
+    assert len(lines) == 1
+
+
+def test_foundry_openai_gives_up_after_max_retries(tmp_path, monkeypatch):
+    import openai
+
+    monkeypatch.setattr("src.agents.text_backends.time.sleep", lambda s: None)
+
+    client, responses = _fake_foundry_openai_client(
+        [_rate_limit_error() for _ in range(5)]
+    )
+    gen = FoundryOpenAIGenerator(
+        "gpt-4o-mini",
+        endpoint="https://unit.test/openai/v1",
+        api_key="k",
+        log_path=tmp_path / "log.jsonl",
+        max_retries=5,
+        client=client,
+    )
+
+    with pytest.raises(openai.RateLimitError):
+        gen.generate("p")
+    assert len(responses.calls) == 5
+    assert not (tmp_path / "log.jsonl").exists()
+
+
+def test_foundry_openai_client_construction_kwargs(monkeypatch, tmp_path):
+    import openai
+
+    captured = {}
+
+    def fake_openai(**kwargs):
+        captured.update(kwargs)
+        client, _ = _fake_foundry_openai_client([_fake_foundry_openai_response("ok")])
+        return client
+
+    monkeypatch.setattr(openai, "OpenAI", fake_openai)
+
+    gen = FoundryOpenAIGenerator(
+        "gpt-4o-mini",
+        endpoint="https://unit.test/openai/v1",
+        api_key="secret",
+        log_path=tmp_path / "log.jsonl",
+    )
+    assert gen.generate("p") == "ok"
+    assert captured["base_url"] == "https://unit.test/openai/v1"
+    assert captured["api_key"] == "secret"
+    assert captured["max_retries"] == 0
+
+
+def test_foundry_openai_env_var_fallbacks(monkeypatch):
+    monkeypatch.setenv("FOUNDRY_OPENAI_ENDPOINT", "https://env.test/openai/v1")
+    monkeypatch.setenv("FOUNDRY_OPENAI_API_KEY", "env-key")
+    monkeypatch.setenv("FOUNDRY_OPENAI_DEPLOYMENT", "gpt-4o-mini")
+
+    gen = FoundryOpenAIGenerator(log_path=None)
+    assert gen.endpoint == "https://env.test/openai/v1"
+    assert gen.api_key == "env-key"
+    assert gen.deployment == "gpt-4o-mini"
+
+
+def test_foundry_openai_requires_deployment(monkeypatch):
+    monkeypatch.delenv("FOUNDRY_OPENAI_DEPLOYMENT", raising=False)
+    with pytest.raises(ValueError, match="deployment"):
+        FoundryOpenAIGenerator(log_path=None)
+
+
+def test_create_generator_foundry_openai(tmp_path, monkeypatch):
+    monkeypatch.setenv("FOUNDRY_OPENAI_ENDPOINT", "https://env.test/openai/v1")
+    monkeypatch.setenv("FOUNDRY_OPENAI_API_KEY", "env-key")
+
+    gen = create_generator(
+        "foundry-openai", deployment="gpt-4o-mini",
+        log_path=tmp_path / "log.jsonl",
+    )
+    assert isinstance(gen, FoundryOpenAIGenerator)
+    assert gen.deployment == "gpt-4o-mini"
 
 
 # ---------------------------------------------------------------------------
