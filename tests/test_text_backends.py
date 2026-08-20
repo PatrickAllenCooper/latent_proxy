@@ -12,6 +12,7 @@ import pytest
 from src.agents.llm_elicitation import LLMElicitationConfig, LLMElicitationLoop
 from src.agents.text_backends import (
     AzureChatGenerator,
+    FoundryClaudeGenerator,
     LocalHFGenerator,
     StubGenerator,
     TextGenerator,
@@ -300,6 +301,189 @@ def test_azure_requires_deployment(monkeypatch):
     monkeypatch.delenv("AZURE_OPENAI_DEPLOYMENT", raising=False)
     with pytest.raises(ValueError, match="deployment"):
         AzureChatGenerator(log_path=None)
+
+
+# ---------------------------------------------------------------------------
+# FoundryClaudeGenerator (anthropic client mocked; no network)
+# ---------------------------------------------------------------------------
+
+
+def _fake_foundry_response(text="Option A:\n  safe: 60%\n", stop_reason="end_turn"):
+    return SimpleNamespace(
+        content=[SimpleNamespace(type="text", text=text)],
+        stop_reason=stop_reason,
+        usage=SimpleNamespace(input_tokens=90, output_tokens=30),
+    )
+
+
+class _FakeMessages:
+    def __init__(self, outcomes):
+        self.outcomes = list(outcomes)
+        self.calls = []
+
+    def create(self, **kwargs):
+        self.calls.append(kwargs)
+        outcome = self.outcomes.pop(0)
+        if isinstance(outcome, Exception):
+            raise outcome
+        return outcome
+
+
+def _fake_foundry_client(outcomes):
+    messages = _FakeMessages(outcomes)
+    client = SimpleNamespace(messages=messages)
+    return client, messages
+
+
+def _foundry_rate_limit_error():
+    import anthropic
+    import httpx
+
+    resp = httpx.Response(
+        429, request=httpx.Request("POST", "https://unit.test/v1/messages"),
+    )
+    return anthropic.RateLimitError("simulated 429", response=resp, body=None)
+
+
+def test_foundry_claude_request_shape_and_jsonl_logging(tmp_path):
+    log_path = tmp_path / "completions.jsonl"
+    client, messages = _fake_foundry_client([_fake_foundry_response("hello world")])
+
+    gen = FoundryClaudeGenerator(
+        "claude-opus-5",
+        endpoint="https://unit.test/anthropic",
+        api_key="not-a-real-key",
+        log_path=log_path,
+        client=client,
+    )
+
+    out = gen.generate("What is your allocation?")
+    assert out == "hello world"
+
+    assert len(messages.calls) == 1
+    call = messages.calls[0]
+    assert call["model"] == "claude-opus-5"
+    assert call["messages"] == [
+        {"role": "user", "content": "What is your allocation?"}
+    ]
+    assert call["max_tokens"] == 256
+
+    lines = log_path.read_text().strip().splitlines()
+    assert len(lines) == 1
+    rec = json.loads(lines[0])
+    assert rec["timestamp"] == 0
+    assert rec["deployment"] == "claude-opus-5"
+    assert rec["finish_reason"] == "end_turn"
+    assert rec["completion"] == "hello world"
+    assert len(rec["prompt_sha256"]) == 64
+    assert rec["usage"] == {"input_tokens": 90, "output_tokens": 30}
+
+    messages.outcomes.append(_fake_foundry_response("second"))
+    gen.generate("another prompt")
+    lines = log_path.read_text().strip().splitlines()
+    assert json.loads(lines[1])["timestamp"] == 1
+
+
+def test_foundry_claude_retries_on_rate_limit_then_succeeds(tmp_path, monkeypatch):
+    sleeps: list[float] = []
+    monkeypatch.setattr(
+        "src.agents.text_backends.time.sleep", lambda s: sleeps.append(s),
+    )
+
+    client, messages = _fake_foundry_client([
+        _foundry_rate_limit_error(),
+        _foundry_rate_limit_error(),
+        _fake_foundry_response("finally"),
+    ])
+    gen = FoundryClaudeGenerator(
+        "claude-opus-5",
+        endpoint="https://unit.test/anthropic",
+        api_key="k",
+        log_path=tmp_path / "log.jsonl",
+        client=client,
+    )
+
+    assert gen.generate("p") == "finally"
+    assert len(messages.calls) == 3
+    assert sleeps == [1.0, 2.0]
+    lines = (tmp_path / "log.jsonl").read_text().strip().splitlines()
+    assert len(lines) == 1
+
+
+def test_foundry_claude_gives_up_after_max_retries(tmp_path, monkeypatch):
+    import anthropic
+
+    monkeypatch.setattr("src.agents.text_backends.time.sleep", lambda s: None)
+
+    client, messages = _fake_foundry_client(
+        [_foundry_rate_limit_error() for _ in range(5)]
+    )
+    gen = FoundryClaudeGenerator(
+        "claude-opus-5",
+        endpoint="https://unit.test/anthropic",
+        api_key="k",
+        log_path=tmp_path / "log.jsonl",
+        max_retries=5,
+        client=client,
+    )
+
+    with pytest.raises(anthropic.RateLimitError):
+        gen.generate("p")
+    assert len(messages.calls) == 5
+    assert not (tmp_path / "log.jsonl").exists()
+
+
+def test_foundry_claude_client_construction_kwargs(monkeypatch, tmp_path):
+    import anthropic
+
+    captured = {}
+
+    def fake_anthropic_foundry(**kwargs):
+        captured.update(kwargs)
+        client, _ = _fake_foundry_client([_fake_foundry_response("ok")])
+        return client
+
+    monkeypatch.setattr(anthropic, "AnthropicFoundry", fake_anthropic_foundry)
+
+    gen = FoundryClaudeGenerator(
+        "claude-opus-5",
+        endpoint="https://unit.test/anthropic",
+        api_key="secret",
+        log_path=tmp_path / "log.jsonl",
+    )
+    assert gen.generate("p") == "ok"
+    assert captured["base_url"] == "https://unit.test/anthropic"
+    assert captured["api_key"] == "secret"
+    assert captured["max_retries"] == 0
+
+
+def test_foundry_claude_env_var_fallbacks(monkeypatch):
+    monkeypatch.setenv("FOUNDRY_ANTHROPIC_ENDPOINT", "https://env.test/anthropic")
+    monkeypatch.setenv("FOUNDRY_ANTHROPIC_API_KEY", "env-key")
+    monkeypatch.setenv("FOUNDRY_ANTHROPIC_DEPLOYMENT", "claude-haiku-4-5")
+
+    gen = FoundryClaudeGenerator(log_path=None)
+    assert gen.endpoint == "https://env.test/anthropic"
+    assert gen.api_key == "env-key"
+    assert gen.deployment == "claude-haiku-4-5"
+
+
+def test_foundry_claude_requires_deployment(monkeypatch):
+    monkeypatch.delenv("FOUNDRY_ANTHROPIC_DEPLOYMENT", raising=False)
+    with pytest.raises(ValueError, match="deployment"):
+        FoundryClaudeGenerator(log_path=None)
+
+
+def test_create_generator_foundry_claude(tmp_path, monkeypatch):
+    monkeypatch.setenv("FOUNDRY_ANTHROPIC_ENDPOINT", "https://env.test/anthropic")
+    monkeypatch.setenv("FOUNDRY_ANTHROPIC_API_KEY", "env-key")
+
+    gen = create_generator(
+        "foundry-claude", deployment="claude-opus-5",
+        log_path=tmp_path / "log.jsonl",
+    )
+    assert isinstance(gen, FoundryClaudeGenerator)
+    assert gen.deployment == "claude-opus-5"
 
 
 # ---------------------------------------------------------------------------

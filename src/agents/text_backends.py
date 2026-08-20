@@ -5,10 +5,12 @@ loop can run against:
 
 - a local HuggingFace transformers model (the existing GPU path, unchanged),
 - an Azure OpenAI chat deployment (API path, no local GPU needed),
+- a Microsoft Foundry Claude deployment (native Anthropic Messages API),
 - a deterministic stub (offline tests / dry runs).
 
-All imports of heavy or optional dependencies (torch, transformers, openai)
-are deferred so this module imports cleanly in minimal environments.
+All imports of heavy or optional dependencies (torch, transformers, openai,
+anthropic) are deferred so this module imports cleanly in minimal
+environments.
 """
 
 from __future__ import annotations
@@ -218,6 +220,143 @@ class AzureChatGenerator:
             f.write(json.dumps(record) + "\n")
 
 
+class FoundryClaudeGenerator:
+    """Microsoft Foundry, native Anthropic Messages API backend.
+
+    For Claude deployments on Azure AI Foundry (``claude-opus-5``,
+    ``claude-fable-5``, ``claude-opus-4-7``, ``claude-sonnet-4-6``,
+    ``claude-haiku-4-5``, ...), reached via the ``anthropic`` SDK's
+    ``AnthropicFoundry`` client rather than the OpenAI-compatible route
+    ``AzureChatGenerator`` uses. Config resolution order: constructor
+    argument, then environment variable.
+
+    - endpoint:    FOUNDRY_ANTHROPIC_ENDPOINT
+      (e.g. ``https://<resource>.services.ai.azure.com/anthropic``)
+    - api_key:     FOUNDRY_ANTHROPIC_API_KEY
+    - deployment:  FOUNDRY_ANTHROPIC_DEPLOYMENT (the model name, e.g. ``claude-opus-5``)
+
+    Logs each raw completion the same way ``AzureChatGenerator`` does.
+    """
+
+    def __init__(
+        self,
+        deployment: str | None = None,
+        *,
+        endpoint: str | None = None,
+        api_key: str | None = None,
+        max_tokens: int = 256,
+        log_path: str | Path | None = "outputs/azure_completions.jsonl",
+        max_retries: int = 5,
+        backoff_base: float = 1.0,
+        backoff_max: float = 30.0,
+        client: Any | None = None,
+    ) -> None:
+        self.deployment = deployment or os.environ.get("FOUNDRY_ANTHROPIC_DEPLOYMENT")
+        self.endpoint = endpoint or os.environ.get("FOUNDRY_ANTHROPIC_ENDPOINT")
+        self.api_key = api_key or os.environ.get("FOUNDRY_ANTHROPIC_API_KEY")
+        self.max_tokens = max_tokens
+        self.log_path = Path(log_path) if log_path else None
+        self.max_retries = max(1, int(max_retries))
+        self.backoff_base = backoff_base
+        self.backoff_max = backoff_max
+        self._client = client
+        self._counter = 0
+
+        if not self.deployment:
+            raise ValueError(
+                "FoundryClaudeGenerator needs a deployment name "
+                "(constructor arg or FOUNDRY_ANTHROPIC_DEPLOYMENT)"
+            )
+
+    def _get_client(self) -> Any:
+        if self._client is None:
+            if not self.endpoint or not self.api_key:
+                raise ValueError(
+                    "FoundryClaudeGenerator needs an endpoint and api key "
+                    "(constructor args or FOUNDRY_ANTHROPIC_ENDPOINT / "
+                    "FOUNDRY_ANTHROPIC_API_KEY)"
+                )
+            from anthropic import AnthropicFoundry
+
+            self._client = AnthropicFoundry(
+                api_key=self.api_key, base_url=self.endpoint, max_retries=0,
+            )
+        return self._client
+
+    def generate(self, prompt: str) -> str:
+        import anthropic
+
+        retryable = (
+            anthropic.RateLimitError,
+            anthropic.APIConnectionError,
+            anthropic.InternalServerError,
+        )
+
+        client = self._get_client()
+        delay = self.backoff_base
+        response = None
+        for attempt in range(1, self.max_retries + 1):
+            try:
+                response = client.messages.create(
+                    model=self.deployment,
+                    messages=[{"role": "user", "content": prompt}],
+                    max_tokens=self.max_tokens,
+                )
+                break
+            except retryable as exc:
+                if attempt >= self.max_retries:
+                    logger.error(
+                        "Foundry Claude generation failed after %d attempts: %s",
+                        attempt, exc,
+                    )
+                    raise
+                logger.warning(
+                    "Foundry Claude %s (attempt %d/%d), backing off %.1fs: %s",
+                    _RETRYABLE_STATUS_HINT, attempt, self.max_retries, delay, exc,
+                )
+                time.sleep(delay)
+                delay = min(delay * 2, self.backoff_max)
+
+        text = "".join(
+            block.text for block in response.content if getattr(block, "type", None) == "text"
+        )
+        usage = getattr(response, "usage", None)
+        self._log_completion(
+            prompt=prompt,
+            completion=text,
+            finish_reason=getattr(response, "stop_reason", None),
+            usage={
+                "input_tokens": getattr(usage, "input_tokens", None),
+                "output_tokens": getattr(usage, "output_tokens", None),
+            } if usage is not None else None,
+        )
+        return text
+
+    def _log_completion(
+        self,
+        *,
+        prompt: str,
+        completion: str,
+        finish_reason: str | None,
+        usage: dict[str, Any] | None,
+    ) -> None:
+        if self.log_path is None:
+            return
+        record = {
+            "timestamp": self._counter,
+            "prompt_sha256": hashlib.sha256(prompt.encode("utf-8")).hexdigest(),
+            "deployment": self.deployment,
+            "finish_reason": finish_reason,
+            "completion": completion,
+            "prompt_chars": len(prompt),
+            "usage": usage,
+        }
+        self._counter += 1
+        self.log_path.parent.mkdir(parents=True, exist_ok=True)
+        with self.log_path.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(record) + "\n")
+
+
 _CHANNEL_LINE_RE = re.compile(r"^\s*(.+?):\s*__%\s*$", re.MULTILINE)
 
 
@@ -292,6 +431,14 @@ def create_generator(
         if log_path is not None:
             kwargs["log_path"] = log_path
         return AzureChatGenerator(deployment, **kwargs)
+    if backend == "foundry-claude":
+        kwargs = {"max_tokens": max_tokens}
+        if log_path is not None:
+            kwargs["log_path"] = log_path
+        return FoundryClaudeGenerator(deployment, **kwargs)
     if backend == "stub":
         return StubGenerator(seed=seed)
-    raise ValueError(f"Unknown text backend: {backend!r} (expected local/azure/stub)")
+    raise ValueError(
+        f"Unknown text backend: {backend!r} "
+        "(expected local/azure/foundry-claude/stub)"
+    )
