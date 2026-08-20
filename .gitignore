@@ -16,6 +16,8 @@ htmlcov/
 
 *.log
 .env
+.env.*
+*.env
 .venv/
 
 wandb/
