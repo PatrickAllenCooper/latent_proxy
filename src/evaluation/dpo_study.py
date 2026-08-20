@@ -69,12 +69,23 @@ class ConditionResult:
     per_round_alignments: list[list[float]]
     mean_alignment: float = 0.0
     mean_violation: float = 0.0
+    # LLM conditions only: fraction of query/recommendation generations the
+    # parser could not extract a real allocation from (fell back to a
+    # uniform default). Empty list for non-LLM conditions.
+    query_parse_failure_rates: list[float] = field(default_factory=list)
+    rec_parse_failure_rates: list[float] = field(default_factory=list)
+    mean_query_parse_failure: float = 0.0
+    mean_rec_parse_failure: float = 0.0
 
     def __post_init__(self) -> None:
         if self.alignment_scores:
             self.mean_alignment = float(np.mean(self.alignment_scores))
         if self.violation_rates:
             self.mean_violation = float(np.mean(self.violation_rates))
+        if self.query_parse_failure_rates:
+            self.mean_query_parse_failure = float(np.mean(self.query_parse_failure_rates))
+        if self.rec_parse_failure_rates:
+            self.mean_rec_parse_failure = float(np.mean(self.rec_parse_failure_rates))
 
 
 @dataclass
@@ -139,6 +150,44 @@ def _run_analytical_condition(
     )
 
 
+def _query_parse_failed(raw_query: str, n_channels: int) -> bool:
+    """True if parse_two_options would have fallen back to the uniform default.
+
+    Mirrors parse_two_options's own fallback condition (fewer than
+    n_channels percentage numbers in either half) without altering its
+    behavior -- this is diagnostic only.
+    """
+    import re
+
+    parts = re.split(r"Option\s*B\s*[:\-]?", raw_query, flags=re.IGNORECASE)
+    block_a = parts[0] if parts else raw_query
+    block_b = parts[1] if len(parts) > 1 else raw_query
+    nums_a = re.findall(r"(\d+(?:\.\d+)?)\s*%", block_a)
+    nums_b = re.findall(r"(\d+(?:\.\d+)?)\s*%", block_b)
+    return len(nums_a) < n_channels or len(nums_b) < n_channels
+
+
+def _rec_parse_failed(raw_rec: str, channel_names: list[str]) -> bool:
+    """True if AllocationSerializer.parse would have fallen back to uniform.
+
+    Exactly replicates its two-stage logic (per-channel-name search, then
+    a same-count bare-percentage fallback) against the real channel names,
+    without altering its behavior -- this is diagnostic only.
+    """
+    import re
+
+    found_named = False
+    for name in channel_names:
+        pattern = rf"{re.escape(name)}\s*[:=]?\s*(\d+(?:\.\d+)?)\s*%"
+        if re.search(pattern, raw_rec, re.IGNORECASE):
+            found_named = True
+            break
+    if found_named:
+        return False
+    numbers = re.findall(r"(\d+(?:\.\d+)?)\s*%", raw_rec)
+    return len(numbers) != len(channel_names)
+
+
 def _run_llm_condition(
     env_factory: Callable[[], BaseEnvironment],
     model: Any,
@@ -150,10 +199,14 @@ def _run_llm_condition(
     generator: Any | None = None,
 ) -> ConditionResult:
     """Run a single LLM condition (base, phase1, or phase2)."""
+    from src.agents.llm_elicitation import _get_channel_names
+
     sampler = SyntheticUserSampler(seed=seed)
     align_scores: list[float] = []
     violations: list[float] = []
     per_round: list[list[float]] = []
+    query_fail_rates: list[float] = []
+    rec_fail_rates: list[float] = []
 
     loop = LLMElicitationLoop(model, tokenizer, config=llm_config, generator=generator)
 
@@ -161,6 +214,7 @@ def _run_llm_condition(
         ut = sampler.sample()
         theta_d = {"gamma": ut.gamma, "alpha": ut.alpha, "lambda_": ut.lambda_}
         env = env_factory()
+        channel_names = _get_channel_names(env)
 
         user = SyntheticUser(ut, temperature=0.1, seed=seed + i + 200)
         res = loop.run(env, user, seed=seed + i)
@@ -176,10 +230,23 @@ def _run_llm_condition(
             round_aligns.append(compute_alignment_score([rec], [opt_true]))
         per_round.append(round_aligns)
 
+        n_channels = len(channel_names)
+        query_fails = [
+            _query_parse_failed(h["raw_query"], n_channels) for h in res.history
+        ]
+        rec_fails = [
+            _rec_parse_failed(r, channel_names) for r in res.raw_recommendations
+        ]
+        query_fail_rates.append(
+            float(np.mean(query_fails)) if query_fails else 0.0
+        )
+        rec_fail_rates.append(float(np.mean(rec_fails)) if rec_fails else 0.0)
+
         logger.info(
-            "%s user %d/%d: align=%.3f viol=%.0f",
+            "%s user %d/%d: align=%.3f viol=%.0f qfail=%.2f rfail=%.2f",
             condition_name, i + 1, n_users,
             align_scores[-1], violations[-1],
+            query_fail_rates[-1], rec_fail_rates[-1],
         )
 
     return ConditionResult(
@@ -187,6 +254,8 @@ def _run_llm_condition(
         alignment_scores=align_scores,
         violation_rates=violations,
         per_round_alignments=per_round,
+        query_parse_failure_rates=query_fail_rates,
+        rec_parse_failure_rates=rec_fail_rates,
     )
 
 

@@ -75,6 +75,7 @@ class LLMElicitationResult:
     elapsed_seconds: float
     per_round_recommendations: list[NDArray[np.floating[Any]]]
     true_theta: UserType | None = None
+    raw_recommendations: list[str] = field(default_factory=list)
 
 
 def _serialize_state(env: BaseEnvironment) -> str:
@@ -231,6 +232,7 @@ class LLMElicitationLoop:
 
         history: list[dict[str, Any]] = []
         per_round_recs: list[NDArray[np.floating[Any]]] = []
+        raw_recs: list[str] = []
         t0 = time.perf_counter()
 
         for rnd in range(self.config.max_rounds):
@@ -275,6 +277,7 @@ class LLMElicitationLoop:
             raw_rec = self._generate(rec_prompt)
             rec = serializer.parse(raw_rec)
             per_round_recs.append(rec)
+            raw_recs.append(raw_rec)
 
             logger.debug("Round %d: choice=%d, rec=%s", rnd + 1, choice, rec)
 
@@ -288,4 +291,5 @@ class LLMElicitationLoop:
             elapsed_seconds=elapsed,
             per_round_recommendations=per_round_recs,
             true_theta=user.user_type,
+            raw_recommendations=raw_recs,
         )
