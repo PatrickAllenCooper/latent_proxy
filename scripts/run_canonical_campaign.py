@@ -146,6 +146,7 @@ def run_user_task(task: dict[str, Any]) -> dict[str, Any]:
         convergence=_no_early_stop_convergence(task["max_rounds"]),
         seed=seed + user_idx * 1000 + ARM_SEED_OFFSETS.get(arm, 9),
         scenario_library=library,
+        reference_point_mode=task.get("reference_point_mode", "zero"),
     )
     loop = ElicitationLoop(config)
 
@@ -220,6 +221,7 @@ def _write_manifest(output_dir: Path, args: argparse.Namespace) -> None:
             "n_eig_samples": args.n_eig_samples,
             "n_scenarios_per_round": args.n_scenarios_per_round,
             "workers": args.workers,
+            "reference_point_mode": args.reference_point_mode,
             "temperature": TEMPERATURE,
             "posterior_type": "particle",
             "arm_seed_offsets": ARM_SEED_OFFSETS,
@@ -260,6 +262,7 @@ def build_tasks(args: argparse.Namespace) -> tuple[list[dict[str, Any]], int]:
                         "n_particles": args.n_particles,
                         "n_eig_samples": args.n_eig_samples,
                         "n_scenarios_per_round": args.n_scenarios_per_round,
+                        "reference_point_mode": args.reference_point_mode,
                         "out_path": str(out_path),
                     })
     return tasks, n_skipped
@@ -356,6 +359,11 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--n-scenarios-per-round", type=int, default=50)
     parser.add_argument("--workers", type=int, default=12)
     parser.add_argument("--output-dir", default="outputs/canonical")
+    parser.add_argument(
+        "--reference-point-mode", default="zero", choices=["zero", "current_wealth"],
+        help="Prospect-theory reference point: 'zero' (historical default) or "
+             "'current_wealth' (fixes lambda unidentifiability, see refpoint study)",
+    )
 
     args = parser.parse_args(argv)
     args.domains = [d.strip() for d in args.domains.split(",") if d.strip()]

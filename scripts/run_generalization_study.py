@@ -41,6 +41,11 @@ def main() -> None:
     parser.add_argument("--n-eig-samples", type=int, default=32)
     parser.add_argument("--n-scenarios-per-round", type=int, default=6)
     parser.add_argument("--posterior-type", default="particle")
+    parser.add_argument(
+        "--reference-point-mode", default="zero", choices=["zero", "current_wealth"],
+        help="Prospect-theory reference point: 'zero' (historical default) or "
+             "'current_wealth' (fixes lambda unidentifiability, see refpoint study)",
+    )
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--output-dir", type=str, default="outputs/generalization")
     parser.add_argument("--skip-stability", action="store_true")
@@ -71,6 +76,7 @@ def main() -> None:
         n_eig_samples=args.n_eig_samples,
         convergence=convergence,
         seed=args.seed,
+        reference_point_mode=args.reference_point_mode,
     )
 
     config = GeneralizationStudyConfig(
