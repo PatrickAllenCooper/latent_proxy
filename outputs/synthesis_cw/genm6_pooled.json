@@ -1,0 +1,360 @@
+{
+  "n_seeds_found": 5,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "domain_pairs_pooled": {
+    "game_a->game_b": {
+      "within_domain": {
+        "pooled_mean": 0.7073374925470479,
+        "pooled_ci_low": 0.6551109844139947,
+        "pooled_ci_high": 0.7595640006801011,
+        "n_seeds": 5,
+        "total_n": 150,
+        "per_seed_means": [
+          0.7084117832396958,
+          0.6956206093212246,
+          0.7254139753889376,
+          0.688536819443364,
+          0.7154608632298021
+        ]
+      },
+      "cross_domain": {
+        "pooled_mean": 0.7261634133294632,
+        "pooled_ci_low": 0.6754089700392633,
+        "pooled_ci_high": 0.7769178566196632,
+        "n_seeds": 5,
+        "total_n": 150,
+        "per_seed_means": [
+          0.7045605471090527,
+          0.7521030717595365,
+          0.7353618097976159,
+          0.6865486328963633,
+          0.7406537953099405
+        ]
+      }
+    },
+    "game_a->stock": {
+      "within_domain": {
+        "pooled_mean": 0.8450445272205123,
+        "pooled_ci_low": 0.820474420146139,
+        "pooled_ci_high": 0.8696146342948855,
+        "n_seeds": 5,
+        "total_n": 150,
+        "per_seed_means": [
+          0.8699999999999997,
+          0.8233333333333334,
+          0.8633333333333334,
+          0.8166666666666668,
+          0.8433333333333333
+        ]
+      },
+      "cross_domain": {
+        "pooled_mean": 0.8360712146036244,
+        "pooled_ci_low": 0.8093890484008194,
+        "pooled_ci_high": 0.8627533808064295,
+        "n_seeds": 5,
+        "total_n": 150,
+        "per_seed_means": [
+          0.8566666666666666,
+          0.8166666666666665,
+          0.8566666666666667,
+          0.8033333333333333,
+          0.84
+        ]
+      }
+    },
+    "game_a->supply_chain": {
+      "within_domain": {
+        "pooled_mean": 0.26286690588508055,
+        "pooled_ci_low": 0.15509584604390764,
+        "pooled_ci_high": 0.37063796572625346,
+        "n_seeds": 5,
+        "total_n": 150,
+        "per_seed_means": [
+          0.30983521256278573,
+          0.3244046530909792,
+          0.36992094799911984,
+          0.18058019117446966,
+          0.14080435320759876
+        ]
+      },
+      "cross_domain": {
+        "pooled_mean": 0.32424062947030763,
+        "pooled_ci_low": 0.21486259710251238,
+        "pooled_ci_high": 0.4336186618381029,
+        "n_seeds": 5,
+        "total_n": 150,
+        "per_seed_means": [
+          0.3517822063623458,
+          0.394139840979804,
+          0.41632819081151734,
+          0.2359882937547376,
+          0.19979468803883893
+        ]
+      }
+    },
+    "stock->supply_chain": {
+      "within_domain": {
+        "pooled_mean": 0.2608404115907912,
+        "pooled_ci_low": 0.16406775350678304,
+        "pooled_ci_high": 0.35761306967479933,
+        "n_seeds": 5,
+        "total_n": 150,
+        "per_seed_means": [
+          0.2786432543658496,
+          0.4508381626480402,
+          0.08981110044670183,
+          0.23571303437609475,
+          0.2732417416944027
+        ]
+      },
+      "cross_domain": {
+        "pooled_mean": 0.34933088569057674,
+        "pooled_ci_low": 0.25544386738438984,
+        "pooled_ci_high": 0.44321790399676364,
+        "n_seeds": 5,
+        "total_n": 150,
+        "per_seed_means": [
+          0.36235812300456266,
+          0.44862399945458614,
+          0.1956699322608833,
+          0.2955623963494879,
+          0.4255999073639464
+        ]
+      }
+    }
+  },
+  "hypotheses_pooled": {
+    "H1_game_a->game_b": {
+      "n_seeds_present": 5,
+      "per_seed_p": [
+        1.1469471163714653e-05,
+        9.428046821513035e-06,
+        9.43195552117865e-06,
+        8.891538786567248e-06,
+        9.528868715718048e-06
+      ],
+      "pooled_p_stouffer": 0.0,
+      "mean_effect_size": -1.0,
+      "holm_adjusted_p": 0.0,
+      "conclusion": "reject_null"
+    },
+    "H1_game_a->stock": {
+      "n_seeds_present": 5,
+      "per_seed_p": [
+        1.0504519919234345e-05,
+        9.428046821513035e-06,
+        9.139378194081587e-06,
+        8.891538786567248e-06,
+        8.804658608467953e-06
+      ],
+      "pooled_p_stouffer": 0.0,
+      "mean_effect_size": -1.0,
+      "holm_adjusted_p": 0.0,
+      "conclusion": "reject_null"
+    },
+    "H1_game_a->supply_chain": {
+      "n_seeds_present": 5,
+      "per_seed_p": [
+        0.1330062266465245,
+        0.04012030505388704,
+        0.01639432713265949,
+        0.41321027520334286,
+        0.643166198326411
+      ],
+      "pooled_p_stouffer": 0.015065565215360066,
+      "mean_effect_size": -0.42021505376344087,
+      "holm_adjusted_p": 0.16572121736896073,
+      "conclusion": "fail_to_reject"
+    },
+    "H1_stock->supply_chain": {
+      "n_seeds_present": 5,
+      "per_seed_p": [
+        0.13214313116643772,
+        0.0033970153276169915,
+        1.0,
+        0.2047511875336128,
+        0.07414584038043485
+      ],
+      "pooled_p_stouffer": 0.828012580554671,
+      "mean_effect_size": -0.45247311827956993,
+      "holm_adjusted_p": 1.0,
+      "conclusion": "fail_to_reject"
+    },
+    "H2_game_a->game_b_cross_gt_generic": {
+      "n_seeds_present": 5,
+      "per_seed_p": [
+        1.1469471163714653e-05,
+        9.428046821513035e-06,
+        9.43195552117865e-06,
+        8.891538786567248e-06,
+        9.528868715718048e-06
+      ],
+      "pooled_p_stouffer": 0.0,
+      "mean_effect_size": -1.0,
+      "holm_adjusted_p": 0.0,
+      "conclusion": "reject_null"
+    },
+    "H2_game_a->game_b_within_gt_cross": {
+      "n_seeds_present": 5,
+      "per_seed_p": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "pooled_p_stouffer": 1.0,
+      "mean_effect_size": 0.9440860215053763,
+      "holm_adjusted_p": 1.0,
+      "conclusion": "fail_to_reject"
+    },
+    "H2_game_a->stock_cross_gt_generic": {
+      "n_seeds_present": 5,
+      "per_seed_p": [
+        1.0504519919234345e-05,
+        9.025536530389191e-06,
+        9.139378194081587e-06,
+        8.434514739317706e-06,
+        8.63928379350774e-06
+      ],
+      "pooled_p_stouffer": 0.0,
+      "mean_effect_size": -1.0,
+      "holm_adjusted_p": 0.0,
+      "conclusion": "reject_null"
+    },
+    "H2_game_a->stock_within_gt_cross": {
+      "n_seeds_present": 5,
+      "per_seed_p": [
+        0.2047511875336128,
+        1.0,
+        0.5505472246759977,
+        0.2047511875336128,
+        1.0
+      ],
+      "pooled_p_stouffer": 0.9999999999864893,
+      "mean_effect_size": 0.9664516129032259,
+      "holm_adjusted_p": 1.0,
+      "conclusion": "fail_to_reject"
+    },
+    "H2_game_a->supply_chain_cross_gt_generic": {
+      "n_seeds_present": 5,
+      "per_seed_p": [
+        0.05627183486300438,
+        0.009220819749047362,
+        0.007831097120679717,
+        0.2047511875336128,
+        0.29832472880200794
+      ],
+      "pooled_p_stouffer": 0.0002804111953366162,
+      "mean_effect_size": -0.5066666666666666,
+      "holm_adjusted_p": 0.003364934344039394,
+      "conclusion": "reject_null"
+    },
+    "H2_game_a->supply_chain_within_gt_cross": {
+      "n_seeds_present": 5,
+      "per_seed_p": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "pooled_p_stouffer": 1.0,
+      "mean_effect_size": 0.9698924731182796,
+      "holm_adjusted_p": 1.0,
+      "conclusion": "fail_to_reject"
+    },
+    "H2_stock->supply_chain_cross_gt_generic": {
+      "n_seeds_present": 5,
+      "per_seed_p": [
+        0.024730865834918864,
+        0.0015097093047538475,
+        0.3347952140429558,
+        0.06372585052168743,
+        0.00589900848959578
+      ],
+      "pooled_p_stouffer": 1.3138376990462497e-05,
+      "mean_effect_size": -0.5827956989247312,
+      "holm_adjusted_p": 0.00017079890087601246,
+      "conclusion": "reject_null"
+    },
+    "H2_stock->supply_chain_within_gt_cross": {
+      "n_seeds_present": 5,
+      "per_seed_p": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "pooled_p_stouffer": 1.0,
+      "mean_effect_size": 0.8602150537634408,
+      "holm_adjusted_p": 1.0,
+      "conclusion": "fail_to_reject"
+    },
+    "H3_gamma_transfers_better": {
+      "n_seeds_present": 5,
+      "per_seed_p": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "pooled_p_stouffer": 1.0,
+      "mean_effect_size": 8.399238231754582,
+      "holm_adjusted_p": 1.0,
+      "conclusion": "fail_to_reject"
+    },
+    "H3_similarity_correlates": {
+      "n_seeds_present": 5,
+      "per_seed_p": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "pooled_p_stouffer": 1.0,
+      "mean_effect_size": -0.27999999999999997,
+      "holm_adjusted_p": 1.0,
+      "conclusion": "fail_to_reject"
+    },
+    "H4_game_a": {
+      "n_seeds_present": 1,
+      "per_seed_p": [
+        1.0
+      ],
+      "pooled_p_stouffer": 1.0,
+      "mean_effect_size": 1.0,
+      "holm_adjusted_p": 1.0,
+      "conclusion": "fail_to_reject"
+    },
+    "H4_stock": {
+      "n_seeds_present": 1,
+      "per_seed_p": [
+        1.0
+      ],
+      "pooled_p_stouffer": 1.0,
+      "mean_effect_size": 1.0,
+      "holm_adjusted_p": 1.0,
+      "conclusion": "fail_to_reject"
+    },
+    "H4_supply_chain": {
+      "n_seeds_present": 1,
+      "per_seed_p": [
+        1.0
+      ],
+      "pooled_p_stouffer": 1.0,
+      "mean_effect_size": 1.0,
+      "holm_adjusted_p": 1.0,
+      "conclusion": "fail_to_reject"
+    }
+  }
+}

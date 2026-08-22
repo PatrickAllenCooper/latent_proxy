@@ -1,0 +1,204 @@
+{
+  "per_domain_pair": {
+    "game_a->game_b": {
+      "generic": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+      },
+      "within_domain": {
+        "mean": 0.702705149421061,
+        "ci_low": 0.5462837260967874,
+        "ci_high": 0.8591265727453345
+      },
+      "cross_domain": {
+        "mean": 0.7148319907541881,
+        "ci_low": 0.5625216362388223,
+        "ci_high": 0.8671423452695539
+      },
+      "n_users": 15
+    },
+    "game_a->stock": {
+      "generic": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+      },
+      "within_domain": {
+        "mean": 0.8399999999999999,
+        "ci_low": 0.7548873687400042,
+        "ci_high": 0.9251126312599955
+      },
+      "cross_domain": {
+        "mean": 0.8399999999999999,
+        "ci_low": 0.7548873687400042,
+        "ci_high": 0.9251126312599955
+      },
+      "n_users": 15
+    },
+    "game_a->supply_chain": {
+      "generic": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+      },
+      "within_domain": {
+        "mean": 0.08932153337173053,
+        "ci_low": -0.2437884067862094,
+        "ci_high": 0.4224314735296705
+      },
+      "cross_domain": {
+        "mean": 0.2953560999533187,
+        "ci_low": -0.05100874370616876,
+        "ci_high": 0.6417209436128062
+      },
+      "n_users": 15
+    },
+    "stock->supply_chain": {
+      "generic": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+      },
+      "within_domain": {
+        "mean": 0.3364557637944603,
+        "ci_low": 0.05116944300385856,
+        "ci_high": 0.6217420845850621
+      },
+      "cross_domain": {
+        "mean": 0.3168491165175785,
+        "ci_low": 0.04091150935514959,
+        "ci_high": 0.5927867236800075
+      },
+      "n_users": 15
+    }
+  },
+  "per_parameter_transfer": {
+    "gamma": {
+      "game_a->game_b": 0.11104743131458318,
+      "game_a->stock": 0.1342793950977948,
+      "game_a->supply_chain": 0.15617769242455648,
+      "stock->supply_chain": 0.1645573333976464
+    },
+    "alpha": {
+      "game_a->game_b": 0.3594093661803618,
+      "game_a->stock": 0.39458317200122534,
+      "game_a->supply_chain": 0.30717730949637556,
+      "stock->supply_chain": 0.6570743052850926
+    },
+    "lambda_": {
+      "game_a->game_b": 0.28663211523525156,
+      "game_a->stock": 0.4638219767994821,
+      "game_a->supply_chain": 0.5078560616423232,
+      "stock->supply_chain": 0.3318761719934322
+    }
+  },
+  "hypothesis_results": {
+    "H1": [
+      {
+        "hypothesis": "H1_game_a->game_b",
+        "p_value": 0.004032282370243971,
+        "effect_size": -1.0,
+        "conclusion": "reject_null",
+        "method": "Wilcoxon signed-rank (greater)"
+      },
+      {
+        "hypothesis": "H1_game_a->stock",
+        "p_value": 0.004032282370243971,
+        "effect_size": -1.0,
+        "conclusion": "reject_null",
+        "method": "Wilcoxon signed-rank (greater)"
+      },
+      {
+        "hypothesis": "H1_game_a->supply_chain",
+        "p_value": 1.0,
+        "effect_size": -0.1166666666666667,
+        "conclusion": "fail_to_reject",
+        "method": "Wilcoxon signed-rank (greater)"
+      },
+      {
+        "hypothesis": "H1_stock->supply_chain",
+        "p_value": 0.1533580247356241,
+        "effect_size": -0.6333333333333333,
+        "conclusion": "fail_to_reject",
+        "method": "Wilcoxon signed-rank (greater)"
+      }
+    ],
+    "H2": [
+      {
+        "hypothesis": "H2_game_a->game_b_cross_gt_generic",
+        "p_value": 0.004032282370243971,
+        "effect_size": -1.0,
+        "conclusion": "reject_null",
+        "method": "Wilcoxon signed-rank (greater)"
+      },
+      {
+        "hypothesis": "H2_game_a->game_b_within_gt_cross",
+        "p_value": 1.0,
+        "effect_size": 0.625,
+        "conclusion": "fail_to_reject",
+        "method": "Wilcoxon signed-rank (greater)"
+      },
+      {
+        "hypothesis": "H2_game_a->stock_cross_gt_generic",
+        "p_value": 0.004032282370243971,
+        "effect_size": -1.0,
+        "conclusion": "reject_null",
+        "method": "Wilcoxon signed-rank (greater)"
+      },
+      {
+        "hypothesis": "H2_game_a->stock_within_gt_cross",
+        "p_value": 1.0,
+        "effect_size": 0.975,
+        "conclusion": "fail_to_reject",
+        "method": "Wilcoxon signed-rank (greater)"
+      },
+      {
+        "hypothesis": "H2_game_a->supply_chain_cross_gt_generic",
+        "p_value": 0.311005240874933,
+        "effect_size": -0.5166666666666666,
+        "conclusion": "fail_to_reject",
+        "method": "Wilcoxon signed-rank (greater)"
+      },
+      {
+        "hypothesis": "H2_game_a->supply_chain_within_gt_cross",
+        "p_value": 1.0,
+        "effect_size": 1.0,
+        "conclusion": "fail_to_reject",
+        "method": "Wilcoxon signed-rank (greater)"
+      },
+      {
+        "hypothesis": "H2_stock->supply_chain_cross_gt_generic",
+        "p_value": 0.23976838511093815,
+        "effect_size": -0.5666666666666667,
+        "conclusion": "fail_to_reject",
+        "method": "Wilcoxon signed-rank (greater)"
+      },
+      {
+        "hypothesis": "H2_stock->supply_chain_within_gt_cross",
+        "p_value": 1.0,
+        "effect_size": 0.6416666666666666,
+        "conclusion": "fail_to_reject",
+        "method": "Wilcoxon signed-rank (greater)"
+      }
+    ],
+    "H3": [
+      {
+        "hypothesis": "H3_gamma_transfers_better",
+        "p_value": 1.0,
+        "effect_size": 5.297874508046486,
+        "conclusion": "fail_to_reject",
+        "method": "descriptive (mean MAE comparison)"
+      },
+      {
+        "hypothesis": "H3_similarity_correlates",
+        "p_value": 1.0,
+        "effect_size": -0.39999999999999997,
+        "conclusion": "fail_to_reject",
+        "method": "Spearman correlation"
+      }
+    ],
+    "H4": []
+  },
+  "stability": {}
+}

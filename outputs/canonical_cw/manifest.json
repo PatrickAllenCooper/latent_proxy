@@ -1,0 +1,42 @@
+{
+  "created_at": "2026-08-21T12:14:46-0600",
+  "git_sha": "a807a470cc0d434f91a93bf567be54e56d4c810b",
+  "config": {
+    "domains": [
+      "game_a",
+      "game_b",
+      "stock",
+      "supply_chain"
+    ],
+    "arms": [
+      "active",
+      "fixed",
+      "random",
+      "dirichlet"
+    ],
+    "n_users": 50,
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "max_rounds": 12,
+    "n_particles": 2000,
+    "n_eig_samples": 800,
+    "n_scenarios_per_round": 50,
+    "workers": 14,
+    "reference_point_mode": "current_wealth",
+    "temperature": 0.1,
+    "posterior_type": "particle",
+    "arm_seed_offsets": {
+      "active": 0,
+      "fixed": 1,
+      "random": 2,
+      "dirichlet": 3
+    },
+    "early_stopping": "disabled (variance thresholds 0.0)"
+  },
+  "command": "scripts/run_canonical_campaign.py --domains game_a,game_b,stock,supply_chain --arms active,fixed,random,dirichlet --n-users 50 --seeds 42,43,44,45,46 --max-rounds 12 --n-particles 2000 --n-eig-samples 800 --n-scenarios-per-round 50 --workers 14 --output-dir outputs/canonical_cw --reference-point-mode current_wealth"
+}
