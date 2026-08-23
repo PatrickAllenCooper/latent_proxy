@@ -5,23 +5,13 @@ from typing import Any
 import numpy as np
 from numpy.typing import NDArray
 
-from src.training.synthetic_users import SyntheticUser, UserType
+from src.training.synthetic_users import (
+    SyntheticUser,
+    UserType,
+    resolve_reference_point,
+)
 from src.utils.diagnostic_scenarios import DiagnosticScenario
 from src.utils.posterior import PosteriorBase
-
-
-def _reference_point_for(
-    scenario: DiagnosticScenario, reference_point_mode: str,
-) -> float:
-    """Derive the prospect-theory reference point for a scenario."""
-    if reference_point_mode == "current_wealth":
-        return float(scenario.current_wealth)
-    if reference_point_mode == "zero":
-        return 0.0
-    raise ValueError(
-        f"Unknown reference_point_mode: {reference_point_mode!r} "
-        "(expected 'zero' or 'current_wealth')"
-    )
 
 
 def _choice_probability(
@@ -30,6 +20,7 @@ def _choice_probability(
     temperature: float = 0.1,
     rng: np.random.Generator | None = None,
     reference_point: float = 0.0,
+    utility_form: str = "absolute",
 ) -> float:
     """P(choose option A | theta, scenario) under the softmax-rational model."""
     gamma = float(np.clip(theta[0], 1e-6, 1.0))
@@ -40,6 +31,7 @@ def _choice_probability(
     user = SyntheticUser(
         ut, temperature=temperature,
         reference_point=reference_point, seed=None,
+        utility_form=utility_form,
     )
     user._rng = rng or np.random.default_rng(0)
 
@@ -90,6 +82,7 @@ def compute_eig_mc(
     temperature: float = 0.1,
     rng: np.random.Generator | None = None,
     reference_point_mode: str = "zero",
+    utility_form: str = "absolute",
 ) -> float:
     """Estimate Expected Information Gain for a diagnostic scenario.
 
@@ -102,9 +95,13 @@ def compute_eig_mc(
     ``reference_point_mode`` must match the likelihood the posterior update
     uses: "zero" (default, historical ref=0.0) or "current_wealth" (the
     scenario's own current wealth, so downside outcomes count as losses).
+    ``utility_form`` selects "absolute" (historical, wealth-scale) or
+    "return_normalized" (scale-invariant; requires reference_point_mode="zero").
     """
     rng = rng or np.random.default_rng()
-    reference_point = _reference_point_for(scenario, reference_point_mode)
+    reference_point = resolve_reference_point(
+        scenario.current_wealth, reference_point_mode, utility_form,
+    )
     particles = posterior.sample(n_samples, rng)
 
     probs_a = np.array([
@@ -112,6 +109,7 @@ def compute_eig_mc(
             particles[i], scenario, temperature,
             rng=np.random.default_rng(int(rng.integers(0, 2**31))),
             reference_point=reference_point,
+            utility_form=utility_form,
         )
         for i in range(n_samples)
     ])
@@ -146,6 +144,7 @@ def compute_eig_batch(
     temperature: float = 0.1,
     rng: np.random.Generator | None = None,
     reference_point_mode: str = "zero",
+    utility_form: str = "absolute",
 ) -> NDArray[np.floating[Any]]:
     """Score a batch of scenarios by EIG. Returns array of EIG values."""
     rng = rng or np.random.default_rng()
@@ -154,6 +153,7 @@ def compute_eig_batch(
             s, posterior, n_samples, temperature,
             rng=np.random.default_rng(int(rng.integers(0, 2**31))),
             reference_point_mode=reference_point_mode,
+            utility_form=utility_form,
         )
         for s in scenarios
     ])

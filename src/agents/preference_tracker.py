@@ -7,6 +7,7 @@ import numpy as np
 from numpy.typing import NDArray
 
 from src.environments.base import BaseEnvironment
+from src.training.synthetic_users import resolve_reference_point, validate_utility_axes
 from src.utils.diagnostic_scenarios import DiagnosticScenario
 from src.utils.posterior import GaussianPosterior, ParticlePosterior, PosteriorBase
 
@@ -36,22 +37,23 @@ class PreferenceTracker:
         temperature: float = 0.1,
         convergence: ConvergenceConfig | None = None,
         reference_point_mode: str = "zero",
+        utility_form: str = "absolute",
     ) -> None:
         """Args:
             reference_point_mode: How the prospect-theory reference point is
                 derived for likelihood evaluation. "zero" (default) keeps the
                 historical ref=0.0 behavior; "current_wealth" uses each
                 scenario's own current wealth so negative returns register
-                as losses (making lambda_ identifiable).
+                as losses (making lambda_ identifiable). Ignored (must be
+                "zero") when utility_form="return_normalized".
+            utility_form: "absolute" (default, historical wealth-scale) or
+                "return_normalized" (scale-invariant; see synthetic_users.py).
         """
-        if reference_point_mode not in ("zero", "current_wealth"):
-            raise ValueError(
-                f"Unknown reference_point_mode: {reference_point_mode!r} "
-                "(expected 'zero' or 'current_wealth')"
-            )
+        validate_utility_axes(reference_point_mode, utility_form)
         self.temperature = temperature
         self.convergence = convergence or ConvergenceConfig()
         self.reference_point_mode = reference_point_mode
+        self.utility_form = utility_form
         self.n_observations = 0
 
         if posterior_type == "particle":
@@ -67,10 +69,9 @@ class PreferenceTracker:
         scenario: DiagnosticScenario,
     ) -> None:
         """Update the posterior after observing the user's choice."""
-        if self.reference_point_mode == "current_wealth":
-            reference_point = float(scenario.current_wealth)
-        else:
-            reference_point = 0.0
+        reference_point = resolve_reference_point(
+            scenario.current_wealth, self.reference_point_mode, self.utility_form,
+        )
         self.posterior.update_from_choice(
             choice=choice,
             option_a_alloc=scenario.option_a,
@@ -82,6 +83,7 @@ class PreferenceTracker:
             temperature=self.temperature,
             multiperiod_horizon=scenario.multiperiod_horizon,
             reference_point=reference_point,
+            utility_form=self.utility_form,
         )
         self.n_observations += 1
 

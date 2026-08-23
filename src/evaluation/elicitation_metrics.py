@@ -103,8 +103,14 @@ def run_elicitation_benchmark(
 
     for i in range(n_users):
         ut = sampler.sample()
-        user_active = SyntheticUser(ut, temperature=config.temperature, seed=seed + i)
-        user_random = SyntheticUser(ut, temperature=config.temperature, seed=seed + i)
+        user_active = SyntheticUser(
+            ut, temperature=config.temperature, seed=seed + i,
+            utility_form=config.utility_form,
+        )
+        user_random = SyntheticUser(
+            ut, temperature=config.temperature, seed=seed + i,
+            utility_form=config.utility_form,
+        )
 
         env.reset(seed=seed + i)
 
@@ -119,6 +125,7 @@ def run_elicitation_benchmark(
             seed=seed + i * 1000,
             scenario_library=config.scenario_library,
             reference_point_mode=config.reference_point_mode,
+            utility_form=config.utility_form,
         )
 
         loop_active = ElicitationLoop(active_config)
@@ -136,6 +143,7 @@ def run_elicitation_benchmark(
             seed=seed + i * 2000,
             scenario_library=config.scenario_library,
             reference_point_mode=config.reference_point_mode,
+            utility_form=config.utility_form,
         )
 
         loop_random = ElicitationLoop(random_config)

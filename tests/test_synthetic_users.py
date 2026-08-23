@@ -10,6 +10,7 @@ from src.training.synthetic_users import (
     UserType,
     discounted_utility,
     prospect_utility,
+    validate_utility_axes,
 )
 
 
@@ -135,6 +136,118 @@ class TestProspectUtility:
         u_loss = prospect_utility(80.0, alpha=1.0, lambda_=2.0, reference_point=100.0)
         assert u_gain > 0
         assert u_loss < 0
+
+
+class TestProspectUtilityReturnNormalized:
+    """utility_form='return_normalized': scores returns, not absolute wealth.
+
+    See scripts/synthesize_results.py / outputs/canonical vs outputs/canonical_cw
+    for the empirical bug this fixes: supply_chain's diagnostic scenario pool
+    spans an ~1000x wealth range across candidates, which contaminated
+    EIG-guided active query selection under the historical absolute-wealth
+    formula.
+    """
+
+    def test_scale_invariance_at_1000x_wealth(self) -> None:
+        ut = UserType(gamma=0.9, alpha=1.0, lambda_=1.5)
+        alloc = np.array([0.5, 0.3, 0.2])
+        means = np.array([0.05, 0.03, 0.08])
+        variances = np.array([0.01, 0.02, 0.05])
+
+        u_small = SyntheticUser(
+            ut, temperature=0.1, seed=42, utility_form="return_normalized",
+        ).evaluate_allocation(alloc, means, variances, current_wealth=60_000.0)
+        u_big = SyntheticUser(
+            ut, temperature=0.1, seed=42, utility_form="return_normalized",
+        ).evaluate_allocation(alloc, means, variances, current_wealth=60_000_000.0)
+        np.testing.assert_allclose(u_small, u_big, rtol=1e-9)
+
+    def test_absolute_mode_is_not_scale_invariant(self) -> None:
+        """Contrast case: proves this test would have caught the original bug."""
+        ut = UserType(gamma=0.9, alpha=1.0, lambda_=1.5)
+        alloc = np.array([0.5, 0.3, 0.2])
+        means = np.array([0.05, 0.03, 0.08])
+        variances = np.array([0.01, 0.02, 0.05])
+
+        u_small = SyntheticUser(
+            ut, temperature=0.1, seed=42, utility_form="absolute",
+        ).evaluate_allocation(alloc, means, variances, current_wealth=60_000.0)
+        u_big = SyntheticUser(
+            ut, temperature=0.1, seed=42, utility_form="absolute",
+        ).evaluate_allocation(alloc, means, variances, current_wealth=60_000_000.0)
+        assert not np.isclose(u_small, u_big, rtol=0.01)
+
+    def test_choice_probabilities_invariant_across_wealth(self) -> None:
+        ut = UserType(gamma=0.9, alpha=1.0, lambda_=1.5)
+        option_a = np.array([0.7, 0.2, 0.1])
+        option_b = np.array([0.2, 0.3, 0.5])
+        means = np.array([0.05, 0.03, 0.08])
+        variances = np.array([0.01, 0.02, 0.05])
+
+        def eu_diff(wealth: float) -> float:
+            user = SyntheticUser(
+                ut, temperature=0.1, seed=7, utility_form="return_normalized",
+            )
+            eu_a = user.evaluate_allocation(option_a, means, variances, wealth)
+            user2 = SyntheticUser(
+                ut, temperature=0.1, seed=7, utility_form="return_normalized",
+            )
+            eu_b = user2.evaluate_allocation(option_b, means, variances, wealth)
+            return eu_a - eu_b
+
+        np.testing.assert_allclose(eu_diff(60_000.0), eu_diff(60_000_000.0), rtol=1e-9)
+
+    def test_current_wealth_mode_incompatible(self) -> None:
+        with pytest.raises(ValueError, match="return_normalized"):
+            validate_utility_axes("current_wealth", "return_normalized")
+
+    def test_synthetic_user_rejects_invalid_utility_form(self) -> None:
+        ut = UserType(gamma=0.5, alpha=1.0, lambda_=1.5)
+        with pytest.raises(ValueError, match="utility_form"):
+            SyntheticUser(ut, utility_form="bogus")
+
+    def test_multiperiod_scale_invariance(self) -> None:
+        ut = UserType(gamma=0.9, alpha=1.0, lambda_=1.5)
+        alloc = np.array([0.6, 0.4])
+        means = np.array([0.04, 0.06])
+        variances = np.array([0.01, 0.02])
+
+        u_small = SyntheticUser(
+            ut, temperature=0.1, seed=11, utility_form="return_normalized",
+        ).evaluate_allocation_multiperiod(alloc, means, variances, 60_000.0, n_periods=5)
+        u_big = SyntheticUser(
+            ut, temperature=0.1, seed=11, utility_form="return_normalized",
+        ).evaluate_allocation_multiperiod(alloc, means, variances, 60_000_000.0, n_periods=5)
+        np.testing.assert_allclose(u_small, u_big, rtol=1e-9)
+
+    def test_multiperiod_per_period_magnitude_does_not_grow_with_horizon(self) -> None:
+        """Guards against regressing to a cumulative-from-start formulation.
+
+        Per-period normalization means each period's utility contribution is
+        drawn from the same distribution regardless of t; a 20-period run's
+        mean per-round utility should be comparable in magnitude to a
+        2-period run's, not systematically larger from compounding.
+        """
+        ut = UserType(gamma=1.0, alpha=1.0, lambda_=1.5)
+        alloc = np.array([0.5, 0.5])
+        means = np.array([0.05, 0.05])
+        variances = np.array([0.02, 0.02])
+
+        u_short = SyntheticUser(
+            ut, temperature=0.1, seed=3, utility_form="return_normalized",
+        ).evaluate_allocation_multiperiod(
+            alloc, means, variances, 10_000.0, n_periods=2, n_samples=4000,
+        )
+        u_long = SyntheticUser(
+            ut, temperature=0.1, seed=3, utility_form="return_normalized",
+        ).evaluate_allocation_multiperiod(
+            alloc, means, variances, 10_000.0, n_periods=20, n_samples=4000,
+        )
+        # Per-period mean utility (total / n_periods) should land in the same
+        # ballpark, not grow with horizon.
+        per_round_short = u_short / 2
+        per_round_long = u_long / 20
+        assert abs(per_round_long - per_round_short) < 0.05
 
 
 class TestDiscountedUtility:

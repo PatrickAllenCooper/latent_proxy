@@ -27,7 +27,11 @@ SAFE = np.array([1.0, 0.0])
 RISKY = np.array([0.0, 1.0])
 
 
-def _eu_difference(lambda_: float, reference_point: float | None) -> float:
+def _eu_difference(
+    lambda_: float,
+    reference_point: float | None,
+    utility_form: str = "absolute",
+) -> float:
     """EU(risky) - EU(safe) for a user with the given lambda_.
 
     A fixed seed makes the Monte Carlo draws identical across calls, so
@@ -37,6 +41,7 @@ def _eu_difference(lambda_: float, reference_point: float | None) -> float:
         UserType(gamma=0.9, alpha=0.8, lambda_=lambda_),
         temperature=0.1,
         seed=123,
+        utility_form=utility_form,
     )
     eu_safe = user.evaluate_for_query(
         SAFE, CHANNEL_MEANS, CHANNEL_VARIANCES, CURRENT_WEALTH,
@@ -84,11 +89,31 @@ class TestReferencePointControlsLambda:
         )
         assert eu_default == pytest.approx(eu_explicit_zero, abs=1e-12)
 
+    def test_return_normalized_also_makes_lambda_identifiable(self) -> None:
+        """utility_form='return_normalized' (default reference_point_mode="zero")
+        achieves the same lambda-identifiability fix as current_wealth mode --
+        without the cross-scenario wealth-scale contamination that mode alone
+        does not address (see outputs/canonical vs outputs/canonical_cw)."""
+        d_lo = _eu_difference(
+            lambda_=1.0, reference_point=None, utility_form="return_normalized",
+        )
+        d_hi = _eu_difference(
+            lambda_=3.0, reference_point=None, utility_form="return_normalized",
+        )
+        assert d_hi < d_lo - 0.01
+
 
 class TestTrackerModeValidation:
     def test_bad_mode_rejected(self) -> None:
         with pytest.raises(ValueError, match="reference_point_mode"):
             PreferenceTracker(reference_point_mode="wealth")
+
+    def test_return_normalized_with_current_wealth_mode_rejected(self) -> None:
+        with pytest.raises(ValueError, match="return_normalized"):
+            PreferenceTracker(
+                reference_point_mode="current_wealth",
+                utility_form="return_normalized",
+            )
 
 
 class DownsideScenarioLibrary(ScenarioLibraryBase):
@@ -208,3 +233,39 @@ class TestMiniElicitationLambdaIdentifiability:
         )
         # And the two modes differ by a clear margin.
         assert ratio_cw < ratio_zero - 0.15
+
+
+class TestUtilityFormMismatchGuard:
+    """ElicitationLoop must reject a user/config utility_form disagreement --
+    the generative process (synthetic user) and the inference model
+    (posterior/EIG, driven by config) must agree on which formula is used."""
+
+    def test_mismatched_user_and_config_raises(self) -> None:
+        env = ResourceStrategyGame()
+        env.reset(seed=1)
+        user = SyntheticUser(
+            UserType(gamma=0.7, alpha=1.0, lambda_=1.5),
+            temperature=0.1, seed=1, utility_form="absolute",
+        )
+        config = ElicitationConfig(
+            n_particles=50, max_rounds=2, n_scenarios_per_round=6,
+            n_eig_samples=20, utility_form="return_normalized",
+        )
+        loop = ElicitationLoop(config)
+        with pytest.raises(ValueError, match="utility_form mismatch"):
+            loop.run(env, user, query_type="active")
+
+    def test_matched_user_and_config_runs(self) -> None:
+        env = ResourceStrategyGame()
+        env.reset(seed=1)
+        user = SyntheticUser(
+            UserType(gamma=0.7, alpha=1.0, lambda_=1.5),
+            temperature=0.1, seed=1, utility_form="return_normalized",
+        )
+        config = ElicitationConfig(
+            n_particles=50, max_rounds=2, n_scenarios_per_round=6,
+            n_eig_samples=20, utility_form="return_normalized",
+        )
+        loop = ElicitationLoop(config)
+        result = loop.run(env, user, query_type="active")
+        assert result.n_rounds == 2

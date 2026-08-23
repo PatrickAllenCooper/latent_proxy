@@ -268,6 +268,8 @@ def run_transfer_experiment(
             temperature=elicitation.temperature,
             convergence=convergence,
             seed=elicitation.seed,
+            reference_point_mode=elicitation.reference_point_mode,
+            utility_form=elicitation.utility_form,
         )
 
     env_a = create_variant_a()
@@ -288,7 +290,10 @@ def run_transfer_experiment(
         uniform = np.ones(kb, dtype=np.float64) / kb
         g_scores.append(compute_alignment_score([uniform], [opt_b]))
 
-        user_w = SyntheticUser(ut, temperature=elicitation.temperature, seed=seed + i + 333)
+        user_w = SyntheticUser(
+            ut, temperature=elicitation.temperature, seed=seed + i + 333,
+            utility_form=elicitation.utility_form,
+        )
         cfg_w = ElicitationConfig(
             posterior_type=elicitation.posterior_type,
             n_particles=elicitation.n_particles,
@@ -298,6 +303,8 @@ def run_transfer_experiment(
             temperature=elicitation.temperature,
             convergence=elicitation.convergence,
             seed=seed + i * 1000 + 7,
+            reference_point_mode=elicitation.reference_point_mode,
+            utility_form=elicitation.utility_form,
         )
         loop_b = ElicitationLoop(cfg_w)
         env_b.reset(seed=seed + i + 9000)
@@ -305,7 +312,10 @@ def run_transfer_experiment(
         opt_hat_b = env_b.get_optimal_action(res_b.inferred_theta)
         w_scores.append(compute_alignment_score([opt_hat_b], [opt_b]))
 
-        user_c = SyntheticUser(ut, temperature=elicitation.temperature, seed=seed + i + 777)
+        user_c = SyntheticUser(
+            ut, temperature=elicitation.temperature, seed=seed + i + 777,
+            utility_form=elicitation.utility_form,
+        )
         cfg_c = ElicitationConfig(
             posterior_type=elicitation.posterior_type,
             n_particles=elicitation.n_particles,
@@ -315,6 +325,8 @@ def run_transfer_experiment(
             temperature=elicitation.temperature,
             convergence=elicitation.convergence,
             seed=seed + i * 1000 + 99,
+            reference_point_mode=elicitation.reference_point_mode,
+            utility_form=elicitation.utility_form,
         )
         loop_a = ElicitationLoop(cfg_c)
         env_a.reset(seed=seed + i + 8000)
@@ -372,6 +384,8 @@ def run_cross_domain_transfer(
             convergence=convergence,
             seed=elicitation.seed,
             scenario_library=elicitation.scenario_library,
+            reference_point_mode=elicitation.reference_point_mode,
+            utility_form=elicitation.utility_form,
         )
 
     env_game = create_variant_a()
@@ -392,7 +406,10 @@ def run_cross_domain_transfer(
         uniform = np.ones(ks, dtype=np.float64) / ks
         g_scores.append(compute_alignment_score([uniform], [opt_stock]))
 
-        user_w = SyntheticUser(ut, temperature=elicitation.temperature, seed=seed + i + 333)
+        user_w = SyntheticUser(
+            ut, temperature=elicitation.temperature, seed=seed + i + 333,
+            utility_form=elicitation.utility_form,
+        )
         lib_stock = StockScenarioLibrary(seed=seed + i + 4000)
         cfg_w = ElicitationConfig(
             posterior_type=elicitation.posterior_type,
@@ -404,6 +421,8 @@ def run_cross_domain_transfer(
             convergence=elicitation.convergence,
             seed=seed + i * 1000 + 7,
             scenario_library=lib_stock,
+            reference_point_mode=elicitation.reference_point_mode,
+            utility_form=elicitation.utility_form,
         )
         loop_b = ElicitationLoop(cfg_w)
         stock_env.reset(seed=seed + i + 9000)
@@ -411,7 +430,10 @@ def run_cross_domain_transfer(
         opt_hat_stock = stock_env.get_optimal_action(res_b.inferred_theta)
         w_scores.append(compute_alignment_score([opt_hat_stock], [opt_stock]))
 
-        user_c = SyntheticUser(ut, temperature=elicitation.temperature, seed=seed + i + 777)
+        user_c = SyntheticUser(
+            ut, temperature=elicitation.temperature, seed=seed + i + 777,
+            utility_form=elicitation.utility_form,
+        )
         lib_game = ScenarioLibrary(seed=seed + i + 5000)
         cfg_c = ElicitationConfig(
             posterior_type=elicitation.posterior_type,
@@ -423,6 +445,8 @@ def run_cross_domain_transfer(
             convergence=elicitation.convergence,
             seed=seed + i * 1000 + 99,
             scenario_library=lib_game,
+            reference_point_mode=elicitation.reference_point_mode,
+            utility_form=elicitation.utility_form,
         )
         loop_a = ElicitationLoop(cfg_c)
         env_game.reset(seed=seed + i + 8000)

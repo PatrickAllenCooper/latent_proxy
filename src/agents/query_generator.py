@@ -31,11 +31,13 @@ class StructuredQueryGenerator:
         seed: int = 42,
         library: ScenarioLibraryBase | None = None,
         reference_point_mode: str = "zero",
+        utility_form: str = "absolute",
     ) -> None:
         self.n_scenarios_per_round = n_scenarios_per_round
         self.n_eig_samples = n_eig_samples
         self.temperature = temperature
         self.reference_point_mode = reference_point_mode
+        self.utility_form = utility_form
         self._library: ScenarioLibraryBase = (
             library if library is not None else ScenarioLibrary(seed=seed)
         )
@@ -61,6 +63,7 @@ class StructuredQueryGenerator:
             scenarios, posterior, self.n_eig_samples,
             self.temperature, self._rng,
             reference_point_mode=self.reference_point_mode,
+            utility_form=self.utility_form,
         )
 
         best_idx = int(np.argmax(eig_scores))
@@ -195,11 +198,15 @@ class FixedQueryGenerator:
         library: ScenarioLibraryBase | None = None,
         n_particles: int = 1000,
         posterior_factory: Callable[[], PosteriorBase] | None = None,
+        reference_point_mode: str = "zero",
+        utility_form: str = "absolute",
     ) -> None:
         self.n_scenarios_per_round = n_scenarios_per_round
         self.n_eig_samples = n_eig_samples
         self.temperature = temperature
         self.n_particles = n_particles
+        self.reference_point_mode = reference_point_mode
+        self.utility_form = utility_form
         self._library: ScenarioLibraryBase = (
             library if library is not None else ScenarioLibrary(seed=seed)
         )
@@ -243,6 +250,8 @@ class FixedQueryGenerator:
         eig_scores = compute_eig_batch(
             scenarios, prior, self.n_eig_samples,
             self.temperature, self._rng,
+            reference_point_mode=self.reference_point_mode,
+            utility_form=self.utility_form,
         )
 
         groups: dict[str, list[DiagnosticScenario]] = {}

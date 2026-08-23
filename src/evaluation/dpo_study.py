@@ -122,6 +122,9 @@ def _run_analytical_condition(
         temperature=elicitation.temperature,
         convergence=conv,
         seed=seed,
+        scenario_library=elicitation.scenario_library,
+        reference_point_mode=elicitation.reference_point_mode,
+        utility_form=elicitation.utility_form,
     )
 
     for i in range(n_users):
@@ -130,7 +133,10 @@ def _run_analytical_condition(
         env = env_factory()
         env.reset(seed=seed + i)
 
-        user = SyntheticUser(ut, temperature=cfg.temperature, seed=seed + i + 100)
+        user = SyntheticUser(
+            ut, temperature=cfg.temperature, seed=seed + i + 100,
+            utility_form=cfg.utility_form,
+        )
         loop = ElicitationLoop(cfg)
         res = loop.run(env, user, query_type=query_type)
 

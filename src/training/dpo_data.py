@@ -34,6 +34,7 @@ class DPOPairConfig:
     seed: int = 42
     dirichlet_alpha: float = 1.0
     perturbation_std: float = 0.1
+    utility_form: str = "absolute"
 
 
 @dataclass
@@ -233,7 +234,10 @@ class DPOPairGenerator:
             self.config.n_candidates, target_theta=target_theta
         )
 
-        user = SyntheticUser(user_type, seed=int(self._rng.integers(0, 2**31)))
+        user = SyntheticUser(
+            user_type, seed=int(self._rng.integers(0, 2**31)),
+            utility_form=self.config.utility_form,
+        )
         channel_stats = env.get_channel_stats()
         means = channel_stats["means"]
         variances = channel_stats["variances"]
@@ -264,7 +268,8 @@ class DPOPairGenerator:
         }
         rejected_alloc = env.get_optimal_action(contrast_theta)
         contrast_user = SyntheticUser(
-            contrasting, seed=int(self._rng.integers(0, 2**31))
+            contrasting, seed=int(self._rng.integers(0, 2**31)),
+            utility_form=self.config.utility_form,
         )
         rejected_score = contrast_user.evaluate_allocation(
             rejected_alloc, means, variances, current_wealth, rounds_left,

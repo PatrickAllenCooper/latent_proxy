@@ -19,7 +19,7 @@ from src.agents.response_generator import ResponseGenerator
 from src.environments.base import BaseEnvironment
 from src.utils.diagnostic_scenarios import ScenarioLibraryBase
 from src.evaluation.alignment_metrics import compute_preference_recovery_error
-from src.training.synthetic_users import SyntheticUser, UserType
+from src.training.synthetic_users import SyntheticUser, UserType, validate_utility_axes
 from src.utils.diagnostic_scenarios import DiagnosticScenario
 from src.utils.posterior import GaussianPosterior, ParticlePosterior, PosteriorBase
 
@@ -40,6 +40,7 @@ class ElicitationConfig:
     seed: int = 42
     scenario_library: ScenarioLibraryBase | None = None
     reference_point_mode: str = "zero"
+    utility_form: str = "absolute"
 
 
 @dataclass
@@ -91,12 +92,23 @@ class ElicitationLoop:
                 prior-EIG-ranked questionnaire, "dirichlet" for fully random
                 Dirichlet option pairs, "random" for the library baseline.
         """
+        validate_utility_axes(self.config.reference_point_mode, self.config.utility_form)
+        if getattr(user, "utility_form", "absolute") != self.config.utility_form:
+            raise ValueError(
+                f"utility_form mismatch: ElicitationConfig.utility_form="
+                f"{self.config.utility_form!r} but the SyntheticUser was built "
+                f"with utility_form={getattr(user, 'utility_form', 'absolute')!r}. "
+                "The generative process (user) and inference model (config) "
+                "must agree."
+            )
+
         tracker = PreferenceTracker(
             posterior_type=self.config.posterior_type,
             n_particles=self.config.n_particles,
             temperature=self.config.temperature,
             convergence=self.config.convergence,
             reference_point_mode=self.config.reference_point_mode,
+            utility_form=self.config.utility_form,
         )
 
         if query_type == "active":
@@ -107,6 +119,7 @@ class ElicitationLoop:
                 seed=self.config.seed,
                 library=self.config.scenario_library,
                 reference_point_mode=self.config.reference_point_mode,
+                utility_form=self.config.utility_form,
             )
         elif query_type == "fixed":
             if self.config.posterior_type == "gaussian":
@@ -123,6 +136,8 @@ class ElicitationLoop:
                 library=self.config.scenario_library,
                 n_particles=self.config.n_particles,
                 posterior_factory=posterior_factory,
+                reference_point_mode=self.config.reference_point_mode,
+                utility_form=self.config.utility_form,
             )
         elif query_type == "dirichlet":
             query_gen = DirichletQueryGenerator(seed=self.config.seed)

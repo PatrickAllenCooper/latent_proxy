@@ -126,6 +126,56 @@ def prospect_utility(
     return result
 
 
+_VALID_REFERENCE_POINT_MODES = ("zero", "current_wealth")
+_VALID_UTILITY_FORMS = ("absolute", "return_normalized")
+
+
+def validate_utility_axes(reference_point_mode: str, utility_form: str) -> None:
+    """Validate the (reference_point_mode, utility_form) combination.
+
+    In return space the only sensible reference is 0.0 ("no change from
+    status quo") -- a dollar-valued reference_point="current_wealth" is a
+    type mismatch against a fractional return domain, so that combination
+    is rejected rather than silently reinterpreted.
+    """
+    if reference_point_mode not in _VALID_REFERENCE_POINT_MODES:
+        raise ValueError(
+            f"Unknown reference_point_mode: {reference_point_mode!r} "
+            f"(expected one of {_VALID_REFERENCE_POINT_MODES})"
+        )
+    if utility_form not in _VALID_UTILITY_FORMS:
+        raise ValueError(
+            f"Unknown utility_form: {utility_form!r} "
+            f"(expected one of {_VALID_UTILITY_FORMS})"
+        )
+    if utility_form == "return_normalized" and reference_point_mode == "current_wealth":
+        raise ValueError(
+            "utility_form='return_normalized' is incompatible with "
+            "reference_point_mode='current_wealth': in return space the "
+            "reference is always 0.0 (no change from status quo); a "
+            "dollar-valued reference point does not apply."
+        )
+
+
+def resolve_reference_point(
+    current_wealth: float,
+    reference_point_mode: str,
+    utility_form: str = "absolute",
+) -> float:
+    """Derive the concrete reference point for a scenario's current_wealth.
+
+    Validates the (reference_point_mode, utility_form) combination first.
+    Under "return_normalized", the reference is always 0.0 regardless of
+    reference_point_mode (see validate_utility_axes).
+    """
+    validate_utility_axes(reference_point_mode, utility_form)
+    if utility_form == "return_normalized":
+        return 0.0
+    if reference_point_mode == "current_wealth":
+        return float(current_wealth)
+    return 0.0
+
+
 def discounted_utility(
     terminal_wealth: float,
     theta: UserType,
@@ -153,10 +203,17 @@ class SyntheticUser:
         temperature: float = 0.1,
         reference_point: float = 0.0,
         seed: int | None = None,
+        utility_form: str = "absolute",
     ) -> None:
+        if utility_form not in _VALID_UTILITY_FORMS:
+            raise ValueError(
+                f"Unknown utility_form: {utility_form!r} "
+                f"(expected one of {_VALID_UTILITY_FORMS})"
+            )
         self.user_type = user_type
         self.temperature = temperature
         self.reference_point = reference_point
+        self.utility_form = utility_form
         self._rng = np.random.default_rng(seed)
 
     @property
@@ -198,10 +255,14 @@ class SyntheticUser:
         port_std = max(np.sqrt(port_var), 1e-10)
 
         sim_returns = self._rng.normal(port_mean, port_std, size=n_samples)
-        sim_wealth = current_wealth * (1.0 + sim_returns)
+
+        if self.utility_form == "return_normalized":
+            outcome = sim_returns
+        else:
+            outcome = current_wealth * (1.0 + sim_returns)
 
         utilities = prospect_utility(
-            sim_wealth, self.user_type.alpha,
+            outcome, self.user_type.alpha,
             self.user_type.lambda_, ref,
         )
         discount = self.user_type.gamma ** rounds_remaining
@@ -244,12 +305,22 @@ class SyntheticUser:
         returns = self._rng.normal(
             port_mean, port_std, size=(n_samples, n_periods),
         )
-        wealth = np.full(n_samples, current_wealth, dtype=np.float64)
         path_u = np.zeros(n_samples, dtype=np.float64)
-        for t in range(n_periods):
-            wealth *= 1.0 + returns[:, t]
-            u_step = prospect_utility(wealth, alpha, lambda_, ref)
-            path_u += (gamma**t) * np.asarray(u_step, dtype=np.float64)
+
+        if self.utility_form == "return_normalized":
+            # Each period is normalized by its own preceding wealth (i.e.
+            # scored directly on that period's return), not by the path's
+            # initial wealth -- avoids reintroducing a scale artifact across
+            # periods within one compounding path (see plan rationale).
+            for t in range(n_periods):
+                u_step = prospect_utility(returns[:, t], alpha, lambda_, ref)
+                path_u += (gamma**t) * np.asarray(u_step, dtype=np.float64)
+        else:
+            wealth = np.full(n_samples, current_wealth, dtype=np.float64)
+            for t in range(n_periods):
+                wealth *= 1.0 + returns[:, t]
+                u_step = prospect_utility(wealth, alpha, lambda_, ref)
+                path_u += (gamma**t) * np.asarray(u_step, dtype=np.float64)
 
         return float(np.mean(path_u))
 

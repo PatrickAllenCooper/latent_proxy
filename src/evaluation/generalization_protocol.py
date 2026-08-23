@@ -132,7 +132,10 @@ def _run_pair_transfer(
         g_scores.append(compute_alignment_score([uniform], [opt_target]))
 
         lib_target = SCENARIO_LIBRARIES[target_name](seed + i + 4000)
-        user_w = SyntheticUser(ut, temperature=elicitation.temperature, seed=seed + i + 333)
+        user_w = SyntheticUser(
+            ut, temperature=elicitation.temperature, seed=seed + i + 333,
+            utility_form=elicitation.utility_form,
+        )
         cfg_w = ElicitationConfig(
             posterior_type=elicitation.posterior_type,
             n_particles=elicitation.n_particles,
@@ -144,6 +147,7 @@ def _run_pair_transfer(
             seed=seed + i * 1000 + 7,
             scenario_library=lib_target,
             reference_point_mode=elicitation.reference_point_mode,
+            utility_form=elicitation.utility_form,
         )
         loop_w = ElicitationLoop(cfg_w)
         target_env.reset(seed=seed + i + 9000)
@@ -152,7 +156,10 @@ def _run_pair_transfer(
         w_scores.append(compute_alignment_score([opt_hat_w], [opt_target]))
 
         lib_source = SCENARIO_LIBRARIES[source_name](seed + i + 5000)
-        user_c = SyntheticUser(ut, temperature=elicitation.temperature, seed=seed + i + 777)
+        user_c = SyntheticUser(
+            ut, temperature=elicitation.temperature, seed=seed + i + 777,
+            utility_form=elicitation.utility_form,
+        )
         cfg_c = ElicitationConfig(
             posterior_type=elicitation.posterior_type,
             n_particles=elicitation.n_particles,
@@ -164,6 +171,7 @@ def _run_pair_transfer(
             seed=seed + i * 1000 + 99,
             scenario_library=lib_source,
             reference_point_mode=elicitation.reference_point_mode,
+            utility_form=elicitation.utility_form,
         )
         source_env = source_factory()
         loop_c = ElicitationLoop(cfg_c)
@@ -237,6 +245,7 @@ def run_generalization_study(
                     seed=elic.seed,
                     scenario_library=lib,
                     reference_point_mode=elic.reference_point_mode,
+                    utility_form=elic.utility_form,
                 )
             stab = run_theta_stability_test(
                 factory,
@@ -297,6 +306,7 @@ def run_generalization_study(
                     seed=elic.seed,
                     scenario_library=lib,
                     reference_point_mode=elic.reference_point_mode,
+                    utility_form=elic.utility_form,
                 )
             env = factory()
             bench = run_elicitation_benchmark(

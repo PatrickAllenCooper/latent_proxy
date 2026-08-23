@@ -50,6 +50,7 @@ class PosteriorBase(ABC):
         temperature: float,
         multiperiod_horizon: int | None = None,
         reference_point: float = 0.0,
+        utility_form: str = "absolute",
     ) -> None: ...
 
     def to_dict(self) -> dict[str, float]:
@@ -105,6 +106,7 @@ def _choice_log_likelihood(
     rng: np.random.Generator | None = None,
     multiperiod_horizon: int | None = None,
     reference_point: float = 0.0,
+    utility_form: str = "absolute",
 ) -> float:
     """Log-probability of the observed choice under softmax-rational model for a given theta."""
     from src.training.synthetic_users import SyntheticUser, UserType
@@ -118,6 +120,7 @@ def _choice_log_likelihood(
     user = SyntheticUser(
         ut, temperature=temperature,
         reference_point=reference_point, seed=None,
+        utility_form=utility_form,
     )
     user._rng = rng or np.random.default_rng(0)
 
@@ -218,6 +221,7 @@ class GaussianPosterior(PosteriorBase):
         temperature: float,
         multiperiod_horizon: int | None = None,
         reference_point: float = 0.0,
+        utility_form: str = "absolute",
     ) -> None:
         """Approximate Bayesian update from an observed binary choice.
 
@@ -236,6 +240,7 @@ class GaussianPosterior(PosteriorBase):
                 rng=np.random.default_rng(i),
                 multiperiod_horizon=multiperiod_horizon,
                 reference_point=reference_point,
+                utility_form=utility_form,
             )
             for i, s in enumerate(samples)
         ])
@@ -339,6 +344,7 @@ class ParticlePosterior(PosteriorBase):
         temperature: float,
         multiperiod_horizon: int | None = None,
         reference_point: float = 0.0,
+        utility_form: str = "absolute",
     ) -> None:
         log_likelihoods = np.array([
             _choice_log_likelihood(
@@ -349,6 +355,7 @@ class ParticlePosterior(PosteriorBase):
                 rng=np.random.default_rng(i),
                 multiperiod_horizon=multiperiod_horizon,
                 reference_point=reference_point,
+                utility_form=utility_form,
             )
             for i in range(self.n_particles)
         ])

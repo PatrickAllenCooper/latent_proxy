@@ -48,6 +48,7 @@ def run_user_sessions(
         session_seed = seed + user_index * 1000 + s * 100 + 7
         user = SyntheticUser(
             ut, temperature=elicitation.temperature, seed=session_seed + 1,
+            utility_form=elicitation.utility_form,
         )
         conv = elicitation.convergence
         if conv.max_rounds < elicitation.max_rounds:
@@ -69,6 +70,7 @@ def run_user_sessions(
             seed=session_seed,
             scenario_library=elicitation.scenario_library,
             reference_point_mode=elicitation.reference_point_mode,
+            utility_form=elicitation.utility_form,
         )
         loop = ElicitationLoop(cfg)
         env.reset(seed=session_seed + 2)

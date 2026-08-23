@@ -125,7 +125,10 @@ class SupplyChainDPOPairGenerator(DPOPairGenerator):
         candidates = candidate_gen.generate(
             self.config.n_candidates, target_theta=target_theta,
         )
-        user = SyntheticUser(user_type, seed=int(self._rng.integers(0, 2**31)))
+        user = SyntheticUser(
+            user_type, seed=int(self._rng.integers(0, 2**31)),
+            utility_form=self.config.utility_form,
+        )
         stats = env.get_channel_stats()
         means, variances = stats["means"], stats["variances"]
         wealth = float(obs["wealth"].sum())
@@ -154,6 +157,7 @@ class SupplyChainDPOPairGenerator(DPOPairGenerator):
         rejected_alloc = env.get_optimal_action(contrast_theta)
         contrast_user = SyntheticUser(
             contrasting, seed=int(self._rng.integers(0, 2**31)),
+            utility_form=self.config.utility_form,
         )
         rejected_score = contrast_user.evaluate_allocation(
             rejected_alloc, means, variances, wealth, rounds_left,
