@@ -43,7 +43,7 @@ from src.agents.preference_tracker import ConvergenceConfig
 from src.evaluation.alignment_metrics import compute_alignment_score
 from src.evaluation.elicitation_metrics import compute_recovery_curve
 from src.evaluation.generalization_protocol import DOMAIN_FACTORIES, SCENARIO_LIBRARIES
-from src.training.synthetic_users import SyntheticUser, SyntheticUserSampler
+from src.training.synthetic_users import SyntheticUser, SyntheticUserSampler, validate_utility_axes
 
 logging.basicConfig(
     level=logging.INFO,
@@ -134,7 +134,10 @@ def run_user_task(task: dict[str, Any]) -> dict[str, Any]:
 
     env = DOMAIN_FACTORIES[domain]()
     library = SCENARIO_LIBRARIES[domain](seed + user_idx + 4000)
-    user = SyntheticUser(ut, temperature=TEMPERATURE, seed=seed + user_idx)
+    user = SyntheticUser(
+        ut, temperature=TEMPERATURE, seed=seed + user_idx,
+        utility_form=task.get("utility_form", "absolute"),
+    )
 
     config = ElicitationConfig(
         posterior_type="particle",
@@ -147,6 +150,7 @@ def run_user_task(task: dict[str, Any]) -> dict[str, Any]:
         seed=seed + user_idx * 1000 + ARM_SEED_OFFSETS.get(arm, 9),
         scenario_library=library,
         reference_point_mode=task.get("reference_point_mode", "zero"),
+        utility_form=task.get("utility_form", "absolute"),
     )
     loop = ElicitationLoop(config)
 
@@ -222,6 +226,7 @@ def _write_manifest(output_dir: Path, args: argparse.Namespace) -> None:
             "n_scenarios_per_round": args.n_scenarios_per_round,
             "workers": args.workers,
             "reference_point_mode": args.reference_point_mode,
+            "utility_form": args.utility_form,
             "temperature": TEMPERATURE,
             "posterior_type": "particle",
             "arm_seed_offsets": ARM_SEED_OFFSETS,
@@ -263,6 +268,7 @@ def build_tasks(args: argparse.Namespace) -> tuple[list[dict[str, Any]], int]:
                         "n_eig_samples": args.n_eig_samples,
                         "n_scenarios_per_round": args.n_scenarios_per_round,
                         "reference_point_mode": args.reference_point_mode,
+                        "utility_form": args.utility_form,
                         "out_path": str(out_path),
                     })
     return tasks, n_skipped
@@ -364,6 +370,11 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         help="Prospect-theory reference point: 'zero' (historical default) or "
              "'current_wealth' (fixes lambda unidentifiability, see refpoint study)",
     )
+    parser.add_argument(
+        "--utility-form", default="absolute", choices=["absolute", "return_normalized"],
+        help="'absolute' (historical, wealth-scale) or 'return_normalized' "
+             "(scale-invariant; requires --reference-point-mode zero)",
+    )
 
     args = parser.parse_args(argv)
     args.domains = [d.strip() for d in args.domains.split(",") if d.strip()]
@@ -374,6 +385,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 def main(argv: list[str] | None = None) -> None:
     args = parse_args(argv)
+    validate_utility_axes(args.reference_point_mode, args.utility_form)
     run_campaign(args)
 
 
