@@ -18,7 +18,9 @@ CONDA_ENV_NAME="latent-proxy-env"
 cd "$PROJECT_DIR"
 mkdir -p logs outputs/evaluation_m4
 
+set +u
 source ~/.bashrc
+set -u
 conda activate "$CONDA_ENV_NAME"
 
 python scripts/run_full_evaluation.py \

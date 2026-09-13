@@ -23,7 +23,9 @@ export TRANSFORMERS_CACHE="$HF_CACHE"
 cd "$PROJECT_DIR"
 mkdir -p logs
 
+set +u
 source ~/.bashrc
+set -u
 conda activate "$CONDA_ENV_NAME"
 
 echo "Phase 1: Quality floor training"

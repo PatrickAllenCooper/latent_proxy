@@ -37,7 +37,9 @@ export TOKENIZERS_PARALLELISM=false
 cd "$PROJECT_DIR"
 mkdir -p logs outputs/gamma_scaling
 
+set +u
 source ~/.bashrc
+set -u
 conda activate "$CONDA_ENV_NAME"
 
 echo "========================================"
