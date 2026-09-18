@@ -50,7 +50,7 @@ def generate_phase2_data(
 
 
 def run_phase2_training(
-    model_name: str = "mistralai/Mistral-7B-Instruct-v0.3",
+    model_name: str = "Qwen/Qwen2.5-1.5B-Instruct",
     phase1_checkpoint: str | None = None,
     n_pairs: int = 20000,
     num_epochs: int = 3,
@@ -115,7 +115,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Phase 2: Alignment training")
     parser.add_argument("--action", choices=["generate", "train", "evaluate"], default="generate")
-    parser.add_argument("--model-name", default="mistralai/Mistral-7B-Instruct-v0.3")
+    parser.add_argument("--model-name", default="Qwen/Qwen2.5-1.5B-Instruct")
     parser.add_argument("--phase1-checkpoint", default=None)
     parser.add_argument("--n-pairs", type=int, default=20000)
     parser.add_argument("--num-epochs", type=int, default=3)
