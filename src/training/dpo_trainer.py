@@ -64,6 +64,7 @@ class ConditionalDPOTrainer:
         self._tokenizer = None
         self._trainer = None
         self._dataset = None
+        self._loaded_checkpoint_path: str | None = None
 
     def prepare(self) -> None:
         """Load model, tokenizer, and generate training data."""
@@ -130,8 +131,11 @@ class ConditionalDPOTrainer:
             max_length=self.config.max_length,
         )
 
+        ref_model = self._build_ref_model()
+
         self._trainer = DPOTrainer(
             model=self._model,
+            ref_model=ref_model,
             args=training_args,
             train_dataset=self._dataset,
             processing_class=self._tokenizer,
@@ -165,4 +169,34 @@ class ConditionalDPOTrainer:
 
         self._model = PeftModel.from_pretrained(self._model, checkpoint_path)
         self._tokenizer = load_tokenizer(self.config.model)
+        self._loaded_checkpoint_path = checkpoint_path
         logger.info("Loaded checkpoint from %s", checkpoint_path)
+
+    def _build_ref_model(self) -> Any:
+        """Build an explicit, independently-loaded reference model when continuing
+        training from an external checkpoint; otherwise let DPOTrainer fall back
+        to its own automatic PEFT reference handling.
+
+        trl's automatic handling clones the current adapter into a frozen "ref"
+        adapter on the SAME PeftModel. That works correctly for a freshly
+        created LoRA adapter (Phase 1: verified by its clean, converging loss
+        and reward curve), but produces a reference that never diverges from
+        the policy when the model was instead loaded via
+        PeftModel.from_pretrained for continued training (Phase 2: confirmed
+        empirically -- rewards/accuracies/margins stayed exactly zero for
+        2700+ real gradient steps). Sidestepping it with a second, fully
+        independent copy of the checkpoint removes the dependency on that
+        same-object adapter-clone mechanism entirely, at a small, affordable
+        memory cost given this project's quantized base model.
+        """
+        if self._loaded_checkpoint_path is None:
+            return None
+
+        from peft import PeftModel
+
+        ref_model = load_base_model(self.config.model)
+        ref_model = PeftModel.from_pretrained(ref_model, self._loaded_checkpoint_path)
+        ref_model.eval()
+        for p in ref_model.parameters():
+            p.requires_grad_(False)
+        return ref_model
