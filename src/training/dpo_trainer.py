@@ -102,13 +102,23 @@ class ConditionalDPOTrainer:
         )
         Path(phase_dir).mkdir(parents=True, exist_ok=True)
 
+        # DPOConfig (>=trl 1.x) no longer accepts warmup_ratio directly --
+        # only warmup_steps. Convert to preserve the intended warmup fraction.
+        steps_per_epoch = max(
+            1,
+            len(self._dataset)
+            // (self.config.per_device_batch_size * self.config.gradient_accumulation_steps),
+        )
+        total_steps = steps_per_epoch * self.config.num_epochs
+        warmup_steps = int(total_steps * self.config.warmup_ratio)
+
         training_args = DPOConfig(
             output_dir=phase_dir,
             num_train_epochs=self.config.num_epochs,
             per_device_train_batch_size=self.config.per_device_batch_size,
             gradient_accumulation_steps=self.config.gradient_accumulation_steps,
             learning_rate=self.config.learning_rate,
-            warmup_ratio=self.config.warmup_ratio,
+            warmup_steps=warmup_steps,
             logging_steps=self.config.logging_steps,
             save_steps=self.config.save_steps,
             bf16=True,
