@@ -55,6 +55,7 @@ def run_phase2_training(
     n_pairs: int = 20000,
     num_epochs: int = 3,
     output_dir: str = "outputs/dpo/phase2",
+    gradient_checkpointing: bool = True,
 ) -> None:
     """Full Phase 2 pipeline: load Phase 1, generate data, train, evaluate."""
     model_config = ModelConfig(model_name=model_name)
@@ -66,6 +67,7 @@ def run_phase2_training(
         beta=0.1,
         num_epochs=num_epochs,
         output_dir=output_dir,
+        gradient_checkpointing=gradient_checkpointing,
     )
 
     trainer = ConditionalDPOTrainer(training_config)
@@ -122,6 +124,15 @@ if __name__ == "__main__":
     parser.add_argument("--output-dir", default="outputs/dpo/phase2")
     parser.add_argument("--data-path", default="data/phase2")
     parser.add_argument("--checkpoint", default=None)
+    parser.add_argument(
+        "--no-gradient-checkpointing", action="store_true",
+        help="Disable gradient checkpointing. Phase 2 continues training on a "
+             "LoRA adapter loaded via PeftModel.from_pretrained, which triggers a "
+             "checkpoint-recompute shape/dtype mismatch with gradient checkpointing "
+             "enabled in this trl/peft/transformers version combination. Safe to "
+             "disable when GPU memory headroom is available (trades a bit of "
+             "speed for avoiding the recompute path entirely).",
+    )
     args = parser.parse_args()
 
     if args.action == "generate":
@@ -133,6 +144,7 @@ if __name__ == "__main__":
             n_pairs=args.n_pairs,
             num_epochs=args.num_epochs,
             output_dir=args.output_dir,
+            gradient_checkpointing=not args.no_gradient_checkpointing,
         )
     elif args.action == "evaluate":
         if args.checkpoint is None:

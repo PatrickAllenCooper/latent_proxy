@@ -265,26 +265,6 @@ def _run_llm_condition(
     )
 
 
-def _load_model_and_tokenizer(
-    model_path: str,
-    checkpoint_path: str | None = None,
-) -> tuple[Any, Any]:
-    """Load base model with optional LoRA checkpoint."""
-    from src.training.model_utils import ModelConfig, load_base_model, load_tokenizer
-
-    cfg = ModelConfig(model_name=model_path)
-    model = load_base_model(cfg)
-    tokenizer = load_tokenizer(cfg)
-
-    if checkpoint_path is not None:
-        from peft import PeftModel
-        model = PeftModel.from_pretrained(model, checkpoint_path)
-        logger.info("Loaded LoRA checkpoint from %s", checkpoint_path)
-
-    model.eval()
-    return model, tokenizer
-
-
 def _resolve_conditions(config: DPOStudyConfig) -> list[str]:
     """Determine which conditions to run, preserving historical defaults."""
     if config.conditions is None:
@@ -322,17 +302,19 @@ def run_dpo_study(config: DPOStudyConfig) -> DPOStudyResult:
 
     if llm_conditions:
         if config.backend == "local":
-            base_model, base_tok = _load_model_and_tokenizer(config.base_model_path)
+            from src.training.model_utils import load_model_with_optional_checkpoint
+
+            base_model, base_tok = load_model_with_optional_checkpoint(config.base_model_path)
             if "dpo_phase1" in llm_conditions:
                 if not config.phase1_checkpoint:
                     raise ValueError("dpo_phase1 condition requires phase1_checkpoint")
-                p1_model, p1_tok = _load_model_and_tokenizer(
+                p1_model, p1_tok = load_model_with_optional_checkpoint(
                     config.base_model_path, config.phase1_checkpoint,
                 )
             if "dpo_phase2" in llm_conditions:
                 if not config.phase2_checkpoint:
                     raise ValueError("dpo_phase2 condition requires phase2_checkpoint")
-                p2_model, p2_tok = _load_model_and_tokenizer(
+                p2_model, p2_tok = load_model_with_optional_checkpoint(
                     config.base_model_path, config.phase2_checkpoint,
                 )
         else:

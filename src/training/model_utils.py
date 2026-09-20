@@ -125,3 +125,26 @@ def apply_lora(model: Any, model_config: ModelConfig | None = None) -> Any:
         trainable, total, 100.0 * trainable / total,
     )
     return model
+
+
+def load_model_with_optional_checkpoint(
+    model_path: str,
+    checkpoint_path: str | None = None,
+) -> tuple[Any, Any]:
+    """Load a base model and tokenizer for inference, optionally applying a LoRA checkpoint.
+
+    Puts the model in eval mode. Used by evaluation harnesses that need to
+    generate from either the raw base model or a trained DPO checkpoint.
+    """
+    cfg = ModelConfig(model_name=model_path)
+    model = load_base_model(cfg)
+    tokenizer = load_tokenizer(cfg)
+
+    if checkpoint_path is not None:
+        from peft import PeftModel
+
+        model = PeftModel.from_pretrained(model, checkpoint_path)
+        logger.info("Loaded LoRA checkpoint from %s", checkpoint_path)
+
+    model.eval()
+    return model, tokenizer
