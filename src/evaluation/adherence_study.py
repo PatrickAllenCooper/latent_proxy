@@ -53,7 +53,16 @@ class AdherenceStudyConfig:
     phase2_checkpoint: str | None = None
     conditions: list[str] = field(default_factory=lambda: ["base", "dpo_phase1", "dpo_phase2"])
     analytical_elicitation: ElicitationConfig = field(default_factory=ElicitationConfig)
-    max_new_tokens: int = 128
+    # _generate_text (src/agents/llm_elicitation.py) truncates the INPUT
+    # prompt to max_new_tokens*2 tokens -- confirmed by direct measurement
+    # that this study's prompts (game state + full preference profile +
+    # format instruction) run ~300-400 tokens, so anything below ~200 here
+    # silently truncates the prompt (including the format instruction this
+    # module appends) before the model ever sees it. 300 gives a ~600-token
+    # input budget with comfortable margin, and enough generation room for
+    # the model's reasoning-before-answering tendency to still reach the
+    # formatted allocation.
+    max_new_tokens: int = 300
     generation_temperature: float = 0.3
     seed: int = 9001
 

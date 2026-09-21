@@ -43,7 +43,7 @@ def main() -> None:
     parser.add_argument("--output-dir", default="outputs/adherence_study")
     parser.add_argument("--n-particles", type=int, default=200)
     parser.add_argument("--n-eig-samples", type=int, default=100)
-    parser.add_argument("--max-new-tokens", type=int, default=128)
+    parser.add_argument("--max-new-tokens", type=int, default=300)
     parser.add_argument(
         "--conditions", default="base,dpo_phase1,dpo_phase2",
         help="Comma-separated conditions. Valid: base, dpo_phase1, dpo_phase2.",
