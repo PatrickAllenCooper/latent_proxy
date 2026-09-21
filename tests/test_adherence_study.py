@@ -17,6 +17,7 @@ from src.environments.game_variants import create_variant_a
 from src.evaluation.adherence_study import (
     AdherenceConditionResult,
     AdherenceStudyConfig,
+    _append_format_instruction,
     _run_adherence_condition,
     _theta_from_inferred,
     compare_conditions,
@@ -96,6 +97,49 @@ def test_true_mode_produces_one_score_per_user():
     assert len(gen.prompts) == 3
     # true mode: the prompt must render the user's actual numeric profile.
     assert "preference profile" in gen.prompts[0]
+
+
+def test_append_format_instruction_gives_an_explicit_template():
+    """Regression test: without this, raw generations from an Instruct model
+    are free-form chain-of-thought reasoning that never reaches parseable
+    numbers, confirmed by direct inspection of real generations from the
+    trained Phase 2 checkpoint (every response silently fell back to a
+    uniform allocation, i.e. alignment_score exactly 0.0 for every user).
+    """
+    prompt = _append_format_instruction("Some game state.", CHANNEL_NAMES)
+    assert "Some game state." in prompt
+    assert "Format your response EXACTLY as" in prompt
+    assert "Recommended allocation:" in prompt
+    for name in CHANNEL_NAMES:
+        assert f"{name}: __%" in prompt
+
+
+def test_prompt_sent_to_generator_includes_format_instruction():
+    gen = _FixedTextGenerator([0.4, 0.3, 0.2, 0.1])
+    _run_adherence_condition(
+        create_variant_a, None, None, "base", "true", 1,
+        LLMElicitationConfig(), ElicitationConfig(), seed=1, generator=gen,
+    )
+    assert "Format your response EXACTLY as" in gen.prompts[0]
+
+
+def test_parse_failure_rate_tracks_unparseable_responses():
+    class _AlternatingGenerator:
+        def __init__(self) -> None:
+            self.n_calls = 0
+
+        def generate(self, prompt: str) -> str:
+            self.n_calls += 1
+            if self.n_calls % 2 == 1:
+                return "Let me think step by step about this allocation problem..."
+            return AllocationSerializer(CHANNEL_NAMES).serialize(np.array([0.4, 0.3, 0.2, 0.1]))
+
+    result = _run_adherence_condition(
+        create_variant_a, None, None, "base", "true", 4,
+        LLMElicitationConfig(), ElicitationConfig(), seed=1, generator=_AlternatingGenerator(),
+    )
+    assert result.parse_failure_rate == pytest.approx(0.5)
+    assert all(np.isfinite(s) for s in result.alignment_scores)
 
 
 def test_elicited_mode_runs_full_elicitation_loop():

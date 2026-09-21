@@ -27,6 +27,7 @@ import numpy as np
 from src.agents.elicitation_loop import ElicitationConfig, ElicitationLoop
 from src.agents.llm_elicitation import LLMElicitationConfig, _get_channel_names
 from src.agents.text_backends import LocalHFGenerator, TextGenerator
+from src.evaluation.dpo_study import _rec_parse_failed
 from src.environments.base import BaseEnvironment
 from src.environments.game_variants import create_variant_a
 from src.evaluation.alignment_metrics import evaluate_model_outputs
@@ -63,6 +64,11 @@ class AdherenceConditionResult:
     theta_mode: str
     alignment_scores: list[float] = field(default_factory=list)
     violation_rates: list[float] = field(default_factory=list)
+    # Fraction of generations the parser couldn't extract a real allocation
+    # from (fell back to a uniform default) -- see _rec_parse_failed. High
+    # values mean alignment_scores are dominated by the zero-variance
+    # fallback case, not genuine measurements.
+    parse_failure_rate: float = 0.0
     mean_alignment: float = 0.0
     mean_violation: float = 0.0
 
@@ -71,6 +77,30 @@ class AdherenceConditionResult:
             self.mean_alignment = float(np.mean(self.alignment_scores))
         if self.violation_rates:
             self.mean_violation = float(np.mean(self.violation_rates))
+
+
+def _append_format_instruction(prompt: str, channel_names: list[str]) -> str:
+    """Append an explicit output-format instruction, mirroring
+    llm_elicitation.RECOMMEND_TEMPLATE's established pattern for getting a
+    parseable response out of free generation.
+
+    Confirmed necessary by direct inspection of raw generations: DPO training
+    rewards preferring one well-formatted completion over another, but that's
+    a comparative signal between two *given* completions -- it doesn't by
+    itself teach the model to always lead with that format under free
+    generation. Without this instruction, Qwen2.5-1.5B-Instruct's base
+    "reason through it first" tendency dominates and the response never
+    reaches parseable numbers within a normal token budget, silently falling
+    back to a uniform allocation on every single call (a zero-variance
+    alignment score of exactly 0.0, not a genuine measurement).
+    """
+    channel_tpl = "\n  ".join(f"{n}: __%" for n in channel_names)
+    return (
+        f"{prompt}\n\n"
+        f"Format your response EXACTLY as:\n"
+        f"Recommended allocation:\n"
+        f"  {channel_tpl}"
+    )
 
 
 def _theta_from_inferred(inferred: dict[str, float]) -> UserType:
@@ -113,6 +143,7 @@ def _run_adherence_condition(
         generator = LocalHFGenerator(model, tokenizer, config=generation_config)
     align_scores: list[float] = []
     violations: list[float] = []
+    parse_fails: list[bool] = []
 
     for i in range(n_users):
         theta_true = sampler.sample()
@@ -132,17 +163,20 @@ def _run_adherence_condition(
         else:
             profile_theta = theta_true
 
-        prompt = build_prompt(obs, env, user_type=profile_theta)
+        prompt = _append_format_instruction(
+            build_prompt(obs, env, user_type=profile_theta), channel_names,
+        )
         response = generator.generate(prompt)
+        parse_fails.append(_rec_parse_failed(response, channel_names))
 
         result = evaluate_model_outputs([response], env, [theta_true], channel_names)
         align_scores.append(result["alignment_score"])
         violations.append(result["quality_floor_violation_rate"])
 
         logger.info(
-            "%s/%s user %d/%d: align=%.3f viol=%.0f",
+            "%s/%s user %d/%d: align=%.3f viol=%.0f parse_fail=%s",
             condition_name, theta_mode, i + 1, n_users,
-            align_scores[-1], violations[-1],
+            align_scores[-1], violations[-1], parse_fails[-1],
         )
 
     return AdherenceConditionResult(
@@ -150,6 +184,7 @@ def _run_adherence_condition(
         theta_mode=theta_mode,
         alignment_scores=align_scores,
         violation_rates=violations,
+        parse_failure_rate=float(np.mean(parse_fails)) if parse_fails else 0.0,
     )
 
 
