@@ -64,3 +64,23 @@ def test_load_checkpoint_records_path_for_build_ref_model():
         trainer.load_checkpoint("some/checkpoint/path")
 
     assert trainer._loaded_checkpoint_path == "some/checkpoint/path"
+
+
+def test_load_checkpoint_loads_the_adapter_as_trainable():
+    """Regression test for a real bug: PeftModel.from_pretrained defaults to
+    is_trainable=False (inference mode). Without is_trainable=True here, the
+    loaded "default" adapter is frozen and continued training is a no-op --
+    confirmed on a real Phase 2 run where the adapter's weights were
+    bit-identical across 2500+ training steps.
+    """
+    trainer = ConditionalDPOTrainer(DPOTrainingConfig())
+    base_model = MagicMock()
+    with patch("src.training.dpo_trainer.load_base_model", return_value=base_model), \
+         patch("src.training.dpo_trainer.prepare_model_for_training", side_effect=lambda m: m), \
+         patch("src.training.dpo_trainer.load_tokenizer", return_value=MagicMock()), \
+         patch("peft.PeftModel.from_pretrained", return_value=MagicMock()) as mock_from_pretrained:
+        trainer.load_checkpoint("some/checkpoint/path")
+
+    mock_from_pretrained.assert_called_once_with(
+        base_model, "some/checkpoint/path", is_trainable=True,
+    )

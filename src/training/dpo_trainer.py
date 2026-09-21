@@ -160,14 +160,22 @@ class ConditionalDPOTrainer:
         logger.info("Phase %d training complete. Saved to %s/final", self.config.curriculum_phase, phase_dir)
 
     def load_checkpoint(self, checkpoint_path: str) -> None:
-        """Load a previously saved LoRA checkpoint for continued training."""
+        """Load a previously saved LoRA checkpoint for continued training.
+
+        PeftModel.from_pretrained defaults to is_trainable=False (it's most
+        commonly used to load an adapter for inference) -- pass True
+        explicitly, or every parameter in the loaded "default" adapter is
+        frozen and no amount of further training ever changes it.
+        """
         from peft import PeftModel
 
         if self._model is None:
             self._model = load_base_model(self.config.model)
             self._model = prepare_model_for_training(self._model)
 
-        self._model = PeftModel.from_pretrained(self._model, checkpoint_path)
+        self._model = PeftModel.from_pretrained(
+            self._model, checkpoint_path, is_trainable=True,
+        )
         self._tokenizer = load_tokenizer(self.config.model)
         self._loaded_checkpoint_path = checkpoint_path
         logger.info("Loaded checkpoint from %s", checkpoint_path)
