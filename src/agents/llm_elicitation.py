@@ -38,7 +38,8 @@ Propose two distinct allocation strategies for the investor to choose between.
 Option A should be more conservative (lower risk, steadier returns).
 Option B should be more aggressive (higher expected return, more volatility).
 
-Format your response EXACTLY as:
+Respond with ONLY the two options below. Do not ask a question, do not show
+your reasoning, do not add any other text. Format your response EXACTLY as:
 Option A:
   {channel_list_a}
 Option B:
@@ -53,7 +54,8 @@ The investor made the following choices during our conversation:
 {history_summary}
 
 Based on these revealed preferences, recommend a single final allocation.
-Format your response EXACTLY as:
+Respond with ONLY the allocation below. Do not show your reasoning or any
+other text. Format your response EXACTLY as:
 Recommended allocation:
   {channel_list}
 """

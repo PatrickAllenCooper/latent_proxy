@@ -138,3 +138,22 @@ def test_get_channel_names_all_envs():
     assert len(_get_channel_names(stock)) == 5
     sc = SupplyChainEnv(config=SupplyChainConfig(n_periods=5, resilience_mc_samples=100))
     assert len(_get_channel_names(sc)) == 5
+
+
+def test_templates_discourage_reasoning_and_clarifying_questions():
+    """Regression test: measured directly against the trained Phase 2
+    checkpoint, the original QUERY_TEMPLATE (format instruction only, no
+    explicit "don't ask/reason" instruction) had a ~25% single-round parse
+    failure rate -- the model would sometimes ask a clarifying question
+    ("I need to know which strategy you prefer...") instead of proposing
+    options, mirroring the chain-of-thought-preamble failure mode found in
+    adherence_study.py the same night. Both templates need the stronger,
+    explicit instruction.
+    """
+    from src.agents.llm_elicitation import QUERY_TEMPLATE, RECOMMEND_TEMPLATE
+
+    for template in (QUERY_TEMPLATE, RECOMMEND_TEMPLATE):
+        normalized = " ".join(template.lower().split())
+        assert "do not show your reasoning" in normalized
+        assert "respond with only" in normalized
+    assert "do not ask a question" in " ".join(QUERY_TEMPLATE.lower().split())
