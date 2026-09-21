@@ -160,16 +160,19 @@ def _query_parse_failed(raw_query: str, n_channels: int) -> bool:
     """True if parse_two_options would have fallen back to the uniform default.
 
     Mirrors parse_two_options's own fallback condition (fewer than
-    n_channels percentage numbers in either half) without altering its
-    behavior -- this is diagnostic only.
+    n_channels numbers -- percentage or colon-prefixed bare, see
+    _extract_numbers -- in either half) without altering its behavior --
+    this is diagnostic only.
     """
     import re
+
+    from src.agents.llm_elicitation import _extract_numbers
 
     parts = re.split(r"Option\s*B\s*[:\-]?", raw_query, flags=re.IGNORECASE)
     block_a = parts[0] if parts else raw_query
     block_b = parts[1] if len(parts) > 1 else raw_query
-    nums_a = re.findall(r"(\d+(?:\.\d+)?)\s*%", block_a)
-    nums_b = re.findall(r"(\d+(?:\.\d+)?)\s*%", block_b)
+    nums_a = _extract_numbers(block_a, n_channels)
+    nums_b = _extract_numbers(block_b, n_channels)
     return len(nums_a) < n_channels or len(nums_b) < n_channels
 
 

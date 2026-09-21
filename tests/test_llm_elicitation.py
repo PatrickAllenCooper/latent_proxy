@@ -62,6 +62,26 @@ def test_parse_two_options_fallback():
     assert np.allclose(a, np.ones(4) / 4)
 
 
+def test_parse_two_options_bare_numbers_without_percent_sign():
+    """Regression test: observed directly against the real Phase 2 checkpoint
+    -- the model sometimes drops the '%' sign entirely ("safe: 70" instead
+    of "safe: 70%") despite the template showing "__%" placeholders. The
+    percentage-anchored regex alone would treat this as zero valid numbers
+    and silently fall back to a uniform default; the colon-prefixed
+    bare-number fallback should still recover the real values.
+    """
+    text = (
+        "Option A:\n  safe: 70\n  growth: 25\n  aggressive: 9.5\n  volatile: 6.0\n\n"
+        "Option B:\n  safe: 60\n  growth: 35\n  aggressive: 12.5\n  volatile: 9.0"
+    )
+    a, b = parse_two_options(text, 4)
+    assert not np.allclose(a, np.ones(4) / 4)
+    assert not np.allclose(b, np.ones(4) / 4)
+    assert np.isclose(a.sum(), 1.0, atol=0.01)
+    assert np.isclose(b.sum(), 1.0, atol=0.01)
+    assert a[0] > a[2]  # safe (70) allocated more than aggressive (9.5)
+
+
 @patch("src.agents.llm_elicitation._generate_text")
 def test_llm_loop_game_env(mock_gen):
     env = ResourceStrategyGame()

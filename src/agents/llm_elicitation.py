@@ -146,6 +146,23 @@ def _build_history_summary(history: list[dict[str, Any]], names: list[str]) -> s
     return "\n".join(lines)
 
 
+def _extract_numbers(block: str, n_channels: int) -> list[str]:
+    """Percentages first ("70%"); if that's short, fall back to any
+    colon-prefixed bare number ("safe: 70").
+
+    Confirmed necessary by direct observation of the real Phase 2 checkpoint:
+    across a 5-round dialogue, the model twice dropped the "%" sign entirely
+    despite the template showing "__%" placeholders throughout -- a format
+    drift, not a reasoning or truncation failure. Percentages are tried
+    first so a well-formed response is never second-guessed by the looser
+    fallback.
+    """
+    nums = re.findall(r"(\d+(?:\.\d+)?)\s*%", block)
+    if len(nums) >= n_channels:
+        return nums
+    return re.findall(r":\s*(\d+(?:\.\d+)?)", block)
+
+
 def parse_two_options(
     text: str, n_channels: int,
 ) -> tuple[NDArray[np.float64], NDArray[np.float64]]:
@@ -157,8 +174,8 @@ def parse_two_options(
     block_a = parts[0] if parts else text
     block_b = parts[1] if len(parts) > 1 else text
 
-    nums_a = re.findall(r"(\d+(?:\.\d+)?)\s*%", block_a)
-    nums_b = re.findall(r"(\d+(?:\.\d+)?)\s*%", block_b)
+    nums_a = _extract_numbers(block_a, n_channels)
+    nums_b = _extract_numbers(block_b, n_channels)
 
     if len(nums_a) >= n_channels:
         vals = np.array([float(x) / 100 for x in nums_a[:n_channels]])
