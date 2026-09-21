@@ -32,7 +32,7 @@ from src.environments.base import BaseEnvironment
 from src.environments.game_variants import create_variant_a
 from src.evaluation.alignment_metrics import evaluate_model_outputs
 from src.evaluation.statistical_analysis import HypothesisTestResult, run_test_h1_within_domain
-from src.training.serialization import build_prompt
+from src.training.serialization import AllocationSerializer, build_prompt
 from src.training.synthetic_users import SyntheticUser, SyntheticUserSampler, UserType
 
 logger = logging.getLogger(__name__)
@@ -182,6 +182,16 @@ def _run_adherence_condition(
         result = evaluate_model_outputs([response], env, [theta_true], channel_names)
         align_scores.append(result["alignment_score"])
         violations.append(result["quality_floor_violation_rate"])
+
+        if result["quality_floor_violation_rate"] > 0:
+            action = AllocationSerializer(channel_names).parse(response)
+            _, reasons = env.check_quality_floor(action)
+            logger.warning(
+                "%s/%s user %d/%d: QUALITY FLOOR VIOLATION %s | "
+                "true_theta=%s profile_theta=%s allocation=%s",
+                condition_name, theta_mode, i + 1, n_users,
+                reasons, theta_true, profile_theta, action,
+            )
 
         logger.info(
             "%s/%s user %d/%d: align=%.3f viol=%.0f parse_fail=%s",

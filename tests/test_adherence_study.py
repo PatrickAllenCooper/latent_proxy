@@ -99,6 +99,28 @@ def test_true_mode_produces_one_score_per_user():
     assert "preference profile" in gen.prompts[0]
 
 
+def test_violation_logs_diagnostic_reasons(caplog):
+    """Regression test for the elicited-mode investigation: env.check_quality_floor
+    already returns human-readable failure reasons, but the scoring path
+    (compute_quality_floor_violation_rate) only keeps the boolean. This
+    verifies the diagnostic warning surfaces the actual reasons instead of
+    just a violation count, using an undiversified (single-channel) response
+    that's known to fail the diversification check.
+    """
+    gen = _FixedTextGenerator([1.0, 0.0, 0.0, 0.0])
+    with caplog.at_level("WARNING"):
+        result = _run_adherence_condition(
+            create_variant_a, None, None, "dpo_phase2", "true", 1,
+            LLMElicitationConfig(), ElicitationConfig(), seed=1, generator=gen,
+        )
+    assert result.mean_violation == pytest.approx(1.0)
+    warnings = [r for r in caplog.records if "QUALITY FLOOR VIOLATION" in r.message]
+    assert len(warnings) == 1
+    assert "true_theta=" in warnings[0].message
+    assert "profile_theta=" in warnings[0].message
+    assert "allocation=" in warnings[0].message
+
+
 def test_append_format_instruction_gives_an_explicit_template():
     """Regression test: without this, raw generations from an Instruct model
     are free-form chain-of-thought reasoning that never reaches parseable
