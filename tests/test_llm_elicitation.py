@@ -156,4 +156,12 @@ def test_templates_discourage_reasoning_and_clarifying_questions():
         normalized = " ".join(template.lower().split())
         assert "do not show your reasoning" in normalized
         assert "respond with only" in normalized
-    assert "do not ask a question" in " ".join(QUERY_TEMPLATE.lower().split())
+
+    query_normalized = " ".join(QUERY_TEMPLATE.lower().split())
+    assert "do not ask a question" in query_normalized
+    # Regression: a round-by-round trace against the real Phase 2 checkpoint
+    # showed that once history is non-empty, the model sometimes drifts into
+    # recommending between the *previous* options instead of proposing new
+    # ones for the current round, even with the instructions above in place.
+    assert "regardless of any prior choices" in query_normalized
+    assert "do not recommend a single option" in query_normalized

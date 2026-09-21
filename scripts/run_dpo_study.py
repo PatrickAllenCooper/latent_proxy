@@ -58,6 +58,14 @@ def main() -> None:
         help="JSONL path for raw Azure completions "
              "(default: <output-dir>/azure_completions.jsonl)",
     )
+    parser.add_argument(
+        "--max-new-tokens", type=int, default=400,
+        help="Generation token budget for the query/recommend steps. "
+             "256 was measured to be too tight -- the model's typical "
+             "preamble ('Sure! Here are the two distinct allocation "
+             "strategies:...') plus formatting eats into the budget and "
+             "can cut the response off before completing both options.",
+    )
     args = parser.parse_args()
 
     conditions = None
@@ -80,7 +88,7 @@ def main() -> None:
 
     llm_cfg = LLMElicitationConfig(
         max_rounds=args.max_rounds,
-        max_new_tokens=256,
+        max_new_tokens=args.max_new_tokens,
         temperature=0.3,
     )
 

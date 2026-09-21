@@ -34,7 +34,10 @@ QUERY_TEMPLATE = """{system}
 
 {history_block}
 
-Propose two distinct allocation strategies for the investor to choose between.
+Propose two NEW distinct allocation strategies for THIS round, regardless of
+any prior choices shown above. Do not recommend a single option, do not
+refer back to previous rounds, and do not just repeat an earlier choice --
+always produce two fresh options for the investor to compare right now.
 Option A should be more conservative (lower risk, steadier returns).
 Option B should be more aggressive (higher expected return, more volatility).
 
