@@ -106,7 +106,8 @@ def _append_format_instruction(prompt: str, channel_names: list[str]) -> str:
     channel_tpl = "\n  ".join(f"{n}: __%" for n in channel_names)
     return (
         f"{prompt}\n\n"
-        f"Format your response EXACTLY as:\n"
+        f"Respond with ONLY the allocation below. Do not show your reasoning "
+        f"or any other text. Format your response EXACTLY as:\n"
         f"Recommended allocation:\n"
         f"  {channel_tpl}"
     )
