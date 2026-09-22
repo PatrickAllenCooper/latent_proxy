@@ -1,0 +1,3 @@
+comparison,tensors_total,tensors_identical,max_abs_diff,mean_abs_diff,interpretation
+phase1_final_vs_phase2_checkpoint500,224,0,0.021,0.000217,continued training confirmed (early)
+phase1_final_vs_phase2_final,224,0,0.062,0.00115,"continued training confirmed (final); larger diff than checkpoint-500, consistent with ongoing divergence not an early jump that froze"

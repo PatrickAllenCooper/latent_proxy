@@ -1,0 +1,3 @@
+run,loss_start,loss_end,rewards_accuracies_start,rewards_accuracies_end,rewards_margins_start,rewards_margins_end,epochs,steps,pairs,notes
+phase1_quality_floor,0.692,0.0003,0.425,1.0,0.002,16.6,3,3660,9756,no user profile in prompt
+phase2_type_conditioned,0.6996,0.1029,0.425,0.9125,-0.009,10.1,3,7500,20000,continues from phase1; explicit profile in prompt

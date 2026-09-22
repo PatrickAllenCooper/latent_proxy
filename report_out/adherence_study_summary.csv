@@ -1,0 +1,7 @@
+condition,theta_mode,mean_alignment,mean_violation_rate,n_users
+base,true,-0.044573218699802346,0.04,50
+base,elicited,0.03061638091827617,0.0,50
+dpo_phase1,true,-0.017298221281347042,0.0,50
+dpo_phase1,elicited,0.15389181489322107,0.0,50
+dpo_phase2,true,0.11097366596101028,0.0,50
+dpo_phase2,elicited,0.18879636274723313,0.08,50
