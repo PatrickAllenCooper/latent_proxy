@@ -1,0 +1,4 @@
+domain,arm,metric,comparison,n_paired,mean_difference,ci95_low,ci95_high,paired_cohens_dz
+supply_chain,active,total_error,return_normalized - absolute,250,-0.13467621980298075,-0.16265440481057872,-0.10625229498965011,-0.5866319857583151
+supply_chain,active,alpha_error,return_normalized - absolute,250,-0.28820711701256085,-0.3708874204404554,-0.20812714306875912,-0.4416554436973832
+supply_chain,active,alignment,return_normalized - absolute,250,0.19124397519313466,0.14842953509860887,0.23540875605171457,0.554071185349446

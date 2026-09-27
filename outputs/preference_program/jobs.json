@@ -1,0 +1,87 @@
+{
+  "revision": "0f752d6",
+  "account": "ucb736_asc1",
+  "remote_source": "/home/paco0228/latent_proxy_experiments",
+  "remote_results": "/scratch/alpine/paco0228/latent_proxy_runs/77add19",
+  "jobs": [
+    {
+      "job_id": "33037785",
+      "name": "lp-pref-baseline",
+      "script": "scripts/slurm/run_preference_baseline.slurm",
+      "status": "completed",
+      "purpose": "Supply-chain Stage 3 return-normalized comparison, 5 seeds x 50 users",
+      "log_glob": "logs/preference-baseline-33037785.*",
+      "exit_code": 0,
+      "elapsed": "01:00:03",
+      "records": 250,
+      "local_results": "outputs/preference_program/results/canonical_renorm_stage3"
+    },
+    {
+      "job_id": "33037786",
+      "name": "lp-decision-pilot",
+      "script": "scripts/slurm/run_decision_pilot.slurm",
+      "status": "completed",
+      "purpose": "Three-domain, four-arm 50-user decision-elicitation pilot",
+      "log_glob": "logs/decision-pilot-33037786.*",
+      "exit_code": 0,
+      "elapsed": "00:06:36",
+      "records": 600,
+      "local_results": "outputs/preference_program/results/preference_pilot"
+    },
+    {
+      "job_id": "33037787",
+      "name": "lp-dialogue-dpo",
+      "script": "scripts/slurm/train_dialogue_phase2_h200.slurm",
+      "status": "completed",
+      "purpose": "Dialogue-augmented Phase 2 DPO on one H200",
+      "log_glob": "logs/dialogue-phase2-33037787.*",
+      "elapsed": "03:08:49",
+      "latest_step": 7500,
+      "total_steps": 7500,
+      "latest_checkpoint": "final",
+      "exit_code": 0,
+      "updated_adapter_tensors": "224/224",
+      "max_abs_diff_from_phase1": 0.093261719,
+      "local_results": "outputs/preference_program/results/dialogue_phase2_checkpoint"
+    },
+    {
+      "job_id": "33037788",
+      "name": "lp-dialogue-eval",
+      "script": "scripts/slurm/evaluate_dialogue_phase2_h200.slurm",
+      "status": "failed",
+      "depends_on": "33037787",
+      "purpose": "Adherence and self-elicitation comparison, four model conditions x 50 users",
+      "log_glob": "logs/dialogue-eval-33037788.*",
+      "elapsed": "00:39:46",
+      "last_scheduler_reason": "Resources",
+      "exit_code": 1,
+      "reason": "The self-elicitation CLI default selected Qwen2.5-3B while the LoRA adapters require Qwen2.5-1.5B. The preceding adherence study completed and saved all 600 user records.",
+      "partial_results": "outputs/preference_program/results/dialogue_comparison/adherence"
+    },
+    {
+      "job_id": "33056486",
+      "name": "lp-dialogue-self",
+      "script": "scripts/slurm/run_dialogue_self_elicitation_h200.slurm",
+      "status": "completed",
+      "revision": "0f752d6",
+      "purpose": "Retry only the four-condition self-elicitation comparison, explicitly using Qwen2.5-1.5B",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/77add19/outputs/dialogue_comparison/self_elicitation",
+      "log_glob": "logs/dialogue-self-33056486.*",
+      "replaces_failed_stage_of": "33037788",
+      "elapsed": "01:07:01",
+      "latest_condition": "dpo_phase2",
+      "latest_user": 22,
+      "total_users_per_condition": 50,
+      "local_results": "outputs/preference_program/results/dialogue_comparison/self_elicitation",
+      "exit_code": 0,
+      "completed_conditions": [
+        "base",
+        "dpo_phase1",
+        "dpo_phase2",
+        "dpo_dialogue"
+      ],
+      "records": 200
+    }
+  ],
+  "last_checked_at_utc": "2026-09-27T23:23:19Z"
+}

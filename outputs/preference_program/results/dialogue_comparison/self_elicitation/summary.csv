@@ -1,0 +1,17 @@
+environment,condition,metric,n,mean,ci95_low,ci95_high
+game,base,alignment,50,0.19535985833418934,0.03743078392537372,0.34526259017705024
+game,base,quality_floor_violation,50,0.16,0.06,0.26
+game,base,query_parse_failure_rate,50,0.04400000000000001,0.024,0.068
+game,base,recommendation_parse_failure_rate,50,0.02,0.004,0.036000000000000004
+game,dpo_phase1,alignment,50,-0.11897366596101028,-0.24135775963976547,-0.002755907821732471
+game,dpo_phase1,quality_floor_violation,50,0.0,0.0,0.0
+game,dpo_phase1,query_parse_failure_rate,50,0.008,0.0,0.02
+game,dpo_phase1,recommendation_parse_failure_rate,50,0.004,0.0,0.012000000000000002
+game,dpo_phase2,alignment,50,0.024455949855920537,-0.08568377598520228,0.12973154194418282
+game,dpo_phase2,quality_floor_violation,50,0.02,0.0,0.06
+game,dpo_phase2,query_parse_failure_rate,50,0.004,0.0,0.012000000000000002
+game,dpo_phase2,recommendation_parse_failure_rate,50,0.068,0.036000000000000004,0.10800000000000001
+game,dpo_dialogue,alignment,50,-0.0290370895258835,-0.17494824271764314,0.11393772357141442
+game,dpo_dialogue,quality_floor_violation,50,0.06,0.0,0.14
+game,dpo_dialogue,query_parse_failure_rate,50,0.032,0.008,0.06000000000000001
+game,dpo_dialogue,recommendation_parse_failure_rate,50,0.07600000000000001,0.048,0.10800000000000001

@@ -1,0 +1,289 @@
+2026-09-27 15:49:41,646 [INFO] __main__: Starting DPO elicitation study (n_users=50, max_rounds=5)
+2026-09-27 15:49:41,646 [INFO] src.evaluation.dpo_study: Conditions: ['base', 'dpo_phase1', 'dpo_phase2', 'dpo_dialogue'] (backend=local)
+2026-09-27 15:49:59,173 [INFO] src.training.model_utils: Loading model: Qwen/Qwen2.5-1.5B-Instruct (quantization: 4-bit)
+2026-09-27 15:49:59,311 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-09-27 15:49:59,311 [WARNING] huggingface_hub.utils._http: Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-09-27 15:49:59,316 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+2026-09-27 15:50:00,115 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:50:00,120 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:01<08:21,  1.49s/it]Loading weights:   1%|          | 3/338 [00:01<02:46,  2.01it/s]Loading weights:   8%|▊         | 26/338 [00:02<00:17, 17.66it/s]Loading weights:   9%|▊         | 29/338 [00:03<00:27, 11.31it/s]Loading weights:  12%|█▏        | 39/338 [00:03<00:21, 13.73it/s]Loading weights:  12%|█▏        | 41/338 [00:03<00:24, 12.37it/s]Loading weights:  15%|█▌        | 52/338 [00:04<00:17, 16.67it/s]Loading weights:  19%|█▉        | 65/338 [00:04<00:10, 25.88it/s]Loading weights:  22%|██▏       | 76/338 [00:04<00:09, 28.93it/s]Loading weights:  26%|██▌       | 88/338 [00:04<00:06, 39.25it/s]Loading weights:  30%|██▉       | 100/338 [00:04<00:05, 45.70it/s]Loading weights:  35%|███▍      | 117/338 [00:05<00:04, 52.40it/s]Loading weights:  43%|████▎     | 147/338 [00:05<00:02, 89.02it/s]Loading weights:  51%|█████     | 173/338 [00:05<00:01, 116.75it/s]Loading weights:  59%|█████▉    | 201/338 [00:05<00:01, 108.51it/s]Loading weights:  64%|██████▍   | 216/338 [00:07<00:03, 38.30it/s] Loading weights:  67%|██████▋   | 227/338 [00:09<00:07, 14.76it/s]Loading weights:  70%|██████▉   | 235/338 [00:11<00:10,  9.79it/s]Loading weights:  71%|███████▏  | 241/338 [00:12<00:09, 10.73it/s]Loading weights:  74%|███████▎  | 249/338 [00:12<00:07, 12.23it/s]Loading weights:  75%|███████▌  | 255/338 [00:13<00:06, 11.88it/s]Loading weights:  76%|███████▋  | 258/338 [00:14<00:08,  9.00it/s]Loading weights:  77%|███████▋  | 261/338 [00:14<00:07,  9.92it/s]Loading weights:  78%|███████▊  | 265/338 [00:14<00:06, 10.46it/s]Loading weights:  79%|███████▉  | 267/338 [00:15<00:11,  6.24it/s]Loading weights:  80%|███████▉  | 269/338 [00:16<00:15,  4.35it/s]Loading weights:  81%|████████  | 273/338 [00:17<00:12,  5.33it/s]Loading weights:  81%|████████▏ | 275/338 [00:17<00:11,  5.45it/s]Loading weights:  83%|████████▎ | 279/338 [00:18<00:10,  5.83it/s]Loading weights:  83%|████████▎ | 280/338 [00:18<00:12,  4.80it/s]Loading weights:  83%|████████▎ | 281/338 [00:19<00:14,  3.98it/s]Loading weights:  86%|████████▌ | 291/338 [00:19<00:04,  9.55it/s]Loading weights:  87%|████████▋ | 293/338 [00:20<00:08,  5.60it/s]Loading weights:  90%|████████▉ | 303/338 [00:21<00:04,  7.06it/s]Loading weights:  90%|████████▉ | 304/338 [00:22<00:05,  5.70it/s]Loading weights:  90%|█████████ | 305/338 [00:22<00:06,  5.26it/s]Loading weights:  92%|█████████▏| 311/338 [00:23<00:03,  6.91it/s]Loading weights:  93%|█████████▎| 315/338 [00:24<00:04,  5.20it/s]Loading weights:  93%|█████████▎| 316/338 [00:24<00:04,  4.67it/s]Loading weights:  94%|█████████▍| 317/338 [00:25<00:04,  4.39it/s]Loading weights:  97%|█████████▋| 327/338 [00:25<00:01,  9.06it/s]Loading weights:  97%|█████████▋| 329/338 [00:25<00:01,  8.28it/s]Loading weights:  99%|█████████▉| 335/338 [00:25<00:00, 12.55it/s]Loading weights: 100%|██████████| 338/338 [00:25<00:00, 13.01it/s]
+2026-09-27 15:50:29,345 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:50:29,351 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/generation_config.json "HTTP/1.1 200 OK"
+2026-09-27 15:50:29,401 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-09-27 15:50:29,467 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:50:29,472 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+2026-09-27 15:50:29,587 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:50:29,593 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-09-27 15:50:29,678 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-09-27 15:50:29,730 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-09-27 15:50:29,984 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct "HTTP/1.1 200 OK"
+2026-09-27 15:50:29,989 [INFO] src.training.model_utils: Loading model: Qwen/Qwen2.5-1.5B-Instruct (quantization: 4-bit)
+2026-09-27 15:50:30,040 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:50:30,046 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+2026-09-27 15:50:30,100 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:50:30,106 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   1%|          | 3/338 [00:00<00:11, 29.08it/s]Loading weights:  17%|█▋        | 59/338 [00:00<00:00, 336.39it/s]Loading weights:  33%|███▎      | 113/338 [00:00<00:00, 421.67it/s]Loading weights:  51%|█████     | 172/338 [00:00<00:00, 485.20it/s]Loading weights:  68%|██████▊   | 231/338 [00:00<00:00, 522.44it/s]Loading weights:  86%|████████▌ | 291/338 [00:00<00:00, 537.69it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 487.37it/s]
+2026-09-27 15:50:30,919 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:50:30,926 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/generation_config.json "HTTP/1.1 200 OK"
+2026-09-27 15:50:30,978 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-09-27 15:50:31,029 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:50:31,034 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+2026-09-27 15:50:31,085 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:50:31,091 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-09-27 15:50:31,142 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-09-27 15:50:31,196 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-09-27 15:50:31,402 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct "HTTP/1.1 200 OK"
+/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/peft/config.py:220: UserWarning: Unexpected keyword arguments ['kasa_config'] for class LoraConfig, these are ignored. This probably means that you're loading a configuration file that was saved using a higher version of the library and additional parameters have been introduced since. It is highly recommended to upgrade the PEFT version before continuing (e.g. by running `pip install -U peft`).
+  warnings.warn(
+2026-09-27 15:50:32,148 [INFO] src.training.model_utils: Loaded LoRA checkpoint from /home/paco0228/latent_proxy_experiments/checkpoints/phase1
+2026-09-27 15:50:32,150 [INFO] src.training.model_utils: Loading model: Qwen/Qwen2.5-1.5B-Instruct (quantization: 4-bit)
+2026-09-27 15:50:32,201 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:50:32,206 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+2026-09-27 15:50:32,256 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:50:32,261 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   1%|          | 3/338 [00:00<00:11, 29.03it/s]Loading weights:  19%|█▊        | 63/338 [00:00<00:00, 348.61it/s]Loading weights:  36%|███▌      | 121/338 [00:00<00:00, 451.46it/s]Loading weights:  51%|█████     | 173/338 [00:00<00:00, 473.05it/s]Loading weights:  69%|██████▊   | 232/338 [00:00<00:00, 513.90it/s]Loading weights:  86%|████████▋ | 292/338 [00:00<00:00, 533.20it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 489.50it/s]
+2026-09-27 15:50:33,067 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:50:33,072 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/generation_config.json "HTTP/1.1 200 OK"
+2026-09-27 15:50:33,122 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-09-27 15:50:33,172 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:50:33,177 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+2026-09-27 15:50:33,228 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:50:33,233 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-09-27 15:50:33,285 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-09-27 15:50:33,338 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-09-27 15:50:33,544 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct "HTTP/1.1 200 OK"
+2026-09-27 15:50:33,646 [INFO] src.training.model_utils: Loaded LoRA checkpoint from /home/paco0228/latent_proxy_experiments/checkpoints/phase2
+2026-09-27 15:50:33,648 [INFO] src.training.model_utils: Loading model: Qwen/Qwen2.5-1.5B-Instruct (quantization: 4-bit)
+2026-09-27 15:50:33,697 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:50:33,702 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+2026-09-27 15:50:33,751 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:50:33,756 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   1%|          | 3/338 [00:00<00:11, 29.10it/s]Loading weights:  18%|█▊        | 61/338 [00:00<00:00, 348.87it/s]Loading weights:  33%|███▎      | 113/338 [00:00<00:00, 421.52it/s]Loading weights:  51%|█████     | 173/338 [00:00<00:00, 480.45it/s]Loading weights:  69%|██████▉   | 233/338 [00:00<00:00, 512.92it/s]Loading weights:  87%|████████▋ | 293/338 [00:00<00:00, 532.49it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 490.47it/s]
+2026-09-27 15:50:34,562 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:50:34,568 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/generation_config.json "HTTP/1.1 200 OK"
+2026-09-27 15:50:34,618 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-09-27 15:50:34,669 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:50:34,674 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+2026-09-27 15:50:34,722 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:50:34,728 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-09-27 15:50:34,777 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-09-27 15:50:34,829 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-09-27 15:50:35,033 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct "HTTP/1.1 200 OK"
+2026-09-27 15:50:35,656 [INFO] src.training.model_utils: Loaded LoRA checkpoint from /scratch/alpine/paco0228/latent_proxy_runs/77add19/outputs/dpo/dialogue_phase2/phase2/final
+2026-09-27 15:50:35,657 [INFO] src.evaluation.dpo_study: === Environment: game ===
+2026-09-27 15:50:35,657 [INFO] src.evaluation.dpo_study: Running condition: base...
+2026-09-27 15:51:09,529 [INFO] src.evaluation.dpo_study: base user 1/50: align=-0.632 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 15:51:17,904 [INFO] src.evaluation.dpo_study: base user 2/50: align=0.738 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:51:30,955 [INFO] src.evaluation.dpo_study: base user 3/50: align=0.000 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:51:48,796 [INFO] src.evaluation.dpo_study: base user 4/50: align=0.000 viol=0 qfail=0.20 rfail=0.00
+2026-09-27 15:51:55,967 [INFO] src.evaluation.dpo_study: base user 5/50: align=-0.775 viol=1 qfail=0.00 rfail=0.00
+2026-09-27 15:52:05,008 [INFO] src.evaluation.dpo_study: base user 6/50: align=0.632 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:52:16,369 [INFO] src.evaluation.dpo_study: base user 7/50: align=-0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:52:28,574 [INFO] src.evaluation.dpo_study: base user 8/50: align=0.316 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:52:48,937 [INFO] src.evaluation.dpo_study: base user 9/50: align=0.632 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:53:02,049 [INFO] src.evaluation.dpo_study: base user 10/50: align=0.800 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:53:15,584 [INFO] src.evaluation.dpo_study: base user 11/50: align=0.775 viol=0 qfail=0.20 rfail=0.00
+2026-09-27 15:53:30,998 [INFO] src.evaluation.dpo_study: base user 12/50: align=-0.738 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:53:42,793 [INFO] src.evaluation.dpo_study: base user 13/50: align=0.000 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:53:57,980 [INFO] src.evaluation.dpo_study: base user 14/50: align=0.600 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:54:13,465 [INFO] src.evaluation.dpo_study: base user 15/50: align=0.632 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:54:29,329 [INFO] src.evaluation.dpo_study: base user 16/50: align=-0.775 viol=1 qfail=0.20 rfail=0.00
+2026-09-27 15:54:42,828 [INFO] src.evaluation.dpo_study: base user 17/50: align=0.000 viol=0 qfail=0.20 rfail=0.00
+2026-09-27 15:54:51,637 [INFO] src.evaluation.dpo_study: base user 18/50: align=0.316 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:55:03,004 [INFO] src.evaluation.dpo_study: base user 19/50: align=0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:55:11,198 [INFO] src.evaluation.dpo_study: base user 20/50: align=0.000 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:55:17,058 [INFO] src.evaluation.dpo_study: base user 21/50: align=0.800 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:55:32,478 [INFO] src.evaluation.dpo_study: base user 22/50: align=0.000 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 15:55:47,233 [INFO] src.evaluation.dpo_study: base user 23/50: align=0.949 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:56:01,058 [INFO] src.evaluation.dpo_study: base user 24/50: align=0.000 viol=0 qfail=0.20 rfail=0.00
+2026-09-27 15:56:09,103 [INFO] src.evaluation.dpo_study: base user 25/50: align=0.000 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:56:16,375 [INFO] src.evaluation.dpo_study: base user 26/50: align=0.000 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:56:32,300 [INFO] src.evaluation.dpo_study: base user 27/50: align=0.800 viol=0 qfail=0.20 rfail=0.00
+2026-09-27 15:56:43,776 [INFO] src.evaluation.dpo_study: base user 28/50: align=0.775 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:56:55,493 [INFO] src.evaluation.dpo_study: base user 29/50: align=-0.775 viol=1 qfail=0.00 rfail=0.00
+2026-09-27 15:57:06,383 [INFO] src.evaluation.dpo_study: base user 30/50: align=0.000 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:57:18,310 [INFO] src.evaluation.dpo_study: base user 31/50: align=0.632 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:57:30,767 [INFO] src.evaluation.dpo_study: base user 32/50: align=0.258 viol=0 qfail=0.20 rfail=0.00
+2026-09-27 15:57:44,819 [INFO] src.evaluation.dpo_study: base user 33/50: align=-0.775 viol=0 qfail=0.20 rfail=0.00
+2026-09-27 15:57:59,474 [INFO] src.evaluation.dpo_study: base user 34/50: align=0.105 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:58:13,141 [INFO] src.evaluation.dpo_study: base user 35/50: align=0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:58:28,095 [INFO] src.evaluation.dpo_study: base user 36/50: align=0.000 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:58:39,176 [INFO] src.evaluation.dpo_study: base user 37/50: align=0.775 viol=1 qfail=0.00 rfail=0.00
+2026-09-27 15:58:52,801 [INFO] src.evaluation.dpo_study: base user 38/50: align=0.775 viol=1 qfail=0.00 rfail=0.00
+2026-09-27 15:59:00,183 [INFO] src.evaluation.dpo_study: base user 39/50: align=0.949 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:59:15,371 [INFO] src.evaluation.dpo_study: base user 40/50: align=0.000 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 15:59:25,835 [INFO] src.evaluation.dpo_study: base user 41/50: align=0.775 viol=1 qfail=0.00 rfail=0.00
+2026-09-27 15:59:39,810 [INFO] src.evaluation.dpo_study: base user 42/50: align=-0.316 viol=0 qfail=0.20 rfail=0.20
+2026-09-27 15:59:51,085 [INFO] src.evaluation.dpo_study: base user 43/50: align=0.632 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:00:05,456 [INFO] src.evaluation.dpo_study: base user 44/50: align=-0.894 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:00:16,297 [INFO] src.evaluation.dpo_study: base user 45/50: align=0.949 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:00:33,479 [INFO] src.evaluation.dpo_study: base user 46/50: align=0.316 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:00:40,973 [INFO] src.evaluation.dpo_study: base user 47/50: align=0.949 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:00:56,112 [INFO] src.evaluation.dpo_study: base user 48/50: align=-0.258 viol=1 qfail=0.00 rfail=0.00
+2026-09-27 16:01:14,085 [INFO] src.evaluation.dpo_study: base user 49/50: align=-0.775 viol=1 qfail=0.20 rfail=0.20
+2026-09-27 16:01:30,516 [INFO] src.evaluation.dpo_study: base user 50/50: align=0.000 viol=0 qfail=0.20 rfail=0.00
+2026-09-27 16:01:30,516 [INFO] src.evaluation.dpo_study: Running condition: dpo_phase1...
+2026-09-27 16:01:46,773 [INFO] src.evaluation.dpo_study: dpo_phase1 user 1/50: align=-0.800 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:02:01,317 [INFO] src.evaluation.dpo_study: dpo_phase1 user 2/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:02:14,679 [INFO] src.evaluation.dpo_study: dpo_phase1 user 3/50: align=-0.105 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:02:33,851 [INFO] src.evaluation.dpo_study: dpo_phase1 user 4/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:02:48,396 [INFO] src.evaluation.dpo_study: dpo_phase1 user 5/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:03:00,890 [INFO] src.evaluation.dpo_study: dpo_phase1 user 6/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:03:17,709 [INFO] src.evaluation.dpo_study: dpo_phase1 user 7/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:03:29,578 [INFO] src.evaluation.dpo_study: dpo_phase1 user 8/50: align=-0.800 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:03:46,563 [INFO] src.evaluation.dpo_study: dpo_phase1 user 9/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:04:02,346 [INFO] src.evaluation.dpo_study: dpo_phase1 user 10/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:04:16,936 [INFO] src.evaluation.dpo_study: dpo_phase1 user 11/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:04:29,427 [INFO] src.evaluation.dpo_study: dpo_phase1 user 12/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:04:42,601 [INFO] src.evaluation.dpo_study: dpo_phase1 user 13/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:04:52,074 [INFO] src.evaluation.dpo_study: dpo_phase1 user 14/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:05:08,001 [INFO] src.evaluation.dpo_study: dpo_phase1 user 15/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:05:21,594 [INFO] src.evaluation.dpo_study: dpo_phase1 user 16/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:05:36,811 [INFO] src.evaluation.dpo_study: dpo_phase1 user 17/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:05:54,086 [INFO] src.evaluation.dpo_study: dpo_phase1 user 18/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:06:13,570 [INFO] src.evaluation.dpo_study: dpo_phase1 user 19/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:06:28,966 [INFO] src.evaluation.dpo_study: dpo_phase1 user 20/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:06:46,135 [INFO] src.evaluation.dpo_study: dpo_phase1 user 21/50: align=-0.800 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:06:58,170 [INFO] src.evaluation.dpo_study: dpo_phase1 user 22/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:07:11,137 [INFO] src.evaluation.dpo_study: dpo_phase1 user 23/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:07:26,243 [INFO] src.evaluation.dpo_study: dpo_phase1 user 24/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:07:42,438 [INFO] src.evaluation.dpo_study: dpo_phase1 user 25/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:07:54,294 [INFO] src.evaluation.dpo_study: dpo_phase1 user 26/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:08:08,881 [INFO] src.evaluation.dpo_study: dpo_phase1 user 27/50: align=-0.800 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:08:24,135 [INFO] src.evaluation.dpo_study: dpo_phase1 user 28/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:08:44,703 [INFO] src.evaluation.dpo_study: dpo_phase1 user 29/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:09:06,016 [INFO] src.evaluation.dpo_study: dpo_phase1 user 30/50: align=-0.400 viol=0 qfail=0.20 rfail=0.00
+2026-09-27 16:09:21,108 [INFO] src.evaluation.dpo_study: dpo_phase1 user 31/50: align=-0.949 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:09:35,467 [INFO] src.evaluation.dpo_study: dpo_phase1 user 32/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:09:47,429 [INFO] src.evaluation.dpo_study: dpo_phase1 user 33/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:10:02,034 [INFO] src.evaluation.dpo_study: dpo_phase1 user 34/50: align=0.738 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:10:17,410 [INFO] src.evaluation.dpo_study: dpo_phase1 user 35/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:10:32,146 [INFO] src.evaluation.dpo_study: dpo_phase1 user 36/50: align=-0.800 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:10:46,713 [INFO] src.evaluation.dpo_study: dpo_phase1 user 37/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:11:02,989 [INFO] src.evaluation.dpo_study: dpo_phase1 user 38/50: align=-0.632 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:11:17,632 [INFO] src.evaluation.dpo_study: dpo_phase1 user 39/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:11:29,231 [INFO] src.evaluation.dpo_study: dpo_phase1 user 40/50: align=0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:11:40,284 [INFO] src.evaluation.dpo_study: dpo_phase1 user 41/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:11:52,914 [INFO] src.evaluation.dpo_study: dpo_phase1 user 42/50: align=-0.800 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:12:05,865 [INFO] src.evaluation.dpo_study: dpo_phase1 user 43/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:12:18,033 [INFO] src.evaluation.dpo_study: dpo_phase1 user 44/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:12:29,837 [INFO] src.evaluation.dpo_study: dpo_phase1 user 45/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:12:40,647 [INFO] src.evaluation.dpo_study: dpo_phase1 user 46/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:12:56,199 [INFO] src.evaluation.dpo_study: dpo_phase1 user 47/50: align=-0.400 viol=0 qfail=0.20 rfail=0.00
+2026-09-27 16:13:08,433 [INFO] src.evaluation.dpo_study: dpo_phase1 user 48/50: align=0.800 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:13:24,445 [INFO] src.evaluation.dpo_study: dpo_phase1 user 49/50: align=0.200 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:13:37,349 [INFO] src.evaluation.dpo_study: dpo_phase1 user 50/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:13:37,349 [INFO] src.evaluation.dpo_study: Running condition: dpo_phase2...
+2026-09-27 16:13:59,062 [INFO] src.evaluation.dpo_study: dpo_phase2 user 1/50: align=-0.400 viol=0 qfail=0.00 rfail=0.40
+2026-09-27 16:14:23,172 [INFO] src.evaluation.dpo_study: dpo_phase2 user 2/50: align=0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:14:56,096 [INFO] src.evaluation.dpo_study: dpo_phase2 user 3/50: align=0.200 viol=0 qfail=0.20 rfail=0.00
+2026-09-27 16:15:21,266 [INFO] src.evaluation.dpo_study: dpo_phase2 user 4/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:15:45,564 [INFO] src.evaluation.dpo_study: dpo_phase2 user 5/50: align=-0.200 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:16:02,365 [INFO] src.evaluation.dpo_study: dpo_phase2 user 6/50: align=0.000 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:16:25,682 [INFO] src.evaluation.dpo_study: dpo_phase2 user 7/50: align=0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:16:51,576 [INFO] src.evaluation.dpo_study: dpo_phase2 user 8/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:17:15,476 [INFO] src.evaluation.dpo_study: dpo_phase2 user 9/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:17:35,946 [INFO] src.evaluation.dpo_study: dpo_phase2 user 10/50: align=0.105 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:18:05,347 [INFO] src.evaluation.dpo_study: dpo_phase2 user 11/50: align=0.000 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:18:23,423 [INFO] src.evaluation.dpo_study: dpo_phase2 user 12/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:18:50,208 [INFO] src.evaluation.dpo_study: dpo_phase2 user 13/50: align=-0.258 viol=1 qfail=0.00 rfail=0.20
+2026-09-27 16:19:16,725 [INFO] src.evaluation.dpo_study: dpo_phase2 user 14/50: align=0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:19:42,657 [INFO] src.evaluation.dpo_study: dpo_phase2 user 15/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:20:01,811 [INFO] src.evaluation.dpo_study: dpo_phase2 user 16/50: align=-0.949 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:20:22,731 [INFO] src.evaluation.dpo_study: dpo_phase2 user 17/50: align=0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:20:42,885 [INFO] src.evaluation.dpo_study: dpo_phase2 user 18/50: align=0.200 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:21:01,757 [INFO] src.evaluation.dpo_study: dpo_phase2 user 19/50: align=0.200 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:21:24,037 [INFO] src.evaluation.dpo_study: dpo_phase2 user 20/50: align=0.000 viol=0 qfail=0.00 rfail=0.40
+2026-09-27 16:21:54,807 [INFO] src.evaluation.dpo_study: dpo_phase2 user 21/50: align=0.000 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:22:18,689 [INFO] src.evaluation.dpo_study: dpo_phase2 user 22/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:22:40,088 [INFO] src.evaluation.dpo_study: dpo_phase2 user 23/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:23:01,665 [INFO] src.evaluation.dpo_study: dpo_phase2 user 24/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:23:24,936 [INFO] src.evaluation.dpo_study: dpo_phase2 user 25/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:23:49,881 [INFO] src.evaluation.dpo_study: dpo_phase2 user 26/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:24:12,570 [INFO] src.evaluation.dpo_study: dpo_phase2 user 27/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:24:34,658 [INFO] src.evaluation.dpo_study: dpo_phase2 user 28/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:24:56,027 [INFO] src.evaluation.dpo_study: dpo_phase2 user 29/50: align=0.200 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:25:11,403 [INFO] src.evaluation.dpo_study: dpo_phase2 user 30/50: align=-0.400 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:25:42,348 [INFO] src.evaluation.dpo_study: dpo_phase2 user 31/50: align=0.800 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:26:03,583 [INFO] src.evaluation.dpo_study: dpo_phase2 user 32/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:26:26,879 [INFO] src.evaluation.dpo_study: dpo_phase2 user 33/50: align=0.000 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:26:45,273 [INFO] src.evaluation.dpo_study: dpo_phase2 user 34/50: align=0.738 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:27:01,826 [INFO] src.evaluation.dpo_study: dpo_phase2 user 35/50: align=-0.632 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:27:29,310 [INFO] src.evaluation.dpo_study: dpo_phase2 user 36/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:27:57,811 [INFO] src.evaluation.dpo_study: dpo_phase2 user 37/50: align=-0.949 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:28:24,116 [INFO] src.evaluation.dpo_study: dpo_phase2 user 38/50: align=0.000 viol=0 qfail=0.00 rfail=0.60
+2026-09-27 16:28:43,971 [INFO] src.evaluation.dpo_study: dpo_phase2 user 39/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:29:03,377 [INFO] src.evaluation.dpo_study: dpo_phase2 user 40/50: align=0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:29:24,903 [INFO] src.evaluation.dpo_study: dpo_phase2 user 41/50: align=0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:29:44,575 [INFO] src.evaluation.dpo_study: dpo_phase2 user 42/50: align=-0.632 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:30:11,443 [INFO] src.evaluation.dpo_study: dpo_phase2 user 43/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:30:38,391 [INFO] src.evaluation.dpo_study: dpo_phase2 user 44/50: align=0.000 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:31:08,970 [INFO] src.evaluation.dpo_study: dpo_phase2 user 45/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:31:27,265 [INFO] src.evaluation.dpo_study: dpo_phase2 user 46/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:31:48,268 [INFO] src.evaluation.dpo_study: dpo_phase2 user 47/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:32:04,992 [INFO] src.evaluation.dpo_study: dpo_phase2 user 48/50: align=0.800 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:32:27,261 [INFO] src.evaluation.dpo_study: dpo_phase2 user 49/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:32:48,140 [INFO] src.evaluation.dpo_study: dpo_phase2 user 50/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:32:48,141 [INFO] src.evaluation.dpo_study: Running condition: dpo_dialogue...
+2026-09-27 16:33:14,328 [INFO] src.evaluation.dpo_study: dpo_dialogue user 1/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:33:41,617 [INFO] src.evaluation.dpo_study: dpo_dialogue user 2/50: align=0.775 viol=0 qfail=0.20 rfail=0.00
+2026-09-27 16:34:06,327 [INFO] src.evaluation.dpo_study: dpo_dialogue user 3/50: align=0.200 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:34:35,308 [INFO] src.evaluation.dpo_study: dpo_dialogue user 4/50: align=0.000 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:34:57,987 [INFO] src.evaluation.dpo_study: dpo_dialogue user 5/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:35:29,349 [INFO] src.evaluation.dpo_study: dpo_dialogue user 6/50: align=0.775 viol=1 qfail=0.00 rfail=0.00
+2026-09-27 16:35:49,506 [INFO] src.evaluation.dpo_study: dpo_dialogue user 7/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:36:19,180 [INFO] src.evaluation.dpo_study: dpo_dialogue user 8/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:36:42,924 [INFO] src.evaluation.dpo_study: dpo_dialogue user 9/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:37:02,755 [INFO] src.evaluation.dpo_study: dpo_dialogue user 10/50: align=0.000 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:37:27,858 [INFO] src.evaluation.dpo_study: dpo_dialogue user 11/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:37:59,087 [INFO] src.evaluation.dpo_study: dpo_dialogue user 12/50: align=0.200 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:38:22,476 [INFO] src.evaluation.dpo_study: dpo_dialogue user 13/50: align=0.200 viol=0 qfail=0.20 rfail=0.00
+2026-09-27 16:38:58,270 [INFO] src.evaluation.dpo_study: dpo_dialogue user 14/50: align=0.949 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:39:26,796 [INFO] src.evaluation.dpo_study: dpo_dialogue user 15/50: align=0.316 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:40:07,159 [INFO] src.evaluation.dpo_study: dpo_dialogue user 16/50: align=0.000 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:40:45,640 [INFO] src.evaluation.dpo_study: dpo_dialogue user 17/50: align=0.400 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:41:16,756 [INFO] src.evaluation.dpo_study: dpo_dialogue user 18/50: align=0.200 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:41:38,900 [INFO] src.evaluation.dpo_study: dpo_dialogue user 19/50: align=0.000 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:42:04,738 [INFO] src.evaluation.dpo_study: dpo_dialogue user 20/50: align=0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:42:32,575 [INFO] src.evaluation.dpo_study: dpo_dialogue user 21/50: align=-0.632 viol=0 qfail=0.20 rfail=0.00
+2026-09-27 16:42:58,676 [INFO] src.evaluation.dpo_study: dpo_dialogue user 22/50: align=0.000 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:43:25,020 [INFO] src.evaluation.dpo_study: dpo_dialogue user 23/50: align=-0.400 viol=0 qfail=0.00 rfail=0.40
+2026-09-27 16:43:58,749 [INFO] src.evaluation.dpo_study: dpo_dialogue user 24/50: align=0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:44:14,513 [INFO] src.evaluation.dpo_study: dpo_dialogue user 25/50: align=0.800 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:44:54,306 [INFO] src.evaluation.dpo_study: dpo_dialogue user 26/50: align=-0.800 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:45:19,248 [INFO] src.evaluation.dpo_study: dpo_dialogue user 27/50: align=-0.775 viol=1 qfail=0.00 rfail=0.00
+2026-09-27 16:45:50,988 [INFO] src.evaluation.dpo_study: dpo_dialogue user 28/50: align=-0.105 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:46:24,928 [INFO] src.evaluation.dpo_study: dpo_dialogue user 29/50: align=0.316 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:46:51,581 [INFO] src.evaluation.dpo_study: dpo_dialogue user 30/50: align=-0.211 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:47:29,124 [INFO] src.evaluation.dpo_study: dpo_dialogue user 31/50: align=0.800 viol=0 qfail=0.40 rfail=0.00
+2026-09-27 16:47:53,576 [INFO] src.evaluation.dpo_study: dpo_dialogue user 32/50: align=-0.800 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:48:26,861 [INFO] src.evaluation.dpo_study: dpo_dialogue user 33/50: align=-0.800 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:48:52,001 [INFO] src.evaluation.dpo_study: dpo_dialogue user 34/50: align=-0.833 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:49:18,132 [INFO] src.evaluation.dpo_study: dpo_dialogue user 35/50: align=-0.200 viol=0 qfail=0.40 rfail=0.00
+2026-09-27 16:50:02,791 [INFO] src.evaluation.dpo_study: dpo_dialogue user 36/50: align=0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:50:25,006 [INFO] src.evaluation.dpo_study: dpo_dialogue user 37/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:50:55,896 [INFO] src.evaluation.dpo_study: dpo_dialogue user 38/50: align=0.000 viol=0 qfail=0.00 rfail=0.40
+2026-09-27 16:51:18,688 [INFO] src.evaluation.dpo_study: dpo_dialogue user 39/50: align=0.000 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:51:48,789 [INFO] src.evaluation.dpo_study: dpo_dialogue user 40/50: align=-0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:52:21,711 [INFO] src.evaluation.dpo_study: dpo_dialogue user 41/50: align=0.258 viol=1 qfail=0.00 rfail=0.00
+2026-09-27 16:52:42,837 [INFO] src.evaluation.dpo_study: dpo_dialogue user 42/50: align=-0.800 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:53:08,021 [INFO] src.evaluation.dpo_study: dpo_dialogue user 43/50: align=0.200 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:53:25,266 [INFO] src.evaluation.dpo_study: dpo_dialogue user 44/50: align=-0.632 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:53:46,415 [INFO] src.evaluation.dpo_study: dpo_dialogue user 45/50: align=0.200 viol=0 qfail=0.20 rfail=0.00
+2026-09-27 16:54:19,731 [INFO] src.evaluation.dpo_study: dpo_dialogue user 46/50: align=-1.000 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:54:52,848 [INFO] src.evaluation.dpo_study: dpo_dialogue user 47/50: align=-0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:55:15,367 [INFO] src.evaluation.dpo_study: dpo_dialogue user 48/50: align=0.949 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:55:35,632 [INFO] src.evaluation.dpo_study: dpo_dialogue user 49/50: align=0.400 viol=0 qfail=0.00 rfail=0.00
+2026-09-27 16:56:16,621 [INFO] src.evaluation.dpo_study: dpo_dialogue user 50/50: align=-1.000 viol=0 qfail=0.00 rfail=0.20
+2026-09-27 16:56:16,626 [INFO] src.evaluation.dpo_study: game DPO vs base: p=0.9542, effect=0.305, fail_to_reject
+2026-09-27 16:56:16,824 [INFO] __main__: Wrote results to /scratch/alpine/paco0228/latent_proxy_runs/77add19/outputs/dialogue_comparison/self_elicitation/dpo_study_results.json
+2026-09-27 16:56:16,825 [INFO] __main__: Summary:
+{
+  "game": {
+    "base": 0.19535985833418934,
+    "dpo_phase1": -0.11897366596101028,
+    "dpo_phase2": 0.024455949855920537,
+    "dpo_dialogue": -0.0290370895258835
+  }
+}

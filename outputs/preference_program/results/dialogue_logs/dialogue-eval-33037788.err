@@ -1,0 +1,973 @@
+2026-09-27 14:28:39,258 [INFO] __main__: Starting adherence study (n_users=50, conditions=['base', 'dpo_phase1', 'dpo_phase2', 'dpo_dialogue'])
+2026-09-27 14:28:39,267 [INFO] src.evaluation.adherence_study: Loading model for condition base...
+2026-09-27 14:30:12,465 [INFO] src.training.model_utils: Loading model: Qwen/Qwen2.5-1.5B-Instruct (quantization: 4-bit)
+2026-09-27 14:30:12,785 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 14:30:12,792 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+2026-09-27 14:30:14,734 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-09-27 14:30:14,735 [WARNING] huggingface_hub.utils._http: Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-09-27 14:30:14,739 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:01<06:16,  1.12s/it]Loading weights:   1%|          | 3/338 [00:02<03:55,  1.42it/s]Loading weights:   8%|▊         | 26/338 [00:02<00:18, 17.26it/s]Loading weights:  11%|█         | 36/338 [00:03<00:20, 14.83it/s]Loading weights:  13%|█▎        | 43/338 [00:04<00:24, 12.29it/s]Loading weights:  16%|█▌        | 53/338 [00:04<00:18, 15.35it/s]Loading weights:  23%|██▎       | 77/338 [00:04<00:10, 25.99it/s]Loading weights:  33%|███▎      | 111/338 [00:04<00:04, 50.00it/s]Loading weights:  40%|████      | 136/338 [00:04<00:02, 69.38it/s]Loading weights:  48%|████▊     | 161/338 [00:05<00:01, 90.97it/s]Loading weights:  57%|█████▋    | 193/338 [00:05<00:01, 125.10it/s]Loading weights:  64%|██████▍   | 216/338 [00:07<00:03, 32.41it/s] Loading weights:  69%|██████▊   | 232/338 [00:10<00:07, 13.39it/s]Loading weights:  72%|███████▏  | 244/338 [00:12<00:07, 12.39it/s]Loading weights:  75%|███████▍  | 253/338 [00:12<00:06, 13.48it/s]Loading weights:  77%|███████▋  | 260/338 [00:14<00:07,  9.87it/s]Loading weights:  78%|███████▊  | 265/338 [00:14<00:06, 10.87it/s]Loading weights:  80%|███████▉  | 270/338 [00:17<00:11,  6.13it/s]Loading weights:  81%|████████  | 273/338 [00:17<00:09,  6.61it/s]Loading weights:  83%|████████▎ | 279/338 [00:17<00:07,  7.91it/s]Loading weights:  83%|████████▎ | 282/338 [00:19<00:10,  5.27it/s]Loading weights:  85%|████████▍ | 287/338 [00:19<00:07,  6.72it/s]Loading weights:  86%|████████▌ | 291/338 [00:19<00:06,  6.99it/s]Loading weights:  87%|████████▋ | 293/338 [00:22<00:13,  3.32it/s]Loading weights:  88%|████████▊ | 299/338 [00:22<00:07,  5.12it/s]Loading weights:  90%|████████▉ | 303/338 [00:23<00:06,  5.76it/s]Loading weights:  90%|█████████ | 305/338 [00:24<00:07,  4.40it/s]Loading weights:  93%|█████████▎| 315/338 [00:24<00:03,  7.15it/s]Loading weights:  94%|█████████▍| 317/338 [00:26<00:04,  4.74it/s]Loading weights:  95%|█████████▍| 321/338 [00:26<00:02,  6.14it/s]Loading weights:  97%|█████████▋| 327/338 [00:26<00:01,  7.48it/s]Loading weights:  97%|█████████▋| 329/338 [00:28<00:02,  3.99it/s]Loading weights: 100%|██████████| 338/338 [00:28<00:00, 11.82it/s]
+2026-09-27 14:30:54,533 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 14:30:54,540 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/generation_config.json "HTTP/1.1 200 OK"
+2026-09-27 14:30:54,598 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-09-27 14:30:54,753 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 14:30:54,759 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+2026-09-27 14:30:54,811 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 14:30:54,816 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-09-27 14:30:54,903 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-09-27 14:30:54,957 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-09-27 14:30:55,400 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct "HTTP/1.1 200 OK"
+2026-09-27 14:31:16,391 [INFO] src.evaluation.adherence_study: base/true user 1/50: align=-0.447 viol=0 parse_fail=False
+2026-09-27 14:31:20,785 [INFO] src.evaluation.adherence_study: base/true user 2/50: align=-0.632 viol=0 parse_fail=False
+2026-09-27 14:31:22,572 [INFO] src.evaluation.adherence_study: base/true user 3/50: align=0.316 viol=0 parse_fail=False
+2026-09-27 14:31:25,623 [INFO] src.evaluation.adherence_study: base/true user 4/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:31:27,502 [INFO] src.evaluation.adherence_study: base/true user 5/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:31:30,633 [INFO] src.evaluation.adherence_study: base/true user 6/50: align=-0.447 viol=0 parse_fail=False
+2026-09-27 14:31:31,816 [INFO] src.evaluation.adherence_study: base/true user 7/50: align=-0.632 viol=0 parse_fail=False
+2026-09-27 14:31:33,030 [INFO] src.evaluation.adherence_study: base/true user 8/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:31:34,536 [INFO] src.evaluation.adherence_study: base/true user 9/50: align=-0.447 viol=0 parse_fail=False
+2026-09-27 14:31:36,237 [INFO] src.evaluation.adherence_study: base/true user 10/50: align=0.316 viol=0 parse_fail=False
+2026-09-27 14:31:39,131 [INFO] src.evaluation.adherence_study: base/true user 11/50: align=0.775 viol=0 parse_fail=False
+2026-09-27 14:31:40,426 [INFO] src.evaluation.adherence_study: base/true user 12/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:31:41,615 [INFO] src.evaluation.adherence_study: base/true user 13/50: align=-0.105 viol=0 parse_fail=False
+2026-09-27 14:31:45,754 [INFO] src.evaluation.adherence_study: base/true user 14/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:31:46,372 [INFO] src.evaluation.adherence_study: base/true user 15/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:31:47,958 [INFO] src.evaluation.adherence_study: base/true user 16/50: align=-0.447 viol=0 parse_fail=False
+2026-09-27 14:31:51,172 [INFO] src.evaluation.adherence_study: base/true user 17/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:31:53,568 [INFO] src.evaluation.adherence_study: base/true user 18/50: align=-0.105 viol=0 parse_fail=False
+2026-09-27 14:31:56,055 [INFO] src.evaluation.adherence_study: base/true user 19/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:31:57,400 [INFO] src.evaluation.adherence_study: base/true user 20/50: align=-0.316 viol=0 parse_fail=False
+2026-09-27 14:31:59,041 [INFO] src.evaluation.adherence_study: base/true user 21/50: align=-0.775 viol=0 parse_fail=False
+2026-09-27 14:32:00,333 [INFO] src.evaluation.adherence_study: base/true user 22/50: align=-0.447 viol=0 parse_fail=False
+2026-09-27 14:32:01,759 [INFO] src.evaluation.adherence_study: base/true user 23/50: align=-0.447 viol=0 parse_fail=False
+2026-09-27 14:32:05,005 [INFO] src.evaluation.adherence_study: base/true user 24/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:32:07,277 [INFO] src.evaluation.adherence_study: base/true user 25/50: align=0.316 viol=0 parse_fail=False
+2026-09-27 14:32:08,783 [INFO] src.evaluation.adherence_study: base/true user 26/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:32:10,220 [INFO] src.evaluation.adherence_study: base/true user 27/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:32:11,462 [INFO] src.evaluation.adherence_study: base/true user 28/50: align=-0.258 viol=0 parse_fail=False
+2026-09-27 14:32:14,584 [INFO] src.evaluation.adherence_study: base/true user 29/50: align=0.949 viol=0 parse_fail=False
+2026-09-27 14:32:16,818 [INFO] src.evaluation.adherence_study: base/true user 30/50: align=-0.447 viol=0 parse_fail=False
+2026-09-27 14:32:20,015 [INFO] src.evaluation.adherence_study: base/true user 31/50: align=0.316 viol=0 parse_fail=False
+2026-09-27 14:32:21,688 [INFO] src.evaluation.adherence_study: base/true user 32/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:32:23,042 [INFO] src.evaluation.adherence_study: base/true user 33/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:32:24,029 [INFO] src.evaluation.adherence_study: base/true user 34/50: align=0.738 viol=0 parse_fail=False
+2026-09-27 14:32:25,740 [INFO] src.evaluation.adherence_study: base/true user 35/50: align=-0.447 viol=0 parse_fail=False
+2026-09-27 14:32:27,054 [INFO] src.evaluation.adherence_study: base/true user 36/50: align=-0.447 viol=0 parse_fail=False
+2026-09-27 14:32:28,622 [INFO] src.evaluation.adherence_study: base/true user 37/50: align=-0.447 viol=0 parse_fail=False
+2026-09-27 14:32:29,903 [INFO] src.evaluation.adherence_study: base/true user 38/50: align=-0.447 viol=0 parse_fail=False
+2026-09-27 14:32:32,939 [INFO] src.evaluation.adherence_study: base/true user 39/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:32:35,526 [INFO] src.evaluation.adherence_study: base/true user 40/50: align=0.894 viol=0 parse_fail=False
+2026-09-27 14:32:37,072 [INFO] src.evaluation.adherence_study: base/true user 41/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:32:38,250 [INFO] src.evaluation.adherence_study: base/true user 42/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:32:39,707 [INFO] src.evaluation.adherence_study: base/true user 43/50: align=-0.632 viol=0 parse_fail=False
+2026-09-27 14:32:42,236 [INFO] src.evaluation.adherence_study: base/true user 44/50: align=-0.632 viol=0 parse_fail=False
+2026-09-27 14:32:43,251 [INFO] src.evaluation.adherence_study: base/true user 45/50: align=-0.258 viol=0 parse_fail=False
+2026-09-27 14:32:46,500 [INFO] src.evaluation.adherence_study: base/true user 46/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:32:49,720 [INFO] src.evaluation.adherence_study: base/true user 47/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:32:50,707 [INFO] src.evaluation.adherence_study: base/true user 48/50: align=0.894 viol=0 parse_fail=False
+2026-09-27 14:32:52,842 [INFO] src.evaluation.adherence_study: base/true user 49/50: align=-0.632 viol=0 parse_fail=False
+2026-09-27 14:32:55,322 [INFO] src.evaluation.adherence_study: base/true user 50/50: align=-0.258 viol=0 parse_fail=False
+2026-09-27 14:32:58,626 [INFO] src.evaluation.adherence_study: base/elicited user 1/50: align=-0.632 viol=0 parse_fail=False
+2026-09-27 14:33:01,538 [INFO] src.evaluation.adherence_study: base/elicited user 2/50: align=0.316 viol=0 parse_fail=False
+2026-09-27 14:33:04,186 [INFO] src.evaluation.adherence_study: base/elicited user 3/50: align=-0.316 viol=0 parse_fail=False
+2026-09-27 14:33:06,364 [INFO] src.evaluation.adherence_study: base/elicited user 4/50: align=-0.105 viol=0 parse_fail=False
+2026-09-27 14:33:09,901 [INFO] src.evaluation.adherence_study: base/elicited user 5/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:33:13,193 [INFO] src.evaluation.adherence_study: base/elicited user 6/50: align=-0.775 viol=0 parse_fail=False
+2026-09-27 14:33:16,921 [INFO] src.evaluation.adherence_study: base/elicited user 7/50: align=-0.316 viol=0 parse_fail=False
+2026-09-27 14:33:21,386 [INFO] src.evaluation.adherence_study: base/elicited user 8/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:33:23,847 [INFO] src.evaluation.adherence_study: base/elicited user 9/50: align=-0.105 viol=0 parse_fail=False
+2026-09-27 14:33:28,568 [INFO] src.evaluation.adherence_study: base/elicited user 10/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:33:33,355 [INFO] src.evaluation.adherence_study: base/elicited user 11/50: align=-0.447 viol=0 parse_fail=False
+2026-09-27 14:33:35,713 [INFO] src.evaluation.adherence_study: base/elicited user 12/50: align=-0.105 viol=0 parse_fail=False
+2026-09-27 14:33:38,702 [INFO] src.evaluation.adherence_study: base/elicited user 13/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:33:42,745 [INFO] src.evaluation.adherence_study: base/elicited user 14/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:33:45,444 [INFO] src.evaluation.adherence_study: base/elicited user 15/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 14:33:47,943 [INFO] src.evaluation.adherence_study: base/elicited user 16/50: align=-0.949 viol=0 parse_fail=False
+2026-09-27 14:33:50,775 [INFO] src.evaluation.adherence_study: base/elicited user 17/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:33:55,517 [INFO] src.evaluation.adherence_study: base/elicited user 18/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:33:58,847 [INFO] src.evaluation.adherence_study: base/elicited user 19/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:34:02,556 [INFO] src.evaluation.adherence_study: base/elicited user 20/50: align=-0.316 viol=0 parse_fail=False
+2026-09-27 14:34:06,114 [INFO] src.evaluation.adherence_study: base/elicited user 21/50: align=-0.316 viol=0 parse_fail=False
+2026-09-27 14:34:10,690 [INFO] src.evaluation.adherence_study: base/elicited user 22/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:34:13,470 [INFO] src.evaluation.adherence_study: base/elicited user 23/50: align=-0.447 viol=0 parse_fail=False
+2026-09-27 14:34:16,830 [INFO] src.evaluation.adherence_study: base/elicited user 24/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:34:19,624 [INFO] src.evaluation.adherence_study: base/elicited user 25/50: align=-0.447 viol=0 parse_fail=False
+2026-09-27 14:34:23,071 [INFO] src.evaluation.adherence_study: base/elicited user 26/50: align=-0.316 viol=0 parse_fail=False
+2026-09-27 14:34:26,401 [INFO] src.evaluation.adherence_study: base/elicited user 27/50: align=-0.316 viol=0 parse_fail=False
+2026-09-27 14:34:29,000 [INFO] src.evaluation.adherence_study: base/elicited user 28/50: align=0.258 viol=0 parse_fail=False
+2026-09-27 14:34:32,435 [INFO] src.evaluation.adherence_study: base/elicited user 29/50: align=0.632 viol=0 parse_fail=False
+2026-09-27 14:34:35,516 [INFO] src.evaluation.adherence_study: base/elicited user 30/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:34:39,364 [INFO] src.evaluation.adherence_study: base/elicited user 31/50: align=-0.894 viol=0 parse_fail=False
+2026-09-27 14:34:42,814 [INFO] src.evaluation.adherence_study: base/elicited user 32/50: align=-0.775 viol=0 parse_fail=False
+2026-09-27 14:34:46,644 [INFO] src.evaluation.adherence_study: base/elicited user 33/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:34:49,320 [INFO] src.evaluation.adherence_study: base/elicited user 34/50: align=0.778 viol=0 parse_fail=False
+2026-09-27 14:34:52,250 [INFO] src.evaluation.adherence_study: base/elicited user 35/50: align=-0.447 viol=0 parse_fail=False
+2026-09-27 14:34:54,914 [INFO] src.evaluation.adherence_study: base/elicited user 36/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:34:59,700 [INFO] src.evaluation.adherence_study: base/elicited user 37/50: align=-0.316 viol=0 parse_fail=False
+2026-09-27 14:35:02,734 [INFO] src.evaluation.adherence_study: base/elicited user 38/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:35:05,493 [INFO] src.evaluation.adherence_study: base/elicited user 39/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:35:08,366 [INFO] src.evaluation.adherence_study: base/elicited user 40/50: align=-0.316 viol=0 parse_fail=False
+2026-09-27 14:35:11,117 [INFO] src.evaluation.adherence_study: base/elicited user 41/50: align=-0.316 viol=0 parse_fail=False
+2026-09-27 14:35:13,449 [INFO] src.evaluation.adherence_study: base/elicited user 42/50: align=-0.894 viol=0 parse_fail=False
+2026-09-27 14:35:15,574 [INFO] src.evaluation.adherence_study: base/elicited user 43/50: align=0.894 viol=0 parse_fail=False
+2026-09-27 14:35:18,455 [INFO] src.evaluation.adherence_study: base/elicited user 44/50: align=-0.775 viol=0 parse_fail=False
+2026-09-27 14:35:21,826 [INFO] src.evaluation.adherence_study: base/elicited user 45/50: align=-0.632 viol=0 parse_fail=False
+2026-09-27 14:35:25,517 [INFO] src.evaluation.adherence_study: base/elicited user 46/50: align=-0.632 viol=0 parse_fail=False
+2026-09-27 14:35:28,018 [INFO] src.evaluation.adherence_study: base/elicited user 47/50: align=-0.447 viol=0 parse_fail=False
+2026-09-27 14:35:30,856 [INFO] src.evaluation.adherence_study: base/elicited user 48/50: align=0.316 viol=0 parse_fail=False
+2026-09-27 14:35:33,470 [INFO] src.evaluation.adherence_study: base/elicited user 49/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:35:35,659 [INFO] src.evaluation.adherence_study: base/elicited user 50/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:35:42,770 [INFO] src.evaluation.adherence_study: base/posterior_summary user 1/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:35:45,541 [INFO] src.evaluation.adherence_study: base/posterior_summary user 2/50: align=0.632 viol=0 parse_fail=False
+2026-09-27 14:35:50,265 [INFO] src.evaluation.adherence_study: base/posterior_summary user 3/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:35:54,878 [INFO] src.evaluation.adherence_study: base/posterior_summary user 4/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 14:35:59,446 [INFO] src.evaluation.adherence_study: base/posterior_summary user 5/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:36:04,227 [INFO] src.evaluation.adherence_study: base/posterior_summary user 6/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:36:07,577 [INFO] src.evaluation.adherence_study: base/posterior_summary user 7/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:36:11,011 [INFO] src.evaluation.adherence_study: base/posterior_summary user 8/50: align=0.632 viol=0 parse_fail=False
+2026-09-27 14:36:14,239 [INFO] src.evaluation.adherence_study: base/posterior_summary user 9/50: align=-0.200 viol=0 parse_fail=False
+2026-09-27 14:36:18,961 [INFO] src.evaluation.adherence_study: base/posterior_summary user 10/50: align=0.258 viol=0 parse_fail=False
+2026-09-27 14:36:23,450 [INFO] src.evaluation.adherence_study: base/posterior_summary user 11/50: align=0.632 viol=0 parse_fail=False
+2026-09-27 14:36:27,252 [INFO] src.evaluation.adherence_study: base/posterior_summary user 12/50: align=0.894 viol=0 parse_fail=False
+2026-09-27 14:36:32,042 [INFO] src.evaluation.adherence_study: base/posterior_summary user 13/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:36:36,808 [INFO] src.evaluation.adherence_study: base/posterior_summary user 14/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:36:40,358 [INFO] src.evaluation.adherence_study: base/posterior_summary user 15/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:36:43,678 [INFO] src.evaluation.adherence_study: base/posterior_summary user 16/50: align=-0.447 viol=0 parse_fail=False
+2026-09-27 14:36:48,334 [INFO] src.evaluation.adherence_study: base/posterior_summary user 17/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:36:53,057 [INFO] src.evaluation.adherence_study: base/posterior_summary user 18/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:36:57,759 [INFO] src.evaluation.adherence_study: base/posterior_summary user 19/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:37:02,181 [INFO] src.evaluation.adherence_study: base/posterior_summary user 20/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:37:06,348 [INFO] src.evaluation.adherence_study: base/posterior_summary user 21/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:37:10,169 [INFO] src.evaluation.adherence_study: base/posterior_summary user 22/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:37:14,516 [INFO] src.evaluation.adherence_study: base/posterior_summary user 23/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:37:18,005 [INFO] src.evaluation.adherence_study: base/posterior_summary user 24/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:37:22,732 [INFO] src.evaluation.adherence_study: base/posterior_summary user 25/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:37:26,171 [INFO] src.evaluation.adherence_study: base/posterior_summary user 26/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:37:30,944 [INFO] src.evaluation.adherence_study: base/posterior_summary user 27/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:37:34,428 [INFO] src.evaluation.adherence_study: base/posterior_summary user 28/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:37:39,158 [INFO] src.evaluation.adherence_study: base/posterior_summary user 29/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:37:43,205 [INFO] src.evaluation.adherence_study: base/posterior_summary user 30/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:37:47,801 [INFO] src.evaluation.adherence_study: base/posterior_summary user 31/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:37:51,156 [INFO] src.evaluation.adherence_study: base/posterior_summary user 32/50: align=-0.447 viol=0 parse_fail=False
+2026-09-27 14:37:54,903 [INFO] src.evaluation.adherence_study: base/posterior_summary user 33/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:37:58,832 [INFO] src.evaluation.adherence_study: base/posterior_summary user 34/50: align=0.816 viol=0 parse_fail=False
+2026-09-27 14:38:02,707 [INFO] src.evaluation.adherence_study: base/posterior_summary user 35/50: align=-0.447 viol=0 parse_fail=False
+2026-09-27 14:38:06,555 [INFO] src.evaluation.adherence_study: base/posterior_summary user 36/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:38:11,334 [INFO] src.evaluation.adherence_study: base/posterior_summary user 37/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:38:14,172 [INFO] src.evaluation.adherence_study: base/posterior_summary user 38/50: align=0.632 viol=0 parse_fail=False
+2026-09-27 14:38:18,484 [INFO] src.evaluation.adherence_study: base/posterior_summary user 39/50: align=0.632 viol=0 parse_fail=False
+2026-09-27 14:38:22,819 [INFO] src.evaluation.adherence_study: base/posterior_summary user 40/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:38:26,089 [INFO] src.evaluation.adherence_study: base/posterior_summary user 41/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:38:30,658 [WARNING] src.evaluation.adherence_study: base/posterior_summary user 42/50: QUALITY FLOOR VIOLATION ['Only 1 active channel(s); minimum is 2'] | true_theta=UserType(gamma=np.float64(0.930254417457859), alpha=0.8296930780638265, lambda_=1.7612771858136531) profile_theta=UserType(gamma=0.6692971070449942, alpha=0.8367322181308271, lambda_=1.9129047855483976) allocation=[1. 0. 0. 0.]
+2026-09-27 14:38:30,658 [INFO] src.evaluation.adherence_study: base/posterior_summary user 42/50: align=-0.775 viol=1 parse_fail=False
+2026-09-27 14:38:35,206 [INFO] src.evaluation.adherence_study: base/posterior_summary user 43/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:38:39,991 [INFO] src.evaluation.adherence_study: base/posterior_summary user 44/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:38:43,475 [INFO] src.evaluation.adherence_study: base/posterior_summary user 45/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:38:46,806 [INFO] src.evaluation.adherence_study: base/posterior_summary user 46/50: align=0.894 viol=0 parse_fail=False
+2026-09-27 14:38:49,618 [INFO] src.evaluation.adherence_study: base/posterior_summary user 47/50: align=-0.775 viol=0 parse_fail=False
+2026-09-27 14:38:53,516 [INFO] src.evaluation.adherence_study: base/posterior_summary user 48/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:38:57,085 [INFO] src.evaluation.adherence_study: base/posterior_summary user 49/50: align=0.105 viol=0 parse_fail=False
+2026-09-27 14:39:01,873 [INFO] src.evaluation.adherence_study: base/posterior_summary user 50/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:39:01,898 [INFO] src.evaluation.adherence_study: Loading model for condition dpo_phase1...
+2026-09-27 14:39:01,898 [INFO] src.training.model_utils: Loading model: Qwen/Qwen2.5-1.5B-Instruct (quantization: 4-bit)
+2026-09-27 14:39:01,991 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 14:39:01,997 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+2026-09-27 14:39:02,049 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 14:39:02,053 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   1%|          | 3/338 [00:00<00:11, 28.72it/s]Loading weights:  17%|█▋        | 57/338 [00:00<00:00, 322.66it/s]Loading weights:  33%|███▎      | 112/338 [00:00<00:00, 424.76it/s]Loading weights:  51%|█████     | 171/338 [00:00<00:00, 486.72it/s]Loading weights:  67%|██████▋   | 227/338 [00:00<00:00, 511.88it/s]Loading weights:  83%|████████▎ | 281/338 [00:00<00:00, 514.46it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 482.58it/s]
+2026-09-27 14:39:02,898 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 14:39:02,904 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/generation_config.json "HTTP/1.1 200 OK"
+2026-09-27 14:39:02,954 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-09-27 14:39:03,004 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 14:39:03,009 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+2026-09-27 14:39:03,058 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 14:39:03,063 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-09-27 14:39:03,114 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-09-27 14:39:03,167 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-09-27 14:39:03,369 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct "HTTP/1.1 200 OK"
+/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/peft/config.py:220: UserWarning: Unexpected keyword arguments ['kasa_config'] for class LoraConfig, these are ignored. This probably means that you're loading a configuration file that was saved using a higher version of the library and additional parameters have been introduced since. It is highly recommended to upgrade the PEFT version before continuing (e.g. by running `pip install -U peft`).
+  warnings.warn(
+2026-09-27 14:39:07,400 [INFO] src.training.model_utils: Loaded LoRA checkpoint from /home/paco0228/latent_proxy_experiments/checkpoints/phase1
+2026-09-27 14:39:10,894 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 1/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:39:13,478 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 2/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:39:16,218 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 3/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:39:17,932 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 4/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:39:20,917 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 5/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:39:22,947 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 6/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:39:25,264 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 7/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:39:27,317 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 8/50: align=-0.632 viol=0 parse_fail=False
+2026-09-27 14:39:30,255 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 9/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:39:32,035 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 10/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:39:34,290 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 11/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:39:36,288 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 12/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:39:38,739 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 13/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:39:40,582 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 14/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:39:42,911 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 15/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:39:45,640 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 16/50: align=-0.632 viol=0 parse_fail=False
+2026-09-27 14:39:47,798 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 17/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:39:50,227 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 18/50: align=-0.105 viol=0 parse_fail=False
+2026-09-27 14:39:53,262 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 19/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:39:54,758 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 20/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:39:57,755 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 21/50: align=-0.632 viol=0 parse_fail=False
+2026-09-27 14:40:00,826 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 22/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:40:02,855 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 23/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:40:05,668 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 24/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:40:08,423 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 25/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:40:10,438 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 26/50: align=-0.105 viol=0 parse_fail=False
+2026-09-27 14:40:13,292 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 27/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:40:14,793 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 28/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:40:16,620 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 29/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:40:19,813 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 30/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:40:22,337 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 31/50: align=-0.800 viol=0 parse_fail=False
+2026-09-27 14:40:24,583 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 32/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:40:26,374 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 33/50: align=-0.447 viol=0 parse_fail=False
+2026-09-27 14:40:28,118 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 34/50: align=0.949 viol=0 parse_fail=False
+2026-09-27 14:40:29,494 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 35/50: align=-0.211 viol=0 parse_fail=False
+2026-09-27 14:40:31,680 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 36/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:40:34,451 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 37/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:40:36,663 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 38/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:40:39,074 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 39/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:40:40,936 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 40/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:40:42,943 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 41/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:40:45,525 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 42/50: align=-0.800 viol=0 parse_fail=False
+2026-09-27 14:40:47,541 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 43/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:40:49,517 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 44/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:40:52,221 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 45/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:40:54,575 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 46/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:40:57,170 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 47/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:40:59,452 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 48/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:41:01,732 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 49/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:41:02,660 [INFO] src.evaluation.adherence_study: dpo_phase1/true user 50/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:41:06,533 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 1/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:41:10,552 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 2/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:41:13,933 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 3/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:41:18,433 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 4/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:41:21,767 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 5/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:41:25,324 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 6/50: align=-0.632 viol=0 parse_fail=False
+2026-09-27 14:41:29,592 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 7/50: align=-0.105 viol=0 parse_fail=False
+2026-09-27 14:41:32,853 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 8/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:41:37,649 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 9/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:41:40,635 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 10/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:41:43,879 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 11/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:41:47,517 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 12/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:41:51,014 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 13/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:41:54,447 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 14/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:41:57,202 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 15/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:42:00,515 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 16/50: align=-0.211 viol=0 parse_fail=False
+2026-09-27 14:42:03,886 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 17/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:42:07,394 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 18/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:42:10,922 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 19/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:42:14,169 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 20/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:42:17,349 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 21/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:42:20,604 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 22/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:42:24,249 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 23/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:42:26,697 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 24/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:42:31,609 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 25/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:42:35,120 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 26/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:42:39,210 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 27/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:42:42,651 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 28/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:42:47,025 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 29/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:42:50,369 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 30/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:42:53,728 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 31/50: align=-0.800 viol=0 parse_fail=False
+2026-09-27 14:42:57,369 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 32/50: align=-0.800 viol=0 parse_fail=False
+2026-09-27 14:43:01,058 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 33/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:43:05,101 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 34/50: align=0.738 viol=0 parse_fail=False
+2026-09-27 14:43:08,787 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 35/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:43:12,163 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 36/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:43:15,513 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 37/50: align=-0.211 viol=0 parse_fail=False
+2026-09-27 14:43:19,075 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 38/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:43:23,691 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 39/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:43:28,031 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 40/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:43:32,556 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 41/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:43:35,851 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 42/50: align=-0.800 viol=0 parse_fail=False
+2026-09-27 14:43:39,939 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 43/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:43:45,498 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 44/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:43:49,381 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 45/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:43:52,932 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 46/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:43:56,707 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 47/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:44:01,280 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 48/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:44:04,687 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 49/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:44:09,153 [INFO] src.evaluation.adherence_study: dpo_phase1/elicited user 50/50: align=-0.105 viol=0 parse_fail=False
+2026-09-27 14:44:12,938 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 1/50: align=-0.632 viol=0 parse_fail=False
+2026-09-27 14:44:17,260 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 2/50: align=-0.105 viol=0 parse_fail=False
+2026-09-27 14:44:21,772 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 3/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:44:27,465 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 4/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:44:31,456 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 5/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:44:36,373 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 6/50: align=-0.632 viol=0 parse_fail=False
+2026-09-27 14:44:42,238 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 7/50: align=-0.105 viol=0 parse_fail=False
+2026-09-27 14:44:45,875 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 8/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:44:49,399 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 9/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:44:55,036 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 10/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:44:58,224 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 11/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:45:03,267 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 12/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:45:07,421 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 13/50: align=-0.105 viol=0 parse_fail=False
+2026-09-27 14:45:11,250 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 14/50: align=-0.105 viol=0 parse_fail=False
+2026-09-27 14:45:14,848 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 15/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:45:19,733 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 16/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:45:24,207 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 17/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:45:27,736 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 18/50: align=-0.105 viol=0 parse_fail=False
+2026-09-27 14:45:31,460 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 19/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:45:34,998 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 20/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:45:38,601 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 21/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:45:42,484 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 22/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:45:46,840 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 23/50: align=-0.632 viol=0 parse_fail=False
+2026-09-27 14:45:50,413 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 24/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:45:56,720 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 25/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:46:01,167 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 26/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:46:06,925 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 27/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:46:10,028 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 28/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:46:13,777 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 29/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:46:18,262 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 30/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:46:21,665 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 31/50: align=-0.949 viol=0 parse_fail=False
+2026-09-27 14:46:26,089 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 32/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:46:29,527 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 33/50: align=-0.632 viol=0 parse_fail=False
+2026-09-27 14:46:33,071 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 34/50: align=0.738 viol=0 parse_fail=False
+2026-09-27 14:46:37,779 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 35/50: align=-0.632 viol=0 parse_fail=False
+2026-09-27 14:46:44,131 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 36/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:46:48,724 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 37/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:46:53,904 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 38/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:46:59,401 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 39/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:47:03,560 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 40/50: align=0.211 viol=0 parse_fail=False
+2026-09-27 14:47:08,081 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 41/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:47:11,855 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 42/50: align=-0.800 viol=0 parse_fail=False
+2026-09-27 14:47:15,701 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 43/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:47:22,435 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 44/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:47:26,345 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 45/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:47:32,862 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 46/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:47:36,598 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 47/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:47:39,752 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 48/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:47:43,805 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 49/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:47:47,012 [INFO] src.evaluation.adherence_study: dpo_phase1/posterior_summary user 50/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:47:47,039 [INFO] src.evaluation.adherence_study: Loading model for condition dpo_phase2...
+2026-09-27 14:47:47,039 [INFO] src.training.model_utils: Loading model: Qwen/Qwen2.5-1.5B-Instruct (quantization: 4-bit)
+2026-09-27 14:47:47,128 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 14:47:47,134 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+2026-09-27 14:47:47,189 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 14:47:47,193 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   1%|          | 3/338 [00:00<00:11, 28.79it/s]Loading weights:  17%|█▋        | 57/338 [00:00<00:00, 323.18it/s]Loading weights:  33%|███▎      | 112/338 [00:00<00:00, 424.81it/s]Loading weights:  51%|█████     | 171/338 [00:00<00:00, 487.75it/s]Loading weights:  67%|██████▋   | 227/338 [00:00<00:00, 513.05it/s]Loading weights:  83%|████████▎ | 281/338 [00:00<00:00, 515.47it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 483.57it/s]
+2026-09-27 14:47:48,016 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 14:47:48,021 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/generation_config.json "HTTP/1.1 200 OK"
+2026-09-27 14:47:48,069 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-09-27 14:47:48,117 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 14:47:48,122 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+2026-09-27 14:47:48,171 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 14:47:48,176 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-09-27 14:47:48,228 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-09-27 14:47:48,280 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-09-27 14:47:48,482 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct "HTTP/1.1 200 OK"
+2026-09-27 14:47:49,032 [INFO] src.training.model_utils: Loaded LoRA checkpoint from /home/paco0228/latent_proxy_experiments/checkpoints/phase2
+2026-09-27 14:47:50,225 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 1/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:47:52,281 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 2/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:47:54,776 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 3/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:47:56,456 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 4/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:47:57,488 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 5/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:48:00,423 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 6/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:48:03,799 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 7/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:48:05,615 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 8/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:48:07,266 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 9/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:48:09,285 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 10/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:48:11,532 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 11/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:48:13,712 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 12/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:48:15,906 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 13/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:48:17,418 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 14/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:48:19,287 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 15/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:48:21,676 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 16/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:48:23,910 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 17/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:48:26,064 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 18/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:48:28,720 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 19/50: align=0.105 viol=0 parse_fail=False
+2026-09-27 14:48:31,144 [WARNING] src.evaluation.adherence_study: dpo_phase2/true user 20/50: QUALITY FLOOR VIOLATION ['Channel 3 (volatile) is strictly dominated by channel 2 (aggressive)', 'Only 1 active channel(s); minimum is 2'] | true_theta=UserType(gamma=np.float64(0.36677774667949287), alpha=0.6514611898460829, lambda_=1.9074716525868711) profile_theta=UserType(gamma=np.float64(0.36677774667949287), alpha=0.6514611898460829, lambda_=1.9074716525868711) allocation=[0. 0. 0. 1.]
+2026-09-27 14:48:31,144 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 20/50: align=-0.258 viol=1 parse_fail=False
+2026-09-27 14:48:33,129 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 21/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:48:35,284 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 22/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:48:37,899 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 23/50: align=0.600 viol=0 parse_fail=False
+2026-09-27 14:48:41,203 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 24/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:48:43,935 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 25/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:48:46,883 [WARNING] src.evaluation.adherence_study: dpo_phase2/true user 26/50: QUALITY FLOOR VIOLATION ['Only 1 active channel(s); minimum is 2'] | true_theta=UserType(gamma=np.float64(0.4426954974492679), alpha=1.1922132204264442, lambda_=2.2237301770218654) profile_theta=UserType(gamma=np.float64(0.4426954974492679), alpha=1.1922132204264442, lambda_=2.2237301770218654) allocation=[1. 0. 0. 0.]
+2026-09-27 14:48:46,883 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 26/50: align=-0.258 viol=1 parse_fail=False
+2026-09-27 14:48:49,697 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 27/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:48:51,678 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 28/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:48:53,454 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 29/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:48:56,085 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 30/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:49:00,349 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 31/50: align=-0.800 viol=0 parse_fail=False
+2026-09-27 14:49:01,514 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 32/50: align=-0.200 viol=0 parse_fail=False
+2026-09-27 14:49:02,694 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 33/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:49:03,705 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 34/50: align=0.949 viol=0 parse_fail=False
+2026-09-27 14:49:07,087 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 35/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:49:09,032 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 36/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:49:11,514 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 37/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:49:13,568 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 38/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:49:16,516 [WARNING] src.evaluation.adherence_study: dpo_phase2/true user 39/50: QUALITY FLOOR VIOLATION ['Only 1 active channel(s); minimum is 2'] | true_theta=UserType(gamma=np.float64(0.8874047425695227), alpha=1.4233020595290993, lambda_=2.772416576126304) profile_theta=UserType(gamma=np.float64(0.8874047425695227), alpha=1.4233020595290993, lambda_=2.772416576126304) allocation=[1. 0. 0. 0.]
+2026-09-27 14:49:16,516 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 39/50: align=-0.775 viol=1 parse_fail=False
+2026-09-27 14:49:19,048 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 40/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:49:22,301 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 41/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:49:25,097 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 42/50: align=-0.800 viol=0 parse_fail=False
+2026-09-27 14:49:29,115 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 43/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:49:31,785 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 44/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:49:34,340 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 45/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:49:36,349 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 46/50: align=0.105 viol=0 parse_fail=False
+2026-09-27 14:49:38,770 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 47/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:49:41,233 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 48/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:49:43,398 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 49/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:49:45,677 [INFO] src.evaluation.adherence_study: dpo_phase2/true user 50/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:49:48,435 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 1/50: align=-0.200 viol=0 parse_fail=False
+2026-09-27 14:49:52,558 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 2/50: align=-0.105 viol=0 parse_fail=False
+2026-09-27 14:49:55,849 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 3/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:49:58,273 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 4/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:50:02,378 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 5/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:50:05,111 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 6/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:50:08,770 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 7/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:50:12,096 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 8/50: align=-0.200 viol=0 parse_fail=False
+2026-09-27 14:50:16,455 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 9/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:50:20,339 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 10/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:50:23,245 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 11/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:50:27,478 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 12/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:50:30,338 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 13/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:50:34,589 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 14/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:50:37,084 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 15/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:50:39,979 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 16/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:50:44,254 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 17/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:50:49,124 [WARNING] src.evaluation.adherence_study: dpo_phase2/elicited user 18/50: QUALITY FLOOR VIOLATION ['Only 1 active channel(s); minimum is 2'] | true_theta=UserType(gamma=np.float64(0.3794047227861386), alpha=2.2114707842997117, lambda_=2.4482352458513046) profile_theta=UserType(gamma=0.5110285877140444, alpha=1.0349912546305804, lambda_=1.9950649852924707) allocation=[1. 0. 0. 0.]
+2026-09-27 14:50:49,125 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 18/50: align=-0.258 viol=1 parse_fail=False
+2026-09-27 14:50:53,202 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 19/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:50:57,183 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 20/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:51:01,623 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 21/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:51:04,374 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 22/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:51:07,678 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 23/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:51:11,455 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 24/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:51:14,812 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 25/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:51:17,387 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 26/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:51:20,195 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 27/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:51:23,480 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 28/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:51:26,115 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 29/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:51:29,656 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 30/50: align=-0.949 viol=0 parse_fail=False
+2026-09-27 14:51:33,272 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 31/50: align=-0.800 viol=0 parse_fail=False
+2026-09-27 14:51:38,502 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 32/50: align=-0.800 viol=0 parse_fail=False
+2026-09-27 14:51:42,541 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 33/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:51:46,762 [WARNING] src.evaluation.adherence_study: dpo_phase2/elicited user 34/50: QUALITY FLOOR VIOLATION ['Only 1 active channel(s); minimum is 2'] | true_theta=UserType(gamma=np.float64(0.2507172584686427), alpha=2.9298985912126776, lambda_=1.9762147002404153) profile_theta=UserType(gamma=0.3824022444683176, alpha=2.7424108093584656, lambda_=2.3196069850972845) allocation=[1. 0. 0. 0.]
+2026-09-27 14:51:46,762 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 34/50: align=0.272 viol=1 parse_fail=False
+2026-09-27 14:51:51,422 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 35/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:51:56,041 [WARNING] src.evaluation.adherence_study: dpo_phase2/elicited user 36/50: QUALITY FLOOR VIOLATION ['Only 1 active channel(s); minimum is 2'] | true_theta=UserType(gamma=np.float64(0.48599124825367285), alpha=0.4024958257718773, lambda_=1.6441286751400082) profile_theta=UserType(gamma=0.5110285877140444, alpha=1.0349912546305804, lambda_=1.9950649852924707) allocation=[1. 0. 0. 0.]
+2026-09-27 14:51:56,041 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 36/50: align=-0.775 viol=1 parse_fail=False
+2026-09-27 14:52:00,021 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 37/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:52:03,229 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 38/50: align=-0.200 viol=0 parse_fail=False
+2026-09-27 14:52:06,671 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 39/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:52:10,224 [WARNING] src.evaluation.adherence_study: dpo_phase2/elicited user 40/50: QUALITY FLOOR VIOLATION ['Only 1 active channel(s); minimum is 2'] | true_theta=UserType(gamma=np.float64(0.21543824037067935), alpha=2.3258568806658264, lambda_=2.585041963917194) profile_theta=UserType(gamma=0.5049427982499728, alpha=1.052313224253781, lambda_=1.9969172567045412) allocation=[1. 0. 0. 0.]
+2026-09-27 14:52:10,224 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 40/50: align=-0.258 viol=1 parse_fail=False
+2026-09-27 14:52:13,897 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 41/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:52:18,354 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 42/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:52:22,141 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 43/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:52:24,858 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 44/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:52:29,206 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 45/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:52:33,763 [WARNING] src.evaluation.adherence_study: dpo_phase2/elicited user 46/50: QUALITY FLOOR VIOLATION ['Only 1 active channel(s); minimum is 2'] | true_theta=UserType(gamma=np.float64(0.27164651232282105), alpha=1.6854284959280807, lambda_=2.915129412239277) profile_theta=UserType(gamma=0.5263786039923323, alpha=1.0423378897495494, lambda_=1.9854814337218265) allocation=[1. 0. 0. 0.]
+2026-09-27 14:52:33,764 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 46/50: align=-0.258 viol=1 parse_fail=False
+2026-09-27 14:52:37,976 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 47/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:52:41,850 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 48/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:52:45,455 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 49/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:52:48,246 [INFO] src.evaluation.adherence_study: dpo_phase2/elicited user 50/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:52:52,074 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 1/50: align=-0.200 viol=0 parse_fail=False
+2026-09-27 14:52:56,530 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 2/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:53:03,126 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 3/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:53:07,279 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 4/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:53:12,909 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 5/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:53:16,989 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 6/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:53:20,981 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 7/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:53:27,675 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 8/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:53:31,339 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 9/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:53:35,348 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 10/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:53:42,114 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 11/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:53:46,242 [WARNING] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 12/50: QUALITY FLOOR VIOLATION ['Only 1 active channel(s); minimum is 2'] | true_theta=UserType(gamma=np.float64(0.36749918806787224), alpha=1.056402318366533, lambda_=2.9451083979276094) profile_theta=UserType(gamma=0.5263786039923323, alpha=1.0423378897495494, lambda_=1.9854814337218265) allocation=[1. 0. 0. 0.]
+2026-09-27 14:53:46,243 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 12/50: align=-0.258 viol=1 parse_fail=False
+2026-09-27 14:53:50,718 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 13/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:53:56,774 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 14/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:54:00,463 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 15/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:54:04,701 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 16/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:54:09,953 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 17/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:54:14,920 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 18/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:54:18,729 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 19/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:54:23,076 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 20/50: align=-0.200 viol=0 parse_fail=False
+2026-09-27 14:54:27,330 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 21/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:54:32,178 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 22/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:54:36,149 [WARNING] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 23/50: QUALITY FLOOR VIOLATION ['Channel 3 (volatile) is strictly dominated by channel 2 (aggressive)', 'Only 1 active channel(s); minimum is 2'] | true_theta=UserType(gamma=np.float64(0.6175809560389323), alpha=0.8383631560505954, lambda_=1.5655807503470107) profile_theta=UserType(gamma=0.48077801786607655, alpha=1.0574386744890047, lambda_=2.0085157931251487) allocation=[0. 0. 0. 1.]
+2026-09-27 14:54:36,149 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 23/50: align=-0.258 viol=1 parse_fail=False
+2026-09-27 14:54:42,060 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 24/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:54:46,027 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 25/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:54:51,569 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 26/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:54:57,877 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 27/50: align=0.600 viol=0 parse_fail=False
+2026-09-27 14:55:02,285 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 28/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:55:07,186 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 29/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:55:11,421 [WARNING] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 30/50: QUALITY FLOOR VIOLATION ['Channel 3 (volatile) is strictly dominated by channel 2 (aggressive)', 'Only 1 active channel(s); minimum is 2'] | true_theta=UserType(gamma=np.float64(0.8565826984633976), alpha=0.7000162430591399, lambda_=2.458020745481738) profile_theta=UserType(gamma=0.6818850649902205, alpha=0.8463755197331974, lambda_=1.919684146164657) allocation=[0. 0. 0. 1.]
+2026-09-27 14:55:11,421 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 30/50: align=-0.258 viol=1 parse_fail=False
+2026-09-27 14:55:16,456 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 31/50: align=-0.800 viol=0 parse_fail=False
+2026-09-27 14:55:21,191 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 32/50: align=0.600 viol=0 parse_fail=False
+2026-09-27 14:55:25,171 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 33/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:55:29,205 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 34/50: align=0.738 viol=0 parse_fail=False
+2026-09-27 14:55:32,665 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 35/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:55:38,826 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 36/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:55:44,115 [WARNING] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 37/50: QUALITY FLOOR VIOLATION ['Only 1 active channel(s); minimum is 2'] | true_theta=UserType(gamma=np.float64(0.5885824159313647), alpha=0.6781106109722215, lambda_=2.222149019708941) profile_theta=UserType(gamma=0.48077801786607655, alpha=1.0574386744890047, lambda_=2.0085157931251487) allocation=[1. 0. 0. 0.]
+2026-09-27 14:55:44,115 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 37/50: align=-0.775 viol=1 parse_fail=False
+2026-09-27 14:55:50,649 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 38/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:55:57,266 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 39/50: align=-0.200 viol=0 parse_fail=False
+2026-09-27 14:56:03,885 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 40/50: align=-0.800 viol=0 parse_fail=False
+2026-09-27 14:56:09,055 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 41/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:56:14,845 [WARNING] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 42/50: QUALITY FLOOR VIOLATION ['Only 1 active channel(s); minimum is 2'] | true_theta=UserType(gamma=np.float64(0.930254417457859), alpha=0.8296930780638265, lambda_=1.7612771858136531) profile_theta=UserType(gamma=0.6845101954894558, alpha=0.8645401620346941, lambda_=1.8913734873731844) allocation=[1. 0. 0. 0.]
+2026-09-27 14:56:14,845 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 42/50: align=-0.775 viol=1 parse_fail=False
+2026-09-27 14:56:20,788 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 43/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:56:25,608 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 44/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:56:30,127 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 45/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:56:35,740 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 46/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:56:39,187 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 47/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:56:43,322 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 48/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:56:47,743 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 49/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:56:52,129 [INFO] src.evaluation.adherence_study: dpo_phase2/posterior_summary user 50/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:56:52,158 [INFO] src.evaluation.adherence_study: Loading model for condition dpo_dialogue...
+2026-09-27 14:56:52,158 [INFO] src.training.model_utils: Loading model: Qwen/Qwen2.5-1.5B-Instruct (quantization: 4-bit)
+2026-09-27 14:56:52,246 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 14:56:52,252 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+2026-09-27 14:56:52,301 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 14:56:52,306 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   1%|          | 3/338 [00:00<00:11, 28.78it/s]Loading weights:  17%|█▋        | 56/338 [00:00<00:00, 318.49it/s]Loading weights:  33%|███▎      | 112/338 [00:00<00:00, 424.95it/s]Loading weights:  51%|█████     | 171/338 [00:00<00:00, 487.16it/s]Loading weights:  67%|██████▋   | 227/338 [00:00<00:00, 512.58it/s]Loading weights:  83%|████████▎ | 281/338 [00:00<00:00, 514.47it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 482.62it/s]
+2026-09-27 14:56:53,133 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 14:56:53,138 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/generation_config.json "HTTP/1.1 200 OK"
+2026-09-27 14:56:53,194 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-09-27 14:56:53,242 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 14:56:53,247 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json "HTTP/1.1 200 OK"
+2026-09-27 14:56:53,296 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 14:56:53,302 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-1.5B-Instruct/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-09-27 14:56:53,356 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-09-27 14:56:53,411 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-09-27 14:56:53,616 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B-Instruct "HTTP/1.1 200 OK"
+2026-09-27 14:56:54,201 [INFO] src.training.model_utils: Loaded LoRA checkpoint from /scratch/alpine/paco0228/latent_proxy_runs/77add19/outputs/dpo/dialogue_phase2/phase2/final
+2026-09-27 14:56:57,179 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 1/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:56:58,294 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 2/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 14:57:00,787 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 3/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 14:57:03,989 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 4/50: align=0.316 viol=0 parse_fail=False
+2026-09-27 14:57:05,791 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 5/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 14:57:08,513 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 6/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:57:10,511 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 7/50: align=-0.105 viol=0 parse_fail=False
+2026-09-27 14:57:12,261 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 8/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:57:14,646 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 9/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:57:17,279 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 10/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 14:57:19,542 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 11/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:57:20,642 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 12/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 14:57:23,471 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 13/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:57:25,937 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 14/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:57:28,668 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 15/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:57:29,948 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 16/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:57:32,544 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 17/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:57:35,147 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 18/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 14:57:38,092 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 19/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 14:57:40,226 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 20/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:57:41,475 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 21/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:57:42,536 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 22/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 14:57:46,424 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 23/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:57:47,709 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 24/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 14:57:50,748 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 25/50: align=0.105 viol=0 parse_fail=False
+2026-09-27 14:57:51,897 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 26/50: align=-0.200 viol=0 parse_fail=False
+2026-09-27 14:57:55,632 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 27/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:57:58,250 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 28/50: align=-0.200 viol=0 parse_fail=False
+2026-09-27 14:58:01,825 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 29/50: align=0.316 viol=0 parse_fail=False
+2026-09-27 14:58:02,875 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 30/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:58:03,939 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 31/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:58:06,256 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 32/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:58:08,007 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 33/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:58:10,724 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 34/50: align=-0.738 viol=0 parse_fail=False
+2026-09-27 14:58:13,044 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 35/50: align=0.600 viol=0 parse_fail=False
+2026-09-27 14:58:14,091 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 36/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:58:17,430 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 37/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:58:19,826 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 38/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:58:21,106 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 39/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:58:24,405 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 40/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 14:58:26,635 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 41/50: align=0.105 viol=0 parse_fail=False
+2026-09-27 14:58:29,515 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 42/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:58:31,584 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 43/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 14:58:33,710 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 44/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:58:36,581 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 45/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 14:58:39,344 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 46/50: align=0.316 viol=0 parse_fail=False
+2026-09-27 14:58:40,491 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 47/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:58:42,774 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 48/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:58:44,690 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 49/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:58:46,654 [INFO] src.evaluation.adherence_study: dpo_dialogue/true user 50/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 14:58:50,719 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 1/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:58:55,407 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 2/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:58:58,655 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 3/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 14:59:01,324 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 4/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 14:59:06,323 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 5/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 14:59:09,451 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 6/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:59:12,716 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 7/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:59:17,663 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 8/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:59:20,456 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 9/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 14:59:24,181 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 10/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 14:59:28,326 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 11/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 14:59:32,409 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 12/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 14:59:35,794 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 13/50: align=-0.200 viol=0 parse_fail=False
+2026-09-27 14:59:39,276 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 14/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 14:59:42,810 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 15/50: align=-0.200 viol=0 parse_fail=False
+2026-09-27 14:59:47,080 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 16/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 14:59:49,722 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 17/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 14:59:53,591 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 18/50: align=-0.200 viol=0 parse_fail=False
+2026-09-27 14:59:57,080 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 19/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 15:00:01,102 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 20/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 15:00:05,283 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 21/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 15:00:09,311 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 22/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 15:00:14,493 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 23/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 15:00:17,722 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 24/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 15:00:21,633 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 25/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 15:00:25,363 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 26/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 15:00:27,997 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 27/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 15:00:32,352 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 28/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 15:00:36,185 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 29/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 15:00:40,166 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 30/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 15:00:44,709 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 31/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 15:00:48,908 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 32/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 15:00:52,632 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 33/50: align=0.600 viol=0 parse_fail=False
+2026-09-27 15:00:57,055 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 34/50: align=0.105 viol=0 parse_fail=False
+2026-09-27 15:01:01,072 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 35/50: align=-0.200 viol=0 parse_fail=False
+2026-09-27 15:01:06,159 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 36/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 15:01:09,468 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 37/50: align=0.000 viol=0 parse_fail=False
+2026-09-27 15:01:13,349 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 38/50: align=0.600 viol=0 parse_fail=False
+2026-09-27 15:01:17,475 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 39/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 15:01:21,091 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 40/50: align=-0.738 viol=0 parse_fail=False
+2026-09-27 15:01:24,727 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 41/50: align=0.632 viol=0 parse_fail=False
+2026-09-27 15:01:29,401 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 42/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 15:01:34,092 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 43/50: align=0.316 viol=0 parse_fail=False
+2026-09-27 15:01:37,532 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 44/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 15:01:41,506 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 45/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 15:01:44,911 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 46/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 15:01:48,419 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 47/50: align=-0.632 viol=0 parse_fail=False
+2026-09-27 15:01:51,853 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 48/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 15:01:56,471 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 49/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 15:02:00,541 [INFO] src.evaluation.adherence_study: dpo_dialogue/elicited user 50/50: align=-0.200 viol=0 parse_fail=False
+2026-09-27 15:02:07,270 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 1/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 15:02:11,250 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 2/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 15:02:16,024 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 3/50: align=0.105 viol=0 parse_fail=False
+2026-09-27 15:02:19,794 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 4/50: align=0.632 viol=0 parse_fail=False
+2026-09-27 15:02:26,349 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 5/50: align=0.949 viol=0 parse_fail=False
+2026-09-27 15:02:33,015 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 6/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 15:02:39,185 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 7/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 15:02:44,776 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 8/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 15:02:51,500 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 9/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 15:02:58,200 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 10/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 15:03:01,542 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 11/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 15:03:06,210 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 12/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 15:03:11,081 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 13/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 15:03:15,764 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 14/50: align=0.316 viol=0 parse_fail=False
+2026-09-27 15:03:22,315 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 15/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 15:03:26,843 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 16/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 15:03:31,640 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 17/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 15:03:36,475 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 18/50: align=0.600 viol=0 parse_fail=False
+2026-09-27 15:03:41,190 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 19/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 15:03:44,586 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 20/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 15:03:49,561 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 21/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 15:03:53,812 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 22/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 15:03:58,698 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 23/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 15:04:05,237 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 24/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 15:04:11,963 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 25/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 15:04:18,614 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 26/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 15:04:23,335 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 27/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 15:04:27,389 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 28/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 15:04:34,030 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 29/50: align=0.200 viol=0 parse_fail=False
+2026-09-27 15:04:37,885 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 30/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 15:04:41,995 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 31/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 15:04:48,767 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 32/50: align=-0.211 viol=0 parse_fail=False
+2026-09-27 15:04:53,708 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 33/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 15:04:57,246 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 34/50: align=0.105 viol=0 parse_fail=False
+2026-09-27 15:05:04,044 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 35/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 15:05:07,962 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 36/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 15:05:11,509 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 37/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 15:05:16,047 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 38/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 15:05:21,410 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 39/50: align=-0.400 viol=0 parse_fail=False
+2026-09-27 15:05:28,062 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 40/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 15:05:33,048 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 41/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 15:05:37,698 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 42/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 15:05:43,108 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 43/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 15:05:49,863 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 44/50: align=0.000 viol=0 parse_fail=True
+2026-09-27 15:05:56,367 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 45/50: align=0.632 viol=0 parse_fail=False
+2026-09-27 15:06:02,928 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 46/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 15:06:07,067 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 47/50: align=0.800 viol=0 parse_fail=False
+2026-09-27 15:06:11,666 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 48/50: align=1.000 viol=0 parse_fail=False
+2026-09-27 15:06:18,208 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 49/50: align=0.400 viol=0 parse_fail=False
+2026-09-27 15:06:23,056 [INFO] src.evaluation.adherence_study: dpo_dialogue/posterior_summary user 50/50: align=0.105 viol=0 parse_fail=False
+2026-09-27 15:06:23,122 [INFO] __main__: dpo_phase2 vs base (true): p=0.0095, effect=-0.281, reject_null
+2026-09-27 15:06:23,123 [INFO] __main__: dpo_phase2 vs dpo_phase1 (true): p=0.1913, effect=0.484, fail_to_reject
+2026-09-27 15:06:23,123 [INFO] __main__: dpo_phase2 vs base (elicited): p=0.0235, effect=-0.226, reject_null
+2026-09-27 15:06:23,123 [INFO] __main__: dpo_phase2 vs dpo_phase1 (elicited): p=0.1744, effect=0.617, fail_to_reject
+2026-09-27 15:06:23,124 [INFO] __main__: dpo_phase2 vs base (posterior_summary): p=0.7275, effect=0.205, fail_to_reject
+2026-09-27 15:06:23,124 [INFO] __main__: dpo_phase2 vs dpo_phase1 (posterior_summary): p=0.0020, effect=0.381, reject_null
+2026-09-27 15:06:23,331 [INFO] __main__: Wrote results to /scratch/alpine/paco0228/latent_proxy_runs/77add19/outputs/dialogue_comparison/adherence/adherence_study_results.json
+2026-09-27 15:06:23,331 [INFO] __main__: Summary (mean alignment score by condition x theta_mode):
+{
+  "base": {
+    "true": -0.10885913250227622,
+    "elicited": -0.15923449997903572,
+    "posterior_summary": 0.0968080528639841
+  },
+  "dpo_phase1": {
+    "true": -0.024350678298125115,
+    "elicited": -0.0705409255338946,
+    "posterior_summary": -0.1017864787372622
+  },
+  "dpo_phase2": {
+    "true": 0.03337014719985201,
+    "elicited": -0.030622407297930358,
+    "posterior_summary": 0.04428149559296343
+  },
+  "dpo_dialogue": {
+    "true": 0.5543245553203368,
+    "elicited": 0.5056754446796632,
+    "posterior_summary": 0.35670462766947286
+  }
+}
+2026-09-27 15:06:43,039 [INFO] __main__: Starting DPO elicitation study (n_users=50, max_rounds=5)
+2026-09-27 15:06:43,039 [INFO] src.evaluation.dpo_study: Conditions: ['base', 'dpo_phase1', 'dpo_phase2', 'dpo_dialogue'] (backend=local)
+2026-09-27 15:06:51,032 [INFO] src.training.model_utils: Loading model: Qwen/Qwen2.5-3B-Instruct (quantization: 4-bit)
+2026-09-27 15:06:51,138 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-09-27 15:06:51,139 [WARNING] huggingface_hub.utils._http: Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-09-27 15:06:51,144 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/config.json "HTTP/1.1 200 OK"
+2026-09-27 15:06:51,163 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/config.json "HTTP/1.1 200 OK"
+2026-09-27 15:06:51,215 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-09-27 15:06:51,865 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:06:51,871 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/config.json "HTTP/1.1 200 OK"
+2026-09-27 15:06:53,580 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-09-27 15:06:53,633 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/model.safetensors.index.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:06:53,638 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/model.safetensors.index.json "HTTP/1.1 200 OK"
+2026-09-27 15:06:53,644 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/model.safetensors.index.json "HTTP/1.1 200 OK"
+2026-09-27 15:06:53,698 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/revision/main "HTTP/1.1 200 OK"
+2026-09-27 15:06:53,750 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/aa8e72537993ba99e69dfaafa59ed015b17504d1?recursive=true&expand=false "HTTP/1.1 200 OK"
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files:  50%|█████     | 1/2 [00:22<00:22, 22.78s/it]Fetching 2 files: 100%|██████████| 2/2 [00:23<00:00, 10.01s/it]Fetching 2 files: 100%|██████████| 2/2 [00:23<00:00, 11.93s/it]
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]Loading weights:   0%|          | 1/434 [00:01<09:49,  1.36s/it]Loading weights:   3%|▎         | 15/434 [00:01<00:30, 13.68it/s]Loading weights:   6%|▌         | 27/434 [00:01<00:20, 19.98it/s]Loading weights:   8%|▊         | 33/434 [00:02<00:17, 22.57it/s]Loading weights:   9%|▉         | 39/434 [00:02<00:17, 22.84it/s]Loading weights:  10%|▉         | 43/434 [00:02<00:22, 17.24it/s]Loading weights:  12%|█▏        | 53/434 [00:02<00:16, 22.46it/s]Loading weights:  17%|█▋        | 75/434 [00:03<00:07, 46.03it/s]Loading weights:  19%|█▉        | 84/434 [00:03<00:07, 44.43it/s]Loading weights:  23%|██▎       | 100/434 [00:03<00:05, 60.01it/s]Loading weights:  27%|██▋       | 117/434 [00:03<00:04, 78.73it/s]Loading weights:  31%|███       | 135/434 [00:03<00:03, 98.33it/s]Loading weights:  34%|███▍      | 149/434 [00:03<00:02, 103.17it/s]Loading weights:  39%|███▉      | 171/434 [00:03<00:02, 127.76it/s]Loading weights:  43%|████▎     | 187/434 [00:03<00:01, 129.49it/s]Loading weights:  47%|████▋     | 202/434 [00:06<00:10, 22.61it/s] Loading weights:  49%|████▉     | 213/434 [00:07<00:15, 14.08it/s]Loading weights:  51%|█████     | 221/434 [00:10<00:24,  8.54it/s]Loading weights:  52%|█████▏    | 227/434 [00:10<00:21,  9.58it/s]Loading weights:  53%|█████▎    | 232/434 [00:11<00:25,  7.88it/s]Loading weights:  54%|█████▍    | 236/434 [00:12<00:24,  7.96it/s]Loading weights:  55%|█████▌    | 239/434 [00:12<00:22,  8.83it/s]Loading weights:  59%|█████▉    | 255/434 [00:12<00:11, 15.61it/s]Loading weights:  60%|█████▉    | 259/434 [00:13<00:15, 11.41it/s]Loading weights:  60%|██████    | 262/434 [00:13<00:13, 12.37it/s]Loading weights:  62%|██████▏   | 267/434 [00:13<00:11, 15.02it/s]Loading weights:  62%|██████▏   | 270/434 [00:13<00:10, 16.23it/s]Loading weights:  65%|██████▍   | 281/434 [00:14<00:05, 25.62it/s]Loading weights:  67%|██████▋   | 292/434 [00:14<00:03, 35.73it/s]Loading weights:  71%|███████   | 309/434 [00:14<00:02, 56.93it/s]Loading weights:  75%|███████▌  | 327/434 [00:14<00:01, 79.25it/s]Loading weights:  78%|███████▊  | 339/434 [00:14<00:01, 84.99it/s]Loading weights:  81%|████████▏ | 353/434 [00:14<00:00, 93.14it/s]Loading weights:  86%|████████▋ | 375/434 [00:14<00:00, 120.78it/s]Loading weights:  90%|████████▉ | 389/434 [00:14<00:00, 119.65it/s]Loading weights:  95%|█████████▍| 411/434 [00:15<00:00, 142.32it/s]Loading weights:  98%|█████████▊| 427/434 [00:15<00:00, 139.59it/s]Loading weights: 100%|██████████| 434/434 [00:15<00:00, 28.63it/s] 
+2026-09-27 15:07:33,096 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:07:33,101 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/generation_config.json "HTTP/1.1 200 OK"
+2026-09-27 15:07:33,108 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/generation_config.json "HTTP/1.1 200 OK"
+2026-09-27 15:07:33,158 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-09-27 15:07:33,218 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:07:33,223 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/config.json "HTTP/1.1 200 OK"
+2026-09-27 15:07:33,273 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:07:33,279 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-09-27 15:07:33,286 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-09-27 15:07:33,347 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-09-27 15:07:33,405 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-09-27 15:07:33,458 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/vocab.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:07:33,463 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/vocab.json "HTTP/1.1 200 OK"
+2026-09-27 15:07:33,470 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/vocab.json "HTTP/1.1 200 OK"
+2026-09-27 15:07:33,535 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/merges.txt "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:07:33,541 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/merges.txt "HTTP/1.1 200 OK"
+2026-09-27 15:07:33,546 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/merges.txt "HTTP/1.1 200 OK"
+2026-09-27 15:07:33,606 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/tokenizer.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:07:33,611 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/tokenizer.json "HTTP/1.1 200 OK"
+2026-09-27 15:07:33,619 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/tokenizer.json "HTTP/1.1 200 OK"
+2026-09-27 15:07:33,689 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/added_tokens.json "HTTP/1.1 404 Not Found"
+2026-09-27 15:07:33,743 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/special_tokens_map.json "HTTP/1.1 404 Not Found"
+2026-09-27 15:07:33,793 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
+2026-09-27 15:07:33,991 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct "HTTP/1.1 200 OK"
+2026-09-27 15:07:33,993 [INFO] src.training.model_utils: Loading model: Qwen/Qwen2.5-3B-Instruct (quantization: 4-bit)
+2026-09-27 15:07:34,043 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:07:34,049 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/config.json "HTTP/1.1 200 OK"
+2026-09-27 15:07:34,099 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:07:34,104 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/config.json "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/434 [00:00<?, ?it/s]Loading weights:   0%|          | 1/434 [00:00<00:55,  7.80it/s]Loading weights:   8%|▊         | 33/434 [00:00<00:02, 171.46it/s]Loading weights:  15%|█▌        | 67/434 [00:00<00:01, 243.62it/s]Loading weights:  23%|██▎       | 101/434 [00:00<00:01, 278.50it/s]Loading weights:  32%|███▏      | 137/434 [00:00<00:00, 304.69it/s]Loading weights:  40%|███▉      | 173/434 [00:00<00:00, 320.24it/s]Loading weights:  48%|████▊     | 209/434 [00:00<00:00, 331.08it/s]Loading weights:  56%|█████▋    | 245/434 [00:00<00:00, 338.00it/s]Loading weights:  65%|██████▍   | 281/434 [00:00<00:00, 343.11it/s]Loading weights:  73%|███████▎  | 317/434 [00:01<00:00, 345.91it/s]Loading weights:  81%|████████▏ | 353/434 [00:01<00:00, 348.28it/s]Loading weights:  90%|████████▉ | 389/434 [00:01<00:00, 349.68it/s]Loading weights:  98%|█████████▊| 425/434 [00:01<00:00, 349.90it/s]Loading weights: 100%|██████████| 434/434 [00:01<00:00, 320.29it/s]
+2026-09-27 15:07:35,611 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:07:35,617 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/generation_config.json "HTTP/1.1 200 OK"
+2026-09-27 15:07:35,667 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/custom_generate/generate.py "HTTP/1.1 404 Not Found"
+2026-09-27 15:07:35,715 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:07:35,720 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/config.json "HTTP/1.1 200 OK"
+2026-09-27 15:07:35,771 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-09-27 15:07:35,777 [INFO] httpx: HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2.5-3B-Instruct/aa8e72537993ba99e69dfaafa59ed015b17504d1/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-09-27 15:07:35,828 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-09-27 15:07:35,879 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-09-27 15:07:36,079 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2.5-3B-Instruct "HTTP/1.1 200 OK"
+/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/peft/config.py:220: UserWarning: Unexpected keyword arguments ['kasa_config'] for class LoraConfig, these are ignored. This probably means that you're loading a configuration file that was saved using a higher version of the library and additional parameters have been introduced since. It is highly recommended to upgrade the PEFT version before continuing (e.g. by running `pip install -U peft`).
+  warnings.warn(
+Traceback (most recent call last):
+  File "/home/paco0228/latent_proxy_experiments/scripts/run_dpo_study.py", line 176, in <module>
+    main()
+  File "/home/paco0228/latent_proxy_experiments/scripts/run_dpo_study.py", line 119, in main
+    result = run_dpo_study(study_cfg)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco0228/latent_proxy_experiments/src/evaluation/dpo_study.py", line 331, in run_dpo_study
+    p1_model, p1_tok = load_model_with_optional_checkpoint(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco0228/latent_proxy_experiments/src/training/model_utils.py", line 146, in load_model_with_optional_checkpoint
+    model = PeftModel.from_pretrained(model, checkpoint_path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/peft/peft_model.py", line 619, in from_pretrained
+    load_result = model.load_adapter(
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/peft/peft_model.py", line 1490, in load_adapter
+    load_result = set_peft_model_state_dict(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/peft/utils/save_and_load.py", line 941, in set_peft_model_state_dict
+    load_result = model.load_state_dict(peft_model_state_dict, strict=False)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 2638, in load_state_dict
+    raise RuntimeError(
+RuntimeError: Error(s) in loading state_dict for PeftModelForCausalLM:
+	size mismatch for base_model.model.model.layers.0.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.0.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.0.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.0.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.0.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.0.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.1.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.1.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.1.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.1.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.1.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.1.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.2.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.2.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.2.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.2.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.2.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.2.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.3.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.3.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.3.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.3.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.3.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.3.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.4.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.4.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.4.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.4.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.4.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.4.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.5.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.5.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.5.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.5.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.5.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.5.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.6.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.6.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.6.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.6.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.6.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.6.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.7.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.7.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.7.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.7.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.7.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.7.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.8.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.8.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.8.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.8.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.8.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.8.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.9.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.9.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.9.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.9.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.9.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.9.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.10.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.10.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.10.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.10.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.10.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.10.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.11.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.11.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.11.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.11.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.11.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.11.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.12.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.12.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.12.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.12.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.12.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.12.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.13.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.13.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.13.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.13.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.13.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.13.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.14.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.14.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.14.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.14.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.14.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.14.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.15.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.15.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.15.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.15.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.15.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.15.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.16.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.16.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.16.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.16.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.16.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.16.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.17.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.17.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.17.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.17.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.17.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.17.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.18.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.18.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.18.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.18.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.18.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.18.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.19.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.19.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.19.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.19.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.19.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.19.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.20.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.20.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.20.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.20.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.20.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.20.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.21.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.21.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.21.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.21.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.21.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.21.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.22.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.22.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.22.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.22.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.22.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.22.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.23.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.23.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.23.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.23.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.23.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.23.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.24.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.24.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.24.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.24.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.24.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.24.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.25.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.25.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.25.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.25.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.25.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.25.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.26.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.26.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.26.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.26.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.26.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.26.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.27.self_attn.q_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.27.self_attn.q_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).
+	size mismatch for base_model.model.model.layers.27.self_attn.k_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.27.self_attn.v_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.27.self_attn.o_proj.lora_A.default.weight: copying a param with shape torch.Size([16, 1536]) from checkpoint, the shape in current model is torch.Size([16, 2048]).
+	size mismatch for base_model.model.model.layers.27.self_attn.o_proj.lora_B.default.weight: copying a param with shape torch.Size([1536, 16]) from checkpoint, the shape in current model is torch.Size([2048, 16]).

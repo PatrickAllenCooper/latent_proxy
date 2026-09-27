@@ -1,0 +1,41 @@
+job=33037785 revision=2c9e747 started=2026-09-27T10:19:08-06:00
+{
+  "matched_users": 250,
+  "output": "/scratch/alpine/paco0228/latent_proxy_runs/77add19/outputs/canonical_renorm_stage3/utility_form_comparison.csv",
+  "metrics": [
+    {
+      "domain": "supply_chain",
+      "arm": "active",
+      "metric": "total_error",
+      "comparison": "return_normalized - absolute",
+      "n_paired": 250,
+      "mean_difference": -0.13467621980298075,
+      "ci95_low": -0.16265440481057872,
+      "ci95_high": -0.10625229498965011,
+      "paired_cohens_dz": -0.5866319857583151
+    },
+    {
+      "domain": "supply_chain",
+      "arm": "active",
+      "metric": "alpha_error",
+      "comparison": "return_normalized - absolute",
+      "n_paired": 250,
+      "mean_difference": -0.28820711701256085,
+      "ci95_low": -0.3708874204404554,
+      "ci95_high": -0.20812714306875912,
+      "paired_cohens_dz": -0.4416554436973832
+    },
+    {
+      "domain": "supply_chain",
+      "arm": "active",
+      "metric": "alignment",
+      "comparison": "return_normalized - absolute",
+      "n_paired": 250,
+      "mean_difference": 0.19124397519313466,
+      "ci95_low": 0.14842953509860887,
+      "ci95_high": 0.23540875605171457,
+      "paired_cohens_dz": 0.554071185349446
+    }
+  ]
+}
+job=33037785 completed=2026-09-27T11:19:01-06:00

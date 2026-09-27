@@ -1,0 +1,50 @@
+{
+  "input_dir": "/scratch/alpine/paco0228/latent_proxy_runs/77add19/outputs/preference_pilot",
+  "n_records": 600,
+  "n_bootstrap": 10000,
+  "campaign_manifest": {
+    "created_at": "2026-09-27T10:19:28-0600",
+    "git_sha": "2c9e747",
+    "config": {
+      "domains": [
+        "game_a",
+        "stock",
+        "supply_chain"
+      ],
+      "arms": [
+        "active",
+        "fixed",
+        "random",
+        "decision_impact"
+      ],
+      "n_users": 50,
+      "seeds": [
+        42
+      ],
+      "max_rounds": 8,
+      "n_particles": 500,
+      "n_eig_samples": 200,
+      "n_scenarios_per_round": 15,
+      "workers": 12,
+      "reference_point_mode": "zero",
+      "utility_form": "absolute",
+      "temperature": 0.1,
+      "posterior_type": "particle",
+      "arm_seed_offsets": {
+        "active": 0,
+        "fixed": 1,
+        "random": 2,
+        "dirichlet": 3,
+        "decision_impact": 4
+      },
+      "early_stopping": "disabled (variance thresholds 0.0)",
+      "decision_impact_metric": "expected one-step reduction in posterior variance of the scenario-optimal allocation"
+    },
+    "command": "scripts/run_canonical_campaign.py --domains game_a,stock,supply_chain --arms active,fixed,random,decision_impact --n-users 50 --seeds 42 --max-rounds 8 --n-particles 500 --n-eig-samples 200 --n-scenarios-per-round 15 --workers 12 --output-dir /scratch/alpine/paco0228/latent_proxy_runs/77add19/outputs/preference_pilot"
+  },
+  "interpretation": {
+    "paired_contrast_sign": "negative is favorable for error/regret/rounds/violations; positive is favorable for alignment",
+    "decision_regret": "common-random-number expected-utility gap versus the true-type optimal action in the common initial state",
+    "intervals": "percentile bootstrap 95% intervals over matched user observations"
+  }
+}
