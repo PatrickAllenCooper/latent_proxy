@@ -1,5 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=lp-dialogue-dpo
+#SBATCH --account=ucb736_asc1
 #SBATCH --partition=ah200
 #SBATCH --qos=gpu-normal
 #SBATCH --gres=gpu:h200:1

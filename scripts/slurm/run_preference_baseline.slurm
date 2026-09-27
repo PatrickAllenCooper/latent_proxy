@@ -1,5 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=lp-pref-baseline
+#SBATCH --account=ucb736_asc1
 #SBATCH --partition=acpu
 #SBATCH --qos=cpu-normal
 #SBATCH --nodes=1
