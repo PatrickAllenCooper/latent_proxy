@@ -22,6 +22,7 @@ from src.evaluation.adherence_study import (
     compare_conditions,
     run_adherence_study,
 )
+from src.evaluation.study_reporting import write_adherence_reports
 from src.utils.visualization import save_results
 
 logging.basicConfig(
@@ -38,6 +39,7 @@ def main() -> None:
     parser.add_argument("--base-model", default="Qwen/Qwen2.5-1.5B-Instruct")
     parser.add_argument("--phase1-checkpoint", default=None)
     parser.add_argument("--phase2-checkpoint", default=None)
+    parser.add_argument("--dialogue-checkpoint", default=None)
     parser.add_argument("--environment", default="game")
     parser.add_argument("--seed", type=int, default=9001)
     parser.add_argument("--output-dir", default="outputs/adherence_study")
@@ -72,6 +74,7 @@ def main() -> None:
         base_model_path=args.base_model,
         phase1_checkpoint=args.phase1_checkpoint,
         phase2_checkpoint=args.phase2_checkpoint,
+        dialogue_checkpoint=args.dialogue_checkpoint,
         conditions=conditions,
         analytical_elicitation=analytical_cfg,
         max_new_tokens=args.max_new_tokens,
@@ -90,6 +93,7 @@ def main() -> None:
             "base_model": args.base_model,
             "phase1_checkpoint": args.phase1_checkpoint,
             "phase2_checkpoint": args.phase2_checkpoint,
+            "dialogue_checkpoint": args.dialogue_checkpoint,
             "conditions": conditions,
             "seed": args.seed,
         },
@@ -103,6 +107,8 @@ def main() -> None:
                 "mean_violation": r.mean_violation,
                 "alignment_scores": r.alignment_scores,
                 "violation_rates": r.violation_rates,
+                "parse_failure_rate": r.parse_failure_rate,
+                "per_user": r.per_user,
             }
             for mode, r in by_mode.items()
         }
@@ -123,6 +129,7 @@ def main() -> None:
                 )
 
     save_results(bundle, out_dir / "adherence_study_results.json")
+    write_adherence_reports(results, out_dir, seed=args.seed)
     logger.info("Wrote results to %s", out_dir / "adherence_study_results.json")
 
     summary = json.dumps(

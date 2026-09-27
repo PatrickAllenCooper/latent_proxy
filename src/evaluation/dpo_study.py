@@ -34,7 +34,7 @@ STUDY_ENV_FACTORIES: dict[str, Callable[[], BaseEnvironment]] = {
 # Conditions that run purely on CPU (no text generation involved).
 NON_LLM_CONDITIONS = ("analytical", "random")
 # Conditions that require a text-generation backend.
-LLM_CONDITIONS = ("base", "dpo_phase1", "dpo_phase2")
+LLM_CONDITIONS = ("base", "dpo_phase1", "dpo_phase2", "dpo_dialogue")
 ALL_CONDITIONS = NON_LLM_CONDITIONS + LLM_CONDITIONS
 
 
@@ -46,6 +46,7 @@ class DPOStudyConfig:
     base_model_path: str = "Qwen/Qwen2.5-1.5B-Instruct"
     phase1_checkpoint: str | None = None
     phase2_checkpoint: str | None = None
+    dialogue_checkpoint: str | None = None
     llm_config: LLMElicitationConfig = field(default_factory=LLMElicitationConfig)
     analytical_elicitation: ElicitationConfig = field(default_factory=ElicitationConfig)
     seed: int = 42
@@ -76,6 +77,7 @@ class ConditionResult:
     rec_parse_failure_rates: list[float] = field(default_factory=list)
     mean_query_parse_failure: float = 0.0
     mean_rec_parse_failure: float = 0.0
+    per_user: list[dict[str, Any]] = field(default_factory=list)
 
     def __post_init__(self) -> None:
         if self.alignment_scores:
@@ -216,6 +218,7 @@ def _run_llm_condition(
     per_round: list[list[float]] = []
     query_fail_rates: list[float] = []
     rec_fail_rates: list[float] = []
+    per_user: list[dict[str, Any]] = []
 
     loop = LLMElicitationLoop(model, tokenizer, config=llm_config, generator=generator)
 
@@ -250,6 +253,16 @@ def _run_llm_condition(
             float(np.mean(query_fails)) if query_fails else 0.0
         )
         rec_fail_rates.append(float(np.mean(rec_fails)) if rec_fails else 0.0)
+        per_user.append({
+            "user_idx": i,
+            "true_theta": {"gamma": ut.gamma, "alpha": ut.alpha, "lambda_": ut.lambda_},
+            "alignment": float(align_scores[-1]),
+            "quality_floor_violation": bool(violations[-1]),
+            "query_parse_failure_rate": query_fail_rates[-1],
+            "recommendation_parse_failure_rate": rec_fail_rates[-1],
+            "raw_queries": [h["raw_query"] for h in res.history],
+            "raw_recommendations": list(res.raw_recommendations),
+        })
 
         logger.info(
             "%s user %d/%d: align=%.3f viol=%.0f qfail=%.2f rfail=%.2f",
@@ -265,6 +278,7 @@ def _run_llm_condition(
         per_round_alignments=per_round,
         query_parse_failure_rates=query_fail_rates,
         rec_parse_failure_rates=rec_fail_rates,
+        per_user=per_user,
     )
 
 
@@ -276,6 +290,8 @@ def _resolve_conditions(config: DPOStudyConfig) -> list[str]:
             conditions.append("dpo_phase1")
         if config.phase2_checkpoint:
             conditions.append("dpo_phase2")
+        if config.dialogue_checkpoint:
+            conditions.append("dpo_dialogue")
         return conditions
 
     unknown = [c for c in config.conditions if c not in ALL_CONDITIONS]
@@ -301,6 +317,7 @@ def run_dpo_study(config: DPOStudyConfig) -> DPOStudyResult:
     base_model, base_tok = None, None
     p1_model, p1_tok = None, None
     p2_model, p2_tok = None, None
+    dialogue_model, dialogue_tok = None, None
     generator = None
 
     if llm_conditions:
@@ -319,6 +336,12 @@ def run_dpo_study(config: DPOStudyConfig) -> DPOStudyResult:
                     raise ValueError("dpo_phase2 condition requires phase2_checkpoint")
                 p2_model, p2_tok = load_model_with_optional_checkpoint(
                     config.base_model_path, config.phase2_checkpoint,
+                )
+            if "dpo_dialogue" in llm_conditions:
+                if not config.dialogue_checkpoint:
+                    raise ValueError("dpo_dialogue condition requires dialogue_checkpoint")
+                dialogue_model, dialogue_tok = load_model_with_optional_checkpoint(
+                    config.base_model_path, config.dialogue_checkpoint,
                 )
         else:
             dpo_conds = [c for c in llm_conditions if c != "base"]
@@ -377,6 +400,11 @@ def run_dpo_study(config: DPOStudyConfig) -> DPOStudyResult:
                     factory, p2_model, p2_tok, "dpo_phase2",
                     config.n_users, llm_cfg, seed=config.seed,
                 )
+            elif condition == "dpo_dialogue":
+                env_results["dpo_dialogue"] = _run_llm_condition(
+                    factory, dialogue_model, dialogue_tok, "dpo_dialogue",
+                    config.n_users, llm_cfg, seed=config.seed,
+                )
 
         per_env[env_name] = env_results
 
@@ -397,6 +425,8 @@ def run_dpo_study(config: DPOStudyConfig) -> DPOStudyResult:
         del p1_model, p1_tok
     if p2_model is not None:
         del p2_model, p2_tok
+    if dialogue_model is not None:
+        del dialogue_model, dialogue_tok
 
     return DPOStudyResult(
         per_env=per_env,
@@ -411,5 +441,6 @@ def run_dpo_study(config: DPOStudyConfig) -> DPOStudyResult:
             "base_model": config.base_model_path,
             "phase1_checkpoint": config.phase1_checkpoint,
             "phase2_checkpoint": config.phase2_checkpoint,
+            "dialogue_checkpoint": config.dialogue_checkpoint,
         },
     )

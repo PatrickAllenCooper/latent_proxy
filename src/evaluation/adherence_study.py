@@ -30,7 +30,7 @@ from src.agents.text_backends import LocalHFGenerator, TextGenerator
 from src.evaluation.dpo_study import _rec_parse_failed
 from src.environments.base import BaseEnvironment
 from src.environments.game_variants import create_variant_a
-from src.evaluation.alignment_metrics import evaluate_model_outputs
+from src.evaluation.alignment_metrics import compute_alignment_score, evaluate_model_outputs
 from src.evaluation.statistical_analysis import HypothesisTestResult, run_test_h1_within_domain
 from src.training.serialization import AllocationSerializer, build_prompt
 from src.training.synthetic_users import SyntheticUser, SyntheticUserSampler, UserType
@@ -41,7 +41,7 @@ ADHERENCE_ENV_FACTORIES: dict[str, Callable[[], BaseEnvironment]] = {
     "game": create_variant_a,
 }
 
-THETA_MODES = ("true", "elicited")
+THETA_MODES = ("true", "elicited", "posterior_summary")
 
 
 @dataclass
@@ -51,6 +51,7 @@ class AdherenceStudyConfig:
     base_model_path: str = "Qwen/Qwen2.5-1.5B-Instruct"
     phase1_checkpoint: str | None = None
     phase2_checkpoint: str | None = None
+    dialogue_checkpoint: str | None = None
     conditions: list[str] = field(default_factory=lambda: ["base", "dpo_phase1", "dpo_phase2"])
     analytical_elicitation: ElicitationConfig = field(default_factory=ElicitationConfig)
     # _generate_text (src/agents/llm_elicitation.py) truncates the INPUT
@@ -80,6 +81,7 @@ class AdherenceConditionResult:
     parse_failure_rate: float = 0.0
     mean_alignment: float = 0.0
     mean_violation: float = 0.0
+    per_user: list[dict[str, Any]] = field(default_factory=list)
 
     def __post_init__(self) -> None:
         if self.alignment_scores:
@@ -127,6 +129,29 @@ def _theta_from_inferred(inferred: dict[str, float]) -> UserType:
     return UserType(gamma=gamma, alpha=alpha, lambda_=lambda_)
 
 
+def _simplex_lattice(n_channels: int, units: int) -> list[np.ndarray]:
+    """All simplex allocations at a fixed resolution (composition lattice)."""
+    def compositions(total: int, dimensions: int) -> list[tuple[int, ...]]:
+        if dimensions == 1:
+            return [(total,)]
+        return [
+            (first, *tail)
+            for first in range(total + 1)
+            for tail in compositions(total - first, dimensions - 1)
+        ]
+
+    return [np.asarray(part, dtype=np.float64) / units for part in compositions(units, n_channels)]
+
+
+def project_to_quality_floor(action: np.ndarray, env: BaseEnvironment, units: int = 20) -> np.ndarray:
+    """Nearest 5%-grid action satisfying the environment's quality floor."""
+    candidates = _simplex_lattice(len(action), units)
+    feasible = [candidate for candidate in candidates if env.check_quality_floor(candidate)[0]]
+    if not feasible:
+        return np.asarray(action, dtype=np.float64)
+    return min(feasible, key=lambda candidate: float(np.linalg.norm(candidate - action))).copy()
+
+
 def _run_adherence_condition(
     env_factory: Callable[[], BaseEnvironment],
     model: Any,
@@ -154,6 +179,7 @@ def _run_adherence_condition(
     align_scores: list[float] = []
     violations: list[float] = []
     parse_fails: list[bool] = []
+    per_user: list[dict[str, Any]] = []
 
     for i in range(n_users):
         theta_true = sampler.sample()
@@ -161,7 +187,8 @@ def _run_adherence_condition(
         obs, _ = env.reset(seed=seed + i)
         channel_names = _get_channel_names(env)
 
-        if theta_mode == "elicited":
+        profile_intervals: dict[str, tuple[float, float]] | None = None
+        if theta_mode in ("elicited", "posterior_summary"):
             user = SyntheticUser(
                 theta_true,
                 temperature=analytical_elicitation.temperature,
@@ -170,18 +197,61 @@ def _run_adherence_condition(
             loop = ElicitationLoop(analytical_elicitation)
             elicit_res = loop.run(env, user, query_type="active")
             profile_theta = _theta_from_inferred(elicit_res.inferred_theta)
+            if theta_mode == "posterior_summary":
+                profile_intervals = elicit_res.posterior_intervals
         else:
             profile_theta = theta_true
 
-        prompt = _append_format_instruction(
-            build_prompt(obs, env, user_type=profile_theta), channel_names,
-        )
+        prompt = build_prompt(obs, env, user_type=profile_theta)
+        if profile_intervals:
+            interval_lines = "\n".join(
+                f"  {name}: 90% posterior interval [{bounds[0]:.4g}, {bounds[1]:.4g}]"
+                for name, bounds in profile_intervals.items()
+            )
+            prompt += (
+                "\n\nUncertainty in the estimated preference profile:\n"
+                f"{interval_lines}\nUse this uncertainty when making your recommendation."
+            )
+        prompt = _append_format_instruction(prompt, channel_names)
         response = generator.generate(prompt)
         parse_fails.append(_rec_parse_failed(response, channel_names))
 
+        # The active-question generator changes environment state while making
+        # queries; score all conditions on the same initial state used in the
+        # recommendation prompt.
+        env.reset(seed=seed + i)
         result = evaluate_model_outputs([response], env, [theta_true], channel_names)
         align_scores.append(result["alignment_score"])
         violations.append(result["quality_floor_violation_rate"])
+        allocation = AllocationSerializer(channel_names).parse(response)
+        constrained = project_to_quality_floor(allocation, env)
+        optimal = env.get_optimal_action({"gamma": theta_true.gamma, "alpha": theta_true.alpha, "lambda_": theta_true.lambda_})
+        constrained_alignment = float(compute_alignment_score([constrained], [optimal]))
+        stats = env.get_channel_stats()
+        wealth = float(obs["wealth"].sum())
+        rounds_left = max(1, int(env.config.n_rounds - obs["round"]))
+        utility_opt = SyntheticUser(theta_true, seed=seed + i + 88001)
+        utility_raw = SyntheticUser(theta_true, seed=seed + i + 88001)
+        utility_projected = SyntheticUser(theta_true, seed=seed + i + 88001)
+        opt_value = utility_opt.evaluate_allocation(optimal, stats["means"], stats["variances"], wealth, rounds_left)
+        raw_value = utility_raw.evaluate_allocation(allocation, stats["means"], stats["variances"], wealth, rounds_left)
+        projected_value = utility_projected.evaluate_allocation(constrained, stats["means"], stats["variances"], wealth, rounds_left)
+        per_user.append({
+            "user_idx": i,
+            "true_theta": {"gamma": theta_true.gamma, "alpha": theta_true.alpha, "lambda_": theta_true.lambda_},
+            "profile_theta": {"gamma": profile_theta.gamma, "alpha": profile_theta.alpha, "lambda_": profile_theta.lambda_},
+            "posterior_intervals": profile_intervals,
+            "prompt": prompt,
+            "raw_response": response,
+            "allocation": [float(x) for x in allocation],
+            "quality_constrained_allocation": [float(x) for x in constrained],
+            "alignment": float(align_scores[-1]),
+            "quality_constrained_alignment": constrained_alignment,
+            "decision_regret": max(0.0, float(opt_value - raw_value)),
+            "quality_constrained_decision_regret": max(0.0, float(opt_value - projected_value)),
+            "quality_floor_violation": bool(violations[-1]),
+            "parse_failure": bool(parse_fails[-1]),
+        })
 
         if result["quality_floor_violation_rate"] > 0:
             action = AllocationSerializer(channel_names).parse(response)
@@ -205,6 +275,7 @@ def _run_adherence_condition(
         alignment_scores=align_scores,
         violation_rates=violations,
         parse_failure_rate=float(np.mean(parse_fails)) if parse_fails else 0.0,
+        per_user=per_user,
     )
 
 
@@ -229,6 +300,7 @@ def run_adherence_study(
         "base": None,
         "dpo_phase1": config.phase1_checkpoint,
         "dpo_phase2": config.phase2_checkpoint,
+        "dpo_dialogue": config.dialogue_checkpoint,
     }
 
     results: dict[str, dict[str, AdherenceConditionResult]] = {}

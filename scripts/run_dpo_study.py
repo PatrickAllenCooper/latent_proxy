@@ -14,6 +14,7 @@ from src.agents.elicitation_loop import ElicitationConfig
 from src.agents.llm_elicitation import LLMElicitationConfig
 from src.agents.preference_tracker import ConvergenceConfig
 from src.evaluation.dpo_study import DPOStudyConfig, run_dpo_study
+from src.evaluation.study_reporting import write_dpo_reports
 from src.utils.visualization import save_results
 
 logging.basicConfig(
@@ -30,6 +31,7 @@ def main() -> None:
     parser.add_argument("--base-model", default="Qwen/Qwen2.5-3B-Instruct")
     parser.add_argument("--phase1-checkpoint", default=None)
     parser.add_argument("--phase2-checkpoint", default=None)
+    parser.add_argument("--dialogue-checkpoint", default=None)
     parser.add_argument("--envs", nargs="+", default=["game", "stock", "supply_chain"])
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--output-dir", default="outputs/dpo_study")
@@ -50,7 +52,7 @@ def main() -> None:
         "--conditions", default=None,
         help="Comma-separated conditions to run, e.g. 'analytical,random' or "
              "'analytical,base'. Valid: analytical, random, base, dpo_phase1, "
-             "dpo_phase2. Default: analytical,base (+dpo phases when "
+             "dpo_phase2,dpo_dialogue. Default: analytical,base (+dpo phases when "
              "checkpoints are given).",
     )
     parser.add_argument(
@@ -103,6 +105,7 @@ def main() -> None:
         base_model_path=args.base_model,
         phase1_checkpoint=args.phase1_checkpoint,
         phase2_checkpoint=args.phase2_checkpoint,
+        dialogue_checkpoint=args.dialogue_checkpoint,
         llm_config=llm_cfg,
         analytical_elicitation=analytical_cfg,
         seed=args.seed,
@@ -124,6 +127,9 @@ def main() -> None:
                 "mean_violation": cr.mean_violation,
                 "alignment_scores": cr.alignment_scores,
                 "violation_rates": cr.violation_rates,
+                "query_parse_failure_rates": cr.query_parse_failure_rates,
+                "recommendation_parse_failure_rates": cr.rec_parse_failure_rates,
+                "per_user": cr.per_user,
             }
         bundle["environments"][env_name] = env_block
 
@@ -139,6 +145,7 @@ def main() -> None:
         ]
 
     save_results(bundle, out_dir / "dpo_study_results.json")
+    write_dpo_reports(result, out_dir, seed=args.seed)
     logger.info("Wrote results to %s", out_dir / "dpo_study_results.json")
 
     if not args.skip_plots:

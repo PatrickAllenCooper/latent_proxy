@@ -10,6 +10,7 @@ from numpy.typing import NDArray
 
 from src.agents.preference_tracker import ConvergenceConfig, PreferenceTracker
 from src.agents.query_generator import (
+    DecisionImpactQueryGenerator,
     DirichletQueryGenerator,
     FixedQueryGenerator,
     RandomQueryGenerator,
@@ -54,6 +55,7 @@ class ElicitationResult:
     convergence_reason: str
     variance_trajectory: list[dict[str, float]]
     mean_trajectory: list[dict[str, float]] = field(default_factory=list)
+    posterior_intervals: dict[str, tuple[float, float]] = field(default_factory=dict)
 
     def preference_recovery_error(self) -> dict[str, float] | None:
         if self.true_theta is None:
@@ -89,8 +91,10 @@ class ElicitationLoop:
             env: The game environment.
             user: A synthetic user with known theta.
             query_type: "active" for EIG-based selection, "fixed" for a static
-                prior-EIG-ranked questionnaire, "dirichlet" for fully random
-                Dirichlet option pairs, "random" for the library baseline.
+                prior-EIG-ranked questionnaire, "decision_impact" for expected
+                reduction in posterior disagreement over optimal actions,
+                "dirichlet" for fully random Dirichlet pairs, or "random" for
+                the library baseline.
         """
         validate_utility_axes(self.config.reference_point_mode, self.config.utility_form)
         if getattr(user, "utility_form", "absolute") != self.config.utility_form:
@@ -141,6 +145,16 @@ class ElicitationLoop:
             )
         elif query_type == "dirichlet":
             query_gen = DirichletQueryGenerator(seed=self.config.seed)
+        elif query_type == "decision_impact":
+            query_gen = DecisionImpactQueryGenerator(
+                n_scenarios_per_round=self.config.n_scenarios_per_round,
+                n_particles=min(self.config.n_particles, 256),
+                temperature=self.config.temperature,
+                seed=self.config.seed,
+                library=self.config.scenario_library,
+                reference_point_mode=self.config.reference_point_mode,
+                utility_form=self.config.utility_form,
+            )
         else:
             query_gen = RandomQueryGenerator(
                 seed=self.config.seed,
@@ -227,4 +241,8 @@ class ElicitationLoop:
             convergence_reason=convergence_reason,
             variance_trajectory=variance_trajectory,
             mean_trajectory=mean_trajectory,
+            posterior_intervals=tracker.posterior.credible_region(
+                level=0.9, n_samples=1000,
+                rng=np.random.default_rng(self.config.seed + 99001),
+            ),
         )

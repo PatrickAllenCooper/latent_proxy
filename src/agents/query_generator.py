@@ -13,6 +13,7 @@ from src.utils.diagnostic_scenarios import (
 )
 from src.utils.information_gain import compute_eig_batch
 from src.utils.posterior import ParticlePosterior, PosteriorBase
+from src.environments.env_utils import certainty_equivalent
 
 
 class StructuredQueryGenerator:
@@ -141,6 +142,115 @@ class RandomQueryGenerator:
             )
         idx = int(self._rng.integers(0, len(scenarios)))
         return scenarios[idx]
+
+
+class DecisionImpactQueryGenerator:
+    """Choose queries expected to reduce uncertainty in the eventual action.
+
+    This is a one-step value-of-information proxy: for each candidate scenario,
+    estimate the posterior-weighted variance of the scenario's optimal action
+    before and after either possible response. The score is the expected
+    reduction in that variance. It targets decision disagreement, rather than
+    parameter entropy, and is intentionally reported as a proxy rather than
+    literal utility regret.
+    """
+
+    def __init__(
+        self,
+        n_scenarios_per_round: int = 50,
+        n_particles: int = 256,
+        temperature: float = 0.1,
+        seed: int = 42,
+        library: ScenarioLibraryBase | None = None,
+        reference_point_mode: str = "zero",
+        utility_form: str = "absolute",
+    ) -> None:
+        self.n_scenarios_per_round = n_scenarios_per_round
+        self.n_particles = n_particles
+        self.temperature = temperature
+        self.reference_point_mode = reference_point_mode
+        self.utility_form = utility_form
+        self._library = library or ScenarioLibrary(seed=seed)
+        self._rng = np.random.default_rng(seed)
+
+    def _weighted_actions(
+        self, scenario: DiagnosticScenario, particles: NDArray[np.float64],
+    ) -> NDArray[np.float64]:
+        means = np.asarray(scenario.channel_means, dtype=np.float64)
+        variances = np.asarray(scenario.channel_variances, dtype=np.float64)
+        actions = []
+        for gamma, alpha, loss_aversion in particles:
+            horizon = 1.0 / (1.0 - float(gamma) + 1e-6)
+            scores = np.asarray([
+                certainty_equivalent(mu, var, float(alpha), float(loss_aversion), horizon)
+                for mu, var in zip(means, variances)
+            ])
+            positive = np.maximum(scores, 0.0)
+            if positive.sum() > 1e-15:
+                actions.append(positive / positive.sum())
+            else:
+                shifted = scores - scores.min() + 1e-10
+                actions.append(shifted / shifted.sum())
+        return np.asarray(actions, dtype=np.float64)
+
+    @staticmethod
+    def _weighted_variance(actions: NDArray[np.float64], weights: NDArray[np.float64]) -> float:
+        mean = np.average(actions, axis=0, weights=weights)
+        return float(np.average(np.sum((actions - mean) ** 2, axis=1), weights=weights))
+
+    def _score(
+        self, scenario: DiagnosticScenario, particles: NDArray[np.float64],
+        weights: NDArray[np.float64], action_cache: NDArray[np.float64],
+    ) -> float:
+        likelihood_a = np.empty(len(particles), dtype=np.float64)
+        for i, (gamma, alpha, lambda_) in enumerate(particles):
+            horizon = float(
+                scenario.multiperiod_horizon
+                if scenario.multiperiod_horizon is not None
+                else 1.0 / (1.0 - float(gamma) + 1e-6)
+            )
+            channel_values = np.asarray([
+                certainty_equivalent(mu, var, float(alpha), float(lambda_), horizon)
+                for mu, var in zip(scenario.channel_means, scenario.channel_variances)
+            ])
+            ua = float(np.dot(scenario.option_a, channel_values))
+            ub = float(np.dot(scenario.option_b, channel_values))
+            diff = np.clip((ua - ub) / max(self.temperature, 1e-10), -500, 500)
+            likelihood_a[i] = 1.0 / (1.0 + np.exp(-diff))
+
+        p_a = float(np.dot(weights, likelihood_a))
+        p_b = 1.0 - p_a
+        current = self._weighted_variance(action_cache, weights)
+        expected_after = 0.0
+        for likelihood, probability in ((likelihood_a, p_a), (1.0 - likelihood_a, p_b)):
+            if probability <= 1e-12:
+                continue
+            updated = weights * likelihood / probability
+            expected_after += probability * self._weighted_variance(action_cache, updated)
+        return max(0.0, current - expected_after)
+
+    def select_query(self, env: BaseEnvironment, posterior: PosteriorBase) -> DiagnosticScenario:
+        n_per_param = max(self.n_scenarios_per_round // 3, 3)
+        scenarios = self._library.generate_all(env, n_per_param)
+        if not scenarios:
+            scenarios = self._library.generate_all(env, n_per_param * 2)
+        if not scenarios:
+            return RandomQueryGenerator(seed=int(self._rng.integers(2**31))).select_query(env, posterior)
+
+        if isinstance(posterior, ParticlePosterior):
+            n = min(self.n_particles, posterior.n_particles)
+            indices = self._rng.choice(posterior.n_particles, size=n, replace=True, p=posterior.weights)
+            particles = posterior.particles[indices]
+            weights = np.full(n, 1.0 / n)
+        else:
+            particles = posterior.sample(self.n_particles, self._rng)
+            weights = np.full(len(particles), 1.0 / len(particles))
+
+        scores = []
+        for scenario in scenarios:
+            actions = self._weighted_actions(scenario, particles)
+            scores.append(self._score(scenario, particles, weights, actions))
+        return scenarios[int(np.argmax(scores))]
 
 
 class DirichletQueryGenerator:

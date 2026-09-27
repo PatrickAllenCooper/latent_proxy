@@ -35,6 +35,8 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any
 
+import numpy as np
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
@@ -51,11 +53,11 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-ARMS = ("active", "fixed", "random", "dirichlet")
+ARMS = ("active", "fixed", "random", "dirichlet", "decision_impact")
 
 # Distinct generator seed offsets per arm so query-selection rng streams do
 # not collide across arms (user choice-noise and env seeds stay identical).
-ARM_SEED_OFFSETS = {"active": 0, "fixed": 1, "random": 2, "dirichlet": 3}
+ARM_SEED_OFFSETS = {"active": 0, "fixed": 1, "random": 2, "dirichlet": 3, "decision_impact": 4}
 
 TEMPERATURE = 0.1
 
@@ -117,7 +119,7 @@ def _serialize_history(
 
 
 def run_user_task(task: dict[str, Any]) -> dict[str, Any]:
-    """Run one (domain, arm, seed, user_idx) elicitation and write its JSON.
+    """Run one paired (domain, arm, seed, user_idx) elicitation and write JSON.
 
     Constructs env/user/loop inside the worker (nothing heavy is pickled).
     """
@@ -165,6 +167,35 @@ def run_user_task(task: dict[str, Any]) -> dict[str, Any]:
     opt_inferred = env.get_optimal_action(result.inferred_theta)
     spearman = compute_alignment_score([opt_inferred], [opt_true])
 
+    # Evaluate actual preference utility in a shared initial state with common
+    # random numbers. This is distinct from rank alignment and makes decision
+    # regret comparable within a user across query strategies.
+    env.reset(seed=seed + user_idx)
+    stats = env.get_channel_stats()
+    obs = env._get_obs()
+    reference_point = float(obs["wealth"].sum()) if task.get("reference_point_mode") == "current_wealth" else 0.0
+    utility_true = SyntheticUser(
+        ut, temperature=TEMPERATURE, reference_point=reference_point,
+        seed=seed + user_idx + 900000,
+        utility_form=task.get("utility_form", "absolute"),
+    )
+    utility_inferred = SyntheticUser(
+        ut, temperature=TEMPERATURE, reference_point=reference_point,
+        seed=seed + user_idx + 900000,
+        utility_form=task.get("utility_form", "absolute"),
+    )
+    rounds_remaining = int(env.config.n_rounds - obs["round"])
+    optimal_utility = utility_true.evaluate_allocation(
+        opt_true, stats["means"], stats["variances"], float(obs["wealth"].sum()),
+        rounds_remaining, reference_point=reference_point,
+    )
+    inferred_utility = utility_inferred.evaluate_allocation(
+        opt_inferred, stats["means"], stats["variances"], float(obs["wealth"].sum()),
+        rounds_remaining, reference_point=reference_point,
+    )
+    passes, violation_reasons = env.check_quality_floor(opt_inferred)
+    regret = max(0.0, optimal_utility - inferred_utility)
+
     record = {
         "domain": domain,
         "arm": arm,
@@ -182,7 +213,13 @@ def run_user_task(task: dict[str, Any]) -> dict[str, Any]:
             "optimal_action_true": [float(x) for x in opt_true],
             "optimal_action_inferred": [float(x) for x in opt_inferred],
             "spearman": float(spearman),
+            "decision_regret": float(regret),
+            "decision_regret_relative": float(regret / max(abs(optimal_utility), 1e-12)),
+            "quality_floor_violation": not passes,
+            "quality_floor_reasons": violation_reasons,
+            "action_l2_distance": float(np.linalg.norm(opt_true - opt_inferred)),
         },
+        "question_count": result.n_rounds,
         "history": _serialize_history(result.history),
         "elapsed_seconds": time.monotonic() - t0,
     }
@@ -208,7 +245,7 @@ def _git_sha() -> str:
         )
         return out.stdout.strip()
     except (subprocess.CalledProcessError, FileNotFoundError):
-        return "unknown"
+        return os.environ.get("LATENT_PROXY_REVISION", "unknown")
 
 
 def _write_manifest(output_dir: Path, args: argparse.Namespace) -> None:
@@ -231,6 +268,7 @@ def _write_manifest(output_dir: Path, args: argparse.Namespace) -> None:
             "posterior_type": "particle",
             "arm_seed_offsets": ARM_SEED_OFFSETS,
             "early_stopping": "disabled (variance thresholds 0.0)",
+            "decision_impact_metric": "expected one-step reduction in posterior variance of the scenario-optimal allocation",
         },
         "command": " ".join(sys.argv),
     }

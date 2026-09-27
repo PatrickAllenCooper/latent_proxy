@@ -31,12 +31,14 @@ def generate_phase2_data(
     n_pairs: int = 20000,
     seed: int = 42,
     output_path: str | None = None,
+    dialogue_context_rounds: int = 0,
 ) -> list:
     """Generate Phase 2 DPO pairs (type-conditioned)."""
     config = DPOPairConfig(
         n_pairs=n_pairs,
         curriculum_phase=2,
         seed=seed,
+        dialogue_context_rounds=dialogue_context_rounds,
     )
     generator = DPOPairGenerator(config)
     pairs = generator.generate_dataset()
@@ -56,10 +58,14 @@ def run_phase2_training(
     num_epochs: int = 3,
     output_dir: str = "outputs/dpo/phase2",
     gradient_checkpointing: bool = True,
+    dialogue_context_rounds: int = 0,
 ) -> None:
     """Full Phase 2 pipeline: load Phase 1, generate data, train, evaluate."""
     model_config = ModelConfig(model_name=model_name)
-    data_config = DPOPairConfig(n_pairs=n_pairs, curriculum_phase=2)
+    data_config = DPOPairConfig(
+        n_pairs=n_pairs, curriculum_phase=2,
+        dialogue_context_rounds=dialogue_context_rounds,
+    )
     training_config = DPOTrainingConfig(
         model=model_config,
         data=data_config,
@@ -123,6 +129,10 @@ if __name__ == "__main__":
     parser.add_argument("--num-epochs", type=int, default=3)
     parser.add_argument("--output-dir", default="outputs/dpo/phase2")
     parser.add_argument("--data-path", default="data/phase2")
+    parser.add_argument(
+        "--dialogue-context-rounds", type=int, default=0,
+        help="For Phase 2, condition preference pairs on this many synthetic prior dialogue choices instead of an explicit profile. 0 preserves the original training distribution.",
+    )
     parser.add_argument("--checkpoint", default=None)
     parser.add_argument(
         "--no-gradient-checkpointing", action="store_true",
@@ -136,7 +146,10 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.action == "generate":
-        generate_phase2_data(args.n_pairs, output_path=args.data_path)
+        generate_phase2_data(
+            args.n_pairs, output_path=args.data_path,
+            dialogue_context_rounds=args.dialogue_context_rounds,
+        )
     elif args.action == "train":
         run_phase2_training(
             model_name=args.model_name,
@@ -145,6 +158,7 @@ if __name__ == "__main__":
             num_epochs=args.num_epochs,
             output_dir=args.output_dir,
             gradient_checkpointing=not args.no_gradient_checkpointing,
+            dialogue_context_rounds=args.dialogue_context_rounds,
         )
     elif args.action == "evaluate":
         if args.checkpoint is None:

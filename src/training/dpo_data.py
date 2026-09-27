@@ -35,6 +35,9 @@ class DPOPairConfig:
     dirichlet_alpha: float = 1.0
     perturbation_std: float = 0.1
     utility_form: str = "absolute"
+    # Zero preserves standard explicit-profile Phase 2 prompts. Positive values
+    # replace that profile with a synthetic preference dialogue of this length.
+    dialogue_context_rounds: int = 0
 
 
 @dataclass
@@ -224,7 +227,13 @@ class DPOPairGenerator:
         sampler: SyntheticUserSampler,
     ) -> DPOPair | None:
         """Phase 2: type-conditioned pair. User profile in prompt."""
-        prompt = build_prompt(obs, env, user_type=user_type)
+        if self.config.dialogue_context_rounds > 0:
+            prompt = self._build_dialogue_prompt(
+                obs, env, user_type, self.config.dialogue_context_rounds,
+                candidate_gen,
+            )
+        else:
+            prompt = build_prompt(obs, env, user_type=user_type)
         target_theta = {
             "gamma": user_type.gamma,
             "alpha": user_type.alpha,
@@ -290,6 +299,52 @@ class DPOPairGenerator:
             rejected_score=rejected_score,
             user_type=user_type,
         )
+
+    def _build_dialogue_prompt(
+        self,
+        obs: dict[str, Any],
+        env: BaseEnvironment,
+        user_type: UserType,
+        n_rounds: int,
+        candidate_gen: CandidateGenerator,
+    ) -> str:
+        """Render synthetic binary comparisons as dialogue-only context.
+
+        Training targets are still selected by the sampled type, but the type
+        values are omitted from this prompt. The model must use choices in the
+        recorded history, mirroring the self-elicitation deployment path.
+        """
+        names = [channel.name for channel in env.config.channels]
+        serializer = AllocationSerializer(names)
+        stats = env.get_channel_stats()
+        wealth = float(obs["wealth"].sum())
+        rounds_remaining = max(1, int(env.config.n_rounds - obs["round"]))
+        response_user = SyntheticUser(
+            user_type, temperature=0.1,
+            seed=int(self._rng.integers(0, 2**31)),
+            utility_form=self.config.utility_form,
+        )
+        history = ["Preference elicitation dialogue:"]
+        for i in range(n_rounds):
+            a, b = candidate_gen.generate(2)
+            ua = response_user.evaluate_allocation(
+                a, stats["means"], stats["variances"], wealth, rounds_remaining,
+            )
+            ub = response_user.evaluate_allocation(
+                b, stats["means"], stats["variances"], wealth, rounds_remaining,
+            )
+            choice = response_user.choose(ua, ub)
+            history.extend([
+                f"Question {i + 1}: Which allocation do you prefer?",
+                "Option A: " + ", ".join(
+                    f"{name} {float(value) * 100:.0f}%" for name, value in zip(names, a)
+                ),
+                "Option B: " + ", ".join(
+                    f"{name} {float(value) * 100:.0f}%" for name, value in zip(names, b)
+                ),
+                f"User chose Option {'A' if choice == 0 else 'B'}.",
+            ])
+        return build_prompt(obs, env, user_type=None) + "\n\n" + "\n".join(history)
 
 
 def pairs_to_hf_dict(pairs: list[DPOPair]) -> dict[str, list[str]]:
