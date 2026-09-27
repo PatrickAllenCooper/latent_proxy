@@ -7,17 +7,18 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=64G
 #SBATCH --time=24:00:00
-#SBATCH --output=logs/preference-baseline-%j.out
-#SBATCH --error=logs/preference-baseline-%j.err
+#SBATCH --output=/scratch/alpine/paco0228/latent_proxy_runs/77add19/logs/preference-baseline-%j.out
+#SBATCH --error=/scratch/alpine/paco0228/latent_proxy_runs/77add19/logs/preference-baseline-%j.err
 
 set -euo pipefail
-PROJECT_DIR="/projects/paco0228/latent_proxy_experiments"
+PROJECT_DIR="/home/paco0228/latent_proxy_experiments"
 CONDA_ENV_NAME="latent-proxy-env"
+RESULTS_DIR="/scratch/alpine/paco0228/latent_proxy_runs/77add19"
 export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
 export HF_HOME="/scratch/alpine/paco0228/hf_cache"
 export TRANSFORMERS_CACHE="$HF_HOME"
 cd "$PROJECT_DIR"
-mkdir -p logs outputs/canonical_renorm_stage3 outputs/preference_pilot
+mkdir -p "$RESULTS_DIR/outputs/canonical_renorm_stage3" "$RESULTS_DIR/outputs/preference_pilot"
 set +u
 source ~/.bashrc
 set -u
@@ -28,5 +29,9 @@ python scripts/run_canonical_campaign.py \
   --max-rounds 12 --n-particles 2000 --n-eig-samples 800 \
   --n-scenarios-per-round 50 --workers 12 \
   --utility-form return_normalized \
-  --output-dir outputs/canonical_renorm_stage3
+  --output-dir "$RESULTS_DIR/outputs/canonical_renorm_stage3"
+python scripts/compare_utility_forms.py \
+  --absolute-dir "$RESULTS_DIR/reference_absolute" \
+  --normalized-dir "$RESULTS_DIR/outputs/canonical_renorm_stage3" \
+  --output "$RESULTS_DIR/outputs/canonical_renorm_stage3/utility_form_comparison.csv"
 echo "job=$SLURM_JOB_ID completed=$(date -Is)"

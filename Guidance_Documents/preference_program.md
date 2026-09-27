@@ -48,9 +48,15 @@ compares stated-profile and self-elicitation performance.
 The Slurm entrypoints use Alpine `acpu` for CPU studies and one typed H200 on
 `ah200` for DPO. They require the `latent-proxy-env` environment, model cache
 at `/scratch/alpine/paco0228/hf_cache`, and source snapshot at
-`/projects/paco0228/latent_proxy_experiments`. Per-user files are written
-atomically, so re-running a campaign skips completed users. Never cancel or
-modify jobs from other projects to make room; pending time is acceptable.
+`/home/paco0228/latent_proxy_experiments`. All generated artifacts and logs go
+to `/scratch/alpine/paco0228/latent_proxy_runs/77add19`. CURC's `/projects`
+filesystem was full when this run set was prepared, so code and the two adapter
+checkpoints use the mostly empty home allocation; generated output uses scratch
+as CURC recommends. Scratch is not backed up and is automatically purged after
+90 days, so completed results must be transferred to this machine promptly.
+Per-user records are written atomically, so re-running a campaign skips
+completed users. Never cancel or modify jobs from other projects to make room;
+pending time is acceptable.
 
 Recommended first submissions:
 

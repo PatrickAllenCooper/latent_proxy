@@ -7,15 +7,16 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=64G
 #SBATCH --time=24:00:00
-#SBATCH --output=logs/decision-pilot-%j.out
-#SBATCH --error=logs/decision-pilot-%j.err
+#SBATCH --output=/scratch/alpine/paco0228/latent_proxy_runs/77add19/logs/decision-pilot-%j.out
+#SBATCH --error=/scratch/alpine/paco0228/latent_proxy_runs/77add19/logs/decision-pilot-%j.err
 
 set -euo pipefail
-PROJECT_DIR="/projects/paco0228/latent_proxy_experiments"
+PROJECT_DIR="/home/paco0228/latent_proxy_experiments"
 CONDA_ENV_NAME="latent-proxy-env"
+RESULTS_DIR="/scratch/alpine/paco0228/latent_proxy_runs/77add19"
 export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
 cd "$PROJECT_DIR"
-mkdir -p logs outputs/preference_pilot
+mkdir -p "$RESULTS_DIR/outputs/preference_pilot"
 set +u
 source ~/.bashrc
 set -u
@@ -27,7 +28,7 @@ python scripts/run_canonical_campaign.py \
   --n-users 50 --seeds 42 --max-rounds 8 \
   --n-particles 500 --n-eig-samples 200 \
   --n-scenarios-per-round 15 --workers 12 \
-  --output-dir outputs/preference_pilot
+  --output-dir "$RESULTS_DIR/outputs/preference_pilot"
 python scripts/summarize_preference_campaign.py \
-  --input-dir outputs/preference_pilot
+  --input-dir "$RESULTS_DIR/outputs/preference_pilot"
 echo "job=$SLURM_JOB_ID completed=$(date -Is)"

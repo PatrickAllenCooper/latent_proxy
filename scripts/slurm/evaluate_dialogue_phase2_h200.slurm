@@ -8,17 +8,18 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=96G
 #SBATCH --time=24:00:00
-#SBATCH --output=logs/dialogue-eval-%j.out
-#SBATCH --error=logs/dialogue-eval-%j.err
+#SBATCH --output=/scratch/alpine/paco0228/latent_proxy_runs/77add19/logs/dialogue-eval-%j.out
+#SBATCH --error=/scratch/alpine/paco0228/latent_proxy_runs/77add19/logs/dialogue-eval-%j.err
 
 set -euo pipefail
-PROJECT_DIR="/projects/paco0228/latent_proxy_experiments"
+PROJECT_DIR="/home/paco0228/latent_proxy_experiments"
 CONDA_ENV_NAME="latent-proxy-env"
+RESULTS_DIR="/scratch/alpine/paco0228/latent_proxy_runs/77add19"
 export HF_HOME="/scratch/alpine/paco0228/hf_cache"
 export TRANSFORMERS_CACHE="$HF_HOME"
 export TOKENIZERS_PARALLELISM=false
 cd "$PROJECT_DIR"
-mkdir -p logs outputs/dialogue_comparison
+mkdir -p "$RESULTS_DIR/outputs/dialogue_comparison"
 set +u
 source ~/.bashrc
 set -u
@@ -28,17 +29,17 @@ nvidia-smi
 python scripts/run_adherence_study.py \
   --n-users 50 --max-rounds 5 --environment game --seed 9001 \
   --n-particles 200 --n-eig-samples 100 \
-  --phase1-checkpoint checkpoints/phase1 \
-  --phase2-checkpoint checkpoints/phase2 \
-  --dialogue-checkpoint outputs/dpo/dialogue_phase2/phase2/final \
+  --phase1-checkpoint "$PROJECT_DIR/checkpoints/phase1" \
+  --phase2-checkpoint "$PROJECT_DIR/checkpoints/phase2" \
+  --dialogue-checkpoint "$RESULTS_DIR/outputs/dpo/dialogue_phase2/phase2/final" \
   --conditions base,dpo_phase1,dpo_phase2,dpo_dialogue \
-  --output-dir outputs/dialogue_comparison/adherence
+  --output-dir "$RESULTS_DIR/outputs/dialogue_comparison/adherence"
 python scripts/run_dpo_study.py \
   --n-users 50 --max-rounds 5 --envs game --seed 9001 \
   --n-particles 200 --n-eig-samples 100 \
-  --phase1-checkpoint checkpoints/phase1 \
-  --phase2-checkpoint checkpoints/phase2 \
-  --dialogue-checkpoint outputs/dpo/dialogue_phase2/phase2/final \
+  --phase1-checkpoint "$PROJECT_DIR/checkpoints/phase1" \
+  --phase2-checkpoint "$PROJECT_DIR/checkpoints/phase2" \
+  --dialogue-checkpoint "$RESULTS_DIR/outputs/dpo/dialogue_phase2/phase2/final" \
   --conditions base,dpo_phase1,dpo_phase2,dpo_dialogue \
-  --output-dir outputs/dialogue_comparison/self_elicitation --skip-plots
+  --output-dir "$RESULTS_DIR/outputs/dialogue_comparison/self_elicitation" --skip-plots
 echo "job=$SLURM_JOB_ID completed=$(date -Is)"
