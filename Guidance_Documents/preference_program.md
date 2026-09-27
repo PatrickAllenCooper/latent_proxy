@@ -20,12 +20,20 @@ are recorded in the source; this is a practical acquisition heuristic, not an
 exact solution to a full partially observed control problem.
 
 Each user record stores true and inferred theta, parameter error, allocation
-alignment, common-random-number expected-utility regret, quality-floor status,
+alignment, expected-utility regret, quality-floor status,
 and question count. AIF arms additionally store per-query epistemic and
 pragmatic score diagnostics. `summarize_preference_campaign.py` emits per-user
 CSV, arm/domain means with bootstrap intervals, and paired contrasts against
 random and adaptive EIG. `compare_utility_forms.py` compares matched absolute
 and return-normalized runs.
+
+Decision regret is evaluated against a multistart expected-utility optimum on
+the long-only allocation simplex. Both the optimum and recommendation use the
+same true-type prospect utility and 48-point Gauss-Hermite quadrature. The
+environment's certainty-equivalent allocation remains the recommendation
+policy for an inferred profile, but is no longer treated as ground truth for
+regret. `recompute_campaign_decision_regret.py` updates historical per-user
+campaign records with this evaluator and regenerates their summaries.
 
 The next mechanism pilot is the 50-user game-only comparison in
 `scripts/slurm/run_aif_game_pilot.slurm`. Its six paired arms are adaptive EIG,

@@ -44,8 +44,17 @@ from src.agents.elicitation_loop import ElicitationConfig, ElicitationLoop
 from src.agents.preference_tracker import ConvergenceConfig
 from src.evaluation.alignment_metrics import compute_alignment_score
 from src.evaluation.elicitation_metrics import compute_recovery_curve
+from src.evaluation.expected_utility_optimizer import (
+    expected_allocation_utility,
+    optimize_expected_allocation,
+)
 from src.evaluation.generalization_protocol import DOMAIN_FACTORIES, SCENARIO_LIBRARIES
-from src.training.synthetic_users import SyntheticUser, SyntheticUserSampler, validate_utility_axes
+from src.training.synthetic_users import (
+    SyntheticUser,
+    SyntheticUserSampler,
+    UserType,
+    validate_utility_axes,
+)
 
 logging.basicConfig(
     level=logging.INFO,
@@ -171,7 +180,16 @@ def run_user_task(task: dict[str, Any]) -> dict[str, Any]:
     # Re-reset so the alignment computation sees the same env state in
     # every arm (query generators mutate env state during the loop).
     env.reset(seed=seed + user_idx)
-    opt_true = env.get_optimal_action(true_theta)
+    opt_true_heuristic = env.get_optimal_action(true_theta)
+    reference_point = float(obs["wealth"].sum()) if task.get("reference_point_mode") == "current_wealth" else 0.0
+    true_user_type = UserType(gamma=ut.gamma, alpha=ut.alpha, lambda_=ut.lambda_)
+    opt_true, optimal_utility = optimize_expected_allocation(
+        true_user_type, stats["means"], stats["variances"],
+        float(obs["wealth"].sum()), int(env.config.n_rounds - obs["round"]),
+        reference_point=reference_point,
+        utility_form=task.get("utility_form", "absolute"),
+        initial_actions=[opt_true_heuristic],
+    )
     opt_inferred = env.get_optimal_action(result.inferred_theta)
     spearman = compute_alignment_score([opt_inferred], [opt_true])
 
@@ -181,25 +199,12 @@ def run_user_task(task: dict[str, Any]) -> dict[str, Any]:
     env.reset(seed=seed + user_idx)
     stats = env.get_channel_stats()
     obs = env._get_obs()
-    reference_point = float(obs["wealth"].sum()) if task.get("reference_point_mode") == "current_wealth" else 0.0
-    utility_true = SyntheticUser(
-        ut, temperature=TEMPERATURE, reference_point=reference_point,
-        seed=seed + user_idx + 900000,
-        utility_form=task.get("utility_form", "absolute"),
-    )
-    utility_inferred = SyntheticUser(
-        ut, temperature=TEMPERATURE, reference_point=reference_point,
-        seed=seed + user_idx + 900000,
-        utility_form=task.get("utility_form", "absolute"),
-    )
     rounds_remaining = int(env.config.n_rounds - obs["round"])
-    optimal_utility = utility_true.evaluate_allocation(
-        opt_true, stats["means"], stats["variances"], float(obs["wealth"].sum()),
-        rounds_remaining, reference_point=reference_point,
-    )
-    inferred_utility = utility_inferred.evaluate_allocation(
-        opt_inferred, stats["means"], stats["variances"], float(obs["wealth"].sum()),
-        rounds_remaining, reference_point=reference_point,
+    inferred_utility = expected_allocation_utility(
+        opt_inferred, true_user_type, stats["means"], stats["variances"],
+        float(obs["wealth"].sum()), rounds_remaining,
+        reference_point=reference_point,
+        utility_form=task.get("utility_form", "absolute"),
     )
     passes, violation_reasons = env.check_quality_floor(opt_inferred)
     regret = max(0.0, optimal_utility - inferred_utility)
@@ -278,6 +283,11 @@ def _write_manifest(output_dir: Path, args: argparse.Namespace) -> None:
             "arm_seed_offsets": ARM_SEED_OFFSETS,
             "early_stopping": "disabled (variance thresholds 0.0)",
             "decision_impact_metric": "expected one-step reduction in posterior variance of the scenario-optimal allocation",
+            "decision_regret_metric": (
+                "true-type expected prospect utility at the multistart SLSQP optimum "
+                "on the long-only simplex minus utility of the inferred-type action; "
+                "both evaluated with 48-point Gauss-Hermite quadrature"
+            ),
             "active_inference_metric": (
                 "weighted sum of candidate-pool-normalized binary mutual information "
                 "and finite-menu expected value of sample information; aif_XX gives "
