@@ -81,6 +81,22 @@
         "dpo_dialogue"
       ],
       "records": 200
+    },
+    {
+      "job_id": "33062243",
+      "name": "lp-aif-game",
+      "script": "scripts/slurm/run_aif_game_pilot.slurm",
+      "status": "running",
+      "revision": "c052fce6b0b139681bb3e2ba3298c497fdc4293f",
+      "purpose": "50-user paired game-only comparison of adaptive EIG, random, decision-impact, and AIF-inspired epistemic/pragmatic weights 20/50/80",
+      "command": "--domains game_a --arms active,random,decision_impact,aif_20,aif_50,aif_80 --n-users 50 --seeds 42 --max-rounds 8 --n-particles 500 --n-eig-samples 200 --n-scenarios-per-round 15 --workers 12",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/aif-game-pilot/outputs/game",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/aif-game-pilot/logs/aif-game-33062243.*",
+      "records_expected": 300,
+      "records": 0,
+      "started_at_utc": "2026-09-27T23:50:00Z",
+      "local_results": "outputs/preference_program/results/aif_game_pilot",
+      "notes": "AIF arms save per-round epistemic/pragmatic score diagnostics. Source in isolated remote snapshot /home/paco0228/latent_proxy_aif_pilot."
     }
   ],
   "last_checked_at_utc": "2026-09-27T23:23:19Z"
