@@ -53,11 +53,19 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-ARMS = ("active", "fixed", "random", "dirichlet", "decision_impact")
+ARMS = (
+    "active", "fixed", "random", "dirichlet", "decision_impact",
+    "aif_20", "aif_50", "aif_80",
+)
 
 # Distinct generator seed offsets per arm so query-selection rng streams do
 # not collide across arms (user choice-noise and env seeds stay identical).
-ARM_SEED_OFFSETS = {"active": 0, "fixed": 1, "random": 2, "dirichlet": 3, "decision_impact": 4}
+ARM_SEED_OFFSETS = {
+    "active": 0, "fixed": 1, "random": 2, "dirichlet": 3,
+    "decision_impact": 4,
+    # AIF weights share a seed to pair their sampled posterior/action menus.
+    "aif_20": 5, "aif_50": 5, "aif_80": 5,
+}
 
 TEMPERATURE = 0.1
 
@@ -221,6 +229,7 @@ def run_user_task(task: dict[str, Any]) -> dict[str, Any]:
         },
         "question_count": result.n_rounds,
         "history": _serialize_history(result.history),
+        "acquisition_trajectory": result.acquisition_trajectory,
         "elapsed_seconds": time.monotonic() - t0,
     }
 
@@ -269,6 +278,11 @@ def _write_manifest(output_dir: Path, args: argparse.Namespace) -> None:
             "arm_seed_offsets": ARM_SEED_OFFSETS,
             "early_stopping": "disabled (variance thresholds 0.0)",
             "decision_impact_metric": "expected one-step reduction in posterior variance of the scenario-optimal allocation",
+            "active_inference_metric": (
+                "weighted sum of candidate-pool-normalized binary mutual information "
+                "and finite-menu expected value of sample information; aif_XX gives "
+                "the epistemic component XX percent weight"
+            ),
         },
         "command": " ".join(sys.argv),
     }

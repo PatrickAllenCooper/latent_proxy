@@ -10,6 +10,7 @@ from numpy.typing import NDArray
 
 from src.agents.preference_tracker import ConvergenceConfig, PreferenceTracker
 from src.agents.query_generator import (
+    ActiveInferenceQueryGenerator,
     DecisionImpactQueryGenerator,
     DirichletQueryGenerator,
     FixedQueryGenerator,
@@ -56,6 +57,7 @@ class ElicitationResult:
     variance_trajectory: list[dict[str, float]]
     mean_trajectory: list[dict[str, float]] = field(default_factory=list)
     posterior_intervals: dict[str, tuple[float, float]] = field(default_factory=dict)
+    acquisition_trajectory: list[dict[str, float]] = field(default_factory=list)
 
     def preference_recovery_error(self) -> dict[str, float] | None:
         if self.true_theta is None:
@@ -93,6 +95,8 @@ class ElicitationLoop:
             query_type: "active" for EIG-based selection, "fixed" for a static
                 prior-EIG-ranked questionnaire, "decision_impact" for expected
                 reduction in posterior disagreement over optimal actions,
+                "aif_XX" for active-inference scoring with XX% epistemic
+                weight and the remainder pragmatic decision value,
                 "dirichlet" for fully random Dirichlet pairs, or "random" for
                 the library baseline.
         """
@@ -155,6 +159,24 @@ class ElicitationLoop:
                 reference_point_mode=self.config.reference_point_mode,
                 utility_form=self.config.utility_form,
             )
+        elif query_type.startswith("aif_"):
+            try:
+                weight = float(query_type.split("_", maxsplit=1)[1]) / 100.0
+            except (TypeError, ValueError) as exc:
+                raise ValueError(
+                    f"Invalid active-inference query type {query_type!r}; "
+                    "expected a value such as 'aif_20' or 'aif_50'."
+                ) from exc
+            query_gen = ActiveInferenceQueryGenerator(
+                n_scenarios_per_round=self.config.n_scenarios_per_round,
+                n_value_particles=min(self.config.n_particles, 96),
+                epistemic_weight=weight,
+                temperature=self.config.temperature,
+                seed=self.config.seed,
+                library=self.config.scenario_library,
+                reference_point_mode=self.config.reference_point_mode,
+                utility_form=self.config.utility_form,
+            )
         else:
             query_gen = RandomQueryGenerator(
                 seed=self.config.seed,
@@ -162,6 +184,7 @@ class ElicitationLoop:
             )
 
         history: list[tuple[DiagnosticScenario, int]] = []
+        acquisition_trajectory: list[dict[str, float]] = []
         variance_trajectory: list[dict[str, float]] = []
         mean_trajectory: list[dict[str, float]] = []
         convergence_reason = "max_rounds"
@@ -179,6 +202,9 @@ class ElicitationLoop:
                 break
 
             scenario = query_gen.select_query(env, tracker.posterior)
+            acquisition_trajectory.append(
+                dict(getattr(query_gen, "last_score_components", {}))
+            )
 
             # In "current_wealth" mode the simulated user evaluates each
             # query against the scenario's own wealth as reference point,
@@ -245,4 +271,5 @@ class ElicitationLoop:
                 level=0.9, n_samples=1000,
                 rng=np.random.default_rng(self.config.seed + 99001),
             ),
+            acquisition_trajectory=acquisition_trajectory,
         )

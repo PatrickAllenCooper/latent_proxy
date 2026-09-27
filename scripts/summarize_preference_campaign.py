@@ -65,19 +65,27 @@ def summarize(input_dir: Path, output_dir: Path, n_boot: int = 10000) -> dict[st
         summary_rows.append(row)
 
     paired_rows = []
-    arms = sorted({r["arm"] for r in records} - {"random"})
+    available_arms = {r["arm"] for r in records}
     for domain in sorted({r["domain"] for r in records}):
-        for arm in arms:
-            pairs = [g for (d, _, _), g in matched.items() if d == domain and arm in g and "random" in g]
+        contrasts = [(arm, "random") for arm in sorted(available_arms - {"random"})]
+        if "active" in available_arms:
+            contrasts.extend(
+                (arm, "active") for arm in sorted(available_arms - {"active", "random"})
+            )
+        for arm, reference_arm in contrasts:
+            pairs = [
+                g for (d, _, _), g in matched.items()
+                if d == domain and arm in g and reference_arm in g
+            ]
             if not pairs:
                 continue
             for metric in METRICS:
-                diffs = [float(g[arm][metric]) - float(g["random"][metric]) for g in pairs
-                         if g[arm][metric] is not None and g["random"][metric] is not None]
+                diffs = [float(g[arm][metric]) - float(g[reference_arm][metric]) for g in pairs
+                         if g[arm][metric] is not None and g[reference_arm][metric] is not None]
                 mean, lo, hi = _bootstrap_mean_ci(diffs, 2917, n_boot)
                 sd = float(np.std(diffs, ddof=1)) if len(diffs) > 1 else float("nan")
                 paired_rows.append({
-                    "domain": domain, "contrast": f"{arm}-random", "metric": metric,
+                    "domain": domain, "contrast": f"{arm}-{reference_arm}", "metric": metric,
                     "n_paired": len(diffs), "mean_difference": mean,
                     "ci95_low": lo, "ci95_high": hi,
                     "paired_cohens_dz": mean / sd if sd > 0 else float("nan"),
