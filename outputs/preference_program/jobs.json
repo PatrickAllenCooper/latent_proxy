@@ -120,7 +120,24 @@
         "analysis/analysis.json"
       ],
       "metric_correction_revision": "741fd287e0b442238cc93588a4a6e7aa9739daa1"
+    },
+    {
+      "job_id": "33063272",
+      "name": "lp-aif-multiseed",
+      "script": "scripts/slurm/run_aif_game_multiseed.slurm",
+      "status": "running",
+      "revision": "98ff3f0f4cf91e8bcb4de066bb46016476594350",
+      "purpose": "Five-seed paired replication of adaptive EIG, random, decision-impact, and AIF epistemic weights 20/50/80; game only",
+      "command": "--domains game_a --arms active,random,decision_impact,aif_20,aif_50,aif_80 --n-users 50 --seeds 42,43,44,45,46 --max-rounds 8 --n-particles 500 --n-eig-samples 200 --n-scenarios-per-round 15 --workers 12",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/aif-game-multiseed/outputs/game",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/aif-game-multiseed/logs/aif-game-multiseed-33063272.*",
+      "records_expected": 1500,
+      "records": 0,
+      "started_at_utc": "2026-09-28T00:02:00Z",
+      "remote_source": "/home/paco0228/latent_proxy_aif_pilot",
+      "local_results": "outputs/preference_program/results/aif_game_multiseed",
+      "notes": "Five paired synthetic user panels; one acpu node, 12 CPU workers. Corrected expected-utility regret uses multistart simplex optimization and 48-point Gauss-Hermite quadrature."
     }
   ],
-  "last_checked_at_utc": "2026-09-27T23:54:00Z"
+  "last_checked_at_utc": "2026-09-28T00:02:10Z"
 }
