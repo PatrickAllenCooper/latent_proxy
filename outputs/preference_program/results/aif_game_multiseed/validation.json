@@ -1,0 +1,31 @@
+{
+  "job_id": "33063272",
+  "source_revision": "98ff3f0f4cf91e8bcb4de066bb46016476594350",
+  "records": 1500,
+  "records_per_arm": 250,
+  "records_per_seed": 300,
+  "arms": [
+    "active",
+    "aif_20",
+    "aif_50",
+    "aif_80",
+    "decision_impact",
+    "random"
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "rounds_per_record": 8,
+  "acquisition_entries_per_record": 8,
+  "failed_tasks": 0,
+  "invalid_json": 0,
+  "nonfinite_decision_metrics": 0,
+  "quality_floor_violations": 0,
+  "aif_acquisition_entries": 6000,
+  "parse_failures": "not_applicable: synthetic binary choices; no LLM response parser",
+  "decision_regret_metric": "True-type expected utility gap to a multistart SLSQP optimum on the long-only simplex, evaluated with 48-point Gauss-Hermite quadrature."
+}

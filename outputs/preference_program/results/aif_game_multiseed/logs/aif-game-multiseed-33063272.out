@@ -1,0 +1,7 @@
+job=33063272 revision=98ff3f0f4cf91e8bcb4de066bb46016476594350 started=2026-09-27T18:02:29-06:00
+{
+  "n_records": 1500,
+  "n_summary_rows": 6,
+  "n_paired_rows": 54
+}
+job=33063272 completed=2026-09-27T18:11:58-06:00
