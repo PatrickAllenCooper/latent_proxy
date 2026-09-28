@@ -1,0 +1,35 @@
+{
+  "job_id": "33078008",
+  "status": "completed",
+  "expected_records": 1250,
+  "records": 1250,
+  "records_per_arm": {
+    "active": 250,
+    "aif_50": 250,
+    "aif_80": 250,
+    "decision_impact": 250,
+    "random": 250
+  },
+  "records_per_seed": {
+    "42": 250,
+    "43": 250,
+    "44": 250,
+    "45": 250,
+    "46": 250
+  },
+  "round_counts": {
+    "8": 1250
+  },
+  "unique_record_ids": 1250,
+  "malformed_records": 0,
+  "nonfinite_or_missing_metrics": 0,
+  "quality_floor_violations": 0,
+  "parse_failures": 0,
+  "parse_failure_measurement": "synthetic user environment; no LLM response parser is in this campaign",
+  "analysis_rows": {
+    "per_user": 1250,
+    "summary": 5,
+    "paired_contrasts": 42
+  },
+  "validated": true
+}

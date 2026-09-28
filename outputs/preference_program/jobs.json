@@ -212,18 +212,64 @@
       "job_id": "33078008",
       "name": "lp-aif-sc-norm",
       "script": "scripts/slurm/run_aif_supply_chain_normalized.slurm",
-      "status": "pending",
+      "status": "completed",
       "revision": "02fbb776c438a7449081e395bbb5397a28cd2c8f",
       "purpose": "Five-seed supply-chain comparison of EIG, random, decision-impact, and AIF 50/80 under return-normalized utility",
       "command": "--domains supply_chain --arms active,random,decision_impact,aif_50,aif_80 --n-users 50 --seeds 42,43,44,45,46 --max-rounds 8 --n-particles 500 --n-eig-samples 200 --n-scenarios-per-round 15 --workers 12 --utility-form return_normalized",
       "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/aif-sc-normalized/outputs/supply_chain",
       "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/aif-sc-normalized/logs/aif-sc-normalized-33078008.*",
       "records_expected": 1250,
-      "records": 0,
+      "records": 1250,
       "remote_source": "/home/paco0228/latent_proxy_aif_pilot",
       "local_results": "outputs/preference_program/results/aif_sc_normalized",
-      "notes": "Five common synthetic-user seeds; uses the corrected expected-utility regret optimizer and supplier-cap float tolerance."
+      "notes": "Completed all 1250 records with no task failures; validated five arms x 250 records, 8 rounds each, no malformed/nonfinite metrics or quality-floor violations. Bootstrap analyses regenerated locally from transferred records.",
+      "exit_code": 0,
+      "elapsed": "00:12:27",
+      "started_at_utc": "2026-09-28T01:38:15Z",
+      "completed_at_utc": "2026-09-28T01:50:36Z",
+      "result_archive": "/scratch/alpine/paco0228/latent_proxy_runs/aif-sc-normalized/aif-sc-normalized-results-validated-02fbb77.tar.gz",
+      "result_validation": {
+        "job_id": "33078008",
+        "status": "completed",
+        "expected_records": 1250,
+        "records": 1250,
+        "records_per_arm": {
+          "active": 250,
+          "aif_50": 250,
+          "aif_80": 250,
+          "decision_impact": 250,
+          "random": 250
+        },
+        "records_per_seed": {
+          "42": 250,
+          "43": 250,
+          "44": 250,
+          "45": 250,
+          "46": 250
+        },
+        "round_counts": {
+          "8": 1250
+        },
+        "unique_record_ids": 1250,
+        "malformed_records": 0,
+        "nonfinite_or_missing_metrics": 0,
+        "quality_floor_violations": 0,
+        "parse_failures": 0,
+        "parse_failure_measurement": "synthetic user environment; no LLM response parser is in this campaign",
+        "analysis_rows": {
+          "per_user": 1250,
+          "summary": 5,
+          "paired_contrasts": 42
+        },
+        "validated": true
+      },
+      "analysis_outputs": [
+        "outputs/supply_chain/analysis/per_user.csv",
+        "outputs/supply_chain/analysis/summary.csv",
+        "outputs/supply_chain/analysis/paired_contrasts.csv",
+        "outputs/supply_chain/analysis/analysis.json"
+      ]
     }
   ],
-  "last_checked_at_utc": "2026-09-28T01:25:00Z"
+  "last_checked_at_utc": "2026-09-28T02:24:50Z"
 }

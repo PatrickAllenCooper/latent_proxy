@@ -1,0 +1,48 @@
+{
+  "created_at": "2026-09-27T19:38:18-0600",
+  "git_sha": "02fbb776c438a7449081e395bbb5397a28cd2c8f",
+  "config": {
+    "domains": [
+      "supply_chain"
+    ],
+    "arms": [
+      "active",
+      "random",
+      "decision_impact",
+      "aif_50",
+      "aif_80"
+    ],
+    "n_users": 50,
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "max_rounds": 8,
+    "n_particles": 500,
+    "n_eig_samples": 200,
+    "n_scenarios_per_round": 15,
+    "workers": 12,
+    "reference_point_mode": "zero",
+    "utility_form": "return_normalized",
+    "temperature": 0.1,
+    "posterior_type": "particle",
+    "arm_seed_offsets": {
+      "active": 0,
+      "fixed": 1,
+      "random": 2,
+      "dirichlet": 3,
+      "decision_impact": 4,
+      "aif_20": 5,
+      "aif_50": 5,
+      "aif_80": 5
+    },
+    "early_stopping": "disabled (variance thresholds 0.0)",
+    "decision_impact_metric": "expected one-step reduction in posterior variance of the scenario-optimal allocation",
+    "decision_regret_metric": "true-type expected prospect utility at the multistart SLSQP optimum on the long-only simplex minus utility of the inferred-type action; both evaluated with 48-point Gauss-Hermite quadrature",
+    "active_inference_metric": "weighted sum of candidate-pool-normalized binary mutual information and finite-menu expected value of sample information; aif_XX gives the epistemic component XX percent weight"
+  },
+  "command": "scripts/run_canonical_campaign.py --domains supply_chain --arms active,random,decision_impact,aif_50,aif_80 --n-users 50 --seeds 42,43,44,45,46 --max-rounds 8 --n-particles 500 --n-eig-samples 200 --n-scenarios-per-round 15 --workers 12 --utility-form return_normalized --output-dir /scratch/alpine/paco0228/latent_proxy_runs/aif-sc-normalized/outputs/supply_chain"
+}

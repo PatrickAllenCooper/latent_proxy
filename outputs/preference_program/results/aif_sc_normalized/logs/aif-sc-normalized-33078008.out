@@ -1,0 +1,7 @@
+job=33078008 revision=02fbb776c438a7449081e395bbb5397a28cd2c8f started=2026-09-27T19:38:15-06:00
+{
+  "n_records": 1250,
+  "n_summary_rows": 5,
+  "n_paired_rows": 42
+}
+job=33078008 completed=2026-09-27T19:50:36-06:00
