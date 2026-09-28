@@ -161,7 +161,49 @@
         "outputs/game/analysis/paired_contrasts.csv",
         "outputs/game/analysis/analysis.json"
       ]
+    },
+    {
+      "job_id": "33065603",
+      "name": "lp-aif-xdomain",
+      "script": "scripts/slurm/run_aif_cross_domain.slurm",
+      "status": "completed",
+      "revision": "656c9885392e9e38c154ee8786d78b503490a188",
+      "purpose": "Five-seed, two-domain follow-up comparing EIG, random, decision-impact, AIF 50%, and AIF 80% in stock and supply chain",
+      "command": "--domains stock,supply_chain --arms active,random,decision_impact,aif_50,aif_80 --n-users 50 --seeds 42,43,44,45,46 --max-rounds 8 --n-particles 500 --n-eig-samples 200 --n-scenarios-per-round 15 --workers 12",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/aif-cross-domain/outputs/cross_domain",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/aif-cross-domain/logs/aif-cross-domain-33065603.*",
+      "records_expected": 2500,
+      "records": 2500,
+      "started_at_utc": "2026-09-28T00:29:51Z",
+      "remote_source": "/home/paco0228/latent_proxy_aif_pilot",
+      "local_results": "outputs/preference_program/results/aif_cross_domain/outputs/cross_domain",
+      "notes": "Completed with 2500 records, no task failures. Recomputed expected-utility decision metrics and revalidated supplier cap with floating-point tolerance; no final quality-floor violations.",
+      "exit_code": 0,
+      "elapsed": "00:28:02",
+      "completed_at_utc": "2026-09-28T00:57:48Z",
+      "result_archive": "/scratch/alpine/paco0228/latent_proxy_runs/aif-cross-domain/aif-cross-domain-results-final-a7a48f8.tar.gz",
+      "result_validation": {
+        "expected_records": 2500,
+        "records": 2500,
+        "per_arm_per_domain": 250,
+        "per_seed": 500,
+        "valid_json": 2500,
+        "rounds_per_record": 8,
+        "acquisition_entries_per_record": 8,
+        "failed_tasks": 0,
+        "malformed_records": 0,
+        "nonfinite_decision_metrics": 0,
+        "quality_floor_violations_after_tolerance_correction": 0,
+        "initial_boundary_false_positives_corrected": 4
+      },
+      "analysis_outputs": [
+        "outputs/cross_domain/analysis/per_user.csv",
+        "outputs/cross_domain/analysis/summary.csv",
+        "outputs/cross_domain/analysis/paired_contrasts.csv",
+        "outputs/cross_domain/analysis/analysis.json"
+      ],
+      "metric_correction_revision": "a7a48f87d3a48a103093f5ac32a34063609adf46"
     }
   ],
-  "last_checked_at_utc": "2026-09-28T00:24:20Z"
+  "last_checked_at_utc": "2026-09-28T01:24:50Z"
 }

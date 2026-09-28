@@ -180,6 +180,8 @@ def run_user_task(task: dict[str, Any]) -> dict[str, Any]:
     # Re-reset so the alignment computation sees the same env state in
     # every arm (query generators mutate env state during the loop).
     env.reset(seed=seed + user_idx)
+    obs = env._get_obs()
+    stats = env.get_channel_stats()
     opt_true_heuristic = env.get_optimal_action(true_theta)
     reference_point = float(obs["wealth"].sum()) if task.get("reference_point_mode") == "current_wealth" else 0.0
     true_user_type = UserType(gamma=ut.gamma, alpha=ut.alpha, lambda_=ut.lambda_)
@@ -193,9 +195,8 @@ def run_user_task(task: dict[str, Any]) -> dict[str, Any]:
     opt_inferred = env.get_optimal_action(result.inferred_theta)
     spearman = compute_alignment_score([opt_inferred], [opt_true])
 
-    # Evaluate actual preference utility in a shared initial state with common
-    # random numbers. This is distinct from rank alignment and makes decision
-    # regret comparable within a user across query strategies.
+    # Evaluate expected true-type utility in the shared initial state with
+    # deterministic quadrature, so regret is comparable across query arms.
     env.reset(seed=seed + user_idx)
     stats = env.get_channel_stats()
     obs = env._get_obs()

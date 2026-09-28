@@ -41,6 +41,14 @@ random, decision-impact, and three AIF mixtures. Advance to other domains only
 after checking the raw per-query diagnostics, result validity, and paired
 uncertainty; increase the user panel if the pilot intervals are too wide.
 
+The five-seed game replication found AIF 50% reduced decision regret relative
+to EIG while parameter recovery favored EIG; AIF 50% improved recovery and
+action alignment over random. In stock and supply chain, AIF 50% improved on
+EIG in supply chain but did not beat random, while stock was near a decision
+ceiling. The return-normalized supply-chain replication is defined in
+`scripts/slurm/run_aif_supply_chain_normalized.slurm` to test whether the
+utility formulation changes that comparison.
+
 ## Stage B: DPO interaction-format comparison
 
 The stated-profile adherence study now includes `true`, `elicited`, and

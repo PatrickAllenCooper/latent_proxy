@@ -1,0 +1,35 @@
+{
+  "job_id": "33065603",
+  "source_revision": "656c9885392e9e38c154ee8786d78b503490a188",
+  "metric_correction_revision": "a7a48f87d3a48a103093f5ac32a34063609adf46",
+  "records": 2500,
+  "records_per_arm_per_domain": 250,
+  "records_per_seed": 500,
+  "domains": [
+    "stock",
+    "supply_chain"
+  ],
+  "arms": [
+    "active",
+    "aif_50",
+    "aif_80",
+    "decision_impact",
+    "random"
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "rounds_per_record": 8,
+  "failed_tasks": 0,
+  "invalid_json": 0,
+  "nonfinite_decision_metrics": 0,
+  "quality_floor_violations_after_correction": 0,
+  "corrected_boundary_float_flags": 4,
+  "decision_regret_metric": "True-type expected utility gap to multistart SLSQP optimum on the long-only simplex; 48-point Gauss-Hermite quadrature.",
+  "quality_floor_note": "Four reports were floating-point representations of the exact 0.70 supplier cap; 1e-9 comparison tolerance applied and all saved actions rechecked.",
+  "parse_failures": "not_applicable: synthetic binary choices; no model response parser"
+}

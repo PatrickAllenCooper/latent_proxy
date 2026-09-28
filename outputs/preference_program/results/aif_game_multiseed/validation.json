@@ -27,5 +27,8 @@
   "quality_floor_violations": 0,
   "aif_acquisition_entries": 6000,
   "parse_failures": "not_applicable: synthetic binary choices; no LLM response parser",
-  "decision_regret_metric": "True-type expected utility gap to a multistart SLSQP optimum on the long-only simplex, evaluated with 48-point Gauss-Hermite quadrature."
+  "decision_regret_metric": "True-type expected utility gap to a multistart SLSQP optimum on the long-only simplex, evaluated with 48-point Gauss-Hermite quadrature.",
+  "metric_recomputation_revision": "a7a48f87d3a48a103093f5ac32a34063609adf46",
+  "quality_floor_violations_after_recomputation": 0,
+  "initial_metric_note": "Initial remote summary used legacy Monte Carlo decision regret; all saved per-user decision metrics were recomputed with the expected-utility optimizer."
 }

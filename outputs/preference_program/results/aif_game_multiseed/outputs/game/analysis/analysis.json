@@ -1,5 +1,5 @@
 {
-  "input_dir": "/scratch/alpine/paco0228/latent_proxy_runs/aif-game-multiseed/outputs/game",
+  "input_dir": "outputs/preference_program/results/aif_game_multiseed/outputs/game",
   "n_records": 1500,
   "n_bootstrap": 10000,
   "campaign_manifest": {
@@ -46,9 +46,11 @@
       },
       "early_stopping": "disabled (variance thresholds 0.0)",
       "decision_impact_metric": "expected one-step reduction in posterior variance of the scenario-optimal allocation",
-      "active_inference_metric": "weighted sum of candidate-pool-normalized binary mutual information and finite-menu expected value of sample information; aif_XX gives the epistemic component XX percent weight"
+      "active_inference_metric": "weighted sum of candidate-pool-normalized binary mutual information and finite-menu expected value of sample information; aif_XX gives the epistemic component XX percent weight",
+      "decision_regret_metric": "true-type expected prospect utility at a multistart SLSQP optimum on the long-only simplex minus utility of the inferred-type action; both evaluated with 48-point Gauss-Hermite quadrature"
     },
-    "command": "scripts/run_canonical_campaign.py --domains game_a --arms active,random,decision_impact,aif_20,aif_50,aif_80 --n-users 50 --seeds 42,43,44,45,46 --max-rounds 8 --n-particles 500 --n-eig-samples 200 --n-scenarios-per-round 15 --workers 12 --output-dir /scratch/alpine/paco0228/latent_proxy_runs/aif-game-multiseed/outputs/game"
+    "command": "scripts/run_canonical_campaign.py --domains game_a --arms active,random,decision_impact,aif_20,aif_50,aif_80 --n-users 50 --seeds 42,43,44,45,46 --max-rounds 8 --n-particles 500 --n-eig-samples 200 --n-scenarios-per-round 15 --workers 12 --output-dir /scratch/alpine/paco0228/latent_proxy_runs/aif-game-multiseed/outputs/game",
+    "decision_regret_recomputed_with_git_sha": "a7a48f87d3a48a103093f5ac32a34063609adf46"
   },
   "interpretation": {
     "paired_contrast_sign": "negative is favorable for error/regret/rounds/violations; positive is favorable for alignment",
