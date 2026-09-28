@@ -207,7 +207,23 @@
         "outputs/cross_domain/analysis/analysis.json"
       ],
       "metric_correction_revision": "a7a48f87d3a48a103093f5ac32a34063609adf46"
+    },
+    {
+      "job_id": "33078008",
+      "name": "lp-aif-sc-norm",
+      "script": "scripts/slurm/run_aif_supply_chain_normalized.slurm",
+      "status": "pending",
+      "revision": "02fbb776c438a7449081e395bbb5397a28cd2c8f",
+      "purpose": "Five-seed supply-chain comparison of EIG, random, decision-impact, and AIF 50/80 under return-normalized utility",
+      "command": "--domains supply_chain --arms active,random,decision_impact,aif_50,aif_80 --n-users 50 --seeds 42,43,44,45,46 --max-rounds 8 --n-particles 500 --n-eig-samples 200 --n-scenarios-per-round 15 --workers 12 --utility-form return_normalized",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/aif-sc-normalized/outputs/supply_chain",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/aif-sc-normalized/logs/aif-sc-normalized-33078008.*",
+      "records_expected": 1250,
+      "records": 0,
+      "remote_source": "/home/paco0228/latent_proxy_aif_pilot",
+      "local_results": "outputs/preference_program/results/aif_sc_normalized",
+      "notes": "Five common synthetic-user seeds; uses the corrected expected-utility regret optimizer and supplier-cap float tolerance."
     }
   ],
-  "last_checked_at_utc": "2026-09-28T01:24:50Z"
+  "last_checked_at_utc": "2026-09-28T01:25:00Z"
 }
