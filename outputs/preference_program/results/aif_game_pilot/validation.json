@@ -1,0 +1,25 @@
+{
+  "job_id": "33062243",
+  "code_revision": "c052fce6b0b139681bb3e2ba3298c497fdc4293f",
+  "metric_correction_revision": "741fd287e0b442238cc93588a4a6e7aa9739daa1",
+  "records": 300,
+  "records_per_arm": 50,
+  "arms": [
+    "active",
+    "random",
+    "decision_impact",
+    "aif_20",
+    "aif_50",
+    "aif_80"
+  ],
+  "rounds_per_record": 8,
+  "acquisition_entries_per_record": 8,
+  "failed_tasks": 0,
+  "invalid_json": 0,
+  "nonfinite_decision_metrics": 0,
+  "quality_floor_violations": 0,
+  "decision_regret_positive_records": 246,
+  "decision_regret_metric": "Expected utility gap to a multi-start SLSQP optimum on the long-only simplex, evaluated under the true type using 48-point Gauss-Hermite quadrature.",
+  "parse_failures": "not_applicable: synthetic binary choices, no model response parser",
+  "manual_check": "For a hand-inspected user, optimized expected utility was at least as high as both the inferred recommendation and certainty-equivalent heuristic action."
+}
