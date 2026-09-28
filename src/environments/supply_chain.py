@@ -190,7 +190,10 @@ class SupplyChainEnv(BaseEnvironment):
             )
 
         max_share = float(np.max(action))
-        if max_share > self.config.max_single_supplier_share:
+        # Optimizers can return a boundary value such as 0.7000000000000001
+        # for a configured 0.70 cap. Treat that representational drift as the
+        # feasible boundary instead of reporting a spurious floor violation.
+        if max_share > self.config.max_single_supplier_share + 1e-9:
             idx = int(np.argmax(action))
             violations.append(
                 f"Supplier {self.config.suppliers[idx].name} has {max_share:.0%} share, "
