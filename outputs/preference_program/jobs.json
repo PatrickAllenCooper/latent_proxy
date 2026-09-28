@@ -161,7 +161,24 @@
         "outputs/game/analysis/paired_contrasts.csv",
         "outputs/game/analysis/analysis.json"
       ]
+    },
+    {
+      "job_id": "33065603",
+      "name": "lp-aif-xdomain",
+      "script": "scripts/slurm/run_aif_cross_domain.slurm",
+      "status": "running",
+      "revision": "656c9885392e9e38c154ee8786d78b503490a188",
+      "purpose": "Five-seed, two-domain follow-up comparing EIG, random, decision-impact, AIF 50%, and AIF 80% in stock and supply chain",
+      "command": "--domains stock,supply_chain --arms active,random,decision_impact,aif_50,aif_80 --n-users 50 --seeds 42,43,44,45,46 --max-rounds 8 --n-particles 500 --n-eig-samples 200 --n-scenarios-per-round 15 --workers 12",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/aif-cross-domain/outputs/cross_domain",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/aif-cross-domain/logs/aif-cross-domain-33065603.*",
+      "records_expected": 2500,
+      "records": 0,
+      "started_at_utc": "2026-09-28T00:29:51Z",
+      "remote_source": "/home/paco0228/latent_proxy_aif_pilot",
+      "local_results": "outputs/preference_program/results/aif_cross_domain",
+      "notes": "Five common seed panels, 50 synthetic users per seed/domain. One acpu node, 12 CPU workers; no GPU required."
     }
   ],
-  "last_checked_at_utc": "2026-09-28T00:24:20Z"
+  "last_checked_at_utc": "2026-09-28T00:30:00Z"
 }
