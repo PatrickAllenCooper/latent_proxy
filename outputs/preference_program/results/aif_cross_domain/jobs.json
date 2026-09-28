@@ -140,7 +140,7 @@
       "exit_code": 0,
       "elapsed": "00:09:50",
       "completed_at_utc": "2026-09-28T00:11:58Z",
-      "result_archive": "/scratch/alpine/paco0228/latent_proxy_runs/aif-game-multiseed/aif-game-multiseed-results.tar.gz",
+      "result_archive": "/scratch/alpine/paco0228/latent_proxy_runs/aif-game-multiseed/aif-game-multiseed-results-validated-02fbb77.tar.gz",
       "result_validation": {
         "expected_records": 1500,
         "records": 1500,
@@ -153,7 +153,9 @@
         "malformed_records": 0,
         "nonfinite_decision_metrics": 0,
         "quality_floor_violations": 0,
-        "aif_acquisition_entries": 6000
+        "aif_acquisition_entries": 6000,
+        "decision_metrics_recomputed": true,
+        "quality_floor_violations_after_recomputation": 0
       },
       "analysis_outputs": [
         "outputs/game/analysis/per_user.csv",
@@ -181,7 +183,7 @@
       "exit_code": 0,
       "elapsed": "00:28:02",
       "completed_at_utc": "2026-09-28T00:57:48Z",
-      "result_archive": "/scratch/alpine/paco0228/latent_proxy_runs/aif-cross-domain/aif-cross-domain-results-final-a7a48f8.tar.gz",
+      "result_archive": "/scratch/alpine/paco0228/latent_proxy_runs/aif-cross-domain/aif-cross-domain-results-validated-02fbb77.tar.gz",
       "result_validation": {
         "expected_records": 2500,
         "records": 2500,
@@ -194,7 +196,9 @@
         "malformed_records": 0,
         "nonfinite_decision_metrics": 0,
         "quality_floor_violations_after_tolerance_correction": 0,
-        "initial_boundary_false_positives_corrected": 4
+        "initial_boundary_false_positives_corrected": 4,
+        "decision_metrics_recomputed": true,
+        "metric_correction_revision": "a7a48f87d3a48a103093f5ac32a34063609adf46"
       },
       "analysis_outputs": [
         "outputs/cross_domain/analysis/per_user.csv",
