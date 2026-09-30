@@ -1,0 +1,70 @@
+{
+  "benchmark_version": "finite_menu_v2",
+  "algorithm": "one-step clipped PPO actor-critic",
+  "training_seed": 1001,
+  "updates": 200,
+  "batch_size": 256,
+  "sampled_training_decisions": 51200,
+  "warmstart_updates": 200,
+  "warmstart_audit": {
+    "mean_normalized_regret": 0.1600961194278056,
+    "oracle_action_match_rate": 0.6,
+    "n_decisions": 1000
+  },
+  "pilot": {
+    "mean_normalized_regret": 0.14109271179182872,
+    "oracle_action_match_rate": 0.671,
+    "n_decisions": 1000
+  },
+  "held_out": {
+    "mean_normalized_regret": 0.08810563678992579,
+    "oracle_action_match_rate": 0.723,
+    "n_decisions": 1000
+  },
+  "history": [
+    {
+      "update": 1,
+      "loss": 0.054878585040569305
+    },
+    {
+      "update": 20,
+      "loss": 0.037112683057785034
+    },
+    {
+      "update": 40,
+      "loss": 0.03669687360525131
+    },
+    {
+      "update": 60,
+      "loss": 0.031081637367606163
+    },
+    {
+      "update": 80,
+      "loss": 0.03115762770175934
+    },
+    {
+      "update": 100,
+      "loss": 0.017654674127697945
+    },
+    {
+      "update": 120,
+      "loss": 0.02129293605685234
+    },
+    {
+      "update": 140,
+      "loss": 0.02701970934867859
+    },
+    {
+      "update": 160,
+      "loss": 0.023256994783878326
+    },
+    {
+      "update": 180,
+      "loss": 0.03227527439594269
+    },
+    {
+      "update": 200,
+      "loss": 0.01549066137522459
+    }
+  ]
+}

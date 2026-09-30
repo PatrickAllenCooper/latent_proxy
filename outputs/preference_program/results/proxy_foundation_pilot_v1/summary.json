@@ -1,0 +1,177 @@
+{
+  "benchmark_version": "finite_menu_v1",
+  "generated_at_utc": "2026-09-30T20:08:58.794525+00:00",
+  "seed": 1001,
+  "n_users": 50,
+  "n_scenarios": 20,
+  "policy_checkpoint": "outputs/preference_program/results/finite_menu_ppo_pilot/policy.pt",
+  "summary": {
+    "generic": {
+      "users": 50,
+      "decisions": 1000,
+      "normalized_regret": {
+        "mean": 0.032081407952693625,
+        "user_bootstrap_95": [
+          0.013440052371866034,
+          0.05910305466281287
+        ]
+      },
+      "behavioral_agreement": {
+        "mean": 0.774591597977794,
+        "user_bootstrap_95": [
+          0.706103186241595,
+          0.8376956236695274
+        ]
+      },
+      "feasible": {
+        "mean": 1.0,
+        "user_bootstrap_95": [
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "gold_behavior_tool": {
+      "users": 50,
+      "decisions": 1000,
+      "normalized_regret": {
+        "mean": 0.028152963802770947,
+        "user_bootstrap_95": [
+          0.013975035402677645,
+          0.04575574360018383
+        ]
+      },
+      "behavioral_agreement": {
+        "mean": 0.8580775568153313,
+        "user_bootstrap_95": [
+          0.8148018299801485,
+          0.8981771391355973
+        ]
+      },
+      "feasible": {
+        "mean": 1.0,
+        "user_bootstrap_95": [
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "gold_reward_tool": {
+      "users": 50,
+      "decisions": 1000,
+      "normalized_regret": {
+        "mean": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "behavioral_agreement": {
+        "mean": 0.8138422996451123,
+        "user_bootstrap_95": [
+          0.7517886284052009,
+          0.8703326060102037
+        ]
+      },
+      "feasible": {
+        "mean": 1.0,
+        "user_bootstrap_95": [
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "learned_rl_proxy": {
+      "users": 50,
+      "decisions": 1000,
+      "normalized_regret": {
+        "mean": 0.030183199600942383,
+        "user_bootstrap_95": [
+          0.009632495768115982,
+          0.059884421603539954
+        ]
+      },
+      "behavioral_agreement": {
+        "mean": 0.7788852904691994,
+        "user_bootstrap_95": [
+          0.7045518802767343,
+          0.8489962153489272
+        ]
+      },
+      "feasible": {
+        "mean": 1.0,
+        "user_bootstrap_95": [
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "swapped_reward_tool": {
+      "users": 50,
+      "decisions": 1000,
+      "normalized_regret": {
+        "mean": 0.06768240151508649,
+        "user_bootstrap_95": [
+          0.03415952774353868,
+          0.10786665392985939
+        ]
+      },
+      "behavioral_agreement": {
+        "mean": 0.7474669211653334,
+        "user_bootstrap_95": [
+          0.679551554666432,
+          0.8134012902547181
+        ]
+      },
+      "feasible": {
+        "mean": 1.0,
+        "user_bootstrap_95": [
+          1.0,
+          1.0
+        ]
+      }
+    }
+  },
+  "extreme_type_diagnostics": {
+    "patient_cautious": {
+      "action_counts": [
+        1,
+        19,
+        0,
+        0
+      ]
+    },
+    "patient_aggressive": {
+      "action_counts": [
+        0,
+        15,
+        3,
+        2
+      ]
+    },
+    "impatient_cautious": {
+      "action_counts": [
+        20,
+        0,
+        0,
+        0
+      ]
+    },
+    "impatient_aggressive": {
+      "action_counts": [
+        9,
+        0,
+        11,
+        0
+      ]
+    },
+    "balanced": {
+      "action_counts": [
+        19,
+        0,
+        1,
+        0
+      ]
+    }
+  }
+}
