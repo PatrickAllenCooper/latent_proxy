@@ -21,11 +21,13 @@ The v2 CPU pilot evaluates 50 paired users on 20 menus. Its conditions are a
 generic profile, exact reward scoring, exact behavioral choice, swapped-user
 reward scoring, and a learned proxy. `scripts/run_proxy_foundation_pilot.py`
 writes per-decision CSV and user-clustered bootstrap summaries. Seeds 1001
-and 3001 are development and fresh holdout panels respectively. The first two
+and 3001 are development and training-audit panels respectively. The first two
 v2 PPO attempts collapsed to the safe action and are preserved. The final v2
 policy uses 200 oracle-demonstration warm-start updates followed by 200 PPO
 updates. Its checkpoint and report are under `finite_menu_ppo_pilot_v2`.
 This policy is a learned approximation, not the independent scoring oracle.
+After the policy was frozen, seed 9001 supplied 200 new users and 20 new
+menus for a fresh replication. No policy or menu changes followed that run.
 
 The controlled LLM pilot presents the same numerical preference profile to
 all conditions. It compares no tool, exact reward advice, and learned RL policy
