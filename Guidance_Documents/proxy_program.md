@@ -34,6 +34,24 @@ injected by the harness as a visible tool result. This first pilot measures
 whether the model uses information supplied by a proxy; voluntary tool calling
 is a later condition. Every prompt, raw completion, and parse failure is saved.
 
+The analytic-user discovery study in `scripts/run_finite_menu_discovery.py`
+uses a separate particle posterior over reward preferences and behavioral bias.
+It compares random, mutual information, exact finite-menu decision value of
+sample information, and their 50/50 normalized mixture at question budgets
+0, 2, 4, and 8. Users are paired across acquisition arms. A given user gives
+the same stochastic response whenever two arms ask the same question. Target
+menus for acquisition are disjoint from held-out evaluation menus. Full query
+traces and both true and estimated preference parameters are saved.
+
+The 50-user, 256-particle pilot suffered importance-weight concentration.
+The same users were rerun with 1024 particles, then 200 fresh users with 4096
+particles (seed 8001). On the fresh panel at eight questions, EIG exceeded
+random in behavioral agreement and lowered decision regret. The AIF mixture
+did not clearly exceed random. This is matched-model analytic evidence and
+does not establish robust conversational elicitation. One EIG posterior still
+had fewer than 10 effective particles at the final round; investigate this
+before using posterior intervals as calibrated uncertainty.
+
 Advance only if the output parser, scoring, model/checkpoint identity, and raw
 generations pass inspection. Subsequent work: optimize prompts with TextGrad
 and GEPA on disjoint development users; compare 3 x 2 x 2 prompt/tool/adapter
