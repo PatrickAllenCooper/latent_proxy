@@ -26,6 +26,7 @@ from src.training.synthetic_users import SyntheticUserSampler
 
 
 ARMS = ("random", "eig", "decision_value", "aif_50")
+ADAPTIVE_ARMS = ("random", "eig", "eig_hazard_10", "eig_hazard_25")
 BUDGETS = (0, 2, 4, 8)
 
 
@@ -93,7 +94,7 @@ def bootstrap(values: np.ndarray, rng: np.random.Generator) -> list[float]:
     return [float(x) for x in np.quantile(values[draws].mean(axis=1), [.025, .975])]
 
 
-def summarize(rows: list[dict]) -> dict:
+def summarize(rows: list[dict], arms: tuple[str, ...] = ARMS) -> dict:
     rng = np.random.default_rng(91_339)
     fields = (
         "gamma_abs_error", "alpha_abs_error", "lambda_abs_error",
@@ -105,7 +106,7 @@ def summarize(rows: list[dict]) -> dict:
     result: dict = {"benchmark_version": BENCHMARK_VERSION, "n_users": len(users),
                     "cells": {}, "paired_contrasts": {}}
     for budget in BUDGETS:
-        for arm in ARMS:
+        for arm in arms:
             cell = {}
             for field in fields:
                 values = np.array([by_key[arm, budget, u][field] for u in users])
@@ -114,7 +115,9 @@ def summarize(rows: list[dict]) -> dict:
             result["cells"][f"{arm}/{budget}"] = cell
         if budget == 0:
             continue
-        for arm in ("eig", "decision_value", "aif_50"):
+        for arm in arms:
+            if arm == "random":
+                continue
             contrast = {}
             for field in fields[:-1]:
                 values = np.array([
@@ -139,12 +142,15 @@ def main() -> None:
         "--stress", choices=("matched", "noisy", "inconsistent", "shift"),
         default="matched",
     )
+    parser.add_argument("--arm-set", choices=("standard", "change_adaptation"),
+                        default="standard")
     parser.add_argument("--output-dir", type=Path, required=True)
     args = parser.parse_args()
     if args.n_queries < max(BUDGETS):
         parser.error("query pool must fit the largest budget")
     if args.n_users < 2 or args.n_targets < 1:
         parser.error("need at least two users and one target")
+    arms = ADAPTIVE_ARMS if args.arm_set == "change_adaptation" else ARMS
     users = SyntheticUserSampler(seed=args.seed).sample_batch(args.n_users)
     shifted_users = SyntheticUserSampler(seed=args.seed + 800_000).sample_batch(args.n_users)
     queries = [make_scenario(args.seed + 100_000 + i) for i in range(args.n_queries)]
@@ -170,10 +176,10 @@ def main() -> None:
         shifted_query_probabilities = [behavior_probabilities(
             s, shifted_users[user_id], bias=shifted_bias,
         ) for s in queries]
-        for arm in ARMS:
+        for arm in arms:
             weights = np.ones(args.n_particles, dtype=np.float64) / args.n_particles
             available = np.ones(args.n_queries, dtype=np.bool_)
-            arm_rng = np.random.default_rng(args.seed + 600_000 + user_id * 100 + ARMS.index(arm))
+            arm_rng = np.random.default_rng(args.seed + 600_000 + user_id * 100 + arms.index(arm))
             for step in range(max(BUDGETS) + 1):
                 after_shift = args.stress == "shift" and step >= 4
                 evaluation_theta = shifted_users[user_id] if after_shift else true_theta
@@ -200,7 +206,8 @@ def main() -> None:
                 if step == max(BUDGETS):
                     break
                 query_id, information, decision_value = choose_query(
-                    arm, weights, query_behavior, acquisition_utility, available, arm_rng
+                    "eig" if arm.startswith("eig_hazard_") else arm,
+                    weights, query_behavior, acquisition_utility, available, arm_rng
                 )
                 available[query_id] = False
                 response_rng = np.random.default_rng(response_seed(args.seed, user_id, query_id))
@@ -210,7 +217,11 @@ def main() -> None:
                 choice = int(response_rng.choice(4, p=true_probabilities[query_id]))
                 if args.stress == "inconsistent" and response_rng.random() < .15:
                     choice = int(response_rng.choice([a for a in range(4) if a != choice]))
-                weights = update_weights(weights, query_behavior[query_id, :, choice])
+                hazard = {"eig_hazard_10": .10, "eig_hazard_25": .25}.get(arm, 0.0)
+                predictive_weights = ((1.0 - hazard) * weights
+                                      + hazard / args.n_particles)
+                weights = update_weights(predictive_weights,
+                                         query_behavior[query_id, :, choice])
                 traces.append({
                     "seed": args.seed, "user_id": user_id, "arm": arm,
                     "round": step + 1, "query_id": query_id,
@@ -232,11 +243,12 @@ def main() -> None:
     with (args.output_dir / "queries.jsonl").open("w") as handle:
         for trace in traces:
             handle.write(json.dumps(trace) + "\n")
-    report = summarize(rows)
+    report = summarize(rows, arms)
     report["config"] = {"seed": args.seed, "n_users": args.n_users,
                         "n_particles": args.n_particles, "n_queries": args.n_queries,
                         "n_targets": args.n_targets, "budgets": BUDGETS,
-                        "arms": ARMS, "records": len(rows), "query_records": len(traces),
+                        "arms": arms, "arm_set": args.arm_set,
+                        "records": len(rows), "query_records": len(traces),
                         "stress": args.stress,
                         "simulator": "analytic stochastic 4-way choice with behavioral bias"}
     (args.output_dir / "summary.json").write_text(json.dumps(report, indent=2) + "\n")

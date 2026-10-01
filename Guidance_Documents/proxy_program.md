@@ -69,6 +69,18 @@ with change detection or forgetting is the next mechanism to test. All stress
 conditions remain analytic simulator evidence; the inconsistent condition
 reached effective sample size as low as 2.43 and requires calibration checks.
 
+An adaptive follow-up compared static EIG with EIG whose particle weights
+mix with a uniform prior before each answer (10% or 25% hazard). The 20-user
+pilot was followed by 100 paired users on both shift and matched controls,
+using 4096 particles and seed 7001. On shifted users at eight questions,
+10% hazard reduced regret from 0.1482 to 0.0376 and raised behavioral
+agreement from 0.6270 to 0.8078. The paired hazard-minus-static regret
+difference was -0.1107 (95% user bootstrap [-0.1416, -0.0818]). On stable
+users it increased regret from 0.0196 to 0.0333, difference +0.0137
+[0.0057, 0.0243]. Continuous forgetting helps after change but pays a stable
+user cost. Next test a surprise-triggered refresh or explicit change-point
+posterior against both controls; do not select the hazard by shifted cases alone.
+
 Advance only if the output parser, scoring, model/checkpoint identity, and raw
 generations pass inspection. Subsequent work: optimize prompts with TextGrad
 and GEPA on disjoint development users; compare 3 x 2 x 2 prompt/tool/adapter

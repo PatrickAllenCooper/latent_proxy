@@ -88,9 +88,11 @@ def acquisition_scores(
     predictive = np.einsum("n,qna->qa", weights, query_behavior, optimize=True)
     eps = 1e-12
     predicted_entropy = -np.sum(predictive * np.log(predictive + eps), axis=-1)
-    conditional_entropy = -np.sum(
+    response_entropy = -np.sum(
         query_behavior * np.log(query_behavior + eps), axis=-1
-    ) @ weights
+    )
+    conditional_entropy = np.einsum("qn,n->q", response_entropy, weights,
+                                    optimize=True)
     information_gain = np.maximum(predicted_entropy - conditional_entropy, 0.0)
     current = np.einsum("n,tna->ta", weights, target_utilities, optimize=True)
     current_value = float(np.max(current, axis=-1).mean())
