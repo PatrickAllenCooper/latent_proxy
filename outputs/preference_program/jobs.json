@@ -462,7 +462,38 @@
       "observed_gpu_name": "NVIDIA H200 NVL MIG 2g.35gb",
       "gpu_memory_allocated_bytes_first_generation": 1186918400,
       "gpu_utilization": "nvidia-smi utilization.gpu N/A for MIG; framework memory plus three completed generations verify GPU work"
+    },
+    {
+      "job_id": "33203230",
+      "name": "lp-advice-full",
+      "script": "scripts/slurm/run_proxy_advice_full_mig.slurm",
+      "status": "pending",
+      "revision": "4ea5f76",
+      "purpose": "Paired 12-user by 8-menu base-model ablation of wrong direct advice, caveated wrong advice, and exact numeric scores",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program_v6",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/proxy-advice-v6/manifests/full.jsonl",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/proxy-advice-v6/outputs",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/proxy-advice-v6/logs/full-33203230.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/proxy-advice-v6/logs/full-33203230-gpu.csv",
+      "local_results": "outputs/preference_program/results/proxy_advice_full_v6",
+      "seed": 5001,
+      "n_users": 12,
+      "n_scenarios": 8,
+      "arms_per_condition": 3,
+      "conditions": [
+        "base"
+      ],
+      "records_expected": 288,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "memory": "32G",
+        "wall_time": "00:15:00"
+      },
+      "smoke_job_id": "33201355"
     }
   ],
-  "last_checked_at_utc": "2026-10-01T11:08:08.081736+00:00"
+  "last_checked_at_utc": "2026-10-01T11:08:56.346555+00:00"
 }
