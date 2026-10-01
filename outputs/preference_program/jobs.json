@@ -726,7 +726,39 @@
         "outputs/preference_program/results/numeric_comparison_replication_v11/summary.json"
       ],
       "main_finding": "Scores-only mean normalized regret 0.220 vs full scores 0.439 and baseline 0.517, but chose A in 28/32 cases; exact advice correct 29/32. Prompt format gains do not yet show numeric comparison."
+    },
+    {
+      "job_id": "33234967",
+      "name": "lp-label-rotation",
+      "script": "scripts/slurm/run_label_rotation_probe_mig.slurm",
+      "status": "pending",
+      "revision": "2643826",
+      "purpose": "Rotate A/B/C/D labels over 32 fixed user-menu utilities; compare numeric scores vs exact letter advice",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program_v12",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/label-rotation-v12/manifests/pilot.jsonl",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/label-rotation-v12/pilot",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/label-rotation-v12/logs/pilot-33234967.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/label-rotation-v12/logs/pilot-33234967-gpu.csv",
+      "local_results": "outputs/preference_program/results/label_rotation_probe_v12",
+      "seed": 8001,
+      "n_users": 32,
+      "n_cases": 32,
+      "permutations_per_case": 4,
+      "arms_per_permutation": 2,
+      "conditions": [
+        "base"
+      ],
+      "records_expected": 256,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "exclude": "c3gpu-e5-u5",
+        "memory": "32G",
+        "wall_time": "00:05:00"
+      }
     }
   ],
-  "last_checked_at_utc": "2026-10-01T22:21:42.978360+00:00"
+  "last_checked_at_utc": "2026-10-01T23:13:09.942516+00:00"
 }
