@@ -546,7 +546,39 @@
       "node": "c3gpu-e5-u5",
       "gpu_utilization": "no verified GPU computation; allocation unusable",
       "local_logs": "outputs/preference_program/results/prompt_pilot_smoke_v7/logs"
+    },
+    {
+      "job_id": "33207020",
+      "name": "lp-prompt-smoke",
+      "script": "scripts/slurm/run_prompt_pilot_smoke_mig_retry.slurm",
+      "status": "pending",
+      "revision": "bae5914",
+      "retry_of": "33205625",
+      "purpose": "Retry three-generation prompt smoke after MIG device-handle failure; CUDA tensor preflight and exclude failed node",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program_v8",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/prompt-pilot-v8/manifests/smoke.jsonl",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/prompt-pilot-v8/smoke",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/prompt-pilot-v8/logs/smoke-33207020.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/prompt-pilot-v8/logs/smoke-33207020-gpu.csv",
+      "local_results": "outputs/preference_program/results/prompt_pilot_smoke_v8",
+      "seed": 6001,
+      "n_users": 1,
+      "n_scenarios": 1,
+      "arms_per_condition": 3,
+      "conditions": [
+        "base"
+      ],
+      "records_expected": 3,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "exclude": "c3gpu-e5-u5",
+        "memory": "32G",
+        "wall_time": "00:15:00"
+      }
     }
   ],
-  "last_checked_at_utc": "2026-10-01T15:09:21.067851+00:00"
+  "last_checked_at_utc": "2026-10-01T15:10:15.512254+00:00"
 }
