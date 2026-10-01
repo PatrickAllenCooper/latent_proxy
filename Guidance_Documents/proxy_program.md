@@ -54,6 +54,21 @@ does not establish robust conversational elicitation. One EIG posterior still
 had fewer than 10 effective particles at the final round; investigate this
 before using posterior intervals as calibrated uncertainty.
 
+The 100-user stress panel (seed 7001, 4096 particles) repeats the paired
+question comparison under matched responses, noisier choices, 15% inconsistent
+choices, and a hidden preference change after four queries. Each condition has
+1600 unique user-budget-arm records and 3200 query traces. At eight questions,
+EIG minus random reward regret was -0.0095 (95% user bootstrap [-0.0173,
+-0.0015]) in the matched condition, -0.0041 [-0.0166, 0.0098] with noisier
+choices, and -0.0335 [-0.0499, -0.0181] with inconsistent choices. After the
+preference change, EIG became worse than random: +0.0385 [0.0115, 0.0669]
+reward regret and -0.0543 [-0.0841, -0.0273] behavioral agreement. The
+posterior assumes a stationary user; this is a failure mode of that model, not
+evidence that random elicitation is generally preferable. An adaptive posterior
+with change detection or forgetting is the next mechanism to test. All stress
+conditions remain analytic simulator evidence; the inconsistent condition
+reached effective sample size as low as 2.43 and requires calibration checks.
+
 Advance only if the output parser, scoring, model/checkpoint identity, and raw
 generations pass inspection. Subsequent work: optimize prompts with TextGrad
 and GEPA on disjoint development users; compare 3 x 2 x 2 prompt/tool/adapter

@@ -42,6 +42,7 @@ def evaluate_posterior(
     target_utilities: np.ndarray,
     target_behavior: np.ndarray,
     targets: list,
+    stress: str,
 ) -> dict[str, float]:
     estimated_reward = np.einsum("n,tna->ta", weights, target_utilities)
     estimated_behavior = np.einsum("n,tna->ta", weights, target_behavior)
@@ -56,10 +57,16 @@ def evaluate_posterior(
                                 behavior_bias=true_bias)
         second = evaluate_action(scenario, true_theta, behavior_choice,
                                  behavior_bias=true_bias)
+        observed_policy = behavior_probabilities(
+            scenario, true_theta, bias=true_bias,
+            temperature=.06 if stress == "noisy" else .025,
+        )
+        if stress == "inconsistent":
+            observed_policy = .8 * observed_policy + .05
         regret_reward.append(first["normalized_regret"])
-        agreement_reward.append(first["behavioral_agreement"])
+        agreement_reward.append(float(observed_policy[reward_choice]))
         regret_behavior.append(second["normalized_regret"])
-        agreement_behavior.append(second["behavioral_agreement"])
+        agreement_behavior.append(float(observed_policy[behavior_choice]))
     estimate = posterior_mean(weights, particles)
     estimated_bias = np.dot(weights, particles.behavior_bias)
     return {
@@ -128,6 +135,10 @@ def main() -> None:
     parser.add_argument("--n-queries", type=int, default=24)
     parser.add_argument("--n-targets", type=int, default=12)
     parser.add_argument("--seed", type=int, default=6001)
+    parser.add_argument(
+        "--stress", choices=("matched", "noisy", "inconsistent", "shift"),
+        default="matched",
+    )
     parser.add_argument("--output-dir", type=Path, required=True)
     args = parser.parse_args()
     if args.n_queries < max(BUDGETS):
@@ -135,6 +146,7 @@ def main() -> None:
     if args.n_users < 2 or args.n_targets < 1:
         parser.error("need at least two users and one target")
     users = SyntheticUserSampler(seed=args.seed).sample_batch(args.n_users)
+    shifted_users = SyntheticUserSampler(seed=args.seed + 800_000).sample_batch(args.n_users)
     queries = [make_scenario(args.seed + 100_000 + i) for i in range(args.n_queries)]
     acquisition_targets = [make_scenario(args.seed + 200_000 + i) for i in range(4)]
     evaluation_targets = [make_scenario(args.seed + 300_000 + i)
@@ -145,33 +157,44 @@ def main() -> None:
     for user_id, true_theta in enumerate(users):
         true_bias = rng.normal(0.0, .018, size=4)
         true_bias[0] += rng.uniform(-.06, .06)
+        shifted_bias = rng.normal(0.0, .018, size=4)
+        shifted_bias[0] += rng.uniform(-.06, .06)
         particles = UserParticles.sample(args.n_particles, args.seed + 500_000 + user_id)
         _, query_behavior = prepared_menus(queries, particles)
         acquisition_utility, _ = prepared_menus(acquisition_targets, particles)
         target_utility, target_behavior = prepared_menus(evaluation_targets, particles)
-        true_query_probabilities = [
-            behavior_probabilities(s, true_theta, bias=true_bias) for s in queries
-        ]
+        true_query_probabilities = [behavior_probabilities(
+            s, true_theta, bias=true_bias,
+            temperature=.06 if args.stress == "noisy" else .025,
+        ) for s in queries]
+        shifted_query_probabilities = [behavior_probabilities(
+            s, shifted_users[user_id], bias=shifted_bias,
+        ) for s in queries]
         for arm in ARMS:
             weights = np.ones(args.n_particles, dtype=np.float64) / args.n_particles
             available = np.ones(args.n_queries, dtype=np.bool_)
             arm_rng = np.random.default_rng(args.seed + 600_000 + user_id * 100 + ARMS.index(arm))
             for step in range(max(BUDGETS) + 1):
+                after_shift = args.stress == "shift" and step >= 4
+                evaluation_theta = shifted_users[user_id] if after_shift else true_theta
+                evaluation_bias = shifted_bias if after_shift else true_bias
                 if step in BUDGETS:
                     metrics = evaluate_posterior(
-                        true_theta=true_theta, true_bias=true_bias, weights=weights,
+                        true_theta=evaluation_theta, true_bias=evaluation_bias, weights=weights,
                         particles=particles, target_utilities=target_utility,
                         target_behavior=target_behavior, targets=evaluation_targets,
+                        stress=args.stress,
                     )
                     rows.append({
                         "seed": args.seed, "user_id": user_id, "arm": arm,
-                        "budget": step, "true_gamma": true_theta.gamma,
-                        "true_alpha": true_theta.alpha,
-                        "true_lambda": true_theta.lambda_,
-                        "true_bias_safe": float(true_bias[0]),
-                        "true_bias_delayed": float(true_bias[1]),
-                        "true_bias_risky": float(true_bias[2]),
-                        "true_bias_balanced": float(true_bias[3]),
+                        "budget": step, "stress": args.stress,
+                        "true_gamma": evaluation_theta.gamma,
+                        "true_alpha": evaluation_theta.alpha,
+                        "true_lambda": evaluation_theta.lambda_,
+                        "true_bias_safe": float(evaluation_bias[0]),
+                        "true_bias_delayed": float(evaluation_bias[1]),
+                        "true_bias_risky": float(evaluation_bias[2]),
+                        "true_bias_balanced": float(evaluation_bias[3]),
                         **metrics,
                     })
                 if step == max(BUDGETS):
@@ -181,13 +204,20 @@ def main() -> None:
                 )
                 available[query_id] = False
                 response_rng = np.random.default_rng(response_seed(args.seed, user_id, query_id))
-                choice = int(response_rng.choice(4, p=true_query_probabilities[query_id]))
+                true_probabilities = (
+                    shifted_query_probabilities if after_shift else true_query_probabilities
+                )
+                choice = int(response_rng.choice(4, p=true_probabilities[query_id]))
+                if args.stress == "inconsistent" and response_rng.random() < .15:
+                    choice = int(response_rng.choice([a for a in range(4) if a != choice]))
                 weights = update_weights(weights, query_behavior[query_id, :, choice])
                 traces.append({
                     "seed": args.seed, "user_id": user_id, "arm": arm,
                     "round": step + 1, "query_id": query_id,
                     "scenario_id": queries[query_id].scenario_id,
                     "choice": choice,
+                    "stress": args.stress,
+                    "after_shift": after_shift,
                     "selected_information_gain": None if np.isnan(information) else information,
                     "selected_decision_value": None if np.isnan(decision_value) else decision_value,
                     "posterior_ess": float(1.0 / np.square(weights).sum()),
@@ -207,6 +237,7 @@ def main() -> None:
                         "n_particles": args.n_particles, "n_queries": args.n_queries,
                         "n_targets": args.n_targets, "budgets": BUDGETS,
                         "arms": ARMS, "records": len(rows), "query_records": len(traces),
+                        "stress": args.stress,
                         "simulator": "analytic stochastic 4-way choice with behavioral bias"}
     (args.output_dir / "summary.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps({"records": len(rows), "query_records": len(traces)}, indent=2))
