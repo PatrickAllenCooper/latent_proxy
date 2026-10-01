@@ -128,6 +128,21 @@ regret improved only modestly, from 0.0573 to 0.0436 or 0.0420. This arm did
 not pass the robustness gate for a larger confirmatory run. Retain its raw
 traces and move to a posterior with an explicit response-noise component.
 
+An explicit 20% random-choice likelihood was piloted with 30 users and then
+replicated on 100 fresh users (seed 8401, 4096 particles) across the same four
+stress conditions. At eight questions, noise-aware EIG minus ordinary EIG
+reward regret was +0.0026 (95% paired bootstrap [-0.0003, 0.0059]) for
+matched users, -0.0281 [-0.0476, -0.0089] after a hidden shift, +0.0080
+[0.0009, 0.0155] for higher-temperature noisy choices, and -0.0126
+[-0.0213, -0.0046] for inconsistent choices. The 20% component exactly
+matches the latter simulation by construction; its success there does not
+establish that this noise rate can be known for real users. Adding a surprise
+trigger to that robust posterior again cost stable users (+0.0043
+[0.0008, 0.0083]) while helping after shifts (-0.0487 [-0.0715, -0.0272]).
+The minimum effective particle count was 3.47 in some conditions. No fixed
+setting passed all stress cases. Next infer noise rate jointly with preferences
+and use a separate latent change hypothesis; validate uncertainty calibration.
+
 Advance only if the output parser, scoring, model/checkpoint identity, and raw
 generations pass inspection. Subsequent work: optimize prompts with TextGrad
 and GEPA on disjoint development users; compare 3 x 2 x 2 prompt/tool/adapter

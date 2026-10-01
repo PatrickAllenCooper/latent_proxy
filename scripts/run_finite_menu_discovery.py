@@ -31,6 +31,8 @@ TRIGGER_ARMS = ("random", "eig", "eig_hazard_10", "eig_surprise_05",
                 "eig_surprise_10")
 HISTORY_ARMS = ("random", "eig", "eig_hazard_10", "eig_sustained_10",
                 "eig_sustained_20")
+ROBUST_ARMS = ("random", "eig", "eig_hazard_10", "eig_robust_20",
+               "eig_robust_surprise_10")
 BUDGETS = (0, 2, 4, 8)
 
 
@@ -147,7 +149,8 @@ def main() -> None:
         default="matched",
     )
     parser.add_argument("--arm-set", choices=("standard", "change_adaptation",
-                                               "change_trigger", "change_history"),
+                                               "change_trigger", "change_history",
+                                               "robust_noise"),
                         default="standard")
     parser.add_argument("--output-dir", type=Path, required=True)
     args = parser.parse_args()
@@ -157,7 +160,8 @@ def main() -> None:
         parser.error("need at least two users and one target")
     arms = {"standard": ARMS, "change_adaptation": ADAPTIVE_ARMS,
             "change_trigger": TRIGGER_ARMS,
-            "change_history": HISTORY_ARMS}[args.arm_set]
+            "change_history": HISTORY_ARMS,
+            "robust_noise": ROBUST_ARMS}[args.arm_set]
     users = SyntheticUserSampler(seed=args.seed).sample_batch(args.n_users)
     shifted_users = SyntheticUserSampler(seed=args.seed + 800_000).sample_batch(args.n_users)
     queries = [make_scenario(args.seed + 100_000 + i) for i in range(args.n_queries)]
@@ -187,6 +191,10 @@ def main() -> None:
             weights = np.ones(args.n_particles, dtype=np.float64) / args.n_particles
             available = np.ones(args.n_queries, dtype=np.bool_)
             recent_surprises: list[bool] = []
+            arm_query_behavior = (
+                .8 * query_behavior + .05 if arm.startswith("eig_robust_")
+                else query_behavior
+            )
             arm_rng = np.random.default_rng(args.seed + 600_000 + user_id * 100 + arms.index(arm))
             for step in range(max(BUDGETS) + 1):
                 after_shift = args.stress == "shift" and step >= 4
@@ -215,8 +223,9 @@ def main() -> None:
                     break
                 query_id, information, decision_value = choose_query(
                     "eig" if arm.startswith(("eig_hazard_", "eig_surprise_",
-                                             "eig_sustained_")) else arm,
-                    weights, query_behavior, acquisition_utility, available, arm_rng
+                                             "eig_sustained_", "eig_robust_")) else arm,
+                    weights, arm_query_behavior, acquisition_utility, available,
+                    arm_rng
                 )
                 available[query_id] = False
                 response_rng = np.random.default_rng(response_seed(args.seed, user_id, query_id))
@@ -227,13 +236,16 @@ def main() -> None:
                 if args.stress == "inconsistent" and response_rng.random() < .15:
                     choice = int(response_rng.choice([a for a in range(4) if a != choice]))
                 predictive_choice_probability = float(np.dot(
-                    weights, query_behavior[query_id, :, choice]
+                    weights, arm_query_behavior[query_id, :, choice]
                 ))
                 hazard = {"eig_hazard_10": .10, "eig_hazard_25": .25}.get(arm, 0.0)
                 surprise_threshold = {"eig_surprise_05": .05,
                                       "eig_surprise_10": .10}.get(arm)
                 if (surprise_threshold is not None
                         and predictive_choice_probability < surprise_threshold):
+                    hazard = .25
+                if (arm == "eig_robust_surprise_10"
+                        and predictive_choice_probability < .10):
                     hazard = .25
                 sustained_threshold = {"eig_sustained_10": .10,
                                        "eig_sustained_20": .20}.get(arm)
@@ -249,7 +261,7 @@ def main() -> None:
                 predictive_weights = ((1.0 - hazard) * weights
                                       + hazard / args.n_particles)
                 weights = update_weights(predictive_weights,
-                                         query_behavior[query_id, :, choice])
+                                         arm_query_behavior[query_id, :, choice])
                 traces.append({
                     "seed": args.seed, "user_id": user_id, "arm": arm,
                     "round": step + 1, "query_id": query_id,
