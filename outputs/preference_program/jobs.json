@@ -274,6 +274,34 @@
       "job_id": "33188022",
       "name": "lp-proxy-llm",
       "script": "scripts/slurm/run_finite_menu_llm_pilot_h200.slurm",
+      "status": "failed",
+      "revision": "9dafc2dd87e1d71237d9e545c2944e53e3be526f",
+      "purpose": "Paired gold-profile LLM pilot: base and dialogue DPO, each with no tool, exact reward tool, and learned RL policy tool",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/proxy-program-v2/outputs",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/proxy-program-v2/logs/llm-pilot-33188022.*",
+      "local_results": "outputs/preference_program/results/proxy_llm_pilot_v2",
+      "seed": 5001,
+      "n_users": 12,
+      "n_scenarios": 8,
+      "arms_per_condition": 3,
+      "conditions": [
+        "base",
+        "dialogue"
+      ],
+      "records_expected": 576,
+      "checkpoint": "/scratch/alpine/paco0228/latent_proxy_runs/77add19/outputs/dpo/dialogue_phase2/phase2/final",
+      "policy_checkpoint": "/home/paco0228/latent_proxy_proxy_program/policy.pt",
+      "last_scheduler_reason": "Priority",
+      "exit_code": "1:0",
+      "failure": "ModuleNotFoundError: src.evaluation.preference_benchmark; launch omitted PYTHONPATH",
+      "validated": false,
+      "local_logs": "outputs/preference_program/results/proxy_llm_pilot_v2/logs"
+    },
+    {
+      "job_id": "33195624",
+      "name": "lp-proxy-llm",
+      "script": "scripts/slurm/run_finite_menu_llm_pilot_h200.slurm",
       "status": "pending",
       "revision": "9dafc2dd87e1d71237d9e545c2944e53e3be526f",
       "purpose": "Paired gold-profile LLM pilot: base and dialogue DPO, each with no tool, exact reward tool, and learned RL policy tool",
@@ -285,12 +313,21 @@
       "n_users": 12,
       "n_scenarios": 8,
       "arms_per_condition": 3,
-      "conditions": ["base", "dialogue"],
+      "conditions": [
+        "base",
+        "dialogue"
+      ],
       "records_expected": 576,
       "checkpoint": "/scratch/alpine/paco0228/latent_proxy_runs/77add19/outputs/dpo/dialogue_phase2/phase2/final",
       "policy_checkpoint": "/home/paco0228/latent_proxy_proxy_program/policy.pt",
-      "last_scheduler_reason": "Priority"
+      "last_scheduler_reason": null,
+      "exit_code": null,
+      "failure": null,
+      "validated": null,
+      "local_logs": null,
+      "retry_of": "33188022",
+      "launch_override": "sbatch --export=ALL,PYTHONPATH=/home/paco0228/latent_proxy_proxy_program"
     }
   ],
-  "last_checked_at_utc": "2026-09-28T02:24:50Z"
+  "last_checked_at_utc": "2026-10-01T02:03:07.730245+00:00"
 }
