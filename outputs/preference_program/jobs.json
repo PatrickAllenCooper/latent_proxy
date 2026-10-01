@@ -589,7 +589,38 @@
       "observed_gpu_name": "NVIDIA H200 NVL MIG 2g.35gb",
       "gpu_memory_allocated_bytes_first_generation": 1186918400,
       "gpu_utilization": "MIG nvidia-smi utilization percent N/A; CUDA tensor preflight, framework memory, and 3 completed generations verify GPU work"
+    },
+    {
+      "job_id": "33214670",
+      "name": "lp-prompt-dev",
+      "script": "scripts/slurm/run_prompt_pilot_dev_mig.slurm",
+      "status": "pending",
+      "revision": "81cde3f",
+      "purpose": "Paired 48-case development comparison of baseline, explicit utility formula, and numeric-score prompt",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program_v9",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/prompt-pilot-v9/manifests/dev.jsonl",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/prompt-pilot-v9/dev",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/prompt-pilot-v9/logs/dev-33214670.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/prompt-pilot-v9/logs/dev-33214670-gpu.csv",
+      "local_results": "outputs/preference_program/results/prompt_pilot_dev_v9",
+      "seed": 6001,
+      "n_users": 4,
+      "n_scenarios": 4,
+      "arms_per_condition": 3,
+      "conditions": [
+        "base"
+      ],
+      "records_expected": 48,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "exclude": "c3gpu-e5-u5",
+        "memory": "32G",
+        "wall_time": "00:15:00"
+      }
     }
   ],
-  "last_checked_at_utc": "2026-10-01T20:13:24.267699+00:00"
+  "last_checked_at_utc": "2026-10-01T20:15:06.483839+00:00"
 }
