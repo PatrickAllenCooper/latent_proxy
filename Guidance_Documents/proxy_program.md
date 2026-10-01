@@ -81,6 +81,20 @@ users it increased regret from 0.0196 to 0.0333, difference +0.0137
 user cost. Next test a surprise-triggered refresh or explicit change-point
 posterior against both controls; do not select the hazard by shifted cases alone.
 
+A change-trigger pilot used posterior predictive probability of the observed
+answer, refreshing 25% of weights only when it fell below 0.05 or 0.10. A
+30-user development panel was followed by 100 fresh paired users (seed 8201,
+4096 particles) under stable and shifted preferences. The 0.10 threshold
+triggered on 25 of 800 stable-user answers and 54 of 800 shifted-user answers.
+At eight questions it changed regret versus static EIG from 0.0152 to 0.0168
+for stable users (paired +0.0016, bootstrap [0.0000, 0.0036]) and from 0.1273
+to 0.0590 after a shift (paired -0.0683 [-0.0974, -0.0430]). Continuous 10%
+refresh reached 0.0311 after a shift but cost more under stability (0.0223).
+Thus a simple surprise trigger reduces, but does not eliminate, the
+adaptation/stability tradeoff. The shifted panel's minimum effective particle
+count was 8.73. More realistic preference changes and posterior calibration
+remain open before choosing a deployment rule.
+
 Advance only if the output parser, scoring, model/checkpoint identity, and raw
 generations pass inspection. Subsequent work: optimize prompts with TextGrad
 and GEPA on disjoint development users; compare 3 x 2 x 2 prompt/tool/adapter

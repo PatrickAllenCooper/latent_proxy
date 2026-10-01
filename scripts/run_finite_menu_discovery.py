@@ -27,6 +27,8 @@ from src.training.synthetic_users import SyntheticUserSampler
 
 ARMS = ("random", "eig", "decision_value", "aif_50")
 ADAPTIVE_ARMS = ("random", "eig", "eig_hazard_10", "eig_hazard_25")
+TRIGGER_ARMS = ("random", "eig", "eig_hazard_10", "eig_surprise_05",
+                "eig_surprise_10")
 BUDGETS = (0, 2, 4, 8)
 
 
@@ -142,7 +144,8 @@ def main() -> None:
         "--stress", choices=("matched", "noisy", "inconsistent", "shift"),
         default="matched",
     )
-    parser.add_argument("--arm-set", choices=("standard", "change_adaptation"),
+    parser.add_argument("--arm-set", choices=("standard", "change_adaptation",
+                                               "change_trigger"),
                         default="standard")
     parser.add_argument("--output-dir", type=Path, required=True)
     args = parser.parse_args()
@@ -150,7 +153,8 @@ def main() -> None:
         parser.error("query pool must fit the largest budget")
     if args.n_users < 2 or args.n_targets < 1:
         parser.error("need at least two users and one target")
-    arms = ADAPTIVE_ARMS if args.arm_set == "change_adaptation" else ARMS
+    arms = {"standard": ARMS, "change_adaptation": ADAPTIVE_ARMS,
+            "change_trigger": TRIGGER_ARMS}[args.arm_set]
     users = SyntheticUserSampler(seed=args.seed).sample_batch(args.n_users)
     shifted_users = SyntheticUserSampler(seed=args.seed + 800_000).sample_batch(args.n_users)
     queries = [make_scenario(args.seed + 100_000 + i) for i in range(args.n_queries)]
@@ -206,7 +210,7 @@ def main() -> None:
                 if step == max(BUDGETS):
                     break
                 query_id, information, decision_value = choose_query(
-                    "eig" if arm.startswith("eig_hazard_") else arm,
+                    "eig" if arm.startswith(("eig_hazard_", "eig_surprise_")) else arm,
                     weights, query_behavior, acquisition_utility, available, arm_rng
                 )
                 available[query_id] = False
@@ -217,7 +221,15 @@ def main() -> None:
                 choice = int(response_rng.choice(4, p=true_probabilities[query_id]))
                 if args.stress == "inconsistent" and response_rng.random() < .15:
                     choice = int(response_rng.choice([a for a in range(4) if a != choice]))
+                predictive_choice_probability = float(np.dot(
+                    weights, query_behavior[query_id, :, choice]
+                ))
                 hazard = {"eig_hazard_10": .10, "eig_hazard_25": .25}.get(arm, 0.0)
+                surprise_threshold = {"eig_surprise_05": .05,
+                                      "eig_surprise_10": .10}.get(arm)
+                if (surprise_threshold is not None
+                        and predictive_choice_probability < surprise_threshold):
+                    hazard = .25
                 predictive_weights = ((1.0 - hazard) * weights
                                       + hazard / args.n_particles)
                 weights = update_weights(predictive_weights,
@@ -229,6 +241,8 @@ def main() -> None:
                     "choice": choice,
                     "stress": args.stress,
                     "after_shift": after_shift,
+                    "predictive_choice_probability": predictive_choice_probability,
+                    "refresh_applied": hazard,
                     "selected_information_gain": None if np.isnan(information) else information,
                     "selected_decision_value": None if np.isnan(decision_value) else decision_value,
                     "posterior_ess": float(1.0 / np.square(weights).sum()),
