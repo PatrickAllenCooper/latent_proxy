@@ -421,7 +421,38 @@
         "dialogue": 1204350976
       },
       "gpu_utilization": "nvidia-smi utilization.gpu reported N/A for MIG; framework memory plus 576 completed generations verify GPU work"
+    },
+    {
+      "job_id": "33201355",
+      "name": "lp-advice-smoke",
+      "script": "scripts/slurm/run_proxy_advice_smoke_mig.slurm",
+      "status": "pending",
+      "revision": "6454803",
+      "purpose": "Three-generation base-model smoke for wrong direct advice, caveated wrong advice, and exact numeric scores",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program_v5",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/proxy-advice-v5/manifests/smoke.jsonl",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/proxy-advice-v5/smoke",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/proxy-advice-v5/logs/smoke-33201355.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/proxy-advice-v5/logs/smoke-33201355-gpu.csv",
+      "local_results": "outputs/preference_program/results/proxy_advice_smoke_v5",
+      "seed": 5001,
+      "n_users": 1,
+      "n_scenarios": 1,
+      "arms_per_condition": 3,
+      "conditions": [
+        "base"
+      ],
+      "records_expected": 3,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "memory": "32G",
+        "wall_time": "00:15:00"
+      },
+      "last_scheduler_reason": "unknown"
     }
   ],
-  "last_checked_at_utc": "2026-10-01T07:06:59.335209+00:00"
+  "last_checked_at_utc": "2026-10-01T08:08:24.678678+00:00"
 }
