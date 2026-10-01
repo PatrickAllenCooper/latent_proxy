@@ -59,7 +59,10 @@ def generate(model: object, tokenizer: object, prompt: str, max_new_tokens: int)
     encoded = tokenizer.apply_chat_template(
         messages, tokenize=True, add_generation_prompt=True,
         return_tensors="pt",
-    ).to(model.device)
+    )
+    if hasattr(encoded, "input_ids"):
+        encoded = encoded["input_ids"]
+    encoded = encoded.to(model.device)
     with torch.inference_mode():
         output = model.generate(
             encoded,
@@ -67,6 +70,16 @@ def generate(model: object, tokenizer: object, prompt: str, max_new_tokens: int)
             do_sample=False,
             pad_token_id=tokenizer.eos_token_id,
         )
+    if not getattr(generate, "_reported_gpu", False):
+        print(json.dumps({
+            "event": "first_generation",
+            "at_utc": datetime.now(timezone.utc).isoformat(),
+            "input_tokens": int(encoded.shape[-1]),
+            "output_tokens": int(output.shape[-1] - encoded.shape[-1]),
+            "gpu_memory_allocated_bytes": int(torch.cuda.memory_allocated()),
+            "gpu_memory_peak_bytes": int(torch.cuda.max_memory_allocated()),
+        }), flush=True)
+        generate._reported_gpu = True
     return tokenizer.decode(output[0, encoded.shape[-1]:], skip_special_tokens=True)
 
 
@@ -90,6 +103,12 @@ def main() -> None:
     model, tokenizer = load_model_with_optional_checkpoint(
         args.model_name, str(args.checkpoint) if args.checkpoint else None
     )
+    import torch
+    print(json.dumps({
+        "event": "model_loaded", "condition": args.condition,
+        "at_utc": datetime.now(timezone.utc).isoformat(),
+        "gpu_memory_allocated_bytes": int(torch.cuda.memory_allocated()),
+    }), flush=True)
     policy = None
     if args.policy_checkpoint:
         import torch

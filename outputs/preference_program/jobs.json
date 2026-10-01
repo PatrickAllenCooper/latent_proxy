@@ -302,7 +302,7 @@
       "job_id": "33195624",
       "name": "lp-proxy-llm",
       "script": "scripts/slurm/run_finite_menu_llm_pilot_h200.slurm",
-      "status": "pending",
+      "status": "failed",
       "revision": "9dafc2dd87e1d71237d9e545c2944e53e3be526f",
       "purpose": "Paired gold-profile LLM pilot: base and dialogue DPO, each with no tool, exact reward tool, and learned RL policy tool",
       "remote_source": "/home/paco0228/latent_proxy_proxy_program",
@@ -321,13 +321,17 @@
       "checkpoint": "/scratch/alpine/paco0228/latent_proxy_runs/77add19/outputs/dpo/dialogue_phase2/phase2/final",
       "policy_checkpoint": "/home/paco0228/latent_proxy_proxy_program/policy.pt",
       "last_scheduler_reason": null,
-      "exit_code": null,
-      "failure": null,
-      "validated": null,
-      "local_logs": null,
+      "exit_code": "1:0",
+      "failure": "Transformers tokenizer BatchEncoding passed as positional tensor to model.generate; AttributeError shape",
+      "validated": false,
+      "local_logs": "outputs/preference_program/results/proxy_llm_pilot_v2/logs",
       "retry_of": "33188022",
-      "launch_override": "sbatch --export=ALL,PYTHONPATH=/home/paco0228/latent_proxy_proxy_program"
+      "launch_override": "sbatch --export=ALL,PYTHONPATH=/home/paco0228/latent_proxy_proxy_program",
+      "observed_records": 0,
+      "allocated_gpu": "h200:1",
+      "elapsed": "00:04:28",
+      "gpu_utilization": "not recorded; no generation completed"
     }
   ],
-  "last_checked_at_utc": "2026-10-01T02:03:07.730245+00:00"
+  "last_checked_at_utc": "2026-10-01T03:04:55.435575+00:00"
 }

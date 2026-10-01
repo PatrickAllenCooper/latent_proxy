@@ -1,0 +1,28 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:02<11:20,  2.02s/it]Loading weights:   1%|          | 3/338 [00:03<05:40,  1.01s/it]Loading weights:   8%|▊         | 26/338 [00:03<00:26, 11.89it/s]Loading weights:  10%|▉         | 33/338 [00:04<00:25, 12.09it/s]Loading weights:  11%|█         | 38/338 [00:04<00:20, 14.40it/s]Loading weights:  13%|█▎        | 43/338 [00:05<00:27, 10.82it/s]Loading weights:  15%|█▌        | 52/338 [00:05<00:21, 13.00it/s]Loading weights:  19%|█▉        | 65/338 [00:05<00:13, 19.63it/s]Loading weights:  23%|██▎       | 77/338 [00:05<00:09, 28.34it/s]Loading weights:  26%|██▌       | 87/338 [00:05<00:07, 33.58it/s]Loading weights:  33%|███▎      | 112/338 [00:06<00:03, 60.32it/s]Loading weights:  42%|████▏     | 141/338 [00:06<00:02, 95.14it/s]Loading weights:  51%|█████     | 171/338 [00:06<00:01, 131.42it/s]Loading weights:  58%|█████▊    | 197/338 [00:06<00:00, 154.31it/s]Loading weights:  65%|██████▍   | 219/338 [00:08<00:04, 29.07it/s] Loading weights:  70%|██████▉   | 235/338 [00:10<00:04, 20.64it/s]Loading weights:  73%|███████▎  | 246/338 [00:10<00:03, 24.15it/s]Loading weights:  76%|███████▌  | 257/338 [00:12<00:05, 15.15it/s]Loading weights:  78%|███████▊  | 265/338 [00:12<00:04, 16.81it/s]Loading weights:  80%|████████  | 272/338 [00:14<00:07,  8.77it/s]Loading weights:  82%|████████▏ | 277/338 [00:15<00:07,  8.56it/s]Loading weights:  83%|████████▎ | 281/338 [00:18<00:11,  4.95it/s]Loading weights:  86%|████████▌ | 291/338 [00:19<00:07,  5.99it/s]Loading weights:  87%|████████▋ | 293/338 [00:19<00:08,  5.44it/s]Loading weights:  88%|████████▊ | 299/338 [00:20<00:05,  7.08it/s]Loading weights:  90%|████████▉ | 303/338 [00:20<00:04,  8.13it/s]Loading weights:  90%|█████████ | 305/338 [00:21<00:05,  6.06it/s]Loading weights:  92%|█████████▏| 311/338 [00:21<00:03,  7.95it/s]Loading weights:  93%|█████████▎| 315/338 [00:22<00:03,  6.67it/s]Loading weights:  94%|█████████▍| 317/338 [00:23<00:04,  4.74it/s]Loading weights:  97%|█████████▋| 327/338 [00:24<00:01,  7.63it/s]Loading weights:  97%|█████████▋| 329/338 [00:25<00:01,  5.38it/s]Loading weights:  99%|█████████▊| 333/338 [00:25<00:00,  6.87it/s]Loading weights: 100%|██████████| 338/338 [00:25<00:00, 13.32it/s]
+Traceback (most recent call last):
+  File "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 289, in __getattr__
+    return self.data[item]
+           ~~~~~~~~~^^^^^^
+KeyError: 'shape'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paco0228/latent_proxy_proxy_program/scripts/run_finite_menu_llm_pilot.py", line 173, in <module>
+    main()
+  File "/home/paco0228/latent_proxy_proxy_program/scripts/run_finite_menu_llm_pilot.py", line 124, in main
+    completion = generate(model, tokenizer, prompt, args.max_new_tokens)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco0228/latent_proxy_proxy_program/scripts/run_finite_menu_llm_pilot.py", line 64, in generate
+    output = model.generate(
+             ^^^^^^^^^^^^^^^
+  File "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/transformers/generation/utils.py", line 2534, in generate
+    batch_size = inputs_tensor.shape[0]
+                 ^^^^^^^^^^^^^^^^^^^
+  File "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 291, in __getattr__
+    raise AttributeError
+AttributeError
