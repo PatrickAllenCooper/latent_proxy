@@ -158,6 +158,21 @@ The minimum effective particle count was 3.47 in some conditions. No fixed
 setting passed all stress cases. Next infer noise rate jointly with preferences
 and use a separate latent change hypothesis; validate uncertainty calibration.
 
+A joint particle model then assigned each preference particle a response-noise
+fraction from {0, 0.10, 0.20, 0.40}, updated both from answers, and used the
+noise-aware predictive distribution for EIG. On 100 fresh paired users
+(seed 8501, 4096 particles), inferred-noise EIG minus ordinary EIG eight-question
+reward regret was -0.0018 (95% user-bootstrap [-0.0052, 0.0011]) for matched
+users, -0.0352 [-0.0568, -0.0163] after a hidden shift, -0.0013
+[-0.0073, 0.0049] for higher-temperature noise, and -0.0120
+[-0.0211, -0.0036] for inconsistent answers. The optional surprise refresh
+helped the shift panel further but lost its advantage on inconsistent answers.
+The inferred noise fraction averaged 0.109 even for matched users (true
+random-choice fraction zero), and effective particle count fell to 2.39 in
+one condition. Treat the improvement as a decision result, not calibrated
+recovery of a user's noise parameter. Next compare alternative noise priors
+and resampling before selecting a posterior for deployment.
+
 Advance only if the output parser, scoring, model/checkpoint identity, and raw
 generations pass inspection. Subsequent work: optimize prompts with TextGrad
 and GEPA on disjoint development users; compare 3 x 2 x 2 prompt/tool/adapter

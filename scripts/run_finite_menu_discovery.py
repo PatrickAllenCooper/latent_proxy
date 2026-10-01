@@ -33,6 +33,8 @@ HISTORY_ARMS = ("random", "eig", "eig_hazard_10", "eig_sustained_10",
                 "eig_sustained_20")
 ROBUST_ARMS = ("random", "eig", "eig_hazard_10", "eig_robust_20",
                "eig_robust_surprise_10")
+INFER_NOISE_ARMS = ("random", "eig", "eig_noise_inferred",
+                    "eig_noise_inferred_surprise_10")
 BUDGETS = (0, 2, 4, 8)
 
 
@@ -150,7 +152,7 @@ def main() -> None:
     )
     parser.add_argument("--arm-set", choices=("standard", "change_adaptation",
                                                "change_trigger", "change_history",
-                                               "robust_noise"),
+                                               "robust_noise", "infer_noise"),
                         default="standard")
     parser.add_argument("--output-dir", type=Path, required=True)
     args = parser.parse_args()
@@ -161,7 +163,8 @@ def main() -> None:
     arms = {"standard": ARMS, "change_adaptation": ADAPTIVE_ARMS,
             "change_trigger": TRIGGER_ARMS,
             "change_history": HISTORY_ARMS,
-            "robust_noise": ROBUST_ARMS}[args.arm_set]
+            "robust_noise": ROBUST_ARMS,
+            "infer_noise": INFER_NOISE_ARMS}[args.arm_set]
     users = SyntheticUserSampler(seed=args.seed).sample_batch(args.n_users)
     shifted_users = SyntheticUserSampler(seed=args.seed + 800_000).sample_batch(args.n_users)
     queries = [make_scenario(args.seed + 100_000 + i) for i in range(args.n_queries)]
@@ -180,6 +183,17 @@ def main() -> None:
         _, query_behavior = prepared_menus(queries, particles)
         acquisition_utility, _ = prepared_menus(acquisition_targets, particles)
         target_utility, target_behavior = prepared_menus(evaluation_targets, particles)
+        particle_noise = np.random.default_rng(
+            args.seed + 700_000 + user_id
+        ).choice(np.array([0.0, .10, .20, .40]), size=args.n_particles)
+        inferred_query_behavior = (
+            query_behavior * (1.0 - particle_noise)[None, :, None]
+            + particle_noise[None, :, None] / 4.0
+        )
+        inferred_target_behavior = (
+            target_behavior * (1.0 - particle_noise)[None, :, None]
+            + particle_noise[None, :, None] / 4.0
+        )
         true_query_probabilities = [behavior_probabilities(
             s, true_theta, bias=true_bias,
             temperature=.06 if args.stress == "noisy" else .025,
@@ -192,8 +206,13 @@ def main() -> None:
             available = np.ones(args.n_queries, dtype=np.bool_)
             recent_surprises: list[bool] = []
             arm_query_behavior = (
-                .8 * query_behavior + .05 if arm.startswith("eig_robust_")
+                inferred_query_behavior if arm.startswith("eig_noise_inferred")
+                else .8 * query_behavior + .05 if arm.startswith("eig_robust_")
                 else query_behavior
+            )
+            arm_target_behavior = (
+                inferred_target_behavior if arm.startswith("eig_noise_inferred")
+                else target_behavior
             )
             arm_rng = np.random.default_rng(args.seed + 600_000 + user_id * 100 + arms.index(arm))
             for step in range(max(BUDGETS) + 1):
@@ -204,7 +223,8 @@ def main() -> None:
                     metrics = evaluate_posterior(
                         true_theta=evaluation_theta, true_bias=evaluation_bias, weights=weights,
                         particles=particles, target_utilities=target_utility,
-                        target_behavior=target_behavior, targets=evaluation_targets,
+                        target_behavior=arm_target_behavior,
+                        targets=evaluation_targets,
                         stress=args.stress,
                     )
                     rows.append({
@@ -217,13 +237,16 @@ def main() -> None:
                         "true_bias_delayed": float(evaluation_bias[1]),
                         "true_bias_risky": float(evaluation_bias[2]),
                         "true_bias_balanced": float(evaluation_bias[3]),
+                        "estimated_noise_fraction": float(np.dot(weights, particle_noise))
+                            if arm.startswith("eig_noise_inferred") else 0.0,
                         **metrics,
                     })
                 if step == max(BUDGETS):
                     break
                 query_id, information, decision_value = choose_query(
                     "eig" if arm.startswith(("eig_hazard_", "eig_surprise_",
-                                             "eig_sustained_", "eig_robust_")) else arm,
+                                             "eig_sustained_", "eig_robust_",
+                                             "eig_noise_inferred")) else arm,
                     weights, arm_query_behavior, acquisition_utility, available,
                     arm_rng
                 )
@@ -245,6 +268,9 @@ def main() -> None:
                         and predictive_choice_probability < surprise_threshold):
                     hazard = .25
                 if (arm == "eig_robust_surprise_10"
+                        and predictive_choice_probability < .10):
+                    hazard = .25
+                if (arm == "eig_noise_inferred_surprise_10"
                         and predictive_choice_probability < .10):
                     hazard = .25
                 sustained_threshold = {"eig_sustained_10": .10,
