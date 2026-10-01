@@ -467,7 +467,7 @@
       "job_id": "33203230",
       "name": "lp-advice-full",
       "script": "scripts/slurm/run_proxy_advice_full_mig.slurm",
-      "status": "pending",
+      "status": "completed",
       "revision": "4ea5f76",
       "purpose": "Paired 12-user by 8-menu base-model ablation of wrong direct advice, caveated wrong advice, and exact numeric scores",
       "remote_source": "/home/paco0228/latent_proxy_proxy_program_v6",
@@ -492,8 +492,22 @@
         "memory": "32G",
         "wall_time": "00:15:00"
       },
-      "smoke_job_id": "33201355"
+      "smoke_job_id": "33201355",
+      "exit_code": "0:0",
+      "elapsed": "00:00:36",
+      "observed_records": 288,
+      "parse_failures": 0,
+      "validated": true,
+      "results_copied": true,
+      "observed_gpu_device_count": 1,
+      "observed_gpu_name": "NVIDIA H200 NVL MIG 2g.35gb",
+      "gpu_memory_allocated_bytes_first_generation": 1186918400,
+      "gpu_utilization": "nvidia-smi utilization.gpu N/A for MIG; framework memory plus 288 completed generations verify GPU work",
+      "analysis_outputs": [
+        "outputs/preference_program/results/proxy_advice_full_v6/per_user.csv",
+        "outputs/preference_program/results/proxy_advice_full_v6/summary.json"
+      ]
     }
   ],
-  "last_checked_at_utc": "2026-10-01T11:08:56.346555+00:00"
+  "last_checked_at_utc": "2026-10-01T12:10:00.860903+00:00"
 }

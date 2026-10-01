@@ -1,0 +1,195 @@
+{
+  "n_users": 12,
+  "n_scenarios": 8,
+  "records": 384,
+  "cells": {
+    "no_tool": {
+      "normalized_regret": {
+        "mean": 0.5157970425770594,
+        "user_bootstrap_95": [
+          0.3789114887508431,
+          0.6534800828484086
+        ]
+      },
+      "gold_choice": {
+        "mean": 0.3020833333333333,
+        "user_bootstrap_95": [
+          0.15625,
+          0.4583333333333333
+        ]
+      },
+      "parse_failure": {
+        "mean": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "wrong_direct": {
+      "normalized_regret": {
+        "mean": 1.0,
+        "user_bootstrap_95": [
+          1.0,
+          1.0
+        ]
+      },
+      "gold_choice": {
+        "mean": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "parse_failure": {
+        "mean": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "wrong_caveated": {
+      "normalized_regret": {
+        "mean": 0.5275694267130838,
+        "user_bootstrap_95": [
+          0.3829653602735426,
+          0.6602965128873824
+        ]
+      },
+      "gold_choice": {
+        "mean": 0.3020833333333333,
+        "user_bootstrap_95": [
+          0.15625,
+          0.4583333333333333
+        ]
+      },
+      "parse_failure": {
+        "mean": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "exact_scores": {
+      "normalized_regret": {
+        "mean": 0.32025725643690395,
+        "user_bootstrap_95": [
+          0.14567010065766312,
+          0.5147090079821607
+        ]
+      },
+      "gold_choice": {
+        "mean": 0.5,
+        "user_bootstrap_95": [
+          0.28125,
+          0.71875
+        ]
+      },
+      "parse_failure": {
+        "mean": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    }
+  },
+  "paired_contrasts": {
+    "wrong_direct minus no_tool": {
+      "normalized_regret": {
+        "mean_difference": 0.4842029574229407,
+        "user_bootstrap_95": [
+          0.3441134583849044,
+          0.6239152118312056
+        ]
+      },
+      "gold_choice": {
+        "mean_difference": -0.3020833333333333,
+        "user_bootstrap_95": [
+          -0.4583333333333333,
+          -0.15625
+        ]
+      },
+      "parse_failure": {
+        "mean_difference": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "wrong_caveated minus wrong_direct": {
+      "normalized_regret": {
+        "mean_difference": -0.47243057328691623,
+        "user_bootstrap_95": [
+          -0.6087036053872144,
+          -0.3426169796981286
+        ]
+      },
+      "gold_choice": {
+        "mean_difference": 0.3020833333333333,
+        "user_bootstrap_95": [
+          0.15625,
+          0.4583333333333333
+        ]
+      },
+      "parse_failure": {
+        "mean_difference": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "exact_scores minus no_tool": {
+      "normalized_regret": {
+        "mean_difference": -0.19553978614015533,
+        "user_bootstrap_95": [
+          -0.46842389238325355,
+          0.06664841821094174
+        ]
+      },
+      "gold_choice": {
+        "mean_difference": 0.19791666666666666,
+        "user_bootstrap_95": [
+          -0.10416666666666667,
+          0.53125
+        ]
+      },
+      "parse_failure": {
+        "mean_difference": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "exact_scores minus wrong_caveated": {
+      "normalized_regret": {
+        "mean_difference": -0.20731217027617985,
+        "user_bootstrap_95": [
+          -0.47127180509907973,
+          0.053515530001008664
+        ]
+      },
+      "gold_choice": {
+        "mean_difference": 0.19791666666666666,
+        "user_bootstrap_95": [
+          -0.125,
+          0.5208333333333334
+        ]
+      },
+      "parse_failure": {
+        "mean_difference": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    }
+  },
+  "wrong_direct_follow_rate": 1.0,
+  "wrong_caveated_follow_rate": 0.375
+}

@@ -1,0 +1,20 @@
+job=33203230 revision=4ea5f76 started=2026-10-01T05:25:53-06:00
+{"event": "model_load_start", "condition": "base", "at_utc": "2026-10-01T11:25:56.000140+00:00"}
+{"event": "model_loaded", "condition": "base", "at_utc": "2026-10-01T11:26:10.047396+00:00", "gpu_device_count": 1, "gpu_name": "NVIDIA H200 NVL MIG 2g.35gb", "gpu_memory_allocated_bytes": 1153358848}
+{"event": "first_generation", "at_utc": "2026-10-01T11:26:11.336177+00:00", "input_tokens": 296, "output_tokens": 2, "gpu_memory_allocated_bytes": 1186918400, "gpu_memory_peak_bytes": 1239055360}
+{"event": "generation_progress", "at_utc": "2026-10-01T11:26:11.336893+00:00", "records": 1, "arm": "wrong_direct", "completion": "C", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T11:26:11.433838+00:00", "records": 2, "arm": "wrong_caveated", "completion": "C", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T11:26:11.529123+00:00", "records": 3, "arm": "exact_scores", "completion": "A", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T11:26:11.562442+00:00", "records": 4, "arm": "wrong_direct", "completion": "C", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T11:26:11.595948+00:00", "records": 5, "arm": "wrong_caveated", "completion": "C", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T11:26:11.682349+00:00", "records": 6, "arm": "exact_scores", "completion": "A", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T11:26:12.472647+00:00", "records": 30, "arm": "exact_scores", "completion": "A", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T11:26:13.460693+00:00", "records": 60, "arm": "exact_scores", "completion": "A", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T11:26:14.451914+00:00", "records": 90, "arm": "exact_scores", "completion": "A", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T11:26:15.439490+00:00", "records": 120, "arm": "exact_scores", "completion": "A", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T11:26:16.427216+00:00", "records": 150, "arm": "exact_scores", "completion": "A", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T11:26:17.417006+00:00", "records": 180, "arm": "exact_scores", "completion": "A", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T11:26:18.408436+00:00", "records": 210, "arm": "exact_scores", "completion": "A", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T11:26:20.211488+00:00", "records": 240, "arm": "exact_scores", "completion": "A", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T11:26:21.199358+00:00", "records": 270, "arm": "exact_scores", "completion": "A", "parse_failure": false}
+job=33203230 completed=2026-10-01T05:26:22-06:00

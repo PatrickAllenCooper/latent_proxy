@@ -50,6 +50,21 @@ other formats. The next pilot should swap and degrade proxy advice, expose
 numerical scores rather than only a letter, and compare prompt variants on
 held-out users before scaling.
 
+The follow-up advice-reliability ablation reused those 12 users and 8 menus,
+with three CPU-prepared prompt variants and 288 new base-model generations.
+Directly recommending the worst action made the model choose it on all 96
+menus (mean normalized regret 1.000 versus 0.516 without advice; paired
+user-bootstrap difference +0.484 [0.344, 0.624]). Warning that the advice
+might be inaccurate reduced copying to 36/96, but the model mostly reverted
+to C (92/96) and mean regret was 0.528. Giving exact numerical utility scores
+without a recommended letter led it to choose A on all 96 menus; A happened
+to be optimal on 48/96, yielding regret 0.320. The paired score-vs-no-tool
+regret interval [-0.468, 0.067] is imprecise. The observed constant-letter
+behavior does not demonstrate that it compared scores. This is strong evidence
+of advice-following vulnerability in the direct format and limited evidence
+that a simple caution repairs it. A next prompt-optimization pilot should
+require an explicit score comparison and separate tool trust from arithmetic.
+
 The analytic-user discovery study in `scripts/run_finite_menu_discovery.py`
 uses a separate particle posterior over reward preferences and behavioral bias.
 It compares random, mutual information, exact finite-menu decision value of
