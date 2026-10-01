@@ -1,0 +1,184 @@
+job=33199705 revision=c4cceac started=2026-10-01T00:33:18-06:00
+{"event": "model_load_start", "condition": "base", "at_utc": "2026-10-01T06:33:19.059694+00:00"}
+{"event": "model_loaded", "condition": "base", "at_utc": "2026-10-01T06:33:46.182381+00:00", "gpu_device_count": 1, "gpu_name": "NVIDIA H200 NVL MIG 2g.35gb", "gpu_memory_allocated_bytes": 1153358848}
+{"event": "first_generation", "at_utc": "2026-10-01T06:33:47.441309+00:00", "input_tokens": 287, "output_tokens": 2, "gpu_memory_allocated_bytes": 1186918400, "gpu_memory_peak_bytes": 1238360064}
+{"condition": "base", "arm": "no_tool", "completion": "C", "parse_failure": false}
+{"condition": "base", "arm": "gold_reward_tool", "completion": "B", "parse_failure": false}
+{"condition": "base", "arm": "learned_rl_tool", "completion": "A", "parse_failure": false}
+{"condition": "base", "arm": "no_tool", "completion": "C", "parse_failure": false}
+{"condition": "base", "arm": "gold_reward_tool", "completion": "B", "parse_failure": false}
+{"condition": "base", "arm": "learned_rl_tool", "completion": "A", "parse_failure": false}
+records=30
+records=60
+records=90
+records=120
+records=150
+records=180
+records=210
+records=240
+records=270
+{"event": "model_load_start", "condition": "dialogue", "at_utc": "2026-10-01T06:33:58.040680+00:00"}
+{"event": "model_loaded", "condition": "dialogue", "at_utc": "2026-10-01T06:34:11.281622+00:00", "gpu_device_count": 1, "gpu_name": "NVIDIA H200 NVL MIG 2g.35gb", "gpu_memory_allocated_bytes": 1170791424}
+{"event": "first_generation", "at_utc": "2026-10-01T06:34:12.042184+00:00", "input_tokens": 287, "output_tokens": 2, "gpu_memory_allocated_bytes": 1204350976, "gpu_memory_peak_bytes": 1255792640}
+{"condition": "dialogue", "arm": "no_tool", "completion": "C", "parse_failure": false}
+{"condition": "dialogue", "arm": "gold_reward_tool", "completion": "B", "parse_failure": false}
+{"condition": "dialogue", "arm": "learned_rl_tool", "completion": "A", "parse_failure": false}
+{"condition": "dialogue", "arm": "no_tool", "completion": "C", "parse_failure": false}
+{"condition": "dialogue", "arm": "gold_reward_tool", "completion": "B", "parse_failure": false}
+{"condition": "dialogue", "arm": "learned_rl_tool", "completion": "A", "parse_failure": false}
+records=30
+records=60
+records=90
+records=120
+records=150
+records=180
+records=210
+records=240
+records=270
+{
+  "base/gold_reward_tool": {
+    "records": 96,
+    "normalized_regret": {
+      "mean": 0.0,
+      "user_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    "behavioral_agreement": {
+      "mean": 0.9194795710331892,
+      "user_bootstrap_95": [
+        0.8892802416112313,
+        0.9469944430956952
+      ]
+    },
+    "parse_failure": {
+      "mean": 0.0,
+      "user_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "base/learned_rl_tool": {
+    "records": 96,
+    "normalized_regret": {
+      "mean": 0.14238055981458597,
+      "user_bootstrap_95": [
+        0.04208230616448694,
+        0.2646770959675493
+      ]
+    },
+    "behavioral_agreement": {
+      "mean": 0.6780667600720629,
+      "user_bootstrap_95": [
+        0.5001564516401638,
+        0.8330697607702119
+      ]
+    },
+    "parse_failure": {
+      "mean": 0.0,
+      "user_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "base/no_tool": {
+    "records": 96,
+    "normalized_regret": {
+      "mean": 0.5157970425770594,
+      "user_bootstrap_95": [
+        0.3710604150823568,
+        0.6551799655885688
+      ]
+    },
+    "behavioral_agreement": {
+      "mean": 0.29207609443045723,
+      "user_bootstrap_95": [
+        0.15070686100868505,
+        0.4374513861579947
+      ]
+    },
+    "parse_failure": {
+      "mean": 0.0,
+      "user_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "dialogue/gold_reward_tool": {
+    "records": 96,
+    "normalized_regret": {
+      "mean": 0.0,
+      "user_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    "behavioral_agreement": {
+      "mean": 0.9194795710331892,
+      "user_bootstrap_95": [
+        0.8908732345672461,
+        0.947974050628224
+      ]
+    },
+    "parse_failure": {
+      "mean": 0.0,
+      "user_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "dialogue/learned_rl_tool": {
+    "records": 96,
+    "normalized_regret": {
+      "mean": 0.14238055981458597,
+      "user_bootstrap_95": [
+        0.04093895012074766,
+        0.2605672135826429
+      ]
+    },
+    "behavioral_agreement": {
+      "mean": 0.6780667600720629,
+      "user_bootstrap_95": [
+        0.503059675777133,
+        0.8339927198986614
+      ]
+    },
+    "parse_failure": {
+      "mean": 0.0,
+      "user_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "dialogue/no_tool": {
+    "records": 96,
+    "normalized_regret": {
+      "mean": 0.5157970425770594,
+      "user_bootstrap_95": [
+        0.3692660053295322,
+        0.6501386090612418
+      ]
+    },
+    "behavioral_agreement": {
+      "mean": 0.29207609443045723,
+      "user_bootstrap_95": [
+        0.16296213367003132,
+        0.436993690395928
+      ]
+    },
+    "parse_failure": {
+      "mean": 0.0,
+      "user_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    }
+  }
+}
+job=33199705 completed=2026-10-01T00:34:26-06:00

@@ -1,0 +1,313 @@
+{
+  "benchmark_version": "finite_menu_v2",
+  "records": 576,
+  "cells": {
+    "base/gold_reward_tool": {
+      "records": 96,
+      "normalized_regret": {
+        "mean": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "behavioral_agreement": {
+        "mean": 0.9194795710331892,
+        "user_bootstrap_95": [
+          0.8892802416112313,
+          0.9469944430956952
+        ]
+      },
+      "parse_failure": {
+        "mean": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "base/learned_rl_tool": {
+      "records": 96,
+      "normalized_regret": {
+        "mean": 0.14238055981458597,
+        "user_bootstrap_95": [
+          0.04208230616448694,
+          0.2646770959675493
+        ]
+      },
+      "behavioral_agreement": {
+        "mean": 0.6780667600720629,
+        "user_bootstrap_95": [
+          0.5001564516401638,
+          0.8330697607702119
+        ]
+      },
+      "parse_failure": {
+        "mean": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "base/no_tool": {
+      "records": 96,
+      "normalized_regret": {
+        "mean": 0.5157970425770594,
+        "user_bootstrap_95": [
+          0.3710604150823568,
+          0.6551799655885688
+        ]
+      },
+      "behavioral_agreement": {
+        "mean": 0.29207609443045723,
+        "user_bootstrap_95": [
+          0.15070686100868505,
+          0.4374513861579947
+        ]
+      },
+      "parse_failure": {
+        "mean": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "dialogue/gold_reward_tool": {
+      "records": 96,
+      "normalized_regret": {
+        "mean": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "behavioral_agreement": {
+        "mean": 0.9194795710331892,
+        "user_bootstrap_95": [
+          0.8908732345672461,
+          0.947974050628224
+        ]
+      },
+      "parse_failure": {
+        "mean": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "dialogue/learned_rl_tool": {
+      "records": 96,
+      "normalized_regret": {
+        "mean": 0.14238055981458597,
+        "user_bootstrap_95": [
+          0.04093895012074766,
+          0.2605672135826429
+        ]
+      },
+      "behavioral_agreement": {
+        "mean": 0.6780667600720629,
+        "user_bootstrap_95": [
+          0.503059675777133,
+          0.8339927198986614
+        ]
+      },
+      "parse_failure": {
+        "mean": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "dialogue/no_tool": {
+      "records": 96,
+      "normalized_regret": {
+        "mean": 0.5157970425770594,
+        "user_bootstrap_95": [
+          0.3692660053295322,
+          0.6501386090612418
+        ]
+      },
+      "behavioral_agreement": {
+        "mean": 0.29207609443045723,
+        "user_bootstrap_95": [
+          0.16296213367003132,
+          0.436993690395928
+        ]
+      },
+      "parse_failure": {
+        "mean": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    }
+  },
+  "contrasts": {
+    "base/gold_reward_tool minus base/no_tool": {
+      "normalized_regret": {
+        "mean_difference": -0.5157970425770594,
+        "user_bootstrap_95": [
+          -0.6501783087591575,
+          -0.3764867299453431
+        ]
+      },
+      "behavioral_agreement": {
+        "mean_difference": 0.627403476602732,
+        "user_bootstrap_95": [
+          0.4634322451155069,
+          0.7867823425324028
+        ]
+      },
+      "parse_failure": {
+        "mean_difference": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "base/learned_rl_tool minus base/no_tool": {
+      "normalized_regret": {
+        "mean_difference": -0.3734164827624733,
+        "user_bootstrap_95": [
+          -0.5496759665967208,
+          -0.20632360912414324
+        ]
+      },
+      "behavioral_agreement": {
+        "mean_difference": 0.3859906656416056,
+        "user_bootstrap_95": [
+          0.17721457198024682,
+          0.6001474115010221
+        ]
+      },
+      "parse_failure": {
+        "mean_difference": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "dialogue/gold_reward_tool minus dialogue/no_tool": {
+      "normalized_regret": {
+        "mean_difference": -0.5157970425770594,
+        "user_bootstrap_95": [
+          -0.6558958919503101,
+          -0.37962305717141176
+        ]
+      },
+      "behavioral_agreement": {
+        "mean_difference": 0.627403476602732,
+        "user_bootstrap_95": [
+          0.45775779506312275,
+          0.7967769916246319
+        ]
+      },
+      "parse_failure": {
+        "mean_difference": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "dialogue/learned_rl_tool minus dialogue/no_tool": {
+      "normalized_regret": {
+        "mean_difference": -0.3734164827624733,
+        "user_bootstrap_95": [
+          -0.5449499833260067,
+          -0.20901886249879237
+        ]
+      },
+      "behavioral_agreement": {
+        "mean_difference": 0.3859906656416056,
+        "user_bootstrap_95": [
+          0.17312710635011558,
+          0.6169551781804532
+        ]
+      },
+      "parse_failure": {
+        "mean_difference": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "dialogue/no_tool minus base/no_tool": {
+      "normalized_regret": {
+        "mean_difference": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "behavioral_agreement": {
+        "mean_difference": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "parse_failure": {
+        "mean_difference": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "dialogue/gold_reward_tool minus base/gold_reward_tool": {
+      "normalized_regret": {
+        "mean_difference": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "behavioral_agreement": {
+        "mean_difference": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "parse_failure": {
+        "mean_difference": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "dialogue/learned_rl_tool minus base/learned_rl_tool": {
+      "normalized_regret": {
+        "mean_difference": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "behavioral_agreement": {
+        "mean_difference": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "parse_failure": {
+        "mean_difference": 0.0,
+        "user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    }
+  }
+}

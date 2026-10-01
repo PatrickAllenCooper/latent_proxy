@@ -36,6 +36,20 @@ injected by the harness as a visible tool result. This first pilot measures
 whether the model uses information supplied by a proxy; voluntary tool calling
 is a later condition. Every prompt, raw completion, and parse failure is saved.
 
+The full paired 12-user by 8-menu LLM pilot completed on one 35 GB H200 MIG
+slice in 81 seconds. Its 576 raw generations are complete and parseable. Both
+base and dialogue-adapted models chose C on all 96 no-tool cases, then copied
+the supplied proxy letter on all 96 exact-reward and 96 learned-RL cases.
+Their completions were identical on all 288 matched prompts. Mean normalized
+regret was 0.5158 with no tool, 0.1424 with learned RL advice, and zero with
+exact reward advice; the learned-tool minus no-tool paired user bootstrap
+interval was [-0.5497, -0.2063]. This shows that explicit proxy advice can
+steer these models in the current forced-result prompt. It does not establish
+voluntary tool use, independent preference inference, or no adapter effect in
+other formats. The next pilot should swap and degrade proxy advice, expose
+numerical scores rather than only a letter, and compare prompt variants on
+held-out users before scaling.
+
 The analytic-user discovery study in `scripts/run_finite_menu_discovery.py`
 uses a separate particle posterior over reward preferences and behavioral bias.
 It compares random, mutual information, exact finite-menu decision value of
