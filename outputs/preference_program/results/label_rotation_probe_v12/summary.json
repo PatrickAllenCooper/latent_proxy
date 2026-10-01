@@ -1,0 +1,83 @@
+{
+  "created_at_utc": "2026-10-01T23:15:12.864292+00:00",
+  "source": "outputs/preference_program/results/label_rotation_probe_v12/base.jsonl",
+  "records": 256,
+  "cases": 32,
+  "parse_failures": 0,
+  "arms": {
+    "scores_only": {
+      "records": 128,
+      "correct": 56,
+      "accuracy": 0.4375,
+      "accuracy_95ci": [
+        0.3984375,
+        0.46875
+      ],
+      "mean_normalized_regret": 0.317905725149079,
+      "regret_95ci": [
+        0.27834530822097225,
+        0.35297447851729785
+      ],
+      "choice_counts": {
+        "A": 97,
+        "D": 31
+      },
+      "correct_by_gold": {
+        "A": 31,
+        "B": 0,
+        "C": 0,
+        "D": 25
+      },
+      "correct_by_permutation": {
+        "0": 12,
+        "1": 15,
+        "2": 15,
+        "3": 14
+      }
+    },
+    "exact_advice": {
+      "records": 128,
+      "correct": 128,
+      "accuracy": 1.0,
+      "accuracy_95ci": [
+        1.0,
+        1.0
+      ],
+      "mean_normalized_regret": 0.0,
+      "regret_95ci": [
+        0.0,
+        0.0
+      ],
+      "choice_counts": {
+        "A": 32,
+        "B": 32,
+        "C": 32,
+        "D": 32
+      },
+      "correct_by_gold": {
+        "A": 32,
+        "B": 32,
+        "C": 32,
+        "D": 32
+      },
+      "correct_by_permutation": {
+        "0": 32,
+        "1": 32,
+        "2": 32,
+        "3": 32
+      }
+    }
+  },
+  "paired": {
+    "scores_only_minus_exact_accuracy": -0.5625,
+    "accuracy_difference_95ci": [
+      -0.6015625,
+      -0.5234375
+    ],
+    "scores_only_minus_exact_regret": 0.317905725149079,
+    "regret_difference_95ci": [
+      0.2787482856610991,
+      0.3531703341834788
+    ]
+  }
+}

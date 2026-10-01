@@ -731,7 +731,7 @@
       "job_id": "33234967",
       "name": "lp-label-rotation",
       "script": "scripts/slurm/run_label_rotation_probe_mig.slurm",
-      "status": "pending",
+      "status": "completed",
       "revision": "2643826",
       "purpose": "Rotate A/B/C/D labels over 32 fixed user-menu utilities; compare numeric scores vs exact letter advice",
       "remote_source": "/home/paco0228/latent_proxy_proxy_program_v12",
@@ -757,8 +757,22 @@
         "exclude": "c3gpu-e5-u5",
         "memory": "32G",
         "wall_time": "00:05:00"
-      }
+      },
+      "exit_code": "0:0",
+      "elapsed": "00:00:56",
+      "node": "c3gpu-e5-u1",
+      "observed_records": 256,
+      "parse_failures": 0,
+      "validated": true,
+      "results_copied": true,
+      "observed_gpu_device_count": 1,
+      "observed_gpu_name": "NVIDIA H200 NVL MIG 2g.35gb",
+      "gpu_utilization": "nvidia-smi utilization N/A for MIG; CUDA tensor preflight, framework memory and 256 completed generations verify GPU work",
+      "analysis_outputs": [
+        "outputs/preference_program/results/label_rotation_probe_v12/summary.json"
+      ],
+      "main_finding": "Numeric scores: 56/128 correct, choices only A or D. Exact letter: 128/128 correct. Score format does not yield reliable four-way numeric comparison."
     }
   ],
-  "last_checked_at_utc": "2026-10-01T23:13:09.942516+00:00"
+  "last_checked_at_utc": "2026-10-01T23:15:33.638131+00:00"
 }

@@ -1,0 +1,20 @@
+job=33234967 node=c3gpu-e5-u1 revision=2643826 started=2026-10-01T17:13:05-06:00
+{"event": "gpu_preflight", "device_count": 1, "device_name": "NVIDIA H200 NVL MIG 2g.35gb", "allocated_bytes": 4096}
+{"event": "model_load_start", "condition": "base", "at_utc": "2026-10-01T23:13:11.448505+00:00"}
+{"event": "model_loaded", "condition": "base", "at_utc": "2026-10-01T23:13:36.196582+00:00", "gpu_device_count": 1, "gpu_name": "NVIDIA H200 NVL MIG 2g.35gb", "gpu_memory_allocated_bytes": 1153358848}
+{"event": "first_generation", "at_utc": "2026-10-01T23:13:37.422872+00:00", "input_tokens": 112, "output_tokens": 2, "gpu_memory_allocated_bytes": 1186915328, "gpu_memory_peak_bytes": 1225528320}
+{"event": "generation_progress", "at_utc": "2026-10-01T23:13:37.423744+00:00", "records": 1, "arm": "scores_only", "completion": "A", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T23:13:40.102553+00:00", "records": 2, "arm": "exact_advice", "completion": "A", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T23:13:40.131670+00:00", "records": 3, "arm": "scores_only", "completion": "A", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T23:13:40.158548+00:00", "records": 4, "arm": "exact_advice", "completion": "B", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T23:13:40.187673+00:00", "records": 5, "arm": "scores_only", "completion": "A", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T23:13:40.214482+00:00", "records": 6, "arm": "exact_advice", "completion": "C", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T23:13:40.874906+00:00", "records": 30, "arm": "exact_advice", "completion": "C", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T23:13:41.768308+00:00", "records": 60, "arm": "exact_advice", "completion": "B", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T23:13:42.645923+00:00", "records": 90, "arm": "exact_advice", "completion": "B", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T23:13:43.470159+00:00", "records": 120, "arm": "exact_advice", "completion": "A", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T23:13:44.294079+00:00", "records": 150, "arm": "exact_advice", "completion": "A", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T23:13:45.119795+00:00", "records": 180, "arm": "exact_advice", "completion": "D", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T23:13:45.943121+00:00", "records": 210, "arm": "exact_advice", "completion": "D", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T23:13:46.766675+00:00", "records": 240, "arm": "exact_advice", "completion": "C", "parse_failure": false}
+job=33234967 completed=2026-10-01T17:13:48-06:00

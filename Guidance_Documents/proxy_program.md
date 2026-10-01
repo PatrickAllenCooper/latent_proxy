@@ -216,3 +216,28 @@ score order on the same paired menus, then compare the model with a trivial
 argmax parser and the exact-advice ceiling. This tests whether the observed
 A/C defaults follow presentation order or meaning. Prompt optimization
 should operate on separate development menus and be scored on fresh menus.
+
+## Action-label rotation mechanism probe (2026-10-01)
+
+CURC job 33234967 rotated A/B/C/D labels four ways for each of the 32
+validated user-menu cases while keeping the underlying utility vector fixed.
+A minimal numeric-score prompt and a minimal exact-letter-advice prompt were
+paired for every rotation (256 generations, zero parse failures). With scores,
+the 1.5B Qwen model chose A 97 times and D 31 times; it never chose B or C.
+It matched the maximum numerical score in 56/128 rotations (43.75%,
+case-bootstrap 95% CI [39.84%, 46.88%]) and had mean normalized regret 0.318.
+Exact letter advice was followed in 128/128 rotations and had zero regret.
+The score arm did respond to some score configurations (D was correct in
+25/32 D-optimal rotations), but it did not perform reliable four-way numeric
+comparison. This reconciles the earlier scores-only regret gain with the
+strong answer-letter bias. The paired design reuses each underlying case in
+four rotations, so the interval clusters by the 32 underlying cases. Raw
+prompts, generations, metrics, and GPU logs are in
+`outputs/preference_program/results/label_rotation_probe_v12`.
+
+The next prompt-optimization question is whether a different prompt can make
+this model select B and C when their scores are highest on held-out cases.
+Compare a small set of prompts at an equal generation budget, selecting on
+one set of users and evaluating on fresh users and menus. Include an exact
+argmax parser as a deterministic reference. Only then consider broader
+TextGrad/GEPA search or fine tuning for numerical tool output.
