@@ -1,0 +1,9 @@
+job=33207020 node=c3gpu-e5-u1 revision=bae5914 started=2026-10-01T14:08:11-06:00
+{"event": "gpu_preflight", "device_count": 1, "device_name": "NVIDIA H200 NVL MIG 2g.35gb", "allocated_bytes": 4096}
+{"event": "model_load_start", "condition": "base", "at_utc": "2026-10-01T20:08:18.081645+00:00"}
+{"event": "model_loaded", "condition": "base", "at_utc": "2026-10-01T20:08:52.344498+00:00", "gpu_device_count": 1, "gpu_name": "NVIDIA H200 NVL MIG 2g.35gb", "gpu_memory_allocated_bytes": 1153358848}
+{"event": "first_generation", "at_utc": "2026-10-01T20:08:53.727195+00:00", "input_tokens": 287, "output_tokens": 2, "gpu_memory_allocated_bytes": 1186918400, "gpu_memory_peak_bytes": 1238360064}
+{"event": "generation_progress", "at_utc": "2026-10-01T20:08:53.727940+00:00", "records": 1, "arm": "baseline", "completion": "C", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T20:08:53.828271+00:00", "records": 2, "arm": "explicit_formula", "completion": "C", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T20:08:53.916256+00:00", "records": 3, "arm": "score_comparison", "completion": "C", "parse_failure": false}
+job=33207020 completed=2026-10-01T14:08:54-06:00
