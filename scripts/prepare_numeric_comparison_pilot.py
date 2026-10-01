@@ -17,12 +17,12 @@ ARMS = ('baseline', 'full_scores', 'scores_only', 'exact_advice')
 
 
 def prepare(output: Path, n_users: int, seed: int) -> None:
-    users = SyntheticUserSampler(seed=seed).sample_batch(max(40, 4 * n_users))
-    scenarios = [make_scenario(seed + 1_000_000 + i) for i in range(2000)]
+    users = SyntheticUserSampler(seed=seed).sample_batch(max(200, 8 * n_users))
     rows = []
     selected = {a: [] for a in range(4)}
     used_users = set()
     for user_id, theta in enumerate(users):
+        scenarios = [make_scenario(seed + 1_000_000 + user_id * 2000 + i) for i in range(2000)]
         for scenario in scenarios:
             values = expected_utilities(scenario, theta)
             gold = int(np.argmax(values))
