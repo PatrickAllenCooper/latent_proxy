@@ -1,0 +1,17 @@
+{
+  "benchmark_version": "finite_menu_v2",
+  "condition": "base",
+  "model_name": "Qwen/Qwen2.5-1.5B-Instruct",
+  "checkpoint": null,
+  "policy_checkpoint": "/home/paco0228/latent_proxy_proxy_program_v3/policy.pt",
+  "n_users": 1,
+  "n_scenarios": 1,
+  "arms": [
+    "no_tool",
+    "gold_reward_tool",
+    "learned_rl_tool"
+  ],
+  "expected_records": 3,
+  "records": 3,
+  "completed_at_utc": "2026-10-01T05:25:37.651927+00:00"
+}

@@ -336,7 +336,7 @@
       "job_id": "33196214",
       "name": "lp-proxy-smoke",
       "script": "scripts/slurm/run_finite_menu_llm_smoke_h200.slurm",
-      "status": "pending",
+      "status": "completed",
       "revision": "82ba0f6",
       "purpose": "Six-generation base/dialogue smoke with raw prompts, GPU memory and utilization telemetry",
       "remote_source": "/home/paco0228/latent_proxy_proxy_program_v3",
@@ -363,8 +363,19 @@
         "memory": "32G",
         "wall_time": "00:30:00"
       },
-      "last_scheduler_reason": "Priority"
+      "last_scheduler_reason": "Priority",
+      "exit_code": "0:0",
+      "elapsed": "00:03:52",
+      "observed_records": 6,
+      "parse_failures": 0,
+      "validated": true,
+      "gpu_memory_allocated_bytes_first_generation": {
+        "base": 1186918400,
+        "dialogue": 1204350976
+      },
+      "gpu_utilization": "nvidia-smi utilization.gpu reported N/A for MIG; framework memory plus six completed generations verify GPU work",
+      "results_copied": true
     }
   ],
-  "last_checked_at_utc": "2026-10-01T03:05:34.872043+00:00"
+  "last_checked_at_utc": "2026-10-01T06:05:32.896222+00:00"
 }

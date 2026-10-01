@@ -1,0 +1,12 @@
+job=33196214 revision=82ba0f6 started=2026-09-30T23:22:38-06:00
+{"event": "model_loaded", "condition": "base", "at_utc": "2026-10-01T05:25:23.072943+00:00", "gpu_memory_allocated_bytes": 1153358848}
+{"event": "first_generation", "at_utc": "2026-10-01T05:25:37.199430+00:00", "input_tokens": 287, "output_tokens": 2, "gpu_memory_allocated_bytes": 1186918400, "gpu_memory_peak_bytes": 1238360064}
+{"condition": "base", "arm": "no_tool", "completion": "C", "parse_failure": false}
+{"condition": "base", "arm": "gold_reward_tool", "completion": "B", "parse_failure": false}
+{"condition": "base", "arm": "learned_rl_tool", "completion": "A", "parse_failure": false}
+{"event": "model_loaded", "condition": "dialogue", "at_utc": "2026-10-01T05:26:15.713938+00:00", "gpu_memory_allocated_bytes": 1170791424}
+{"event": "first_generation", "at_utc": "2026-10-01T05:26:17.031309+00:00", "input_tokens": 287, "output_tokens": 2, "gpu_memory_allocated_bytes": 1204350976, "gpu_memory_peak_bytes": 1255792640}
+{"condition": "dialogue", "arm": "no_tool", "completion": "C", "parse_failure": false}
+{"condition": "dialogue", "arm": "gold_reward_tool", "completion": "B", "parse_failure": false}
+{"condition": "dialogue", "arm": "learned_rl_tool", "completion": "A", "parse_failure": false}
+job=33196214 completed=2026-09-30T23:26:18-06:00

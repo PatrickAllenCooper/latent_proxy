@@ -100,6 +100,8 @@ def main() -> None:
 
     from src.training.model_utils import load_model_with_optional_checkpoint
 
+    print(json.dumps({"event": "model_load_start", "condition": args.condition,
+                      "at_utc": datetime.now(timezone.utc).isoformat()}), flush=True)
     model, tokenizer = load_model_with_optional_checkpoint(
         args.model_name, str(args.checkpoint) if args.checkpoint else None
     )
@@ -107,6 +109,8 @@ def main() -> None:
     print(json.dumps({
         "event": "model_loaded", "condition": args.condition,
         "at_utc": datetime.now(timezone.utc).isoformat(),
+        "gpu_device_count": int(torch.cuda.device_count()),
+        "gpu_name": torch.cuda.get_device_name(0),
         "gpu_memory_allocated_bytes": int(torch.cuda.memory_allocated()),
     }), flush=True)
     policy = None
