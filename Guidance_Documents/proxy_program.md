@@ -120,6 +120,14 @@ The next detector should accumulate evidence over answers and model noise as a
 separate latent variable; compare it against these fixed baselines on all four
 conditions before considering deployment.
 
+A 30-user, 1024-particle development pilot tested a stricter detector that
+requires two surprising answers within three questions. It triggered much
+less often but still raised regret under inconsistent answers: static EIG
+0.0472 versus 0.0689 for the 0.10 threshold and 0.0700 for 0.20. Its shift
+regret improved only modestly, from 0.0573 to 0.0436 or 0.0420. This arm did
+not pass the robustness gate for a larger confirmatory run. Retain its raw
+traces and move to a posterior with an explicit response-noise component.
+
 Advance only if the output parser, scoring, model/checkpoint identity, and raw
 generations pass inspection. Subsequent work: optimize prompts with TextGrad
 and GEPA on disjoint development users; compare 3 x 2 x 2 prompt/tool/adapter
