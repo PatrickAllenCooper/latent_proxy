@@ -20,3 +20,12 @@ shifted panels respectively. The trigger fired 25 of 800 stable-user answers
 and 54 of 800 shifted-user answers. All evidence is from analytic synthetic
 users with an assumed behavioral likelihood; posterior calibration remains
 uncertain when effective particle count is low.
+
+The same seed-8201 replication was extended to noisy and inconsistent stable
+users (`finite_menu_change_trigger_{noisy,inconsistent}_rep_v1`). Each directory
+has 2000 unique user-budget-arm rows and 4000 query traces with finite metrics.
+The threshold-0.10 trigger fired 81/800 times under noise and 79/800 under
+inconsistency. Its regret penalty relative to static EIG was +0.0286
+[0.0138, 0.0467] and +0.0488 [0.0192, 0.0822], respectively. This is a
+prespecified stress check that rejects the single-answer trigger as a robust
+change detector.

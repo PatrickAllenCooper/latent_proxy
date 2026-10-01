@@ -95,6 +95,17 @@ adaptation/stability tradeoff. The shifted panel's minimum effective particle
 count was 8.73. More realistic preference changes and posterior calibration
 remain open before choosing a deployment rule.
 
+The same fresh seed-8201 panel was extended to noisier choices and 15%
+inconsistent answers. The 0.10 surprise trigger fired 81/800 and 79/800 times,
+respectively, despite no preference change. At eight questions it increased
+regret versus static EIG by +0.0286 (95% paired bootstrap [0.0138, 0.0467])
+under noise and +0.0488 [0.0192, 0.0822] under inconsistency. Continuous 10%
+refresh also lost under noise (+0.0197 [0.0078, 0.0331]). A single unlikely
+answer cannot distinguish a change point from response-model misspecification.
+The next detector should accumulate evidence over answers and model noise as a
+separate latent variable; compare it against these fixed baselines on all four
+conditions before considering deployment.
+
 Advance only if the output parser, scoring, model/checkpoint identity, and raw
 generations pass inspection. Subsequent work: optimize prompts with TextGrad
 and GEPA on disjoint development users; compare 3 x 2 x 2 prompt/tool/adapter
