@@ -594,7 +594,7 @@
       "job_id": "33214670",
       "name": "lp-prompt-dev",
       "script": "scripts/slurm/run_prompt_pilot_dev_mig.slurm",
-      "status": "pending",
+      "status": "completed",
       "revision": "81cde3f",
       "purpose": "Paired 48-case development comparison of baseline, explicit utility formula, and numeric-score prompt",
       "remote_source": "/home/paco0228/latent_proxy_proxy_program_v9",
@@ -619,8 +619,22 @@
         "exclude": "c3gpu-e5-u5",
         "memory": "32G",
         "wall_time": "00:15:00"
-      }
+      },
+      "exit_code": "0:0",
+      "elapsed": "00:00:51",
+      "node": "c3gpu-e5-u1",
+      "observed_records": 48,
+      "parse_failures": 0,
+      "validated": true,
+      "results_copied": true,
+      "observed_gpu_device_count": 1,
+      "observed_gpu_name": "NVIDIA H200 NVL MIG 2g.35gb",
+      "gpu_memory_allocated_bytes_first_generation": 1186918400,
+      "gpu_utilization": "nvidia-smi utilization N/A for MIG; CUDA tensor preflight, framework memory and 48 completed generations verify GPU work",
+      "analysis_outputs": [
+        "outputs/preference_program/results/prompt_pilot_dev_v9/summary.json"
+      ]
     }
   ],
-  "last_checked_at_utc": "2026-10-01T20:15:06.483839+00:00"
+  "last_checked_at_utc": "2026-10-01T22:13:22.930833+00:00"
 }

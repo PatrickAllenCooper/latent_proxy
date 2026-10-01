@@ -1,0 +1,13 @@
+job=33214670 node=c3gpu-e5-u1 revision=81cde3f started=2026-10-01T15:33:22-06:00
+{"event": "gpu_preflight", "device_count": 1, "device_name": "NVIDIA H200 NVL MIG 2g.35gb", "allocated_bytes": 4096}
+{"event": "model_load_start", "condition": "base", "at_utc": "2026-10-01T21:33:28.631117+00:00"}
+{"event": "model_loaded", "condition": "base", "at_utc": "2026-10-01T21:33:58.503648+00:00", "gpu_device_count": 1, "gpu_name": "NVIDIA H200 NVL MIG 2g.35gb", "gpu_memory_allocated_bytes": 1153358848}
+{"event": "first_generation", "at_utc": "2026-10-01T21:33:59.870852+00:00", "input_tokens": 287, "output_tokens": 2, "gpu_memory_allocated_bytes": 1186918400, "gpu_memory_peak_bytes": 1238360064}
+{"event": "generation_progress", "at_utc": "2026-10-01T21:33:59.871513+00:00", "records": 1, "arm": "baseline", "completion": "C", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T21:33:59.967562+00:00", "records": 2, "arm": "explicit_formula", "completion": "C", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T21:34:00.172079+00:00", "records": 3, "arm": "score_comparison", "completion": "C", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T21:34:00.259480+00:00", "records": 4, "arm": "baseline", "completion": "C", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T21:34:00.349184+00:00", "records": 5, "arm": "explicit_formula", "completion": "C", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T21:34:00.480826+00:00", "records": 6, "arm": "score_comparison", "completion": "C", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T21:34:01.324754+00:00", "records": 30, "arm": "score_comparison", "completion": "C", "parse_failure": false}
+job=33214670 completed=2026-10-01T15:34:02-06:00
