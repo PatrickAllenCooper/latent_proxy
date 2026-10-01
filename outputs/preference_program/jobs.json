@@ -375,7 +375,40 @@
       },
       "gpu_utilization": "nvidia-smi utilization.gpu reported N/A for MIG; framework memory plus six completed generations verify GPU work",
       "results_copied": true
+    },
+    {
+      "job_id": "33199705",
+      "name": "lp-proxy-full",
+      "script": "scripts/slurm/run_finite_menu_llm_full_mig.slurm",
+      "status": "pending",
+      "revision": "c4cceac",
+      "purpose": "Full paired 12-user x 8-menu base/dialogue LLM comparison across no tool, exact reward advice, and learned RL advice",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program_v4",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/proxy-program-v4/outputs",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/proxy-program-v4/logs/full-33199705.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/proxy-program-v4/logs/full-33199705-gpu.csv",
+      "local_results": "outputs/preference_program/results/proxy_llm_full_v4",
+      "seed": 5001,
+      "n_users": 12,
+      "n_scenarios": 8,
+      "arms_per_condition": 3,
+      "conditions": [
+        "base",
+        "dialogue"
+      ],
+      "records_expected": 576,
+      "checkpoint": "/scratch/alpine/paco0228/latent_proxy_runs/77add19/outputs/dpo/dialogue_phase2/phase2/final",
+      "policy_checkpoint": "/home/paco0228/latent_proxy_proxy_program_v4/policy.pt",
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "memory": "32G",
+        "wall_time": "01:00:00"
+      },
+      "smoke_job_id": "33196214"
     }
   ],
-  "last_checked_at_utc": "2026-10-01T06:05:32.896222+00:00"
+  "last_checked_at_utc": "2026-10-01T06:06:32.441656+00:00"
 }
