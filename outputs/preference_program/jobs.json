@@ -680,7 +680,39 @@
         "outputs/preference_program/results/numeric_comparison_pilot_v10/summary.json"
       ],
       "limitation": "Several users share identical menu scenarios; bootstrap by user does not capture menu dependence. Confirm on fresh distinct menus and users."
+    },
+    {
+      "job_id": "33222831",
+      "name": "lp-numeric-rep",
+      "script": "scripts/slurm/run_numeric_comparison_replication_mig.slurm",
+      "status": "pending",
+      "revision": "a0c7dd5",
+      "purpose": "Fresh balanced replication on 32 unique users and 32 distinct menus; four prompt arms",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program_v11",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/numeric-rep-v11/manifests/pilot.jsonl",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/numeric-rep-v11/pilot",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/numeric-rep-v11/logs/pilot-33222831.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/numeric-rep-v11/logs/pilot-33222831-gpu.csv",
+      "local_results": "outputs/preference_program/results/numeric_comparison_replication_v11",
+      "seed": 8001,
+      "n_users": 32,
+      "n_cases": 32,
+      "unique_menus": 32,
+      "arms_per_condition": 4,
+      "conditions": [
+        "base"
+      ],
+      "records_expected": 128,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "exclude": "c3gpu-e5-u5",
+        "memory": "32G",
+        "wall_time": "00:05:00"
+      }
     }
   ],
-  "last_checked_at_utc": "2026-10-01T22:17:59.381415+00:00"
+  "last_checked_at_utc": "2026-10-01T22:19:27.907588+00:00"
 }
