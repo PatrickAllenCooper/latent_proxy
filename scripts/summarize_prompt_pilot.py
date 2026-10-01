@@ -12,7 +12,9 @@ import numpy as np
 
 def summarize(path: Path, output: Path, *, bootstrap_seed: int = 43117, draws: int = 10000) -> None:
     rows = [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
-    arms = ('baseline', 'explicit_formula', 'score_comparison')
+    present = {row['arm'] for row in rows}
+    assert 'baseline' in present
+    arms = ('baseline', *sorted(present - {'baseline'}))
     keys = defaultdict(dict)
     for row in rows:
         key = (row['user_id'], row['scenario_id'])

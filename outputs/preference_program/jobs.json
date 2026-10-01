@@ -639,7 +639,7 @@
       "job_id": "33221953",
       "name": "lp-numeric-pilot",
       "script": "scripts/slurm/run_numeric_comparison_pilot_mig.slurm",
-      "status": "pending",
+      "status": "completed",
       "revision": "6d857b2",
       "purpose": "Balanced 16-case, four-arm pilot isolating numeric score reading from menu distraction and exact advice",
       "remote_source": "/home/paco0228/latent_proxy_proxy_program_v10",
@@ -665,8 +665,22 @@
         "exclude": "c3gpu-e5-u5",
         "memory": "32G",
         "wall_time": "00:05:00"
-      }
+      },
+      "exit_code": "0:0",
+      "elapsed": "00:00:40",
+      "node": "c3gpu-e5-u1",
+      "observed_records": 64,
+      "parse_failures": 0,
+      "validated": true,
+      "results_copied": true,
+      "observed_gpu_device_count": 1,
+      "observed_gpu_name": "NVIDIA H200 NVL MIG 2g.35gb",
+      "gpu_utilization": "nvidia-smi utilization N/A for MIG; CUDA tensor preflight, framework memory, 64 completed generations verify GPU work",
+      "analysis_outputs": [
+        "outputs/preference_program/results/numeric_comparison_pilot_v10/summary.json"
+      ],
+      "limitation": "Several users share identical menu scenarios; bootstrap by user does not capture menu dependence. Confirm on fresh distinct menus and users."
     }
   ],
-  "last_checked_at_utc": "2026-10-01T22:15:36.327119+00:00"
+  "last_checked_at_utc": "2026-10-01T22:17:59.381415+00:00"
 }
