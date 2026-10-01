@@ -1,0 +1,8 @@
+job=33201355 revision=6454803 started=2026-10-01T04:44:13-06:00
+{"event": "model_load_start", "condition": "base", "at_utc": "2026-10-01T10:44:18.831840+00:00"}
+{"event": "model_loaded", "condition": "base", "at_utc": "2026-10-01T10:44:43.241347+00:00", "gpu_device_count": 1, "gpu_name": "NVIDIA H200 NVL MIG 2g.35gb", "gpu_memory_allocated_bytes": 1153358848}
+{"event": "first_generation", "at_utc": "2026-10-01T10:44:44.631113+00:00", "input_tokens": 296, "output_tokens": 2, "gpu_memory_allocated_bytes": 1186918400, "gpu_memory_peak_bytes": 1239055360}
+{"event": "generation_progress", "at_utc": "2026-10-01T10:44:44.631818+00:00", "records": 1, "arm": "wrong_direct", "completion": "C", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T10:44:44.722004+00:00", "records": 2, "arm": "wrong_caveated", "completion": "C", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T10:44:44.818161+00:00", "records": 3, "arm": "exact_scores", "completion": "A", "parse_failure": false}
+job=33201355 completed=2026-10-01T04:44:46-06:00

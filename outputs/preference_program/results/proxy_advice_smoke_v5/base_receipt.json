@@ -1,0 +1,8 @@
+{
+  "condition": "base",
+  "model_name": "Qwen/Qwen2.5-1.5B-Instruct",
+  "checkpoint": null,
+  "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/proxy-advice-v5/manifests/smoke.jsonl",
+  "records": 3,
+  "completed_at_utc": "2026-10-01T10:44:44.818295+00:00"
+}
