@@ -634,7 +634,39 @@
       "analysis_outputs": [
         "outputs/preference_program/results/prompt_pilot_dev_v9/summary.json"
       ]
+    },
+    {
+      "job_id": "33221953",
+      "name": "lp-numeric-pilot",
+      "script": "scripts/slurm/run_numeric_comparison_pilot_mig.slurm",
+      "status": "pending",
+      "revision": "6d857b2",
+      "purpose": "Balanced 16-case, four-arm pilot isolating numeric score reading from menu distraction and exact advice",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program_v10",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/numeric-pilot-v10/manifests/pilot.jsonl",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/numeric-pilot-v10/pilot",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/numeric-pilot-v10/logs/pilot-33221953.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/numeric-pilot-v10/logs/pilot-33221953-gpu.csv",
+      "local_results": "outputs/preference_program/results/numeric_comparison_pilot_v10",
+      "seed": 7001,
+      "n_users": 16,
+      "n_cases": 16,
+      "n_scenarios_per_user": 1,
+      "arms_per_condition": 4,
+      "conditions": [
+        "base"
+      ],
+      "records_expected": 64,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "exclude": "c3gpu-e5-u5",
+        "memory": "32G",
+        "wall_time": "00:05:00"
+      }
     }
   ],
-  "last_checked_at_utc": "2026-10-01T22:13:22.930833+00:00"
+  "last_checked_at_utc": "2026-10-01T22:15:36.327119+00:00"
 }
