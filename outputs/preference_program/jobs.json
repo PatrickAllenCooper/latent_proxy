@@ -685,7 +685,7 @@
       "job_id": "33222831",
       "name": "lp-numeric-rep",
       "script": "scripts/slurm/run_numeric_comparison_replication_mig.slurm",
-      "status": "pending",
+      "status": "completed",
       "revision": "a0c7dd5",
       "purpose": "Fresh balanced replication on 32 unique users and 32 distinct menus; four prompt arms",
       "remote_source": "/home/paco0228/latent_proxy_proxy_program_v11",
@@ -711,8 +711,22 @@
         "exclude": "c3gpu-e5-u5",
         "memory": "32G",
         "wall_time": "00:05:00"
-      }
+      },
+      "exit_code": "0:0",
+      "elapsed": "00:00:39",
+      "node": "c3gpu-e5-u1",
+      "observed_records": 128,
+      "parse_failures": 0,
+      "validated": true,
+      "results_copied": true,
+      "observed_gpu_device_count": 1,
+      "observed_gpu_name": "NVIDIA H200 NVL MIG 2g.35gb",
+      "gpu_utilization": "nvidia-smi utilization N/A for MIG; CUDA tensor preflight, framework memory and 128 completed generations verify GPU work",
+      "analysis_outputs": [
+        "outputs/preference_program/results/numeric_comparison_replication_v11/summary.json"
+      ],
+      "main_finding": "Scores-only mean normalized regret 0.220 vs full scores 0.439 and baseline 0.517, but chose A in 28/32 cases; exact advice correct 29/32. Prompt format gains do not yet show numeric comparison."
     }
   ],
-  "last_checked_at_utc": "2026-10-01T22:19:27.907588+00:00"
+  "last_checked_at_utc": "2026-10-01T22:21:42.978360+00:00"
 }

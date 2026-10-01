@@ -1,0 +1,8 @@
+{
+  "condition": "base",
+  "model_name": "Qwen/Qwen2.5-1.5B-Instruct",
+  "checkpoint": null,
+  "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/numeric-rep-v11/manifests/pilot.jsonl",
+  "records": 128,
+  "completed_at_utc": "2026-10-01T22:19:51.012670+00:00"
+}

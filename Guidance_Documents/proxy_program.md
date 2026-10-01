@@ -187,3 +187,32 @@ CURC job in `outputs/preference_program/jobs.json`. Copy completed results
 locally, validate expected record counts and raw traces, commit all results,
 and push to origin. Preserve remote source, checkpoints, logs, scratch data,
 and every other project's jobs.
+
+## Balanced numeric proxy prompt pilot and distinct-menu replication (2026-10-01)
+
+The 16-case balanced development pilot (CURC 33221953) compared baseline,
+full-menu numeric scores, scores only, and exact letter advice on a 1.5B
+Qwen model. It used 16 users but reused some menus across users, so its
+user-bootstrap interval does not capture menu dependence. Results are saved
+in `outputs/preference_program/results/numeric_comparison_pilot_v10`.
+
+A fresh, more informative replication (CURC 33222831) used 32 distinct users
+and 32 distinct menus, balanced to eight A/B/C/D optima. Each case was paired
+across four arms; there were 128 generations and zero parse failures. Mean
+normalized regret was 0.517 baseline, 0.439 with numeric scores in the full
+menu, 0.220 with scores only, and 0.039 with exact letter advice. The paired
+scores-only minus full-menu regret difference was -0.219 (user-bootstrap
+95% CI [-0.402, -0.035]); exact advice matched the gold action in 29/32
+cases. Baseline chose C on all 32 cases; the full-menu score prompt chose C
+on 28/32, and the scores-only prompt chose A on 28/32. Thus scores-only
+improves average regret on this balanced sample but does not establish
+reliable numeric comparison. Exact advice missed three A-optimal cases,
+choosing B in each. Raw prompts, completions, gold utilities, per-record
+metrics, logs, and the analysis are in
+`outputs/preference_program/results/numeric_comparison_replication_v11`.
+
+The next useful mechanism check should randomize action labels and numeric
+score order on the same paired menus, then compare the model with a trivial
+argmax parser and the exact-advice ceiling. This tests whether the observed
+A/C defaults follow presentation order or meaning. Prompt optimization
+should operate on separate development menus and be scored on fresh menus.

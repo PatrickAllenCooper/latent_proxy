@@ -47,6 +47,16 @@ def summarize(path: Path, output: Path, *, bootstrap_seed: int = 43117, draws: i
             'user_differences': {str(u): float(v) for u, v in zip(users, user_delta)},
             'changed_cases': [dict(user_id=u, scenario_id=s, baseline=group['baseline']['completion'], treatment=group[arm]['completion'], gold=group[arm]['gold_action']) for (u, s), group in keys.items() if group['baseline']['completion'] != group[arm]['completion']],
         }
+    for i, reference in enumerate(arms[1:], start=1):
+        for arm in arms[i + 1:]:
+            user_delta = np.array([np.mean([group[arm]['metrics']['normalized_regret'] - group[reference]['metrics']['normalized_regret'] for (u2, _), group in keys.items() if u2 == u]) for u in users])
+            draws_idx = rng.integers(0, len(users), size=(draws, len(users)))
+            means = user_delta[draws_idx].mean(axis=1)
+            out['paired'][f'{arm}_minus_{reference}'] = {
+                'mean_normalized_regret_difference': float(user_delta.mean()),
+                'user_cluster_bootstrap_95ci': [float(x) for x in np.quantile(means, [.025, .975])],
+                'user_differences': {str(u): float(v) for u, v in zip(users, user_delta)},
+            }
     output.write_text(json.dumps(out, indent=2) + '\n')
     print(json.dumps({'records': out['records'], 'paired_cases': out['paired_cases'], 'paired': out['paired']}))
 

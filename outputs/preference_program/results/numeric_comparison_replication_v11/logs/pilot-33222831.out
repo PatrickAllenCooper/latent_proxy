@@ -1,0 +1,16 @@
+job=33222831 node=c3gpu-e5-u1 revision=a0c7dd5 started=2026-10-01T16:19:22-06:00
+{"event": "gpu_preflight", "device_count": 1, "device_name": "NVIDIA H200 NVL MIG 2g.35gb", "allocated_bytes": 4096}
+{"event": "model_load_start", "condition": "base", "at_utc": "2026-10-01T22:19:28.205728+00:00"}
+{"event": "model_loaded", "condition": "base", "at_utc": "2026-10-01T22:19:44.908629+00:00", "gpu_device_count": 1, "gpu_name": "NVIDIA H200 NVL MIG 2g.35gb", "gpu_memory_allocated_bytes": 1153358848}
+{"event": "first_generation", "at_utc": "2026-10-01T22:19:46.274671+00:00", "input_tokens": 287, "output_tokens": 2, "gpu_memory_allocated_bytes": 1186918400, "gpu_memory_peak_bytes": 1238360064}
+{"event": "generation_progress", "at_utc": "2026-10-01T22:19:46.275351+00:00", "records": 1, "arm": "baseline", "completion": "C", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T22:19:46.375862+00:00", "records": 2, "arm": "full_scores", "completion": "C", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T22:19:46.731470+00:00", "records": 3, "arm": "scores_only", "completion": "A", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T22:19:46.826686+00:00", "records": 4, "arm": "exact_advice", "completion": "B", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T22:19:46.859224+00:00", "records": 5, "arm": "baseline", "completion": "C", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T22:19:46.893095+00:00", "records": 6, "arm": "full_scores", "completion": "C", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T22:19:47.936436+00:00", "records": 30, "arm": "full_scores", "completion": "D", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T22:19:48.876793+00:00", "records": 60, "arm": "exact_advice", "completion": "B", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T22:19:49.821039+00:00", "records": 90, "arm": "full_scores", "completion": "C", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-01T22:19:50.760937+00:00", "records": 120, "arm": "exact_advice", "completion": "D", "parse_failure": false}
+job=33222831 completed=2026-10-01T16:19:51-06:00
