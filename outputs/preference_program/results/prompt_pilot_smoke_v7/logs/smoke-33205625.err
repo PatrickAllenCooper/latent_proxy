@@ -1,0 +1,198 @@
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+Unable to determine the device handle for GPU2: 0000:8C:00.0: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/torch/cuda/__init__.py:1112: UserWarning: Can't initialize NVML
+  raw_cnt = _raw_device_count_nvml()
+Failed to load CPU gemm_4bit_forward from kernels-community: No module named 'kernels'. Please make sure you already `pip install kernels` and the kernels >= 0.11.1
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:49,  6.77it/s]Loading weights:   1%|          | 3/338 [00:01<03:43,  1.50it/s]Loading weights:   1%|          | 4/338 [00:02<02:59,  1.86it/s]Loading weights:   1%|▏         | 5/338 [00:02<02:31,  2.20it/s]Loading weights:   3%|▎         | 9/338 [00:02<01:05,  5.02it/s]Loading weights:   3%|▎         | 11/338 [00:02<00:52,  6.19it/s]Loading weights:   4%|▍         | 15/338 [00:03<00:42,  7.61it/s]Loading weights:   5%|▍         | 16/338 [00:03<00:49,  6.52it/s]Loading weights:   5%|▌         | 17/338 [00:03<00:55,  5.76it/s]Loading weights:   6%|▌         | 21/338 [00:04<00:36,  8.76it/s]Loading weights:   8%|▊         | 26/338 [00:04<00:23, 13.13it/s]Loading weights:   8%|▊         | 28/338 [00:05<00:55,  5.60it/s]Loading weights:   9%|▉         | 30/338 [00:05<00:47,  6.53it/s]Loading weights:  10%|█         | 35/338 [00:05<00:29, 10.34it/s]Loading weights:  11%|█         | 38/338 [00:05<00:24, 12.33it/s]Loading weights:  12%|█▏        | 41/338 [00:06<00:47,  6.19it/s]Loading weights:  13%|█▎        | 45/338 [00:07<00:37,  7.87it/s]Loading weights:  14%|█▍        | 47/338 [00:07<00:34,  8.46it/s]Loading weights:  14%|█▍        | 49/338 [00:07<00:29,  9.70it/s]Loading weights:  15%|█▌        | 51/338 [00:07<00:32,  8.81it/s]Loading weights:  16%|█▌        | 53/338 [00:08<00:46,  6.19it/s]Loading weights:  17%|█▋        | 56/338 [00:08<00:32,  8.58it/s]Loading weights:  17%|█▋        | 58/338 [00:08<00:30,  9.26it/s]Loading weights:  18%|█▊        | 60/338 [00:08<00:28,  9.83it/s]Loading weights:  18%|█▊        | 62/338 [00:08<00:24, 11.43it/s]Loading weights:  19%|█▉        | 64/338 [00:09<00:40,  6.85it/s]Loading weights:  20%|█▉        | 66/338 [00:09<00:39,  6.86it/s]Loading weights:  20%|██        | 69/338 [00:09<00:32,  8.16it/s]Loading weights:  21%|██        | 71/338 [00:10<00:29,  8.91it/s]Loading weights:  22%|██▏       | 75/338 [00:10<00:24, 10.83it/s]Loading weights:  23%|██▎       | 77/338 [00:10<00:27,  9.66it/s]Loading weights:  24%|██▍       | 81/338 [00:10<00:20, 12.42it/s]Loading weights:  25%|██▍       | 83/338 [00:10<00:20, 12.27it/s]Loading weights:  25%|██▌       | 85/338 [00:11<00:18, 13.44it/s]Loading weights:  26%|██▌       | 87/338 [00:11<00:22, 11.19it/s]Loading weights:  26%|██▋       | 89/338 [00:11<00:32,  7.65it/s]Loading weights:  27%|██▋       | 92/338 [00:11<00:23, 10.48it/s]slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+Loading weights:  28%|██▊       | 94/338 [00:12<00:22, 10.95it/s]Loading weights:  28%|██▊       | 96/338 [00:12<00:21, 11.14it/s]Loading weights:  29%|██▉       | 99/338 [00:12<00:24,  9.60it/s]Loading weights:  30%|██▉       | 101/338 [00:13<00:36,  6.56it/s]Loading weights:  31%|███       | 105/338 [00:13<00:26,  8.72it/s]Loading weights:  32%|███▏      | 107/338 [00:13<00:24,  9.34it/s]Loading weights:  32%|███▏      | 109/338 [00:13<00:21, 10.77it/s]Loading weights:  33%|███▎      | 111/338 [00:14<00:24,  9.35it/s]Loading weights:  33%|███▎      | 113/338 [00:14<00:29,  7.75it/s]Loading weights:  35%|███▍      | 117/338 [00:14<00:19, 11.32it/s]Loading weights:  35%|███▌      | 119/338 [00:14<00:18, 11.57it/s]Loading weights:  36%|███▋      | 123/338 [00:14<00:17, 12.08it/s]Loading weights:  37%|███▋      | 125/338 [00:15<00:19, 10.86it/s]Loading weights:  40%|███▉      | 135/338 [00:15<00:09, 22.02it/s]Loading weights:  41%|████      | 138/338 [00:15<00:10, 19.31it/s]Loading weights:  43%|████▎     | 147/338 [00:15<00:06, 27.83it/s]Loading weights:  45%|████▍     | 151/338 [00:16<00:07, 24.48it/s]Loading weights:  47%|████▋     | 159/338 [00:16<00:05, 30.42it/s]Loading weights:  48%|████▊     | 163/338 [00:16<00:06, 26.15it/s]Loading weights:  51%|█████     | 171/338 [00:16<00:05, 31.94it/s]Loading weights:  52%|█████▏    | 175/338 [00:16<00:05, 27.20it/s]Loading weights:  54%|█████▍    | 183/338 [00:16<00:04, 32.78it/s]Loading weights:  55%|█████▌    | 187/338 [00:17<00:05, 27.69it/s]Loading weights:  58%|█████▊    | 195/338 [00:17<00:04, 33.26it/s]Loading weights:  59%|█████▉    | 199/338 [00:17<00:04, 28.04it/s]Loading weights:  61%|██████    | 207/338 [00:17<00:03, 33.46it/s]Loading weights:  62%|██████▏   | 211/338 [00:17<00:04, 28.21it/s]Loading weights:  65%|██████▍   | 219/338 [00:18<00:03, 33.58it/s]Loading weights:  66%|██████▌   | 223/338 [00:18<00:04, 28.29it/s]Loading weights:  68%|██████▊   | 231/338 [00:18<00:03, 33.85it/s]Loading weights:  70%|██████▉   | 235/338 [00:18<00:03, 28.32it/s]Loading weights:  72%|███████▏  | 243/338 [00:18<00:02, 33.69it/s]Loading weights:  73%|███████▎  | 247/338 [00:19<00:03, 28.30it/s]Loading weights:  75%|███████▌  | 255/338 [00:19<00:02, 33.75it/s]Loading weights:  77%|███████▋  | 259/338 [00:19<00:02, 28.38it/s]Loading weights:  79%|███████▉  | 267/338 [00:19<00:02, 33.77it/s]Loading weights:  80%|████████  | 271/338 [00:19<00:02, 28.27it/s]Loading weights:  83%|████████▎ | 279/338 [00:20<00:01, 33.91it/s]Loading weights:  84%|████████▎ | 283/338 [00:20<00:01, 28.29it/s]Loading weights:  86%|████████▌ | 291/338 [00:20<00:01, 33.78it/s]Loading weights:  87%|████████▋ | 295/338 [00:20<00:01, 28.25it/s]Loading weights:  90%|████████▉ | 303/338 [00:20<00:01, 33.77it/s]Loading weights:  91%|█████████ | 307/338 [00:21<00:01, 28.17it/s]Loading weights:  93%|█████████▎| 315/338 [00:21<00:00, 33.65it/s]Loading weights:  94%|█████████▍| 319/338 [00:21<00:00, 28.12it/s]Loading weights:  97%|█████████▋| 327/338 [00:21<00:00, 33.63it/s]Loading weights:  98%|█████████▊| 331/338 [00:21<00:00, 28.14it/s]Loading weights: 100%|██████████| 338/338 [00:21<00:00, 15.42it/s]
+Traceback (most recent call last):
+  File "/home/paco0228/latent_proxy_proxy_program_v7/scripts/run_proxy_advice_ablation.py", line 133, in <module>
+    main()
+  File "/home/paco0228/latent_proxy_proxy_program_v7/scripts/run_proxy_advice_ablation.py", line 129, in main
+    run(args.manifest, args.output_dir, args.model_name, args.checkpoint)
+  File "/home/paco0228/latent_proxy_proxy_program_v7/scripts/run_proxy_advice_ablation.py", line 82, in run
+    "gpu_name": torch.cuda.get_device_name(0),
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/torch/cuda/__init__.py", line 704, in get_device_name
+    return get_device_properties(device).name
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/torch/cuda/__init__.py", line 737, in get_device_properties
+    _lazy_init()  # will define _get_device_properties
+    ^^^^^^^^^^^^
+  File "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/torch/cuda/__init__.py", line 529, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: No CUDA GPUs are available
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported
+slurmstepd: error: Failed to get device handle for GPU 2: Unknown Error
+slurmstepd: error: NVML: Failed to get Compute running process count(3): Not Supported

@@ -512,7 +512,7 @@
       "job_id": "33205625",
       "name": "lp-prompt-smoke",
       "script": "scripts/slurm/run_prompt_pilot_smoke_mig.slurm",
-      "status": "pending",
+      "status": "failed",
       "revision": "bcfb1f9",
       "purpose": "Three-generation smoke comparing baseline, explicit utility formula, and prompted numeric-score comparison",
       "remote_source": "/home/paco0228/latent_proxy_proxy_program_v7",
@@ -536,8 +536,17 @@
         "gres": "gpu:h200_2g.35gb:1",
         "memory": "32G",
         "wall_time": "00:15:00"
-      }
+      },
+      "exit_code": "1:0",
+      "elapsed": "00:03:39",
+      "observed_records": 0,
+      "validated": false,
+      "results_copied": true,
+      "failure": "CURC runtime could not get GPU device handle on c3gpu-e5-u5; PyTorch reported No CUDA GPUs are available",
+      "node": "c3gpu-e5-u5",
+      "gpu_utilization": "no verified GPU computation; allocation unusable",
+      "local_logs": "outputs/preference_program/results/prompt_pilot_smoke_v7/logs"
     }
   ],
-  "last_checked_at_utc": "2026-10-01T13:10:06.205095+00:00"
+  "last_checked_at_utc": "2026-10-01T15:09:21.067851+00:00"
 }
