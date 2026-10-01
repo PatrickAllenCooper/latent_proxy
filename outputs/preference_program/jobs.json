@@ -507,7 +507,37 @@
         "outputs/preference_program/results/proxy_advice_full_v6/per_user.csv",
         "outputs/preference_program/results/proxy_advice_full_v6/summary.json"
       ]
+    },
+    {
+      "job_id": "33205625",
+      "name": "lp-prompt-smoke",
+      "script": "scripts/slurm/run_prompt_pilot_smoke_mig.slurm",
+      "status": "pending",
+      "revision": "bcfb1f9",
+      "purpose": "Three-generation smoke comparing baseline, explicit utility formula, and prompted numeric-score comparison",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program_v7",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/prompt-pilot-v7/manifests/smoke.jsonl",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/prompt-pilot-v7/smoke",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/prompt-pilot-v7/logs/smoke-33205625.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/prompt-pilot-v7/logs/smoke-33205625-gpu.csv",
+      "local_results": "outputs/preference_program/results/prompt_pilot_smoke_v7",
+      "seed": 6001,
+      "n_users": 1,
+      "n_scenarios": 1,
+      "arms_per_condition": 3,
+      "conditions": [
+        "base"
+      ],
+      "records_expected": 3,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "memory": "32G",
+        "wall_time": "00:15:00"
+      }
     }
   ],
-  "last_checked_at_utc": "2026-10-01T12:10:00.860903+00:00"
+  "last_checked_at_utc": "2026-10-01T13:10:06.205095+00:00"
 }
