@@ -772,7 +772,39 @@
         "outputs/preference_program/results/label_rotation_probe_v12/summary.json"
       ],
       "main_finding": "Numeric scores: 56/128 correct, choices only A or D. Exact letter: 128/128 correct. Score format does not yield reliable four-way numeric comparison."
+    },
+    {
+      "job_id": "33244188",
+      "name": "lp-prompt-search-dev",
+      "script": "scripts/slurm/run_numeric_prompt_dev_mig.slurm",
+      "status": "pending",
+      "revision": "44c85fd",
+      "purpose": "Four numeric prompt candidates on 16 development users and menus, each with four balanced label rotations; holdout seed 10001 sealed",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program_v13",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/prompt-search-dev-v13/manifests/pilot.jsonl",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/prompt-search-dev-v13/pilot",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/prompt-search-dev-v13/logs/pilot-33244188.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/prompt-search-dev-v13/logs/pilot-33244188-gpu.csv",
+      "local_results": "outputs/preference_program/results/numeric_prompt_dev_v13",
+      "seed": 9001,
+      "n_users": 16,
+      "n_cases": 16,
+      "permutations_per_case": 4,
+      "arms_per_permutation": 4,
+      "conditions": [
+        "base"
+      ],
+      "records_expected": 256,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "exclude": "c3gpu-e5-u5",
+        "memory": "32G",
+        "wall_time": "00:05:00"
+      }
     }
   ],
-  "last_checked_at_utc": "2026-10-01T23:15:33.638131+00:00"
+  "last_checked_at_utc": "2026-10-02T00:01:50.076816+00:00"
 }
