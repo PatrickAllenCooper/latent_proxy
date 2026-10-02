@@ -1,0 +1,20 @@
+job=33246206 node=c3gpu-e5-u1 revision=44f9bf0 started=2026-10-01T18:12:03-06:00
+{"event": "gpu_preflight", "device_count": 1, "device_name": "NVIDIA H200 NVL MIG 2g.35gb", "allocated_bytes": 4096}
+{"event": "model_load_start", "condition": "base", "at_utc": "2026-10-02T00:12:07.783826+00:00"}
+{"event": "model_loaded", "condition": "base", "at_utc": "2026-10-02T00:12:23.060822+00:00", "gpu_device_count": 1, "gpu_name": "NVIDIA H200 NVL MIG 2g.35gb", "gpu_memory_allocated_bytes": 1153358848}
+{"event": "first_generation", "at_utc": "2026-10-02T00:12:24.193551+00:00", "input_tokens": 112, "output_tokens": 2, "gpu_memory_allocated_bytes": 1186915328, "gpu_memory_peak_bytes": 1225528320}
+{"event": "generation_progress", "at_utc": "2026-10-02T00:12:24.194412+00:00", "records": 1, "arm": "scores_only", "completion": "A", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-02T00:12:24.463035+00:00", "records": 2, "arm": "vertical_table", "completion": "The best action is:\n\nA", "parse_failure": true}
+{"event": "generation_progress", "at_utc": "2026-10-02T00:12:24.492353+00:00", "records": 3, "arm": "scores_only", "completion": "A", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-02T00:12:24.571579+00:00", "records": 4, "arm": "vertical_table", "completion": "The best action is:\n\nA", "parse_failure": true}
+{"event": "generation_progress", "at_utc": "2026-10-02T00:12:24.600959+00:00", "records": 5, "arm": "scores_only", "completion": "A", "parse_failure": false}
+{"event": "generation_progress", "at_utc": "2026-10-02T00:12:24.679827+00:00", "records": 6, "arm": "vertical_table", "completion": "The best action is:\n\nC", "parse_failure": true}
+{"event": "generation_progress", "at_utc": "2026-10-02T00:12:26.031009+00:00", "records": 30, "arm": "vertical_table", "completion": "The best action is:\n\nC", "parse_failure": true}
+{"event": "generation_progress", "at_utc": "2026-10-02T00:12:27.649913+00:00", "records": 60, "arm": "vertical_table", "completion": "The best action is:\n\nA", "parse_failure": true}
+{"event": "generation_progress", "at_utc": "2026-10-02T00:12:29.219019+00:00", "records": 90, "arm": "vertical_table", "completion": "The best action is:\n\nD", "parse_failure": true}
+{"event": "generation_progress", "at_utc": "2026-10-02T00:12:30.859548+00:00", "records": 120, "arm": "vertical_table", "completion": "The best action is:\n\nC", "parse_failure": true}
+{"event": "generation_progress", "at_utc": "2026-10-02T00:12:32.430856+00:00", "records": 150, "arm": "vertical_table", "completion": "The best action is:\n\nA", "parse_failure": true}
+{"event": "generation_progress", "at_utc": "2026-10-02T00:12:34.050774+00:00", "records": 180, "arm": "vertical_table", "completion": "The best action is:\n\nD", "parse_failure": true}
+{"event": "generation_progress", "at_utc": "2026-10-02T00:12:35.620185+00:00", "records": 210, "arm": "vertical_table", "completion": "The best action is:\n\nC", "parse_failure": true}
+{"event": "generation_progress", "at_utc": "2026-10-02T00:12:37.239903+00:00", "records": 240, "arm": "vertical_table", "completion": "The best action is:\n\nC", "parse_failure": true}
+job=33246206 completed=2026-10-01T18:12:38-06:00

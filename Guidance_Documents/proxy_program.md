@@ -263,3 +263,34 @@ Next, revise the output contract and parser as separate arms, or use a
 prompt optimizer with a metric that penalizes parse failures. A new
 development set should be used for prompt selection; retain seed 10001 as
 an untouched held-out check once a viable candidate is found.
+
+## Frozen table parser, held-out evaluation (2026-10-01)
+
+Reinspection of the numeric prompt development pilot showed that 62/64
+vertical-table outputs followed one exact phrase, `The best action is: [letter]`,
+while two were single letters. An exact-phrase parser recovered all 64 choices
+without changing the original raw generations or strict-parser results.
+Recovered table regret was 0.143 versus 0.322 for scores-only on the 16
+cases (paired case-bootstrap difference -0.179, 95% CI [-0.244, -0.111]).
+This was a post hoc development discovery; the parser and candidate were
+committed before the held-out run.
+
+The sealed seed-10001 pool then supplied 32 new users and menus, each with
+four label rotations. CURC job 33246206 generated 256 paired outputs for
+scores-only and vertical-table prompts. The frozen parser recovered 128/128
+table choices, comprising 125 exact table phrases and three single letters;
+the original strict one-letter parser recorded 125 failures. Scores-only
+matched the gold action in 51/128 and had mean normalized regret 0.384.
+Table plus parser matched 79/128 and had regret 0.198. The paired table-minus-
+scores-only regret difference was -0.186 (case-cluster bootstrap 95% CI
+[-0.224, -0.148]). Table outputs selected A 49 times, C 45, D 34, and B
+zero, so label bias remains. The result supports a better prompt-plus-parser
+configuration on held-out synthetic cases; it does not establish reliable
+four-way comparison. Raw generations, original parse failures, reparsed
+choices, metrics, and GPU logs are in
+`outputs/preference_program/results/numeric_prompt_holdout_v14`.
+
+The next mechanism study should target B-optimal cases with label/order
+randomization and controlled score gaps. Assess whether small prompt changes,
+constrained letter decoding, or a deterministic argmax tool can remove the
+remaining letter bias, using new development users before another holdout.

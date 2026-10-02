@@ -1,0 +1,45 @@
+{
+  "created_at_utc": "2026-10-02T00:13:30.037184+00:00",
+  "raw_source": "outputs/preference_program/results/numeric_prompt_holdout_v14/base.jsonl",
+  "manifest": "outputs/preference_program/manifests/numeric_prompt_holdout.jsonl",
+  "records": 256,
+  "arms": {
+    "scores_only": {
+      "records": 128,
+      "parsed": 128,
+      "parse_methods": {
+        "single_letter": 128
+      },
+      "choice_counts": {
+        "A": 104,
+        "D": 24
+      },
+      "correct": 51,
+      "mean_normalized_regret_valid": 0.38393340457781855
+    },
+    "vertical_table": {
+      "records": 128,
+      "parsed": 128,
+      "parse_methods": {
+        "table_phrase": 125,
+        "single_letter": 3
+      },
+      "choice_counts": {
+        "A": 49,
+        "C": 45,
+        "D": 34
+      },
+      "correct": 79,
+      "mean_normalized_regret_valid": 0.1978904637809789
+    }
+  },
+  "parser": "exact single capital letter for all arms; additionally exact fixed table phrase for vertical_table only",
+  "paired_table_minus_scores_only": {
+    "mean_normalized_regret_difference": -0.18604294079683967,
+    "case_cluster_bootstrap_95ci": [
+      -0.2244599655739231,
+      -0.14818929788473922
+    ],
+    "cases": 32
+  }
+}
