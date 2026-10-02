@@ -1024,7 +1024,7 @@
       "job_id": "33272566",
       "name": "lp-tool-choice-smoke",
       "script": "scripts/slurm/run_proxy_tool_choice_smoke_mig.slurm",
-      "status": "pending",
+      "status": "completed",
       "revision": "96f43e5",
       "purpose": "Three-record smoke for direct decision, voluntary text-protocol proxy call, and forced exact-proxy result",
       "remote_source": "/home/paco0228/latent_proxy_proxy_program_v18",
@@ -1043,8 +1043,19 @@
         "exclude": "c3gpu-e5-u5",
         "memory": "32G",
         "wall_time": "00:03:00"
-      }
+      },
+      "exit_code": "0:0",
+      "elapsed": "00:00:31",
+      "node": "c3gpu-e5-u1",
+      "observed_records": 3,
+      "parse_failures": 0,
+      "validated": true,
+      "results_copied": true,
+      "observed_gpu_device_count": 1,
+      "observed_gpu_name": "NVIDIA H200 NVL MIG 2g.35gb",
+      "gpu_utilization": "nvidia-smi utilization N/A for MIG; CUDA tensor preflight, framework memory and four completed generations verify GPU work",
+      "tool_called_records": 1
     }
   ],
-  "last_checked_at_utc": "2026-10-02T02:18:12.452576+00:00"
+  "last_checked_at_utc": "2026-10-02T02:19:19.737636+00:00"
 }

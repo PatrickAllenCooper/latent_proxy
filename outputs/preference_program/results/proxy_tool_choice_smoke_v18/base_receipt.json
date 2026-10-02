@@ -1,0 +1,6 @@
+{
+  "model_name": "Qwen/Qwen2.5-1.5B-Instruct",
+  "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/tool-choice-smoke-v18/manifests/pilot.jsonl",
+  "records": 3,
+  "completed_at_utc": "2026-10-02T02:18:28.528931+00:00"
+}
