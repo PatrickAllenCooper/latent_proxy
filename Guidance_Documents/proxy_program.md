@@ -481,3 +481,17 @@ the original policy's weakness, so it is not independent confirmation of the
 new checkpoint. The manifest and paired audit are preserved as
 `manifests/natural_proxy_handoff_v29.jsonl` and
 `results/proxy_advice_balanced_panel_v29` under `outputs/preference_program`.
+
+A new preference-input ablation (seed 9601, 200 users × 20 menus) compared
+true profiles, cyclically swapped profiles, and a fixed generic profile for
+the frozen and ordinary-prior imitation policies. Decisions were scored
+against each user's true reward in every condition. Frozen-policy regret
+was 0.1072 with true profiles, 0.2162 with swapped profiles, and 0.1567 with
+generic profiles. For the updated policy it was 0.0805, 0.2212, and 0.1553.
+Swapping increased regret by 0.1090 for the frozen policy (paired user-cluster
+95% interval [0.0903, 0.1283]) and 0.1407 for the updated policy
+[0.1196, 0.1624]. Swapping changed 1150/4000 and 1448/4000 actions respectively.
+This supplies causal input-ablation evidence that these explicit proxies
+benefit from correct user preferences. It does not test the LLM's inference
+of those preferences. Raw supplied and true profiles, actions, and scores
+are preserved under `outputs/preference_program/results/proxy_preference_use_v30`.

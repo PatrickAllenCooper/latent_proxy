@@ -1,0 +1,66 @@
+{
+  "created_at_utc": "2026-10-02T23:37:37.910100+00:00",
+  "seed": 9601,
+  "n_users": 200,
+  "n_menus": 20,
+  "checkpoints": {
+    "frozen": "outputs/preference_program/results/finite_menu_ppo_pilot_v2/policy.pt",
+    "natural_imitation": "outputs/preference_program/results/natural_imitation_cpu_probe_v27/policy.pt"
+  },
+  "models": {
+    "frozen": {
+      "mean_regret": {
+        "true": 0.10720911577323433,
+        "swapped": 0.2161597419111311,
+        "generic": 0.15669322664978622
+      },
+      "paired": {
+        "swapped_minus_true": {
+          "mean_regret_difference": 0.10895062613789674,
+          "user_cluster_bootstrap_95ci": [
+            0.09027454139478014,
+            0.12831274551561178
+          ],
+          "changed_actions": 1150,
+          "decisions": 4000
+        },
+        "generic_minus_true": {
+          "mean_regret_difference": 0.049484110876551864,
+          "user_cluster_bootstrap_95ci": [
+            0.03786093744576046,
+            0.0616445439623274
+          ],
+          "changed_actions": 765,
+          "decisions": 4000
+        }
+      }
+    },
+    "natural_imitation": {
+      "mean_regret": {
+        "true": 0.08047856520248145,
+        "swapped": 0.22122759133768802,
+        "generic": 0.1553298581754963
+      },
+      "paired": {
+        "swapped_minus_true": {
+          "mean_regret_difference": 0.1407490261352066,
+          "user_cluster_bootstrap_95ci": [
+            0.11963491463608819,
+            0.16239610458107093
+          ],
+          "changed_actions": 1448,
+          "decisions": 4000
+        },
+        "generic_minus_true": {
+          "mean_regret_difference": 0.07485129297301489,
+          "user_cluster_bootstrap_95ci": [
+            0.0629804201760616,
+            0.0879571236964623
+          ],
+          "changed_actions": 1100,
+          "decisions": 4000
+        }
+      }
+    }
+  }
+}
