@@ -420,3 +420,31 @@ initialized from the frozen checkpoint, with identical held-out users and
 menus. Compare action support, oracle agreement, and regret by gold action,
 then test whether any gain survives ordinary-prior weighting. Avoid judging
 it solely on the balanced diagnostic panel.
+
+A CPU-only policy probe initialized from the frozen PPO checkpoint and used
+oracle action labels to test that hypothesis. Twenty balanced imitation
+updates changed weights but did not recover actions 1 or 3 on the 1000-decision
+development panel; mean normalized regret rose from 0.1122 to 0.1381. At
+200 updates, pure balancing recovered all four actions but still had regret
+0.1390. A 50/50 mix of balanced and ordinary-prior training examples also
+recovered all actions and lowered development regret to 0.0936. These two
+updated policies were then frozen for one paired evaluation on a new seed
+(9401; 200 users, 20 menus each). On its 4000 decisions, the original policy
+had regret 0.1168 and 70.2% oracle action agreement. Pure balancing reached
+0.1584 regret (paired difference +0.0415, user-cluster 95% interval
+[+0.0148, +0.0678]) and 69.1% agreement. The mixed policy reached 0.1194
+regret (difference +0.0026 [-0.0174, +0.0221]) and 73.0% agreement. Thus
+restoring action support and increasing action agreement did not establish a
+decision-utility gain under the ordinary user prior. This also shows why the
+development result was insufficient to select the mixed policy. Per-decision
+data, bootstrap summaries, training histories, changed checkpoints, and
+timestamps are preserved under `action_balanced_proxy_cpu_pilot_v23`,
+`action_balanced_proxy_cpu_probe_v24`, `action_mixed_proxy_cpu_probe_v25`,
+and `proxy_imitation_fresh_eval_v26` within `outputs/preference_program/results`.
+
+The next policy mechanism should optimize the *size* of decision loss on the
+ordinary prior, while explicitly checking rare gold actions. A cost-sensitive
+imitation objective or direct expected-utility surrogate is more aligned with
+regret than class-balanced cross entropy. Keep the frozen PPO policy as the
+reference and use a new development seed before another fresh confirmatory
+panel.

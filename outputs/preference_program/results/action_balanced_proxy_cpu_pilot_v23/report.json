@@ -1,0 +1,251 @@
+{
+  "started_at_utc": "2026-10-02T20:31:30.288101+00:00",
+  "source_checkpoint": "outputs/preference_program/results/finite_menu_ppo_pilot_v2/policy.pt",
+  "source_sha256": "b6637321c4911ed80f2e0259cf731d7c7699e88ba3dba09667577ddc7b116568",
+  "seed": 17101,
+  "updates": 20,
+  "per_action_per_batch": 32,
+  "learning_rate": 0.0001,
+  "development_seed": 9301,
+  "baseline_development": {
+    "seed": 9301,
+    "decisions": 1000,
+    "policy_action_counts": {
+      "0": 619,
+      "1": 0,
+      "2": 381,
+      "3": 0
+    },
+    "mean_normalized_regret": 0.11221236007166559,
+    "oracle_action_match_rate": 0.702,
+    "by_gold": {
+      "0": {
+        "decisions": 466,
+        "policy_action_counts": {
+          "0": 433,
+          "1": 0,
+          "2": 33,
+          "3": 0
+        },
+        "mean_normalized_regret": 0.013988075555653397
+      },
+      "1": {
+        "decisions": 109,
+        "policy_action_counts": {
+          "0": 62,
+          "1": 0,
+          "2": 47,
+          "3": 0
+        },
+        "mean_normalized_regret": 0.5102121066158364
+      },
+      "2": {
+        "decisions": 338,
+        "policy_action_counts": {
+          "0": 69,
+          "1": 0,
+          "2": 269,
+          "3": 0
+        },
+        "mean_normalized_regret": 0.037742518266786367
+      },
+      "3": {
+        "decisions": 87,
+        "policy_action_counts": {
+          "0": 55,
+          "1": 0,
+          "2": 32,
+          "3": 0
+        },
+        "mean_normalized_regret": 0.42900949502794417
+      }
+    }
+  },
+  "history": [
+    {
+      "step": 1,
+      "loss": 2.7076494693756104,
+      "sampling_attempts": 342,
+      "cpu_preparation_seconds": 0.01345149999999995,
+      "cpu_update_seconds": 0.019337833000000026,
+      "development": {
+        "seed": 9301,
+        "decisions": 1000,
+        "policy_action_counts": {
+          "0": 602,
+          "1": 0,
+          "2": 398,
+          "3": 0
+        },
+        "mean_normalized_regret": 0.11116678432113018,
+        "oracle_action_match_rate": 0.703,
+        "by_gold": {
+          "0": {
+            "decisions": 466,
+            "policy_action_counts": {
+              "0": 426,
+              "1": 0,
+              "2": 40,
+              "3": 0
+            },
+            "mean_normalized_regret": 0.017862552723902584
+          },
+          "1": {
+            "decisions": 109,
+            "policy_action_counts": {
+              "0": 61,
+              "1": 0,
+              "2": 48,
+              "3": 0
+            },
+            "mean_normalized_regret": 0.5086732863492064
+          },
+          "2": {
+            "decisions": 338,
+            "policy_action_counts": {
+              "0": 61,
+              "1": 0,
+              "2": 277,
+              "3": 0
+            },
+            "mean_normalized_regret": 0.03013601494336315
+          },
+          "3": {
+            "decisions": 87,
+            "policy_action_counts": {
+              "0": 54,
+              "1": 0,
+              "2": 33,
+              "3": 0
+            },
+            "mean_normalized_regret": 0.4277180860789809
+          }
+        }
+      }
+    },
+    {
+      "step": 10,
+      "loss": 2.507751226425171,
+      "sampling_attempts": 332,
+      "cpu_preparation_seconds": 0.012101458000000065,
+      "cpu_update_seconds": 0.0003414999999999946,
+      "development": {
+        "seed": 9301,
+        "decisions": 1000,
+        "policy_action_counts": {
+          "0": 502,
+          "1": 0,
+          "2": 498,
+          "3": 0
+        },
+        "mean_normalized_regret": 0.13043733331393015,
+        "oracle_action_match_rate": 0.702,
+        "by_gold": {
+          "0": {
+            "decisions": 466,
+            "policy_action_counts": {
+              "0": 391,
+              "1": 0,
+              "2": 75,
+              "3": 0
+            },
+            "mean_normalized_regret": 0.05782214828349345
+          },
+          "1": {
+            "decisions": 109,
+            "policy_action_counts": {
+              "0": 43,
+              "1": 0,
+              "2": 66,
+              "3": 0
+            },
+            "mean_normalized_regret": 0.5431271506885198
+          },
+          "2": {
+            "decisions": 338,
+            "policy_action_counts": {
+              "0": 27,
+              "1": 0,
+              "2": 311,
+              "3": 0
+            },
+            "mean_normalized_regret": 0.0088570136044966
+          },
+          "3": {
+            "decisions": 87,
+            "policy_action_counts": {
+              "0": 41,
+              "1": 0,
+              "2": 46,
+              "3": 0
+            },
+            "mean_normalized_regret": 0.4746860021891227
+          }
+        }
+      }
+    },
+    {
+      "step": 20,
+      "loss": 2.287609577178955,
+      "sampling_attempts": 460,
+      "cpu_preparation_seconds": 0.017037875000000202,
+      "cpu_update_seconds": 0.00041991699999988086,
+      "development": {
+        "seed": 9301,
+        "decisions": 1000,
+        "policy_action_counts": {
+          "0": 465,
+          "1": 0,
+          "2": 535,
+          "3": 0
+        },
+        "mean_normalized_regret": 0.13813350535960595,
+        "oracle_action_match_rate": 0.701,
+        "by_gold": {
+          "0": {
+            "decisions": 466,
+            "policy_action_counts": {
+              "0": 378,
+              "1": 0,
+              "2": 88,
+              "3": 0
+            },
+            "mean_normalized_regret": 0.0680329048313668
+          },
+          "1": {
+            "decisions": 109,
+            "policy_action_counts": {
+              "0": 38,
+              "1": 0,
+              "2": 71,
+              "3": 0
+            },
+            "mean_normalized_regret": 0.5550396689707853
+          },
+          "2": {
+            "decisions": 338,
+            "policy_action_counts": {
+              "0": 15,
+              "1": 0,
+              "2": 323,
+              "3": 0
+            },
+            "mean_normalized_regret": 0.0052249674702510495
+          },
+          "3": {
+            "decisions": 87,
+            "policy_action_counts": {
+              "0": 34,
+              "1": 0,
+              "2": 53,
+              "3": 0
+            },
+            "mean_normalized_regret": 0.5076414802922823
+          }
+        }
+      }
+    }
+  ],
+  "max_parameter_change": 0.002074882388114929,
+  "completed_at_utc": "2026-10-02T20:31:30.751049+00:00"
+}
