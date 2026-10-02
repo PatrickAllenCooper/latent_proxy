@@ -818,7 +818,39 @@
         "outputs/preference_program/results/numeric_prompt_dev_v13/summary.json"
       ],
       "main_finding": "No prompt beat scores_only among format-valid arms. vertical_table 62/64 parse failures, pairwise 64/64; code_argmax 0 failures but higher regret 0.391 vs 0.322. Holdout not submitted."
+    },
+    {
+      "job_id": "33246206",
+      "name": "lp-prompt-holdout",
+      "script": "scripts/slurm/run_numeric_prompt_holdout_mig.slurm",
+      "status": "pending",
+      "revision": "44f9bf0",
+      "purpose": "Held-out comparison of scores-only versus vertical-table prompt plus frozen exact table-phrase parser on 32 new users/menus and four rotations",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program_v14",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/prompt-holdout-v14/manifests/pilot.jsonl",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/prompt-holdout-v14/pilot",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/prompt-holdout-v14/logs/pilot-33246206.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/prompt-holdout-v14/logs/pilot-33246206-gpu.csv",
+      "local_results": "outputs/preference_program/results/numeric_prompt_holdout_v14",
+      "seed": 10001,
+      "n_users": 32,
+      "n_cases": 32,
+      "permutations_per_case": 4,
+      "arms_per_permutation": 2,
+      "conditions": [
+        "base"
+      ],
+      "records_expected": 256,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "exclude": "c3gpu-e5-u5",
+        "memory": "32G",
+        "wall_time": "00:05:00"
+      }
     }
   ],
-  "last_checked_at_utc": "2026-10-02T00:04:18.349376+00:00"
+  "last_checked_at_utc": "2026-10-02T00:12:13.211270+00:00"
 }
