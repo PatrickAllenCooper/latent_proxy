@@ -963,7 +963,36 @@
       },
       "gpu_utilization": "nvidia-smi utilization N/A for MIG; CUDA tensor preflight, framework memory, four forward passes and four generations verify GPU work",
       "limitation": "First-token letter scoring is a distinct constrained-decoding condition; table greedy generation often begins with an explanatory phrase."
+    },
+    {
+      "job_id": "33260789",
+      "name": "lp-letter-score-full",
+      "script": "scripts/slurm/run_letter_scoring_full_mig.slurm",
+      "status": "pending",
+      "revision": "907249e",
+      "purpose": "Paired 128-prompt comparison of greedy generation and forced first-token A/B/C/D scoring on 16 fresh cases with four label rotations and two score formats",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program_v17",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/letter-score-full-v17/manifests/pilot.jsonl",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/letter-score-full-v17/pilot",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/letter-score-full-v17/logs/pilot-33260789.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/letter-score-full-v17/logs/pilot-33260789-gpu.csv",
+      "local_results": "outputs/preference_program/results/letter_scoring_full_v17",
+      "seed": 12001,
+      "n_users": 16,
+      "n_cases": 16,
+      "label_rotations": 4,
+      "arms_per_rotation": 2,
+      "records_expected": 128,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "exclude": "c3gpu-e5-u5",
+        "memory": "32G",
+        "wall_time": "00:05:00"
+      }
     }
   ],
-  "last_checked_at_utc": "2026-10-02T01:23:16.807727+00:00"
+  "last_checked_at_utc": "2026-10-02T01:24:14.264654+00:00"
 }
