@@ -1,0 +1,74 @@
+{
+  "created_at_utc": "2026-10-02T19:31:28.959992+00:00",
+  "source": "outputs/preference_program/results/proxy_foundation_fresh_replication_v2/per_decision.csv",
+  "decisions": 4000,
+  "users": 200,
+  "gold_counts": {
+    "3": 571,
+    "0": 2372,
+    "2": 720,
+    "1": 337
+  },
+  "policy_counts": {
+    "0": 3270,
+    "2": 730
+  },
+  "by_gold": {
+    "0": {
+      "decisions": 2372,
+      "users": 192,
+      "policy_action_counts": {
+        "0": 2312,
+        "2": 60
+      },
+      "policy_optimal": 2312,
+      "mean_normalized_regret": 0.005764673847656372,
+      "user_cluster_bootstrap_95ci": [
+        0.0037944298636659124,
+        0.008154371621519087
+      ]
+    },
+    "1": {
+      "decisions": 337,
+      "users": 49,
+      "policy_action_counts": {
+        "0": 301,
+        "2": 36
+      },
+      "policy_optimal": 0,
+      "mean_normalized_regret": 0.33930139832601836,
+      "user_cluster_bootstrap_95ci": [
+        0.28510378440134787,
+        0.3892302441028517
+      ]
+    },
+    "2": {
+      "decisions": 720,
+      "users": 169,
+      "policy_action_counts": {
+        "2": 601,
+        "0": 119
+      },
+      "policy_optimal": 601,
+      "mean_normalized_regret": 0.03028249407110965,
+      "user_cluster_bootstrap_95ci": [
+        0.024953899039199375,
+        0.0359001347652823
+      ]
+    },
+    "3": {
+      "decisions": 571,
+      "users": 105,
+      "policy_action_counts": {
+        "0": 538,
+        "2": 33
+      },
+      "policy_optimal": 0,
+      "mean_normalized_regret": 0.2763114261728161,
+      "user_cluster_bootstrap_95ci": [
+        0.25002765419405276,
+        0.3027925129101799
+      ]
+    }
+  }
+}

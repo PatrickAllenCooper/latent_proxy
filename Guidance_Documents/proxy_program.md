@@ -399,3 +399,24 @@ tool-call rate, advice adherence, decision regret, and the policy's own
 regret separately. This separates loss from proxy approximation from loss
 in the LLM handoff. Vary role structure and wording factorially later if
 their individual contributions matter.
+
+The frozen policy's action support is itself a limiting mechanism. A CPU
+audit of the independent seed-9001 replication (200 users, 20 menus each)
+found that the reward oracle chose actions 0, 1, 2, 3 on 2372, 337, 720,
+and 571 decisions respectively. The learned RL policy chose action 0 on
+3270 decisions and action 2 on 730; it never chose 1 or 3. When 1 was
+optimal, its conditional mean normalized regret was 0.3393 (user-cluster
+95% interval [0.2851, 0.3892]); when 3 was optimal, regret was 0.2763
+[0.2500, 0.3028]. By contrast, regret was 0.0058 when 0 was optimal and
+0.0303 when 2 was optimal. This is an observed checkpoint behavior, not an
+architectural impossibility: its output layer has four actions. The balanced
+64-case handoff panel deliberately raises the incidence of the missing
+optimal actions from 908/4000 to 32/64, explaining much of its 50% policy
+accuracy. Full conditional counts are in
+`outputs/preference_program/results/proxy_action_support_audit_v22`.
+
+An informative policy follow-up is a CPU-only action-balanced imitation arm
+initialized from the frozen checkpoint, with identical held-out users and
+menus. Compare action support, oracle agreement, and regret by gold action,
+then test whether any gain survives ordinary-prior weighting. Avoid judging
+it solely on the balanced diagnostic panel.
