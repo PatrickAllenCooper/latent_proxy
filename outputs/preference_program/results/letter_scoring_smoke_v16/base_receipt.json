@@ -1,0 +1,20 @@
+{
+  "model_name": "Qwen/Qwen2.5-1.5B-Instruct",
+  "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/letter-score-smoke-v16/manifests/pilot.jsonl",
+  "records": 4,
+  "candidate_token_ids": {
+    "A": [
+      32
+    ],
+    "B": [
+      33
+    ],
+    "C": [
+      34
+    ],
+    "D": [
+      35
+    ]
+  },
+  "completed_at_utc": "2026-10-02T01:21:48.414122+00:00"
+}

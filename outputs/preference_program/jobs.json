@@ -919,7 +919,7 @@
       "job_id": "33260360",
       "name": "lp-letter-score-smoke",
       "script": "scripts/slurm/run_letter_scoring_smoke_mig.slurm",
-      "status": "pending",
+      "status": "completed",
       "revision": "0657d03",
       "purpose": "Four-prompt smoke for first-token A/B/C/D logits versus greedy generation; verify tokenizer single-token candidates and GPU work",
       "remote_source": "/home/paco0228/latent_proxy_proxy_program_v16",
@@ -938,8 +938,32 @@
         "exclude": "c3gpu-e5-u5",
         "memory": "32G",
         "wall_time": "00:03:00"
-      }
+      },
+      "exit_code": "0:0",
+      "elapsed": "00:00:37",
+      "node": "c3gpu-e5-u1",
+      "observed_records": 4,
+      "validated": true,
+      "results_copied": true,
+      "observed_gpu_device_count": 1,
+      "observed_gpu_name": "NVIDIA H200 NVL MIG 2g.35gb",
+      "candidate_token_ids": {
+        "A": [
+          32
+        ],
+        "B": [
+          33
+        ],
+        "C": [
+          34
+        ],
+        "D": [
+          35
+        ]
+      },
+      "gpu_utilization": "nvidia-smi utilization N/A for MIG; CUDA tensor preflight, framework memory, four forward passes and four generations verify GPU work",
+      "limitation": "First-token letter scoring is a distinct constrained-decoding condition; table greedy generation often begins with an explanatory phrase."
     }
   ],
-  "last_checked_at_utc": "2026-10-02T01:21:26.670950+00:00"
+  "last_checked_at_utc": "2026-10-02T01:23:16.807727+00:00"
 }
