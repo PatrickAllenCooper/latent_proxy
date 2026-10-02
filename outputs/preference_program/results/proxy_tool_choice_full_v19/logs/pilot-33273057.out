@@ -1,0 +1,18 @@
+job=33273057 node=c3gpu-e5-u1 revision=cf0117f started=2026-10-01T20:20:27-06:00
+{"event": "gpu_preflight", "device_count": 1, "device_name": "NVIDIA H200 NVL MIG 2g.35gb", "allocated_bytes": 4096}
+{"event": "model_load_start", "at_utc": "2026-10-02T02:20:32.605012+00:00"}
+{"event": "model_loaded", "at_utc": "2026-10-02T02:20:48.590226+00:00", "gpu_device_count": 1, "gpu_name": "NVIDIA H200 NVL MIG 2g.35gb", "gpu_memory_allocated_bytes": 1153358848}
+{"event": "first_generation", "at_utc": "2026-10-02T02:20:49.846679+00:00", "input_tokens": 110, "output_tokens": 2, "gpu_memory_allocated_bytes": 1186915328, "gpu_memory_peak_bytes": 1225445376}
+{"event": "generation_progress", "at_utc": "2026-10-02T02:20:49.847373+00:00", "records": 1, "arm": "direct", "first_completion": "A", "tool_called": false, "final_completion": "A", "parse_failure": false, "gpu_memory_allocated_bytes": 1186913280}
+{"event": "generation_progress", "at_utc": "2026-10-02T02:20:50.072719+00:00", "records": 2, "arm": "optional_tool", "first_completion": "TOOL", "tool_called": true, "final_completion": "A", "parse_failure": false, "gpu_memory_allocated_bytes": 1186913280}
+{"event": "generation_progress", "at_utc": "2026-10-02T02:20:50.158625+00:00", "records": 3, "arm": "forced_tool", "first_completion": "A", "tool_called": false, "final_completion": "A", "parse_failure": false, "gpu_memory_allocated_bytes": 1186913280}
+{"event": "generation_progress", "at_utc": "2026-10-02T02:20:50.188775+00:00", "records": 4, "arm": "direct", "first_completion": "A", "tool_called": false, "final_completion": "A", "parse_failure": false, "gpu_memory_allocated_bytes": 1186913280}
+{"event": "generation_progress", "at_utc": "2026-10-02T02:20:50.258393+00:00", "records": 5, "arm": "optional_tool", "first_completion": "TOOL", "tool_called": true, "final_completion": "B", "parse_failure": false, "gpu_memory_allocated_bytes": 1186913280}
+{"event": "generation_progress", "at_utc": "2026-10-02T02:20:50.287112+00:00", "records": 6, "arm": "forced_tool", "first_completion": "B", "tool_called": false, "final_completion": "B", "parse_failure": false, "gpu_memory_allocated_bytes": 1186913280}
+{"event": "generation_progress", "at_utc": "2026-10-02T02:20:51.526287+00:00", "records": 30, "arm": "forced_tool", "first_completion": "B", "tool_called": false, "final_completion": "B", "parse_failure": false, "gpu_memory_allocated_bytes": 1186913280}
+{"event": "generation_progress", "at_utc": "2026-10-02T02:20:52.937452+00:00", "records": 60, "arm": "forced_tool", "first_completion": "A", "tool_called": false, "final_completion": "A", "parse_failure": false, "gpu_memory_allocated_bytes": 1186913280}
+{"event": "generation_progress", "at_utc": "2026-10-02T02:20:54.207103+00:00", "records": 90, "arm": "forced_tool", "first_completion": "C", "tool_called": false, "final_completion": "C", "parse_failure": false, "gpu_memory_allocated_bytes": 1186913280}
+{"event": "generation_progress", "at_utc": "2026-10-02T02:20:55.473120+00:00", "records": 120, "arm": "forced_tool", "first_completion": "B", "tool_called": false, "final_completion": "B", "parse_failure": false, "gpu_memory_allocated_bytes": 1186913280}
+{"event": "generation_progress", "at_utc": "2026-10-02T02:20:56.737089+00:00", "records": 150, "arm": "forced_tool", "first_completion": "A", "tool_called": false, "final_completion": "A", "parse_failure": false, "gpu_memory_allocated_bytes": 1186913280}
+{"event": "generation_progress", "at_utc": "2026-10-02T02:20:58.001164+00:00", "records": 180, "arm": "forced_tool", "first_completion": "C", "tool_called": false, "final_completion": "C", "parse_failure": false, "gpu_memory_allocated_bytes": 1186913280}
+job=33273057 completed=2026-10-01T20:20:59-06:00

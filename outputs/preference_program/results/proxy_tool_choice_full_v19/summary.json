@@ -1,0 +1,179 @@
+{
+  "created_at_utc": "2026-10-02T02:22:26.726222+00:00",
+  "source": "outputs/preference_program/results/proxy_tool_choice_full_v19/base.jsonl",
+  "records": 192,
+  "cases": 16,
+  "parse_failures": 0,
+  "protocol": "Textual TOOL request routed by a controlled harness to an exact argmax proxy; this is not native API function calling.",
+  "arms": {
+    "direct": {
+      "records": 64,
+      "correct": 16,
+      "mean_normalized_regret": 0.5142946592634718,
+      "regret_95ci": [
+        0.4563410503481769,
+        0.5715567650239893
+      ],
+      "first_completion_counts": {
+        "A": 64
+      },
+      "final_action_counts": {
+        "A": 64
+      },
+      "tool_calls": 0,
+      "correct_by_gold": {
+        "A": 16,
+        "B": 0,
+        "C": 0,
+        "D": 0
+      }
+    },
+    "optional_tool": {
+      "records": 64,
+      "correct": 55,
+      "mean_normalized_regret": 0.09369582980974533,
+      "regret_95ci": [
+        0.044149085951302514,
+        0.14580996355267678
+      ],
+      "first_completion_counts": {
+        "TOOL": 64
+      },
+      "final_action_counts": {
+        "A": 25,
+        "B": 16,
+        "D": 16,
+        "C": 7
+      },
+      "tool_calls": 64,
+      "correct_by_gold": {
+        "A": 16,
+        "B": 16,
+        "C": 7,
+        "D": 16
+      }
+    },
+    "forced_tool": {
+      "records": 64,
+      "correct": 64,
+      "mean_normalized_regret": 0.0,
+      "regret_95ci": [
+        0.0,
+        0.0
+      ],
+      "first_completion_counts": {
+        "A": 16,
+        "B": 16,
+        "C": 16,
+        "D": 16
+      },
+      "final_action_counts": {
+        "A": 16,
+        "B": 16,
+        "C": 16,
+        "D": 16
+      },
+      "tool_calls": 0,
+      "correct_by_gold": {
+        "A": 16,
+        "B": 16,
+        "C": 16,
+        "D": 16
+      }
+    }
+  },
+  "paired": {
+    "optional_tool_minus_direct_regret": {
+      "mean": -0.42059882945372645,
+      "case_cluster_bootstrap_95ci": [
+        -0.4867299395800533,
+        -0.3562417793982159
+      ]
+    },
+    "forced_tool_minus_optional_tool_regret": {
+      "mean": -0.09369582980974533,
+      "case_cluster_bootstrap_95ci": [
+        -0.14590568540232823,
+        -0.044892261923283126
+      ]
+    }
+  },
+  "optional_tool_adherence": {
+    "called": 64,
+    "followed_result": 55,
+    "failures": [
+      {
+        "user_id": 2,
+        "scenario_id": "menu-1017001",
+        "permutation_id": 2,
+        "tool_advice": "C",
+        "final_action": "A",
+        "raw_final": "A"
+      },
+      {
+        "user_id": 7,
+        "scenario_id": "menu-1027001",
+        "permutation_id": 1,
+        "tool_advice": "C",
+        "final_action": "A",
+        "raw_final": "A"
+      },
+      {
+        "user_id": 15,
+        "scenario_id": "menu-1043001",
+        "permutation_id": 1,
+        "tool_advice": "C",
+        "final_action": "A",
+        "raw_final": "A"
+      },
+      {
+        "user_id": 19,
+        "scenario_id": "menu-1051001",
+        "permutation_id": 1,
+        "tool_advice": "C",
+        "final_action": "A",
+        "raw_final": "A"
+      },
+      {
+        "user_id": 0,
+        "scenario_id": "menu-1013001",
+        "permutation_id": 0,
+        "tool_advice": "C",
+        "final_action": "A",
+        "raw_final": "A"
+      },
+      {
+        "user_id": 1,
+        "scenario_id": "menu-1015001",
+        "permutation_id": 0,
+        "tool_advice": "C",
+        "final_action": "A",
+        "raw_final": "A"
+      },
+      {
+        "user_id": 8,
+        "scenario_id": "menu-1029001",
+        "permutation_id": 0,
+        "tool_advice": "C",
+        "final_action": "A",
+        "raw_final": "A"
+      },
+      {
+        "user_id": 10,
+        "scenario_id": "menu-1033001",
+        "permutation_id": 0,
+        "tool_advice": "C",
+        "final_action": "A",
+        "raw_final": "A"
+      },
+      {
+        "user_id": 13,
+        "scenario_id": "menu-1039001",
+        "permutation_id": 3,
+        "tool_advice": "C",
+        "final_action": "A",
+        "raw_final": "A"
+      }
+    ]
+  }
+}

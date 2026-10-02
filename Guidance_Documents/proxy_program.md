@@ -346,3 +346,29 @@ measure actual agent tool selection and adherence, rather than another
 letter-scoring prompt. Full logits, probabilities, generations, per-user
 results and GPU logs are in
 `outputs/preference_program/results/letter_scoring_full_v17`.
+
+## Controlled proxy tool-choice pilot (2026-10-01)
+
+A three-record smoke (CURC 33272566) verified a textual tool-choice protocol:
+`TOOL` from the model invokes a deterministic exact-argmax proxy in the
+harness, which then returns a recommended action for a final answer. This
+is controlled text routing, not native API function calling. The paired
+panel (CURC 33273057) used 16 new users/menus with four label rotations,
+64 decisions per arm and zero parse failures. The direct score prompt chose
+A in all 64 cases, matched the gold action 16/64 times, and had mean
+normalized regret 0.514. The optional-tool arm requested the proxy in
+64/64, followed its exact recommendation in 55/64, and had regret 0.094.
+Every optional-arm miss involved a C recommendation being answered as A.
+The forced-tool-result arm followed advice in 64/64 and had zero regret.
+The optional-minus-direct paired regret difference was -0.421 (case-cluster
+95% CI [-0.487, -0.356]); forced-minus-optional was -0.094 (95% CI
+[-0.146, -0.045]). The model can choose the tool route in this explicit
+protocol, but the handoff prompt still loses some C advice. Tool selection
+and adherence are distinct failure surfaces. Raw first turns, tool results,
+final generations, prompts, per-user metrics and GPU logs are in
+`outputs/preference_program/results/proxy_tool_choice_full_v19`.
+
+Next, hold the initial `TOOL` request fixed and vary only the return channel:
+inline text, an isolated tool-role message if supported by the chat template,
+and a compact final instruction. Then substitute the learned RL proxy for
+the oracle to measure the decision-quality cost of imperfect advice.
