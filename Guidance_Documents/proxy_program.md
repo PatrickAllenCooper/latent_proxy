@@ -241,3 +241,25 @@ Compare a small set of prompts at an equal generation budget, selecting on
 one set of users and evaluating on fresh users and menus. Include an exact
 argmax parser as a deterministic reference. Only then consider broader
 TextGrad/GEPA search or fine tuning for numerical tool output.
+
+## Initial numeric prompt development search (2026-10-01)
+
+CURC job 33244188 evaluated four fixed numeric-score prompt variants on 16
+new development users and distinct menus with four label rotations each
+(256 generations). The held-out pool (seed 10001, 32 different users and
+menus) was CPU-prepared before development results were inspected and has
+not been evaluated. The baseline scores-only arm had 0/64 parse failures,
+24/64 correct, and mean normalized regret 0.322. A code-style argmax prompt
+also parsed 64/64 but was worse: 20/64 correct and regret 0.391. The table
+prompt produced 62/64 parse failures, and the pairwise prompt 64/64, because
+they elicited explanations that the one-letter deployment parser rejects.
+Their valid-only regret must not be used to select them. No alternative
+outperformed the baseline under the strict output contract, so the held-out
+run was not submitted. This pilot is exploratory; the format eligibility
+rule was documented after inspecting its traces. Results and raw completions
+are in `outputs/preference_program/results/numeric_prompt_dev_v13`.
+
+Next, revise the output contract and parser as separate arms, or use a
+prompt optimizer with a metric that penalizes parse failures. A new
+development set should be used for prompt selection; retain seed 10001 as
+an untouched held-out check once a viable candidate is found.

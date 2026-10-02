@@ -777,7 +777,7 @@
       "job_id": "33244188",
       "name": "lp-prompt-search-dev",
       "script": "scripts/slurm/run_numeric_prompt_dev_mig.slurm",
-      "status": "pending",
+      "status": "completed",
       "revision": "44c85fd",
       "purpose": "Four numeric prompt candidates on 16 development users and menus, each with four balanced label rotations; holdout seed 10001 sealed",
       "remote_source": "/home/paco0228/latent_proxy_proxy_program_v13",
@@ -803,8 +803,22 @@
         "exclude": "c3gpu-e5-u5",
         "memory": "32G",
         "wall_time": "00:05:00"
-      }
+      },
+      "exit_code": "0:0",
+      "elapsed": "00:00:59",
+      "node": "c3gpu-e5-u1",
+      "observed_records": 256,
+      "parse_failures": 126,
+      "validated": true,
+      "results_copied": true,
+      "observed_gpu_device_count": 1,
+      "observed_gpu_name": "NVIDIA H200 NVL MIG 2g.35gb",
+      "gpu_utilization": "nvidia-smi utilization N/A for MIG; CUDA tensor preflight, framework memory and 256 generations verify GPU work",
+      "analysis_outputs": [
+        "outputs/preference_program/results/numeric_prompt_dev_v13/summary.json"
+      ],
+      "main_finding": "No prompt beat scores_only among format-valid arms. vertical_table 62/64 parse failures, pairwise 64/64; code_argmax 0 failures but higher regret 0.391 vs 0.322. Holdout not submitted."
     }
   ],
-  "last_checked_at_utc": "2026-10-02T00:01:50.076816+00:00"
+  "last_checked_at_utc": "2026-10-02T00:04:18.349376+00:00"
 }

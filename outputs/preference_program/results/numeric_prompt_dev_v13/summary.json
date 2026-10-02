@@ -1,0 +1,62 @@
+{
+  "created_at_utc": "2026-10-02T00:03:53.025205+00:00",
+  "source": "outputs/preference_program/results/numeric_prompt_dev_v13/base.jsonl",
+  "records": 256,
+  "cases": 16,
+  "arms": {
+    "scores_only": {
+      "records": 64,
+      "parse_failures": 0,
+      "correct_of_all": 24,
+      "choice_counts_valid": {
+        "A": 50,
+        "D": 14
+      },
+      "mean_regret_valid_only": 0.3218125423332553
+    },
+    "vertical_table": {
+      "records": 64,
+      "parse_failures": 62,
+      "correct_of_all": 2,
+      "choice_counts_valid": {
+        "C": 2
+      },
+      "mean_regret_valid_only": 0.0
+    },
+    "pairwise": {
+      "records": 64,
+      "parse_failures": 64,
+      "correct_of_all": 0,
+      "choice_counts_valid": {},
+      "mean_regret_valid_only": null
+    },
+    "code_argmax": {
+      "records": 64,
+      "parse_failures": 0,
+      "correct_of_all": 20,
+      "choice_counts_valid": {
+        "A": 58,
+        "C": 3,
+        "D": 3
+      },
+      "mean_regret_valid_only": 0.3914390094735789
+    }
+  },
+  "paired": {
+    "code_argmax_minus_scores_only_regret": {
+      "mean": 0.06962646714032357,
+      "case_cluster_bootstrap_95ci": [
+        -0.026251926161628355,
+        0.16709994936028486
+      ]
+    }
+  },
+  "selection_rule": "Exclude arms with any parse failures. Among eligible arms, minimize mean normalized regret on development cases. Submit held-out evaluation only if an alternative improves on scores_only.",
+  "eligible": [
+    "scores_only",
+    "code_argmax"
+  ],
+  "selected": "scores_only",
+  "holdout_submitted": false,
+  "selection_rule_timing": "Operational rule recorded after inspecting this pilot; development comparison is exploratory, not preregistered."
+}
