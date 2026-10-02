@@ -1,0 +1,136 @@
+{
+  "created_at_utc": "2026-10-02T21:32:06.104680+00:00",
+  "seed": 9501,
+  "n_users": 200,
+  "n_scenarios": 20,
+  "checkpoints": {
+    "frozen": "outputs/preference_program/results/finite_menu_ppo_pilot_v2/policy.pt",
+    "expected_utility": "outputs/preference_program/results/utility_proxy_cpu_probe_v27/policy.pt",
+    "natural_imitation": "outputs/preference_program/results/natural_imitation_cpu_probe_v27/policy.pt"
+  },
+  "arms": {
+    "frozen": {
+      "decisions": 4000,
+      "mean_normalized_regret": 0.11216426975183694,
+      "user_cluster_bootstrap_95ci": [
+        0.08940560327554571,
+        0.13598424783248816
+      ],
+      "oracle_match_rate": 0.7185,
+      "action_counts": {
+        "0": 2594,
+        "2": 1406
+      },
+      "by_gold": {
+        "0": {
+          "decisions": 1944,
+          "oracle_match_rate": 0.9537037037037037,
+          "mean_normalized_regret": 0.011233620946213326
+        },
+        "1": {
+          "decisions": 578,
+          "oracle_match_rate": 0.0,
+          "mean_normalized_regret": 0.4997534897639397
+        },
+        "2": {
+          "decisions": 1198,
+          "oracle_match_rate": 0.8514190317195326,
+          "mean_normalized_regret": 0.02967023680773907
+        },
+        "3": {
+          "decisions": 280,
+          "oracle_match_rate": 0.0,
+          "mean_normalized_regret": 0.36577306824528766
+        }
+      }
+    },
+    "expected_utility": {
+      "decisions": 4000,
+      "mean_normalized_regret": 0.1051075497296409,
+      "user_cluster_bootstrap_95ci": [
+        0.08240205710926717,
+        0.12888896378946962
+      ],
+      "oracle_match_rate": 0.7325,
+      "action_counts": {
+        "0": 2574,
+        "2": 1426
+      },
+      "by_gold": {
+        "0": {
+          "decisions": 1944,
+          "oracle_match_rate": 0.9624485596707819,
+          "mean_normalized_regret": 0.005528782726512973
+        },
+        "1": {
+          "decisions": 578,
+          "oracle_match_rate": 0.0,
+          "mean_normalized_regret": 0.4895791383330701
+        },
+        "2": {
+          "decisions": 1198,
+          "oracle_match_rate": 0.8839732888146912,
+          "mean_normalized_regret": 0.021069278909177144
+        },
+        "3": {
+          "decisions": 280,
+          "oracle_match_rate": 0.0,
+          "mean_normalized_regret": 0.3623732400304062
+        }
+      }
+    },
+    "natural_imitation": {
+      "decisions": 4000,
+      "mean_normalized_regret": 0.09609931804238171,
+      "user_cluster_bootstrap_95ci": [
+        0.0809136151734931,
+        0.11198052318307662
+      ],
+      "oracle_match_rate": 0.76075,
+      "action_counts": {
+        "0": 2159,
+        "2": 1484,
+        "1": 283,
+        "3": 74
+      },
+      "by_gold": {
+        "0": {
+          "decisions": 1944,
+          "oracle_match_rate": 0.8924897119341564,
+          "mean_normalized_regret": 0.049082541188621064
+        },
+        "1": {
+          "decisions": 578,
+          "oracle_match_rate": 0.2698961937716263,
+          "mean_normalized_regret": 0.3143565234357148
+        },
+        "2": {
+          "decisions": 1198,
+          "oracle_match_rate": 0.9106844741235393,
+          "mean_normalized_regret": 0.026119044838589518
+        },
+        "3": {
+          "decisions": 280,
+          "oracle_match_rate": 0.21785714285714286,
+          "mean_normalized_regret": 0.2714004494156219
+        }
+      }
+    }
+  },
+  "paired_vs_frozen": {
+    "expected_utility": {
+      "mean_regret_difference": -0.007056720022196029,
+      "user_cluster_bootstrap_95ci": [
+        -0.00884015131613499,
+        -0.005328792637427478
+      ]
+    },
+    "natural_imitation": {
+      "mean_regret_difference": -0.016064951709455218,
+      "user_cluster_bootstrap_95ci": [
+        -0.026998729677422197,
+        -0.0055963031812002705
+      ]
+    }
+  }
+}

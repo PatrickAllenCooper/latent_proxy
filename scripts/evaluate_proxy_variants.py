@@ -84,10 +84,15 @@ if __name__ == '__main__':
     p.add_argument('--frozen', type=Path, required=True)
     p.add_argument('--balanced', type=Path, required=True)
     p.add_argument('--mixed', type=Path, required=True)
+    p.add_argument('--balanced-name', default='balanced')
+    p.add_argument('--mixed-name', default='mixed')
     p.add_argument('--output-dir', type=Path, required=True)
     p.add_argument('--seed', type=int, default=9401)
     p.add_argument('--n-users', type=int, default=200)
     p.add_argument('--n-scenarios', type=int, default=20)
     a = p.parse_args()
-    evaluate({'frozen': a.frozen, 'balanced': a.balanced, 'mixed': a.mixed},
+    if len({'frozen', a.balanced_name, a.mixed_name}) != 3:
+        p.error('variant names must be distinct')
+    evaluate({'frozen': a.frozen, a.balanced_name: a.balanced,
+              a.mixed_name: a.mixed},
              a.output_dir, a.seed, a.n_users, a.n_scenarios)

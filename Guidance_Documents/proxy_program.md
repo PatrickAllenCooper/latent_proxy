@@ -448,3 +448,24 @@ imitation objective or direct expected-utility surrogate is more aligned with
 regret than class-balanced cross entropy. Keep the frozen PPO policy as the
 reference and use a new development seed before another fresh confirmatory
 panel.
+
+A second CPU-only continuation study compared full-information expected
+utility learning with ordinary-prior imitation, both starting from the
+original frozen checkpoint. After 200 updates on identically seeded natural
+training examples, the 1000-decision development panel showed regret 0.1033
+for expected utility and 0.0897 for imitation, versus 0.1122 for the frozen
+policy. Both candidates were frozen before a new paired seed-9501 evaluation
+(200 users × 20 menus). There, expected utility reached mean normalized
+regret 0.1051 versus 0.1122 for the frozen policy (paired user-cluster
+difference -0.0071, 95% interval [-0.0088, -0.0053]), but still selected only
+actions 0 and 2. Natural imitation reached 0.0961 (difference -0.0161
+[-0.0270, -0.0056]), selected all four actions, and raised oracle action
+agreement from 71.9% to 76.1%. The natural-minus-expected-utility regret
+difference was -0.0090 [-0.0200, +0.0015], so the apparent advantage of
+imitation over that surrogate is uncertain. The larger conclusion is that
+ordinary-prior continuation improved regret on this synthetic held-out panel
+while pure class balancing harmed it. Preserve both original and new
+checkpoints as separate experimental arms. Training reports and the full
+paired evaluation are under `utility_proxy_cpu_probe_v27`,
+`natural_imitation_cpu_probe_v27`, and `proxy_utility_fresh_eval_v28` in
+`outputs/preference_program/results`.
