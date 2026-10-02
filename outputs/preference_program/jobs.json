@@ -968,7 +968,7 @@
       "job_id": "33260789",
       "name": "lp-letter-score-full",
       "script": "scripts/slurm/run_letter_scoring_full_mig.slurm",
-      "status": "pending",
+      "status": "completed",
       "revision": "907249e",
       "purpose": "Paired 128-prompt comparison of greedy generation and forced first-token A/B/C/D scoring on 16 fresh cases with four label rotations and two score formats",
       "remote_source": "/home/paco0228/latent_proxy_proxy_program_v17",
@@ -991,8 +991,35 @@
         "exclude": "c3gpu-e5-u5",
         "memory": "32G",
         "wall_time": "00:05:00"
-      }
+      },
+      "exit_code": "0:0",
+      "elapsed": "00:00:38",
+      "node": "c3gpu-e5-u1",
+      "observed_records": 128,
+      "validated": true,
+      "results_copied": true,
+      "observed_gpu_device_count": 1,
+      "observed_gpu_name": "NVIDIA H200 NVL MIG 2g.35gb",
+      "candidate_token_ids": {
+        "A": [
+          32
+        ],
+        "B": [
+          33
+        ],
+        "C": [
+          34
+        ],
+        "D": [
+          35
+        ]
+      },
+      "gpu_utilization": "nvidia-smi utilization N/A for MIG; CUDA tensor preflight, framework memory and 128 forward passes plus generations verify GPU work",
+      "analysis_outputs": [
+        "outputs/preference_program/results/letter_scoring_full_v17/summary.json"
+      ],
+      "main_finding": "Forced letter scoring did not fix bias: scores-only identical to greedy, 0 B/C; table forced regret 0.249 vs greedy recovered 0.163, 0 A/B."
     }
   ],
-  "last_checked_at_utc": "2026-10-02T01:24:14.264654+00:00"
+  "last_checked_at_utc": "2026-10-02T01:26:20.882385+00:00"
 }

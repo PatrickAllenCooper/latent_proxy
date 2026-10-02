@@ -1,0 +1,18 @@
+job=33260789 node=c3gpu-e5-u1 revision=907249e started=2026-10-01T19:24:07-06:00
+{"event": "gpu_preflight", "device_count": 1, "device_name": "NVIDIA H200 NVL MIG 2g.35gb", "allocated_bytes": 4096}
+{"event": "model_load_start", "at_utc": "2026-10-02T01:24:11.317304+00:00"}
+{"event": "model_loaded", "at_utc": "2026-10-02T01:24:26.203644+00:00", "gpu_device_count": 1, "gpu_name": "NVIDIA H200 NVL MIG 2g.35gb", "gpu_memory_allocated_bytes": 1153358848}
+{"event": "candidate_tokenization", "ids": {"A": [32], "B": [33], "C": [34], "D": [35]}}
+{"event": "first_generation", "at_utc": "2026-10-02T01:24:27.441341+00:00", "input_tokens": 112, "output_tokens": 2, "gpu_memory_allocated_bytes": 1186917888, "gpu_memory_peak_bytes": 1225530880}
+{"event": "first_score", "at_utc": "2026-10-02T01:24:27.442030+00:00", "input_tokens": 112, "gpu_memory_allocated_bytes": 1186915840, "gpu_memory_peak_bytes": 1225530880, "forced_action": "A", "completion": "A"}
+{"event": "scoring_progress", "at_utc": "2026-10-02T01:24:27.442272+00:00", "records": 1, "arm": "scores_only", "forced_action": "A", "greedy_completion": "A"}
+{"event": "scoring_progress", "at_utc": "2026-10-02T01:24:27.787810+00:00", "records": 2, "arm": "vertical_table", "forced_action": "D", "greedy_completion": "The best action is:\n\nA"}
+{"event": "scoring_progress", "at_utc": "2026-10-02T01:24:27.834832+00:00", "records": 3, "arm": "scores_only", "forced_action": "A", "greedy_completion": "A"}
+{"event": "scoring_progress", "at_utc": "2026-10-02T01:24:27.930745+00:00", "records": 4, "arm": "vertical_table", "forced_action": "D", "greedy_completion": "The best action is:\n\nA"}
+{"event": "scoring_progress", "at_utc": "2026-10-02T01:24:27.976294+00:00", "records": 5, "arm": "scores_only", "forced_action": "A", "greedy_completion": "A"}
+{"event": "scoring_progress", "at_utc": "2026-10-02T01:24:28.072022+00:00", "records": 6, "arm": "vertical_table", "forced_action": "C", "greedy_completion": "The best action is:\n\nC"}
+{"event": "scoring_progress", "at_utc": "2026-10-02T01:24:29.857870+00:00", "records": 30, "arm": "vertical_table", "forced_action": "C", "greedy_completion": "The best action is:\n\nC"}
+{"event": "scoring_progress", "at_utc": "2026-10-02T01:24:31.984298+00:00", "records": 60, "arm": "vertical_table", "forced_action": "C", "greedy_completion": "The best action is:\n\nC"}
+{"event": "scoring_progress", "at_utc": "2026-10-02T01:24:34.106368+00:00", "records": 90, "arm": "vertical_table", "forced_action": "C", "greedy_completion": "The best action is:\n\nC"}
+{"event": "scoring_progress", "at_utc": "2026-10-02T01:24:36.131330+00:00", "records": 120, "arm": "vertical_table", "forced_action": "C", "greedy_completion": "The best action is:\n\nC"}
+job=33260789 completed=2026-10-01T19:24:37-06:00

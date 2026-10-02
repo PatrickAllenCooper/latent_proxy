@@ -320,3 +320,29 @@ candidate letters, against this prompt-plus-parser arm. It should also test
 whether the model can handle B-optimal cases when B is supplied as explicit
 proxy advice; prior exact-advice probes suggest it can. Do not infer a
 four-way numerical reasoning capacity from the table result alone.
+
+## Constrained first-letter scoring probe (2026-10-01)
+
+A four-record GPU smoke (CURC 33260360) verified that Qwen 1.5B tokenizes
+A/B/C/D as one token each (IDs 32/33/34/35), performed real CUDA forward
+passes, and saved raw candidate logits and greedy generations. A bounded
+follow-up (CURC 33260789) used 16 new user-menu cases with four label
+rotations and two score formats, 128 paired prompts. Forced decoding ranked
+the logits of A/B/C/D at the first assistant token; the greedy arm generated
+normally, with the previously frozen table-phrase parser applied afterward.
+These are different decoding conditions when the greedy table answer begins
+with words rather than a letter.
+
+On scores-only prompts, forced and greedy choices were identical in all 64
+cases: 27/64 correct, mean normalized regret 0.342, A chosen 52 times and D
+12, never B or C. On table prompts, forced scoring chose only C or D,
+32/64 correct, regret 0.249. Greedy table generation plus parser achieved
+44/64 correct, regret 0.163. The paired forced-minus-greedy table regret
+was +0.086 (case-bootstrap 95% CI [+0.016, +0.148]). Constraining the first
+token to four letters does not repair numerical reasoning and can discard
+the table prompt's useful behavior. The deterministic argmax of supplied
+utilities remains the computational reference; the next system study should
+measure actual agent tool selection and adherence, rather than another
+letter-scoring prompt. Full logits, probabilities, generations, per-user
+results and GPU logs are in
+`outputs/preference_program/results/letter_scoring_full_v17`.

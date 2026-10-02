@@ -1,0 +1,126 @@
+{
+  "created_at_utc": "2026-10-02T01:25:52.944987+00:00",
+  "raw_source": "outputs/preference_program/results/letter_scoring_full_v17/base.jsonl",
+  "manifest": "outputs/preference_program/manifests/letter_scoring_manifest.jsonl",
+  "records": 128,
+  "cases": 16,
+  "note": "Forced scoring restricts the first assistant token to A/B/C/D. Greedy table answers often begin with a phrase; these are distinct decoding conditions.",
+  "arms": {
+    "scores_only": {
+      "forced": {
+        "correct": 27,
+        "choice_counts": {
+          "A": 52,
+          "D": 12
+        },
+        "mean_normalized_regret": 0.34170847185983144,
+        "accuracy_95ci": [
+          0.359375,
+          0.46875
+        ],
+        "regret_95ci": [
+          0.30090519038223995,
+          0.3821207287995699
+        ],
+        "correct_by_gold": {
+          "A": 16,
+          "B": 0,
+          "C": 0,
+          "D": 11
+        }
+      },
+      "greedy": {
+        "correct": 27,
+        "choice_counts": {
+          "A": 52,
+          "D": 12
+        },
+        "mean_normalized_regret": 0.34170847185983144,
+        "accuracy_95ci": [
+          0.359375,
+          0.46875
+        ],
+        "regret_95ci": [
+          0.29931585424810886,
+          0.38074149267675395
+        ],
+        "correct_by_gold": {
+          "A": 16,
+          "B": 0,
+          "C": 0,
+          "D": 11
+        }
+      },
+      "greedy_parse_methods": {
+        "single_letter": 64
+      }
+    },
+    "vertical_table": {
+      "forced": {
+        "correct": 32,
+        "choice_counts": {
+          "D": 36,
+          "C": 28
+        },
+        "mean_normalized_regret": 0.24893585086010994,
+        "accuracy_95ci": [
+          0.5,
+          0.5
+        ],
+        "regret_95ci": [
+          0.18160376878798834,
+          0.3122677003553642
+        ],
+        "correct_by_gold": {
+          "A": 0,
+          "B": 0,
+          "C": 16,
+          "D": 16
+        }
+      },
+      "greedy": {
+        "correct": 44,
+        "choice_counts": {
+          "A": 28,
+          "C": 21,
+          "D": 15
+        },
+        "mean_normalized_regret": 0.16339088047190342,
+        "accuracy_95ci": [
+          0.609375,
+          0.75
+        ],
+        "regret_95ci": [
+          0.1177662938730647,
+          0.20545574778149353
+        ],
+        "correct_by_gold": {
+          "A": 14,
+          "B": 0,
+          "C": 16,
+          "D": 14
+        }
+      },
+      "greedy_parse_methods": {
+        "table_phrase": 62,
+        "single_letter": 2
+      }
+    }
+  },
+  "paired": {
+    "scores_only_forced_minus_greedy_regret": {
+      "mean": 0.0,
+      "case_cluster_bootstrap_95ci": [
+        0.0,
+        0.0
+      ]
+    },
+    "vertical_table_forced_minus_greedy_regret": {
+      "mean": 0.08554497038820652,
+      "case_cluster_bootstrap_95ci": [
+        0.016402911422237678,
+        0.14832215419319322
+      ]
+    }
+  }
+}
