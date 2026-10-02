@@ -1055,7 +1055,36 @@
       "observed_gpu_name": "NVIDIA H200 NVL MIG 2g.35gb",
       "gpu_utilization": "nvidia-smi utilization N/A for MIG; CUDA tensor preflight, framework memory and four completed generations verify GPU work",
       "tool_called_records": 1
+    },
+    {
+      "job_id": "33273057",
+      "name": "lp-tool-choice-full",
+      "script": "scripts/slurm/run_proxy_tool_choice_full_mig.slurm",
+      "status": "pending",
+      "revision": "cf0117f",
+      "purpose": "Paired direct, optional textual proxy-tool call, and forced exact-proxy result on 16 fresh cases x four label rotations",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program_v19",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/tool-choice-full-v19/manifests/pilot.jsonl",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/tool-choice-full-v19/pilot",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/tool-choice-full-v19/logs/pilot-33273057.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/tool-choice-full-v19/logs/pilot-33273057-gpu.csv",
+      "local_results": "outputs/preference_program/results/proxy_tool_choice_full_v19",
+      "seed": 13001,
+      "n_users": 16,
+      "n_cases": 16,
+      "label_rotations": 4,
+      "arms_per_rotation": 3,
+      "records_expected": 192,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "exclude": "c3gpu-e5-u5",
+        "memory": "32G",
+        "wall_time": "00:05:00"
+      }
     }
   ],
-  "last_checked_at_utc": "2026-10-02T02:19:19.737636+00:00"
+  "last_checked_at_utc": "2026-10-02T02:20:33.168879+00:00"
 }
