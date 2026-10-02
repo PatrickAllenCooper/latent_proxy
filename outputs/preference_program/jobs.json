@@ -1099,7 +1099,31 @@
       ],
       "main_finding": "Optional text-protocol tool requested 64/64; followed 55/64, all 9 misses C->A. Direct chose A 64/64; forced result followed 64/64.",
       "tool_called_records": 64
+    },
+    {
+      "job_id": "33285529",
+      "name": "lp-proxy-handoff",
+      "script": "scripts/slurm/run_proxy_handoff_mig.slurm",
+      "status": "submitted",
+      "revision": "1119fec",
+      "purpose": "Three-case smoke comparing exact-proxy result handoff formats on fixed optional-tool requests",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program_v20",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/proxy-handoff-v20/manifests/pilot.jsonl",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/proxy-handoff-v20/smoke",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/proxy-handoff-v20/logs/pilot-33285529.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/proxy-handoff-v20/logs/pilot-33285529-gpu.csv",
+      "local_results": "outputs/preference_program/results/proxy_handoff_smoke_v20",
+      "records_expected": 9,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "exclude": "c3gpu-e5-u5",
+        "memory": "32G",
+        "wall_time": "00:05:00"
+      }
     }
   ],
-  "last_checked_at_utc": "2026-10-02T02:22:54.079652+00:00"
+  "last_checked_at_utc": "2026-10-02T03:21:55.899859+00:00"
 }
