@@ -1210,7 +1210,32 @@
         "outputs/preference_program/results/proxy_handoff_full_v21/summary.json"
       ],
       "main_finding": "Concatenated handoff followed 55/64 (nine C->A misses); compact user and Qwen tool-role packages followed 64/64 each. Mean normalized regret 0.0937 vs 0; format and wording changed together."
+    },
+    {
+      "job_id": "33320892",
+      "name": "lp-learned-handoff",
+      "script": "scripts/slurm/run_learned_proxy_handoff_v22_mig.slurm",
+      "status": "submitted",
+      "revision": "1cd52a6",
+      "purpose": "17-record smoke of frozen learned-RL proxy advice in successful compact multi-message handoff; includes correct and incorrect policy advice",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program_v22",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/learned-handoff-v22/manifests/pilot.jsonl",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/learned-handoff-v22/smoke",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/learned-handoff-v22/logs/pilot-33320892.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/learned-handoff-v22/logs/pilot-33320892-gpu.csv",
+      "local_results": "outputs/preference_program/results/learned_proxy_handoff_smoke_v22",
+      "records_expected": 17,
+      "policy_checkpoint_sha256": "b6637321c4911ed80f2e0259cf731d7c7699e88ba3dba09667577ddc7b116568",
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "exclude": "c3gpu-e5-u5",
+        "memory": "32G",
+        "wall_time": "00:05:00"
+      }
     }
   ],
-  "last_checked_at_utc": "2026-10-02T16:26:14.441751+00:00"
+  "last_checked_at_utc": "2026-10-02T16:29:37.385135+00:00"
 }
