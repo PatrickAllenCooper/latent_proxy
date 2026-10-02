@@ -914,7 +914,32 @@
         "outputs/preference_program/results/table_row_order_probe_v15/summary.json"
       ],
       "main_finding": "A-D row order correct 41/64; each rotated order 16/64. Chose A 223/256 and B 0/256. B bias is label-based, with strong canonical-row-order interaction."
+    },
+    {
+      "job_id": "33260360",
+      "name": "lp-letter-score-smoke",
+      "script": "scripts/slurm/run_letter_scoring_smoke_mig.slurm",
+      "status": "pending",
+      "revision": "0657d03",
+      "purpose": "Four-prompt smoke for first-token A/B/C/D logits versus greedy generation; verify tokenizer single-token candidates and GPU work",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program_v16",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/letter-score-smoke-v16/manifests/pilot.jsonl",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/letter-score-smoke-v16/pilot",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/letter-score-smoke-v16/logs/pilot-33260360.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/letter-score-smoke-v16/logs/pilot-33260360-gpu.csv",
+      "local_results": "outputs/preference_program/results/letter_scoring_smoke_v16",
+      "seed": 12001,
+      "records_expected": 4,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "exclude": "c3gpu-e5-u5",
+        "memory": "32G",
+        "wall_time": "00:03:00"
+      }
     }
   ],
-  "last_checked_at_utc": "2026-10-02T00:19:43.633017+00:00"
+  "last_checked_at_utc": "2026-10-02T01:21:26.670950+00:00"
 }
