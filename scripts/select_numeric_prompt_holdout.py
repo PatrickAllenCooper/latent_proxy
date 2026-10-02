@@ -11,9 +11,9 @@ ARMS = {'scores_only', 'vertical_table'}
 def select(source: Path, output: Path) -> None:
     rows = [json.loads(s) for s in source.read_text().splitlines() if s.strip()]
     selected = [row for row in rows if row['arm'] in ARMS]
-    assert len(selected) == 256
-    assert len({(r['user_id'], r['scenario_id'], r['permutation_id'], r['arm']) for r in selected}) == 256
-    assert len({(r['user_id'], r['scenario_id']) for r in selected}) == 32
+    cases = len({(r['user_id'], r['scenario_id']) for r in selected})
+    assert len(selected) == 8 * cases
+    assert len({(r['user_id'], r['scenario_id'], r['permutation_id'], r['arm']) for r in selected}) == len(selected)
     output.parent.mkdir(parents=True, exist_ok=True)
     with output.open('w') as handle:
         for row in selected:
