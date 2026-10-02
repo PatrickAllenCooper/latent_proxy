@@ -1,0 +1,69 @@
+{
+  "created_at_utc": "2026-10-02T00:11:06.420712+00:00",
+  "raw_source": "outputs/preference_program/results/numeric_prompt_dev_v13/base.jsonl",
+  "manifest": "outputs/preference_program/manifests/numeric_prompt_dev.jsonl",
+  "records": 256,
+  "arms": {
+    "code_argmax": {
+      "records": 64,
+      "parsed": 64,
+      "parse_methods": {
+        "single_letter": 64
+      },
+      "choice_counts": {
+        "A": 58,
+        "C": 3,
+        "D": 3
+      },
+      "correct": 20,
+      "mean_normalized_regret_valid": 0.3914390094735789
+    },
+    "pairwise": {
+      "records": 64,
+      "parsed": 0,
+      "parse_methods": {
+        "unparsed": 64
+      },
+      "choice_counts": {},
+      "correct": 0,
+      "mean_normalized_regret_valid": null
+    },
+    "scores_only": {
+      "records": 64,
+      "parsed": 64,
+      "parse_methods": {
+        "single_letter": 64
+      },
+      "choice_counts": {
+        "A": 50,
+        "D": 14
+      },
+      "correct": 24,
+      "mean_normalized_regret_valid": 0.3218125423332553
+    },
+    "vertical_table": {
+      "records": 64,
+      "parsed": 64,
+      "parse_methods": {
+        "table_phrase": 62,
+        "single_letter": 2
+      },
+      "choice_counts": {
+        "A": 24,
+        "C": 28,
+        "D": 12
+      },
+      "correct": 37,
+      "mean_normalized_regret_valid": 0.14275824602331888
+    }
+  },
+  "parser": "exact single capital letter for all arms; additionally exact fixed table phrase for vertical_table only",
+  "paired_table_minus_scores_only": {
+    "mean_normalized_regret_difference": -0.17905429630993647,
+    "case_cluster_bootstrap_95ci": [
+      -0.24366906884178124,
+      -0.11072732443354195
+    ],
+    "cases": 16
+  }
+}
