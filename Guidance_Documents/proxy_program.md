@@ -294,3 +294,29 @@ The next mechanism study should target B-optimal cases with label/order
 randomization and controlled score gaps. Assess whether small prompt changes,
 constrained letter decoding, or a deterministic argmax tool can remove the
 remaining letter bias, using new development users before another holdout.
+
+## Table row-order mechanism probe (2026-10-01)
+
+CURC job 33247354 used 16 new users and distinct menus. For each menu, it
+crossed four cyclic action-label assignments with four cyclic table-row
+orders, yielding 256 generations. The frozen exact table-phrase parser
+recovered all choices (252 fixed phrases and four single letters); the
+original strict single-letter parser rejected 252. The model chose A 223
+times, C 20, D 13, and B zero. B was gold in 64 cases and occupied every
+row position equally, so its absence is a letter bias, not only a second-row
+bias. The canonical A/B/C/D row order yielded 41/64 correct and mean
+normalized regret 0.200. Each rotated row order yielded 16/64 correct and
+regret 0.467. The within-case canonical-minus-rotated accuracy difference
+was +0.391 (case-bootstrap 95% CI [+0.297, +0.469]); regret difference was
+-0.267 (95% CI [-0.324, -0.206]). This shows a strong interaction between
+table formatting and output defaults, even though the same utilities and
+optimal action labels were preserved. Raw prompts, generations, parse
+outcomes, per-case metrics and GPU logs are in
+`outputs/preference_program/results/table_row_order_probe_v15`.
+
+Next work should test representation channels that make utility comparison
+mechanical, such as a deterministic argmax tool or constrained scoring of
+candidate letters, against this prompt-plus-parser arm. It should also test
+whether the model can handle B-optimal cases when B is supplied as explicit
+proxy advice; prior exact-advice probes suggest it can. Do not infer a
+four-way numerical reasoning capacity from the table result alone.

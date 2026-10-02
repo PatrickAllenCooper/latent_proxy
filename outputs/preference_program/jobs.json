@@ -871,7 +871,7 @@
       "job_id": "33247354",
       "name": "lp-table-row-order",
       "script": "scripts/slurm/run_table_row_order_probe_mig.slurm",
-      "status": "pending",
+      "status": "completed",
       "revision": "9e95ae2",
       "purpose": "Factorial label rotation by table row rotation on 16 new user-menu cases; test B-letter bias versus row-position bias",
       "remote_source": "/home/paco0228/latent_proxy_proxy_program_v15",
@@ -897,8 +897,24 @@
         "exclude": "c3gpu-e5-u5",
         "memory": "32G",
         "wall_time": "00:05:00"
-      }
+      },
+      "exit_code": "0:0",
+      "elapsed": "00:00:58",
+      "node": "c3gpu-e5-u1",
+      "observed_records": 256,
+      "parse_failures": 252,
+      "secondary_parser_recovered": 252,
+      "secondary_parse_failures": 0,
+      "validated": true,
+      "results_copied": true,
+      "observed_gpu_device_count": 1,
+      "observed_gpu_name": "NVIDIA H200 NVL MIG 2g.35gb",
+      "gpu_utilization": "nvidia-smi utilization N/A for MIG; CUDA tensor preflight, framework memory and 256 generations verify GPU work",
+      "analysis_outputs": [
+        "outputs/preference_program/results/table_row_order_probe_v15/summary.json"
+      ],
+      "main_finding": "A-D row order correct 41/64; each rotated order 16/64. Chose A 223/256 and B 0/256. B bias is label-based, with strong canonical-row-order interaction."
     }
   ],
-  "last_checked_at_utc": "2026-10-02T00:16:43.993943+00:00"
+  "last_checked_at_utc": "2026-10-02T00:19:43.633017+00:00"
 }

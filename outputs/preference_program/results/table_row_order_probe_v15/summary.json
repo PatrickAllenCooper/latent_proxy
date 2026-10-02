@@ -1,0 +1,80 @@
+{
+  "created_at_utc": "2026-10-02T00:19:17.362822+00:00",
+  "raw_source": "outputs/preference_program/results/table_row_order_probe_v15/base.jsonl",
+  "manifest": "outputs/preference_program/manifests/table_row_order_probe.jsonl",
+  "records": 256,
+  "cases": 16,
+  "original_parse_failures": 252,
+  "parse_methods": {
+    "single_letter": 4,
+    "table_phrase": 252
+  },
+  "choice_counts": {
+    "D": 13,
+    "A": 223,
+    "C": 20
+  },
+  "correct": 89,
+  "correct_by_gold": {
+    "A": 62,
+    "B": 0,
+    "C": 16,
+    "D": 11
+  },
+  "correct_by_gold_row_position": {
+    "0": 14,
+    "1": 16,
+    "2": 32,
+    "3": 27
+  },
+  "correct_by_row_rotation": {
+    "0": 41,
+    "1": 16,
+    "2": 16,
+    "3": 16
+  },
+  "mean_regret_by_row_rotation": {
+    "0": 0.1999037249358716,
+    "1": 0.467064892099733,
+    "2": 0.467064892099733,
+    "3": 0.467064892099733
+  },
+  "correct_by_gold_and_position": {
+    "A": {
+      "0": 14,
+      "1": 16,
+      "2": 16,
+      "3": 16
+    },
+    "B": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "C": {
+      "0": 0,
+      "1": 0,
+      "2": 16,
+      "3": 0
+    },
+    "D": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 11
+    }
+  },
+  "fixed_order_minus_rotated": {
+    "accuracy_difference": 0.390625,
+    "accuracy_95ci": [
+      0.296875,
+      0.46875
+    ],
+    "regret_difference": -0.2671611671638615,
+    "regret_95ci": [
+      -0.3239422551223756,
+      -0.2061532103132584
+    ]
+  }
+}
