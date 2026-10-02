@@ -1168,7 +1168,35 @@
         "outputs/preference_program/results/proxy_handoff_smoke_v21/summary.json"
       ],
       "main_finding": "On one A/B/C rotation, concatenated handoff missed C->A; compact user and tool-role messages followed 3/3. Smoke is not a precision estimate."
+    },
+    {
+      "job_id": "33318999",
+      "name": "lp-proxy-handoff",
+      "script": "scripts/slurm/run_proxy_handoff_v21_mig.slurm",
+      "status": "submitted",
+      "revision": "ae79fb7",
+      "purpose": "Full 64 paired cases x three handoff formats (192 records), after validated smoke",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program_v21",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/proxy-handoff-v21/manifests/pilot.jsonl",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/proxy-handoff-v21/full",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/proxy-handoff-v21/logs/pilot-33318999.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/proxy-handoff-v21/logs/pilot-33318999-gpu.csv",
+      "local_results": "outputs/preference_program/results/proxy_handoff_full_v21",
+      "n_users": 16,
+      "n_cases": 16,
+      "label_rotations": 4,
+      "arms_per_rotation": 3,
+      "records_expected": 192,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "exclude": "c3gpu-e5-u5",
+        "memory": "32G",
+        "wall_time": "00:05:00"
+      }
     }
   ],
-  "last_checked_at_utc": "2026-10-02T15:25:37.387563+00:00"
+  "last_checked_at_utc": "2026-10-02T15:26:06.461345+00:00"
 }
