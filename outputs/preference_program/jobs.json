@@ -1135,7 +1135,7 @@
       "job_id": "33317585",
       "name": "lp-proxy-handoff",
       "script": "scripts/slurm/run_proxy_handoff_v21_mig.slurm",
-      "status": "submitted",
+      "status": "completed",
       "revision": "ae79fb7",
       "purpose": "Corrected three-case smoke comparing exact-proxy handoff formats after BatchEncoding fix",
       "remote_source": "/home/paco0228/latent_proxy_proxy_program_v21",
@@ -1153,8 +1153,22 @@
         "exclude": "c3gpu-e5-u5",
         "memory": "32G",
         "wall_time": "00:05:00"
-      }
+      },
+      "exit_code": "0:0",
+      "elapsed": "00:00:46",
+      "node": "c3gpu-e5-u1",
+      "observed_records": 9,
+      "parse_failures": 0,
+      "validated": true,
+      "results_copied": true,
+      "observed_gpu_device_count": 1,
+      "observed_gpu_name": "NVIDIA H200 NVL MIG 2g.35gb",
+      "gpu_utilization": "MIG utilization N/A; CUDA tensor preflight, 1.15-1.19GB framework memory and nine completed generations verify GPU work",
+      "analysis_outputs": [
+        "outputs/preference_program/results/proxy_handoff_smoke_v21/summary.json"
+      ],
+      "main_finding": "On one A/B/C rotation, concatenated handoff missed C->A; compact user and tool-role messages followed 3/3. Smoke is not a precision estimate."
     }
   ],
-  "last_checked_at_utc": "2026-10-02T14:27:26.613497+00:00"
+  "last_checked_at_utc": "2026-10-02T15:25:37.387563+00:00"
 }

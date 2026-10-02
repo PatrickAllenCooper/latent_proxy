@@ -1,0 +1,99 @@
+{
+  "created_at_utc": "2026-10-02T15:25:06.430585+00:00",
+  "source": "outputs/preference_program/results/proxy_handoff_smoke_v21/base.jsonl",
+  "records": 9,
+  "paired_rotations": 3,
+  "cases": 1,
+  "parse_failures": 0,
+  "arms": {
+    "concatenated": {
+      "records": 3,
+      "correct": 2,
+      "parse_failures": 0,
+      "final_action_counts": {
+        "A": 2,
+        "B": 1
+      },
+      "mean_normalized_regret": 0.2625343910964432,
+      "regret_95ci": [
+        0.2625343910964432,
+        0.2625343910964432
+      ],
+      "correct_by_gold": {
+        "A": 1,
+        "B": 1,
+        "C": 0,
+        "D": 0
+      }
+    },
+    "compact_user": {
+      "records": 3,
+      "correct": 3,
+      "parse_failures": 0,
+      "final_action_counts": {
+        "A": 1,
+        "B": 1,
+        "C": 1
+      },
+      "mean_normalized_regret": 0.0,
+      "regret_95ci": [
+        0.0,
+        0.0
+      ],
+      "correct_by_gold": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 0
+      }
+    },
+    "tool_role": {
+      "records": 3,
+      "correct": 3,
+      "parse_failures": 0,
+      "final_action_counts": {
+        "A": 1,
+        "B": 1,
+        "C": 1
+      },
+      "mean_normalized_regret": 0.0,
+      "regret_95ci": [
+        0.0,
+        0.0
+      ],
+      "correct_by_gold": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 0
+      }
+    }
+  },
+  "paired": {
+    "compact_user_minus_concatenated": {
+      "mean_regret_difference": -0.2625343910964432,
+      "case_cluster_bootstrap_95ci": [
+        -0.2625343910964432,
+        -0.2625343910964432
+      ]
+    },
+    "tool_role_minus_concatenated": {
+      "mean_regret_difference": -0.2625343910964432,
+      "case_cluster_bootstrap_95ci": [
+        -0.2625343910964432,
+        -0.2625343910964432
+      ]
+    }
+  },
+  "failures": [
+    {
+      "user_id": 2,
+      "scenario_id": "menu-1017001",
+      "permutation_id": 2,
+      "arm": "concatenated",
+      "gold_action": "C",
+      "final_action": "A",
+      "completion": "A"
+    }
+  ]
+}
