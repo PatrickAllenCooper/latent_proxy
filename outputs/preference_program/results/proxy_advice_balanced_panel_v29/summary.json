@@ -1,0 +1,118 @@
+{
+  "created_at_utc": "2026-10-02T22:49:31.942463+00:00",
+  "reference_manifest": "outputs/preference_program/manifests/learned_proxy_handoff_v22.jsonl",
+  "candidate_manifest": "outputs/preference_program/manifests/natural_proxy_handoff_v29.jsonl",
+  "cases": 16,
+  "records_per_arm": 64,
+  "reference": {
+    "optimal": 32,
+    "mean_normalized_regret": 0.19929332191986546,
+    "advice_counts": {
+      "A": 16,
+      "B": 16,
+      "C": 16,
+      "D": 16
+    },
+    "checkpoint_sha256": "b6637321c4911ed80f2e0259cf731d7c7699e88ba3dba09667577ddc7b116568"
+  },
+  "candidate": {
+    "optimal": 40,
+    "mean_normalized_regret": 0.1346166728037107,
+    "advice_counts": {
+      "A": 16,
+      "B": 16,
+      "C": 16,
+      "D": 16
+    },
+    "checkpoint_sha256": "7280937ba421cd712d078483d8d81f2f4cbcda986f527162462008bdc1d7578b"
+  },
+  "candidate_minus_reference_regret": {
+    "mean": -0.06467664911615478,
+    "case_cluster_bootstrap_95ci": [
+      -0.166824303052665,
+      0.0
+    ]
+  },
+  "changed_advice": [
+    {
+      "user_id": 7,
+      "scenario_id": "menu-1027001",
+      "permutation_id": 0,
+      "gold_action": "B",
+      "reference_advice": "A",
+      "candidate_advice": "B",
+      "reference_regret": 0.4085906157460409,
+      "candidate_regret": 0.0
+    },
+    {
+      "user_id": 7,
+      "scenario_id": "menu-1027001",
+      "permutation_id": 1,
+      "gold_action": "C",
+      "reference_advice": "B",
+      "candidate_advice": "C",
+      "reference_regret": 0.4085906157460409,
+      "candidate_regret": 0.0
+    },
+    {
+      "user_id": 7,
+      "scenario_id": "menu-1027001",
+      "permutation_id": 2,
+      "gold_action": "D",
+      "reference_advice": "C",
+      "candidate_advice": "D",
+      "reference_regret": 0.4085906157460409,
+      "candidate_regret": 0.0
+    },
+    {
+      "user_id": 7,
+      "scenario_id": "menu-1027001",
+      "permutation_id": 3,
+      "gold_action": "A",
+      "reference_advice": "D",
+      "candidate_advice": "A",
+      "reference_regret": 0.4085906157460409,
+      "candidate_regret": 0.0
+    },
+    {
+      "user_id": 13,
+      "scenario_id": "menu-1039001",
+      "permutation_id": 0,
+      "gold_action": "D",
+      "reference_advice": "A",
+      "candidate_advice": "D",
+      "reference_regret": 0.6262357701124356,
+      "candidate_regret": 0.0
+    },
+    {
+      "user_id": 13,
+      "scenario_id": "menu-1039001",
+      "permutation_id": 1,
+      "gold_action": "A",
+      "reference_advice": "B",
+      "candidate_advice": "A",
+      "reference_regret": 0.6262357701124356,
+      "candidate_regret": 0.0
+    },
+    {
+      "user_id": 13,
+      "scenario_id": "menu-1039001",
+      "permutation_id": 2,
+      "gold_action": "B",
+      "reference_advice": "C",
+      "candidate_advice": "B",
+      "reference_regret": 0.6262357701124356,
+      "candidate_regret": 0.0
+    },
+    {
+      "user_id": 13,
+      "scenario_id": "menu-1039001",
+      "permutation_id": 3,
+      "gold_action": "C",
+      "reference_advice": "D",
+      "candidate_advice": "C",
+      "reference_regret": 0.6262357701124356,
+      "candidate_regret": 0.0
+    }
+  ]
+}

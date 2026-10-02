@@ -469,3 +469,15 @@ checkpoints as separate experimental arms. Training reports and the full
 paired evaluation are under `utility_proxy_cpu_probe_v27`,
 `natural_imitation_cpu_probe_v27`, and `proxy_utility_fresh_eval_v28` in
 `outputs/preference_program/results`.
+
+For the 16-case, four-label-rotation handoff panel, the ordinary-prior
+imitation checkpoint was converted to a CPU-prepared advice manifest before
+any new LLM evaluation. Its advice was optimal in 40/64 rotations versus
+32/64 for the original PPO proxy, and proxy-only mean normalized regret fell
+from 0.1993 to 0.1346. Advice changed on two underlying cases (eight
+rotations); the case-cluster interval for candidate-minus-original regret
+was [-0.1668, 0.0000]. This diagnostic panel was already used to identify
+the original policy's weakness, so it is not independent confirmation of the
+new checkpoint. The manifest and paired audit are preserved as
+`manifests/natural_proxy_handoff_v29.jsonl` and
+`results/proxy_advice_balanced_panel_v29` under `outputs/preference_program`.
