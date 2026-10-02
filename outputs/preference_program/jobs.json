@@ -1104,7 +1104,7 @@
       "job_id": "33285529",
       "name": "lp-proxy-handoff",
       "script": "scripts/slurm/run_proxy_handoff_mig.slurm",
-      "status": "submitted",
+      "status": "failed",
       "revision": "1119fec",
       "purpose": "Three-case smoke comparing exact-proxy result handoff formats on fixed optional-tool requests",
       "remote_source": "/home/paco0228/latent_proxy_proxy_program_v20",
@@ -1122,8 +1122,15 @@
         "exclude": "c3gpu-e5-u5",
         "memory": "32G",
         "wall_time": "00:05:00"
-      }
+      },
+      "exit_code": "1:0",
+      "elapsed": "00:00:51",
+      "node": "c3gpu-e5-u1",
+      "observed_records": 0,
+      "results_copied": true,
+      "validated": false,
+      "failure": "Transformers returned BatchEncoding; runner passed it to model.generate rather than extracting input_ids. GPU preflight and model load succeeded; no generation ran."
     }
   ],
-  "last_checked_at_utc": "2026-10-02T03:21:55.899859+00:00"
+  "last_checked_at_utc": "2026-10-02T14:26:18.566618+00:00"
 }

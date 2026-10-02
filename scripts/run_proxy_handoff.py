@@ -51,7 +51,10 @@ def run(source: Path, output: Path, model_name: str, limit: int | None) -> None:
             for arm in ('concatenated', 'compact_user', 'tool_role'):
                 msg = messages(row, arm)
                 encoded = tokenizer.apply_chat_template(msg, tokenize=True, add_generation_prompt=True,
-                                                        return_tensors='pt').to(model.device)
+                                                        return_tensors='pt')
+                if hasattr(encoded, 'input_ids'):
+                    encoded = encoded['input_ids']
+                encoded = encoded.to(model.device)
                 with torch.inference_mode():
                     generated = model.generate(encoded, max_new_tokens=24, do_sample=False,
                                                pad_token_id=tokenizer.eos_token_id)

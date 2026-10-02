@@ -1,0 +1,4 @@
+job=33285529 node=c3gpu-e5-u1 revision=1119fec started=2026-10-02T05:46:11-06:00
+{"event": "gpu_preflight", "device_count": 1, "device_name": "NVIDIA H200 NVL MIG 2g.35gb", "allocated_bytes": 4096}
+{"event": "model_load_start", "at_utc": "2026-10-02T11:46:18.082371+00:00"}
+{"event": "model_loaded", "at_utc": "2026-10-02T11:46:48.205397+00:00", "gpu_device_count": 1, "gpu_name": "NVIDIA H200 NVL MIG 2g.35gb", "gpu_memory_allocated_bytes": 1153358848}

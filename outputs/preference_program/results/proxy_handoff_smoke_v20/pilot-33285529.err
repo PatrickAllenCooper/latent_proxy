@@ -1,0 +1,24 @@
+Loading weights:   0%|          | 0/338 [00:00<?, ?it/s]Loading weights:   0%|          | 1/338 [00:00<00:41,  8.16it/s]Loading weights:   9%|▊         | 29/338 [00:00<00:02, 151.58it/s]Loading weights:  22%|██▏       | 76/338 [00:00<00:00, 285.93it/s]Loading weights:  36%|███▋      | 123/338 [00:00<00:00, 352.86it/s]Loading weights:  49%|████▉     | 167/338 [00:00<00:00, 382.08it/s]Loading weights:  62%|██████▏   | 209/338 [00:00<00:00, 386.94it/s]Loading weights:  76%|███████▌  | 256/338 [00:00<00:00, 411.89it/s]Loading weights:  90%|████████▉ | 303/338 [00:00<00:00, 428.11it/s]Loading weights: 100%|██████████| 338/338 [00:00<00:00, 369.77it/s]
+Traceback (most recent call last):
+  File "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 289, in __getattr__
+    return self.data[item]
+           ~~~~~~~~~^^^^^^
+KeyError: 'shape'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/paco0228/latent_proxy_proxy_program_v20/scripts/run_proxy_handoff.py", line 86, in <module>
+    run(args.source, args.output_dir, args.model_name, args.limit)
+  File "/home/paco0228/latent_proxy_proxy_program_v20/scripts/run_proxy_handoff.py", line 56, in run
+    generated = model.generate(encoded, max_new_tokens=24, do_sample=False,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/transformers/generation/utils.py", line 2534, in generate
+    batch_size = inputs_tensor.shape[0]
+                 ^^^^^^^^^^^^^^^^^^^
+  File "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 291, in __getattr__
+    raise AttributeError
+AttributeError
