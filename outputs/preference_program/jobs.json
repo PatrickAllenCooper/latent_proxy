@@ -1173,7 +1173,7 @@
       "job_id": "33318999",
       "name": "lp-proxy-handoff",
       "script": "scripts/slurm/run_proxy_handoff_v21_mig.slurm",
-      "status": "submitted",
+      "status": "completed",
       "revision": "ae79fb7",
       "purpose": "Full 64 paired cases x three handoff formats (192 records), after validated smoke",
       "remote_source": "/home/paco0228/latent_proxy_proxy_program_v21",
@@ -1195,8 +1195,22 @@
         "exclude": "c3gpu-e5-u5",
         "memory": "32G",
         "wall_time": "00:05:00"
-      }
+      },
+      "exit_code": "0:0",
+      "elapsed": "00:00:40",
+      "node": "c3gpu-e5-u1",
+      "observed_records": 192,
+      "parse_failures": 0,
+      "validated": true,
+      "results_copied": true,
+      "observed_gpu_device_count": 1,
+      "observed_gpu_name": "NVIDIA H200 NVL MIG 2g.35gb",
+      "gpu_utilization": "MIG utilization N/A; CUDA tensor preflight, 1.15-1.19GB framework memory and 192 completed generations verify GPU work",
+      "analysis_outputs": [
+        "outputs/preference_program/results/proxy_handoff_full_v21/summary.json"
+      ],
+      "main_finding": "Concatenated handoff followed 55/64 (nine C->A misses); compact user and Qwen tool-role packages followed 64/64 each. Mean normalized regret 0.0937 vs 0; format and wording changed together."
     }
   ],
-  "last_checked_at_utc": "2026-10-02T15:26:06.461345+00:00"
+  "last_checked_at_utc": "2026-10-02T16:26:14.441751+00:00"
 }

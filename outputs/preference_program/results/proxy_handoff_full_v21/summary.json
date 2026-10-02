@@ -1,0 +1,175 @@
+{
+  "created_at_utc": "2026-10-02T16:25:19.938557+00:00",
+  "source": "outputs/preference_program/results/proxy_handoff_full_v21/base.jsonl",
+  "records": 192,
+  "paired_rotations": 64,
+  "cases": 16,
+  "parse_failures": 0,
+  "arms": {
+    "concatenated": {
+      "records": 64,
+      "correct": 55,
+      "parse_failures": 0,
+      "final_action_counts": {
+        "A": 25,
+        "B": 16,
+        "D": 16,
+        "C": 7
+      },
+      "mean_normalized_regret": 0.09369582980974533,
+      "regret_95ci": [
+        0.04380126034980425,
+        0.14393161831431467
+      ],
+      "correct_by_gold": {
+        "A": 16,
+        "B": 16,
+        "C": 7,
+        "D": 16
+      }
+    },
+    "compact_user": {
+      "records": 64,
+      "correct": 64,
+      "parse_failures": 0,
+      "final_action_counts": {
+        "A": 16,
+        "B": 16,
+        "C": 16,
+        "D": 16
+      },
+      "mean_normalized_regret": 0.0,
+      "regret_95ci": [
+        0.0,
+        0.0
+      ],
+      "correct_by_gold": {
+        "A": 16,
+        "B": 16,
+        "C": 16,
+        "D": 16
+      }
+    },
+    "tool_role": {
+      "records": 64,
+      "correct": 64,
+      "parse_failures": 0,
+      "final_action_counts": {
+        "A": 16,
+        "B": 16,
+        "C": 16,
+        "D": 16
+      },
+      "mean_normalized_regret": 0.0,
+      "regret_95ci": [
+        0.0,
+        0.0
+      ],
+      "correct_by_gold": {
+        "A": 16,
+        "B": 16,
+        "C": 16,
+        "D": 16
+      }
+    }
+  },
+  "paired": {
+    "compact_user_minus_concatenated": {
+      "mean_regret_difference": -0.09369582980974533,
+      "case_cluster_bootstrap_95ci": [
+        -0.14435959660421605,
+        -0.04404686685011903
+      ]
+    },
+    "tool_role_minus_concatenated": {
+      "mean_regret_difference": -0.09369582980974533,
+      "case_cluster_bootstrap_95ci": [
+        -0.14600092339739867,
+        -0.044648782472078215
+      ]
+    }
+  },
+  "failures": [
+    {
+      "user_id": 2,
+      "scenario_id": "menu-1017001",
+      "permutation_id": 2,
+      "arm": "concatenated",
+      "gold_action": "C",
+      "final_action": "A",
+      "completion": "A"
+    },
+    {
+      "user_id": 7,
+      "scenario_id": "menu-1027001",
+      "permutation_id": 1,
+      "arm": "concatenated",
+      "gold_action": "C",
+      "final_action": "A",
+      "completion": "A"
+    },
+    {
+      "user_id": 15,
+      "scenario_id": "menu-1043001",
+      "permutation_id": 1,
+      "arm": "concatenated",
+      "gold_action": "C",
+      "final_action": "A",
+      "completion": "A"
+    },
+    {
+      "user_id": 19,
+      "scenario_id": "menu-1051001",
+      "permutation_id": 1,
+      "arm": "concatenated",
+      "gold_action": "C",
+      "final_action": "A",
+      "completion": "A"
+    },
+    {
+      "user_id": 0,
+      "scenario_id": "menu-1013001",
+      "permutation_id": 0,
+      "arm": "concatenated",
+      "gold_action": "C",
+      "final_action": "A",
+      "completion": "A"
+    },
+    {
+      "user_id": 1,
+      "scenario_id": "menu-1015001",
+      "permutation_id": 0,
+      "arm": "concatenated",
+      "gold_action": "C",
+      "final_action": "A",
+      "completion": "A"
+    },
+    {
+      "user_id": 8,
+      "scenario_id": "menu-1029001",
+      "permutation_id": 0,
+      "arm": "concatenated",
+      "gold_action": "C",
+      "final_action": "A",
+      "completion": "A"
+    },
+    {
+      "user_id": 10,
+      "scenario_id": "menu-1033001",
+      "permutation_id": 0,
+      "arm": "concatenated",
+      "gold_action": "C",
+      "final_action": "A",
+      "completion": "A"
+    },
+    {
+      "user_id": 13,
+      "scenario_id": "menu-1039001",
+      "permutation_id": 3,
+      "arm": "concatenated",
+      "gold_action": "C",
+      "final_action": "A",
+      "completion": "A"
+    }
+  ]
+}

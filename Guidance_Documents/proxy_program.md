@@ -372,3 +372,30 @@ Next, hold the initial `TOOL` request fixed and vary only the return channel:
 inline text, an isolated tool-role message if supported by the chat template,
 and a compact final instruction. Then substitute the learned RL proxy for
 the oracle to measure the decision-quality cost of imperfect advice.
+
+## Proxy result handoff comparison (2026-10-02)
+
+The paired handoff experiment reused the 64 voluntary `TOOL` requests from
+that panel and held exact proxy advice fixed. One 35 GB H200 MIG slice
+generated 192 final responses in 40 seconds (CURC 33318999). The original
+single concatenated prompt again followed advice in 55/64 cases; all nine
+misses changed a recommended C to A. A multi-message assistant `TOOL` turn
+followed by a compact user result, and an assistant `TOOL` turn followed by a
+Qwen-rendered tool-role result, each followed advice in 64/64 cases. All
+responses parsed. Both multi-message formats reduced mean normalized regret
+from 0.0937 to zero; paired case-cluster bootstrap intervals for the regret
+difference were [-0.1444, -0.0440] and [-0.1460, -0.0446] respectively.
+
+The interventions changed both role structure and wording, so this identifies
+a handoff-package effect rather than the separate contribution of role tokens.
+Qwen's rendered tool role uses a `<tool_response>` wrapper; this controlled
+transcript is not yet a native API tool-call evaluation. Raw messages,
+rendered prompts, generations, and scoring are preserved under
+`outputs/preference_program/results/proxy_handoff_full_v21`.
+
+Next, replace the exact proxy's advice with the frozen learned RL proxy on
+the same cases while keeping the successful handoff format fixed. Track
+tool-call rate, advice adherence, decision regret, and the policy's own
+regret separately. This separates loss from proxy approximation from loss
+in the LLM handoff. Vary role structure and wording factorially later if
+their individual contributions matter.
