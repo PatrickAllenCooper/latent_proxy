@@ -866,7 +866,39 @@
         "outputs/preference_program/results/numeric_prompt_holdout_v14/reparse_summary.json"
       ],
       "main_finding": "Frozen table-plus-parser on heldout 32 cases x four rotations: regret 0.198 vs scores_only 0.384; 79/128 vs 51/128 correct. Table never selected B."
+    },
+    {
+      "job_id": "33247354",
+      "name": "lp-table-row-order",
+      "script": "scripts/slurm/run_table_row_order_probe_mig.slurm",
+      "status": "pending",
+      "revision": "9e95ae2",
+      "purpose": "Factorial label rotation by table row rotation on 16 new user-menu cases; test B-letter bias versus row-position bias",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program_v15",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/table-row-order-v15/manifests/pilot.jsonl",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/table-row-order-v15/pilot",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/table-row-order-v15/logs/pilot-33247354.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/table-row-order-v15/logs/pilot-33247354-gpu.csv",
+      "local_results": "outputs/preference_program/results/table_row_order_probe_v15",
+      "seed": 11001,
+      "n_users": 16,
+      "n_cases": 16,
+      "label_rotations": 4,
+      "row_rotations": 4,
+      "conditions": [
+        "base"
+      ],
+      "records_expected": 256,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "exclude": "c3gpu-e5-u5",
+        "memory": "32G",
+        "wall_time": "00:05:00"
+      }
     }
   ],
-  "last_checked_at_utc": "2026-10-02T00:14:08.442387+00:00"
+  "last_checked_at_utc": "2026-10-02T00:16:43.993943+00:00"
 }
