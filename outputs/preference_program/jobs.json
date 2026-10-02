@@ -1019,7 +1019,32 @@
         "outputs/preference_program/results/letter_scoring_full_v17/summary.json"
       ],
       "main_finding": "Forced letter scoring did not fix bias: scores-only identical to greedy, 0 B/C; table forced regret 0.249 vs greedy recovered 0.163, 0 A/B."
+    },
+    {
+      "job_id": "33272566",
+      "name": "lp-tool-choice-smoke",
+      "script": "scripts/slurm/run_proxy_tool_choice_smoke_mig.slurm",
+      "status": "pending",
+      "revision": "96f43e5",
+      "purpose": "Three-record smoke for direct decision, voluntary text-protocol proxy call, and forced exact-proxy result",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program_v18",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/tool-choice-smoke-v18/manifests/pilot.jsonl",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/tool-choice-smoke-v18/pilot",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/tool-choice-smoke-v18/logs/pilot-33272566.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/tool-choice-smoke-v18/logs/pilot-33272566-gpu.csv",
+      "local_results": "outputs/preference_program/results/proxy_tool_choice_smoke_v18",
+      "seed": 13001,
+      "records_expected": 3,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "exclude": "c3gpu-e5-u5",
+        "memory": "32G",
+        "wall_time": "00:03:00"
+      }
     }
   ],
-  "last_checked_at_utc": "2026-10-02T01:26:20.882385+00:00"
+  "last_checked_at_utc": "2026-10-02T02:18:12.452576+00:00"
 }
