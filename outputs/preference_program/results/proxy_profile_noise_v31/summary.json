@@ -1,0 +1,154 @@
+{
+  "created_at_utc": "2026-10-03T00:37:47.521874+00:00",
+  "seed": 9701,
+  "n_users": 200,
+  "n_menus": 20,
+  "checkpoints": {
+    "frozen": "outputs/preference_program/results/finite_menu_ppo_pilot_v2/policy.pt",
+    "natural_imitation": "outputs/preference_program/results/natural_imitation_cpu_probe_v27/policy.pt"
+  },
+  "noise_coordinates": "Gaussian perturbations to logit(gamma), log(alpha), log(lambda-1), common direction across noise levels",
+  "models": {
+    "frozen": {
+      "mean_regret": {
+        "true": 0.09959433327013939,
+        "noise_025": 0.10885511195678096,
+        "noise_075": 0.15706543669603573,
+        "generic": 0.11229355621469733
+      },
+      "paired": {
+        "noise_025_minus_true": {
+          "mean_regret_difference": 0.009260778686641593,
+          "user_cluster_bootstrap_95ci": [
+            0.00292305843810555,
+            0.016292539712987556
+          ],
+          "changed_actions": 296,
+          "decisions": 4000
+        },
+        "noise_075_minus_true": {
+          "mean_regret_difference": 0.05747110342589634,
+          "user_cluster_bootstrap_95ci": [
+            0.045590518669153736,
+            0.06983770642696524
+          ],
+          "changed_actions": 747,
+          "decisions": 4000
+        },
+        "generic_minus_true": {
+          "mean_regret_difference": 0.012699222944557937,
+          "user_cluster_bootstrap_95ci": [
+            0.002387378064309492,
+            0.02360378629218808
+          ],
+          "changed_actions": 822,
+          "decisions": 4000
+        }
+      }
+    },
+    "natural_imitation": {
+      "mean_regret": {
+        "true": 0.07763801048831848,
+        "noise_025": 0.09463915975561951,
+        "noise_075": 0.15783319490119324,
+        "generic": 0.1483759474430387
+      },
+      "paired": {
+        "noise_025_minus_true": {
+          "mean_regret_difference": 0.017001149267301025,
+          "user_cluster_bootstrap_95ci": [
+            0.010729881055873318,
+            0.023537182496050555
+          ],
+          "changed_actions": 503,
+          "decisions": 4000
+        },
+        "noise_075_minus_true": {
+          "mean_regret_difference": 0.08019518441287475,
+          "user_cluster_bootstrap_95ci": [
+            0.06551787167134081,
+            0.09567315154631564
+          ],
+          "changed_actions": 1149,
+          "decisions": 4000
+        },
+        "generic_minus_true": {
+          "mean_regret_difference": 0.07073793695472022,
+          "user_cluster_bootstrap_95ci": [
+            0.05997058073945676,
+            0.08264663879474252
+          ],
+          "changed_actions": 1120,
+          "decisions": 4000
+        }
+      }
+    },
+    "exact_reward": {
+      "mean_regret": {
+        "true": 0.0,
+        "noise_025": 0.0207571728434892,
+        "noise_075": 0.0936072549309076,
+        "generic": 0.1120093234576436
+      },
+      "paired": {
+        "noise_025_minus_true": {
+          "mean_regret_difference": 0.0207571728434892,
+          "user_cluster_bootstrap_95ci": [
+            0.016556404313646887,
+            0.02533805141098288
+          ],
+          "changed_actions": 481,
+          "decisions": 4000
+        },
+        "noise_075_minus_true": {
+          "mean_regret_difference": 0.0936072549309076,
+          "user_cluster_bootstrap_95ci": [
+            0.07958391354704367,
+            0.10860231998706396
+          ],
+          "changed_actions": 1112,
+          "decisions": 4000
+        },
+        "generic_minus_true": {
+          "mean_regret_difference": 0.1120093234576436,
+          "user_cluster_bootstrap_95ci": [
+            0.09348101547908629,
+            0.13178841355819623
+          ],
+          "changed_actions": 1179,
+          "decisions": 4000
+        }
+      }
+    }
+  },
+  "candidate_minus_frozen": {
+    "true": {
+      "mean_regret_difference": -0.0219563227818209,
+      "user_cluster_bootstrap_95ci": [
+        -0.03191466239268188,
+        -0.012349140289687791
+      ]
+    },
+    "noise_025": {
+      "mean_regret_difference": -0.014215952201161475,
+      "user_cluster_bootstrap_95ci": [
+        -0.025931860828539793,
+        -0.003085106857318853
+      ]
+    },
+    "noise_075": {
+      "mean_regret_difference": 0.0007677582051575254,
+      "user_cluster_bootstrap_95ci": [
+        -0.011776476253563204,
+        0.012630408580611789
+      ]
+    },
+    "generic": {
+      "mean_regret_difference": 0.03608239122834138,
+      "user_cluster_bootstrap_95ci": [
+        0.0257775227203842,
+        0.04645551387768071
+      ]
+    }
+  }
+}

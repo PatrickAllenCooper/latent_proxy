@@ -495,3 +495,17 @@ This supplies causal input-ablation evidence that these explicit proxies
 benefit from correct user preferences. It does not test the LLM's inference
 of those preferences. Raw supplied and true profiles, actions, and scores
 are preserved under `outputs/preference_program/results/proxy_preference_use_v30`.
+
+A profile-noise sensitivity panel (seed 9701, 200 users × 20 menus) adds
+Gaussian errors with sigma 0.25 and 0.75 to logit(gamma), log(alpha), and
+log(lambda-1), using a common error direction per user across noise levels.
+All decisions are scored against the original true profile. Frozen proxy
+regret was 0.0996 with true inputs, 0.1089 at sigma 0.25, and 0.1571 at
+sigma 0.75. The improved proxy reached 0.0776, 0.0946, and 0.1578 respectively.
+Exact reward scoring reached 0, 0.0208, and 0.0936. Thus preference input
+error can erase the improved policy's advantage, and creates decision loss
+even for exact computation. These noise levels are sensitivity probes and
+are not calibrated to an elicitor's actual error distribution. Next measure
+that error empirically and compare point estimates with posterior decision
+integration. The 48000 raw decisions, supplied profiles, and paired intervals
+are saved under `outputs/preference_program/results/proxy_profile_noise_v31`.
