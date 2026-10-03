@@ -1323,7 +1323,7 @@
     {
       "job_id": "33361598",
       "name": "lp-cache-check",
-      "status": "submitted",
+      "status": "failed",
       "purpose": "CPU-only cache shard integrity and tokenizer timing before bounded GPU startup recovery",
       "script": "scripts/slurm/check_handoff_cache_v37.slurm",
       "remote_source": "/scratch/alpine/paco0228/latent_proxy_runs/startup-diagnostic-v37",
@@ -1338,7 +1338,30 @@
         "wall_time": "00:05:00",
         "gpus": 0
       },
-      "submission_note": "Initial request rejected because QoS normal invalid; no job allocated. Corrected to cpu-normal."
+      "submission_note": "Initial request rejected because QoS normal invalid; no job allocated. Corrected to cpu-normal.",
+      "exit_code": "1:0",
+      "elapsed": "00:00:06",
+      "failure_stage": "bashrc sourcing under nounset; no cache reads performed"
+    },
+    {
+      "job_id": "33361607",
+      "name": "lp-cache-check",
+      "status": "submitted",
+      "purpose": "CPU-only cache shard integrity and tokenizer timing before bounded GPU startup recovery",
+      "script": "scripts/slurm/check_handoff_cache_v37.slurm",
+      "remote_source": "/scratch/alpine/paco0228/latent_proxy_runs/startup-diagnostic-v37",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/startup-diagnostic-v37/cache_receipt.json",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/startup-diagnostic-v37/cpu-33361607.*",
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "acpu",
+        "qos": "cpu-normal",
+        "cpus": 2,
+        "memory": "8G",
+        "wall_time": "00:05:00",
+        "gpus": 0
+      },
+      "submission_note": "Disable nounset only around site bashrc, matching established project Slurm recipe"
     }
   ],
   "last_checked_at_utc": "2026-10-03T17:56:14.101545+00:00"
