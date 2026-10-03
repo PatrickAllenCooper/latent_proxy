@@ -1,0 +1,9 @@
+{
+  "cache_gate": "passed",
+  "weight_bytes": 3087467144,
+  "weight_sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+  "weight_read_seconds": 63.50152921676636,
+  "tokenizer_seconds": 0.6418614387512207,
+  "scope": "Readable content-addressed cached weights and tokenizer; does not verify GPU quantization startup",
+  "gpu_request": "one35GB H200 MIG/five-minute cap, four diagnostic responses;90s loading watchdog"
+}

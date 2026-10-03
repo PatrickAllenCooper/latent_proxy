@@ -46,5 +46,5 @@ export MANIFEST=/scratch/alpine/paco0228/latent_proxy_runs/improved-handoff-v35/
 export OUTPUT_DIR="$RUN_ROOT/diagnostic"
 export HF_HUB_OFFLINE=1
 export TRANSFORMERS_OFFLINE=1
-python "$RUN_ROOT/diagnose_handoff_startup.py"
+python "$RUN_ROOT/diagnose_handoff_startup_b579bac.py"
 echo "job=$SLURM_JOB_ID completed=$(date -Is)"

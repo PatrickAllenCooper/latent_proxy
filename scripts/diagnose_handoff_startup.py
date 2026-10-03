@@ -13,9 +13,11 @@ def timeout(signum,frame):
 
 def bounded(*args,**kwargs):
     signal.signal(signal.SIGALRM,timeout);signal.alarm(90)
+    faulthandler.dump_traceback_later(90, exit=True)
     print(json.dumps({'event':'bounded_load_start','snapshot':receipt['snapshot'],'timestamp':time.time()}),flush=True)
     try:return original(*args,**kwargs)
-    finally:signal.alarm(0)
+    finally:
+        signal.alarm(0);faulthandler.cancel_dump_traceback_later()
 model_utils.load_model_with_optional_checkpoint=bounded
 from scripts.run_learned_proxy_handoff import generate
 print(json.dumps({'event':'imports_complete','timestamp':time.time()}),flush=True)

@@ -1,0 +1,52 @@
+{
+  "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "snapshot": "/gpfs/alpine1/scratch/paco0228/relocated/caches/hf/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "files": [
+    {
+      "file": "config.json",
+      "size": 660,
+      "sha256": "98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670",
+      "read_seconds": 0.0004992485046386719
+    },
+    {
+      "file": "generation_config.json",
+      "size": 242,
+      "sha256": "e558847a8b4402616f1273797b015104dc266fe4b520056fca88823ba8f8ebe6",
+      "read_seconds": 0.00032401084899902344
+    },
+    {
+      "file": "merges.txt",
+      "size": 1671839,
+      "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+      "read_seconds": 0.06606388092041016
+    },
+    {
+      "file": "model.safetensors",
+      "size": 3087467144,
+      "sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+      "read_seconds": 63.50152921676636
+    },
+    {
+      "file": "tokenizer.json",
+      "size": 7031645,
+      "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+      "read_seconds": 0.12070155143737793
+    },
+    {
+      "file": "tokenizer_config.json",
+      "size": 7305,
+      "sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+      "read_seconds": 0.018102645874023438
+    },
+    {
+      "file": "vocab.json",
+      "size": 2776833,
+      "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+      "read_seconds": 0.12270164489746094
+    }
+  ],
+  "started": 1791050219.9673316,
+  "tokenizer_seconds": 0.6418614387512207,
+  "completed": 1791050390.983181,
+  "valid": true
+}

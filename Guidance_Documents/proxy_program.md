@@ -664,3 +664,14 @@ import timestamps and a90-second model/tokenizer alarm with all-thread stack
 capture. No GPU diagnostic was submitted: CPU integrity receipt and live
 headroom/no-duplicate check are prerequisites. The diagnostic keeps the same
 one35GB H200 MIG/five-minute cap. Stage1 retry and stage2 remain gated.
+
+CPU cache job33361607 passed in3:26. The3,087,467,144-byte safetensor file
+matches content-addressed blob SHA256 dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee;
+headers are readable and tokenizer offline loading took0.642s. Weight
+read/hash took63.50s, consistent with storage latency as a possible contributor,
+not proof of the GPU stall cause. Receipt, file hashes, timings and CPU logs
+are retained. Live scheduler showed no running account GPU work or duplicate
+project job. Approved four-response diagnostic33362723 was submitted against
+the verified explicit snapshot: one35GB H200 MIG/five-minute cap,90s loading
+alarm plus faulthandler watchdog for stack capture even during blocked native
+calls. This is engineering diagnosis; full stage1 and stage2 remain gated.

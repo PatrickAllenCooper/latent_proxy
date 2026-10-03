@@ -1346,7 +1346,7 @@
     {
       "job_id": "33361607",
       "name": "lp-cache-check",
-      "status": "submitted",
+      "status": "completed",
       "purpose": "CPU-only cache shard integrity and tokenizer timing before bounded GPU startup recovery",
       "script": "scripts/slurm/check_handoff_cache_v37.slurm",
       "remote_source": "/scratch/alpine/paco0228/latent_proxy_runs/startup-diagnostic-v37",
@@ -1361,8 +1361,36 @@
         "wall_time": "00:05:00",
         "gpus": 0
       },
-      "submission_note": "Disable nounset only around site bashrc, matching established project Slurm recipe"
+      "submission_note": "Disable nounset only around site bashrc, matching established project Slurm recipe",
+      "exit_code": "0:0",
+      "elapsed": "00:03:26",
+      "validated": true,
+      "results_copied": true,
+      "main_finding": "Cached3.09GB safetensor content hash matches blob; readable headers; tokenizer offline0.642s; weight read/hash63.50s"
+    },
+    {
+      "job_id": "33362723",
+      "name": "lp-startup-diag",
+      "status": "submitted",
+      "purpose": "Four-response explicit verified snapshot startup diagnostic;90s loading watchdog/stack capture; stage1 recovery gate",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program_v22",
+      "diagnostic_wrapper": "/scratch/alpine/paco0228/latent_proxy_runs/startup-diagnostic-v37/diagnose_handoff_startup_b579bac.py",
+      "script": "scripts/slurm/diagnose_handoff_startup_v37.slurm",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/startup-diagnostic-v37/diagnostic",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/startup-diagnostic-v37/logs/pilot-33362723.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/startup-diagnostic-v37/logs/pilot-33362723-gpu.csv",
+      "records_expected": 4,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "memory": "32G",
+        "wall_time": "00:05:00"
+      },
+      "resource_justification": "Previous successful same model1.19GB peak/33s; cache verified on CPU; no live duplicate project job or running account GPU job; unchanged cap",
+      "next_gate": "Validate GPU loading/generation then stage1 retry; no automatic full retry from submission"
     }
   ],
-  "last_checked_at_utc": "2026-10-03T17:56:14.101545+00:00"
+  "last_checked_at_utc": "2026-10-03T18:52:41.446789+00:00"
 }
