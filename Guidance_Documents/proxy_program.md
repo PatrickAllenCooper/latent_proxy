@@ -538,3 +538,22 @@ reference actions were not retained; comparisons use their saved user regrets.
 Validation checks row counts and bounded regrets; the budget-zero exact scorer
 reproduces the saved posterior regret exactly. Artifacts:
 `outputs/preference_program/results/discovery_proxy_bridge_v32`.
+
+## Paired discovery loss measurement (v33)
+
+A frozen measurement protocol reuses v32's analytic EIG panel to compare
+natural-imitation decisions against exact scoring of the identical inferred
+profile at budgets 0/2/4/8. The excess regret is respectively
+0.0401/0.0547/0.0555/0.0607; all paired user-bootstrap intervals exclude zero.
+At budget eight, the interval is [0.0453, 0.0778], compared with a much smaller
+point-versus-posterior exact gap of 0.00069 [0.00008, 0.00144]. Eight versus zero
+questions reduces regret by 0.0909 for natural imitation and 0.1115 for exact
+point scoring. Better discovery helps, but the current policy leaves much of
+that benefit unrealized. These are matched decision contrasts, not additive
+causal error components or new independent data. Exact reward remains the
+primary computational control; no GPU scaling is justified by this reanalysis.
+Artifacts and protocol: `results/discovery_loss_attribution_v33` and
+`manifests/discovery_loss_attribution_v33.json` under `outputs/preference_program`.
+Registered LLM smoke job 33320892 was reconciled live as pending for Priority,
+with only the remote manifest and ledger present. Its 17-record gate remains
+in place, and no duplicate submission was made.

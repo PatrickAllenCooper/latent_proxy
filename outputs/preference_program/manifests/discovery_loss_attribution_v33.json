@@ -1,0 +1,11 @@
+{
+  "analysis": "paired downstream loss attribution on existing discovery panel",
+  "source": "discovery_proxy_bridge_v32",
+  "status": "protocol frozen before analysis",
+  "primary_arm": "eig",
+  "budgets": [0, 2, 4, 8],
+  "comparisons": ["natural_imitation minus point_exact", "point_exact minus posterior_exact", "budget_8 minus budget_0 within each mechanism"],
+  "bootstrap": "10000 paired user resamples, seed 33001",
+  "interpretation": "differences are decision-mechanism contrasts, not additive causal error components; existing analytic data, no independent replication",
+  "next_gate": "retain exact reward as primary decision control; await registered learned-advice LLM smoke before scaling handoff"
+}

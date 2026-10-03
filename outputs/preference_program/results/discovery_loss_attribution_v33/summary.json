@@ -1,0 +1,122 @@
+{
+  "protocol": {
+    "analysis": "paired downstream loss attribution on existing discovery panel",
+    "source": "discovery_proxy_bridge_v32",
+    "status": "protocol frozen before analysis",
+    "primary_arm": "eig",
+    "budgets": [
+      0,
+      2,
+      4,
+      8
+    ],
+    "comparisons": [
+      "natural_imitation minus point_exact",
+      "point_exact minus posterior_exact",
+      "budget_8 minus budget_0 within each mechanism"
+    ],
+    "bootstrap": "10000 paired user resamples, seed 33001",
+    "interpretation": "differences are decision-mechanism contrasts, not additive causal error components; existing analytic data, no independent replication",
+    "next_gate": "retain exact reward as primary decision control; await registered learned-advice LLM smoke before scaling handoff"
+  },
+  "budgets": {
+    "0": {
+      "natural_minus_point_exact": {
+        "mean": 0.04010672765426868,
+        "paired_user_bootstrap_95": [
+          0.02677189114554064,
+          0.05311602051105288
+        ]
+      },
+      "point_minus_posterior_exact": {
+        "mean": 0.0,
+        "paired_user_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "2": {
+      "natural_minus_point_exact": {
+        "mean": 0.054699370904239056,
+        "paired_user_bootstrap_95": [
+          0.04132259996354303,
+          0.0691741219428097
+        ]
+      },
+      "point_minus_posterior_exact": {
+        "mean": -0.0003921439595328838,
+        "paired_user_bootstrap_95": [
+          -0.0012588063805602015,
+          0.000328376693485138
+        ]
+      }
+    },
+    "4": {
+      "natural_minus_point_exact": {
+        "mean": 0.05547351380535398,
+        "paired_user_bootstrap_95": [
+          0.04070301689937743,
+          0.07150400978765889
+        ]
+      },
+      "point_minus_posterior_exact": {
+        "mean": 0.001454446497771925,
+        "paired_user_bootstrap_95": [
+          0.00025098190883237183,
+          0.0028313124089526867
+        ]
+      }
+    },
+    "8": {
+      "natural_minus_point_exact": {
+        "mean": 0.06071280146124337,
+        "paired_user_bootstrap_95": [
+          0.04527936839173557,
+          0.07782120776738807
+        ]
+      },
+      "point_minus_posterior_exact": {
+        "mean": 0.0006858634554409261,
+        "paired_user_bootstrap_95": [
+          7.731381916510337e-05,
+          0.0014422546435009802
+        ]
+      }
+    }
+  },
+  "eight_minus_zero": {
+    "frozen": {
+      "mean": -0.0464650849558214,
+      "paired_user_bootstrap_95": [
+        -0.05769762046640263,
+        -0.03638021913511789
+      ]
+    },
+    "natural_imitation": {
+      "mean": -0.09090075486216202,
+      "paired_user_bootstrap_95": [
+        -0.10287940302543037,
+        -0.0789818395206123
+      ]
+    },
+    "point_exact": {
+      "mean": -0.1115068286691367,
+      "paired_user_bootstrap_95": [
+        -0.13604703731015927,
+        -0.08850992942297964
+      ]
+    },
+    "posterior_exact": {
+      "mean": -0.11219269212457764,
+      "paired_user_bootstrap_95": [
+        -0.13663276427537005,
+        -0.08923269160114985
+      ]
+    }
+  },
+  "validation": {
+    "unique_user_cells": 12800,
+    "expected_user_cells": 12800
+  }
+}

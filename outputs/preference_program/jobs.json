@@ -1215,7 +1215,7 @@
       "job_id": "33320892",
       "name": "lp-learned-handoff",
       "script": "scripts/slurm/run_learned_proxy_handoff_v22_mig.slurm",
-      "status": "submitted",
+      "status": "pending",
       "revision": "1cd52a6",
       "purpose": "17-record smoke of frozen learned-RL proxy advice in successful compact multi-message handoff; includes correct and incorrect policy advice",
       "remote_source": "/home/paco0228/latent_proxy_proxy_program_v22",
@@ -1234,8 +1234,10 @@
         "exclude": "c3gpu-e5-u5",
         "memory": "32G",
         "wall_time": "00:05:00"
-      }
+      },
+      "pending_reason": "Priority",
+      "outputs_started": false
     }
   ],
-  "last_checked_at_utc": "2026-10-02T16:29:37.385135+00:00"
+  "last_checked_at_utc": "2026-10-03T02:12:02.657946+00:00"
 }
