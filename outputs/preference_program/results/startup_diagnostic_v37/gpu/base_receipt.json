@@ -1,0 +1,6 @@
+{
+  "model_name": "/gpfs/alpine1/scratch/paco0228/relocated/caches/hf/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/improved-handoff-v35/manifests/pilot.jsonl",
+  "records": 4,
+  "completed_at_utc": "2026-10-03T18:53:22.621925+00:00"
+}

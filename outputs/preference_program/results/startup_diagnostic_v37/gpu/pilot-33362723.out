@@ -1,0 +1,12 @@
+job=33362723 node=c3gpu-e5-u1 revision=1cd52a6 started=2026-10-03T12:52:32-06:00
+{"event": "gpu_preflight", "device_count": 1, "device_name": "NVIDIA H200 NVL MIG 2g.35gb", "allocated_bytes": 4096}
+{"event": "imports_start", "timestamp": 1791053556.356847}
+{"event": "imports_complete", "timestamp": 1791053557.0766435}
+{"event": "model_load_start", "at_utc": "2026-10-03T18:52:38.244689+00:00"}
+{"event": "bounded_load_start", "snapshot": "/gpfs/alpine1/scratch/paco0228/relocated/caches/hf/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306", "timestamp": 1791053558.244859}
+{"event": "model_loaded", "at_utc": "2026-10-03T18:53:20.212084+00:00", "gpu_device_count": 1, "gpu_name": "NVIDIA H200 NVL MIG 2g.35gb", "gpu_memory_allocated_bytes": 1153358848}
+{"event": "generation_progress", "at_utc": "2026-10-03T18:53:22.531687+00:00", "records": 1, "advice": "A", "completion": "A", "gpu_memory_allocated_bytes": 1186916352}
+{"event": "generation_progress", "at_utc": "2026-10-03T18:53:22.563066+00:00", "records": 2, "advice": "B", "completion": "B", "gpu_memory_allocated_bytes": 1186916352}
+{"event": "generation_progress", "at_utc": "2026-10-03T18:53:22.592244+00:00", "records": 3, "advice": "C", "completion": "C", "gpu_memory_allocated_bytes": 1186916352}
+{"event": "generation_progress", "at_utc": "2026-10-03T18:53:22.621274+00:00", "records": 4, "advice": "D", "completion": "D", "gpu_memory_allocated_bytes": 1186916352}
+job=33362723 completed=2026-10-03T12:53:23-06:00

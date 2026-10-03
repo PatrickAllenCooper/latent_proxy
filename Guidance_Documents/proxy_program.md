@@ -675,3 +675,15 @@ project job. Approved four-response diagnostic33362723 was submitted against
 the verified explicit snapshot: one35GB H200 MIG/five-minute cap,90s loading
 alarm plus faulthandler watchdog for stack capture even during blocked native
 calls. This is engineering diagnosis; full stage1 and stage2 remain gated.
+
+Diagnostic33362723 passed in1:05: all four responses match the frozen
+improved-advice manifest, parse correctly, copy advice and independently
+reproduce regret. Receipt identifies the hash-verified snapshot. Model loading
+took41.97s, followed by four GPU generations and1.19GB peak framework memory.
+MIG utilization remains unavailable; whole-device telemetry cannot be assigned
+to the process. This qualifies bounded startup, not the original stall cause.
+Approved full64 retry33365691 uses the verified snapshot and retains90s loading
+watchdog/stack capture, one35GB MIG and five-minute cap. Separate retry output
+preserves the timeout and diagnostic artifacts. Stage2 smoke remains gated on
+complete full-run validation. CPU cache warming and explicit snapshot changed
+together; recovery is not a causal attribution experiment.

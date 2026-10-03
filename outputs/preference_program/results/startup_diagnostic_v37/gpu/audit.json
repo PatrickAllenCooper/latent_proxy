@@ -1,0 +1,11 @@
+{
+  "valid": true,
+  "records": 4,
+  "parse_failures": 0,
+  "manifest_matches": true,
+  "snapshot_matches_verified_cache": true,
+  "load_seconds": 41.967395,
+  "peak_framework_gpu_bytes": 1186916352,
+  "gpu_evidence": "model allocation and4 CUDA generations; whole-GPU telemetry unassignable/MIG utilization unavailable",
+  "limitation": "explicit snapshot diagnostic qualifies startup; underlying timeout cause remains unproven"
+}
