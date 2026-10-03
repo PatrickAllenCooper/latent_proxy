@@ -1288,7 +1288,7 @@
       "job_id": "33360565",
       "name": "lp-improved-handoff",
       "script": "scripts/slurm/run_improved_proxy_handoff_v35_mig.slurm",
-      "status": "submitted",
+      "status": "timeout",
       "revision": "1cd52a6",
       "purpose": "Patrick-approved stage1: prepared improved proxy through unchanged64-response handoff; compare existing original and exact controls",
       "remote_source": "/home/paco0228/latent_proxy_proxy_program_v22",
@@ -1308,8 +1308,18 @@
         "memory": "32G",
         "wall_time": "00:05:00"
       },
-      "resource_justification": "Same64 short deterministic generations, frozen code; previous run33s/1.19GB. One35GB H200 MIG/five min. Live scheduler showed no running account jobs. CPU manifest already prepared."
+      "resource_justification": "Same64 short deterministic generations, frozen code; previous run33s/1.19GB. One35GB H200 MIG/five min. Live scheduler showed no running account jobs. CPU manifest already prepared.",
+      "exit_code": "0:0",
+      "batch_exit_code": "0:15",
+      "elapsed": "00:05:24",
+      "observed_records": 0,
+      "validated": false,
+      "results_copied": true,
+      "failure_stage": "model loading; no model_loaded event",
+      "local_failure_artifacts": "outputs/preference_program/results/improved_proxy_handoff_failed_v35",
+      "next_gate": "CPU cache/startup diagnosis; no automatic retry; verification blocked",
+      "gpu_utilization": "4KB CUDA tensor preflight only; no model_loaded or generation event. Whole-device memory telemetry is not attributable to this MIG process; utilization N/A."
     }
   ],
-  "last_checked_at_utc": "2026-10-03T16:38:33.254855+00:00"
+  "last_checked_at_utc": "2026-10-03T17:51:37.982255+00:00"
 }

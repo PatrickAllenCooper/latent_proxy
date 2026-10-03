@@ -1,0 +1,24 @@
+{
+  "job_id": "33360565",
+  "state": "TIMEOUT",
+  "top_level_exit_code": "0:0",
+  "batch_state": "CANCELLED",
+  "batch_exit_code": "0:15",
+  "elapsed": "00:05:24",
+  "records": 0,
+  "receipt_present": false,
+  "last_event": "model_load_start",
+  "last_event_utc": "2026-10-03T17:41:56.573291+00:00",
+  "terminated_local": "2026-10-03T11:46:21-06:00",
+  "model_load_unfinished_seconds": 264.426709,
+  "gpu_evidence": "4KB CUDA tensor preflight only; no model_loaded or generation event. Whole-device memory telemetry is not attributable to this MIG process; utilization N/A.",
+  "cause": "Unlocalized model-loading stall; cache I/O, imports, deserialization/quantization, GPU initialization not distinguished by existing logs.",
+  "gate": "stage1 incomplete; verification GPU smoke blocked",
+  "retry": false,
+  "proposed_remedy": [
+    "CPU allocation: resolve exact cached model revision offline; inventory/hash/read checkpoint shards and tokenizer; preserve receipt and timings, no downloads or GPU allocation",
+    "New immutable source snapshot: timed events around imports, model and tokenizer loading; faulthandler stack dump on startup timeout; process-scoped GPU memory where available",
+    "Bounded GPU diagnostic only after CPU receipt: same one35GB MIG/five-minute cap; fail model startup at90s, preserve stack/logs; no longer cap or extra GPU requested",
+    "Retry64 responses only after diagnostic establishes model load and actual generation within cap; retain old failed output root"
+  ]
+}

@@ -625,3 +625,23 @@ preference recovery. The20-response first-case smoke is gated on stage1
 validation; no verification GPU call has been launched. Resource request must
 stay within one35GB MIG/five minutes unless separately approved. Protocol,
 manifest, and hashes are in `outputs/preference_program/manifests`.
+
+## Stage1 timeout reconciliation
+
+Job33360565 is TIMEOUT, not success: top-level0:0 coexists with batch
+CANCELLED0:15 and elapsed5:24. It reached model_load_start at17:41:56 UTC,
+then no model_loaded/generation event before time-limit termination about264s
+later. No response file or receipt exists. Only the tiny CUDA preflight is
+verified; whole-GPU memory samples are not attributable to this MIG process.
+The existing trace cannot distinguish cache I/O, import, quantization, or GPU
+initialization stalls. No proxy outcome can be inferred. Failed logs and audit
+are retained in `results/improved_proxy_handoff_failed_v35`; stage2 GPU gate
+remains closed. No retry or allocation expansion was submitted.
+
+Concrete recovery proposal within the existing cap: first CPU-only offline
+snapshot inventory, shard read/hash and tokenizer checks with timings; then an
+immutable diagnostic snapshot with import/model/tokenizer timestamps and a90s
+startup timeout that emits a Python stack trace. A separate bounded GPU smoke
+must verify model memory and generation before retrying64 records. Keep the
+same one35GB MIG/five-minute maximum and separate all receipts/output roots.
+A longer allocation is not justified by an unlocalized startup stall.
