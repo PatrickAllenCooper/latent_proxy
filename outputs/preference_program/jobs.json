@@ -1283,7 +1283,33 @@
       "wrong_advice_corrected": 0,
       "gpu_utilization": "1.15-1.19GB framework allocation and 64 completed generations; MIG utilization unavailable. Load14.4s, generation3s.",
       "main_finding": "Faithful copying64/64 including32 suboptimal advice; paired exact control64/64 optimal. No preference recovery or error correction demonstrated."
+    },
+    {
+      "job_id": "33360565",
+      "name": "lp-improved-handoff",
+      "script": "scripts/slurm/run_improved_proxy_handoff_v35_mig.slurm",
+      "status": "submitted",
+      "revision": "1cd52a6",
+      "purpose": "Patrick-approved stage1: prepared improved proxy through unchanged64-response handoff; compare existing original and exact controls",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program_v22",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/improved-handoff-v35/manifests/pilot.jsonl",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/improved-handoff-v35/full",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/improved-handoff-v35/logs/pilot-33360565.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/improved-handoff-v35/logs/pilot-33360565-gpu.csv",
+      "local_results": "outputs/preference_program/results/improved_proxy_handoff_full_v35",
+      "records_expected": 64,
+      "policy_checkpoint_sha256": "7280937ba421cd712d078483d8d81f2f4cbcda986f527162462008bdc1d7578b",
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "exclude": "c3gpu-e5-u5",
+        "memory": "32G",
+        "wall_time": "00:05:00"
+      },
+      "resource_justification": "Same64 short deterministic generations, frozen code; previous run33s/1.19GB. One35GB H200 MIG/five min. Live scheduler showed no running account jobs. CPU manifest already prepared."
     }
   ],
-  "last_checked_at_utc": "2026-10-03T03:32:38.804175+00:00"
+  "last_checked_at_utc": "2026-10-03T16:38:33.254855+00:00"
 }

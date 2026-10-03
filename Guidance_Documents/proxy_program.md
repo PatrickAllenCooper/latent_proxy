@@ -601,3 +601,27 @@ supports reliable transport of proxy decisions, while decision quality remains
 limited by the proxy. No new study or scaling follows automatically. The next
 scientific intervention requires choosing whether to evaluate error verification
 or the already-prepared improved proxy advice; no new calls were launched.
+
+## Approved staged continuation (v35 / v36)
+
+Patrick approved improved-proxy integration first, followed by a distinct
+faulty-advice verification study. Job33360565 runs the frozen v29 natural
+imitation advice on the unchanged v22 handoff code and64 diagnostic rotations,
+using one35GB H200 MIG/five minutes. Original and exact controls already exist;
+no duplicate jobs were active at submission. This reused panel is an integration
+check, not fresh validation of proxy training.
+
+Verification v36 is separately registered before any LLM outcomes. CPU-only
+preparation froze320 records:16 fresh seeded user/menu cases, four label
+rotations, and five arms (no advice, correct/wrong fallible advice under neutral
+or verification instructions). All arms receive identical visible scores;
+incorrect advice is the next-best distinct feasible action. Rounded ties are
+rejected before generation. Exact argmax is the deterministic control. Primary
+contrast is verification-minus-neutral regret under wrong advice, clustered by
+underlying case; diagnostics include corrections, spoiled correct advice, parse
+failures, labels, and error severity. No copy command, TOOL request, or promise
+of an exact tool remains. This measures visible-score verification, not latent
+preference recovery. The20-response first-case smoke is gated on stage1
+validation; no verification GPU call has been launched. Resource request must
+stay within one35GB MIG/five minutes unless separately approved. Protocol,
+manifest, and hashes are in `outputs/preference_program/manifests`.
