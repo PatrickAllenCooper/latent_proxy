@@ -1,0 +1,48 @@
+{
+  "created_at_utc": "2026-10-03T03:31:58.685721+00:00",
+  "learned_source": "outputs/preference_program/results/learned_proxy_handoff_full_v22/base.jsonl",
+  "exact_source": "outputs/preference_program/results/proxy_handoff_full_v21/base.jsonl",
+  "records": 64,
+  "cases": 16,
+  "parse_failures": 0,
+  "policy_optimal": 32,
+  "llm_followed_policy": 64,
+  "llm_optimal": 32,
+  "final_action_counts": {
+    "A": 16,
+    "B": 16,
+    "C": 16,
+    "D": 16
+  },
+  "components": {
+    "learned_proxy": {
+      "mean_normalized_regret": 0.19929332191986548,
+      "case_cluster_bootstrap_95ci": [
+        0.06818369959001733,
+        0.3466625091862056
+      ]
+    },
+    "learned_proxy_plus_llm": {
+      "mean_normalized_regret": 0.19929332191986548,
+      "case_cluster_bootstrap_95ci": [
+        0.07044876337199871,
+        0.34736012091416857
+      ]
+    },
+    "exact_proxy_plus_llm": {
+      "mean_normalized_regret": 0.0,
+      "case_cluster_bootstrap_95ci": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "llm_minus_policy_regret": {
+    "mean": 0.0,
+    "case_cluster_bootstrap_95ci": [
+      0.0,
+      0.0
+    ]
+  },
+  "advice_mismatches": []
+}

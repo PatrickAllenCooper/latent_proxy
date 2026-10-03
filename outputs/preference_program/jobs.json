@@ -1235,8 +1235,6 @@
         "memory": "32G",
         "wall_time": "00:05:00"
       },
-      "pending_reason": "Priority",
-      "outputs_started": false,
       "exit_code": "0:0",
       "elapsed": "00:00:52",
       "observed_records": 17,
@@ -1252,7 +1250,7 @@
       "job_id": "33340769",
       "name": "lp-learned-handoff",
       "script": "scripts/slurm/run_learned_proxy_handoff_v22_mig.slurm",
-      "status": "submitted",
+      "status": "completed",
       "revision": "1cd52a6",
       "purpose": "Approved full 64-case learned advice handoff after validated 17-record smoke",
       "remote_source": "/home/paco0228/latent_proxy_proxy_program_v22",
@@ -1272,8 +1270,20 @@
         "memory": "32G",
         "wall_time": "00:05:00"
       },
-      "resource_justification": "One 35GB H200 MIG: measured peak framework memory 1.19GB, smoke elapsed 52s; full 64 short generations bounded within same 5min. Existing active account workload one L40; no unrelated jobs changed."
+      "resource_justification": "One 35GB H200 MIG: measured peak framework memory 1.19GB, smoke elapsed 52s; full 64 short generations bounded within same 5min. Existing active account workload one L40; no unrelated jobs changed.",
+      "exit_code": "0:0",
+      "elapsed": "00:00:33",
+      "observed_records": 64,
+      "parse_failures": 0,
+      "validated": true,
+      "results_copied": true,
+      "llm_followed_policy": 64,
+      "policy_optimal": 32,
+      "llm_optimal": 32,
+      "wrong_advice_corrected": 0,
+      "gpu_utilization": "1.15-1.19GB framework allocation and 64 completed generations; MIG utilization unavailable. Load14.4s, generation3s.",
+      "main_finding": "Faithful copying64/64 including32 suboptimal advice; paired exact control64/64 optimal. No preference recovery or error correction demonstrated."
     }
   ],
-  "last_checked_at_utc": "2026-10-03T03:03:12.889598+00:00"
+  "last_checked_at_utc": "2026-10-03T03:32:38.804175+00:00"
 }

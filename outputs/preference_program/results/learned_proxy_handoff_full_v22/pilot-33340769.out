@@ -1,0 +1,14 @@
+job=33340769 node=c3gpu-e5-u1 revision=1cd52a6 started=2026-10-02T21:02:50-06:00
+{"event": "gpu_preflight", "device_count": 1, "device_name": "NVIDIA H200 NVL MIG 2g.35gb", "allocated_bytes": 4096}
+{"event": "model_load_start", "at_utc": "2026-10-03T03:02:54.154181+00:00"}
+{"event": "model_loaded", "at_utc": "2026-10-03T03:03:08.583775+00:00", "gpu_device_count": 1, "gpu_name": "NVIDIA H200 NVL MIG 2g.35gb", "gpu_memory_allocated_bytes": 1153358848}
+{"event": "generation_progress", "at_utc": "2026-10-03T03:03:09.220356+00:00", "records": 1, "advice": "A", "completion": "A", "gpu_memory_allocated_bytes": 1186916352}
+{"event": "generation_progress", "at_utc": "2026-10-03T03:03:09.251377+00:00", "records": 2, "advice": "B", "completion": "B", "gpu_memory_allocated_bytes": 1186916352}
+{"event": "generation_progress", "at_utc": "2026-10-03T03:03:09.280986+00:00", "records": 3, "advice": "C", "completion": "C", "gpu_memory_allocated_bytes": 1186916352}
+{"event": "generation_progress", "at_utc": "2026-10-03T03:03:09.310559+00:00", "records": 4, "advice": "D", "completion": "D", "gpu_memory_allocated_bytes": 1186916352}
+{"event": "generation_progress", "at_utc": "2026-10-03T03:03:09.393491+00:00", "records": 5, "advice": "A", "completion": "A", "gpu_memory_allocated_bytes": 1186916352}
+{"event": "generation_progress", "at_utc": "2026-10-03T03:03:09.423485+00:00", "records": 6, "advice": "B", "completion": "B", "gpu_memory_allocated_bytes": 1186916352}
+{"event": "generation_progress", "at_utc": "2026-10-03T03:03:09.835906+00:00", "records": 20, "advice": "D", "completion": "D", "gpu_memory_allocated_bytes": 1186916352}
+{"event": "generation_progress", "at_utc": "2026-10-03T03:03:10.423918+00:00", "records": 40, "advice": "B", "completion": "B", "gpu_memory_allocated_bytes": 1186916352}
+{"event": "generation_progress", "at_utc": "2026-10-03T03:03:11.010873+00:00", "records": 60, "advice": "D", "completion": "D", "gpu_memory_allocated_bytes": 1186916352}
+job=33340769 completed=2026-10-02T21:03:11-06:00

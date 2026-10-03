@@ -1,0 +1,465 @@
+{
+  "records": 64,
+  "max_independent_vector_regret_error": 0.0,
+  "wrong_advice_records": 32,
+  "wrong_advice_corrected": 0,
+  "wrong_traces": [
+    {
+      "user_id": 5,
+      "scenario_id": "menu-1023001",
+      "permutation_id": 0,
+      "learned_advice": "A",
+      "gold_action": "B",
+      "completion": "A",
+      "expected_utilities": [
+        0.16611258974754886,
+        0.17960429457676222,
+        -0.0653281302373295,
+        0.1336042935870444
+      ]
+    },
+    {
+      "user_id": 5,
+      "scenario_id": "menu-1023001",
+      "permutation_id": 1,
+      "learned_advice": "B",
+      "gold_action": "C",
+      "completion": "B",
+      "expected_utilities": [
+        0.1336042935870444,
+        0.16611258974754886,
+        0.17960429457676222,
+        -0.0653281302373295
+      ]
+    },
+    {
+      "user_id": 5,
+      "scenario_id": "menu-1023001",
+      "permutation_id": 2,
+      "learned_advice": "C",
+      "gold_action": "D",
+      "completion": "C",
+      "expected_utilities": [
+        -0.0653281302373295,
+        0.1336042935870444,
+        0.16611258974754886,
+        0.17960429457676222
+      ]
+    },
+    {
+      "user_id": 5,
+      "scenario_id": "menu-1023001",
+      "permutation_id": 3,
+      "learned_advice": "D",
+      "gold_action": "A",
+      "completion": "D",
+      "expected_utilities": [
+        0.17960429457676222,
+        -0.0653281302373295,
+        0.1336042935870444,
+        0.16611258974754886
+      ]
+    },
+    {
+      "user_id": 7,
+      "scenario_id": "menu-1027001",
+      "permutation_id": 0,
+      "learned_advice": "A",
+      "gold_action": "B",
+      "completion": "A",
+      "expected_utilities": [
+        0.1249376125643211,
+        0.2070167019612037,
+        0.006133259626104198,
+        0.16382380189638476
+      ]
+    },
+    {
+      "user_id": 7,
+      "scenario_id": "menu-1027001",
+      "permutation_id": 1,
+      "learned_advice": "B",
+      "gold_action": "C",
+      "completion": "B",
+      "expected_utilities": [
+        0.16382380189638476,
+        0.1249376125643211,
+        0.2070167019612037,
+        0.006133259626104198
+      ]
+    },
+    {
+      "user_id": 7,
+      "scenario_id": "menu-1027001",
+      "permutation_id": 2,
+      "learned_advice": "C",
+      "gold_action": "D",
+      "completion": "C",
+      "expected_utilities": [
+        0.006133259626104198,
+        0.16382380189638476,
+        0.1249376125643211,
+        0.2070167019612037
+      ]
+    },
+    {
+      "user_id": 7,
+      "scenario_id": "menu-1027001",
+      "permutation_id": 3,
+      "learned_advice": "D",
+      "gold_action": "A",
+      "completion": "D",
+      "expected_utilities": [
+        0.2070167019612037,
+        0.006133259626104198,
+        0.16382380189638476,
+        0.1249376125643211
+      ]
+    },
+    {
+      "user_id": 15,
+      "scenario_id": "menu-1043001",
+      "permutation_id": 0,
+      "learned_advice": "A",
+      "gold_action": "B",
+      "completion": "A",
+      "expected_utilities": [
+        0.2810118128193923,
+        0.30052787431261674,
+        0.046759485467268214,
+        0.2900045990183958
+      ]
+    },
+    {
+      "user_id": 15,
+      "scenario_id": "menu-1043001",
+      "permutation_id": 1,
+      "learned_advice": "B",
+      "gold_action": "C",
+      "completion": "B",
+      "expected_utilities": [
+        0.2900045990183958,
+        0.2810118128193923,
+        0.30052787431261674,
+        0.046759485467268214
+      ]
+    },
+    {
+      "user_id": 15,
+      "scenario_id": "menu-1043001",
+      "permutation_id": 2,
+      "learned_advice": "C",
+      "gold_action": "D",
+      "completion": "C",
+      "expected_utilities": [
+        0.046759485467268214,
+        0.2900045990183958,
+        0.2810118128193923,
+        0.30052787431261674
+      ]
+    },
+    {
+      "user_id": 15,
+      "scenario_id": "menu-1043001",
+      "permutation_id": 3,
+      "learned_advice": "D",
+      "gold_action": "A",
+      "completion": "D",
+      "expected_utilities": [
+        0.30052787431261674,
+        0.046759485467268214,
+        0.2900045990183958,
+        0.2810118128193923
+      ]
+    },
+    {
+      "user_id": 19,
+      "scenario_id": "menu-1051001",
+      "permutation_id": 0,
+      "learned_advice": "C",
+      "gold_action": "B",
+      "completion": "C",
+      "expected_utilities": [
+        0.302431751783609,
+        0.4310945318655876,
+        0.32832691269398917,
+        0.29520345372245255
+      ]
+    },
+    {
+      "user_id": 19,
+      "scenario_id": "menu-1051001",
+      "permutation_id": 1,
+      "learned_advice": "D",
+      "gold_action": "C",
+      "completion": "D",
+      "expected_utilities": [
+        0.29520345372245255,
+        0.302431751783609,
+        0.4310945318655876,
+        0.32832691269398917
+      ]
+    },
+    {
+      "user_id": 19,
+      "scenario_id": "menu-1051001",
+      "permutation_id": 2,
+      "learned_advice": "A",
+      "gold_action": "D",
+      "completion": "A",
+      "expected_utilities": [
+        0.32832691269398917,
+        0.29520345372245255,
+        0.302431751783609,
+        0.4310945318655876
+      ]
+    },
+    {
+      "user_id": 19,
+      "scenario_id": "menu-1051001",
+      "permutation_id": 3,
+      "learned_advice": "B",
+      "gold_action": "A",
+      "completion": "B",
+      "expected_utilities": [
+        0.4310945318655876,
+        0.32832691269398917,
+        0.29520345372245255,
+        0.302431751783609
+      ]
+    },
+    {
+      "user_id": 3,
+      "scenario_id": "menu-1019001",
+      "permutation_id": 0,
+      "learned_advice": "A",
+      "gold_action": "D",
+      "completion": "A",
+      "expected_utilities": [
+        0.13754372499332265,
+        0.019997494462791494,
+        -0.00034451632997367643,
+        0.1484368595287183
+      ]
+    },
+    {
+      "user_id": 3,
+      "scenario_id": "menu-1019001",
+      "permutation_id": 1,
+      "learned_advice": "B",
+      "gold_action": "A",
+      "completion": "B",
+      "expected_utilities": [
+        0.1484368595287183,
+        0.13754372499332265,
+        0.019997494462791494,
+        -0.00034451632997367643
+      ]
+    },
+    {
+      "user_id": 3,
+      "scenario_id": "menu-1019001",
+      "permutation_id": 2,
+      "learned_advice": "C",
+      "gold_action": "B",
+      "completion": "C",
+      "expected_utilities": [
+        -0.00034451632997367643,
+        0.1484368595287183,
+        0.13754372499332265,
+        0.019997494462791494
+      ]
+    },
+    {
+      "user_id": 3,
+      "scenario_id": "menu-1019001",
+      "permutation_id": 3,
+      "learned_advice": "D",
+      "gold_action": "C",
+      "completion": "D",
+      "expected_utilities": [
+        0.019997494462791494,
+        -0.00034451632997367643,
+        0.1484368595287183,
+        0.13754372499332265
+      ]
+    },
+    {
+      "user_id": 12,
+      "scenario_id": "menu-1037001",
+      "permutation_id": 0,
+      "learned_advice": "C",
+      "gold_action": "D",
+      "completion": "C",
+      "expected_utilities": [
+        0.18286604035578755,
+        0.16971215752884405,
+        0.206246244189303,
+        0.3287809436014206
+      ]
+    },
+    {
+      "user_id": 12,
+      "scenario_id": "menu-1037001",
+      "permutation_id": 1,
+      "learned_advice": "D",
+      "gold_action": "A",
+      "completion": "D",
+      "expected_utilities": [
+        0.3287809436014206,
+        0.18286604035578755,
+        0.16971215752884405,
+        0.206246244189303
+      ]
+    },
+    {
+      "user_id": 12,
+      "scenario_id": "menu-1037001",
+      "permutation_id": 2,
+      "learned_advice": "A",
+      "gold_action": "B",
+      "completion": "A",
+      "expected_utilities": [
+        0.206246244189303,
+        0.3287809436014206,
+        0.18286604035578755,
+        0.16971215752884405
+      ]
+    },
+    {
+      "user_id": 12,
+      "scenario_id": "menu-1037001",
+      "permutation_id": 3,
+      "learned_advice": "B",
+      "gold_action": "C",
+      "completion": "B",
+      "expected_utilities": [
+        0.16971215752884405,
+        0.206246244189303,
+        0.3287809436014206,
+        0.18286604035578755
+      ]
+    },
+    {
+      "user_id": 13,
+      "scenario_id": "menu-1039001",
+      "permutation_id": 0,
+      "learned_advice": "A",
+      "gold_action": "D",
+      "completion": "A",
+      "expected_utilities": [
+        0.11788180833262922,
+        0.08163555428196538,
+        0.02676157392384726,
+        0.2705522502980758
+      ]
+    },
+    {
+      "user_id": 13,
+      "scenario_id": "menu-1039001",
+      "permutation_id": 1,
+      "learned_advice": "B",
+      "gold_action": "A",
+      "completion": "B",
+      "expected_utilities": [
+        0.2705522502980758,
+        0.11788180833262922,
+        0.08163555428196538,
+        0.02676157392384726
+      ]
+    },
+    {
+      "user_id": 13,
+      "scenario_id": "menu-1039001",
+      "permutation_id": 2,
+      "learned_advice": "C",
+      "gold_action": "B",
+      "completion": "C",
+      "expected_utilities": [
+        0.02676157392384726,
+        0.2705522502980758,
+        0.11788180833262922,
+        0.08163555428196538
+      ]
+    },
+    {
+      "user_id": 13,
+      "scenario_id": "menu-1039001",
+      "permutation_id": 3,
+      "learned_advice": "D",
+      "gold_action": "C",
+      "completion": "D",
+      "expected_utilities": [
+        0.08163555428196538,
+        0.02676157392384726,
+        0.2705522502980758,
+        0.11788180833262922
+      ]
+    },
+    {
+      "user_id": 17,
+      "scenario_id": "menu-1047001",
+      "permutation_id": 0,
+      "learned_advice": "A",
+      "gold_action": "D",
+      "completion": "A",
+      "expected_utilities": [
+        0.14655753946857875,
+        0.13366239558106333,
+        -0.006175484741070519,
+        0.25810850762281673
+      ]
+    },
+    {
+      "user_id": 17,
+      "scenario_id": "menu-1047001",
+      "permutation_id": 1,
+      "learned_advice": "B",
+      "gold_action": "A",
+      "completion": "B",
+      "expected_utilities": [
+        0.25810850762281673,
+        0.14655753946857875,
+        0.13366239558106333,
+        -0.006175484741070519
+      ]
+    },
+    {
+      "user_id": 17,
+      "scenario_id": "menu-1047001",
+      "permutation_id": 2,
+      "learned_advice": "C",
+      "gold_action": "B",
+      "completion": "C",
+      "expected_utilities": [
+        -0.006175484741070519,
+        0.25810850762281673,
+        0.14655753946857875,
+        0.13366239558106333
+      ]
+    },
+    {
+      "user_id": 17,
+      "scenario_id": "menu-1047001",
+      "permutation_id": 3,
+      "learned_advice": "D",
+      "gold_action": "C",
+      "completion": "D",
+      "expected_utilities": [
+        0.13366239558106333,
+        -0.006175484741070519,
+        0.25810850762281673,
+        0.14655753946857875
+      ]
+    }
+  ],
+  "artifact_sha256": {
+    "summary.json": "bf99fa88d45e6db6e536091fede47cb5a658e7dd510109e937588b7165d3d659",
+    "base_receipt.json": "a95016f83177908c444ad783b32871530305051d4690cc739e778caad3865ed0",
+    "pilot-33340769.out": "22e8c8d9fb7bf03e4df055f03e1259f472ba9e8b8f5110155949ff2763f4d934",
+    "pilot-33340769.err": "f22794b4edf461e98657a143e1deb688277a689e731f5d92be2d7927a112e92b",
+    "base.jsonl": "43c12e94121e39533996d1f45083a16539330fd621b11e20572786abe1ddf8cb",
+    "pilot-33340769-gpu.csv": "566c12711864d921dcf863a57980601e5da007b3b7e4e7c2b43a886feef7f655"
+  },
+  "limitation": "Forced prior TOOL request and explicit copy instruction; preference recovery and voluntary verification are not measured."
+}

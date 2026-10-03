@@ -580,3 +580,24 @@ Loading took ~29 seconds and short-answer generation ~2 seconds. The approved
 separate `full` output, one 35GB H200 MIG and five-minute cap. Allocation check
 showed one existing L40 job; it was preserved. No new research direction or
 recurring schedule was introduced.
+
+## Full learned-advice handoff outcome
+
+Job 33340769 completed in 33 seconds and produced 64/64 parsed responses on
+16 underlying cases with four label rotations. The LLM copied learned advice
+64/64, including all 32 suboptimal advice items: zero wrong recommendations
+were corrected. Learned-proxy and learned-proxy-plus-LLM regret both equal
+0.199293; paired exact-reward advice yields zero regret and 64/64 optimal
+choices. Independent utility-vector scoring reproduces every saved regret
+(maximum discrepancy below 1e-10); raw messages, rendered prompts, wrong-advice
+traces, artifact hashes, receipt, and GPU evidence are preserved. Framework
+allocation stayed 1.15–1.19GB; loading took 14.4s and generation ~3s. MIG device
+utilization is unavailable, so utilization efficiency is not established.
+
+The fixed assistant TOOL request and explicit copy instruction make this a
+handoff-fidelity experiment. It neither measures preference recovery nor
+voluntary verification of erroneous advice. The completed registered gate
+supports reliable transport of proxy decisions, while decision quality remains
+limited by the proxy. No new study or scaling follows automatically. The next
+scientific intervention requires choosing whether to evaluate error verification
+or the already-prepared improved proxy advice; no new calls were launched.
