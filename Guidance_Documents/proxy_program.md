@@ -509,3 +509,32 @@ are not calibrated to an elicitor's actual error distribution. Next measure
 that error empirically and compare point estimates with posterior decision
 integration. The 48000 raw decisions, supplied profiles, and paired intervals
 are saved under `outputs/preference_program/results/proxy_profile_noise_v31`.
+
+## Actual discovery-to-decision bridge (v32)
+
+Reanalyzed the existing 200-user discovery replication (seed 8001), preserving
+its 12 held-out target menus, acquisition arms, and question budgets. Passed
+saved posterior-mean preference estimates to the frozen and natural-imitation
+policies and to exact reward scoring; compared with saved posterior-integrated
+reward decisions. Saved 115,200 decision rows and 12,800 per-user rows.
+
+After eight EIG questions, normalized regret was 0.1080 for the frozen policy,
+0.0803 for natural imitation, 0.0196 for point-estimate exact scoring, and 0.0189
+for posterior-integrated scoring. The natural-minus-frozen difference was
+-0.0277 (paired user bootstrap 95% interval [-0.0364, -0.0193]). All four
+acquisition arms at budget eight favored natural imitation over the frozen
+policy. At budget zero natural imitation was worse by 0.0167
+([0.0007, 0.0321]). Thus the training gain depends on receiving informative
+preferences; merely deploying the updated policy with an uninformative profile
+is insufficient.
+
+The remaining policy approximation gap (~0.0614 regret for EIG at eight
+questions) is much larger than the point-estimate versus posterior-integration
+gap (~0.0007). In this matched simulator, improving proxy decision fidelity or
+using exact reward scoring has higher priority than adding posterior complexity
+alone. This is a reanalysis of existing analytic discovery data, not independent
+replication or evidence of conversational LLM preference inference. Posterior
+reference actions were not retained; comparisons use their saved user regrets.
+Validation checks row counts and bounded regrets; the budget-zero exact scorer
+reproduces the saved posterior regret exactly. Artifacts:
+`outputs/preference_program/results/discovery_proxy_bridge_v32`.
