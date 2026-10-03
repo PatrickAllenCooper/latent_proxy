@@ -687,3 +687,24 @@ watchdog/stack capture, one35GB MIG and five-minute cap. Separate retry output
 preserves the timeout and diagnostic artifacts. Stage2 smoke remains gated on
 complete full-run validation. CPU cache warming and explicit snapshot changed
 together; recovery is not a causal attribution experiment.
+
+## Improved integration qualified; verification smoke launched
+
+Job33365691 completed in40 seconds. All64 records match the frozen candidate
+manifest and paired original environments, verified snapshot receipt, parse,
+and independent utility-vector scores. Advice following is64/64; optimal choices
+rise from32/64 original to40/64 improved, regret0.199293 to0.134617, paired
+case-level difference-0.064677 (interval includes zero on16 reused cases).
+This confirms transmission of the improved proxy, not fresh training validation
+or preference recovery. GPU framework memory reaches1.19GB with generation
+progress; MIG utilization unavailable. The original timeout remains preserved.
+
+Patrick explicitly requested the approved20-response verification smoke after
+this audit. Job33367762 runs first fresh case x four rotations x five registered
+arms, no copy/TOOL instruction, deterministic24-token limit, verified snapshot,
+90s loading watchdog, one35GB MIG/five-minute cap. Live account running/duplicate
+checks were empty. Frozen protocol unchanged; raw scores and fallible
+recommendations retained. Runner and smoke auditor distinguish corrected wrong
+advice, spoiled correct advice, parse failures and final regret. One-case smoke
+is a measurement gate, not evidence of population verification ability. No
+larger verification run is submitted.

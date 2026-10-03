@@ -1,0 +1,23 @@
+{
+  "valid": true,
+  "records": 64,
+  "unique_underlying_cases": 16,
+  "parse_failures": 0,
+  "manifest_matches": true,
+  "snapshot_verified": true,
+  "max_recomputed_regret_error": 0.0,
+  "improved_minus_original_regret": -0.06467664911615478,
+  "case_bootstrap_95": [
+    -0.16849303386433678,
+    0.0
+  ],
+  "limitations": "Reused diagnostic panel; copy instruction measures integration fidelity, not error verification or preference recovery",
+  "hashes": {
+    "summary.json": "b26d20abeac4b6d83c632a3ff9a8ecc3be0f27c47df892782171328eaac2db55",
+    "base_receipt.json": "6452300307ed87a089fb39d6dbee05ba20583183b995c036451c258d3446826c",
+    "pilot-33365691-gpu.csv": "190efed17d919add4d6149188d3d02a1c6df20e3b23b0d03361267d0013520b1",
+    "base.jsonl": "262703390fe721fcd658b17b93f74c374838a5e87bf2fac1e0183e14fc41b253",
+    "pilot-33365691.err": "dd9cfbea16320d371ab518c2eeb8e5cea21f7926e4d476d2507eb7ee7132c623",
+    "pilot-33365691.out": "041bb3d296858728405456089c2a408d4d16b5ce24d6dce1c1b8e682a57e8fc8"
+  }
+}

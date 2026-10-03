@@ -1404,7 +1404,7 @@
       "job_id": "33365691",
       "name": "lp-improved-retry",
       "script": "scripts/slurm/run_verified_handoff_v38.slurm",
-      "status": "submitted",
+      "status": "completed",
       "revision": "1cd52a6",
       "purpose": "Approved stage1 full64 retry after successful explicit-snapshot diagnostic;90s startup deadline retained",
       "remote_source": "/home/paco0228/latent_proxy_proxy_program_v22",
@@ -1426,8 +1426,45 @@
       },
       "resource_justification": "Same one35GB MIG/five-minute cap; verified diagnostic65s/1.19GB/4 responses; full64 short response bound supported by previous33s full run; no running account jobs at gate check",
       "next_gate": "Full64 scoring/custody validation before registered verification20-response smoke",
-      "verified_snapshot": "/gpfs/alpine1/scratch/paco0228/relocated/caches/hf/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+      "verified_snapshot": "/gpfs/alpine1/scratch/paco0228/relocated/caches/hf/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "exit_code": "0:0",
+      "elapsed": "00:00:40",
+      "observed_records": 64,
+      "validated": true,
+      "results_copied": true,
+      "parse_failures": 0,
+      "llm_followed_policy": 64,
+      "llm_optimal": 40,
+      "policy_optimal": 40,
+      "mean_regret": 0.1346166728037107,
+      "peak_framework_gpu_bytes": 1186916352,
+      "main_finding": "Unchanged handoff transmits improved advice64/64;40/64 optimal vs original32/64, reused diagnostic panel; independent scoring/manifest/snapshot audit passed"
+    },
+    {
+      "job_id": "33367762",
+      "name": "lp-verify-smoke",
+      "status": "submitted",
+      "purpose": "Approved registered20-response visible-score fallible-advice verification smoke;first fresh underlying case,four rotations,five arms",
+      "script": "scripts/slurm/run_verification_smoke_v36.slurm",
+      "remote_source": "/scratch/alpine/paco0228/latent_proxy_runs/verification-smoke-v36/run_faulty_advice_verification.py",
+      "import_source": "/home/paco0228/latent_proxy_proxy_program_v22",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/verification-smoke-v36/manifest.jsonl",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/verification-smoke-v36/smoke",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/verification-smoke-v36/logs/pilot-33367762.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/startup-diagnostic-v37/logs/pilot-33367762-gpu.csv",
+      "local_results": "outputs/preference_program/results/verification_smoke_v36",
+      "records_expected": 20,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "memory": "32G",
+        "wall_time": "00:05:00"
+      },
+      "resource_justification": "Same1.5B model and24-token cap as validated64-response40s run;one35GB MIG,90s model-load watchdog; no active account job or duplicate at submission",
+      "next_gate": "Raw prompt/generation,scoring,correct-vs-wrong controls and GPU work audit; smoke alone not population evidence or automatic scaling authorization"
     }
   ],
-  "last_checked_at_utc": "2026-10-03T19:30:01.033016+00:00"
+  "last_checked_at_utc": "2026-10-03T20:48:52.787071+00:00"
 }
