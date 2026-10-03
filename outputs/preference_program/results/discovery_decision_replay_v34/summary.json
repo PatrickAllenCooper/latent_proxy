@@ -1,0 +1,93 @@
+{
+  "source_sha256": {
+    "queries.jsonl": "53553a058ea8f54171ecf918e9e56c564383e2dfa6d3c4c467625b2464902fa2",
+    "per_user.csv": "ba0852326b3a65b3e30fe2478e974bfaf04881f9e1b087ce6c589a4dc174c1c5",
+    "summary.json": "b8ce81711b06ca08e988b8be79fcf50349c9ce0cf3d8ab25f61af3467cd91c19"
+  },
+  "records": 38400,
+  "max_saved_regret_error": 0.0,
+  "max_saved_profile_error": 0.0,
+  "cells": {
+    "random/0": {
+      "decisions": 2400,
+      "disagreements": 0,
+      "mean_point_minus_posterior_regret": 0.0
+    },
+    "random/2": {
+      "decisions": 2400,
+      "disagreements": 44,
+      "mean_point_minus_posterior_regret": -0.000690098825190802
+    },
+    "random/4": {
+      "decisions": 2400,
+      "disagreements": 39,
+      "mean_point_minus_posterior_regret": -0.0010152953463590996
+    },
+    "random/8": {
+      "decisions": 2400,
+      "disagreements": 24,
+      "mean_point_minus_posterior_regret": 0.00028136760323015954
+    },
+    "eig/0": {
+      "decisions": 2400,
+      "disagreements": 0,
+      "mean_point_minus_posterior_regret": 0.0
+    },
+    "eig/2": {
+      "decisions": 2400,
+      "disagreements": 9,
+      "mean_point_minus_posterior_regret": -0.00039214395953288383
+    },
+    "eig/4": {
+      "decisions": 2400,
+      "disagreements": 29,
+      "mean_point_minus_posterior_regret": 0.0014544464977719255
+    },
+    "eig/8": {
+      "decisions": 2400,
+      "disagreements": 21,
+      "mean_point_minus_posterior_regret": 0.000685863455440926
+    },
+    "decision_value/0": {
+      "decisions": 2400,
+      "disagreements": 0,
+      "mean_point_minus_posterior_regret": 0.0
+    },
+    "decision_value/2": {
+      "decisions": 2400,
+      "disagreements": 6,
+      "mean_point_minus_posterior_regret": 0.0003247030960449954
+    },
+    "decision_value/4": {
+      "decisions": 2400,
+      "disagreements": 39,
+      "mean_point_minus_posterior_regret": 0.0014842271078409038
+    },
+    "decision_value/8": {
+      "decisions": 2400,
+      "disagreements": 40,
+      "mean_point_minus_posterior_regret": 0.0015492584502826041
+    },
+    "aif_50/0": {
+      "decisions": 2400,
+      "disagreements": 0,
+      "mean_point_minus_posterior_regret": 0.0
+    },
+    "aif_50/2": {
+      "decisions": 2400,
+      "disagreements": 26,
+      "mean_point_minus_posterior_regret": 4.661481355367739e-05
+    },
+    "aif_50/4": {
+      "decisions": 2400,
+      "disagreements": 37,
+      "mean_point_minus_posterior_regret": 0.0013291262824365706
+    },
+    "aif_50/8": {
+      "decisions": 2400,
+      "disagreements": 39,
+      "mean_point_minus_posterior_regret": 0.001679134732080173
+    }
+  },
+  "method": "Deterministic particle prior reconstructed from recorded seed; only saved answers replayed, no new response sampling. Shared environment state and feasibility retained in every row."
+}

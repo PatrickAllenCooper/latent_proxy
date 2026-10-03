@@ -1215,7 +1215,7 @@
       "job_id": "33320892",
       "name": "lp-learned-handoff",
       "script": "scripts/slurm/run_learned_proxy_handoff_v22_mig.slurm",
-      "status": "pending",
+      "status": "completed",
       "revision": "1cd52a6",
       "purpose": "17-record smoke of frozen learned-RL proxy advice in successful compact multi-message handoff; includes correct and incorrect policy advice",
       "remote_source": "/home/paco0228/latent_proxy_proxy_program_v22",
@@ -1236,8 +1236,44 @@
         "wall_time": "00:05:00"
       },
       "pending_reason": "Priority",
-      "outputs_started": false
+      "outputs_started": false,
+      "exit_code": "0:0",
+      "elapsed": "00:00:52",
+      "observed_records": 17,
+      "parse_failures": 0,
+      "validated": true,
+      "results_copied": true,
+      "llm_followed_policy": 17,
+      "policy_optimal": 16,
+      "gpu_utilization": "MIG utilization unavailable; 1.15-1.19GB framework allocation and completed GPU generations establish work; loading 29s, generation 2s",
+      "main_finding": "All 17 advice items copied, including one suboptimal recommendation; smoke passes pipeline gate, not precision estimate"
+    },
+    {
+      "job_id": "33340769",
+      "name": "lp-learned-handoff",
+      "script": "scripts/slurm/run_learned_proxy_handoff_v22_mig.slurm",
+      "status": "submitted",
+      "revision": "1cd52a6",
+      "purpose": "Approved full 64-case learned advice handoff after validated 17-record smoke",
+      "remote_source": "/home/paco0228/latent_proxy_proxy_program_v22",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/learned-handoff-v22/manifests/pilot.jsonl",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/learned-handoff-v22/full",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/learned-handoff-v22/logs/pilot-33340769.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/learned-handoff-v22/logs/pilot-33340769-gpu.csv",
+      "local_results": "outputs/preference_program/results/learned_proxy_handoff_full_v22",
+      "records_expected": 64,
+      "policy_checkpoint_sha256": "b6637321c4911ed80f2e0259cf731d7c7699e88ba3dba09667577ddc7b116568",
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "exclude": "c3gpu-e5-u5",
+        "memory": "32G",
+        "wall_time": "00:05:00"
+      },
+      "resource_justification": "One 35GB H200 MIG: measured peak framework memory 1.19GB, smoke elapsed 52s; full 64 short generations bounded within same 5min. Existing active account workload one L40; no unrelated jobs changed."
     }
   ],
-  "last_checked_at_utc": "2026-10-03T02:12:02.657946+00:00"
+  "last_checked_at_utc": "2026-10-03T03:03:12.889598+00:00"
 }

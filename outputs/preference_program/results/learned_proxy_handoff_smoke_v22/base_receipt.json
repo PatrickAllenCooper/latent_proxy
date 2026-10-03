@@ -1,0 +1,6 @@
+{
+  "model_name": "Qwen/Qwen2.5-1.5B-Instruct",
+  "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/learned-handoff-v22/manifests/pilot.jsonl",
+  "records": 17,
+  "completed_at_utc": "2026-10-03T02:26:59.442208+00:00"
+}

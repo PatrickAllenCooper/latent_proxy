@@ -557,3 +557,26 @@ Artifacts and protocol: `results/discovery_loss_attribution_v33` and
 Registered LLM smoke job 33320892 was reconciled live as pending for Priority,
 with only the remote manifest and ledger present. Its 17-record gate remains
 in place, and no duplicate submission was made.
+
+## Posterior replay and learned handoff gate (v34 / v22)
+
+Replayed all 6400 recorded discovery answers using deterministic seeded particle
+priors, without new response sampling. Retained 38400 paired point/posterior
+actions, utility vectors, payoff tensors, probabilities, and feasibility masks.
+All 3200 saved posterior regrets and inferred profiles reproduced exactly
+(maximum error zero). EIG at eight questions disagrees on 21/2400 decisions;
+this yields the small 0.000686 average point-minus-posterior regret difference.
+The replay closes the missing-action custody gap; it is not independent data.
+Source hashes and raw decisions are in `results/discovery_decision_replay_v34`.
+
+Job 33320892 completed its 17-record learned-advice smoke in 52 seconds. All
+responses parsed and copied the policy recommendation, including the single
+suboptimal advice item (16/17 optimal). Raw messages, generations, receipt,
+logs, and telemetry were recovered. This supports handoff fidelity but does
+not show that the LLM detects proxy mistakes. Framework GPU allocation was
+1.15–1.19GB with completed generations; MIG utilization remains unavailable.
+Loading took ~29 seconds and short-answer generation ~2 seconds. The approved
+64-case gate was submitted as job 33340769, same frozen source and manifest,
+separate `full` output, one 35GB H200 MIG and five-minute cap. Allocation check
+showed one existing L40 job; it was preserved. No new research direction or
+recurring schedule was introduced.

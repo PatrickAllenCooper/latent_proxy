@@ -1,0 +1,11 @@
+job=33320892 node=c3gpu-e5-u1 revision=1cd52a6 started=2026-10-02T20:26:22-06:00
+{"event": "gpu_preflight", "device_count": 1, "device_name": "NVIDIA H200 NVL MIG 2g.35gb", "allocated_bytes": 4096}
+{"event": "model_load_start", "at_utc": "2026-10-03T02:26:28.320075+00:00"}
+{"event": "model_loaded", "at_utc": "2026-10-03T02:26:57.524425+00:00", "gpu_device_count": 1, "gpu_name": "NVIDIA H200 NVL MIG 2g.35gb", "gpu_memory_allocated_bytes": 1153358848}
+{"event": "generation_progress", "at_utc": "2026-10-03T02:26:58.905018+00:00", "records": 1, "advice": "A", "completion": "A", "gpu_memory_allocated_bytes": 1186916352}
+{"event": "generation_progress", "at_utc": "2026-10-03T02:26:58.936627+00:00", "records": 2, "advice": "B", "completion": "B", "gpu_memory_allocated_bytes": 1186916352}
+{"event": "generation_progress", "at_utc": "2026-10-03T02:26:58.966253+00:00", "records": 3, "advice": "C", "completion": "C", "gpu_memory_allocated_bytes": 1186916352}
+{"event": "generation_progress", "at_utc": "2026-10-03T02:26:58.995732+00:00", "records": 4, "advice": "D", "completion": "D", "gpu_memory_allocated_bytes": 1186916352}
+{"event": "generation_progress", "at_utc": "2026-10-03T02:26:59.088856+00:00", "records": 5, "advice": "A", "completion": "A", "gpu_memory_allocated_bytes": 1186916352}
+{"event": "generation_progress", "at_utc": "2026-10-03T02:26:59.118575+00:00", "records": 6, "advice": "B", "completion": "B", "gpu_memory_allocated_bytes": 1186916352}
+job=33320892 completed=2026-10-02T20:27:00-06:00
