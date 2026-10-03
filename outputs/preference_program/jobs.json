@@ -1319,7 +1319,27 @@
       "local_failure_artifacts": "outputs/preference_program/results/improved_proxy_handoff_failed_v35",
       "next_gate": "CPU cache/startup diagnosis; no automatic retry; verification blocked",
       "gpu_utilization": "4KB CUDA tensor preflight only; no model_loaded or generation event. Whole-device memory telemetry is not attributable to this MIG process; utilization N/A."
+    },
+    {
+      "job_id": "33361598",
+      "name": "lp-cache-check",
+      "status": "submitted",
+      "purpose": "CPU-only cache shard integrity and tokenizer timing before bounded GPU startup recovery",
+      "script": "scripts/slurm/check_handoff_cache_v37.slurm",
+      "remote_source": "/scratch/alpine/paco0228/latent_proxy_runs/startup-diagnostic-v37",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/startup-diagnostic-v37/cache_receipt.json",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/startup-diagnostic-v37/cpu-33361598.*",
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "acpu",
+        "qos": "cpu-normal",
+        "cpus": 2,
+        "memory": "8G",
+        "wall_time": "00:05:00",
+        "gpus": 0
+      },
+      "submission_note": "Initial request rejected because QoS normal invalid; no job allocated. Corrected to cpu-normal."
     }
   ],
-  "last_checked_at_utc": "2026-10-03T17:51:37.982255+00:00"
+  "last_checked_at_utc": "2026-10-03T17:56:14.101545+00:00"
 }

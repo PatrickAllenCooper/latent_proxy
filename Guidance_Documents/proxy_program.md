@@ -645,3 +645,22 @@ startup timeout that emits a Python stack trace. A separate bounded GPU smoke
 must verify model memory and generation before retrying64 records. Keep the
 same one35GB MIG/five-minute maximum and separate all receipts/output roots.
 A longer allocation is not justified by an unlocalized startup stall.
+
+## Startup engineering recovery (v37)
+
+Read-only cache inspection found that `.bashrc` resets HF_HOME and
+TRANSFORMERS_CACHE to `/projects/paco0228/.caches/hf`, overriding the prior
+Slurm export. The intended scratch hub did not contain the1.5B snapshot; the
+actual cache does. This is a concrete lookup ambiguity, not proof of stall
+cause. CPU job33361598 inventories and SHA256-checks every cached file, compares
+safetensor blob content hashes, inspects tensor headers, and times offline
+tokenizer loading. It requests acpu/cpu-normal,2CPU/8GB/five minutes, zero GPUs.
+The first submission used invalid normal QoS and was rejected without a job;
+the corrected CPU submission is recorded.
+
+Prepared bounded GPU diagnostic uses the verified explicit snapshot directory,
+unchanged model loader and frozen inference runner, four response records,
+import timestamps and a90-second model/tokenizer alarm with all-thread stack
+capture. No GPU diagnostic was submitted: CPU integrity receipt and live
+headroom/no-duplicate check are prerequisites. The diagnostic keeps the same
+one35GB H200 MIG/five-minute cap. Stage1 retry and stage2 remain gated.
