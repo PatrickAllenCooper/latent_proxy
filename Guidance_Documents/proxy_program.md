@@ -760,3 +760,17 @@ prompts and expected answers are in `manifests/numeric_capability_v40_review.txt
 protocol/manifest retain hashes. Resource ceiling if separately launched remains
 one35GB MIG/five minutes with90s loading/45s staging limits. This handoff
 prepared the diagnostic only: no generation, allocation or campaign launch.
+
+## Frozen numeric diagnostic execution
+
+The coordinator explicitly authorized only the exact16-response v40 comparison.
+Prospective execution hashes committed/pushed as aabb327 before submission;
+remote runner/manifest hashes match. Runtime archive and cached model receipt
+hashes match qualified records. No active account GPU or duplicate Latent job
+at gate check. Job33403696 submitted: original decimals/simple integers x
+canonical/reversed listing x four cyclic labels, no advice, unchanged1.5B
+snapshot/deterministic24-token ceiling. Same one35GB H200 MIG/five minutes,
+90sload and45sstaging watchdogs. No automatic retry/resource increase or320run.
+Descriptive scoring auditor prepared to retain exact prompts, outputs, argmax
+agreement, label/first-position counts and parse failures. One reused case
+cannot establish general numeric/preference discovery capability.

@@ -1530,7 +1530,34 @@
       "parse_failures": 0,
       "peak_framework_gpu_bytes": 1186915840,
       "main_finding": "one-case smoke:no-advice1/4(allA),correct-neutral4/4,correct-verify3/4,wrong-neutral0/4,wrong-verify0/4;numeric/order diagnostic proposed,no full launch"
+    },
+    {
+      "job_id": "33403696",
+      "name": "lp-numeric-diag",
+      "status": "submitted",
+      "revision": "aabb327",
+      "purpose": "Exact authorized frozen16response numeric/order capability diagnostic,one reused case,no advice",
+      "script": "scripts/slurm/run_numeric_capability_v40.slurm",
+      "remote_source": "/scratch/alpine/paco0228/latent_proxy_runs/numeric-capability-v40/run_numeric_capability.py",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/numeric-capability-v40/manifest.jsonl",
+      "manifest_sha256": "3950d18260a26157861d4d508f496081ff3b13e84124bc62a654e2705c7d2d6f",
+      "runner_sha256": "d487800396e003fd0b56f3af21ea638650fb5a09e11a4f6c223d42482ba8aa0b",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/numeric-capability-v40/smoke",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/numeric-capability-v40/logs/pilot-33403696.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/startup-diagnostic-v37/logs/pilot-33403696-gpu.csv",
+      "local_results": "outputs/preference_program/results/numeric_capability_v40",
+      "records_expected": 16,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "memory": "32G",
+        "wall_time": "00:05:00"
+      },
+      "resource_justification": "16short responses <=validated20-response42s smoke with1.19GB;CPU-prepared manifest/runtime;no active account GPU or duplicate diagnostic;90s loading and45s staging watchdogs",
+      "next_gate": "Audit all16responses,hashes/scoring/compute;no automatic retry/enlargement;full320study gated"
     }
   ],
-  "last_checked_at_utc": "2026-10-04T20:38:11.669747+00:00"
+  "last_checked_at_utc": "2026-10-04T20:43:11.044913+00:00"
 }
