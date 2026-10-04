@@ -1,0 +1,51 @@
+{
+  "status": "frozen proposed preparation only;no inference/submission",
+  "created_at_utc": "2026-10-04T22:12:46.221076+00:00",
+  "sources": {
+    "outputs/preference_program/manifests/numeric_capability_v40.jsonl": "3950d18260a26157861d4d508f496081ff3b13e84124bc62a654e2705c7d2d6f",
+    "outputs/preference_program/manifests/output_mapping_v41.jsonl": "6bfed4dc6a2e460cb0e2bd01368b90fe2f9841988c24fce2117f6a54a6267d4a"
+  },
+  "design": "samefourintegerrotations x2headers x2instructions=16;canonicalABCD,letteronly,noadvice",
+  "headers": {
+    "preference": "User preference scores:",
+    "numbers": "Numbers:"
+  },
+  "instructions": {
+    "score": "Choose the action with the highest score.",
+    "label": "Which label has the largest number?"
+  },
+  "output_contract": "Reply with exactly one capital letter: A, B, C, or D.",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "snapshot": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "decode": {
+    "do_sample": false,
+    "max_new_tokens": 24
+  },
+  "hashes": {
+    "manifest": "35c5faeeea28196dc2d361b22bcf83e847773f0ba273b8ba9aa55aba76a62324",
+    "scoring": "1567ca4b3ade592c6422f32ddb27eda962dccf688bec4013d1b1950021dd3f9d",
+    "preparation_script": "63219be74fc4202b050aef1766afbbf310cf1d122763a091281d7067282b7199"
+  },
+  "resources_if_authorized": {
+    "account": "ucb736_asc1",
+    "gpu": "oneH200MIG2g.35gb",
+    "memory": "32G",
+    "walltime": "00:05:00",
+    "model_load_watchdog_seconds": 90,
+    "runtime_staging_watchdog_seconds": 45
+  },
+  "token_custody_required": [
+    "generatedIDs",
+    "promptlength",
+    "effectiveEOSIDs",
+    "tokenizerEOSID",
+    "generatedlength",
+    "lasttoken",
+    "EOSobserved",
+    "lengthcapindicator",
+    "renderedmessages",
+    "model/runtimehashes"
+  ],
+  "interpretation": "One reusedcase;4/4measurementgate only;freshcase qualification beforebroaderinference;header/instruction interactions not preference discovery",
+  "stop": "No launch from preparation;no tuning/retry/resource enlargement or320study"
+}

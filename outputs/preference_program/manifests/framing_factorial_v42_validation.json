@@ -1,0 +1,17 @@
+{
+  "valid": true,
+  "records": 16,
+  "unique_cells": 16,
+  "same_values_and_gold_within_rotation": true,
+  "old_prompt_corner_exact": true,
+  "direct_prompt_corner_exact": true,
+  "canonical_order": true,
+  "gold_balanced": true,
+  "strict_parser_control_checked": true,
+  "protocol_sha256": "8cb1c5156cd8eb7aed2cf4f7154c40eb819186819570f97195e06fb82be19478",
+  "manifest_sha256": "35c5faeeea28196dc2d361b22bcf83e847773f0ba273b8ba9aa55aba76a62324",
+  "scoring_sha256": "1567ca4b3ade592c6422f32ddb27eda962dccf688bec4013d1b1950021dd3f9d",
+  "CPU_only": true,
+  "model_calls": 0,
+  "job_submissions": 0
+}

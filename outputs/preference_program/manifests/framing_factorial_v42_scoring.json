@@ -1,0 +1,18 @@
+{
+  "parser_regex": "\\s*([ABCD])\\s*",
+  "correctness": "parsed uppercase label equals displayed-value argmax;strict fullmatch;parse failure scores incorrect and reported separately",
+  "gold_by_rotation": [
+    "B",
+    "C",
+    "D",
+    "A"
+  ],
+  "primary_paired_contrasts": {
+    "header": "numbers minus preference correctness,paired within rotation and instruction;report8pair differences and average",
+    "instruction": "label minus score correctness,paired within rotation and header;report8pair differences and average",
+    "interaction": "[(numbers,label)-(preference,label)]-[(numbers,score)-(preference,score)] per rotation;report4differences and average"
+  },
+  "additional": "fourcell correct/4,parse failures,A responses,exact output and token stops byrotation;allnulls/errors retained",
+  "uncertainty": "descriptive one reusedcase;no populationCI/pseudoreplication",
+  "gate": "Any fixed cell4/4correct with zero parse failures and no length caps qualifies only measurement on this case;fresh-case qualification required before broader inference;otherwise seek assay guidance without adaptive tuning"
+}

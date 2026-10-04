@@ -106,3 +106,24 @@ before broader verification inference. If no condition passes, seek guidance on
 the assay rather than tuning or expanding it. Resource ceiling, if authorized:
 one 35GB H200 MIG, five minutes, 90-second loading and 45-second staging limits.
 No job, retry, tuning, or 320-record study was launched by this synthesis.
+
+### Frozen preparation receipt (v42)
+
+The proposed factorial is now frozen and CPU-validated, with zero inference
+calls or submissions. Its two historical corners exactly reproduce the prior
+integer/preference/score prompt and direct numbers/label prompt. All 16 cells
+retain canonical order, the same values/gold within each rotation, and a fixed
+letter-only output contract. Header, instruction, and interaction contrasts
+are specified prospectively; no population confidence interval is appropriate.
+
+[Exact 16 prompts and gold answers](../outputs/preference_program/manifests/framing_factorial_v42_review.txt),
+[protocol and compute ceiling](../outputs/preference_program/manifests/framing_factorial_v42_protocol.json),
+[paired scoring specification](../outputs/preference_program/manifests/framing_factorial_v42_scoring.json),
+[CPU validation and hashes](../outputs/preference_program/manifests/framing_factorial_v42_validation.json).
+
+The proposed cap remains one 35GB H200 MIG/five minutes, 90-second model loading
+and 45-second runtime staging watchdogs. Token IDs, prompt/output lengths,
+effective EOS IDs, last token, EOS/length-cap evidence, rendered messages, and
+model/runtime hashes are required. A 4/4 cell is only a reused-case measurement
+gate; fresh-case qualification is still required before broader inference.
+No unresolved input is needed for preparation. Execution remains unlaunched.
