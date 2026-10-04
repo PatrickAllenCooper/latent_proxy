@@ -1500,7 +1500,7 @@
     {
       "job_id": "33391694",
       "name": "lp-verify-smoke",
-      "status": "submitted",
+      "status": "completed",
       "purpose": "Same approved20-response smoke after concrete Transformers import-stall remedy;unchanged study and compute cap",
       "script": "scripts/slurm/run_verification_retry_v39.slurm",
       "remote_source": "/scratch/alpine/paco0228/latent_proxy_runs/verification-smoke-v36/run_faulty_advice_verification.py",
@@ -1520,9 +1520,17 @@
         "wall_time": "00:05:00"
       },
       "resource_justification": "20 short responses same1.5B/24tokens;validated model peak1.19GB;CPU archived52MB dependency;node-local extraction capped45s,loading90s;one35GB MIG/five minutes;no active account or duplicate smoke job at submission",
-      "next_gate": "Raw prompt/generation,scoring,correct-vs-wrong controls and GPU work audit; smoke alone not population evidence or automatic scaling authorization",
-      "runtime_archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282"
+      "next_gate": "Review frozen16-response representation/order diagnostic;full320study remains gated",
+      "runtime_archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282",
+      "exit_code": "0:0",
+      "elapsed": "00:00:42",
+      "observed_records": 20,
+      "validated": true,
+      "results_copied": true,
+      "parse_failures": 0,
+      "peak_framework_gpu_bytes": 1186915840,
+      "main_finding": "one-case smoke:no-advice1/4(allA),correct-neutral4/4,correct-verify3/4,wrong-neutral0/4,wrong-verify0/4;numeric/order diagnostic proposed,no full launch"
     }
   ],
-  "last_checked_at_utc": "2026-10-04T15:48:52.124195+00:00"
+  "last_checked_at_utc": "2026-10-04T20:38:11.669747+00:00"
 }

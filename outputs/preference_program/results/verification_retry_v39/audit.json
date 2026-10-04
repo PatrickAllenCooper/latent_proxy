@@ -1,0 +1,67 @@
+{
+  "valid": true,
+  "arms": {
+    "correct_neutral": {
+      "records": 4,
+      "parse_failures": 0,
+      "optimal": 4,
+      "mean_regret_parse_penalty1": 0.0,
+      "corrected_wrong_advice": 0,
+      "spoiled_correct_advice": 0
+    },
+    "correct_verify": {
+      "records": 4,
+      "parse_failures": 0,
+      "optimal": 3,
+      "mean_regret_parse_penalty1": 0.25,
+      "corrected_wrong_advice": 0,
+      "spoiled_correct_advice": 1
+    },
+    "no_advice": {
+      "records": 4,
+      "parse_failures": 0,
+      "optimal": 1,
+      "mean_regret_parse_penalty1": 0.6788923392340768,
+      "corrected_wrong_advice": 0,
+      "spoiled_correct_advice": 0
+    },
+    "wrong_neutral": {
+      "records": 4,
+      "parse_failures": 0,
+      "optimal": 0,
+      "mean_regret_parse_penalty1": 0.8121604938209585,
+      "corrected_wrong_advice": 0,
+      "spoiled_correct_advice": 0
+    },
+    "wrong_verify": {
+      "records": 4,
+      "parse_failures": 0,
+      "optimal": 0,
+      "mean_regret_parse_penalty1": 0.8349725861445559,
+      "corrected_wrong_advice": 0,
+      "spoiled_correct_advice": 0
+    }
+  },
+  "cases": 1,
+  "records": 20,
+  "limitation": "Pipeline smoke on one underlying case; no inferential CI or population claim. Visible utility-score verification, not preference discovery.",
+  "runtime_hash_matches": true,
+  "snapshot_matches": true,
+  "load_seconds": 22.911729097366333,
+  "node_local_stage_seconds": 0.48944830894470215,
+  "peak_framework_gpu_bytes": 1186915840,
+  "gpu_evidence": "model GPU allocation and20 completed CUDA generations; whole-GPU/MIG telemetry cannot establish process utilization",
+  "no_advice_completions": [
+    "A",
+    "A",
+    "A",
+    "A"
+  ],
+  "artifact_sha256": {
+    "base_receipt.json": "9d140f75d9e6c0297b964dec0701e2c983c7300dff94fad080d2981d48132b77",
+    "pilot-33391694.out": "00b921a5d0e880bbc3c9c380571e9aec02df278e9538ca997a8a0be59430ed0e",
+    "pilot-33391694.err": "248015135cca447bc68b8d659725396b7d2a2c6acaa478e4e661c886f3cfe779",
+    "base.jsonl": "f3af7ee3c908659c548a51e2b7f29daa15863ea4f50cc7f61a36c2e907c3e0fc",
+    "pilot-33391694-gpu.csv": "7fe9128389d77718eebf3586e579589ee8227d78957fa418cf5aa8f07dd4773e"
+  }
+}

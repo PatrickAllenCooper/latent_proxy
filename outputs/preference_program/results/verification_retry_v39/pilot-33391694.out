@@ -1,0 +1,27 @@
+job=33391694 node=c3gpu-e5-u1 revision=1cd52a6 started=2026-10-04T09:48:28-06:00
+{"event": "gpu_preflight", "device_count": 1, "device_name": "NVIDIA H200 NVL MIG 2g.35gb", "allocated_bytes": 4096}
+{"event": "node_local_runtime_ready", "at_unix": 1791128912.982631, "elapsed_seconds": 0.48944830894470215, "path": "/tmp/latent-proxy-runtime-33391694", "archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282"}
+{"event": "imports_start", "at_unix": 1791128913.1729941}
+{"event": "model_load_start", "at_unix": 1791128914.1767554, "snapshot": "/gpfs/alpine1/scratch/paco0228/relocated/caches/hf/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306"}
+{"event": "model_loaded", "at_unix": 1791128937.0884845, "gpu_device_count": 1, "gpu_memory_allocated_bytes": 1153358848}
+{"event": "generation_progress", "at_unix": 1791128938.1444185, "records": 1, "gpu_memory_allocated_bytes": 1186915328, "arm": "no_advice", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791128938.2292383, "records": 2, "gpu_memory_allocated_bytes": 1186915328, "arm": "correct_neutral", "completion": "B"}
+{"event": "generation_progress", "at_unix": 1791128938.2585478, "records": 3, "gpu_memory_allocated_bytes": 1186915328, "arm": "wrong_neutral", "completion": "C"}
+{"event": "generation_progress", "at_unix": 1791128938.6163447, "records": 4, "gpu_memory_allocated_bytes": 1186915840, "arm": "correct_verify", "completion": "B"}
+{"event": "generation_progress", "at_unix": 1791128938.6458557, "records": 5, "gpu_memory_allocated_bytes": 1186915840, "arm": "wrong_verify", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791128938.6744409, "records": 6, "gpu_memory_allocated_bytes": 1186915328, "arm": "no_advice", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791128938.702939, "records": 7, "gpu_memory_allocated_bytes": 1186915328, "arm": "correct_neutral", "completion": "C"}
+{"event": "generation_progress", "at_unix": 1791128938.7312562, "records": 8, "gpu_memory_allocated_bytes": 1186915328, "arm": "wrong_neutral", "completion": "D"}
+{"event": "generation_progress", "at_unix": 1791128938.7597985, "records": 9, "gpu_memory_allocated_bytes": 1186915840, "arm": "correct_verify", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791128938.7881901, "records": 10, "gpu_memory_allocated_bytes": 1186915840, "arm": "wrong_verify", "completion": "D"}
+{"event": "generation_progress", "at_unix": 1791128938.8164582, "records": 11, "gpu_memory_allocated_bytes": 1186915328, "arm": "no_advice", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791128938.844853, "records": 12, "gpu_memory_allocated_bytes": 1186915328, "arm": "correct_neutral", "completion": "D"}
+{"event": "generation_progress", "at_unix": 1791128938.8732166, "records": 13, "gpu_memory_allocated_bytes": 1186915328, "arm": "wrong_neutral", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791128938.9015825, "records": 14, "gpu_memory_allocated_bytes": 1186915840, "arm": "correct_verify", "completion": "D"}
+{"event": "generation_progress", "at_unix": 1791128938.9299877, "records": 15, "gpu_memory_allocated_bytes": 1186915840, "arm": "wrong_verify", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791128938.9581802, "records": 16, "gpu_memory_allocated_bytes": 1186915328, "arm": "no_advice", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791128938.986552, "records": 17, "gpu_memory_allocated_bytes": 1186915328, "arm": "correct_neutral", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791128939.0148122, "records": 18, "gpu_memory_allocated_bytes": 1186915328, "arm": "wrong_neutral", "completion": "B"}
+{"event": "generation_progress", "at_unix": 1791128939.0432029, "records": 19, "gpu_memory_allocated_bytes": 1186915840, "arm": "correct_verify", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791128939.0716338, "records": 20, "gpu_memory_allocated_bytes": 1186915840, "arm": "wrong_verify", "completion": "B"}
+job=33391694 completed=2026-10-04T09:48:59-06:00

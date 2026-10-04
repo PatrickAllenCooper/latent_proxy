@@ -734,3 +734,29 @@ scientific prompt changes. With no active account/duplicate smoke job, bounded
 90s loading watchdog, same one35GB MIG/five-minute allocation. No320-record
 run yet; smoke scoring/trace/GPU gate remains required. Full failure history
 retained, no unrelated jobs modified.
+
+## Verification smoke closeout and proposed capability diagnostic (v40)
+
+33391694 completed42s,20/20 records with zero parse failures. Independent audit
+confirms manifest SHA256, exact message/rendered prompt alignment, utility-vector
+scores, verified model snapshot, and node-local runtime archive hash. Loading
+23s, node-local staging0.49s, peak framework GPU memory1.19GB and20generation
+events establish computation; process utilization remains unavailable. Outcomes
+on one underlying case/four rotations: no-advice1/4(all A), correct-neutral4/4,
+correct-verify3/4(one spoiled recommendation), wrong-neutral0/4(all copied wrong
+advice), wrong-verify0/4(one different but still wrong choice). These are visible
+numeric comparison/advice effects, not preference discovery, reward arithmetic
+calculation or general reasoning ability. No case-level precision estimate is
+possible from this smoke; full320study remains gated.
+
+Separately frozen proposed v40 diagnostic contains16 exact prompts:
+original decimals versus rank-preserving positive integers1..4, canonical versus
+reversed listing, and four cyclic label assignments. No advice in any arm;
+same model and deterministic24-token ceiling. Deterministic displayed-number
+argmax matches original utility argmax for every pair. It distinguishes numeric
+representation sensitivity from listing-position and label sensitivity on this
+reused case, without isolating sign/precision/magnitude individually. Reviewable
+prompts and expected answers are in `manifests/numeric_capability_v40_review.txt`;
+protocol/manifest retain hashes. Resource ceiling if separately launched remains
+one35GB MIG/five minutes with90s loading/45s staging limits. This handoff
+prepared the diagnostic only: no generation, allocation or campaign launch.

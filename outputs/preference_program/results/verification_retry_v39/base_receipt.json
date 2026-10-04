@@ -1,0 +1,8 @@
+{
+  "records": 20,
+  "manifest_sha256": "6f0c914134c1f9d0e0ede187d19f562332a549be85d01627fe5bbdf520234c5e",
+  "snapshot": "/gpfs/alpine1/scratch/paco0228/relocated/caches/hf/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "completed_at_unix": 1791128939.072901,
+  "max_new_tokens": 24,
+  "do_sample": false
+}

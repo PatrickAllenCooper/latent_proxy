@@ -1,0 +1,38 @@
+{
+  "status": "proposed frozen diagnostic; no generation or allocation authorized by preparation",
+  "source": "outputs/preference_program/manifests/faulty_advice_verification_v36.jsonl",
+  "source_sha256": "6f0c914134c1f9d0e0ede187d19f562332a549be85d01627fe5bbdf520234c5e",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "snapshot": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "design": "2numeric representations x2listing orders x4cyclic label assignments=16",
+  "representations": [
+    "original signed six-decimal scores",
+    "rank-preserving positive integers1..4"
+  ],
+  "orders": [
+    "canonical ABCD",
+    "reversed DCBA"
+  ],
+  "advice": "none",
+  "decoding": {
+    "do_sample": false,
+    "max_new_tokens": 24
+  },
+  "metrics": [
+    "exact argmax agreement",
+    "parse failures",
+    "A-response rate",
+    "first-listed response rate",
+    "paired correctness changes"
+  ],
+  "outcome_control": "deterministic argmax of displayed numbers;original argmax identical in every matched pair",
+  "inference": "descriptive diagnostic on one reused smoke case; no user-level CI, preference recovery, arithmetic reward calculation or general capability claim",
+  "resource_limit_if_later_authorized": {
+    "gpu": "one H200 MIG2g.35gb",
+    "walltime": "five minutes",
+    "load_watchdog_seconds": 90,
+    "runtime_staging_seconds": 45
+  },
+  "compute_basis": "validated20-response smoke42s,peak framework1.19GB;queue/runtime uncertain",
+  "gate": "review protocol; no launch from preparation;320-record study remains gated"
+}
