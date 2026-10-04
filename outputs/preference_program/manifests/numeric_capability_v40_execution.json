@@ -1,0 +1,18 @@
+{
+  "registered_at_utc": "2026-10-04T20:41:36.011702+00:00",
+  "authorization": "Coordinator instruction authorizes this exact frozen16response comparison under ongoing user agenda and existing caps",
+  "scientific_protocol_unchanged": true,
+  "prospective_hashes": {
+    "outputs/preference_program/manifests/numeric_capability_v40.jsonl": "3950d18260a26157861d4d508f496081ff3b13e84124bc62a654e2705c7d2d6f",
+    "outputs/preference_program/manifests/numeric_capability_v40_protocol.json": "f9aa6d7ee751b9fe034925abb6a03c6e3a6bbfab262b89589307a8dfb1d5e998",
+    "scripts/run_numeric_capability.py": "d487800396e003fd0b56f3af21ea638650fb5a09e11a4f6c223d42482ba8aa0b",
+    "scripts/slurm/run_numeric_capability_v40.slurm": "224143f7370bc2976053f118a9ef3607f1345b317eeec7fef84a62075e1e7e4a",
+    "outputs/preference_program/results/startup_diagnostic_v37/cache_receipt.json": "12eba95f8569b4e8739f729fa4495e2100f2716977dbef0d8c9cf512a4c6761a",
+    "outputs/preference_program/results/verification_runtime_v39/runtime_receipt.json": "bfbc150a5fab652386c1a0c38ee02744f54f2f9717063dbe691026a239dceedb"
+  },
+  "records": 16,
+  "max_new_tokens": 24,
+  "do_sample": false,
+  "resources": "oneH200 MIG2g.35gb,five minutes;90sloading watchdog,45sruntime stage",
+  "stop": "No automatic retry or resource increase;full320study gated; descriptive one reused case"
+}
