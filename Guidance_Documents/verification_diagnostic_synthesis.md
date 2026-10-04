@@ -54,7 +54,7 @@ The numeric diagnostic's decimals/canonical prompts are byte-identical to the
 smoke no-advice prompts and reproduce all-A responses in a separate run.
 Its matched manipulations replace signed six-decimal values with ranks 1–4,
 or reverse the listing from A,B,C,D to D,C,B,A. Simplification changes sign,
-scale, precision, and spacing together: its null cannot identify each feature's
+scale, precision, and textual number representation together: its null cannot identify each feature's
 individual effect. Reversal holds value/label associations fixed and supplies a
 position control. All-A behavior persists in both representations and orders.
 
