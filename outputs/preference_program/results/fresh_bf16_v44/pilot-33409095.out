@@ -1,0 +1,27 @@
+job=33409095 node=c3gpu-e5-u1 revision=1cd52a6 started=2026-10-04T17:52:32-06:00
+{"event": "gpu_preflight", "device_count": 1, "device_name": "NVIDIA H200 NVL MIG 2g.35gb", "allocated_bytes": 4096}
+{"event": "node_local_runtime_ready", "at_unix": 1791157956.2125182, "elapsed_seconds": 0.23344850540161133, "path": "/tmp/latent-proxy-runtime-33409095", "archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282"}
+{"event": "imports_start", "at_unix": 1791157956.4845867}
+{"event": "tokenizer_load_start", "at_unix": 1791157972.9044588, "snapshot": "/gpfs/alpine1/scratch/paco0228/relocated/caches/hf/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306"}
+{"event": "model_load_start", "at_unix": 1791157973.143921, "precision": "BF16", "snapshot": "/gpfs/alpine1/scratch/paco0228/relocated/caches/hf/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306"}
+{"event": "model_loaded", "at_unix": 1791157974.5448172, "precision": "BF16", "config": {"attention_implementation": "sdpa", "parameter_dtype_counts": {"torch.bfloat16": 338}, "quantized": false, "quantization_compute_dtypes": [], "eos_ids": [151645, 151643], "tokenizer_eos_id": 151645, "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f", "use_cache": false}, "gpu_memory_allocated_bytes": 3087429632, "gpu_memory_reserved_bytes": 3147825152}
+{"event": "generation_progress", "at_unix": 1791157975.3696878, "precision": "BF16", "records": 1, "completion": "A", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791157975.3880692, "precision": "BF16", "records": 2, "completion": "B", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791157975.406473, "precision": "BF16", "records": 3, "completion": "B", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791157975.423926, "precision": "BF16", "records": 4, "completion": "D", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791157975.497798, "precision": "BF16", "records": 5, "completion": "B", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791157975.515636, "precision": "BF16", "records": 6, "completion": "C", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791157975.5332646, "precision": "BF16", "records": 7, "completion": "A", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791157975.5508556, "precision": "BF16", "records": 8, "completion": "D", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791157975.6239626, "precision": "BF16", "records": 9, "completion": "B", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791157975.6420748, "precision": "BF16", "records": 10, "completion": "D", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791157975.65969, "precision": "BF16", "records": 11, "completion": "B", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791157975.6773286, "precision": "BF16", "records": 12, "completion": "C", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791157975.7687871, "precision": "BF16", "records": 13, "completion": "B", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791157975.7868006, "precision": "BF16", "records": 14, "completion": "D", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791157975.8044972, "precision": "BF16", "records": 15, "completion": "B", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791157975.822143, "precision": "BF16", "records": 16, "completion": "B", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true}
+{"event": "arm_complete", "at_unix": 1791157975.8223045, "precision": "BF16", "peak_allocated_bytes": 3128800256, "peak_reserved_bytes": 3149922304}
+{"event": "cleanup_complete", "at_unix": 1791157975.9596384, "precision": "BF16", "allocated_bytes": 33554432, "reserved_bytes": 3089104896}
+{"event": "study_complete", "at_unix": 1791157975.9605412, "records": 16, "wall_elapsed_seconds": 26.96009087562561}
+job=33409095 completed=2026-10-04T17:52:56-06:00

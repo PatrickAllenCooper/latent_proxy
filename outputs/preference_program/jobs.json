@@ -1677,7 +1677,41 @@
       "length_caps": 0,
       "peak_framework_gpu_bytes": 3127658496,
       "main_finding": "NF4 3/4 versus BF16 4/4; one changed answer; reused case and fixed order/codepath confounds; fresh-case qualification needed"
+    },
+    {
+      "job_id": "33409095",
+      "name": "lp-fresh-bf16",
+      "status": "completed",
+      "revision": "8acd5ae",
+      "purpose": "Frozen prospective16case BF16 numeric qualification",
+      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/fresh-bf16-v44",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/fresh-bf16-v44/smoke",
+      "local_results": "outputs/preference_program/results/fresh_bf16_v44",
+      "records_expected": 16,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "memory": "32G",
+        "cpus": 4,
+        "wall_time": "00:05:00"
+      },
+      "limits": "285s complete,45s stage,90s load,10s generation,12GiB framework memory,24outputtokens",
+      "next_gate": "Scientific failure: stop for conceptual assay review; no retry/tuning/enlargement/320 study",
+      "exit_code": "0:0",
+      "elapsed": "00:00:34",
+      "validated": true,
+      "results_copied": true,
+      "observed_records": 16,
+      "correct": 10,
+      "parse_failures": 0,
+      "eos_observed": 16,
+      "length_caps": 0,
+      "measurement_gate_pass": false,
+      "resource_gate_pass": true,
+      "peak_framework_gpu_bytes": 3128800256
     }
   ],
-  "last_checked_at_utc": "2026-10-04T23:29:19.062150+00:00"
+  "last_checked_at_utc": "2026-10-04T23:54:01.889902+00:00"
 }

@@ -1,0 +1,85 @@
+{
+  "valid": true,
+  "records": 16,
+  "correct": 10,
+  "parse_failures": 0,
+  "eos_observed": 16,
+  "length_caps": 0,
+  "measurement_gate_pass": false,
+  "by_stratum": {
+    "four_digit": 1,
+    "single_digit": 3,
+    "three_digit": 2,
+    "two_digit": 4
+  },
+  "wrong_cases": [
+    {
+      "case_id": "fresh-v44-01",
+      "values": [
+        1,
+        6,
+        8,
+        3
+      ],
+      "gold": "C",
+      "completion": "B"
+    },
+    {
+      "case_id": "fresh-v44-08",
+      "values": [
+        331,
+        375,
+        167,
+        521
+      ],
+      "gold": "D",
+      "completion": "B"
+    },
+    {
+      "case_id": "fresh-v44-09",
+      "values": [
+        691,
+        325,
+        201,
+        595
+      ],
+      "gold": "A",
+      "completion": "D"
+    },
+    {
+      "case_id": "fresh-v44-12",
+      "values": [
+        7253,
+        5865,
+        1545,
+        5541
+      ],
+      "gold": "A",
+      "completion": "B"
+    },
+    {
+      "case_id": "fresh-v44-13",
+      "values": [
+        6769,
+        1889,
+        8216,
+        5727
+      ],
+      "gold": "C",
+      "completion": "D"
+    },
+    {
+      "case_id": "fresh-v44-14",
+      "values": [
+        6854,
+        8950,
+        5044,
+        9421
+      ],
+      "gold": "D",
+      "completion": "B"
+    }
+  ],
+  "limitation": "Balanced non-iid positive integer selection; not preference discovery/advice correction; does not resolve prior precision order/kernel confounds",
+  "next_gate": "Failure stops for conceptual assay review; pass permits separately registered verification only; no retry/tuning/enlargement/320 study"
+}
