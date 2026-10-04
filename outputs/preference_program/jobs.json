@@ -1610,7 +1610,7 @@
     {
       "job_id": "33407495",
       "name": "lp-framing-factorial",
-      "status": "submitted",
+      "status": "completed",
       "revision": "12573fa",
       "purpose": "Authorized frozen16response headerxinstruction factorial;one reusedcase,fourintegerrotations,canonicalletteroutput",
       "script": "scripts/slurm/run_framing_factorial_v42.slurm",
@@ -1632,8 +1632,19 @@
         "wall_time": "00:05:00"
       },
       "resource_justification": "16shortgreedyresponses samepinned1.5B,24token cap,previous16response38s/1.19GB;CPUprepared runtime/prompts;noactiveallocation/duplicate;90sload/45sstage",
-      "next_gate": "Auditfourcells/pairedcontrasts,hashes,EOSandGPUwork;4/4onlyreusedcasegate;freshcasebeforebroaderinference;no retry/tuning/320study"
+      "next_gate": "Assayguidance;proposedquantizationcontrolrequiresdecision;noinference/tuning/retry/320study",
+      "exit_code": "0:0",
+      "elapsed": "00:00:41",
+      "observed_records": 16,
+      "validated": true,
+      "results_copied": true,
+      "parse_failures": 0,
+      "eos_observed": 16,
+      "length_caps": 0,
+      "measurement_gate_pass": false,
+      "peak_framework_gpu_bytes": 1186915328,
+      "main_finding": "Cells1/4,2/4,2/4,3/4;header+.25,instruction+.25,meaninteraction0;registered4/4gatefailed"
     }
   ],
-  "last_checked_at_utc": "2026-10-04T22:28:34.991945+00:00"
+  "last_checked_at_utc": "2026-10-04T22:58:06.402073+00:00"
 }

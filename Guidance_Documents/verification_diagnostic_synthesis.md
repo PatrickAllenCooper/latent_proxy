@@ -127,3 +127,32 @@ effective EOS IDs, last token, EOS/length-cap evidence, rendered messages, and
 model/runtime hashes are required. A 4/4 cell is only a reused-case measurement
 gate; fresh-case qualification is still required before broader inference.
 No unresolved input is needed for preparation. Execution remains unlaunched.
+
+### Factorial execution result (v42)
+
+Job33407495 completed41s. Preference/score:1/4(A,A,A,A);
+preference/label:2/4(A,C,A,A); numbers/score:2/4(A,C,A,A);
+numbers/label:3/4(B,C,D,D), againstgold B,C,D,A.
+[Raw responses and token custody](../outputs/preference_program/results/framing_factorial_v42/base.jsonl),
+[full audit/contrasts](../outputs/preference_program/results/framing_factorial_v42/audit.json).
+Both paired header and instruction accuracy effects are+0.25; interaction
+mean is0, with rotation-level differences[+1,-1,+1,-1]. Zero average interaction
+does not mean zero effects on individual assignments. These matched changes
+identify response effects of these literal wording manipulations on this case,
+not why the underlying model responds differently. Historical corners reproduce.
+
+All16strictly parse,generated length2 ends in effectiveEOS,no24tokencaps.
+Prompt/scoring/prospective hashes and model/runtime identities match; framework
+memory1.19GB plus16generationevents establishGPUwork. MIGprocessutilization
+unavailable. No cellpasses4/4: the registeredmeasurementgatefails, so the
+broaderverificationassay/320study remainsblocked. No follow-oninference.
+
+Smallest prospective nextgate requires a direction decision rather than more
+wording tuning: an8response same-checkpoint NF4-versus-BF16 loadingprecision
+control on the four frozen numbers/label integer prompts. Current loader uses
+NF4; this is a hypothesis, not an attributed cause. BF16demand is unmeasured
+and would require qualification within the existingoneMIG/five-minute cap.
+[Decision proposal](../outputs/preference_program/manifests/precision_control_v43_proposal.json).
+A passingprecisioncondition would still need fresh-case qualification. If this
+control is not desired, suspend this assay and seek guidance on a competent
+comparison baseline. No job or scientific intervention launched from closeout.

@@ -1,0 +1,11 @@
+{
+  "status": "prospective decision proposal only;no launch/runner",
+  "motivation": "No frozenfactorialcellpassed4/4;stopwordingtuningandcheckloadprecisionbeforebroaderassay",
+  "scope": "Eightresponses:fourunchanged numbers/label canonicalinteger prompts xNF4reference versusBF16samecheckpoint",
+  "model_and_decode": "samepinned1.5B/tokenizer,greedy24tokens;noadvice;tokenEOSloggingfixed",
+  "question": "Doesloadingprecisionchangeerrorsonthesefixedprompts?Notgeneralcomparisonorpreference capability",
+  "gate": "IfBF16passes4/4andNF4fails,loadingprecisionisacandidatelocalcauseandfreshcasequalificationneedsseparateplan;ifbothfail,seekassay/modelguidance,no furtherprompttuning",
+  "resource_proposal": "one35GBH200MIG/five minutes,90sload/45sstage;BF16memory/elapsedunmeasured,needqualificationwithinexistingcap;noallocationapprovedbythisaudit",
+  "input_needed": "Patrick/coordinator choosewhetherprecisioncontrolisthenextassaygate or suspendthisLLMverificationlane;notautomatic",
+  "source": "ModelConfig.quantization_bits=4,NF4inmodel_utils;currentauditonlydoesnotattributefailuretoquantization"
+}

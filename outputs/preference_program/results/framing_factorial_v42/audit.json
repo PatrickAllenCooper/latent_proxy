@@ -1,0 +1,222 @@
+{
+  "valid": true,
+  "records": 16,
+  "cells": {
+    "preference/score": {
+      "correct": 1,
+      "parse_failures": 0,
+      "length_caps": 0,
+      "measurement_gate_pass": false,
+      "responses": [
+        {
+          "permutation_id": 0,
+          "gold_action": "B",
+          "completion": "A",
+          "correct": false,
+          "generated_length": 2,
+          "eos_observed": true
+        },
+        {
+          "permutation_id": 1,
+          "gold_action": "C",
+          "completion": "A",
+          "correct": false,
+          "generated_length": 2,
+          "eos_observed": true
+        },
+        {
+          "permutation_id": 2,
+          "gold_action": "D",
+          "completion": "A",
+          "correct": false,
+          "generated_length": 2,
+          "eos_observed": true
+        },
+        {
+          "permutation_id": 3,
+          "gold_action": "A",
+          "completion": "A",
+          "correct": true,
+          "generated_length": 2,
+          "eos_observed": true
+        }
+      ]
+    },
+    "preference/label": {
+      "correct": 2,
+      "parse_failures": 0,
+      "length_caps": 0,
+      "measurement_gate_pass": false,
+      "responses": [
+        {
+          "permutation_id": 0,
+          "gold_action": "B",
+          "completion": "A",
+          "correct": false,
+          "generated_length": 2,
+          "eos_observed": true
+        },
+        {
+          "permutation_id": 1,
+          "gold_action": "C",
+          "completion": "C",
+          "correct": true,
+          "generated_length": 2,
+          "eos_observed": true
+        },
+        {
+          "permutation_id": 2,
+          "gold_action": "D",
+          "completion": "A",
+          "correct": false,
+          "generated_length": 2,
+          "eos_observed": true
+        },
+        {
+          "permutation_id": 3,
+          "gold_action": "A",
+          "completion": "A",
+          "correct": true,
+          "generated_length": 2,
+          "eos_observed": true
+        }
+      ]
+    },
+    "numbers/score": {
+      "correct": 2,
+      "parse_failures": 0,
+      "length_caps": 0,
+      "measurement_gate_pass": false,
+      "responses": [
+        {
+          "permutation_id": 0,
+          "gold_action": "B",
+          "completion": "A",
+          "correct": false,
+          "generated_length": 2,
+          "eos_observed": true
+        },
+        {
+          "permutation_id": 1,
+          "gold_action": "C",
+          "completion": "C",
+          "correct": true,
+          "generated_length": 2,
+          "eos_observed": true
+        },
+        {
+          "permutation_id": 2,
+          "gold_action": "D",
+          "completion": "A",
+          "correct": false,
+          "generated_length": 2,
+          "eos_observed": true
+        },
+        {
+          "permutation_id": 3,
+          "gold_action": "A",
+          "completion": "A",
+          "correct": true,
+          "generated_length": 2,
+          "eos_observed": true
+        }
+      ]
+    },
+    "numbers/label": {
+      "correct": 3,
+      "parse_failures": 0,
+      "length_caps": 0,
+      "measurement_gate_pass": false,
+      "responses": [
+        {
+          "permutation_id": 0,
+          "gold_action": "B",
+          "completion": "B",
+          "correct": true,
+          "generated_length": 2,
+          "eos_observed": true
+        },
+        {
+          "permutation_id": 1,
+          "gold_action": "C",
+          "completion": "C",
+          "correct": true,
+          "generated_length": 2,
+          "eos_observed": true
+        },
+        {
+          "permutation_id": 2,
+          "gold_action": "D",
+          "completion": "D",
+          "correct": true,
+          "generated_length": 2,
+          "eos_observed": true
+        },
+        {
+          "permutation_id": 3,
+          "gold_action": "A",
+          "completion": "D",
+          "correct": false,
+          "generated_length": 2,
+          "eos_observed": true
+        }
+      ]
+    }
+  },
+  "paired_contrasts": {
+    "numbers_minus_preference": {
+      "differences": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        -1
+      ],
+      "mean": 0.25
+    },
+    "label_minus_score": {
+      "differences": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        -1
+      ],
+      "mean": 0.25
+    },
+    "interaction": {
+      "differences": [
+        1,
+        -1,
+        1,
+        -1
+      ],
+      "mean": 0.0
+    }
+  },
+  "eos_observed": 16,
+  "measurement_gate_pass": false,
+  "limitation": "one reusedcase;passingcell4/4 ismeasurementgate only,freshcase qualification required;no general/preference discovery claim",
+  "stop": "No retry/tuning/enlargement/320study",
+  "snapshot_and_runtime_verified": true,
+  "prospective_hashes_verified": true,
+  "node_local_stage_seconds": 0.2313098907470703,
+  "model_load_seconds": 21.104403972625732,
+  "peak_framework_gpu_bytes": 1186915328,
+  "GPU_evidence": "Framework allocation and16CUDAgenerationevents verifywork;MIGprocessutilization unavailable",
+  "token_evidence": "All16generatedIDlists length2,endineffectiveEOS;zero24tokencaps",
+  "artifact_sha256": {
+    "base_receipt.json": "0ab4579eb61dbba764ef0e3c969482f449560f4ff3e1c3ab9cf2f9b4d705cf0f",
+    "pilot-33407495.out": "864b5ad91412fe66ca511786d6f38c9ce02da70c0af1226a7142bb33dccda05e",
+    "pilot-33407495.err": "0c047b7552ed418692516c9ec7d13f615f06c6af620ec7b7ef6f2f37e43ccda3",
+    "base.jsonl": "70d838d93b9a755aae5475f47de882d8845b336a2356e42621adc5551edacd0b",
+    "pilot-33407495-gpu.csv": "e19930c025279a3012dac775556c1c8116bbe03e668d35eab88d537464b617f7"
+  },
+  "interpretation": "Matchedheaderandinstructioneffects +.25each;interactionmean0 butrotationdifferences1,-1,1,-1. No4/4cell;measurementgatefailed;one reusedcaseonly."
+}

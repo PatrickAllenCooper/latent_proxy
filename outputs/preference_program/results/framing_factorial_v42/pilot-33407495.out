@@ -1,0 +1,23 @@
+job=33407495 node=c3gpu-e5-u1 revision=1cd52a6 started=2026-10-04T16:50:09-06:00
+{"event": "gpu_preflight", "device_count": 1, "device_name": "NVIDIA H200 NVL MIG 2g.35gb", "allocated_bytes": 4096}
+{"event": "node_local_runtime_ready", "at_unix": 1791154213.6346614, "elapsed_seconds": 0.2313098907470703, "path": "/tmp/latent-proxy-runtime-33407495", "archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282"}
+{"event": "imports_start", "at_unix": 1791154213.8424163}
+{"event": "model_load_start", "at_unix": 1791154215.6821797, "snapshot": "/gpfs/alpine1/scratch/paco0228/relocated/caches/hf/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306"}
+{"event": "model_loaded", "at_unix": 1791154236.7865837, "gpu_device_count": 1, "gpu_memory_allocated_bytes": 1153358848}
+{"event": "generation_progress", "at_unix": 1791154237.9536488, "records": 1, "gpu_memory_allocated_bytes": 1186915328, "header": "preference", "instruction": "score", "completion": "A", "generated_length": 2, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791154238.07142, "records": 2, "gpu_memory_allocated_bytes": 1186915328, "header": "preference", "instruction": "label", "completion": "A", "generated_length": 2, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791154238.1819715, "records": 3, "gpu_memory_allocated_bytes": 1186915328, "header": "numbers", "instruction": "score", "completion": "A", "generated_length": 2, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791154238.30034, "records": 4, "gpu_memory_allocated_bytes": 1186915328, "header": "numbers", "instruction": "label", "completion": "B", "generated_length": 2, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791154238.3287284, "records": 5, "gpu_memory_allocated_bytes": 1186915328, "header": "preference", "instruction": "score", "completion": "A", "generated_length": 2, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791154238.356836, "records": 6, "gpu_memory_allocated_bytes": 1186915328, "header": "preference", "instruction": "label", "completion": "C", "generated_length": 2, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791154238.385013, "records": 7, "gpu_memory_allocated_bytes": 1186915328, "header": "numbers", "instruction": "score", "completion": "C", "generated_length": 2, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791154238.4130003, "records": 8, "gpu_memory_allocated_bytes": 1186915328, "header": "numbers", "instruction": "label", "completion": "C", "generated_length": 2, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791154238.441099, "records": 9, "gpu_memory_allocated_bytes": 1186915328, "header": "preference", "instruction": "score", "completion": "A", "generated_length": 2, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791154238.4691873, "records": 10, "gpu_memory_allocated_bytes": 1186915328, "header": "preference", "instruction": "label", "completion": "A", "generated_length": 2, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791154238.4971914, "records": 11, "gpu_memory_allocated_bytes": 1186915328, "header": "numbers", "instruction": "score", "completion": "A", "generated_length": 2, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791154238.5252361, "records": 12, "gpu_memory_allocated_bytes": 1186915328, "header": "numbers", "instruction": "label", "completion": "D", "generated_length": 2, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791154238.5532346, "records": 13, "gpu_memory_allocated_bytes": 1186915328, "header": "preference", "instruction": "score", "completion": "A", "generated_length": 2, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791154238.5811846, "records": 14, "gpu_memory_allocated_bytes": 1186915328, "header": "preference", "instruction": "label", "completion": "A", "generated_length": 2, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791154238.6099293, "records": 15, "gpu_memory_allocated_bytes": 1186915328, "header": "numbers", "instruction": "score", "completion": "A", "generated_length": 2, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791154238.6379488, "records": 16, "gpu_memory_allocated_bytes": 1186915328, "header": "numbers", "instruction": "label", "completion": "D", "generated_length": 2, "eos_observed": true}
+job=33407495 completed=2026-10-04T16:50:39-06:00
