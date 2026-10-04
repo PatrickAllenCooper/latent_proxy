@@ -1,0 +1,110 @@
+{
+  "valid": true,
+  "records": 8,
+  "modes": {
+    "label": {
+      "correct": 3,
+      "parse_failures": 0,
+      "responses": [
+        {
+          "permutation_id": 0,
+          "expected_response": "B",
+          "completion": "B",
+          "correct": true,
+          "generated_length": 2,
+          "eos_observed": true,
+          "length_cap_reached": false
+        },
+        {
+          "permutation_id": 1,
+          "expected_response": "C",
+          "completion": "C",
+          "correct": true,
+          "generated_length": 2,
+          "eos_observed": true,
+          "length_cap_reached": false
+        },
+        {
+          "permutation_id": 2,
+          "expected_response": "D",
+          "completion": "D",
+          "correct": true,
+          "generated_length": 2,
+          "eos_observed": true,
+          "length_cap_reached": false
+        },
+        {
+          "permutation_id": 3,
+          "expected_response": "A",
+          "completion": "D",
+          "correct": false,
+          "generated_length": 2,
+          "eos_observed": true,
+          "length_cap_reached": false
+        }
+      ]
+    },
+    "number": {
+      "correct": 1,
+      "parse_failures": 0,
+      "responses": [
+        {
+          "permutation_id": 0,
+          "expected_response": "4",
+          "completion": "5",
+          "correct": false,
+          "generated_length": 2,
+          "eos_observed": true,
+          "length_cap_reached": false
+        },
+        {
+          "permutation_id": 1,
+          "expected_response": "4",
+          "completion": "9",
+          "correct": false,
+          "generated_length": 2,
+          "eos_observed": true,
+          "length_cap_reached": false
+        },
+        {
+          "permutation_id": 2,
+          "expected_response": "4",
+          "completion": "4",
+          "correct": true,
+          "generated_length": 2,
+          "eos_observed": true,
+          "length_cap_reached": false
+        },
+        {
+          "permutation_id": 3,
+          "expected_response": "4",
+          "completion": "5",
+          "correct": false,
+          "generated_length": 2,
+          "eos_observed": true,
+          "length_cap_reached": false
+        }
+      ]
+    }
+  },
+  "number_minus_label_accuracy": -0.5,
+  "eos_observed": 8,
+  "length_caps": 0,
+  "limitation": "One reusedcase;numericgoldalways4,so number agreement may beconstantoutput;taskframing/outputmappingonly;no preference/generalcomparison claim",
+  "stop": "No automatic retry,tuning,enlargement or320record launch",
+  "snapshot_and_runtime_hashes_verified": true,
+  "prospective_hashes_verified": true,
+  "node_local_stage_seconds": 0.33955883979797363,
+  "model_load_seconds": 12.577775001525879,
+  "peak_framework_gpu_bytes": 1186915328,
+  "GPU_evidence": "framework allocation and8 CUDA generation events;processutilizationnotavailable",
+  "token_evidence": "All8 generated IDs length2,end in effectiveEOS,none at24token cap;prompt lengths/last token saved",
+  "artifact_sha256": {
+    "base_receipt.json": "3d909432c02ec740273292b454948f9c1d5edb91ec54ed05a21e5a0dbbc54cf6",
+    "pilot-33406672.err": "2f99656d0afda09dabc74dec63b250f958eb7f65e5d11c25d60c0069c3eb26bf",
+    "pilot-33406672.out": "f105062aeb0b2ebbb12b23c5afd200f91cf08209ee6843dbad28af17a2a6a0ff",
+    "base.jsonl": "61b55941f26715e5ff991437a645afa88d7ffbb69f1c78f2ac81e8d25df40b26",
+    "pilot-33406672-gpu.csv": "33113f8b39eb2fb1b402a0f00852318a8a472fceac882f742806a9ee4f026871"
+  },
+  "interpretation": "Direct framing yields3/4label correct vs prior constantA1/4;framing and wording changed,notisolatedcausal attribution. Numeric answers5,9,4,5 despitegold4;3outofrangevalues. Paired number-minus-label=-0.5;onecase/4rotations,noCI/generalclaim."
+}

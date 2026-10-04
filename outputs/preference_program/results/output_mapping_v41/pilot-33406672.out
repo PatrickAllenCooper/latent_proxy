@@ -1,0 +1,15 @@
+job=33406672 node=c3gpu-e5-u1 revision=1cd52a6 started=2026-10-04T15:55:46-06:00
+{"event": "gpu_preflight", "device_count": 1, "device_name": "NVIDIA H200 NVL MIG 2g.35gb", "allocated_bytes": 4096}
+{"event": "node_local_runtime_ready", "at_unix": 1791150949.7467074, "elapsed_seconds": 0.33955883979797363, "path": "/tmp/latent-proxy-runtime-33406672", "archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282"}
+{"event": "imports_start", "at_unix": 1791150949.8430586}
+{"event": "model_load_start", "at_unix": 1791150951.3670053, "snapshot": "/gpfs/alpine1/scratch/paco0228/relocated/caches/hf/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306"}
+{"event": "model_loaded", "at_unix": 1791150963.9447803, "gpu_device_count": 1, "gpu_memory_allocated_bytes": 1153358848}
+{"event": "generation_progress", "at_unix": 1791150964.9284713, "records": 1, "gpu_memory_allocated_bytes": 1186915328, "mode": "label", "completion": "B", "generated_length": 2, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791150965.8347256, "records": 2, "gpu_memory_allocated_bytes": 1186914304, "mode": "number", "completion": "5", "generated_length": 2, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791150965.8634398, "records": 3, "gpu_memory_allocated_bytes": 1186915328, "mode": "label", "completion": "C", "generated_length": 2, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791150965.890401, "records": 4, "gpu_memory_allocated_bytes": 1186914304, "mode": "number", "completion": "9", "generated_length": 2, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791150965.9193134, "records": 5, "gpu_memory_allocated_bytes": 1186915328, "mode": "label", "completion": "D", "generated_length": 2, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791150965.946261, "records": 6, "gpu_memory_allocated_bytes": 1186914304, "mode": "number", "completion": "4", "generated_length": 2, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791150965.974359, "records": 7, "gpu_memory_allocated_bytes": 1186915328, "mode": "label", "completion": "D", "generated_length": 2, "eos_observed": true}
+{"event": "generation_progress", "at_unix": 1791150966.0012636, "records": 8, "gpu_memory_allocated_bytes": 1186914304, "mode": "number", "completion": "5", "generated_length": 2, "eos_observed": true}
+job=33406672 completed=2026-10-04T15:56:06-06:00

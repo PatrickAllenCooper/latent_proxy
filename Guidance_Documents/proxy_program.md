@@ -812,3 +812,21 @@ saves generatedIDs,prompt length,effectiveEOSIDs,generated length,lasttoken,
 EOS-observed andlengthcap evidence. Proposed auditor checks strict label/digit
 parsing and all paired outcomes. Numericgoldalways4: agreement cannot establish
 general comparison competence. No adaptive retry,tuning or320launch.
+
+## Output mapping diagnostic closeout(v41)
+
+33406672 completed31s,8/8records match the frozen prompts/messages/render,
+prospective hashes and verified snapshot/runtime archive. Strict parsing passes
+all8. Label answers B,C,D,D versusgold B,C,D,A yield3/4correct; number answers
+5,9,4,5 versusgold4 yield1/4correct. Three numeric outputs are absent from the
+input values. Paired number-minus-label accuracy=-0.5, descriptive only on four
+rotations of one reusedcase. Direct label framing differs from v40and yields
+more correct choices, but wording/framing changed together; this does not
+isolate a cause or establish general competence/preference discovery.
+
+Token custody closes the previous gap: all8generatedIDlists have length2 and
+end in effectiveEOS, no24token caps. Prompt length,EOSIDs,lasttoken and rawIDs
+retained. Model/runtime identity and8CUDAgeneration events plus1.19GBframework
+allocation verify work. Process/MIGutilization unavailable. Allwrong outputs
+and null/error records preserved;local/remoteledger finalized. No automatic
+retry,model/score tuning,extrajob or320record launch follows this result.

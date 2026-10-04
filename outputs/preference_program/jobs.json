@@ -1570,7 +1570,7 @@
     {
       "job_id": "33406672",
       "name": "lp-output-mapping",
-      "status": "submitted",
+      "status": "completed",
       "revision": "f99f100",
       "purpose": "Patrick-authorized frozen8response directlabel-versus-number output mapping diagnostic,one reusedcase,numericgoldalways4",
       "script": "scripts/slurm/run_output_mapping_v41.slurm",
@@ -1592,8 +1592,21 @@
         "wall_time": "00:05:00"
       },
       "resource_justification": "8responses <=validated16response38s/1.19GB;CPUprepared exactprompts/qualifiedruntime;no active accountallocation or duplicate at gate;90sload/45sstage",
-      "next_gate": "Audit8pairedoutputs andgeneratedtoken/terminationevidence;noautomaticretry,tuning,enlargement or320study"
+      "next_gate": "Review evidence;no automatic retry,tuning or320recordstudy",
+      "exit_code": "0:0",
+      "elapsed": "00:00:31",
+      "observed_records": 8,
+      "validated": true,
+      "results_copied": true,
+      "parse_failures": 0,
+      "label_correct": 3,
+      "number_correct": 1,
+      "paired_number_minus_label_accuracy": -0.5,
+      "eos_observed": 8,
+      "length_caps": 0,
+      "peak_framework_gpu_bytes": 1186915328,
+      "main_finding": "label3/4(B,C,D,D),number1/4(5,9,4,5),allEOS/zero parse failures;descriptive task-framing/outputmapping only"
     }
   ],
-  "last_checked_at_utc": "2026-10-04T21:55:38.900771+00:00"
+  "last_checked_at_utc": "2026-10-04T21:57:32.029103+00:00"
 }
