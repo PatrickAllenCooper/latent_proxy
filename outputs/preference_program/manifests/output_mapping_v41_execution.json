@@ -1,0 +1,16 @@
+{
+  "registered_at_utc": "2026-10-04T21:54:01.945355+00:00",
+  "authorization": "Patrick explicitly authorized this frozen8response diagnostic through coordinator",
+  "hashes": {
+    "outputs/preference_program/manifests/output_mapping_v41.jsonl": "6bfed4dc6a2e460cb0e2bd01368b90fe2f9841988c24fce2117f6a54a6267d4a",
+    "outputs/preference_program/manifests/output_mapping_v41_proposal.json": "76b3b91559ddc2d0169b74bfdac242372da30958eede50f3340b68a754260b35",
+    "scripts/run_output_mapping.py": "03b9534564f09b3df5fb5e868825a89c817cbd3d76404d7aaa0ec8f87578d2a4",
+    "scripts/slurm/run_output_mapping_v41.slurm": "4c9a4730bd911c3fec0ef618fa7f1200d98fc27dc4aa30f6c0b7d4f02ea9dc61",
+    "outputs/preference_program/results/startup_diagnostic_v37/cache_receipt.json": "12eba95f8569b4e8739f729fa4495e2100f2716977dbef0d8c9cf512a4c6761a",
+    "outputs/preference_program/results/verification_runtime_v39/runtime_receipt.json": "bfbc150a5fab652386c1a0c38ee02744f54f2f9717063dbe691026a239dceedb"
+  },
+  "limits": "one35GBH200MIG,five minutes,90sload,45sstage,deterministic24token ceiling",
+  "records": 8,
+  "stop": "no automatic retry,tuning,enlargement or320record launch",
+  "inference": "task framing/output mapping only;numericgoldalways4;one reusedcase"
+}
