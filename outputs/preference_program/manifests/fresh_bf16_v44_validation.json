@@ -1,0 +1,18 @@
+{
+  "CPU_only": true,
+  "model_calls": 0,
+  "GPU_allocations": 0,
+  "unique_cases": 16,
+  "unique_numeric_multisets": 16,
+  "gold_counts": {
+    "A": 4,
+    "C": 4,
+    "B": 4,
+    "D": 4
+  },
+  "unique_maxima_verified": true,
+  "oracle_and_prompt_verified": true,
+  "reused_case_excluded": true,
+  "manifest_sha256": "b54dd38b3cf89f545eee4e1a24330694b94c1cc58a14717be054e778978eb590",
+  "protocol_sha256": "19fe54018287e69d0de993ec72f1ccbffa3520ac514b9c9b3feda45983e258f9"
+}
