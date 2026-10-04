@@ -1,0 +1,11 @@
+{
+  "status": "prospective frozen execution",
+  "hashes": {
+    "scripts/run_fresh_bf16_qualification.py": "8e0ed7b55b5db21c1a762b323fa545d053d66953eb0a73804a2efc5e2b0f6441",
+    "scripts/slurm/run_fresh_bf16_v44.slurm": "00003e9ffe99ffc9cc1972840f337fd3d54bf50066e85549806ceb6b6c4888d3",
+    "outputs/preference_program/manifests/fresh_bf16_v44.jsonl": "b54dd38b3cf89f545eee4e1a24330694b94c1cc58a14717be054e778978eb590",
+    "outputs/preference_program/manifests/fresh_bf16_v44_protocol.json": "19fe54018287e69d0de993ec72f1ccbffa3520ac514b9c9b3feda45983e258f9"
+  },
+  "CPU_syntax_and_manifest_checks": true,
+  "no_inference_yet": true
+}
