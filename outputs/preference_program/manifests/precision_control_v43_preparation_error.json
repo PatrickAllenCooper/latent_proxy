@@ -1,0 +1,7 @@
+{
+  "stage": "CPU protocol preparation only",
+  "error": "NameError: main not defined in trailing invocation after top-level preparation",
+  "effect": "Artifactswrittenbutprocessfailed;removedunusedtrailinginvocation andregeneratedallhashes",
+  "GPUallocations": 0,
+  "model_calls": 0
+}

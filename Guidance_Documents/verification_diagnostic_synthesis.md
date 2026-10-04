@@ -156,3 +156,42 @@ and would require qualification within the existingoneMIG/five-minute cap.
 A passingprecisioncondition would still need fresh-case qualification. If this
 control is not desired, suspend this assay and seek guidance on a competent
 comparison baseline. No job or scientific intervention launched from closeout.
+
+### Precision-control preparation (v43; no execution)
+
+Eight exact NF4/BF16 paired records are frozen on the four unchanged
+numbers/label integer prompts. Evidence, letter output, native chat messages,
+model revision/tokenizer, greedy24token decoding and scoring are identical;
+the quantization configuration is the only arm manipulation. Both arms declare
+BF16 compute/nonquantized dtype and singleCUDAdevice placement. Sequential
+NF4thenBF16 avoids simultaneous models; precision remains confounded with
+order/allocator/time nuisances, which this small control cannot isolate.
+[Protocol](../outputs/preference_program/manifests/precision_control_v43_protocol.json),
+[exact pairs](../outputs/preference_program/manifests/precision_control_v43.jsonl),
+[scoring/decision criterion](../outputs/preference_program/manifests/precision_control_v43_scoring.json),
+[CPU validation](../outputs/preference_program/manifests/precision_control_v43_validation.json).
+
+CPU-only inspection of the pinned safetensor header found338tensors,
+1,543,714,304BF16elements:3,087,428,608bytes(2.875GiB) of tensor payload.
+The previously hash-verified file contains3,087,467,144bytes. The declared
+12GiBGPUplanning budget allows two BF16weightcopies plus6.25GiB for runtime
+headroom; both models must not coexist. Weight storage fits35GBMIG, but this is
+not a measured peak or formal memory guarantee.
+[Weight/resource assessment](../outputs/preference_program/manifests/precision_control_v43_weight_assessment.json).
+
+Five-minute completion remains unqualified: BF16loading/generation is unmeasured.
+The proposed45sstage,90sload perarm,10sgeneration perarm and40sorchestration
+allowance total285s; watchdogs bound a laterattempt rather than guarantee
+completion. Token/promptIDs,EOS/lengthcaps,parameterdtypes/runtimehashes and
+memory/timing custody are required. NoGPU/modelcalls/submission were performed.
+A CPU preparation NameError after artifact writes was corrected and all hashes
+regenerated; its receipt is retained.
+
+Prospective criterion: BF16=4/4 and NF4<4/4 without parse/truncation supports a
+local precision-sensitive assay failure; freshcases still required. Bothfail
+means assayfailure and guidance, bothpass means no detectedprecisionloss here,
+NF4passes/BF16fails means do not adoptBF16, and incomplete/resourcefailure gives
+no scientificcontrast or retry. Smallest outstanding decision is whether to
+authorize this bounded qualification within the current cap despite unmeasured
+BF16runtime, or suspend this assay. No resource enlargement is justified by
+weight storage; no automatic320study or prompt tuning follows preparation.

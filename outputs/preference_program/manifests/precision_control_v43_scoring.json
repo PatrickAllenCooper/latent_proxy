@@ -1,0 +1,15 @@
+{
+  "parser_regex": "\\s*([ABCD])\\s*",
+  "correctness": "strict fullmatch equals displayedintegerargmax;parsefailure countedincorrect andseparately",
+  "paired_primary": "BF16minusNF4 correctness perrotation;report4differences andmean;noCI",
+  "diagnostics": [
+    "changedlabeloutputs",
+    "correcttoincorrect andincorrecttocorrect counts",
+    "parsefailures",
+    "EOS/lengthcaps",
+    "botharmcellcorrect/4",
+    "memory/load/generationtimings"
+  ],
+  "decision_criterion": "BF16=4/4withzeroparse/truncation andNF4<4/4 supports precision-sensitive failure for this frozenassay;doesnotqualify generalcapability;freshcase gate required. Both<4/4: assaygate fails,seekguidance. Both4/4: no detectedprecisionloss here,earlierprompt/runtime differences remain;freshcasequalification required. NF4passes/BF16fails: precisiontradeoff,do notadopt BF16. Incomplete/resourcesfail: no scientificcomparison;no retry.",
+  "meaning": "one reusedcase/fourrotations: criterion onlylocalmeasurementgate,notpopulationevidence"
+}

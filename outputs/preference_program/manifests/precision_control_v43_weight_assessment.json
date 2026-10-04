@@ -1,0 +1,20 @@
+{
+  "method": "Remote Python standardlibrary read8byte safetensorheaderlength,38528byteJSONheader andconfig only;no torch/model/GPU call",
+  "snapshot": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "tensor_count": 338,
+  "parameter_elements": 1543714304,
+  "dtype_elements": {
+    "BF16": 1543714304
+  },
+  "stored_tensor_bytes": 3087428608,
+  "BF16_weight_bytes": 3087428608,
+  "BF16_weight_GiB": 2.875391960144043,
+  "file_bytes": 3087467144,
+  "known_file_sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+  "declared_GPU_budget_GiB": 12,
+  "budget_basis": "two BF16weightcopies5.75GiB plusCUDA/context/workspace/activationallowance6.25GiB;sequentialarms;no simultaneousmodels",
+  "GPU_assessment": "Weight-storagefits35GBMIG;actual peak/liveness unmeasured,12GiBisplanningallowance not formal bound",
+  "CPU_memory_GiB": 32,
+  "runtime_assessment": "NF4 measured41sfull16run/1.19GB;BF16notmeasured;285swatchdogplanning fits nominal300scap but cannotguaranteecompletion",
+  "decision_needed": "Authorize only boundedqualification withinexistingcap,or suspend;no longerwalltime/multipleGPU neededfromweightmetadata"
+}

@@ -1,0 +1,12 @@
+{
+  "CPU_only": true,
+  "model_calls": 0,
+  "GPUallocations": 0,
+  "records": 8,
+  "prompt_and_messages_equal_acrossprecision": true,
+  "gold_equal_and_balanced": true,
+  "precision_onlyarmfielddifference": true,
+  "manifest_sha256": "9eea83c92a3f7915d7695346e847623d475910a08718df214678f83ea4a2e8a2",
+  "protocol_sha256": "1390f4d60794ff8e9bf317fe4588ae2e9b32d1de6951730482b7690c4d0ab37b",
+  "scoring_sha256": "0b2307b9e771942e4d23a3c9597d7150f7a0b35f14fd2adced4abefb50b48c9e"
+}

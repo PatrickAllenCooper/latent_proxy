@@ -1,0 +1,72 @@
+{
+  "status": "frozenpreparationonly;noGPU/modelcalls/submission",
+  "created_at_utc": "2026-10-04T23:08:55.116640+00:00",
+  "source_sha256": "35c5faeeea28196dc2d361b22bcf83e847773f0ba273b8ba9aa55aba76a62324",
+  "records": 8,
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "snapshot": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "weights_sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+  "shared_loader_contract": {
+    "pretrained_model_name_or_path": "verifiedexplicit_snapshot",
+    "local_files_only": true,
+    "trust_remote_code": true,
+    "torch_dtype": "torch.bfloat16",
+    "device_map": {
+      "": "cuda:0"
+    },
+    "attention_implementation": "sameinstalledframeworkdefaultrecordeffectivevaluebotharms",
+    "use_cache": false,
+    "eval": true
+  },
+  "precision_difference": {
+    "NF4": {
+      "load_in_4bit": true,
+      "bnb_4bit_quant_type": "nf4",
+      "bnb_4bit_compute_dtype": "torch.bfloat16",
+      "bnb_4bit_use_double_quant": true
+    },
+    "BF16": {
+      "quantization_config": null
+    }
+  },
+  "tokenizer_contract": "samepinnedsnapshot/nativeapply_chat_template(add_generation_prompt=True),identical singleuser messages,noexplicit extra systemmessage;assertprompttokenIDs identical acrossarms",
+  "decode": {
+    "do_sample": false,
+    "max_new_tokens": 24,
+    "pad_token_id": "same tokenizer EOS",
+    "eos": "sameeffectivegenerationconfigEOSIDs"
+  },
+  "arm_order": "NF4thenBF16,loadsequentially,neverretainbothmodels;deleteNF4references/collect/emptyCUDAcacheandrecordmemorybeforeBF16;orderconfoundedwithprecision,time/allocatornuisance notisolated",
+  "token_custody": [
+    "promptIDs/renderedmessages",
+    "generatedIDs",
+    "promptlength",
+    "effectiveEOSIDs",
+    "generatedlength",
+    "lasttoken",
+    "EOSobserved",
+    "lengthcap",
+    "snapshot/runtimehashes",
+    "effectiveparameterdtypes/quantizationsettings"
+  ],
+  "resources_if_authorized": {
+    "gpu": "oneH200MIG2g.35gb",
+    "walltime": "00:05:00",
+    "cpu_memory": "32G",
+    "staging_watchdog_seconds": 45,
+    "load_watchdog_seconds_per_arm": 90,
+    "memory_planning_budget_GiB": 12,
+    "generation_watchdog_seconds_per_arm": 10,
+    "noautomatic_retry": true
+  },
+  "memory_assessment": "BF16weightpayload2.875GiB;planningbudget12GiB includes two-copyallowance plusCUDA/workspace/activation headroom,NOTmeasuredpeak orproof ofruntimefit;recordprocessmemory andstoponbudget breach;35GBMIG provides additionalheadroom",
+  "time_assessment": "staging45+twoloads180+twogeneration10+orchestration/finalization allowance40=285seconds;watchdogs bound attempt,not completionguarantee. BF16loading/inferenceunmeasured;do notclaimfive-minute completion",
+  "criterion": "BF16=4/4withzeroparse/truncation andNF4<4/4 supports precision-sensitive failure for this frozenassay;doesnotqualify generalcapability;freshcase gate required. Both<4/4: assaygate fails,seekguidance. Both4/4: no detectedprecisionloss here,earlierprompt/runtime differences remain;freshcasequalification required. NF4passes/BF16fails: precisiontradeoff,do notadopt BF16. Incomplete/resourcesfail: no scientificcomparison;no retry.",
+  "limitations": "onlyprecision-package outputcomparisonononefixedassay;quantizedkernel/codepath changes intrinsic;armorder notcounterbalanced;no preference recovery orbroaderinference",
+  "gate": "Review memory/time feasibility beforeauthorization;no blindrun/320study/tuning",
+  "hashes": {
+    "manifest": "9eea83c92a3f7915d7695346e847623d475910a08718df214678f83ea4a2e8a2",
+    "scoring": "0b2307b9e771942e4d23a3c9597d7150f7a0b35f14fd2adced4abefb50b48c9e",
+    "preparation_script": "4dc1a70dbd3e19039d681fe827965b41e6c756e3bb37113eee837460100e5bf0"
+  }
+}
