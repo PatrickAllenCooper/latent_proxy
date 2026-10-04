@@ -708,3 +708,19 @@ recommendations retained. Runner and smoke auditor distinguish corrected wrong
 advice, spoiled correct advice, parse failures and final regret. One-case smoke
 is a measurement gate, not evidence of population verification ability. No
 larger verification run is submitted.
+
+## Verification startup failure and CPU remedy (v39)
+
+33367762 failed1:0 in2:15, before any model-loaded event or response. The90s
+watchdog captured Transformers import_utils.create_import_structure_from_path
+recursively scanning installed package files. This localizes this attempt's
+stall to dependency import filesystem traversal, rather than scoring/generation.
+It does not retroactively prove the earlier stage1 timeout cause. Logs and
+telemetry are preserved in `results/verification_smoke_failed_v36`.
+
+CPU-only job33391655 archives the unchanged installed Transformers tree and
+records archive SHA256 and timings. Prepared retry extracts that verified
+archive to a per-job node-local directory (45s bounded staging) and puts it
+first on PYTHONPATH. Model snapshot, study manifest, prompts, decoding and90s
+loading watchdog remain fixed. Same one35GB MIG/five-minute cap; no longer
+walltime or dependency update. No GPU retry before validated CPU receipt.

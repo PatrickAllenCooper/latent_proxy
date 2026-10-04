@@ -1443,7 +1443,7 @@
     {
       "job_id": "33367762",
       "name": "lp-verify-smoke",
-      "status": "submitted",
+      "status": "failed",
       "purpose": "Approved registered20-response visible-score fallible-advice verification smoke;first fresh underlying case,four rotations,five arms",
       "script": "scripts/slurm/run_verification_smoke_v36.slurm",
       "remote_source": "/scratch/alpine/paco0228/latent_proxy_runs/verification-smoke-v36/run_faulty_advice_verification.py",
@@ -1463,8 +1463,35 @@
         "wall_time": "00:05:00"
       },
       "resource_justification": "Same1.5B model and24-token cap as validated64-response40s run;one35GB MIG,90s model-load watchdog; no active account job or duplicate at submission",
-      "next_gate": "Raw prompt/generation,scoring,correct-vs-wrong controls and GPU work audit; smoke alone not population evidence or automatic scaling authorization"
+      "next_gate": "Raw prompt/generation,scoring,correct-vs-wrong controls and GPU work audit; smoke alone not population evidence or automatic scaling authorization",
+      "exit_code": "1:0",
+      "elapsed": "00:02:15",
+      "observed_records": 0,
+      "validated": false,
+      "results_copied": true,
+      "failure_stage": "90s startup watchdog during Transformers recursive import_structure filesystem scan",
+      "local_failure_artifacts": "outputs/preference_program/results/verification_smoke_failed_v36"
+    },
+    {
+      "job_id": "33391655",
+      "status": "submitted",
+      "name": "lp-runtime-stage",
+      "purpose": "CPU-only archive of unchanged installed Transformers package to remedy shared filesystem import traversal stall",
+      "script": "scripts/slurm/stage_verification_runtime_v39.slurm",
+      "remote_source": "/scratch/alpine/paco0228/latent_proxy_runs/verification-runtime-v39",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/verification-runtime-v39/runtime_receipt.json",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/verification-runtime-v39/cpu-33391655.*",
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "acpu",
+        "qos": "cpu-normal",
+        "cpus": 2,
+        "memory": "8G",
+        "wall_time": "00:05:00",
+        "gpus": 0
+      },
+      "next_gate": "Validate archive receipt before20-response retry, unchanged1MIG/five-minute cap"
     }
   ],
-  "last_checked_at_utc": "2026-10-03T20:48:52.787071+00:00"
+  "last_checked_at_utc": "2026-10-04T15:46:47.084303+00:00"
 }

@@ -1,0 +1,15 @@
+Timeout (0:01:30)!
+Thread 0x000015392813a400 (most recent call first):
+  File "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2850 in create_import_structure_from_path
+  File "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2834 in create_import_structure_from_path
+  File "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 3117 in define_import_structure
+  File "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/transformers/__init__.py", line 808 in <module>
+  File "<frozen importlib._bootstrap>", line 488 in _call_with_frames_removed
+  File "<frozen importlib._bootstrap_external>", line 999 in exec_module
+  File "<frozen importlib._bootstrap>", line 935 in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 1331 in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 1360 in _find_and_load
+  File "/home/paco0228/latent_proxy_proxy_program_v22/src/training/model_utils.py", line 68 in load_base_model
+  File "/home/paco0228/latent_proxy_proxy_program_v22/src/training/model_utils.py", line 140 in load_model_with_optional_checkpoint
+  File "/scratch/alpine/paco0228/latent_proxy_runs/verification-smoke-v36/run_faulty_advice_verification.py", line 17 in main
+  File "/scratch/alpine/paco0228/latent_proxy_runs/verification-smoke-v36/run_faulty_advice_verification.py", line 34 in <module>
