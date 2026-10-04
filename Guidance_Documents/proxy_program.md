@@ -800,3 +800,15 @@ so even success would not establish general numeric comparison. Proposal
 contains exact prompts/answers and requires token-level termination custody in
 any later runner. Same resourcecap if authorized. No model/score tuning, retry,
 extra job or320record launch from this audit.
+
+## Approved output mapping execution(v41)
+
+Patrick explicitly authorized the frozen8response diagnostic. Exact prompts,
+scoring controls, runner and resource hashes committed/pushed f99f100 before
+submission; remote runner/manifest hashes verified. No active allocation or
+Latent duplicate at gate. Job33406672 submitted, same pinned1.5B, deterministic
+24token cap, one35GBMIG/five minutes,90sloading/45sstaging watchdogs. Runner now
+saves generatedIDs,prompt length,effectiveEOSIDs,generated length,lasttoken,
+EOS-observed andlengthcap evidence. Proposed auditor checks strict label/digit
+parsing and all paired outcomes. Numericgoldalways4: agreement cannot establish
+general comparison competence. No adaptive retry,tuning or320launch.
