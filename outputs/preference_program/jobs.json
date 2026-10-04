@@ -1474,7 +1474,7 @@
     },
     {
       "job_id": "33391655",
-      "status": "submitted",
+      "status": "completed",
       "name": "lp-runtime-stage",
       "purpose": "CPU-only archive of unchanged installed Transformers package to remedy shared filesystem import traversal stall",
       "script": "scripts/slurm/stage_verification_runtime_v39.slurm",
@@ -1490,8 +1490,39 @@
         "wall_time": "00:05:00",
         "gpus": 0
       },
-      "next_gate": "Validate archive receipt before20-response retry, unchanged1MIG/five-minute cap"
+      "next_gate": "Validate archive receipt before20-response retry, unchanged1MIG/five-minute cap",
+      "exit_code": "0:0",
+      "elapsed": "00:00:39",
+      "validated": true,
+      "results_copied": true,
+      "main_finding": "Unchanged Transformers archive52,193,280 bytes;SHA256 recorded;CPU preparation27.24s"
+    },
+    {
+      "job_id": "33391694",
+      "name": "lp-verify-smoke",
+      "status": "submitted",
+      "purpose": "Same approved20-response smoke after concrete Transformers import-stall remedy;unchanged study and compute cap",
+      "script": "scripts/slurm/run_verification_retry_v39.slurm",
+      "remote_source": "/scratch/alpine/paco0228/latent_proxy_runs/verification-smoke-v36/run_faulty_advice_verification.py",
+      "import_source": "/home/paco0228/latent_proxy_proxy_program_v22",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/verification-smoke-v36/manifest.jsonl",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/verification-retry-v39/smoke",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/verification-retry-v39/logs/pilot-33391694.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/startup-diagnostic-v37/logs/pilot-33391694-gpu.csv",
+      "local_results": "outputs/preference_program/results/verification_retry_v39",
+      "records_expected": 20,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "memory": "32G",
+        "wall_time": "00:05:00"
+      },
+      "resource_justification": "20 short responses same1.5B/24tokens;validated model peak1.19GB;CPU archived52MB dependency;node-local extraction capped45s,loading90s;one35GB MIG/five minutes;no active account or duplicate smoke job at submission",
+      "next_gate": "Raw prompt/generation,scoring,correct-vs-wrong controls and GPU work audit; smoke alone not population evidence or automatic scaling authorization",
+      "runtime_archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282"
     }
   ],
-  "last_checked_at_utc": "2026-10-04T15:46:47.084303+00:00"
+  "last_checked_at_utc": "2026-10-04T15:48:52.124195+00:00"
 }

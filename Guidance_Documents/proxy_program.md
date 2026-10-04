@@ -724,3 +724,13 @@ archive to a per-job node-local directory (45s bounded staging) and puts it
 first on PYTHONPATH. Model snapshot, study manifest, prompts, decoding and90s
 loading watchdog remain fixed. Same one35GB MIG/five-minute cap; no longer
 walltime or dependency update. No GPU retry before validated CPU receipt.
+
+CPU33391655 completed in39s; unchanged Transformers archive52,193,280 bytes,
+SHA2568e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282.
+Preparation took27.24s. Receipt/logs copied locally; no dependency version or
+scientific prompt changes. With no active account/duplicate smoke job, bounded
+20-response retry33391694 submitted using hash-verified node-local extraction
+(45s cap), frozen original verification runner/manifest, verified model snapshot,
+90s loading watchdog, same one35GB MIG/five-minute allocation. No320-record
+run yet; smoke scoring/trace/GPU gate remains required. Full failure history
+retained, no unrelated jobs modified.

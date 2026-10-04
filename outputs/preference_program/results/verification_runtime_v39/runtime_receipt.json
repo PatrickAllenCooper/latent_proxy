@@ -1,0 +1,9 @@
+{
+  "source": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/transformers",
+  "archive": "/scratch/alpine/paco0228/latent_proxy_runs/verification-runtime-v39/transformers.tar",
+  "sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282",
+  "archive_bytes": 52193280,
+  "elapsed_seconds": 27.240017652511597,
+  "valid": true,
+  "purpose": "Same installed Transformers code staged as archive for node-local extraction; no dependency version change"
+}

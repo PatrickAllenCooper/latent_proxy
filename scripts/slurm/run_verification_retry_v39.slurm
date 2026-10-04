@@ -47,7 +47,7 @@ timeout 45s python /scratch/alpine/paco0228/latent_proxy_runs/verification-runti
 export PYTHONPATH="$LOCAL_RUNTIME:$PYTHONPATH"
 export HF_HUB_OFFLINE=1
 export TRANSFORMERS_OFFLINE=1
-python /scratch/alpine/paco0228/latent_proxy_runs/verification-retry-v39/run_faulty_advice_verification.py \
+python /scratch/alpine/paco0228/latent_proxy_runs/verification-smoke-v36/run_faulty_advice_verification.py \
  --manifest /scratch/alpine/paco0228/latent_proxy_runs/verification-smoke-v36/manifest.jsonl \
  --cache-receipt /scratch/alpine/paco0228/latent_proxy_runs/startup-diagnostic-v37/cache_receipt.json \
  --output-dir /scratch/alpine/paco0228/latent_proxy_runs/verification-retry-v39/smoke --limit 20
