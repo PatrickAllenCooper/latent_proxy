@@ -195,3 +195,11 @@ no scientificcontrast or retry. Smallest outstanding decision is whether to
 authorize this bounded qualification within the current cap despite unmeasured
 BF16runtime, or suspend this assay. No resource enlargement is justified by
 weight storage; no automatic320study or prompt tuning follows preparation.
+
+## Precision qualification v43 — job 33408635
+
+The frozen eight-response paired control completed successfully in 27 seconds on one H200 2g.35gb MIG allocation. NF4 produced B,C,D,D (3/4 correct); BF16 produced B,C,D,A (4/4). The paired accuracy difference was +0.25, entirely from one response. Identical prompt token IDs, tokenizer template, effective SDPA attention, EOS configuration, and greedy 24-token decoding were verified across arms. All eight outputs ended with EOS; no parse failures or length caps occurred. BF16 passed the registered local measurement gate.
+
+Peak framework allocation was 1,221,643,264 bytes for NF4 and 3,127,658,496 bytes for BF16; cleanup returned allocation to 33,555,456 bytes between arms. Framework memory and completed CUDA generation establish GPU work. Physical-device nvidia-smi utilization was N/A and its aggregate memory rows are not attributable to this MIG job. The run remained within the five-minute and 12GiB stops.
+
+This supports a local precision-package difference on the reused case, not general preference capability. NF4 ran first, so arm order, allocator state and quantized loading/kernel code paths remain confounds. Next scientific gate: freeze fresh numeric cases to qualify BF16 before returning to preference verification. No full 320-response study, retry or scaling was submitted. Artifacts: outputs/preference_program/results/precision_control_v43.

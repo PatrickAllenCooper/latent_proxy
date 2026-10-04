@@ -1,0 +1,47 @@
+{
+  "records": 8,
+  "manifest_sha256": "9eea83c92a3f7915d7695346e847623d475910a08718df214678f83ea4a2e8a2",
+  "runner_sha256": "26b631500329e915ffaff951a7e039c4a231d1c872c0c2fe13f1849f5c4bd26d",
+  "snapshot": "/gpfs/alpine1/scratch/paco0228/relocated/caches/hf/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "arm_configs": {
+    "NF4": {
+      "attention_implementation": "sdpa",
+      "parameter_dtype_counts": {
+        "torch.bfloat16": 142,
+        "torch.uint8": 196
+      },
+      "quantized": true,
+      "quantization_compute_dtypes": [
+        "torch.bfloat16"
+      ],
+      "eos_ids": [
+        151645,
+        151643
+      ],
+      "tokenizer_eos_id": 151645,
+      "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+      "use_cache": false
+    },
+    "BF16": {
+      "attention_implementation": "sdpa",
+      "parameter_dtype_counts": {
+        "torch.bfloat16": 338
+      },
+      "quantized": false,
+      "quantization_compute_dtypes": [],
+      "eos_ids": [
+        151645,
+        151643
+      ],
+      "tokenizer_eos_id": 151645,
+      "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+      "use_cache": false
+    }
+  },
+  "max_new_tokens": 24,
+  "do_sample": false,
+  "wall_elapsed_seconds": 20.924583911895752,
+  "completed_at_unix": 1791156491.9245846,
+  "resource_budget_GiB": 12,
+  "complete": true
+}

@@ -1,0 +1,92 @@
+{
+  "valid": true,
+  "records": 8,
+  "arms": {
+    "NF4": {
+      "correct": 3,
+      "parse_failures": 0,
+      "length_caps": 0,
+      "measurement_gate_pass": false,
+      "outputs": [
+        {
+          "permutation_id": 0,
+          "gold_action": "B",
+          "completion": "B",
+          "generated_length": 2,
+          "eos_observed": true
+        },
+        {
+          "permutation_id": 1,
+          "gold_action": "C",
+          "completion": "C",
+          "generated_length": 2,
+          "eos_observed": true
+        },
+        {
+          "permutation_id": 2,
+          "gold_action": "D",
+          "completion": "D",
+          "generated_length": 2,
+          "eos_observed": true
+        },
+        {
+          "permutation_id": 3,
+          "gold_action": "A",
+          "completion": "D",
+          "generated_length": 2,
+          "eos_observed": true
+        }
+      ]
+    },
+    "BF16": {
+      "correct": 4,
+      "parse_failures": 0,
+      "length_caps": 0,
+      "measurement_gate_pass": true,
+      "outputs": [
+        {
+          "permutation_id": 0,
+          "gold_action": "B",
+          "completion": "B",
+          "generated_length": 2,
+          "eos_observed": true
+        },
+        {
+          "permutation_id": 1,
+          "gold_action": "C",
+          "completion": "C",
+          "generated_length": 2,
+          "eos_observed": true
+        },
+        {
+          "permutation_id": 2,
+          "gold_action": "D",
+          "completion": "D",
+          "generated_length": 2,
+          "eos_observed": true
+        },
+        {
+          "permutation_id": 3,
+          "gold_action": "A",
+          "completion": "A",
+          "generated_length": 2,
+          "eos_observed": true
+        }
+      ]
+    }
+  },
+  "BF16_minus_NF4": {
+    "differences": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "mean": 0.25,
+    "changed_responses": 1
+  },
+  "eos_observed": 8,
+  "wall_elapsed_seconds": 20.924583911895752,
+  "limitation": "One reusedcase;precisionpackage includesquantizedkernels/loadingcodepaths;NF4thenBF16 confounds order/allocator/time;freshcase gate required;no general/preference conclusion",
+  "stop": "No automatic retry,tuning,enlargement/320study"
+}

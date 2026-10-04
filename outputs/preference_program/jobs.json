@@ -1644,7 +1644,40 @@
       "measurement_gate_pass": false,
       "peak_framework_gpu_bytes": 1186915328,
       "main_finding": "Cells1/4,2/4,2/4,3/4;header+.25,instruction+.25,meaninteraction0;registered4/4gatefailed"
+    },
+    {
+      "job_id": "33408635",
+      "name": "lp-precision-control",
+      "status": "completed",
+      "revision": "043a11b",
+      "purpose": "Frozen eight-response NF4 then BF16 qualification; no retry or scaling",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/precision-control-v43/smoke",
+      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/precision-control-v43",
+      "local_results": "outputs/preference_program/results/precision_control_v43",
+      "records_expected": 8,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "memory": "32G",
+        "wall_time": "00:05:00"
+      },
+      "resource_justification": "CPU weight audit 2.875GiB BF16; sequential arms; 12GiB stop,285s wall,90s load per arm,10s generation per arm,45s runtime staging",
+      "next_gate": "Complete paired audit only; incomplete has no scientific contrast; no retry/enlargement/320 study",
+      "exit_code": "0:0",
+      "elapsed": "00:00:27",
+      "observed_records": 8,
+      "validated": true,
+      "results_copied": true,
+      "NF4_correct": 3,
+      "BF16_correct": 4,
+      "parse_failures": 0,
+      "eos_observed": 8,
+      "length_caps": 0,
+      "peak_framework_gpu_bytes": 3127658496,
+      "main_finding": "NF4 3/4 versus BF16 4/4; one changed answer; reused case and fixed order/codepath confounds; fresh-case qualification needed"
     }
   ],
-  "last_checked_at_utc": "2026-10-04T22:58:06.402073+00:00"
+  "last_checked_at_utc": "2026-10-04T23:29:19.062150+00:00"
 }
