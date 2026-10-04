@@ -1534,7 +1534,7 @@
     {
       "job_id": "33403696",
       "name": "lp-numeric-diag",
-      "status": "submitted",
+      "status": "completed",
       "revision": "aabb327",
       "purpose": "Exact authorized frozen16response numeric/order capability diagnostic,one reused case,no advice",
       "script": "scripts/slurm/run_numeric_capability_v40.slurm",
@@ -1556,8 +1556,17 @@
         "wall_time": "00:05:00"
       },
       "resource_justification": "16short responses <=validated20-response42s smoke with1.19GB;CPU-prepared manifest/runtime;no active account GPU or duplicate diagnostic;90s loading and45s staging watchdogs",
-      "next_gate": "Audit all16responses,hashes/scoring/compute;no automatic retry/enlargement;full320study gated"
+      "next_gate": "Review proposed8-response direct-numbervslabel diagnostic;no launch/automatic retry/full320study",
+      "exit_code": "0:0",
+      "elapsed": "00:00:38",
+      "observed_records": 16,
+      "validated": true,
+      "results_copied": true,
+      "parse_failures": 0,
+      "peak_framework_gpu_bytes": 1186915328,
+      "main_finding": "All16A;eachnumeric/ordercell1/4optimal;pairedrepresentation/ordereffects0;A-labelnotfirst-listedpattern;onecaseonly",
+      "stop_evidence": "16progress records andreceipt;max24tokensverified;EOS/lengthstopnotrecorded"
     }
   ],
-  "last_checked_at_utc": "2026-10-04T20:43:11.044913+00:00"
+  "last_checked_at_utc": "2026-10-04T21:42:44.388283+00:00"
 }

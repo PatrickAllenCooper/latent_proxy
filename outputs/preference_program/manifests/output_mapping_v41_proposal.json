@@ -1,0 +1,110 @@
+{
+  "status": "proposed only;no job,model call or allocation",
+  "motivation": "v40constantA despiteinteger/orderchanges;testtaskframing/letteroutputmapping beforefulladvice study",
+  "source_sha256": "3950d18260a26157861d4d508f496081ff3b13e84124bc62a654e2705c7d2d6f",
+  "model_decode": "unchanged pinned1.5B,deterministic,max24tokens",
+  "design": "samefourintegerassignments x directlabel-versus-numberoutput=8",
+  "prompts_and_expected_responses": [
+    {
+      "permutation_id": 0,
+      "response_mode": "label",
+      "prompt": "Numbers: A=2, B=4, C=3, D=1. Which label has the largest number? Reply with exactly one capital letter: A, B, C, or D.",
+      "displayed_values": [
+        2,
+        4,
+        3,
+        1
+      ],
+      "expected_response": "B"
+    },
+    {
+      "permutation_id": 0,
+      "response_mode": "number",
+      "prompt": "Numbers: A=2, B=4, C=3, D=1. What is the largest number? Reply with exactly one digit.",
+      "displayed_values": [
+        2,
+        4,
+        3,
+        1
+      ],
+      "expected_response": "4"
+    },
+    {
+      "permutation_id": 1,
+      "response_mode": "label",
+      "prompt": "Numbers: A=1, B=2, C=4, D=3. Which label has the largest number? Reply with exactly one capital letter: A, B, C, or D.",
+      "displayed_values": [
+        1,
+        2,
+        4,
+        3
+      ],
+      "expected_response": "C"
+    },
+    {
+      "permutation_id": 1,
+      "response_mode": "number",
+      "prompt": "Numbers: A=1, B=2, C=4, D=3. What is the largest number? Reply with exactly one digit.",
+      "displayed_values": [
+        1,
+        2,
+        4,
+        3
+      ],
+      "expected_response": "4"
+    },
+    {
+      "permutation_id": 2,
+      "response_mode": "label",
+      "prompt": "Numbers: A=3, B=1, C=2, D=4. Which label has the largest number? Reply with exactly one capital letter: A, B, C, or D.",
+      "displayed_values": [
+        3,
+        1,
+        2,
+        4
+      ],
+      "expected_response": "D"
+    },
+    {
+      "permutation_id": 2,
+      "response_mode": "number",
+      "prompt": "Numbers: A=3, B=1, C=2, D=4. What is the largest number? Reply with exactly one digit.",
+      "displayed_values": [
+        3,
+        1,
+        2,
+        4
+      ],
+      "expected_response": "4"
+    },
+    {
+      "permutation_id": 3,
+      "response_mode": "label",
+      "prompt": "Numbers: A=4, B=3, C=1, D=2. Which label has the largest number? Reply with exactly one capital letter: A, B, C, or D.",
+      "displayed_values": [
+        4,
+        3,
+        1,
+        2
+      ],
+      "expected_response": "A"
+    },
+    {
+      "permutation_id": 3,
+      "response_mode": "number",
+      "prompt": "Numbers: A=4, B=3, C=1, D=2. What is the largest number? Reply with exactly one digit.",
+      "displayed_values": [
+        4,
+        3,
+        1,
+        2
+      ],
+      "expected_response": "4"
+    }
+  ],
+  "metrics": "strictlabel/digitparsing,exactresponseagreement,labelvsnumberpairedchanges",
+  "instrumentation_required": "savegeneratedtokenIDs,promptlength,EOSID,generatedlength,lasttokenandlength-capindicator,plusrenderedmessages/snapshot/runtimehashes",
+  "limits": "one35GBMIG/five minutes,90sloading/45sstagingwatchdogs if laterauthorized",
+  "limitations": "one reusedcase;directframingandoutputformatcomparewithinnewmatchedpair;numbergoldalways4soeven4/4numericdoesnotprovebroadcomparisoncompetence;noarithmetic/preferencecoveryclaim",
+  "gate": "Review proposal;full320study staysgated;no automatic launch"
+}

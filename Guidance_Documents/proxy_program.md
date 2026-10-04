@@ -774,3 +774,29 @@ snapshot/deterministic24-token ceiling. Same one35GB H200 MIG/five minutes,
 Descriptive scoring auditor prepared to retain exact prompts, outputs, argmax
 agreement, label/first-position counts and parse failures. One reused case
 cannot establish general numeric/preference discovery capability.
+
+## Numeric diagnostic closeout
+
+33403696 completed38s. All16outputs match exact frozen prompts/rendering,
+manifest/prospective runner hashes, qualified model snapshot and runtime archive.
+Zero parse failures; all outputs A. Each cell(decimals/integers xcanonical/
+reversed) is1/4correct. Both paired numeric-representation and listing-order
+contrasts have zero accuracy/regret differences and zero changed responses.
+Reversal places Dfirst, yet A remains selected; first-listed counts fall4/4to0/4
+while A counts stay4/4. This is an observed A-label pattern, not evidence of
+competent numeric comparison under these prompts. One reusedcase cannot support
+population/preference-discovery/arithmetic/general reasoning conclusions.
+
+Node-local staging0.37s, model loading20.27s, framework memory1.19GB and16CUDA
+generation events verify work; MIG process utilization remains unavailable.
+Receipt/frozen code confirms24-token ceiling but generatedtokenIDs and stop
+reason were not saved: exact token count/EOS versus length termination cannot
+be retrospectively verified. All raw outputs/null contrasts/failures preserved.
+
+Smallest proposed nextstep(v41), not launched:8direct comparison prompts on
+four unchanged integer assignments, paired label-versus-number output requests.
+This probes task framing/output mapping; expected numericresponse is always4,
+so even success would not establish general numeric comparison. Proposal
+contains exact prompts/answers and requires token-level termination custody in
+any later runner. Same resourcecap if authorized. No model/score tuning, retry,
+extra job or320record launch from this audit.

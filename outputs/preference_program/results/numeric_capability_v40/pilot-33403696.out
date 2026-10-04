@@ -1,0 +1,23 @@
+job=33403696 node=c3gpu-e5-u1 revision=1cd52a6 started=2026-10-04T15:26:01-06:00
+{"event": "gpu_preflight", "device_count": 1, "device_name": "NVIDIA H200 NVL MIG 2g.35gb", "allocated_bytes": 4096}
+{"event": "node_local_runtime_ready", "at_unix": 1791149166.6578743, "elapsed_seconds": 0.3711280822753906, "path": "/tmp/latent-proxy-runtime-33403696", "archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282"}
+{"event": "imports_start", "at_unix": 1791149166.7985628}
+{"event": "model_load_start", "at_unix": 1791149167.7593863, "snapshot": "/gpfs/alpine1/scratch/paco0228/relocated/caches/hf/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306"}
+{"event": "model_loaded", "at_unix": 1791149188.0267835, "gpu_device_count": 1, "gpu_memory_allocated_bytes": 1153358848}
+{"event": "generation_progress", "at_unix": 1791149188.989142, "records": 1, "gpu_memory_allocated_bytes": 1186915328, "representation": "decimals", "listing_order": "canonical", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791149189.0180516, "records": 2, "gpu_memory_allocated_bytes": 1186915328, "representation": "decimals", "listing_order": "reversed", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791149189.098164, "records": 3, "gpu_memory_allocated_bytes": 1186915328, "representation": "integers", "listing_order": "canonical", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791149189.1269102, "records": 4, "gpu_memory_allocated_bytes": 1186915328, "representation": "integers", "listing_order": "reversed", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791149189.155059, "records": 5, "gpu_memory_allocated_bytes": 1186915328, "representation": "decimals", "listing_order": "canonical", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791149189.1831024, "records": 6, "gpu_memory_allocated_bytes": 1186915328, "representation": "decimals", "listing_order": "reversed", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791149189.2109246, "records": 7, "gpu_memory_allocated_bytes": 1186915328, "representation": "integers", "listing_order": "canonical", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791149189.2386389, "records": 8, "gpu_memory_allocated_bytes": 1186915328, "representation": "integers", "listing_order": "reversed", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791149189.2667565, "records": 9, "gpu_memory_allocated_bytes": 1186915328, "representation": "decimals", "listing_order": "canonical", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791149189.2947874, "records": 10, "gpu_memory_allocated_bytes": 1186915328, "representation": "decimals", "listing_order": "reversed", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791149189.3225074, "records": 11, "gpu_memory_allocated_bytes": 1186915328, "representation": "integers", "listing_order": "canonical", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791149189.3503387, "records": 12, "gpu_memory_allocated_bytes": 1186915328, "representation": "integers", "listing_order": "reversed", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791149189.3784132, "records": 13, "gpu_memory_allocated_bytes": 1186915328, "representation": "decimals", "listing_order": "canonical", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791149189.4064424, "records": 14, "gpu_memory_allocated_bytes": 1186915328, "representation": "decimals", "listing_order": "reversed", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791149189.4342902, "records": 15, "gpu_memory_allocated_bytes": 1186915328, "representation": "integers", "listing_order": "canonical", "completion": "A"}
+{"event": "generation_progress", "at_unix": 1791149189.4620996, "records": 16, "gpu_memory_allocated_bytes": 1186915328, "representation": "integers", "listing_order": "reversed", "completion": "A"}
+job=33403696 completed=2026-10-04T15:26:30-06:00

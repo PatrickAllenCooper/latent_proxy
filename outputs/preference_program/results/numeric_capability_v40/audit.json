@@ -1,0 +1,173 @@
+{
+  "valid": true,
+  "records": 16,
+  "cells": {
+    "decimals/canonical": {
+      "records": 4,
+      "correct": 1,
+      "parse_failures": 0,
+      "A_responses": 4,
+      "first_listed_responses": 4,
+      "responses": [
+        {
+          "permutation_id": 0,
+          "gold_action": "B",
+          "completion": "A",
+          "final_action": "A"
+        },
+        {
+          "permutation_id": 1,
+          "gold_action": "C",
+          "completion": "A",
+          "final_action": "A"
+        },
+        {
+          "permutation_id": 2,
+          "gold_action": "D",
+          "completion": "A",
+          "final_action": "A"
+        },
+        {
+          "permutation_id": 3,
+          "gold_action": "A",
+          "completion": "A",
+          "final_action": "A"
+        }
+      ]
+    },
+    "decimals/reversed": {
+      "records": 4,
+      "correct": 1,
+      "parse_failures": 0,
+      "A_responses": 4,
+      "first_listed_responses": 0,
+      "responses": [
+        {
+          "permutation_id": 0,
+          "gold_action": "B",
+          "completion": "A",
+          "final_action": "A"
+        },
+        {
+          "permutation_id": 1,
+          "gold_action": "C",
+          "completion": "A",
+          "final_action": "A"
+        },
+        {
+          "permutation_id": 2,
+          "gold_action": "D",
+          "completion": "A",
+          "final_action": "A"
+        },
+        {
+          "permutation_id": 3,
+          "gold_action": "A",
+          "completion": "A",
+          "final_action": "A"
+        }
+      ]
+    },
+    "integers/canonical": {
+      "records": 4,
+      "correct": 1,
+      "parse_failures": 0,
+      "A_responses": 4,
+      "first_listed_responses": 4,
+      "responses": [
+        {
+          "permutation_id": 0,
+          "gold_action": "B",
+          "completion": "A",
+          "final_action": "A"
+        },
+        {
+          "permutation_id": 1,
+          "gold_action": "C",
+          "completion": "A",
+          "final_action": "A"
+        },
+        {
+          "permutation_id": 2,
+          "gold_action": "D",
+          "completion": "A",
+          "final_action": "A"
+        },
+        {
+          "permutation_id": 3,
+          "gold_action": "A",
+          "completion": "A",
+          "final_action": "A"
+        }
+      ]
+    },
+    "integers/reversed": {
+      "records": 4,
+      "correct": 1,
+      "parse_failures": 0,
+      "A_responses": 4,
+      "first_listed_responses": 0,
+      "responses": [
+        {
+          "permutation_id": 0,
+          "gold_action": "B",
+          "completion": "A",
+          "final_action": "A"
+        },
+        {
+          "permutation_id": 1,
+          "gold_action": "C",
+          "completion": "A",
+          "final_action": "A"
+        },
+        {
+          "permutation_id": 2,
+          "gold_action": "D",
+          "completion": "A",
+          "final_action": "A"
+        },
+        {
+          "permutation_id": 3,
+          "gold_action": "A",
+          "completion": "A",
+          "final_action": "A"
+        }
+      ]
+    }
+  },
+  "limitation": "Descriptive one reused case; representation changes sign/scale/precision together; cannot infer preference recovery, reward arithmetic or general capability",
+  "next_gate": "No automatic repeat or expansion;review matched error pattern",
+  "paired_contrasts": {
+    "integers_minus_decimals": {
+      "pairs": 8,
+      "accuracy_difference": 0.0,
+      "changed_responses": 0,
+      "paired_regret_difference": 0.0
+    },
+    "reversed_minus_canonical": {
+      "pairs": 8,
+      "accuracy_difference": 0.0,
+      "changed_responses": 0,
+      "paired_regret_difference": 0.0
+    }
+  },
+  "model_runtime_prospective_hashes_match": true,
+  "node_local_stage_seconds": 0.3711280822753906,
+  "model_load_seconds": 20.267397165298462,
+  "peak_framework_gpu_bytes": 1186915328,
+  "token_termination_audit": {
+    "ceiling_verified_from_receipt_and_frozen_runner": 24,
+    "observed_completions": "single capital A for all16",
+    "generated_token_ids_saved": false,
+    "EOS_vs_length_stop_verifiable": false,
+    "limitation": "No token-level stop record;cannot retrospectively prove EOS termination or exact generated token count"
+  },
+  "artifact_sha256": {
+    "pilot-33403696.err": "064247ae80db130607c07e2aa3fe630608eb0c76e34e32d05c2597a620825eca",
+    "base_receipt.json": "4c49b5e9aed181d71f011a0c064d9c237d79388e47db947ce79be628a8e16135",
+    "pilot-33403696.out": "7a565ef93f977ac689a2ae35ab8f5e4d11d733bdf12fb68a42135671e1857893",
+    "pilot-33403696-gpu.csv": "73d510aac14ca743a0c54e99c8bdcd9386a5f27a71e6ce3d52d2abe8e38a2ccd",
+    "base.jsonl": "03d4212e502fcf37e08b00154333539c3fa70277fe4ab09320b9faad0488363f"
+  },
+  "interpretation": "No competent numeric argmax under these16 prompts;A-label response persists across numeric simplification and listing reversal. Cannot distinguish task framing, letter-output mapping, quantization or model failure; not general capability or preference-discovery evidence."
+}
