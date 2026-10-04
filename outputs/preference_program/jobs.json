@@ -1606,7 +1606,34 @@
       "length_caps": 0,
       "peak_framework_gpu_bytes": 1186915328,
       "main_finding": "label3/4(B,C,D,D),number1/4(5,9,4,5),allEOS/zero parse failures;descriptive task-framing/outputmapping only"
+    },
+    {
+      "job_id": "33407495",
+      "name": "lp-framing-factorial",
+      "status": "submitted",
+      "revision": "12573fa",
+      "purpose": "Authorized frozen16response headerxinstruction factorial;one reusedcase,fourintegerrotations,canonicalletteroutput",
+      "script": "scripts/slurm/run_framing_factorial_v42.slurm",
+      "remote_source": "/scratch/alpine/paco0228/latent_proxy_runs/framing-factorial-v42/run_framing_factorial.py",
+      "manifest": "/scratch/alpine/paco0228/latent_proxy_runs/framing-factorial-v42/manifest.jsonl",
+      "manifest_sha256": "35c5faeeea28196dc2d361b22bcf83e847773f0ba273b8ba9aa55aba76a62324",
+      "runner_sha256": "4271d2065499a55614bc31cc6cb44f40a5d37dcf1c035c989d05b467490175f7",
+      "output_path": "/scratch/alpine/paco0228/latent_proxy_runs/framing-factorial-v42/smoke",
+      "log_glob": "/scratch/alpine/paco0228/latent_proxy_runs/framing-factorial-v42/logs/pilot-33407495.*",
+      "telemetry_path": "/scratch/alpine/paco0228/latent_proxy_runs/startup-diagnostic-v37/logs/pilot-33407495-gpu.csv",
+      "local_results": "outputs/preference_program/results/framing_factorial_v42",
+      "records_expected": 16,
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "ah200",
+        "qos": "gpu-normal",
+        "gres": "gpu:h200_2g.35gb:1",
+        "memory": "32G",
+        "wall_time": "00:05:00"
+      },
+      "resource_justification": "16shortgreedyresponses samepinned1.5B,24token cap,previous16response38s/1.19GB;CPUprepared runtime/prompts;noactiveallocation/duplicate;90sload/45sstage",
+      "next_gate": "Auditfourcells/pairedcontrasts,hashes,EOSandGPUwork;4/4onlyreusedcasegate;freshcasebeforebroaderinference;no retry/tuning/320study"
     }
   ],
-  "last_checked_at_utc": "2026-10-04T21:57:32.029103+00:00"
+  "last_checked_at_utc": "2026-10-04T22:28:34.991945+00:00"
 }
