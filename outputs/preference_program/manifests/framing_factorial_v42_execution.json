@@ -1,0 +1,16 @@
+{
+  "registered_at_utc": "2026-10-04T22:27:34.494339+00:00",
+  "authorization": "Coordinator underPatrick standingboundedcomparisonauthorization,exactonefrozen16response factorial",
+  "hashes": {
+    "outputs/preference_program/manifests/framing_factorial_v42.jsonl": "35c5faeeea28196dc2d361b22bcf83e847773f0ba273b8ba9aa55aba76a62324",
+    "outputs/preference_program/manifests/framing_factorial_v42_protocol.json": "8cb1c5156cd8eb7aed2cf4f7154c40eb819186819570f97195e06fb82be19478",
+    "outputs/preference_program/manifests/framing_factorial_v42_scoring.json": "1567ca4b3ade592c6422f32ddb27eda962dccf688bec4013d1b1950021dd3f9d",
+    "scripts/run_framing_factorial.py": "4271d2065499a55614bc31cc6cb44f40a5d37dcf1c035c989d05b467490175f7",
+    "scripts/slurm/run_framing_factorial_v42.slurm": "fd3032e423e5f019849b28106638a5c3b7d912a2a63b7fc9bfba4a6939b5b5d4",
+    "scripts/audit_framing_factorial.py": "bb04be408f944bb1be236c30d8df8f58f87a36088e292a2d8660c32abeac4c0b"
+  },
+  "records": 16,
+  "limits": "one35GBMIG/five minutes,90sload/45sstage,greedy24tokens",
+  "gate": "4/4zeroparse/notruncation onlyreusedcase measurementgate,freshcase needed",
+  "stop": "No tuning/retry/enlargement/320study"
+}
