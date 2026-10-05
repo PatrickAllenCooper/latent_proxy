@@ -1,0 +1,15 @@
+{
+  "state": "CPU preparation blocked; GPU not submitted",
+  "at_utc": "2026-10-05T16:00:37.853820+00:00",
+  "execution_revision": "4a199d3",
+  "CPU_command_exit_code": 124,
+  "CPU_tokenization_timeout_seconds": 90,
+  "runtime_staging_elapsed_seconds": 16.59031915664673,
+  "runtime_archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282",
+  "token_receipt_produced": false,
+  "model_calls": 0,
+  "GPU_allocations": 0,
+  "qualification_outcome": "not executed; no scientific conclusion",
+  "diagnosis": "Timeout occurred after CPU archive staging; tokenizer/import/read phase not separately instrumented, exact cause unknown",
+  "next_gate": "Diagnose CPU import/tokenizer startup; new execution decision required; no automatic retry"
+}
