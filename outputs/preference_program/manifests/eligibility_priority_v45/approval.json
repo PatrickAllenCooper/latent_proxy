@@ -1,0 +1,14 @@
+{
+  "approved_at_utc": "2026-10-05T15:55:00Z",
+  "human_statement": "Latent - I approve.",
+  "authorization_source": "Coordinator reports direct Patrick approval; exact pending sixteen-response no-advice qualification only",
+  "prior_registration_commit": "13f0fd0",
+  "authorized_model_calls": 16,
+  "advice_panel_authorized": false,
+  "limits": "one35GBMIG/5min/4CPU/32G;285scomplete,45sstage,90sload,10sgeneration,12GiBmemory,24tokens",
+  "frozen_hashes": {
+    "outputs/preference_program/manifests/eligibility_priority_v45/execution_manifest.jsonl": "29adcc6fd1644412eb2a698bb41e93c26a61cf7dc47b9b9a93078b771030c4af",
+    "scripts/run_eligibility_priority_qualification.py": "6c31075b257e3eac26d7547e979b54d30c4304956162d94e9755303f60dc16f8",
+    "scripts/slurm/run_eligibility_priority_v45.slurm": "44814abc9a9065c6ebbbe9ff949d970773dfd0f817eba2f6c65d5ffaa577abcd"
+  }
+}
