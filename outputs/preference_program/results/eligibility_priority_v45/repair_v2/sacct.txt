@@ -1,0 +1,4 @@
+33440123         FAILED   00:01:40      1:0                                    billing=6,cpu=4,mem=32G,node=1                                    billing=9,cpu=9,mem=32G,node=1 
+33440123.ba+     FAILED   00:01:40      1:0                                                                                                                cpu=9,mem=32G,node=1 
+33440123.ex+  COMPLETED   00:01:40      0:0                                                                                                      billing=9,cpu=9,mem=32G,node=1 
+no-token-receipt

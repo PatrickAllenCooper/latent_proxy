@@ -1711,7 +1711,30 @@
       "measurement_gate_pass": false,
       "resource_gate_pass": true,
       "peak_framework_gpu_bytes": 3128800256
+    },
+    {
+      "job_id": "33440123",
+      "name": "lp-elig-cpu-repair",
+      "status": "failed",
+      "revision": "7fefba6",
+      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/eligibility-priority-v45/repair-v2",
+      "purpose": "One approved CPU node-local tokenizer repair; conditional GPU qualification only if valid receipt",
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "acpu",
+        "qos": "cpu-normal",
+        "cpus": 4,
+        "memory": "32G",
+        "wall_time": "00:05:00",
+        "GPU_count": 0
+      },
+      "stop": "45s stage/90s totaltokenization; no retry",
+      "results_copied": true,
+      "CPU_preparation_valid": false,
+      "GPU_submitted": false,
+      "allocated_CPUs": 9,
+      "failure": "BatchEncoding JSON serialization; token-length check invalid; no receipt"
     }
   ],
-  "last_checked_at_utc": "2026-10-04T23:54:01.889902+00:00"
+  "last_checked_at_utc": "2026-10-05T16:21:45.567272+00:00"
 }

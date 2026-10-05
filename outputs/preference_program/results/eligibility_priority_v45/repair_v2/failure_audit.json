@@ -1,0 +1,219 @@
+{
+  "job_id": "33440123",
+  "outcome": "CPU preparation failed; GPU not submitted",
+  "error": "BatchEncoding is not JSON serializable",
+  "detail": "apply_chat_template returns BatchEncoding; script stored mapping not input_ids, so len(x)=2 was number of fields, not prompt tokens. No valid token receipt or max512-token check.",
+  "events": [
+    {
+      "event": "node_local_runtime_ready",
+      "at_unix": 1791217191.9088092,
+      "elapsed_seconds": 0.8028101921081543,
+      "path": "/tmp/latent-proxy-cpu-repair-33440123",
+      "archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282"
+    },
+    {
+      "stage": "CPU_start",
+      "at_unix": 1791217191.9848182,
+      "pid": 3188771
+    },
+    {
+      "stage": "transformers_import_start",
+      "at_unix": 1791217191.9849155
+    },
+    {
+      "stage": "transformers_import_complete",
+      "at_unix": 1791217253.4141977
+    },
+    {
+      "stage": "tokenizer_load_start",
+      "at_unix": 1791217253.4158938
+    },
+    {
+      "stage": "tokenizer_load_complete",
+      "at_unix": 1791217253.9433374
+    },
+    {
+      "stage": "chat_template_start",
+      "at_unix": 1791217253.969272,
+      "case_id": "qualification-00"
+    },
+    {
+      "stage": "chat_template_complete",
+      "at_unix": 1791217254.0038407,
+      "case_id": "qualification-00",
+      "tokens": 2
+    },
+    {
+      "stage": "chat_template_start",
+      "at_unix": 1791217254.0038948,
+      "case_id": "qualification-01"
+    },
+    {
+      "stage": "chat_template_complete",
+      "at_unix": 1791217254.0042584,
+      "case_id": "qualification-01",
+      "tokens": 2
+    },
+    {
+      "stage": "chat_template_start",
+      "at_unix": 1791217254.0043046,
+      "case_id": "qualification-02"
+    },
+    {
+      "stage": "chat_template_complete",
+      "at_unix": 1791217254.0046272,
+      "case_id": "qualification-02",
+      "tokens": 2
+    },
+    {
+      "stage": "chat_template_start",
+      "at_unix": 1791217254.0046692,
+      "case_id": "qualification-03"
+    },
+    {
+      "stage": "chat_template_complete",
+      "at_unix": 1791217254.004976,
+      "case_id": "qualification-03",
+      "tokens": 2
+    },
+    {
+      "stage": "chat_template_start",
+      "at_unix": 1791217254.0050168,
+      "case_id": "qualification-04"
+    },
+    {
+      "stage": "chat_template_complete",
+      "at_unix": 1791217254.0053308,
+      "case_id": "qualification-04",
+      "tokens": 2
+    },
+    {
+      "stage": "chat_template_start",
+      "at_unix": 1791217254.005372,
+      "case_id": "qualification-05"
+    },
+    {
+      "stage": "chat_template_complete",
+      "at_unix": 1791217254.00568,
+      "case_id": "qualification-05",
+      "tokens": 2
+    },
+    {
+      "stage": "chat_template_start",
+      "at_unix": 1791217254.0057206,
+      "case_id": "qualification-06"
+    },
+    {
+      "stage": "chat_template_complete",
+      "at_unix": 1791217254.0060234,
+      "case_id": "qualification-06",
+      "tokens": 2
+    },
+    {
+      "stage": "chat_template_start",
+      "at_unix": 1791217254.0060697,
+      "case_id": "qualification-07"
+    },
+    {
+      "stage": "chat_template_complete",
+      "at_unix": 1791217254.0063715,
+      "case_id": "qualification-07",
+      "tokens": 2
+    },
+    {
+      "stage": "chat_template_start",
+      "at_unix": 1791217254.006412,
+      "case_id": "qualification-08"
+    },
+    {
+      "stage": "chat_template_complete",
+      "at_unix": 1791217254.006707,
+      "case_id": "qualification-08",
+      "tokens": 2
+    },
+    {
+      "stage": "chat_template_start",
+      "at_unix": 1791217254.006746,
+      "case_id": "qualification-09"
+    },
+    {
+      "stage": "chat_template_complete",
+      "at_unix": 1791217254.0070407,
+      "case_id": "qualification-09",
+      "tokens": 2
+    },
+    {
+      "stage": "chat_template_start",
+      "at_unix": 1791217254.007087,
+      "case_id": "qualification-10"
+    },
+    {
+      "stage": "chat_template_complete",
+      "at_unix": 1791217254.0073886,
+      "case_id": "qualification-10",
+      "tokens": 2
+    },
+    {
+      "stage": "chat_template_start",
+      "at_unix": 1791217254.0074284,
+      "case_id": "qualification-11"
+    },
+    {
+      "stage": "chat_template_complete",
+      "at_unix": 1791217254.0077271,
+      "case_id": "qualification-11",
+      "tokens": 2
+    },
+    {
+      "stage": "chat_template_start",
+      "at_unix": 1791217254.0077667,
+      "case_id": "qualification-12"
+    },
+    {
+      "stage": "chat_template_complete",
+      "at_unix": 1791217254.0080674,
+      "case_id": "qualification-12",
+      "tokens": 2
+    },
+    {
+      "stage": "chat_template_start",
+      "at_unix": 1791217254.0081081,
+      "case_id": "qualification-13"
+    },
+    {
+      "stage": "chat_template_complete",
+      "at_unix": 1791217254.0084057,
+      "case_id": "qualification-13",
+      "tokens": 2
+    },
+    {
+      "stage": "chat_template_start",
+      "at_unix": 1791217254.0084455,
+      "case_id": "qualification-14"
+    },
+    {
+      "stage": "chat_template_complete",
+      "at_unix": 1791217254.0087388,
+      "case_id": "qualification-14",
+      "tokens": 2
+    },
+    {
+      "stage": "chat_template_start",
+      "at_unix": 1791217254.008778,
+      "case_id": "qualification-15"
+    },
+    {
+      "stage": "chat_template_complete",
+      "at_unix": 1791217254.0090773,
+      "case_id": "qualification-15",
+      "tokens": 2
+    }
+  ],
+  "requested_CPUs": 4,
+  "allocated_CPUs": 9,
+  "host_memory": "32G",
+  "CPU_thread_env_limits": 4,
+  "allocation_note": "Site scheduler expanded allocation (ReqTRES4 vs AllocTRES9); no GPU allocated; retain mismatch and check memory-to-CPU site behavior before future request",
+  "qualification": "not executed; no scientific evidence",
+  "next_gate": "Separate approval required for one CPU-only return-type normalization repair with fixtures; no automatic retry; conditional GPU approval not exercised"
+}
