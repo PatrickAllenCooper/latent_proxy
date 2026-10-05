@@ -1,0 +1,21 @@
+{
+  "status": "reviewable local-only fix; not adopted/executed remotely",
+  "hashes": {
+    "scripts/prompt_token_ids.py": "7671d7a4337cce807351350e5fbacf5c18d49c9db13d386a8088ea0e2433a854",
+    "scripts/prepare_eligibility_tokens_v3.py": "3c32031f947bdb57a50d2225c17ac40f336b97ee95c04fff64af42d38683f5d1",
+    "scripts/run_eligibility_priority_qualification_v2.py": "e2959b99b2b4680f06e5ac848d0d40f42521980080670b4047b15046d803a4b0",
+    "scripts/test_prompt_token_ids.py": "00c22f8f63362ae54c5ce4637749e6db43cb76eb851f98e7e47507ca81f6db18"
+  },
+  "frozen_cases_prompts_unchanged": true,
+  "prior_token_ids_exist": false,
+  "fixtures": {
+    "valid_shapes": 6,
+    "invalid_shapes_types": 15,
+    "serialization_roundtrips": 6,
+    "512boundary": true,
+    "actual_framework_tensor_test": false,
+    "tensor_protocol_fixture": true
+  },
+  "GPU_runner_audit": "original runner extracted attribute input_ids before tensor.tolist; new version always normalizes mapping input_ids/list/tensor then constructs identical torch.long single-row input; never iterates keys",
+  "next_gate": "One new CPU attempt still requires explicit parent/user authorization; no remote/API/model/GPU activity"
+}
