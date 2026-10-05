@@ -1,0 +1,270 @@
+{
+  "analysis": "descriptive CPU reanalysis; no new qualification thresholds or inference",
+  "by_gold_label": {
+    "A": {
+      "correct": 2,
+      "n": 4
+    },
+    "B": {
+      "correct": 4,
+      "n": 4
+    },
+    "C": {
+      "correct": 2,
+      "n": 4
+    },
+    "D": {
+      "correct": 2,
+      "n": 4
+    }
+  },
+  "response_counts": {
+    "A": 2,
+    "B": 8,
+    "D": 4,
+    "C": 2
+  },
+  "cases": [
+    {
+      "case_id": "fresh-v44-00",
+      "stratum": "single_digit",
+      "displayed_values": [
+        7,
+        5,
+        1,
+        2
+      ],
+      "gold_action": "A",
+      "completion": "A",
+      "correct": true,
+      "absolute_gap": 2,
+      "relative_gap": 0.2857142857142857
+    },
+    {
+      "case_id": "fresh-v44-01",
+      "stratum": "single_digit",
+      "displayed_values": [
+        1,
+        6,
+        8,
+        3
+      ],
+      "gold_action": "C",
+      "completion": "B",
+      "correct": false,
+      "absolute_gap": 2,
+      "relative_gap": 0.25
+    },
+    {
+      "case_id": "fresh-v44-02",
+      "stratum": "single_digit",
+      "displayed_values": [
+        7,
+        8,
+        6,
+        5
+      ],
+      "gold_action": "B",
+      "completion": "B",
+      "correct": true,
+      "absolute_gap": 1,
+      "relative_gap": 0.125
+    },
+    {
+      "case_id": "fresh-v44-03",
+      "stratum": "single_digit",
+      "displayed_values": [
+        1,
+        3,
+        2,
+        5
+      ],
+      "gold_action": "D",
+      "completion": "D",
+      "correct": true,
+      "absolute_gap": 2,
+      "relative_gap": 0.4
+    },
+    {
+      "case_id": "fresh-v44-04",
+      "stratum": "two_digit",
+      "displayed_values": [
+        34,
+        96,
+        58,
+        28
+      ],
+      "gold_action": "B",
+      "completion": "B",
+      "correct": true,
+      "absolute_gap": 38,
+      "relative_gap": 0.3958333333333333
+    },
+    {
+      "case_id": "fresh-v44-05",
+      "stratum": "two_digit",
+      "displayed_values": [
+        63,
+        48,
+        90,
+        21
+      ],
+      "gold_action": "C",
+      "completion": "C",
+      "correct": true,
+      "absolute_gap": 27,
+      "relative_gap": 0.3
+    },
+    {
+      "case_id": "fresh-v44-06",
+      "stratum": "two_digit",
+      "displayed_values": [
+        92,
+        91,
+        36,
+        87
+      ],
+      "gold_action": "A",
+      "completion": "A",
+      "correct": true,
+      "absolute_gap": 1,
+      "relative_gap": 0.010869565217391304
+    },
+    {
+      "case_id": "fresh-v44-07",
+      "stratum": "two_digit",
+      "displayed_values": [
+        74,
+        51,
+        30,
+        92
+      ],
+      "gold_action": "D",
+      "completion": "D",
+      "correct": true,
+      "absolute_gap": 18,
+      "relative_gap": 0.1956521739130435
+    },
+    {
+      "case_id": "fresh-v44-08",
+      "stratum": "three_digit",
+      "displayed_values": [
+        331,
+        375,
+        167,
+        521
+      ],
+      "gold_action": "D",
+      "completion": "B",
+      "correct": false,
+      "absolute_gap": 146,
+      "relative_gap": 0.2802303262955854
+    },
+    {
+      "case_id": "fresh-v44-09",
+      "stratum": "three_digit",
+      "displayed_values": [
+        691,
+        325,
+        201,
+        595
+      ],
+      "gold_action": "A",
+      "completion": "D",
+      "correct": false,
+      "absolute_gap": 96,
+      "relative_gap": 0.1389290882778582
+    },
+    {
+      "case_id": "fresh-v44-10",
+      "stratum": "three_digit",
+      "displayed_values": [
+        162,
+        683,
+        617,
+        655
+      ],
+      "gold_action": "B",
+      "completion": "B",
+      "correct": true,
+      "absolute_gap": 28,
+      "relative_gap": 0.040995607613469986
+    },
+    {
+      "case_id": "fresh-v44-11",
+      "stratum": "three_digit",
+      "displayed_values": [
+        480,
+        174,
+        886,
+        612
+      ],
+      "gold_action": "C",
+      "completion": "C",
+      "correct": true,
+      "absolute_gap": 274,
+      "relative_gap": 0.309255079006772
+    },
+    {
+      "case_id": "fresh-v44-12",
+      "stratum": "four_digit",
+      "displayed_values": [
+        7253,
+        5865,
+        1545,
+        5541
+      ],
+      "gold_action": "A",
+      "completion": "B",
+      "correct": false,
+      "absolute_gap": 1388,
+      "relative_gap": 0.1913690886529712
+    },
+    {
+      "case_id": "fresh-v44-13",
+      "stratum": "four_digit",
+      "displayed_values": [
+        6769,
+        1889,
+        8216,
+        5727
+      ],
+      "gold_action": "C",
+      "completion": "D",
+      "correct": false,
+      "absolute_gap": 1447,
+      "relative_gap": 0.1761197663096397
+    },
+    {
+      "case_id": "fresh-v44-14",
+      "stratum": "four_digit",
+      "displayed_values": [
+        6854,
+        8950,
+        5044,
+        9421
+      ],
+      "gold_action": "D",
+      "completion": "B",
+      "correct": false,
+      "absolute_gap": 471,
+      "relative_gap": 0.04999469270778049
+    },
+    {
+      "case_id": "fresh-v44-15",
+      "stratum": "four_digit",
+      "displayed_values": [
+        5898,
+        8440,
+        5729,
+        1747
+      ],
+      "gold_action": "B",
+      "completion": "B",
+      "correct": true,
+      "absolute_gap": 2542,
+      "relative_gap": 0.3011848341232227
+    }
+  ],
+  "gap_definition": "absolute=max-second largest; relative=absolute/max; diagnostic continuous values only, no posthoc bins/pass thresholds"
+}
