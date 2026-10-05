@@ -1,0 +1,17 @@
+{
+  "human_statement": "Approve.",
+  "approved_at_utc": "2026-10-05T16:16:00Z",
+  "scope": "One corrected CPU node-local preparation; if passes, original one16responseGPUqualification; no56responsepanel",
+  "hashes": {
+    "scripts/prepare_eligibility_tokens_v2.py": "c58a38cd4817bddcc9c3c8b33b1f297a48ef90b9f918e06aa32e5000facc76a1",
+    "scripts/slurm/prepare_eligibility_tokens_v2.slurm": "b85de0ac4ba7f3053929453ddb8ef030ef8b1ceed958ec48fd60c689f7ad9e9c",
+    "scripts/run_eligibility_priority_qualification.py": "6c31075b257e3eac26d7547e979b54d30c4304956162d94e9755303f60dc16f8",
+    "scripts/slurm/run_eligibility_priority_v45.slurm": "44814abc9a9065c6ebbbe9ff949d970773dfd0f817eba2f6c65d5ffaa577abcd",
+    "outputs/preference_program/manifests/eligibility_priority_v45/execution_manifest.jsonl": "29adcc6fd1644412eb2a698bb41e93c26a61cf7dc47b9b9a93078b771030c4af"
+  },
+  "preserved_failures": [
+    "f536c5b",
+    "30f5984"
+  ],
+  "stop": "Any preparation or qualification failure stops; no retry/tuning/enlargement"
+}
