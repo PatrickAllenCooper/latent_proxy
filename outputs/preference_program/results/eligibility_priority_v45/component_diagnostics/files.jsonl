@@ -1,0 +1,6 @@
+{"stage": "read_start", "file": "tokenizer_config.json", "at": 1791216272.6962955}
+{"stage": "read_complete", "file": "tokenizer_config.json", "bytes": 7305, "seconds": 0.04691338539123535, "sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583"}
+{"stage": "read_start", "file": "tokenizer.json", "at": 1791216272.7433426}
+{"stage": "read_complete", "file": "tokenizer.json", "bytes": 7031645, "seconds": 0.04313468933105469, "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"}
+{"stage": "read_start", "file": "config.json", "at": 1791216272.7929842}
+{"stage": "read_complete", "file": "config.json", "bytes": 660, "seconds": 0.0021827220916748047, "sha256": "98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670"}
