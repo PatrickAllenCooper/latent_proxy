@@ -1,0 +1,31 @@
+{
+  "CPU_started_utc": "2026-10-05T14:51:37.061006+00:00",
+  "CPU_completed_utc": "2026-10-05T14:51:37.066926+00:00",
+  "model_calls": 0,
+  "GPU_allocations": 0,
+  "API_calls": 0,
+  "fixture_assertions": 308,
+  "split_counts": {
+    "development": 4,
+    "qualification": 16,
+    "advice": 8
+  },
+  "prompt_counts": {
+    "development": 4,
+    "qualification": 16,
+    "advice": 56
+  },
+  "split_structures_disjoint": true,
+  "gold_balanced_each_split": true,
+  "oracle_unique": true,
+  "hashes": {
+    "development_cases.jsonl": "57176e04f340e0375df7c6a37b8baa4649c78dec456fd187da28ee41600f99d5",
+    "advice_cases.jsonl": "27c959d051f4768ac0f9f5f8f2c07634ffcd5666ba5461ca486b3eb535d997ca",
+    "qualification_cases.jsonl": "6ead0db9f0c36b79f0f677ad5eb4b67642e6b6994c63f37187713a1fd877589d",
+    "qualification_prompts.jsonl": "5c6799d5239bcd5a5ced9905ababe4b910e78e44dcfdc6a8a6f4c90efef06db4",
+    "development_prompts.jsonl": "aa1e0ced106ce47d9c7be0a19201dd5366dc9fdfd81a97871c106f89f411d4e3",
+    "advice_prompts.jsonl": "60b14724da853659bb63288a016f592951f3aa1f903b9484049776fd70212e19"
+  },
+  "generator_sha256": "cbc048bb2c00ee768b10357101db499dd32b70dccae7b6486d95254dd4e1510e",
+  "independent_priority_index_oracle_cases_checked": 28
+}
