@@ -2179,9 +2179,31 @@
       "custody_verified": true,
       "report": "Guidance_Documents/preference_factorial_v56_results.md",
       "factorial_analysis": "outputs/preference_program/results/preference_factorial_direct_v57/factorial_analysis.json"
+    },
+    {
+      "job_id": "33505553",
+      "stage": "CPU_integrity",
+      "submitted_at_utc": "2026-10-06T20:33:27Z",
+      "status": "PENDING",
+      "account": "ucb736_asc1",
+      "partition": "acpu",
+      "qos": "cpu-normal",
+      "cpus": 1,
+      "mem_GiB": 2,
+      "wall_seconds": 600,
+      "GPU_count": 0,
+      "source_commit": "223e2e8",
+      "source_bundle_sha256": "5516a5786eec8650ab0a40261d1877c35626e014c23e53016bef61c55ff694d0",
+      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/reader32-qualification-v60",
+      "automatic_retry": false,
+      "GPU_submission": false,
+      "advice_hold": true,
+      "reason": "ReqNodeNotAvail; acpu recovery",
+      "started": false,
+      "slurm_requeue": false
     }
   ],
-  "last_checked_at_utc": "2026-10-06T14:07:55.843980+00:00",
+  "last_checked_at_utc": "2026-10-06T20:33:27Z",
   "research_designs": [
     {
       "name": "preference_factorial_v56",

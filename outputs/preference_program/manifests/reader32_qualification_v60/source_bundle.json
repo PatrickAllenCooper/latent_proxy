@@ -1,0 +1,20 @@
+{
+  "source_commit": "223e2e8",
+  "archive_sha256": "5516a5786eec8650ab0a40261d1877c35626e014c23e53016bef61c55ff694d0",
+  "files": {
+    "reader32_v60.py": "a58a82fa141c8862c34634d7af557a2b480200ff570749932c4ad2e1d88833bb",
+    "prepare_eligibility_priority.py": "cbc048bb2c00ee768b10357101db499dd32b70dccae7b6486d95254dd4e1510e",
+    "indexed_startup.py": "7548c1fb1626c9806314334a8f614149156cd2183170bb80381adb5ef9ab1ef2",
+    "indexed_source_inspection.py": "e949fb17bc90c12a4bb713af2f31467672d572b06fd2401f87fedb4ee48d4de2",
+    "indexed_metadata_exists.py": "1c062a9e118449bdeb613c76b7f018a4b940488af6ef9e91ae6755545dabad34",
+    "extract_verified_runtime.py": "fc32ee7ec09543efde0bdf3b8b3a23f71aa8b23e81cbf77468130ca457cc50f9",
+    "reader32_v60_contracts.py": "4740de2b1cdcc6da48bc15718b8b8932ca79821c782b7ec5eaf71d5892d5327b",
+    "prepare_reader32_qualification_v60.py": "40fb55bb465ef28d33af53ab4e89fce8ddf4e16bcfeb5b751433d5ac9f85d27e",
+    "registration.json": "8b50e09f08b59e77511bc98d470ec355ebc428d7e73ff4cfd54234a37b902a80",
+    "cases.jsonl": "69c09b0e3591cbc53fd0ef0dc2e1f4d4c0899f7cdf06e345bfd5c711c80b08b0",
+    "prompts.jsonl": "420ff238f20545ab61711f9b72e0f5df6bd198baf5c64cd68cd652dc15ae7bf4",
+    "execution_freeze.json": "5630b55c72b043973f62f5470c4dfb0125f14e9201d54f36fdbb4670ec93d1a2",
+    "cpu.slurm": "de1d023573108bf11fa486978cc815a1bdfe595886a1e5e2a9ba71bbf8921652",
+    "gpu.slurm": "e44034bf132961665144fd5ccb0cf88ebc25a003046bc8b1e41fec9fa2ea80bf"
+  }
+}
