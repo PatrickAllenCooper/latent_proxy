@@ -1,0 +1,13 @@
+{
+  "status": "Existing-output independent audit and finite recommendation only",
+  "source_commits": [
+    "96a9cbb",
+    "8cf6b22"
+  ],
+  "audit_script_sha256": "3b34bb7a48890ffee0458b196c4bdfd9d38b4943237c4e1d6942b522de05c01d",
+  "report_sha256": "e51cf2cd413572281404425d132244ecd082904beb7ae2a47c0f8dbbbb85b0b2",
+  "new_model_calls": 0,
+  "new_GPU_jobs": 0,
+  "advice_panel_blocked": true,
+  "pending_approval_created": false
+}

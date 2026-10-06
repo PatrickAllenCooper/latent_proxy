@@ -2200,5 +2200,20 @@
       "correct": 6,
       "records": 16
     }
+  ],
+  "research_analyses": [
+    {
+      "name": "semantic_reader_audit_v58",
+      "status": "completed_existing_outputs_only",
+      "report": "Guidance_Documents/semantic_reader_audit_v58.md",
+      "records_verified": 32,
+      "oracle_control_assignments": 2304,
+      "oracle_control_errors": 0,
+      "model_calls": 0,
+      "GPU_jobs": 0,
+      "advice_panel_blocked": true,
+      "next_decision": "Deterministic constrained proxy control; closecurrent1.5B negative reader instrument",
+      "pending_approval": false
+    }
   ]
 }
