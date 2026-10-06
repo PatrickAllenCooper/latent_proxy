@@ -1,0 +1,35 @@
+{
+  "scope": "One approved16response no-advice BF16 qualification; no automatic retry",
+  "authorizing_instruction": "Coordinator continuation after CPU16/16 gate6c5eb3b; original human approval remains bound",
+  "resource_limit": "oneH2002g35gbMIG4requestedCPU32G5min;90sstartup285scomplete12GiB24tokens",
+  "demand_basis": "Prior1.5B BF16/NF4 smoke memory below12GiB and short generation; single35GBMIG sufficient; no multiGPU",
+  "CPU_preparation": "Model/runtime/code/token hashes verified onCPU before allocation",
+  "remote_hashes": {
+    "run_eligibility_priority_qualification_v3.py": "578592d29eca437d2966981e10b9ca05953f9d1d3b59c1b5b6f414b8d1d981bc",
+    "run_eligibility_priority_v55.slurm": "0d54241762705a0fe1043ecc70f54d636353faa40ed4460cfbc0a67429914ea4",
+    "recheck_qualification_hashes.py": "3dc8945ab062c512f4f0b28ad6c251792696b3cfbc7d7ecd6d02055da368b9b6",
+    "indexed_startup.py": "7548c1fb1626c9806314334a8f614149156cd2183170bb80381adb5ef9ab1ef2",
+    "indexed_metadata_exists.py": "1c062a9e118449bdeb613c76b7f018a4b940488af6ef9e91ae6755545dabad34",
+    "indexed_source_inspection.py": "e949fb17bc90c12a4bb713af2f31467672d572b06fd2401f87fedb4ee48d4de2",
+    "shutdown_trace.py": "f597bc7388f58484d8224c42fb4e3a7467ae300b6bcc693389daf833f607bddd",
+    "prompt_token_ids.py": "7671d7a4337cce807351350e5fbacf5c18d49c9db13d386a8088ea0e2433a854",
+    "manifest.jsonl": "29adcc6fd1644412eb2a698bb41e93c26a61cf7dc47b9b9a93078b771030c4af",
+    "token_receipt.json": "ca9d4600cf4d84c59b517e1b40424be0c162f984e2a8ec98eff4bcf94cad5406",
+    "cache_receipt.json": "12eba95f8569b4e8739f729fa4495e2100f2716977dbef0d8c9cf512a4c6761a"
+  },
+  "local_sources": {
+    "run_eligibility_priority_qualification_v3.py": "scripts/run_eligibility_priority_qualification_v3.py",
+    "run_eligibility_priority_v55.slurm": "scripts/slurm/run_eligibility_priority_v55.slurm",
+    "recheck_qualification_hashes.py": "scripts/recheck_qualification_hashes.py",
+    "indexed_startup.py": "scripts/indexed_startup.py",
+    "indexed_metadata_exists.py": "scripts/indexed_metadata_exists.py",
+    "indexed_source_inspection.py": "scripts/indexed_source_inspection.py",
+    "shutdown_trace.py": "scripts/shutdown_trace.py",
+    "prompt_token_ids.py": "scripts/prompt_token_ids.py",
+    "manifest.jsonl": "outputs/preference_program/manifests/eligibility_priority_v45/execution_manifest.jsonl",
+    "token_receipt.json": "outputs/preference_program/results/token_bound_v54/token_receipt.json",
+    "cache_receipt.json": "outputs/preference_program/results/startup_diagnostic_v37/cache_receipt.json"
+  },
+  "scientific_settings_unchanged": true,
+  "advice_panel_authorized": false
+}
