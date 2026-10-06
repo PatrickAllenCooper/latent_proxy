@@ -71,13 +71,18 @@ def main():
   (r/'cpu_receipt.json').write_text(json.dumps(receipt,indent=2)+'\n');emit('CPU_complete',elapsed=time.time()-start);return
  assert tokens==receipt['tokens'] and sys.version==receipt['python'] and sha(sys.executable)==receipt['python_sha256']
  done=threading.Event();phase={'name':'startup','deadline':start+90};total=torch.cuda.get_device_properties(0).total_memory;budget=memory_budget(total)
+ assert torch.cuda.device_count()==1 and total<80*2**30,'unexpected CUDA device visibility/capacity for one71GB MIG'
+ device_name=torch.cuda.get_device_name(0)
  def stop(reason):
   export_incomplete(out,reason,time.time(),phase=dict(phase),allocated=torch.cuda.max_memory_allocated(),reserved=torch.cuda.max_memory_reserved());emit('STOP_incomplete',reason=reason);os._exit(2)
  def monitor():
+  last_memory_event=0
   while not done.wait(.05):
+   if time.time()-last_memory_event>=2:
+    emit('GPU_memory_progress',phase=phase['name'],allocated=torch.cuda.memory_allocated(),reserved=torch.cuda.memory_reserved());last_memory_event=time.time()
    reason=violation(time.time(),start,phase['deadline'],torch.cuda.max_memory_allocated(),torch.cuda.max_memory_reserved(),budget)
    if reason:stop(reason)
- threading.Thread(target=monitor,daemon=True).start();emit('model_load_start',total_memory=total,budget=budget)
+ threading.Thread(target=monitor,daemon=True).start();emit('model_load_start',total_memory=total,budget=budget,device_name=device_name,device_count=torch.cuda.device_count(),CUDA_VISIBLE_DEVICES=os.environ.get('CUDA_VISIBLE_DEVICES'))
  assert total>65*2**30,'71GB slice usable memory insufficient for proposed cap'
  model=Model.from_pretrained(str(SNAP),local_files_only=True,trust_remote_code=False,torch_dtype=torch.bfloat16,device_map={'':0},low_cpu_mem_usage=True,attn_implementation='sdpa');model.eval();model.config.use_cache=False
  assert all(p.device.type=='cuda' and p.dtype==torch.bfloat16 for p in model.parameters())

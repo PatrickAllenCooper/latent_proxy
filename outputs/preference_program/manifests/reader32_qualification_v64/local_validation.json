@@ -1,0 +1,8 @@
+{
+  "layout_CLI_tests": 2,
+  "budget_contract_tests": 8,
+  "model_generate_and_token_call_AST_unchanged": true,
+  "Python_and_Slurm_syntax_valid": true,
+  "exact_dependency_imports_already_validated_by_job": "33507600",
+  "startup_model_load_memory_and_throughput_still_unmeasured": true
+}

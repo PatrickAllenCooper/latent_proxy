@@ -1,0 +1,43 @@
+{
+  "status": "proposal_only_no_execution_authorized",
+  "preparation_approval": "2026-10-06T16:52:00Z Sentinel_6dff92097b348191ac29747811496cd5",
+  "model": "Qwen/Qwen2.5-32B-Instruct",
+  "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd",
+  "seed": 2026100602,
+  "cases": 16,
+  "independent_semantic_cases": 16,
+  "prior_semantics_excluded": 26,
+  "gold_counts": {
+    "A": 4,
+    "B": 4,
+    "C": 4,
+    "D": 4
+  },
+  "excluded_top_count": 8,
+  "gate": "16/16 strict correct; no parse/eligibility/priority errors; all custody/runtime/resource gates valid",
+  "scorer_sha256": "cbc048bb2c00ee768b10357101db499dd32b70dccae7b6486d95254dd4e1510e",
+  "generation": {
+    "precision": "BF16",
+    "adapters": false,
+    "do_sample": false,
+    "max_new_tokens": 24,
+    "max_prompt_tokens": 512,
+    "use_cache": false,
+    "attention": "sdpa",
+    "responses": 16
+  },
+  "advice_hold": true,
+  "automatic_retry": false,
+  "calls": 0,
+  "hashes": {
+    "cases.jsonl": "69c09b0e3591cbc53fd0ef0dc2e1f4d4c0899f7cdf06e345bfd5c711c80b08b0",
+    "prompts.jsonl": "420ff238f20545ab61711f9b72e0f5df6bd198baf5c64cd68cd652dc15ae7bf4",
+    "prepare_reader32_qualification_v60.py": "40fb55bb465ef28d33af53ab4e89fce8ddf4e16bcfeb5b751433d5ac9f85d27e"
+  },
+  "exclusion_source_hashes": {
+    "outputs/preference_program/manifests/eligibility_priority_v45/development_cases.jsonl": "57176e04f340e0375df7c6a37b8baa4649c78dec456fd187da28ee41600f99d5",
+    "outputs/preference_program/manifests/eligibility_priority_v45/advice_cases.jsonl": "27c959d051f4768ac0f9f5f8f2c07634ffcd5666ba5461ca486b3eb535d997ca",
+    "outputs/preference_program/manifests/eligibility_priority_v45/qualification_cases.jsonl": "6ead0db9f0c36b79f0f677ad5eb4b67642e6b6994c63f37187713a1fd877589d",
+    "outputs/preference_program/manifests/preference_factorial_v56/semantic_cases.jsonl": "02cbd5e59526c3edae60f3bbb8c532a6e66295aff648dda2e7cbedccee4c1304"
+  }
+}
