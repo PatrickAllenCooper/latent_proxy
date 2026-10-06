@@ -1,0 +1,13 @@
+{
+  "status": "local validated exact-filesystem-index repair; not remote qualified/deployed",
+  "hashes": {
+    "scripts/indexed_metadata_exists.py": "1c062a9e118449bdeb613c76b7f018a4b940488af6ef9e91ae6755545dabad34",
+    "scripts/test_indexed_metadata_exists.py": "b06840f34c4c0056dced9f34e62266ef542ed335856107385f318079df799315"
+  },
+  "fixtures": "8real filesystem cases, directory mutation, restoration on success/failure, actual original stdlib packages_distributions with isolated real METADATA/RECORD",
+  "authoritative_production_mapping": false,
+  "full_pinned_environment_identity": false,
+  "model_calls": 0,
+  "remote_attempts": 0,
+  "next_gate": "Freeze CPU-only <=90s indexed original mapping diagnostic; compare environment bindings and preserve failclosed. No preparation or model qualification yet."
+}
