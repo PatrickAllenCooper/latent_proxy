@@ -1,0 +1,13 @@
+{
+  "scope": "Explicit one changedCPUcombinedmapping+inspection integration; no model/tokenization",
+  "caps": "4CPU8G45sstage90sstartup3minwall",
+  "hashes": {
+    "scripts/validate_combined_index_startup.py": "bc22f1620be67ce5d1bccc92d7ef67ebdb537b3aac72a4346c312fd677cf8a71",
+    "scripts/indexed_metadata_exists.py": "1c062a9e118449bdeb613c76b7f018a4b940488af6ef9e91ae6755545dabad34",
+    "scripts/indexed_source_inspection.py": "e949fb17bc90c12a4bb713af2f31467672d572b06fd2401f87fedb4ee48d4de2",
+    "scripts/slurm/validate_combined_index_startup.slurm": "d7d4b62f404ce7be97e1f6bba1aa2022292fbd76115071eaccef46befaf1111f",
+    "outputs/preference_program/results/metadata_index_v47/integration/environment_before.json": "503f4d945e55bedefd9bca53ba0daed012d96811877c2006d4a8b2faae421144"
+  },
+  "identity_scope": "Unchanged archive, interpreter/distributionmetadata,targetedsourcehashes,moduleorigins; not fullpackagecontentidentity",
+  "stop": "Failurestops; noautomaticretry/GPU"
+}
