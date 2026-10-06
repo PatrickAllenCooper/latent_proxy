@@ -1,0 +1,13 @@
+{
+  "fixtures": "Exact bytes,compiledcode/constants/originalfilename,originalandcachemutation passed",
+  "hashes": {
+    "scripts/verified_source_cache.py": "583058619402f691cc7d604357af2eb01a61169235141762f06eb3eecfc5ce57",
+    "scripts/test_verified_source_cache.py": "039a9ef4bb54722fe1ca32cd14ed5f64d263ca4bea41e4f4a9dd5b325d27165f",
+    "scripts/indexed_source_inspection.py": "e949fb17bc90c12a4bb713af2f31467672d572b06fd2401f87fedb4ee48d4de2",
+    "scripts/test_indexed_source_inspection.py": "836c26487082bb0238f4c90dc6c7d2c2de5c14a6e05bbe3e425615d460551104"
+  },
+  "remote_attempts": 0,
+  "model_calls": 0,
+  "importer_deployed": false,
+  "inspection_fixture_result": "exists/symlink/bytesfallback/restoration passed"
+}
