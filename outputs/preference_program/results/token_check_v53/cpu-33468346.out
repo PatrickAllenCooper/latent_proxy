@@ -1,0 +1,43 @@
+CPUjob=33468346 node=c3cpu-e2-u3 start=2026-10-05T21:20:05-06:00
+{"event": "node_local_runtime_ready", "at_unix": 1791256810.970804, "elapsed_seconds": 4.332468509674072, "path": "/tmp/latent-proxy-cpu-repair-33468346", "archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282"}
+{"stage": "CPU_start", "at_unix": 1791256817.5257638, "pid": 1412290}
+{"stage": "transformers_import_start", "at_unix": 1791256823.678454}
+{"shutdown_event": "handler_registered", "at": 1791256825.6164274, "handler": "logging.shutdown"}
+{"shutdown_event": "handler_registered", "at": 1791256827.8677154, "handler": "filelock._soft_rw._sync._cleanup_all_instances"}
+{"shutdown_event": "handler_registered", "at": 1791256827.8705897, "handler": "weakref.finalize._exitfunc"}
+{"shutdown_event": "handler_registered", "at": 1791256827.9520192, "handler": "huggingface_hub.utils._http.close_session"}
+{"shutdown_event": "handler_registered", "at": 1791256831.7811384, "handler": "PIL._imaging.clear_cache"}
+{"shutdown_event": "handler_registered", "at": 1791256850.3077762, "handler": "None.pybind11_detail_function_record_v1_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1."}
+{"shutdown_event": "handler_registered", "at": 1791256852.5905046, "handler": "torch.utils.data._utils._set_python_exit_flag"}
+{"shutdown_event": "handler_registered", "at": 1791256856.4473605, "handler": "multiprocessing.util._exit_function"}
+{"shutdown_event": "handler_registered", "at": 1791256859.283774, "handler": "torch._subclasses.fake_tensor.dump_cache_stats"}
+{"shutdown_event": "handler_registered", "at": 1791256869.7731123, "handler": "torch._dynamo.utils.dump_compile_times"}
+{"shutdown_event": "handler_registered", "at": 1791256872.413768, "handler": "torch._dynamo.eval_frame._log_traced_frames"}
+{"stage": "transformers_import_complete", "at_unix": 1791256873.8597078}
+{"stage": "tokenizer_load_start", "at_unix": 1791256876.1910553}
+{"stage": "tokenizer_load_complete", "at_unix": 1791256876.7263334}
+{"stage": "chat_template_start", "at_unix": 1791256876.770657, "case_id": "qualification-00"}
+{"stage": "chat_template_complete", "at_unix": 1791256878.7051528, "case_id": "qualification-00", "tokens": 122}
+{"stage": "chat_template_start", "at_unix": 1791256878.7052567, "case_id": "qualification-01"}
+{"stage": "chat_template_complete", "at_unix": 1791256880.6500027, "case_id": "qualification-01", "tokens": 122}
+{"stage": "chat_template_start", "at_unix": 1791256880.6502087, "case_id": "qualification-02"}
+{"stage": "chat_template_complete", "at_unix": 1791256882.63031, "case_id": "qualification-02", "tokens": 122}
+{"stage": "chat_template_start", "at_unix": 1791256882.6305168, "case_id": "qualification-03"}
+{"stage": "chat_template_complete", "at_unix": 1791256884.6106527, "case_id": "qualification-03", "tokens": 122}
+{"stage": "chat_template_start", "at_unix": 1791256884.6107526, "case_id": "qualification-04"}
+{"stage": "chat_template_complete", "at_unix": 1791256886.5425086, "case_id": "qualification-04", "tokens": 122}
+{"stage": "chat_template_start", "at_unix": 1791256886.542711, "case_id": "qualification-05"}
+{"stage": "chat_template_complete", "at_unix": 1791256888.478866, "case_id": "qualification-05", "tokens": 122}
+{"stage": "chat_template_start", "at_unix": 1791256888.4789646, "case_id": "qualification-06"}
+{"stage": "chat_template_complete", "at_unix": 1791256890.4465468, "case_id": "qualification-06", "tokens": 122}
+{"stage": "chat_template_start", "at_unix": 1791256890.451801, "case_id": "qualification-07"}
+{"stage": "chat_template_complete", "at_unix": 1791256892.4291477, "case_id": "qualification-07", "tokens": 122}
+{"stage": "chat_template_start", "at_unix": 1791256892.4292533, "case_id": "qualification-08"}
+{"stage": "chat_template_complete", "at_unix": 1791256894.3698435, "case_id": "qualification-08", "tokens": 122}
+{"stage": "chat_template_start", "at_unix": 1791256894.369958, "case_id": "qualification-09"}
+{"stage": "chat_template_complete", "at_unix": 1791256896.298979, "case_id": "qualification-09", "tokens": 122}
+{"stage": "chat_template_start", "at_unix": 1791256896.2995453, "case_id": "qualification-10"}
+{"stage": "chat_template_complete", "at_unix": 1791256898.2262676, "case_id": "qualification-10", "tokens": 122}
+{"stage": "chat_template_start", "at_unix": 1791256898.2263594, "case_id": "qualification-11"}
+{"stage": "chat_template_complete", "at_unix": 1791256900.186864, "case_id": "qualification-11", "tokens": 122}
+{"stage": "chat_template_start", "at_unix": 1791256900.1869452, "case_id": "qualification-12"}

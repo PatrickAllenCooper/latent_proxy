@@ -177,3 +177,26 @@ claimed. The next justified gate is a bounded CPU tokenizer/token-ID receipt
 using normal-cleanup observation and existing strict token normalization;
 model qualification still requires that separate receipt, complete terminal
 success and its own resource/identity checks. No further job submitted here.
+
+## CPU tokenization v53 — partial equality checks; terminal gate failed
+
+Frozen revision `62aba39`, job `33468346`, unchanged four actual CPUs/8 GB,
+45-second runtime staging and 90-second diagnostic timeout. FAILED 124:0,
+105 Slurm seconds, 420 allocated CPU seconds, 30.388 observed CPU seconds,
+batch RSS 1,111,916 KiB. Import 50.18 seconds; tokenizer load 0.535 seconds.
+Twelve of sixteen cases completed all three-path integer-ID equality checks,
+each 122 tokens; timed out during qualification-12 (the thirteenth case).
+No full token receipt, final serialization/identity checks or normal terminal
+cleanup; no inference/GPU. All logs/accounting preserved locally and remotely.
+
+Source audit found `len(tokenizer)` inside the per-token bounds predicate,
+calling vocabulary-size calculation 122 times per case. That unnecessary
+repetition is a plausible source of roughly two-second case validation,
+but no per-operation timing establishes its contribution yet. Proposed v5
+hoists the vocabulary bound once and verifies unchanged size after all
+cases, retaining every ID/equality check. It also journals completed token
+IDs before advancing, so partial progress remains recoverable. Local fixture
+checks preserve bounds with constant call count; syntax passes. V5 has not
+been submitted or integrated against the real tokenizer. No causal timing
+or shutdown repair claimed; qualification remains gated on complete token
+receipt and successful normal process termination.
