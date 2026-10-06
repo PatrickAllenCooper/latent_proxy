@@ -1,0 +1,13 @@
+{
+  "scope": "Authorized single changed CPU source staging/import validation; no model",
+  "caps": "4CPU8G45sruntime stage90sdiagnostic3minwall",
+  "hashes": {
+    "scripts/validate_source_staging.py": "1ada36bc1467762161819fc391863933065f2d1433a5329a37730daf032a3e7c",
+    "scripts/stage_verified_python_sources.py": "42c1ad4485dff1b3f5468cdcc018f3d1b6fc6f6e5e9d01104dc07fb34e6a354a",
+    "scripts/indexed_startup.py": "7548c1fb1626c9806314334a8f614149156cd2183170bb80381adb5ef9ab1ef2",
+    "scripts/indexed_metadata_exists.py": "1c062a9e118449bdeb613c76b7f018a4b940488af6ef9e91ae6755545dabad34",
+    "scripts/slurm/validate_source_staging.slurm": "28e220eeed4797eea9fdbfe7091a7aa3fd5f0051491ac57a772aa3eed9c11a84",
+    "outputs/preference_program/results/metadata_index_v47/integration/environment_before.json": "503f4d945e55bedefd9bca53ba0daed012d96811877c2006d4a8b2faae421144"
+  },
+  "stop": "Any failure stops; partials unqualified; noautoGPU"
+}
