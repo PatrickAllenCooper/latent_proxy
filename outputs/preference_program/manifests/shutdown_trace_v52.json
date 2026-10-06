@@ -1,0 +1,12 @@
+{
+  "scope": "One changed CPU shutdown observation; all normal cleanup retained; no inference",
+  "caps": "4CPU8G45s stage90s diagnostic3min wall",
+  "hashes": {
+    "scripts/shutdown_trace.py": "f597bc7388f58484d8224c42fb4e3a7467ae300b6bcc693389daf833f607bddd",
+    "scripts/validate_shutdown_startup.py": "0ad2dc7f823d872dceb7ebb944a4bf71629207168b8dfe6ef3880dc444a74999",
+    "scripts/indexed_metadata_exists.py": "1c062a9e118449bdeb613c76b7f018a4b940488af6ef9e91ae6755545dabad34",
+    "scripts/indexed_source_inspection.py": "e949fb17bc90c12a4bb713af2f31467672d572b06fd2401f87fedb4ee48d4de2",
+    "scripts/slurm/validate_shutdown_startup.slurm": "9116ce7ebd8a20fd55bfe2ab458070661368a0c0597e7cc87fecf72cc84b60f7",
+    "outputs/preference_program/results/metadata_index_v47/integration/environment_before.json": "503f4d945e55bedefd9bca53ba0daed012d96811877c2006d4a8b2faae421144"
+  }
+}
