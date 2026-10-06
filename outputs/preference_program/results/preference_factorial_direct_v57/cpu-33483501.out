@@ -1,0 +1,77 @@
+CPUjob=33483501 node=c3cpu-e2-u7 start=2026-10-06T07:44:40-06:00
+{"event": "node_local_runtime_ready", "at_unix": 1791294282.6370478, "elapsed_seconds": 1.8689215183258057, "path": "/tmp/latent-proxy-cpu-repair-33483501", "archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282"}
+{"event": "combined_CPU_preparation_start", "at": 1791294282.6883497}
+{"stage": "CPU_start", "at_unix": 1791294282.8141267, "pid": 3092626}
+{"stage": "transformers_import_start", "at_unix": 1791294283.3505108}
+{"shutdown_event": "handler_registered", "at": 1791294283.5365899, "handler": "logging.shutdown"}
+{"shutdown_event": "handler_registered", "at": 1791294283.876812, "handler": "filelock._soft_rw._sync._cleanup_all_instances"}
+{"shutdown_event": "handler_registered", "at": 1791294283.878589, "handler": "weakref.finalize._exitfunc"}
+{"shutdown_event": "handler_registered", "at": 1791294283.8912067, "handler": "huggingface_hub.utils._http.close_session"}
+{"shutdown_event": "handler_registered", "at": 1791294285.5430255, "handler": "PIL._imaging.clear_cache"}
+{"shutdown_event": "handler_registered", "at": 1791294286.5694387, "handler": "None.pybind11_detail_function_record_v1_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1."}
+{"shutdown_event": "handler_registered", "at": 1791294286.8799205, "handler": "torch.utils.data._utils._set_python_exit_flag"}
+{"shutdown_event": "handler_registered", "at": 1791294287.3406959, "handler": "multiprocessing.util._exit_function"}
+{"shutdown_event": "handler_registered", "at": 1791294287.8164268, "handler": "torch._subclasses.fake_tensor.dump_cache_stats"}
+{"stage": "transformers_import_complete", "at_unix": 1791294288.5457542}
+{"stage": "tokenizer_load_start", "at_unix": 1791294292.3682923}
+{"stage": "tokenizer_load_complete", "at_unix": 1791294292.7487836}
+{"stage": "reference16_ID_equality_valid", "at_unix": 1791294292.8545587}
+{"stage": "chat_template_start", "at_unix": 1791294292.9120333, "case_id": "fresh-00-rank-l0-reverse"}
+{"stage": "chat_template_complete", "at_unix": 1791294292.913712, "case_id": "fresh-00-rank-l0-reverse", "tokens": 142}
+{"stage": "chat_template_start", "at_unix": 1791294292.9137335, "case_id": "fresh-01-prose-l0-reverse"}
+{"stage": "chat_template_complete", "at_unix": 1791294292.9145105, "case_id": "fresh-01-prose-l0-reverse", "tokens": 122}
+{"stage": "chat_template_start", "at_unix": 1791294292.9145298, "case_id": "fresh-00-prose-l2-forward"}
+{"stage": "chat_template_complete", "at_unix": 1791294292.9152732, "case_id": "fresh-00-prose-l2-forward", "tokens": 122}
+{"stage": "chat_template_start", "at_unix": 1791294292.9152906, "case_id": "fresh-01-prose-l2-forward"}
+{"stage": "chat_template_complete", "at_unix": 1791294292.9160094, "case_id": "fresh-01-prose-l2-forward", "tokens": 122}
+{"stage": "chat_template_start", "at_unix": 1791294292.916027, "case_id": "fresh-00-prose-l2-reverse"}
+{"stage": "chat_template_complete", "at_unix": 1791294292.9167452, "case_id": "fresh-00-prose-l2-reverse", "tokens": 122}
+{"stage": "chat_template_start", "at_unix": 1791294292.916762, "case_id": "fresh-00-rank-l2-reverse"}
+{"stage": "chat_template_complete", "at_unix": 1791294292.9184637, "case_id": "fresh-00-rank-l2-reverse", "tokens": 142}
+{"stage": "chat_template_start", "at_unix": 1791294292.9184835, "case_id": "fresh-01-prose-l2-reverse"}
+{"stage": "chat_template_complete", "at_unix": 1791294292.9192111, "case_id": "fresh-01-prose-l2-reverse", "tokens": 122}
+{"stage": "chat_template_start", "at_unix": 1791294292.9192297, "case_id": "fresh-01-rank-l0-reverse"}
+{"stage": "chat_template_complete", "at_unix": 1791294292.9200034, "case_id": "fresh-01-rank-l0-reverse", "tokens": 142}
+{"stage": "chat_template_start", "at_unix": 1791294292.9200218, "case_id": "fresh-00-prose-l0-forward"}
+{"stage": "chat_template_complete", "at_unix": 1791294292.9207256, "case_id": "fresh-00-prose-l0-forward", "tokens": 122}
+{"stage": "chat_template_start", "at_unix": 1791294292.9207437, "case_id": "fresh-00-rank-l2-forward"}
+{"stage": "chat_template_complete", "at_unix": 1791294292.9219103, "case_id": "fresh-00-rank-l2-forward", "tokens": 142}
+{"stage": "chat_template_start", "at_unix": 1791294292.9219267, "case_id": "fresh-01-rank-l0-forward"}
+{"stage": "chat_template_complete", "at_unix": 1791294292.922703, "case_id": "fresh-01-rank-l0-forward", "tokens": 142}
+{"stage": "chat_template_start", "at_unix": 1791294292.9227192, "case_id": "fresh-01-rank-l2-forward"}
+{"stage": "chat_template_complete", "at_unix": 1791294292.923494, "case_id": "fresh-01-rank-l2-forward", "tokens": 142}
+{"stage": "chat_template_start", "at_unix": 1791294292.9235103, "case_id": "fresh-00-rank-l0-forward"}
+{"stage": "chat_template_complete", "at_unix": 1791294292.9242756, "case_id": "fresh-00-rank-l0-forward", "tokens": 142}
+{"stage": "chat_template_start", "at_unix": 1791294292.9242923, "case_id": "fresh-00-prose-l0-reverse"}
+{"stage": "chat_template_complete", "at_unix": 1791294292.924996, "case_id": "fresh-00-prose-l0-reverse", "tokens": 122}
+{"stage": "chat_template_start", "at_unix": 1791294292.9250112, "case_id": "fresh-01-prose-l0-forward"}
+{"stage": "chat_template_complete", "at_unix": 1791294292.9257076, "case_id": "fresh-01-prose-l0-forward", "tokens": 122}
+{"stage": "chat_template_start", "at_unix": 1791294292.9257233, "case_id": "fresh-01-rank-l2-reverse"}
+{"stage": "chat_template_complete", "at_unix": 1791294292.9264753, "case_id": "fresh-01-rank-l2-reverse", "tokens": 142}
+{"stage": "CPU_complete", "at_unix": 1791294293.253029}
+{"shutdown_event": "normal_exit_initiated", "at": 1791294293.253184, "threads": [{"name": "MainThread", "ident": 23331509072896, "daemon": false, "alive": true}], "child_pids": ""}
+{"event": "model_files_verified", "at": 1791294309.1742299}
+{"event": "hash_gate_complete", "elapsed": 18.711289882659912}
+{"event": "combined_CPU_preparation_complete", "at": 1791294311.9654024}
+{"shutdown_event": "thread_shutdown_start", "at": 1791294311.9656754, "threads": [{"name": "MainThread", "ident": 23331509072896, "daemon": false, "alive": true}], "child_pids": ""}
+{"shutdown_event": "thread_shutdown_end", "at": 1791294311.9658406, "threads": [{"name": "MainThread", "ident": 23331509072896, "daemon": false, "alive": false}], "child_pids": ""}
+{"shutdown_event": "handler_start", "at": 1791294311.9658954, "handler": "torch._subclasses.fake_tensor.dump_cache_stats", "threads": [{"name": "MainThread", "ident": 23331509072896, "daemon": false, "alive": false}], "child_pids": ""}
+{"shutdown_event": "handler_end", "at": 1791294311.9659655, "handler": "torch._subclasses.fake_tensor.dump_cache_stats"}
+{"shutdown_event": "handler_start", "at": 1791294311.9660072, "handler": "multiprocessing.util._exit_function", "threads": [{"name": "MainThread", "ident": 23331509072896, "daemon": false, "alive": false}], "child_pids": ""}
+{"shutdown_event": "handler_end", "at": 1791294311.966061, "handler": "multiprocessing.util._exit_function"}
+{"shutdown_event": "handler_start", "at": 1791294311.9661016, "handler": "torch.utils.data._utils._set_python_exit_flag", "threads": [{"name": "MainThread", "ident": 23331509072896, "daemon": false, "alive": false}], "child_pids": ""}
+{"shutdown_event": "handler_end", "at": 1791294311.9661222, "handler": "torch.utils.data._utils._set_python_exit_flag"}
+{"shutdown_event": "handler_start", "at": 1791294311.9661636, "handler": "None.pybind11_detail_function_record_v1_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1.", "threads": [{"name": "MainThread", "ident": 23331509072896, "daemon": false, "alive": false}], "child_pids": ""}
+{"shutdown_event": "handler_end", "at": 1791294311.966198, "handler": "None.pybind11_detail_function_record_v1_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1."}
+{"shutdown_event": "handler_start", "at": 1791294311.9662356, "handler": "PIL._imaging.clear_cache", "threads": [{"name": "MainThread", "ident": 23331509072896, "daemon": false, "alive": false}], "child_pids": ""}
+{"shutdown_event": "handler_end", "at": 1791294311.9662652, "handler": "PIL._imaging.clear_cache"}
+{"shutdown_event": "handler_start", "at": 1791294311.9663048, "handler": "huggingface_hub.utils._http.close_session", "threads": [{"name": "MainThread", "ident": 23331509072896, "daemon": false, "alive": false}], "child_pids": ""}
+{"shutdown_event": "handler_end", "at": 1791294311.9663272, "handler": "huggingface_hub.utils._http.close_session"}
+{"shutdown_event": "handler_start", "at": 1791294311.9663649, "handler": "weakref.finalize._exitfunc", "threads": [{"name": "MainThread", "ident": 23331509072896, "daemon": false, "alive": false}], "child_pids": ""}
+{"shutdown_event": "handler_end", "at": 1791294311.9718218, "handler": "weakref.finalize._exitfunc"}
+{"shutdown_event": "handler_start", "at": 1791294311.9721498, "handler": "filelock._soft_rw._sync._cleanup_all_instances", "threads": [{"name": "MainThread", "ident": 23331509072896, "daemon": false, "alive": false}], "child_pids": ""}
+{"shutdown_event": "handler_end", "at": 1791294311.9722068, "handler": "filelock._soft_rw._sync._cleanup_all_instances"}
+{"shutdown_event": "handler_start", "at": 1791294311.9722624, "handler": "logging.shutdown", "threads": [{"name": "MainThread", "ident": 23331509072896, "daemon": false, "alive": false}], "child_pids": ""}
+{"shutdown_event": "handler_end", "at": 1791294311.9724386, "handler": "logging.shutdown"}
+{"shutdown_event": "last_observer_exit", "at": 1791294311.9724839, "threads": [{"name": "MainThread", "ident": 23331509072896, "daemon": false, "alive": false}], "child_pids": ""}
+CPUjob=33483501 complete=2026-10-06T07:45:32-06:00

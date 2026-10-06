@@ -297,3 +297,32 @@ quantify per-file latency or validate a new repair. All raw logs/accounting
 and failure audit retained locally and remotely. Stop without automatic
 retry, changed model/prompt/scorer, resource expansion or advice submission.
 The v55 11/16 failure and advice hold remain unchanged.
+
+## v56 changed CPU route v57 — token gate passed; approved GPU queued
+
+Changed revision `b6c455b` uses the pinned Qwen2Tokenizer class directly,
+matching both tokenizer_config and the verified runtime's qwen2 AutoTokenizer
+mapping, without modifying availability flags, installed package bytes or
+scoring. It avoids AutoTokenizer's auto_factory import path. Exact16 previous
+validated token sequences must match before producing any fresh v56 IDs;
+all16 fresh prompts retain the original three-path equality, serialization,
+integer/bounds checks, normal restoration and full model/runtime hash gate.
+Local checks verified direct class import/syntax/reference contract; actual
+integration establishes semantic token equality rather than assuming it.
+
+CPU job `33483501` COMPLETED 0:0, four actual CPUs/8GB, 56 Slurm seconds,
+224 allocated CPU seconds, 7.883 observed CPU seconds, batch RSS 637,940 KiB.
+Reference16 exact IDs, fresh16 exact IDs, full hashes and normal terminal
+cleanup all passed. Fresh prompt lengths are122/142. Auto factory was not
+imported in CPU preparation. Previous timeout33483296 remains preserved.
+This pass reused the prior CPU node; do not claim a causal speedup or cold
+startup reliability from its elapsed time. Full installed package-content
+identity beyond verified pinned components is not established.
+
+Approved frozen v56 GPU job `33483615` submitted after gate audit/no active
+project duplicate: one H2002g35gbMIG/four CPUs/32GB/five minutes. Scientific
+cases/analysis/scorer/limits unchanged. Current state PENDING(Priority),
+scheduler estimate2026-10-06 08:15:26 MDT, not a guaranteed start. No allocated
+GPU or scientific v56 outputs yet. Keep the v55 failure/advice hold; monitor
+recorded job through start, verifiedGPU work, terminal audit and final custody.
+No automatic retry or altered queue/partition/other project job.

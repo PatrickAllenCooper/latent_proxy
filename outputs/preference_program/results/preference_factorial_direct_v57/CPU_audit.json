@@ -1,0 +1,26 @@
+{
+  "job_id": "33483501",
+  "terminal_state": "COMPLETED",
+  "exit_code": "0:0",
+  "allocated_CPUs": 4,
+  "memory": "8G",
+  "elapsed_seconds": 56,
+  "allocated_CPU_seconds": 224,
+  "observed_TotalCPU_seconds": 7.883,
+  "batch_MaxRSS_KiB": 637940,
+  "complete_fresh_token_records": 16,
+  "reference16_ID_equality_valid": true,
+  "tokenizer_class": "Qwen2Tokenizer",
+  "auto_factory_imported": false,
+  "full_hash_gate_valid": true,
+  "normal_cleanup_valid": true,
+  "metadata_restoration_valid": true,
+  "prompt_lengths": [
+    122,
+    142
+  ],
+  "fresh_manifest_sha256": "1ac7fe427e9da457a43902d490114c20616fee3a3adb8060af05e1fa8d753129",
+  "reference_receipt_sha256": "ca9d4600cf4d84c59b517e1b40424be0c162f984e2a8ec98eff4bcf94cad5406",
+  "identity_scope": "Pinned model/tokenizer/runtime archive and code hashes, interpreter/distribution metadata; fullinstalledpackagecontent identity not claimed",
+  "interpretation": "Specifically changed class dispatch passes full reference/new token gates; no causal timing guarantee; previous node warm cache remains a possible contributor"
+}
