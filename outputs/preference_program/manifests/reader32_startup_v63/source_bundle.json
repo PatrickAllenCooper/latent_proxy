@@ -1,0 +1,19 @@
+{
+  "source_commit": "3bd19ae",
+  "sha256": "135e153a7e366eecbd0803d82cddeeb49f93c58bcc68026861c218d96d6df75b",
+  "files": {
+    "reader32_startup_v63.py": "2f92482a1d65b1d8310232fbcb90cf8759e7550154f538a58ae8f878b652ac45",
+    "run_reader32_v62.py": "7db6b4d13e6d0fa43752376825696499570f0e4b67aaa63d67c9d50ced22069c",
+    "indexed_startup.py": "7548c1fb1626c9806314334a8f614149156cd2183170bb80381adb5ef9ab1ef2",
+    "indexed_source_inspection.py": "e949fb17bc90c12a4bb713af2f31467672d572b06fd2401f87fedb4ee48d4de2",
+    "indexed_metadata_exists.py": "1c062a9e118449bdeb613c76b7f018a4b940488af6ef9e91ae6755545dabad34",
+    "prompt_token_ids.py": "7671d7a4337cce807351350e5fbacf5c18d49c9db13d386a8088ea0e2433a854",
+    "extract_verified_runtime.py": "fc32ee7ec09543efde0bdf3b8b3a23f71aa8b23e81cbf77468130ca457cc50f9",
+    "registration.json": "8b50e09f08b59e77511bc98d470ec355ebc428d7e73ff4cfd54234a37b902a80",
+    "prompts.jsonl": "420ff238f20545ab61711f9b72e0f5df6bd198baf5c64cd68cd652dc15ae7bf4",
+    "cases.jsonl": "69c09b0e3591cbc53fd0ef0dc2e1f4d4c0899f7cdf06e345bfd5c711c80b08b0",
+    "startup_freeze.json": "fa9b21c18321c98ef374691484d12290cbd1eeb4e2fef14207605e413d6edf83",
+    "cpu_receipt.json": "345add724bbf55f724a4bdb47d6175944df43ffe211a112635275099cccd4bc4",
+    "cpu.slurm": "43127c4971ce14da00644124e84374bb45eb6e71336bb3a968a5031804725af9"
+  }
+}
