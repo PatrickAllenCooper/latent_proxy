@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/scratch/alpine/paco0228/latent_proxy_runs/reader32-qualification-v60/reader32_v60.py", line 101, in <module>
+    try:main()
+        ^^^^^^
+  File "/scratch/alpine/paco0228/latent_proxy_runs/reader32-qualification-v60/reader32_v60.py", line 60, in main
+    assert ids==t.encode(rendered,add_special_tokens=False) and len(ids)<=512
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

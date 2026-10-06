@@ -1,0 +1,31 @@
+{
+  "job_id": "33505553",
+  "application_status": "FAILED_CPU_TOKEN_GATE",
+  "controller_status": "RUNNING_at_last_check",
+  "accounting_status": "FAILED_1:0",
+  "state_reconciliation": "controller/accounting disagreement; final scheduler state/charges not yet reconciled",
+  "accounting_start_local": "2026-10-06T16:32:29-06:00",
+  "accounting_end_local": "2026-10-06T16:35:40-06:00",
+  "accounting_elapsed_seconds": 191,
+  "allocated_CPUs": 1,
+  "provisional_allocated_CPU_seconds": 191,
+  "observed_TotalCPU_seconds": 55.742,
+  "batch_MaxRSS_KiB": 1052532,
+  "approved_max_allocated_CPU_seconds": 600,
+  "weight_shards_read": 17,
+  "weight_bytes_read": 65527841856,
+  "observed_weight_hash_phase_seconds": 51.323495626449585,
+  "runtime_extract_seconds": 0.7879629135131836,
+  "valid_CPU_receipt": false,
+  "GPU_jobs": 0,
+  "model_calls": 0,
+  "scientific_result": "incomplete_not_semantic_failure",
+  "root_cause": "Unknown: assertion combines raw token ID equality and <=512 length; operand types/values/lengths were not retained",
+  "custody_limitation": "Shard SHA digests were held in process memory until final receipt; logs prove reading/hashing progress, not retained full hash custody",
+  "automatic_retry": false,
+  "next_dependency": "Bounded CPU-only token diagnostic preserving output type, normalized IDs, rendered-string encode IDs, lengths and first difference; no weight rehash or GPU until justified revised CPU gate",
+  "files": {
+    "cpu-33505553.err": "10814551877c0fe85abd58aa245bfcd3098937372df4bf2c59fc4534814ef21d",
+    "cpu-33505553.out": "3e55720059f2bcb42b6923e0dfd52bfc638fbc106d5fc5ff69b401da5146701e"
+  }
+}

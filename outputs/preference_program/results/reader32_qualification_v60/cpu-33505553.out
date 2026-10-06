@@ -1,0 +1,28 @@
+CPU preparation begins 2026-10-06T16:32:58-06:00 job=33505553
+{"event": "node_local_runtime_ready", "at_unix": 1791325981.8725543, "elapsed_seconds": 0.7879629135131836, "path": "/tmp/lp-reader32-cpu-33505553", "archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282"}
+{"event": "CPU_integrity_start", "at": 1791325982.1068304}
+{"event": "CPU_file_hashed", "at": 1791325985.168959, "name": "model-00001-of-00017.safetensors", "bytes": 3916539832}
+{"event": "CPU_file_hashed", "at": 1791325988.2277162, "name": "model-00002-of-00017.safetensors", "bytes": 3900847496}
+{"event": "CPU_file_hashed", "at": 1791325991.268772, "name": "model-00003-of-00017.safetensors", "bytes": 3900847480}
+{"event": "CPU_file_hashed", "at": 1791325994.2814462, "name": "model-00004-of-00017.safetensors", "bytes": 3900847544}
+{"event": "CPU_file_hashed", "at": 1791325997.3258514, "name": "model-00005-of-00017.safetensors", "bytes": 3900847544}
+{"event": "CPU_file_hashed", "at": 1791326000.3770373, "name": "model-00006-of-00017.safetensors", "bytes": 3900847544}
+{"event": "CPU_file_hashed", "at": 1791326003.462258, "name": "model-00007-of-00017.safetensors", "bytes": 3900847544}
+{"event": "CPU_file_hashed", "at": 1791326006.580492, "name": "model-00008-of-00017.safetensors", "bytes": 3900847544}
+{"event": "CPU_file_hashed", "at": 1791326009.6060967, "name": "model-00009-of-00017.safetensors", "bytes": 3900847544}
+{"event": "CPU_file_hashed", "at": 1791326012.6650126, "name": "model-00010-of-00017.safetensors", "bytes": 3900847544}
+{"event": "CPU_file_hashed", "at": 1791326015.7194355, "name": "model-00011-of-00017.safetensors", "bytes": 3900847544}
+{"event": "CPU_file_hashed", "at": 1791326018.7544029, "name": "model-00012-of-00017.safetensors", "bytes": 3900847544}
+{"event": "CPU_file_hashed", "at": 1791326021.8117986, "name": "model-00013-of-00017.safetensors", "bytes": 3900847544}
+{"event": "CPU_file_hashed", "at": 1791326024.8592699, "name": "model-00014-of-00017.safetensors", "bytes": 3900847544}
+{"event": "CPU_file_hashed", "at": 1791326027.8837442, "name": "model-00015-of-00017.safetensors", "bytes": 3900847544}
+{"event": "CPU_file_hashed", "at": 1791326030.9048104, "name": "model-00016-of-00017.safetensors", "bytes": 3900847544}
+{"event": "CPU_file_hashed", "at": 1791326033.430326, "name": "model-00017-of-00017.safetensors", "bytes": 3098588976}
+{"event": "CPU_file_hashed", "at": 1791326033.432652, "name": "config.json", "bytes": 663}
+{"event": "CPU_file_hashed", "at": 1791326033.4330432, "name": "model.safetensors.index.json", "bytes": 63248}
+{"event": "CPU_file_hashed", "at": 1791326033.4826322, "name": "tokenizer.json", "bytes": 7031645}
+{"event": "CPU_file_hashed", "at": 1791326033.4936287, "name": "tokenizer_config.json", "bytes": 7305}
+{"event": "CPU_file_hashed", "at": 1791326033.5300286, "name": "vocab.json", "bytes": 2776833}
+{"event": "CPU_file_hashed", "at": 1791326033.5565274, "name": "merges.txt", "bytes": 1671839}
+{"event": "CPU_file_hashed", "at": 1791326033.5587742, "name": "generation_config.json", "bytes": 242}
+{"event": "CPU_tokenizer_start", "at": 1791326033.5588071}

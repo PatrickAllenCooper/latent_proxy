@@ -2184,7 +2184,7 @@
       "job_id": "33505553",
       "stage": "CPU_integrity",
       "submitted_at_utc": "2026-10-06T20:33:27Z",
-      "status": "PENDING",
+      "status": "STATE_DISAGREEMENT",
       "account": "ucb736_asc1",
       "partition": "acpu",
       "qos": "cpu-normal",
@@ -2199,8 +2199,16 @@
       "GPU_submission": false,
       "advice_hold": true,
       "reason": "ReqNodeNotAvail; acpu recovery",
-      "started": false,
-      "slurm_requeue": false
+      "started": true,
+      "slurm_requeue": false,
+      "application_status": "FAILED_CPU_TOKEN_GATE",
+      "controller_status": "RUNNING_at_last_check",
+      "accounting_status": "FAILED_1:0",
+      "results_copied": true,
+      "CPU_gate_valid": false,
+      "audit": "outputs/preference_program/results/reader32_qualification_v60/CPU_audit.json",
+      "provisional_allocated_CPU_seconds": 191,
+      "observed_TotalCPU_seconds": 55.742
     }
   ],
   "last_checked_at_utc": "2026-10-06T20:33:27Z",
