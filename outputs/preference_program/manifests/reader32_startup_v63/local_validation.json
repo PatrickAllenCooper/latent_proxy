@@ -1,0 +1,7 @@
+{
+  "dependency_import_AST_exact": true,
+  "Python_syntax_valid": true,
+  "Slurm_syntax_valid": true,
+  "source_isolation_tests_passed": 3,
+  "no_semantic_instrument_change": true
+}
