@@ -1,0 +1,11 @@
+{
+  "scope": "Authorized changed instrumentation diagnosis only; mapping hookmarkers/15sstack/importtime; no preparation/model",
+  "limits": "4CPU8G45sstage90sstartup3minwall",
+  "hashes": {
+    "scripts/trace_indexed_startup.py": "852228fb7d8e53d886d131dfaacfce03227dafcf818758016b28c4830231d86e",
+    "scripts/indexed_metadata_exists.py": "1c062a9e118449bdeb613c76b7f018a4b940488af6ef9e91ae6755545dabad34",
+    "scripts/slurm/trace_indexed_startup.slurm": "cbc9d52670836e297b87b57285e9e2165475a96736a2f61f38576c75f490f250",
+    "outputs/preference_program/results/metadata_index_v47/integration/environment_before.json": "503f4d945e55bedefd9bca53ba0daed012d96811877c2006d4a8b2faae421144"
+  },
+  "stop": "Terminal trace only; noautoGPU/retry"
+}
