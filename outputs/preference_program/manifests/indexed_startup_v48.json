@@ -1,0 +1,12 @@
+{
+  "scope": "Authorized changed production-path CPU startup integration; no tokenizerloading/chattemplate/model/preparationretry",
+  "limits": "4CPU8G45sstage90sstartup3minwall",
+  "hashes": {
+    "scripts/indexed_startup.py": "7548c1fb1626c9806314334a8f614149156cd2183170bb80381adb5ef9ab1ef2",
+    "scripts/indexed_metadata_exists.py": "1c062a9e118449bdeb613c76b7f018a4b940488af6ef9e91ae6755545dabad34",
+    "scripts/slurm/validate_indexed_startup.slurm": "90f56f1bd204e83d50df0a19c732c1e7192d8fb83460a2e4b40c92e7d7bd8e76",
+    "outputs/preference_program/results/metadata_index_v47/integration/environment_before.json": "503f4d945e55bedefd9bca53ba0daed012d96811877c2006d4a8b2faae421144"
+  },
+  "full_environment_identity": "Not yet proven; failclosedqualification flag evenifmetadata startup passes",
+  "runtime_archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282"
+}
