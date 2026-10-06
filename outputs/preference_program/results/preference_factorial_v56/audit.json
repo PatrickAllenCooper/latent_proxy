@@ -1,0 +1,28 @@
+{
+  "job_id": "33483296",
+  "revision": "616636d",
+  "terminal_state": "FAILED",
+  "exit_code": "124:0",
+  "elapsed_seconds": 101,
+  "allocated_CPUs": 4,
+  "memory": "8G",
+  "allocated_CPU_seconds": 404,
+  "observed_TotalCPU_seconds": 5.825,
+  "batch_MaxRSS_KiB": 910948,
+  "token_receipt_complete": false,
+  "partial_token_records": 0,
+  "full_hash_gate_complete": false,
+  "GPU_job_submitted": false,
+  "model_calls": 0,
+  "advice_panel_blocked": true,
+  "failure_stage": "CPU dependency import before tokenizer load;90s diagnostic timeout",
+  "observed_stack": "Python importlib get_data/get_code reading shared environment SymPy geometry through Torch FSDP/Accelerate dependency chain",
+  "interpretation": "Directory exists indexing does not eliminate module source/bytecode reads; exact causal latency and full environment identity remain unverified. Prior warm-node success does not establish cold-start reliability.",
+  "automatic_retry": false,
+  "scientific_results": "No v56 model observations; frozen assay unchanged",
+  "files": {
+    "accounting.txt": "678fe10188dfbde0d80f62de445fd46ca54f0d288ea89f09d955d9c082319325",
+    "cpu-33483296.err": "9b34add721b2af98eb40873130ebf7d20d17fd21ab24aa44d6579732bb391c59",
+    "cpu-33483296.out": "0570dd1ccd3fe0284a777aac3329f139e2e9394ded7ef52fec46cb06f646034a"
+  }
+}

@@ -271,3 +271,29 @@ an independently registered capability or representation follow-up, without
 promoting a favorable reused case into qualification evidence. Full installed
 package-content identity beyond the verified pinned components remains
 unproven; no broader identity claim made.
+
+## Approved v56 execution — CPU prerequisite failed; GPU not submitted
+
+Direct Patrick approval relayed for 2026-10-06 13:33 UTC, message
+Sentinel_2dbe33397af08191923b777fa9a8c2d0, recorded separately without rewriting
+the prior design registration. Exact cases/scorer/design hashes rechecked.
+Frozen execution revision `616636d`; CPU job `33483296`, acpu/cpu-normal,
+ucb736_asc1, four actual CPUs, 8GB, no GPU. Runtime staging kept its 45-second
+limit; token preparation and current model/runtime hash gate shared a single
+90-second diagnostic limit. No existing duplicate latent job found.
+
+FAILED 124:0, 101 Slurm seconds, 404 allocated CPU seconds, 5.825 observed CPU
+seconds, peak batch RSS 910,948 KiB. Latest timed traceback shows importlib
+get_data/get_code during shared-environment SymPy geometry imports reached
+through Torch FSDP/Accelerate. No tokenizer-load completion, token rows,
+complete token receipt or full hash gate exists. No v56 GPU job or model
+response was submitted. Scientific outcome is unobserved, not failed model
+accuracy. The approved diagnostic remains frozen and blocked on preparation.
+
+The prior successful indexed-import/token run does not guarantee startup on
+another node. Exists indexing does not remove shared package source/bytecode
+reads. This observation narrows the remaining dependency issue but does not
+quantify per-file latency or validate a new repair. All raw logs/accounting
+and failure audit retained locally and remotely. Stop without automatic
+retry, changed model/prompt/scorer, resource expansion or advice submission.
+The v55 11/16 failure and advice hold remain unchanged.

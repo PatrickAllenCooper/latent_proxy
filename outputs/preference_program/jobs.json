@@ -2087,19 +2087,51 @@
       "eligible_priority_errors": 4,
       "custody_local_remote_hashes_equal": true,
       "automatic_retry": false
+    },
+    {
+      "job_id": "33483296",
+      "name": "lp-factorial-prep",
+      "status": "failed",
+      "revision": "616636d",
+      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/preference-factorial-v56",
+      "purpose": "Approvedv56 CPUtoken16/16 plus current model/runtime/code fullhash gate",
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "acpu",
+        "qos": "cpu-normal",
+        "cpus": 4,
+        "memory": "8G",
+        "wall_time": "00:03:00",
+        "GPU_count": 0
+      },
+      "caps": "45s stage90s combined token/hash diagnostic",
+      "advice_panel_blocked": true,
+      "exit_code": "124:0",
+      "elapsed": "00:01:41",
+      "allocated_CPUs": 4,
+      "allocated_CPU_seconds": 404,
+      "observed_TotalCPU_seconds": 5.825,
+      "results_copied": true,
+      "token_receipt_complete": false,
+      "hash_gate_complete": false,
+      "GPU_job_submitted": false,
+      "failure": "CPU dependency import before tokenizer load;90s diagnostic timeout"
     }
   ],
-  "last_checked_at_utc": "2026-10-06T04:30:04.673431+00:00",
+  "last_checked_at_utc": "2026-10-06T13:39:51.672328+00:00",
   "research_designs": [
     {
       "name": "preference_factorial_v56",
-      "status": "frozen_local_design_not_submitted",
+      "status": "approved_execution_blocked_on_CPU_preparation",
       "registration": "outputs/preference_program/manifests/preference_factorial_v56/registration.json",
       "scientific_gate": "Fresh independent paired execution/representation/identity/order smoke; no retrospective v55 rescue",
       "model_calls": 0,
       "GPU_jobs": 0,
       "advice_panel_blocked": true,
-      "pending_approval": false
+      "pending_approval": false,
+      "preparation_job": "33483296",
+      "execution_approval": "outputs/preference_program/manifests/preference_factorial_v56/execution_approval.json",
+      "automatic_retry": false
     }
   ]
 }

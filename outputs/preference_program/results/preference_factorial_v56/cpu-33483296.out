@@ -1,0 +1,15 @@
+CPUjob=33483296 node=c3cpu-e2-u7 start=2026-10-06T07:37:09-06:00
+{"event": "node_local_runtime_ready", "at_unix": 1791293834.626088, "elapsed_seconds": 2.9198975563049316, "path": "/tmp/latent-proxy-cpu-repair-33483296", "archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282"}
+{"event": "combined_CPU_preparation_start", "at": 1791293834.7403743}
+{"stage": "CPU_start", "at_unix": 1791293836.6506612, "pid": 3086102}
+{"stage": "transformers_import_start", "at_unix": 1791293843.3005188}
+{"shutdown_event": "handler_registered", "at": 1791293846.7789712, "handler": "logging.shutdown"}
+{"shutdown_event": "handler_registered", "at": 1791293851.5556204, "handler": "filelock._soft_rw._sync._cleanup_all_instances"}
+{"shutdown_event": "handler_registered", "at": 1791293851.569613, "handler": "weakref.finalize._exitfunc"}
+{"shutdown_event": "handler_registered", "at": 1791293851.772109, "handler": "huggingface_hub.utils._http.close_session"}
+{"shutdown_event": "handler_registered", "at": 1791293857.8790607, "handler": "PIL._imaging.clear_cache"}
+{"shutdown_event": "handler_registered", "at": 1791293888.0897079, "handler": "None.pybind11_detail_function_record_v1_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1."}
+{"shutdown_event": "handler_registered", "at": 1791293892.0004652, "handler": "torch.utils.data._utils._set_python_exit_flag"}
+{"shutdown_event": "handler_registered", "at": 1791293897.7585785, "handler": "multiprocessing.util._exit_function"}
+{"shutdown_event": "handler_registered", "at": 1791293902.5498216, "handler": "torch._subclasses.fake_tensor.dump_cache_stats"}
+{"shutdown_event": "handler_registered", "at": 1791293922.2514386, "handler": "torch._dynamo.utils.dump_compile_times"}
