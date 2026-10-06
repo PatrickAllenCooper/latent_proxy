@@ -2147,7 +2147,7 @@
     {
       "job_id": "33483615",
       "name": "lp-factorial-v56",
-      "status": "pending",
+      "status": "completed",
       "revision": "b6c455b",
       "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/preference-factorial-direct-v57",
       "purpose": "Approved frozenv56 16response factorial diagnostic after changed CPUgate",
@@ -2165,14 +2165,27 @@
       "caps": "90sstartup285scomplete10sgeneration12GiB24tokens16responses",
       "advice_panel_blocked": true,
       "reason": "Priority",
-      "estimated_start": "2026-10-06T08:15:26-06:00"
+      "estimated_start": "2026-10-06T08:15:26-06:00",
+      "exit_code": "0:0",
+      "results_copied": true,
+      "actual_CPUs": 4,
+      "elapsed": "00:00:28",
+      "allocated_CPU_seconds": 112,
+      "observed_TotalCPU_seconds": 8.241,
+      "engineering_valid": true,
+      "scientific_smoke_passed": false,
+      "records": 16,
+      "correct": 6,
+      "custody_verified": true,
+      "report": "Guidance_Documents/preference_factorial_v56_results.md",
+      "factorial_analysis": "outputs/preference_program/results/preference_factorial_direct_v57/factorial_analysis.json"
     }
   ],
-  "last_checked_at_utc": "2026-10-06T13:49:24.660974+00:00",
+  "last_checked_at_utc": "2026-10-06T14:07:55.843980+00:00",
   "research_designs": [
     {
       "name": "preference_factorial_v56",
-      "status": "approved_GPU_queued_after_changed_CPU_gate",
+      "status": "completed_negative_scientific_smoke",
       "registration": "outputs/preference_program/manifests/preference_factorial_v56/registration.json",
       "scientific_gate": "Fresh independent paired execution/representation/identity/order smoke; no retrospective v55 rescue",
       "model_calls": 0,
@@ -2183,7 +2196,9 @@
       "execution_approval": "outputs/preference_program/manifests/preference_factorial_v56/execution_approval.json",
       "automatic_retry": false,
       "CPU_job": "33483501",
-      "GPU_job": "33483615"
+      "GPU_job": "33483615",
+      "correct": 6,
+      "records": 16
     }
   ]
 }

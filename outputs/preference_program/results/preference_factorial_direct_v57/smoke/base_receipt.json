@@ -1,0 +1,31 @@
+{
+  "token_receipt_sha256": "a16d356ae1210dfd20505a9114facd31d05bcc617214bc69a7f36719d70ad087",
+  "normalizer_sha256": "7671d7a4337cce807351350e5fbacf5c18d49c9db13d386a8088ea0e2433a854",
+  "records": 16,
+  "manifest_sha256": "1ac7fe427e9da457a43902d490114c20616fee3a3adb8060af05e1fa8d753129",
+  "runner_sha256": "1e8ca4e94237826265fca4e27eb2a5f3e41b9b6fe40c2b5a684bb5fe5c45082d",
+  "snapshot": "/gpfs/alpine1/scratch/paco0228/relocated/caches/hf/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "arm_configs": {
+    "BF16": {
+      "attention_implementation": "sdpa",
+      "parameter_dtype_counts": {
+        "torch.bfloat16": 338
+      },
+      "quantized": false,
+      "quantization_compute_dtypes": [],
+      "eos_ids": [
+        151645,
+        151643
+      ],
+      "tokenizer_eos_id": 151645,
+      "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+      "use_cache": false
+    }
+  },
+  "max_new_tokens": 24,
+  "do_sample": false,
+  "wall_elapsed_seconds": 23.31080436706543,
+  "completed_at_unix": 1791295358.3108053,
+  "resource_budget_GiB": 12,
+  "complete": true
+}

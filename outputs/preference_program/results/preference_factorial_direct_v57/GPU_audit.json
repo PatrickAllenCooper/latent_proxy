@@ -1,0 +1,50 @@
+{
+  "job_id": "33483615",
+  "terminal_state": "COMPLETED",
+  "exit_code": "0:0",
+  "engineering_valid": true,
+  "scientific_smoke_passed": false,
+  "correct": 6,
+  "records": 16,
+  "EOS_records": 16,
+  "parse_failures": 0,
+  "length_caps": 0,
+  "by_format_diagnostics": {
+    "prose": {
+      "correct": 3,
+      "eligibility_violation": 2,
+      "eligible_priority_error": 3,
+      "parse_failure": 0,
+      "n": 8
+    },
+    "explicit_rank": {
+      "correct": 3,
+      "eligibility_violation": 4,
+      "eligible_priority_error": 1,
+      "parse_failure": 0,
+      "n": 8
+    }
+  },
+  "provenance_hashes_valid": true,
+  "CPU_GPU_ID_equality_valid": true,
+  "raw_traces_hand_checked": true,
+  "advice_panel_blocked": true,
+  "automatic_retry": false,
+  "resources": {
+    "actual_CPUs": 4,
+    "host_memory": "32G",
+    "GPU_GRES": "h200_2g.35gb:1",
+    "elapsed_seconds": 28,
+    "allocated_CPU_seconds": 112,
+    "observed_TotalCPU_seconds": 8.241,
+    "batch_MaxRSS_KiB": 1220168,
+    "peak_allocated_bytes": 3134516736,
+    "peak_reserved_bytes": 3149922304,
+    "CUDA_event_span_ms": 1844.9332523345947,
+    "generated_tokens": 32,
+    "after_cleanup_allocated_bytes": 33554432,
+    "after_cleanup_reserved_bytes": 3089104896
+  },
+  "telemetry_limitation": "MIG utilization N/A and host-wide memory are not job-specific. CUDA event spans/memory/32 generated tokens support real GPU work; spans are not utilization percentages.",
+  "interpretation": "Ranks do not improve paired correctness on these2cases; some semantic choices change. Relabel/order sensitivity observed. No population estimate or automatic advice opening."
+}

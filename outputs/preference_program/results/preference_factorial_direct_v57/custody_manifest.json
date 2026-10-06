@@ -1,0 +1,20 @@
+{
+  "files": {
+    "accounting.txt": "f1f7cd2c561207d08076e0078930e48777c671f077aeee6ccaf7027022d403f4",
+    "hash_gate.json": "3b86d957e3b6aab4d55163d2a1234bab6e54521216522a9b82854030a6c8ebb7",
+    "cpu-33483501.out": "1ba554945b5c1433aa57afe7e3ea2d8f68bb97056bcd9d4ee3f56b5003932dc4",
+    "token_receipt.json": "a16d356ae1210dfd20505a9114facd31d05bcc617214bc69a7f36719d70ad087",
+    "GPU_submission.json": "4d930b3161103cb2c71164729c677aa43e279cf7b98914ca4d95f57aba36e3b2",
+    "gpu-33483615.out": "8ff24e95b8e1e33a28864f80134cfae5ecfc955b4664f63bf5d85b3da6ab1743",
+    "gpu-33483615.err": "d8bec0449df70a7b20770e5365b1e018598ad238c275d9273b25c2163a00f9e8",
+    "cpu-33483501.err": "8f193ae601396606c7b79d14441b2e520c73d2ac2288dd9b598d6666f0243eb5",
+    "GPU_audit.json": "2478ef39635a054540688c25548a57a5c92738b0a98268c961466265c8741bfd",
+    "factorial_analysis.json": "68a554a98d55425eaa4dc48b71ee9a3f0d2a30c6106cce9b1e0d27d47b160d25",
+    "gpu-33483615.csv": "34618da2449dd4c74b0c7acc6a8582b0526b34203d310665d8f112419e67b3ad",
+    "token_receipt.partial.jsonl": "8732920af5f954f4c52b1692b9f4983cab57812f95e00eca9118b5afeb359994",
+    "CPU_audit.json": "91632243f034c2ac9b3fc58f345216096cb7cd553eb6ccc1d5f1e8b68025046c",
+    "smoke/base_receipt.json": "5411afb36f080c41985f8f0846ab7691823ec607acdd8b862d72a5fccd4e09b9",
+    "smoke/base.jsonl": "5864a6a3954062176b7c1f3b6ee99d3dc6fd07eb51de288d93137352e3a7b9f9"
+  },
+  "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/preference-factorial-direct-v57"
+}

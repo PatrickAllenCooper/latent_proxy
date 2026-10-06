@@ -1,0 +1,278 @@
+{
+  "n": 16,
+  "correct": 6,
+  "eligibility_violations": 6,
+  "eligible_priority_errors": 4,
+  "parse_failures": 0,
+  "by_format": {
+    "prose": {
+      "n": 8,
+      "correct": 3
+    },
+    "explicit_rank": {
+      "n": 8,
+      "correct": 3
+    }
+  },
+  "by_semantic_case": {
+    "fresh-00": {
+      "n": 8,
+      "correct": 6,
+      "by_format": {
+        "prose": {
+          "n": 4,
+          "correct": 3
+        },
+        "explicit_rank": {
+          "n": 4,
+          "correct": 3
+        }
+      }
+    },
+    "fresh-01": {
+      "n": 8,
+      "correct": 0,
+      "by_format": {
+        "prose": {
+          "n": 4,
+          "correct": 0
+        },
+        "explicit_rank": {
+          "n": 4,
+          "correct": 0
+        }
+      }
+    }
+  },
+  "contrasts": {
+    "format": {
+      "first": "prose",
+      "second": "explicit_rank",
+      "paired_correct_difference": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mean_paired_accuracy_difference": 0.0,
+      "semantic_choice_agreement_pairs": 4,
+      "total_pairs": 8,
+      "pairs": [
+        {
+          "semantic_case_id": "fresh-00",
+          "first_case_id": "fresh-00-prose-l0-reverse",
+          "second_case_id": "fresh-00-rank-l0-reverse",
+          "correct_difference": 0,
+          "same_semantic_choice": true
+        },
+        {
+          "semantic_case_id": "fresh-01",
+          "first_case_id": "fresh-01-prose-l0-reverse",
+          "second_case_id": "fresh-01-rank-l0-reverse",
+          "correct_difference": 0,
+          "same_semantic_choice": false
+        },
+        {
+          "semantic_case_id": "fresh-00",
+          "first_case_id": "fresh-00-prose-l2-forward",
+          "second_case_id": "fresh-00-rank-l2-forward",
+          "correct_difference": 0,
+          "same_semantic_choice": false
+        },
+        {
+          "semantic_case_id": "fresh-01",
+          "first_case_id": "fresh-01-prose-l2-forward",
+          "second_case_id": "fresh-01-rank-l2-forward",
+          "correct_difference": 0,
+          "same_semantic_choice": false
+        },
+        {
+          "semantic_case_id": "fresh-00",
+          "first_case_id": "fresh-00-prose-l2-reverse",
+          "second_case_id": "fresh-00-rank-l2-reverse",
+          "correct_difference": 0,
+          "same_semantic_choice": true
+        },
+        {
+          "semantic_case_id": "fresh-01",
+          "first_case_id": "fresh-01-prose-l2-reverse",
+          "second_case_id": "fresh-01-rank-l2-reverse",
+          "correct_difference": 0,
+          "same_semantic_choice": false
+        },
+        {
+          "semantic_case_id": "fresh-00",
+          "first_case_id": "fresh-00-prose-l0-forward",
+          "second_case_id": "fresh-00-rank-l0-forward",
+          "correct_difference": 0,
+          "same_semantic_choice": true
+        },
+        {
+          "semantic_case_id": "fresh-01",
+          "first_case_id": "fresh-01-prose-l0-forward",
+          "second_case_id": "fresh-01-rank-l0-forward",
+          "correct_difference": 0,
+          "same_semantic_choice": true
+        }
+      ]
+    },
+    "label_rotation": {
+      "first": 0,
+      "second": 2,
+      "paired_correct_difference": [
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "mean_paired_accuracy_difference": -0.25,
+      "semantic_choice_agreement_pairs": 5,
+      "total_pairs": 8,
+      "pairs": [
+        {
+          "semantic_case_id": "fresh-00",
+          "first_case_id": "fresh-00-rank-l0-reverse",
+          "second_case_id": "fresh-00-rank-l2-reverse",
+          "correct_difference": 0,
+          "same_semantic_choice": true
+        },
+        {
+          "semantic_case_id": "fresh-01",
+          "first_case_id": "fresh-01-prose-l0-reverse",
+          "second_case_id": "fresh-01-prose-l2-reverse",
+          "correct_difference": 0,
+          "same_semantic_choice": true
+        },
+        {
+          "semantic_case_id": "fresh-00",
+          "first_case_id": "fresh-00-prose-l0-forward",
+          "second_case_id": "fresh-00-prose-l2-forward",
+          "correct_difference": -1,
+          "same_semantic_choice": false
+        },
+        {
+          "semantic_case_id": "fresh-01",
+          "first_case_id": "fresh-01-prose-l0-forward",
+          "second_case_id": "fresh-01-prose-l2-forward",
+          "correct_difference": 0,
+          "same_semantic_choice": false
+        },
+        {
+          "semantic_case_id": "fresh-00",
+          "first_case_id": "fresh-00-prose-l0-reverse",
+          "second_case_id": "fresh-00-prose-l2-reverse",
+          "correct_difference": 0,
+          "same_semantic_choice": true
+        },
+        {
+          "semantic_case_id": "fresh-01",
+          "first_case_id": "fresh-01-rank-l0-reverse",
+          "second_case_id": "fresh-01-rank-l2-reverse",
+          "correct_difference": 0,
+          "same_semantic_choice": true
+        },
+        {
+          "semantic_case_id": "fresh-00",
+          "first_case_id": "fresh-00-rank-l0-forward",
+          "second_case_id": "fresh-00-rank-l2-forward",
+          "correct_difference": -1,
+          "same_semantic_choice": false
+        },
+        {
+          "semantic_case_id": "fresh-01",
+          "first_case_id": "fresh-01-rank-l0-forward",
+          "second_case_id": "fresh-01-rank-l2-forward",
+          "correct_difference": 0,
+          "same_semantic_choice": true
+        }
+      ]
+    },
+    "row_order": {
+      "first": "forward",
+      "second": "reverse",
+      "paired_correct_difference": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "mean_paired_accuracy_difference": 0.25,
+      "semantic_choice_agreement_pairs": 5,
+      "total_pairs": 8,
+      "pairs": [
+        {
+          "semantic_case_id": "fresh-00",
+          "first_case_id": "fresh-00-rank-l0-forward",
+          "second_case_id": "fresh-00-rank-l0-reverse",
+          "correct_difference": 0,
+          "same_semantic_choice": true
+        },
+        {
+          "semantic_case_id": "fresh-01",
+          "first_case_id": "fresh-01-prose-l0-forward",
+          "second_case_id": "fresh-01-prose-l0-reverse",
+          "correct_difference": 0,
+          "same_semantic_choice": false
+        },
+        {
+          "semantic_case_id": "fresh-00",
+          "first_case_id": "fresh-00-prose-l2-forward",
+          "second_case_id": "fresh-00-prose-l2-reverse",
+          "correct_difference": 1,
+          "same_semantic_choice": false
+        },
+        {
+          "semantic_case_id": "fresh-01",
+          "first_case_id": "fresh-01-prose-l2-forward",
+          "second_case_id": "fresh-01-prose-l2-reverse",
+          "correct_difference": 0,
+          "same_semantic_choice": true
+        },
+        {
+          "semantic_case_id": "fresh-00",
+          "first_case_id": "fresh-00-rank-l2-forward",
+          "second_case_id": "fresh-00-rank-l2-reverse",
+          "correct_difference": 1,
+          "same_semantic_choice": false
+        },
+        {
+          "semantic_case_id": "fresh-01",
+          "first_case_id": "fresh-01-rank-l0-forward",
+          "second_case_id": "fresh-01-rank-l0-reverse",
+          "correct_difference": 0,
+          "same_semantic_choice": true
+        },
+        {
+          "semantic_case_id": "fresh-00",
+          "first_case_id": "fresh-00-prose-l0-forward",
+          "second_case_id": "fresh-00-prose-l0-reverse",
+          "correct_difference": 0,
+          "same_semantic_choice": true
+        },
+        {
+          "semantic_case_id": "fresh-01",
+          "first_case_id": "fresh-01-rank-l2-forward",
+          "second_case_id": "fresh-01-rank-l2-reverse",
+          "correct_difference": 0,
+          "same_semantic_choice": true
+        }
+      ]
+    }
+  },
+  "response_format_valid": true,
+  "new_smoke_passed": false,
+  "original_v55_qualification_still_failed": true,
+  "advice_panel_blocked": true
+}

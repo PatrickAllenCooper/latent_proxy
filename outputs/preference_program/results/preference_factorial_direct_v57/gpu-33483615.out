@@ -1,0 +1,66 @@
+job=33483615 started=2026-10-06T08:02:19-06:00 node=c3gpu-e5-u1
+{"event": "node_local_runtime_ready", "at_unix": 1791295340.6563966, "elapsed_seconds": 0.8061261177062988, "path": "/tmp/latent-proxy-runtime-33483615", "archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282"}
+{"event": "imports_start", "at_unix": 1791295342.7864895}
+{"shutdown_event": "handler_registered", "at": 1791295342.8348153, "handler": "logging.shutdown"}
+{"shutdown_event": "handler_registered", "at": 1791295343.9492707, "handler": "None.pybind11_detail_function_record_v1_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1."}
+{"shutdown_event": "handler_registered", "at": 1791295344.6777544, "handler": "torch.utils.data._utils._set_python_exit_flag"}
+{"shutdown_event": "handler_registered", "at": 1791295345.3766434, "handler": "multiprocessing.util._exit_function"}
+{"shutdown_event": "handler_registered", "at": 1791295345.9776452, "handler": "torch._subclasses.fake_tensor.dump_cache_stats"}
+{"shutdown_event": "handler_registered", "at": 1791295346.0231504, "handler": "weakref.finalize._exitfunc"}
+{"shutdown_event": "handler_registered", "at": 1791295346.969297, "handler": "filelock._soft_rw._sync._cleanup_all_instances"}
+{"shutdown_event": "handler_registered", "at": 1791295346.98919, "handler": "huggingface_hub.utils._http.close_session"}
+{"shutdown_event": "handler_registered", "at": 1791295349.1873848, "handler": "PIL._imaging.clear_cache"}
+{"shutdown_event": "handler_registered", "at": 1791295351.8146114, "handler": "torch._dynamo.utils.dump_compile_times"}
+{"shutdown_event": "handler_registered", "at": 1791295352.1037052, "handler": "torch._dynamo.eval_frame._log_traced_frames"}
+{"event": "tokenizer_load_start", "at_unix": 1791295352.6847243, "snapshot": "/gpfs/alpine1/scratch/paco0228/relocated/caches/hf/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306"}
+{"event": "model_load_start", "at_unix": 1791295353.4994779, "precision": "BF16", "snapshot": "/gpfs/alpine1/scratch/paco0228/relocated/caches/hf/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306"}
+{"shutdown_event": "handler_registered", "at": 1791295354.614827, "handler": "tqdm._monitor.TMonitor._atexit_signal"}
+{"event": "model_loaded", "at_unix": 1791295355.352191, "precision": "BF16", "config": {"attention_implementation": "sdpa", "parameter_dtype_counts": {"torch.bfloat16": 338}, "quantized": false, "quantization_compute_dtypes": [], "eos_ids": [151645, 151643], "tokenizer_eos_id": 151645, "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f", "use_cache": false}, "gpu_memory_allocated_bytes": 3087429632, "gpu_memory_reserved_bytes": 3147825152}
+{"event": "generation_progress", "at_unix": 1791295356.8469641, "precision": "BF16", "records": 1, "completion": "A", "gpu_memory_allocated_bytes": 3120987136, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true, "gpu_elapsed_ms": 1484.33642578125, "generated_tokens": 2}
+{"event": "generation_progress", "at_unix": 1791295356.930403, "precision": "BF16", "records": 2, "completion": "D", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true, "gpu_elapsed_ms": 81.63510131835938, "generated_tokens": 2}
+{"event": "generation_progress", "at_unix": 1791295356.950888, "precision": "BF16", "records": 3, "completion": "B", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true, "gpu_elapsed_ms": 19.557247161865234, "generated_tokens": 2}
+{"event": "generation_progress", "at_unix": 1791295356.9709427, "precision": "BF16", "records": 4, "completion": "B", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true, "gpu_elapsed_ms": 19.162399291992188, "generated_tokens": 2}
+{"event": "generation_progress", "at_unix": 1791295356.990958, "precision": "BF16", "records": 5, "completion": "C", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true, "gpu_elapsed_ms": 19.106367111206055, "generated_tokens": 2}
+{"event": "generation_progress", "at_unix": 1791295357.9185803, "precision": "BF16", "records": 6, "completion": "C", "gpu_memory_allocated_bytes": 3120987136, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true, "gpu_elapsed_ms": 20.768768310546875, "generated_tokens": 2}
+{"event": "generation_progress", "at_unix": 1791295357.9386263, "precision": "BF16", "records": 7, "completion": "B", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true, "gpu_elapsed_ms": 19.204992294311523, "generated_tokens": 2}
+{"event": "generation_progress", "at_unix": 1791295357.9602273, "precision": "BF16", "records": 8, "completion": "C", "gpu_memory_allocated_bytes": 3120987136, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true, "gpu_elapsed_ms": 20.70694351196289, "generated_tokens": 2}
+{"event": "generation_progress", "at_unix": 1791295357.981195, "precision": "BF16", "records": 9, "completion": "A", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true, "gpu_elapsed_ms": 20.03868865966797, "generated_tokens": 2}
+{"event": "generation_progress", "at_unix": 1791295358.002338, "precision": "BF16", "records": 10, "completion": "A", "gpu_memory_allocated_bytes": 3120987136, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true, "gpu_elapsed_ms": 20.170751571655273, "generated_tokens": 2}
+{"event": "generation_progress", "at_unix": 1791295358.0236924, "precision": "BF16", "records": 11, "completion": "C", "gpu_memory_allocated_bytes": 3120987136, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true, "gpu_elapsed_ms": 20.319135665893555, "generated_tokens": 2}
+{"event": "generation_progress", "at_unix": 1791295358.0449283, "precision": "BF16", "records": 12, "completion": "A", "gpu_memory_allocated_bytes": 3120987136, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true, "gpu_elapsed_ms": 20.29747200012207, "generated_tokens": 2}
+{"event": "generation_progress", "at_unix": 1791295358.0658724, "precision": "BF16", "records": 13, "completion": "A", "gpu_memory_allocated_bytes": 3120987136, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true, "gpu_elapsed_ms": 20.00480079650879, "generated_tokens": 2}
+{"event": "generation_progress", "at_unix": 1791295358.0868244, "precision": "BF16", "records": 14, "completion": "A", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true, "gpu_elapsed_ms": 19.98761558532715, "generated_tokens": 2}
+{"event": "generation_progress", "at_unix": 1791295358.1067982, "precision": "BF16", "records": 15, "completion": "C", "gpu_memory_allocated_bytes": 3120986112, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true, "gpu_elapsed_ms": 19.105087280273438, "generated_tokens": 2}
+{"event": "generation_progress", "at_unix": 1791295358.128217, "precision": "BF16", "records": 16, "completion": "A", "gpu_memory_allocated_bytes": 3120987136, "gpu_memory_reserved_bytes": 3149922304, "eos_observed": true, "gpu_elapsed_ms": 20.531455993652344, "generated_tokens": 2}
+{"event": "arm_complete", "at_unix": 1791295358.1284173, "precision": "BF16", "peak_allocated_bytes": 3134516736, "peak_reserved_bytes": 3149922304}
+{"event": "cleanup_complete", "at_unix": 1791295358.309521, "precision": "BF16", "allocated_bytes": 33554432, "reserved_bytes": 3089104896}
+{"event": "study_complete", "at_unix": 1791295358.311916, "records": 16, "wall_elapsed_seconds": 23.31080436706543}
+{"shutdown_event": "normal_exit_initiated", "at": 1791295358.3120184, "threads": [{"name": "MainThread", "ident": 23382168105984, "daemon": false, "alive": true}, {"name": "tqdm_monitor", "ident": 23369093191424, "daemon": true, "alive": true}], "child_pids": ""}
+{"shutdown_event": "thread_shutdown_start", "at": 1791295358.3406417, "threads": [{"name": "MainThread", "ident": 23382168105984, "daemon": false, "alive": true}, {"name": "tqdm_monitor", "ident": 23369093191424, "daemon": true, "alive": true}], "child_pids": ""}
+{"shutdown_event": "thread_shutdown_end", "at": 1791295358.3407624, "threads": [{"name": "MainThread", "ident": 23382168105984, "daemon": false, "alive": false}, {"name": "tqdm_monitor", "ident": 23369093191424, "daemon": true, "alive": true}], "child_pids": ""}
+{"shutdown_event": "handler_start", "at": 1791295358.3407853, "handler": "tqdm._monitor.TMonitor._atexit_signal", "threads": [{"name": "MainThread", "ident": 23382168105984, "daemon": false, "alive": false}, {"name": "tqdm_monitor", "ident": 23369093191424, "daemon": true, "alive": true}], "child_pids": ""}
+{"shutdown_event": "handler_end", "at": 1791295358.3408031, "handler": "tqdm._monitor.TMonitor._atexit_signal"}
+{"shutdown_event": "handler_start", "at": 1791295358.3408213, "handler": "torch._dynamo.eval_frame._log_traced_frames", "threads": [{"name": "MainThread", "ident": 23382168105984, "daemon": false, "alive": false}, {"name": "tqdm_monitor", "ident": 23369093191424, "daemon": true, "alive": true}], "child_pids": ""}
+{"shutdown_event": "handler_end", "at": 1791295358.3408675, "handler": "torch._dynamo.eval_frame._log_traced_frames"}
+{"shutdown_event": "handler_start", "at": 1791295358.340888, "handler": "torch._dynamo.utils.dump_compile_times", "threads": [{"name": "MainThread", "ident": 23382168105984, "daemon": false, "alive": false}], "child_pids": ""}
+{"shutdown_event": "handler_end", "at": 1791295358.3410547, "handler": "torch._dynamo.utils.dump_compile_times"}
+{"shutdown_event": "handler_start", "at": 1791295358.3410795, "handler": "PIL._imaging.clear_cache", "threads": [{"name": "MainThread", "ident": 23382168105984, "daemon": false, "alive": false}], "child_pids": ""}
+{"shutdown_event": "handler_end", "at": 1791295358.3411016, "handler": "PIL._imaging.clear_cache"}
+{"shutdown_event": "handler_start", "at": 1791295358.3411162, "handler": "huggingface_hub.utils._http.close_session", "threads": [{"name": "MainThread", "ident": 23382168105984, "daemon": false, "alive": false}], "child_pids": ""}
+{"shutdown_event": "handler_end", "at": 1791295358.3411236, "handler": "huggingface_hub.utils._http.close_session"}
+{"shutdown_event": "handler_start", "at": 1791295358.3411372, "handler": "filelock._soft_rw._sync._cleanup_all_instances", "threads": [{"name": "MainThread", "ident": 23382168105984, "daemon": false, "alive": false}], "child_pids": ""}
+{"shutdown_event": "handler_end", "at": 1791295358.3411517, "handler": "filelock._soft_rw._sync._cleanup_all_instances"}
+{"shutdown_event": "handler_start", "at": 1791295358.3411658, "handler": "weakref.finalize._exitfunc", "threads": [{"name": "MainThread", "ident": 23382168105984, "daemon": false, "alive": false}], "child_pids": ""}
+{"shutdown_event": "handler_end", "at": 1791295358.3481815, "handler": "weakref.finalize._exitfunc"}
+{"shutdown_event": "handler_start", "at": 1791295358.3483198, "handler": "torch._subclasses.fake_tensor.dump_cache_stats", "threads": [{"name": "MainThread", "ident": 23382168105984, "daemon": false, "alive": false}], "child_pids": ""}
+{"shutdown_event": "handler_end", "at": 1791295358.3483422, "handler": "torch._subclasses.fake_tensor.dump_cache_stats"}
+{"shutdown_event": "handler_start", "at": 1791295358.3483622, "handler": "multiprocessing.util._exit_function", "threads": [{"name": "MainThread", "ident": 23382168105984, "daemon": false, "alive": false}], "child_pids": ""}
+{"shutdown_event": "handler_end", "at": 1791295358.3483813, "handler": "multiprocessing.util._exit_function"}
+{"shutdown_event": "handler_start", "at": 1791295358.3484008, "handler": "torch.utils.data._utils._set_python_exit_flag", "threads": [{"name": "MainThread", "ident": 23382168105984, "daemon": false, "alive": false}], "child_pids": ""}
+{"shutdown_event": "handler_end", "at": 1791295358.348409, "handler": "torch.utils.data._utils._set_python_exit_flag"}
+{"shutdown_event": "handler_start", "at": 1791295358.3484223, "handler": "None.pybind11_detail_function_record_v1_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1.", "threads": [{"name": "MainThread", "ident": 23382168105984, "daemon": false, "alive": false}], "child_pids": ""}
+{"shutdown_event": "handler_end", "at": 1791295358.3484313, "handler": "None.pybind11_detail_function_record_v1_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1."}
+{"shutdown_event": "handler_start", "at": 1791295358.3484442, "handler": "logging.shutdown", "threads": [{"name": "MainThread", "ident": 23382168105984, "daemon": false, "alive": false}], "child_pids": ""}
+{"shutdown_event": "handler_end", "at": 1791295358.348519, "handler": "logging.shutdown"}
+{"shutdown_event": "last_observer_exit", "at": 1791295358.3485355, "threads": [{"name": "MainThread", "ident": 23382168105984, "daemon": false, "alive": false}], "child_pids": ""}
+job=33483615 completed=2026-10-06T08:02:39-06:00
