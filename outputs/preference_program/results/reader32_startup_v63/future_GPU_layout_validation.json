@@ -1,0 +1,11 @@
+{
+  "GPU_submitted": false,
+  "model_load_and_generate_call_AST_unchanged_from_v62": true,
+  "chat_token_call_AST_unchanged_from_v62": true,
+  "actual_CLI_preimport_failure_exports_to_sibling_spool": true,
+  "nested_spool_rejected_without_source_mutation": true,
+  "test_methods_passed": 2,
+  "runner_sha256": "1d854f7dc41578da6cdb859b2372f4ccb43e487d8b10e5deb272284f06ff2ffb",
+  "slurm_sha256": "a80faf0c3b54d6c90161fa877ec1b001b914a865c51c3afcfae01116dbe74e37",
+  "not_validated": "CUDA model load, peak device memory, generation throughput and scientific qualification"
+}
