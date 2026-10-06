@@ -1,0 +1,12 @@
+{
+  "complete": true,
+  "remote_local_SHA256_match": true,
+  "files": {
+    "cpu_receipt.json": "345add724bbf55f724a4bdb47d6175944df43ffe211a112635275099cccd4bc4",
+    "integrity_journal.jsonl": "b39bb456c5c110abee5d4546c9f7fcf7bc73cbd5eee79999db06d694fa9d7e3e",
+    "token_diagnostic_receipt.json": "b1954a127f97c82551ea685fdb0640330b96d099234c25adb6fd4ae652289813",
+    "token_diagnostic/tokens.jsonl": "864d301e120f85287eae92f295f073062385b57a90ce6eee72157133b953a105",
+    "cpu-33507413.out": "de6c9da9043327d0e8b147ef0a3c552de384b72a2b35d26d1a933051ff0f93e2",
+    "cpu-33507413.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -2220,7 +2220,7 @@
     {
       "job_id": "33507413",
       "stage": "cause_specific_CPU_preparation",
-      "status": "RUNNING",
+      "status": "COMPLETED",
       "submitted_at_utc": "2026-10-06T23:06:32Z",
       "source_commit": "a1424f6",
       "source_bundle_sha256": "60d40c1bb8f1b02e24e71b346ece49f2b4e718986d6dbdcf8f544458ac24f233",
@@ -2240,7 +2240,18 @@
       "advice_hold": true,
       "started_at_utc": "2026-10-06T23:06:32Z",
       "node": "c3cpu-e2-u2",
-      "runtime_extract_seconds": 0.7381057739257812
+      "runtime_extract_seconds": 0.7381057739257812,
+      "exit_code": "0:0",
+      "elapsed_seconds": 160,
+      "final_allocated_CPU_seconds": 160,
+      "observed_TotalCPU_seconds": 47.121,
+      "MaxRSS_KiB": 1111048,
+      "CPU_gate_valid": true,
+      "terminal_reconciled": true,
+      "custody_verified": true,
+      "results_copied": true,
+      "GPU_admitted": false,
+      "audit": "outputs/preference_program/results/reader32_preparation_v61/CPU_audit.json"
     }
   ],
   "last_checked_at_utc": "2026-10-06T20:33:27Z",
