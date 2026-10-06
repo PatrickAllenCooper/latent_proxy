@@ -1,0 +1,10 @@
+{
+  "scope": "Authorized separate CPU-only authoritative mapping/environment identity diagnostic, no tokenizer/model calls or preparation retry",
+  "cap_seconds": 90,
+  "resources": "4CPU8G3min acpu/cpu-normal; belowprior4CPU32Grequest",
+  "hashes": {
+    "scripts/capture_authoritative_metadata.py": "6ba6273ea0912c0a2809ac7073cecfad4236b77609e011b7b7da70d761ac1f45",
+    "scripts/slurm/capture_authoritative_metadata.slurm": "515d32dec6a5d4815fae7d471d63f64c389c48b7cd48c92ae3723071b64d1b19"
+  },
+  "fail_closed": "partial mapping is not usable; complete identity and sys.path equivalence required; no autoGPU"
+}
