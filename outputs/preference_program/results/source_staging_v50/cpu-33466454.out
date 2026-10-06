@@ -1,0 +1,35 @@
+CPUjob=33466454 node=c3cpu-e2-u2 start=2026-10-05T19:51:01-06:00
+{"event": "node_local_runtime_ready", "at_unix": 1791251474.777413, "elapsed_seconds": 12.916857957839966, "path": "/tmp/latent-proxy-cpu-repair-33466454", "archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282"}
+{"stage": "start", "at": 1791251475.2772412}
+{"stage": "metadata_valid", "at": 1791251479.4193063}
+{"stage": "staging_start", "at": 1791251479.4193888}
+{"stage": "staging_progress", "files": 100, "bytes": 995063592}
+{"stage": "staging_progress", "files": 200, "bytes": 997148135}
+{"stage": "staging_progress", "files": 300, "bytes": 998034095}
+{"stage": "staging_progress", "files": 400, "bytes": 1000802774}
+{"stage": "staging_progress", "files": 500, "bytes": 1001991911}
+{"stage": "staging_progress", "files": 600, "bytes": 1003205443}
+{"stage": "staging_progress", "files": 700, "bytes": 1007259952}
+{"stage": "staging_progress", "files": 800, "bytes": 1010294038}
+{"stage": "staging_progress", "files": 900, "bytes": 1011504431}
+{"stage": "staging_progress", "files": 1000, "bytes": 1016008348}
+{"stage": "staging_progress", "files": 1100, "bytes": 1018658053}
+{"stage": "staging_progress", "files": 1200, "bytes": 1018884984}
+{"stage": "staging_progress", "files": 1300, "bytes": 1019049996}
+{"stage": "staging_progress", "files": 1400, "bytes": 1019250581}
+{"stage": "staging_progress", "files": 1500, "bytes": 1019432642}
+{"stage": "staging_progress", "files": 1600, "bytes": 1019631672}
+{"stage": "staging_progress", "files": 1700, "bytes": 1019794219}
+{"stage": "staging_progress", "files": 1800, "bytes": 1019948206}
+{"stage": "staging_progress", "files": 1900, "bytes": 1020126112}
+{"stage": "staging_progress", "files": 2000, "bytes": 1020294026}
+{"stage": "staging_progress", "files": 2100, "bytes": 1020481900}
+{"stage": "staging_progress", "files": 2200, "bytes": 1020677183}
+{"stage": "staging_progress", "files": 2300, "bytes": 1020862566}
+{"stage": "staging_progress", "files": 2400, "bytes": 1021018810}
+{"stage": "staging_progress", "files": 2500, "bytes": 1021218904}
+{"stage": "staging_progress", "files": 2600, "bytes": 1021383689}
+{"stage": "staging_progress", "files": 2700, "bytes": 1021567937}
+{"stage": "staging_progress", "files": 2800, "bytes": 1021728399}
+{"stage": "staging_progress", "files": 2900, "bytes": 1021901420}
+{"stage": "staging_progress", "files": 3000, "bytes": 1022064708}

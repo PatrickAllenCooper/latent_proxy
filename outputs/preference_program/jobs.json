@@ -1881,7 +1881,37 @@
       "metadata_binding_valid": true,
       "full_environment_identity": false,
       "GPU_submitted": false
+    },
+    {
+      "job_id": "33466454",
+      "name": "lp-source-stage",
+      "status": "failed",
+      "revision": "50f9974",
+      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/source-staging-v50",
+      "purpose": "CPU-only exact source copy/nativeasset hash staging and import/version identity",
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "acpu",
+        "qos": "cpu-normal",
+        "cpus": 4,
+        "memory": "8G",
+        "wall_time": "00:03:00",
+        "GPU_count": 0
+      },
+      "caps": "45sruntime-stage90sdiagnostic",
+      "next_gate": "Complete identity/importreceipt required; partial journal notqualification; noautoGPU",
+      "exit_code": "124:0",
+      "elapsed": "00:01:54",
+      "allocated_CPUs": 4,
+      "allocated_CPU_seconds": 456,
+      "observed_TotalCPU_seconds": 5.101,
+      "results_copied": true,
+      "staging_complete": false,
+      "partial_verified_entries": 3025,
+      "import_validation_reached": false,
+      "GPU_submitted": false,
+      "failure": "90s exact source/native staging timeout; preserved partialhashjournal"
     }
   ],
-  "last_checked_at_utc": "2026-10-06T01:08:18.302621+00:00"
+  "last_checked_at_utc": "2026-10-06T01:53:51.461185+00:00"
 }

@@ -1,0 +1,28 @@
+{
+  "job_id": "33466454",
+  "state": "FAILED",
+  "exit_code": "124:0",
+  "elapsed_seconds": 114,
+  "requested_CPUs": 4,
+  "allocated_CPUs": 4,
+  "allocated_CPU_seconds": 456,
+  "observed_TotalCPU_seconds": 5.101,
+  "host_memory": "8G",
+  "batch_peak_RSS_KiB": 1166228,
+  "diagnostic_elapsed_seconds": 90,
+  "partial_verified_entries": 3025,
+  "partial_verified_bytes": 1022103687,
+  "partial_modes": {
+    "copied_python": 882,
+    "linked_asset": 2143
+  },
+  "complete_staging": false,
+  "import_validation_reached": false,
+  "metadata_before_valid": true,
+  "full_environment_identity": false,
+  "model_calls": 0,
+  "GPU_jobs": 0,
+  "partials_custody": "Hash journal preserved local/remote; remaining node-local tree path retained by agent (no deletion requested)",
+  "result": "Full per-file staged content verification did not fit90s; no assumption of import equivalence from partialbytes",
+  "next_gate": "Review narrower dependency packaging/asset manifest with unchanged-content semantics and an explicit aggregate budget; no unchangedbuilderretry or GPU"
+}
