@@ -1,0 +1,13 @@
+{
+  "authorization": "Patrick direct instruction to resume projects after CURC restoration; coordinator explicitly authorizes one same-envelope serialization repair preparation and conditional originally approved16responsequalification",
+  "prior_fix": "de7f6f4",
+  "hashes": {
+    "scripts/prompt_token_ids.py": "7671d7a4337cce807351350e5fbacf5c18d49c9db13d386a8088ea0e2433a854",
+    "scripts/prepare_eligibility_tokens_v3.py": "3c32031f947bdb57a50d2225c17ac40f336b97ee95c04fff64af42d38683f5d1",
+    "scripts/run_eligibility_priority_qualification_v2.py": "e2959b99b2b4680f06e5ac848d0d40f42521980080670b4047b15046d803a4b0",
+    "scripts/slurm/prepare_eligibility_tokens_v3.slurm": "67f0618910b9c6006a99783211cfaeb740fb693e28056d81a4957ab5a8646a1b",
+    "scripts/slurm/run_eligibility_priority_v45_v2.slurm": "b782888be2fb149a6c0f0d571ff7f31c0cb78466c0738a6d257e71786c06f58f",
+    "outputs/preference_program/manifests/eligibility_priority_v45/execution_manifest.jsonl": "29adcc6fd1644412eb2a698bb41e93c26a61cf7dc47b9b9a93078b771030c4af"
+  },
+  "scope": "CPU90scap; conditional oneMIG5minqualification; no56responseadvice; stopfailure/noautomaticretry"
+}
