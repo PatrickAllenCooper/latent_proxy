@@ -1,0 +1,11 @@
+{
+  "scope": "Explicitly authorized changed CPU Python3.12 integration diagnostic; no model/preparation retry",
+  "bounds": "4CPU8G90scap3minSlurm; noGPU",
+  "hashes": {
+    "scripts/indexed_metadata_exists.py": "1c062a9e118449bdeb613c76b7f018a4b940488af6ef9e91ae6755545dabad34",
+    "scripts/validate_indexed_metadata_integration.py": "35e49671b0017cf263d98d616766ce8c0ba28a0b57b2ba480504d66430920f13",
+    "scripts/slurm/validate_indexed_metadata.slurm": "bb4b954dbba8abf81b595b3af39bb63295f6d117c1155c3017db9cfbf10cc1d3"
+  },
+  "stop": "Any timeout/inequality/mutation stops; incomplete not qualified; noautoGPU",
+  "identity_scope": "metadata binding, not complete package-content immutability"
+}
