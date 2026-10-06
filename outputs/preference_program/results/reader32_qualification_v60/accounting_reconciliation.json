@@ -1,0 +1,11 @@
+{
+  "captured_at_utc": "2026-10-06T22:42:29Z",
+  "job_id": "33505553",
+  "squeue": "RUNNING 10:00",
+  "controller": "RUNNING; Requeue=0; Restarts=0; ExitCode=0:0",
+  "sacct": "FAILED 1:0; elapsed191s; TotalCPU55.742s; batchMaxRSS1052532KiB",
+  "terminal_reconciled": false,
+  "new_admission_allowed": false,
+  "GPU_submitted": false,
+  "conclusion": "Controller/accounting disagreement remains at requested wall limit. No retry or new admission; charges provisional."
+}
