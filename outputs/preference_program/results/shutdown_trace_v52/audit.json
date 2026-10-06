@@ -1,0 +1,32 @@
+{
+  "job_id": "33467763",
+  "terminal_state": "COMPLETED",
+  "exit_code": "0:0",
+  "import_seconds": 12.010744333267212,
+  "diagnostic_receipt_seconds": 13.175883769989014,
+  "observed_python_shutdown_seconds": 0.01339101791381836,
+  "handler_seconds": {
+    "torch._dynamo.eval_frame._log_traced_frames": 3.1948089599609375e-05,
+    "torch._dynamo.utils.dump_compile_times": 0.00023102760314941406,
+    "torch._subclasses.fake_tensor.dump_cache_stats": 0.0014865398406982422,
+    "multiprocessing.util._exit_function": 2.956390380859375e-05,
+    "torch.utils.data._utils._set_python_exit_flag": 1.5735626220703125e-05,
+    "None.pybind11_detail_function_record_v1_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1.": 2.7894973754882812e-05,
+    "PIL._imaging.clear_cache": 2.1219253540039062e-05,
+    "huggingface_hub.utils._http.close_session": 1.5735626220703125e-05,
+    "weakref.finalize._exitfunc": 0.010650634765625,
+    "filelock._soft_rw._sync._cleanup_all_instances": 3.790855407714844e-05,
+    "logging.shutdown": 9.512901306152344e-05
+  },
+  "all_handlers_returned": true,
+  "threads_children_clear": true,
+  "allocated_CPUs": 4,
+  "memory": "8G",
+  "elapsed_seconds": 31,
+  "allocated_CPU_seconds": 124,
+  "observed_TotalCPU_seconds": 7.337,
+  "batch_MaxRSS_KiB": 780028,
+  "qualification_ready": false,
+  "cause": "Prior shutdown delay not reproduced. No active-thread/child/observed handler obstruction in this run; no causal repair established.",
+  "identity_scope": "Pinned Python executable/version/source and complete distribution metadata againstv47; runtime archive independently verified by staging; package content not fullyhashed"
+}

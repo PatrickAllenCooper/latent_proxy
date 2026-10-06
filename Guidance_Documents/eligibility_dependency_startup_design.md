@@ -146,3 +146,34 @@ identity remain unproven; prior local component fixtures and v47 mapping
 equality do not establish those stronger claims. Qualification readiness
 remains false. All logs, accounting, receipt and audit are under
 `outputs/preference_program/results/combined_index_v51` and preserved remotely.
+
+## Shutdown observation v52 — completed; earlier delay not reproduced
+
+Changed instrumentation revision `989955b`, job `33467763`, four actual CPUs,
+8 GB, no GPUs/responses, unchanged 45-second staging and 90-second diagnostic
+caps. Normal atexit callbacks and unregister semantics retained; thread
+shutdown delegates to the original function; no forced exit, handler skip,
+cleanup suppression or resource expansion. Local subprocess fixtures verified
+registration return value, unregister behavior, handler execution and thread
+shutdown before submission.
+
+Terminal COMPLETED 0:0, 31 seconds total, 124 allocated CPU seconds,
+7.337 observed CPU seconds, batch MaxRSS 780,028 KiB. Class import took
+12.01 seconds; integrity/restoration receipt completed after 13.18 seconds.
+All eleven observed registered exit handlers returned. Observed Python
+shutdown span was 0.0134 seconds, with weakref finalization the longest at
+0.0107 seconds. Only the main thread and no child PIDs were present at
+exit initiation, thread shutdown and the final observer callback. These
+observations rule out an observed Python callback or surviving child/thread
+obstruction **for this run only**. They do not explain v51: its delayed
+termination was not reproduced, and instrumenting handlers is not a causal
+repair. Native finalization after the final callback is not attributed by
+these Python observations. Node/cache/IO variation and instrumentation
+remain uncontrolled; the 70-to-12-second import difference is not a proven
+speedup. v51 remains FAILED and preserved.
+
+No specific blocking handler was identified and no tested repair can be
+claimed. The next justified gate is a bounded CPU tokenizer/token-ID receipt
+using normal-cleanup observation and existing strict token normalization;
+model qualification still requires that separate receipt, complete terminal
+success and its own resource/identity checks. No further job submitted here.
