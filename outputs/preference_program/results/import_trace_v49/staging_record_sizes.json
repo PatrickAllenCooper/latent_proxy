@@ -1,0 +1,29 @@
+[
+  {
+    "package": "torch",
+    "metadata_directory": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/torch-2.13.0.dist-info",
+    "manifest_entries": 14144,
+    "python_entries": 2285,
+    "python_manifest_bytes": 46445093,
+    "all_manifest_bytes": 1091091641,
+    "caveat": "RECORD declaredsizes, not actual filesystem verification"
+  },
+  {
+    "package": "sympy",
+    "metadata_directory": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/sympy-1.14.0.dist-info",
+    "manifest_entries": 3093,
+    "python_entries": 1532,
+    "python_manifest_bytes": 26168818,
+    "all_manifest_bytes": 26601980,
+    "caveat": "RECORD declaredsizes, not actual filesystem verification"
+  },
+  {
+    "package": "accelerate",
+    "metadata_directory": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/accelerate-1.14.0.dist-info",
+    "manifest_entries": 168,
+    "python_entries": 84,
+    "python_manifest_bytes": 1491684,
+    "all_manifest_bytes": 1491684,
+    "caveat": "RECORD declaredsizes, not actual filesystem verification"
+  }
+]

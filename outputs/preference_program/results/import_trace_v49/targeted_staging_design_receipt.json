@@ -1,0 +1,21 @@
+{
+  "scope": "Authorized bounded file inventory and local staging engineering; no model/preparation retry",
+  "file_inventory_exit_code": 124,
+  "file_inventory_cap_seconds": 30,
+  "file_inventory_complete": false,
+  "record_inventory_completed": true,
+  "RECORD_declared_Python_files": 3901,
+  "RECORD_declared_Python_bytes": 74105595,
+  "RECORD_declared_all_bytes": 1119185305,
+  "size_caveat": "Manifest declaredsizes; no complete actual filesystem verification",
+  "code_hashes": {
+    "scripts/stage_verified_python_sources.py": "42c1ad4485dff1b3f5468cdcc018f3d1b6fc6f6e5e9d01104dc07fb34e6a354a",
+    "scripts/test_verified_source_staging.py": "544657d0a56b7372be3c9c95d856bc75a2073d72f67d697463f89c5516eae2a2",
+    "scripts/inventory_staging_candidates.py": "58a254df1b928eff5df30f8bba11a3b744e47ac2aa85e2048e6a4deb854dad18"
+  },
+  "local_fixtures": "Exactbytescopy,explicitnativeassetlink,hashidentity,mutatedbinaryrejectionpassed",
+  "remote_staging_builder_executed": false,
+  "startup_equivalence_verified": false,
+  "full_environment_identity": false,
+  "qualification_ready": false
+}
