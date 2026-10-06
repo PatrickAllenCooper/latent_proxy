@@ -1,0 +1,32 @@
+{
+  "job_id": "33507600",
+  "status": "COMPLETED",
+  "exit_code": "0:0",
+  "actual_CPUs": 1,
+  "elapsed_seconds": 19,
+  "extern_elapsed_seconds": 20,
+  "allocated_CPU_seconds_parent_record": 19,
+  "observed_TotalCPU_seconds": 6.641,
+  "MaxRSS_KiB": 758832,
+  "source_mode": "dr-xr-sr-x",
+  "spool_mode": "drwxr-sr-x",
+  "exact_GPU_imports_seconds": 10.186241865158081,
+  "startup_elapsed_seconds": 14.857629776000977,
+  "remaining_90s_startup_window_seconds": 75.14236974716187,
+  "source_directory_guard_valid": true,
+  "exact_dependency_imports_valid": true,
+  "source_hashes_before_after_valid": true,
+  "prior_CPU_receipt_and_model_metadata_valid": true,
+  "frozen16_tokenIDs_unchanged": true,
+  "model_calls": 0,
+  "GPU_jobs": 0,
+  "custody_verified": true,
+  "prior_charges_retained": {
+    "failedCPU_allocated_seconds": 608,
+    "successfulCPU_allocated_seconds": 160,
+    "GPU_startup_allocated_CPU_seconds": 390,
+    "GPU_MIG_slice_seconds": 65
+  },
+  "total_allocated_CPU_seconds_parent_records": 1177,
+  "next_resource_gate": "Fresh readiness/source/custody admission for a separately admitted one71GBMIG/6CPU64GiB/5minGPUattempt using isolated read-onlysource and siblingspool,90sstartup/10sresponse/285sexport/16case cap; model loading,memory and inference remain unmeasured. No GPU retry in this step."
+}

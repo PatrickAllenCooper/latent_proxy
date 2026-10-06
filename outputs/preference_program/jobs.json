@@ -2300,7 +2300,7 @@
     {
       "job_id": "33507600",
       "stage": "immutable_source_CPU_startup_admission",
-      "status": "SUBMITTED",
+      "status": "COMPLETED",
       "submitted_at_utc": "2026-10-06T23:34:17Z",
       "account": "ucb736_asc1",
       "partition": "acpu",
@@ -2319,7 +2319,19 @@
       "GPU_count": 0,
       "model_calls": 0,
       "automatic_retry": false,
-      "advice_hold": true
+      "advice_hold": true,
+      "exit_code": "0:0",
+      "elapsed_seconds": 19,
+      "extern_elapsed_seconds": 20,
+      "final_allocated_CPU_seconds": 19,
+      "observed_TotalCPU_seconds": 6.641,
+      "MaxRSS_KiB": 758832,
+      "results_copied": true,
+      "custody_verified": true,
+      "startup_gate_valid": true,
+      "audit": "outputs/preference_program/results/reader32_startup_v63/CPU_audit.json",
+      "source_guard_intact": true,
+      "GPU_retry": false
     }
   ],
   "last_checked_at_utc": "2026-10-06T20:33:27Z",

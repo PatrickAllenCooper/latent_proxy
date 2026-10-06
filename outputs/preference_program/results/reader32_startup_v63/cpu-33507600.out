@@ -1,0 +1,4 @@
+{"event": "node_local_runtime_ready", "at_unix": 1791329663.2076883, "elapsed_seconds": 0.5102889537811279, "path": "/tmp/lp-reader32-startup-v63-33507600", "archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282"}
+{"event": "exact_GPU_imports_start", "at": 1791329663.3919694}
+{"event": "exact_GPU_imports_complete", "at": 1791329673.5782113}
+{"event": "CPU_startup_admission_complete", "elapsed": 14.857629776000977}

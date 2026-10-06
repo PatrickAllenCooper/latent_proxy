@@ -1,0 +1,9 @@
+{
+  "complete": true,
+  "remote_local_SHA256_match": true,
+  "files": {
+    "startup_receipt.json": "5b1db662a5af22dd13119eee9f7fda373543e583bf27b6a54326ea89dd6ae9a9",
+    "cpu-33507600.out": "2450229d6a0178c5e0bd19fa9f806a5cb1786ea40ee1421e6eb39313ed64f7b7",
+    "cpu-33507600.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
