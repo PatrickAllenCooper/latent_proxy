@@ -9,5 +9,11 @@
   "full_pinned_environment_identity": false,
   "model_calls": 0,
   "remote_attempts": 0,
-  "next_gate": "Freeze CPU-only <=90s indexed original mapping diagnostic; compare environment bindings and preserve failclosed. No preparation or model qualification yet."
+  "next_gate": "Freeze CPU-only <=90s indexed original mapping diagnostic; compare environment bindings and preserve failclosed. No preparation or model qualification yet.",
+  "local_validation_interpreter": "/opt/homebrew/bin/python3.13",
+  "initial_local_fixture_failure": {
+    "interpreter": "/usr/bin/python3 (3.9)",
+    "error": "importlib.metadata lacks packages_distributions; first8filesystem fixtures passed but original mapping fixture unavailable"
+  },
+  "rerun_result": "All fixtures including actual standard-library mapping passed underPython3.13; pinned CURC3.12 remains remote unvalidated"
 }
