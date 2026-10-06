@@ -1,0 +1,10 @@
+{
+  "tests_passed": 3,
+  "actual_wrapper_exercised": true,
+  "synthetic_tokenizer_only": true,
+  "model_calls": 0,
+  "proven_container_mismatch_continues_once": true,
+  "real_ID_mismatch_stops_with_operands_saved": true,
+  "unreproduced_failure_stops_without_integrity_retry": true,
+  "test_sha256": "4e035da11157eb014374ba940d09387152722709ddd549ccb33199b026e666e2"
+}
