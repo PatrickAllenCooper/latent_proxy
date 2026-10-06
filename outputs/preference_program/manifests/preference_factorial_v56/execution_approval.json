@@ -1,0 +1,9 @@
+{
+  "human_authorization": "Patrick explicitly approved four proposals: ACE: DO so; 2. DO so; 3. Do so; 4. Do so",
+  "human_at_utc": "2026-10-06T13:33:00Z",
+  "message_id": "Sentinel_2dbe33397af08191923b777fa9a8c2d0",
+  "relay": "Coordinator direct human authorization",
+  "scope": "Frozen v56 only16responses; CPU preparation first; oneH2002g35gbMIG5min; no advice or retry",
+  "prior_registration_sha256": "981e6d5d3577d8114e0494543dfc526e185ec20b59efbe9fd88ac64a48289def",
+  "advice_panel_blocked": true
+}
