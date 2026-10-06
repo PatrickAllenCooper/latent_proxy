@@ -1,0 +1,17 @@
+{
+  "inventory_complete_for_site_packages_dist_info": true,
+  "distributions": 107,
+  "without_top_level": 41,
+  "potential_RECORD_entries": 12891,
+  "inventory_seconds": 6.207606879062951,
+  "scope": "bounded stdlib component read only; no model/import/tokenization/preparation retry",
+  "prototype_hashes": {
+    "scripts/verified_distribution_map.py": "9620da35ed423a3ccdd44ad1bd855978c9d8fbee7e601df13c86ea114d4ccc92",
+    "scripts/test_verified_distribution_map.py": "2546fe4deab7a6f8b17a8a61a655b6401d5dd57cbbb811b4ade405fbaad3398e",
+    "scripts/inventory_dependency_metadata.py": "2e3206b385b4d2e550e85a2ac636a4c9f1d5209fd7c4457361d89154589a4163"
+  },
+  "local_fixture_result": "identity/stale/tamper/restoration passed",
+  "production_cache_created": false,
+  "repair_qualified": false,
+  "pending_gate": "Authoritative original map plus complete pinned environment identity before controlled cache startup equivalence validation"
+}
