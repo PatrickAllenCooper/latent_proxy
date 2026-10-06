@@ -1,0 +1,702 @@
+{
+  "analysis_type": "Post-outcome descriptive interpretation of full frozen16; not a preregistered new trial",
+  "source_hashes": {
+    "outputs/preference_program/manifests/eligibility_priority_v45/qualification_cases.jsonl": "6ead0db9f0c36b79f0f677ad5eb4b67642e6b6994c63f37187713a1fd877589d",
+    "outputs/preference_program/manifests/eligibility_priority_v45/execution_manifest.jsonl": "29adcc6fd1644412eb2a698bb41e93c26a61cf7dc47b9b9a93078b771030c4af",
+    "outputs/preference_program/results/eligibility_qualification_v55/smoke/base.jsonl": "91f714c43438b4bcc7df59b4fddd95d9ec27bf4fa52db7e8214699e1d379c1a7"
+  },
+  "n": 16,
+  "correct": 11,
+  "eligibility_violations": 1,
+  "eligible_priority_errors": 4,
+  "response_counts": {
+    "A": 5,
+    "B": 8,
+    "C": 2,
+    "D": 1
+  },
+  "confusion": {
+    "A": {
+      "A": 4,
+      "B": 0,
+      "C": 0,
+      "D": 0
+    },
+    "B": {
+      "A": 0,
+      "B": 4,
+      "C": 0,
+      "D": 0
+    },
+    "C": {
+      "A": 1,
+      "B": 1,
+      "C": 2,
+      "D": 0
+    },
+    "D": {
+      "A": 0,
+      "B": 3,
+      "C": 0,
+      "D": 1
+    }
+  },
+  "diagnostics": [
+    {
+      "case_id": "qualification-00",
+      "gold": "A",
+      "response": "A",
+      "correct": true,
+      "eligibility_violation": false,
+      "eligible_priority_error": false,
+      "chosen_priority_rank": 1,
+      "top_priority_ineligible": false,
+      "first_catalog_eligible": "A",
+      "unfiltered_top_priority": "A",
+      "priority": [
+        "durable",
+        "portable",
+        "spacious",
+        "quiet"
+      ],
+      "options": [
+        {
+          "label": "A",
+          "attribute": "durable",
+          "eligible": true
+        },
+        {
+          "label": "B",
+          "attribute": "spacious",
+          "eligible": false
+        },
+        {
+          "label": "C",
+          "attribute": "quiet",
+          "eligible": true
+        },
+        {
+          "label": "D",
+          "attribute": "portable",
+          "eligible": true
+        }
+      ]
+    },
+    {
+      "case_id": "qualification-01",
+      "gold": "B",
+      "response": "B",
+      "correct": true,
+      "eligibility_violation": false,
+      "eligible_priority_error": false,
+      "chosen_priority_rank": 1,
+      "top_priority_ineligible": false,
+      "first_catalog_eligible": "A",
+      "unfiltered_top_priority": "B",
+      "priority": [
+        "quiet",
+        "durable",
+        "spacious",
+        "portable"
+      ],
+      "options": [
+        {
+          "label": "A",
+          "attribute": "spacious",
+          "eligible": true
+        },
+        {
+          "label": "B",
+          "attribute": "quiet",
+          "eligible": true
+        },
+        {
+          "label": "C",
+          "attribute": "durable",
+          "eligible": true
+        },
+        {
+          "label": "D",
+          "attribute": "portable",
+          "eligible": false
+        }
+      ]
+    },
+    {
+      "case_id": "qualification-02",
+      "gold": "C",
+      "response": "C",
+      "correct": true,
+      "eligibility_violation": false,
+      "eligible_priority_error": false,
+      "chosen_priority_rank": 1,
+      "top_priority_ineligible": false,
+      "first_catalog_eligible": "B",
+      "unfiltered_top_priority": "C",
+      "priority": [
+        "portable",
+        "quiet",
+        "durable",
+        "spacious"
+      ],
+      "options": [
+        {
+          "label": "A",
+          "attribute": "durable",
+          "eligible": false
+        },
+        {
+          "label": "B",
+          "attribute": "spacious",
+          "eligible": true
+        },
+        {
+          "label": "C",
+          "attribute": "portable",
+          "eligible": true
+        },
+        {
+          "label": "D",
+          "attribute": "quiet",
+          "eligible": true
+        }
+      ]
+    },
+    {
+      "case_id": "qualification-03",
+      "gold": "D",
+      "response": "D",
+      "correct": true,
+      "eligibility_violation": false,
+      "eligible_priority_error": false,
+      "chosen_priority_rank": 1,
+      "top_priority_ineligible": false,
+      "first_catalog_eligible": "A",
+      "unfiltered_top_priority": "D",
+      "priority": [
+        "portable",
+        "durable",
+        "spacious",
+        "quiet"
+      ],
+      "options": [
+        {
+          "label": "A",
+          "attribute": "durable",
+          "eligible": true
+        },
+        {
+          "label": "B",
+          "attribute": "spacious",
+          "eligible": true
+        },
+        {
+          "label": "C",
+          "attribute": "quiet",
+          "eligible": false
+        },
+        {
+          "label": "D",
+          "attribute": "portable",
+          "eligible": true
+        }
+      ]
+    },
+    {
+      "case_id": "qualification-04",
+      "gold": "A",
+      "response": "A",
+      "correct": true,
+      "eligibility_violation": false,
+      "eligible_priority_error": false,
+      "chosen_priority_rank": 2,
+      "top_priority_ineligible": true,
+      "first_catalog_eligible": "A",
+      "unfiltered_top_priority": "C",
+      "priority": [
+        "quiet",
+        "portable",
+        "durable",
+        "spacious"
+      ],
+      "options": [
+        {
+          "label": "A",
+          "attribute": "portable",
+          "eligible": true
+        },
+        {
+          "label": "B",
+          "attribute": "spacious",
+          "eligible": true
+        },
+        {
+          "label": "C",
+          "attribute": "quiet",
+          "eligible": false
+        },
+        {
+          "label": "D",
+          "attribute": "durable",
+          "eligible": true
+        }
+      ]
+    },
+    {
+      "case_id": "qualification-05",
+      "gold": "B",
+      "response": "B",
+      "correct": true,
+      "eligibility_violation": false,
+      "eligible_priority_error": false,
+      "chosen_priority_rank": 2,
+      "top_priority_ineligible": true,
+      "first_catalog_eligible": "B",
+      "unfiltered_top_priority": "A",
+      "priority": [
+        "durable",
+        "spacious",
+        "quiet",
+        "portable"
+      ],
+      "options": [
+        {
+          "label": "A",
+          "attribute": "durable",
+          "eligible": false
+        },
+        {
+          "label": "B",
+          "attribute": "spacious",
+          "eligible": true
+        },
+        {
+          "label": "C",
+          "attribute": "quiet",
+          "eligible": true
+        },
+        {
+          "label": "D",
+          "attribute": "portable",
+          "eligible": true
+        }
+      ]
+    },
+    {
+      "case_id": "qualification-06",
+      "gold": "C",
+      "response": "A",
+      "correct": false,
+      "eligibility_violation": false,
+      "eligible_priority_error": true,
+      "chosen_priority_rank": 3,
+      "top_priority_ineligible": true,
+      "first_catalog_eligible": "A",
+      "unfiltered_top_priority": "B",
+      "priority": [
+        "quiet",
+        "spacious",
+        "portable",
+        "durable"
+      ],
+      "options": [
+        {
+          "label": "A",
+          "attribute": "portable",
+          "eligible": true
+        },
+        {
+          "label": "B",
+          "attribute": "quiet",
+          "eligible": false
+        },
+        {
+          "label": "C",
+          "attribute": "spacious",
+          "eligible": true
+        },
+        {
+          "label": "D",
+          "attribute": "durable",
+          "eligible": true
+        }
+      ]
+    },
+    {
+      "case_id": "qualification-07",
+      "gold": "D",
+      "response": "B",
+      "correct": false,
+      "eligibility_violation": true,
+      "eligible_priority_error": false,
+      "chosen_priority_rank": 1,
+      "top_priority_ineligible": true,
+      "first_catalog_eligible": "A",
+      "unfiltered_top_priority": "B",
+      "priority": [
+        "quiet",
+        "portable",
+        "durable",
+        "spacious"
+      ],
+      "options": [
+        {
+          "label": "A",
+          "attribute": "durable",
+          "eligible": true
+        },
+        {
+          "label": "B",
+          "attribute": "quiet",
+          "eligible": false
+        },
+        {
+          "label": "C",
+          "attribute": "spacious",
+          "eligible": true
+        },
+        {
+          "label": "D",
+          "attribute": "portable",
+          "eligible": true
+        }
+      ]
+    },
+    {
+      "case_id": "qualification-08",
+      "gold": "A",
+      "response": "A",
+      "correct": true,
+      "eligibility_violation": false,
+      "eligible_priority_error": false,
+      "chosen_priority_rank": 1,
+      "top_priority_ineligible": false,
+      "first_catalog_eligible": "A",
+      "unfiltered_top_priority": "A",
+      "priority": [
+        "portable",
+        "quiet",
+        "durable",
+        "spacious"
+      ],
+      "options": [
+        {
+          "label": "A",
+          "attribute": "portable",
+          "eligible": true
+        },
+        {
+          "label": "B",
+          "attribute": "quiet",
+          "eligible": true
+        },
+        {
+          "label": "C",
+          "attribute": "spacious",
+          "eligible": false
+        },
+        {
+          "label": "D",
+          "attribute": "durable",
+          "eligible": true
+        }
+      ]
+    },
+    {
+      "case_id": "qualification-09",
+      "gold": "B",
+      "response": "B",
+      "correct": true,
+      "eligibility_violation": false,
+      "eligible_priority_error": false,
+      "chosen_priority_rank": 1,
+      "top_priority_ineligible": false,
+      "first_catalog_eligible": "B",
+      "unfiltered_top_priority": "B",
+      "priority": [
+        "portable",
+        "quiet",
+        "durable",
+        "spacious"
+      ],
+      "options": [
+        {
+          "label": "A",
+          "attribute": "spacious",
+          "eligible": false
+        },
+        {
+          "label": "B",
+          "attribute": "portable",
+          "eligible": true
+        },
+        {
+          "label": "C",
+          "attribute": "durable",
+          "eligible": true
+        },
+        {
+          "label": "D",
+          "attribute": "quiet",
+          "eligible": true
+        }
+      ]
+    },
+    {
+      "case_id": "qualification-10",
+      "gold": "C",
+      "response": "C",
+      "correct": true,
+      "eligibility_violation": false,
+      "eligible_priority_error": false,
+      "chosen_priority_rank": 1,
+      "top_priority_ineligible": false,
+      "first_catalog_eligible": "A",
+      "unfiltered_top_priority": "C",
+      "priority": [
+        "spacious",
+        "durable",
+        "portable",
+        "quiet"
+      ],
+      "options": [
+        {
+          "label": "A",
+          "attribute": "portable",
+          "eligible": true
+        },
+        {
+          "label": "B",
+          "attribute": "durable",
+          "eligible": false
+        },
+        {
+          "label": "C",
+          "attribute": "spacious",
+          "eligible": true
+        },
+        {
+          "label": "D",
+          "attribute": "quiet",
+          "eligible": true
+        }
+      ]
+    },
+    {
+      "case_id": "qualification-11",
+      "gold": "D",
+      "response": "B",
+      "correct": false,
+      "eligibility_violation": false,
+      "eligible_priority_error": true,
+      "chosen_priority_rank": 2,
+      "top_priority_ineligible": false,
+      "first_catalog_eligible": "B",
+      "unfiltered_top_priority": "D",
+      "priority": [
+        "spacious",
+        "durable",
+        "quiet",
+        "portable"
+      ],
+      "options": [
+        {
+          "label": "A",
+          "attribute": "quiet",
+          "eligible": false
+        },
+        {
+          "label": "B",
+          "attribute": "durable",
+          "eligible": true
+        },
+        {
+          "label": "C",
+          "attribute": "portable",
+          "eligible": true
+        },
+        {
+          "label": "D",
+          "attribute": "spacious",
+          "eligible": true
+        }
+      ]
+    },
+    {
+      "case_id": "qualification-12",
+      "gold": "A",
+      "response": "A",
+      "correct": true,
+      "eligibility_violation": false,
+      "eligible_priority_error": false,
+      "chosen_priority_rank": 2,
+      "top_priority_ineligible": true,
+      "first_catalog_eligible": "A",
+      "unfiltered_top_priority": "C",
+      "priority": [
+        "durable",
+        "portable",
+        "spacious",
+        "quiet"
+      ],
+      "options": [
+        {
+          "label": "A",
+          "attribute": "portable",
+          "eligible": true
+        },
+        {
+          "label": "B",
+          "attribute": "quiet",
+          "eligible": true
+        },
+        {
+          "label": "C",
+          "attribute": "durable",
+          "eligible": false
+        },
+        {
+          "label": "D",
+          "attribute": "spacious",
+          "eligible": true
+        }
+      ]
+    },
+    {
+      "case_id": "qualification-13",
+      "gold": "B",
+      "response": "B",
+      "correct": true,
+      "eligibility_violation": false,
+      "eligible_priority_error": false,
+      "chosen_priority_rank": 2,
+      "top_priority_ineligible": true,
+      "first_catalog_eligible": "B",
+      "unfiltered_top_priority": "A",
+      "priority": [
+        "durable",
+        "quiet",
+        "spacious",
+        "portable"
+      ],
+      "options": [
+        {
+          "label": "A",
+          "attribute": "durable",
+          "eligible": false
+        },
+        {
+          "label": "B",
+          "attribute": "quiet",
+          "eligible": true
+        },
+        {
+          "label": "C",
+          "attribute": "portable",
+          "eligible": true
+        },
+        {
+          "label": "D",
+          "attribute": "spacious",
+          "eligible": true
+        }
+      ]
+    },
+    {
+      "case_id": "qualification-14",
+      "gold": "C",
+      "response": "B",
+      "correct": false,
+      "eligibility_violation": false,
+      "eligible_priority_error": true,
+      "chosen_priority_rank": 4,
+      "top_priority_ineligible": true,
+      "first_catalog_eligible": "B",
+      "unfiltered_top_priority": "A",
+      "priority": [
+        "spacious",
+        "quiet",
+        "portable",
+        "durable"
+      ],
+      "options": [
+        {
+          "label": "A",
+          "attribute": "spacious",
+          "eligible": false
+        },
+        {
+          "label": "B",
+          "attribute": "durable",
+          "eligible": true
+        },
+        {
+          "label": "C",
+          "attribute": "quiet",
+          "eligible": true
+        },
+        {
+          "label": "D",
+          "attribute": "portable",
+          "eligible": true
+        }
+      ]
+    },
+    {
+      "case_id": "qualification-15",
+      "gold": "D",
+      "response": "B",
+      "correct": false,
+      "eligibility_violation": false,
+      "eligible_priority_error": true,
+      "chosen_priority_rank": 4,
+      "top_priority_ineligible": true,
+      "first_catalog_eligible": "B",
+      "unfiltered_top_priority": "A",
+      "priority": [
+        "spacious",
+        "durable",
+        "portable",
+        "quiet"
+      ],
+      "options": [
+        {
+          "label": "A",
+          "attribute": "spacious",
+          "eligible": false
+        },
+        {
+          "label": "B",
+          "attribute": "quiet",
+          "eligible": true
+        },
+        {
+          "label": "C",
+          "attribute": "portable",
+          "eligible": true
+        },
+        {
+          "label": "D",
+          "attribute": "durable",
+          "eligible": true
+        }
+      ]
+    }
+  ],
+  "heuristic_descriptive_checks": {
+    "first_catalog_eligible_gold_accuracy": 7,
+    "model_first_catalog_eligible_agreement": 11,
+    "unfiltered_top_priority_model_agreement": 8
+  },
+  "qualification_threshold": 16,
+  "qualification_passed": false,
+  "advice_panel_blocked": true,
+  "model_calls": 0,
+  "GPU_allocations": 0,
+  "limitations": [
+    "Deterministic hand-constructed16casepanel, not random independent population sample",
+    "Gold letter tied to presentation order; no causal label-position claim",
+    "Single checkpoint/template/greedy decoding; no preference discovery or proxy/tool-use evidence",
+    "Post-outcome slices and heuristic agreement are diagnostic, not a rescued qualification subset"
+  ]
+}

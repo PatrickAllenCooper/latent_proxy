@@ -2080,8 +2080,14 @@
       "qualification_passed": false,
       "correct": 11,
       "records": 16,
-      "parse_failures": 0
+      "parse_failures": 0,
+      "interpretive_report": "Guidance_Documents/eligibility_qualification_v55_interpretation.md",
+      "frozen_error_analysis": "outputs/preference_program/results/eligibility_qualification_v55/frozen_error_analysis.json",
+      "eligibility_violations": 1,
+      "eligible_priority_errors": 4,
+      "custody_local_remote_hashes_equal": true,
+      "automatic_retry": false
     }
   ],
-  "last_checked_at_utc": "2026-10-06T03:44:21.512382+00:00"
+  "last_checked_at_utc": "2026-10-06T04:30:04.673431+00:00"
 }

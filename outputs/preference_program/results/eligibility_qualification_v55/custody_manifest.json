@@ -1,0 +1,19 @@
+{
+  "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/eligibility-qualification-v55",
+  "files": {
+    "accounting.txt": "a8135221a29eb0fbed30c2f890fe891c76a9291f0944c258db91b4e621884a0d",
+    "audit.json": "40480ae4ac0520fcedb57f61c2a6e41a3f7cee254feaa3acd794b3c4e931bae6",
+    "interpretation.md": "42f67653e9dc7999bd3641772f7d577de78df42a65892c7a856fa18a48b52b55",
+    "hash_gate.json": "285ff2c729142a0fa089e46d6ccff2ad2abd58f23fd5da2de871cfd9251a4885",
+    "hash-33469170.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "gpu-33469187.out": "6e5d2b3cf7a3d4c2918818350bc61bf6e805e597f5826ea4494aa49b0ba25835",
+    "gpu-33469187.err": "6572ead6ca97e287282a2d10101ecaaea9d45cabe0e8cfb77e830efd37266794",
+    "hash-33469170.out": "4708067e0ed8752d18840cc7f3bbb6cd98be464bd250f693dfe9ee70eddcd9d3",
+    "frozen_error_analysis.json": "d6bee824b3b7bc9dddaa36aab0c64061d0fc4fa581fe4bc0c3f3b4b6c63b6843",
+    "gpu-33469187.csv": "08edb3a8539168f30ed881dcb41be87d9540cee655061767ba57322ac531b5e4",
+    "interpretation_registration.json": "80e17f5767c7e818e0cd84ddd07fc50b75dd2348446e410947643ec6e694379b",
+    "interpretation.canvas.tsx": "2d294c2370d8a416fba32a8ffdf40ebbccaf12d9a2db8c842ddf674a4297399a",
+    "smoke/base_receipt.json": "8fbece06e81bbb3fc08eebd0c7eebbc7243b25725b6958220cecbac2de137e93",
+    "smoke/base.jsonl": "91f714c43438b4bcc7df59b4fddd95d9ec27bf4fa52db7e8214699e1d379c1a7"
+  }
+}

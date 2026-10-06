@@ -1,0 +1,11 @@
+{
+  "status": "Post-outcome interpretive report; no new trial or inference authorization",
+  "source_result_commit": "96a9cbb",
+  "analysis_script_sha256": "d7c35ada0e297760bdf3903f83cd379a3f79a52d3a90c768451607a7ec89b43b",
+  "preserved_threshold": "16/16",
+  "observed": "11/16",
+  "advice_panel_blocked": true,
+  "new_model_calls": 0,
+  "new_GPU_jobs": 0,
+  "pending_approval_created": false
+}
