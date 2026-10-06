@@ -1,0 +1,1083 @@
+{
+  "sys_path": [
+    "/gpfs/alpine1/scratch/paco0228/latent_proxy_runs/metadata-index-v47",
+    "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python312.zip",
+    "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12",
+    "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/lib-dynload",
+    "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages",
+    "/projects/paco0228/latent_proxy"
+  ],
+  "python": "3.12.13 | packaged by Anaconda, Inc. | (main, Jul  9 2026, 14:38:16) [GCC 14.3.0]",
+  "python_sha256": "9d27cfcde7e3128a1b0cd86e7bf8020fc1c8210dbc485bcf878ab7ef8a5c7516",
+  "metadata_source_sha256": "1a26dfee8cb302b729501e944626f77e2cbcc4675038f3d18c2d8534751b3e8b",
+  "distributions": [
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/accelerate-1.14.0.dist-info",
+      "name": "accelerate",
+      "version": "1.14.0",
+      "metadata_hashes": {
+        "METADATA": "ed1c0dd9cca2d1449bbae7d641208431f5fccc7d5e06e20bec802c1d81340f6c",
+        "RECORD": "612ed3045165d8c45e4dd1882e7735dbb4e2da88eca21f16b0cae91a612595ea",
+        "top_level.txt": "7ac55f7714e276c8d0f74cec37facfa632c52788a3465c789a72eb1b4f6196de",
+        "entry_points.txt": "569cbc81419f67ed559ccdb6dbd7dbf02a4934b05d307ff0b49f4f43b6ffdad4"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/aiohappyeyeballs-2.7.1.dist-info",
+      "name": "aiohappyeyeballs",
+      "version": "2.7.1",
+      "metadata_hashes": {
+        "METADATA": "e68d1bf48aec9dcc2767343dedec25e12860085cba180e10bc3d3bdd031602ba",
+        "RECORD": "0939cbd125f0904d6ae35ca9fd47c8aba9e9e9b91e850278ef953b375727cdfb"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/aiohttp-3.14.3.dist-info",
+      "name": "aiohttp",
+      "version": "3.14.3",
+      "metadata_hashes": {
+        "METADATA": "287d4346fb85cdf58dae89ac33639bef485653990a19af9bcd7d39e47e54ea1b",
+        "RECORD": "08bcdb74f8c3247b5e2e480012cf8e3655bb862f9e065f6e05532995920eb88e",
+        "top_level.txt": "8aff8921a69c99397e852868dd09a985c2a76d1458c75b2de3bca3cffd7bf11a"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/aiosignal-1.4.0.dist-info",
+      "name": "aiosignal",
+      "version": "1.4.0",
+      "metadata_hashes": {
+        "METADATA": "09247ef1da8bc696728d47130e702e4307f6f7d101d6c485bff9f3a71ce7008d",
+        "RECORD": "0f47f05db68c527ed1fe2f23c79ef1e846e1009ec04e7ef47f300db855ed9c74",
+        "top_level.txt": "cf8e5a34e2860ddac8d6ba2a658dc1197436da42453c706655dc2d2d82ed5c2d"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/annotated_doc-0.0.5.dist-info",
+      "name": "annotated-doc",
+      "version": "0.0.5",
+      "metadata_hashes": {
+        "METADATA": "8c24d70c5d9153d22123353a906042fd7603df2d15c2196290b0f8a962558c46",
+        "RECORD": "fcf4349c991a1d7052ef1648bc52ac31cc9322856d65512cbd7c186844054185",
+        "entry_points.txt": "e8e62005c2f21425207aa2e09ef332389c4f096ce0cbbb1ee2b2cf2ad3689ccb"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/annotated_types-0.8.0.dist-info",
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "metadata_hashes": {
+        "METADATA": "614985b278f601b8ef863f82783b991cc3ada4b89f592eb71c7c48c5f2ef2298",
+        "RECORD": "906944aac6c7f85a4ebedde03e8fc1fcc2e4b99ec400b60bc088c9ae321d2c82"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/antlr4_python3_runtime-4.9.3.dist-info",
+      "name": "antlr4-python3-runtime",
+      "version": "4.9.3",
+      "metadata_hashes": {
+        "METADATA": "bf325e5155318385a2fcc4680742da710bbadf13a3d1c0979a98b3487980f261",
+        "RECORD": "d4d6289ee9f5f62ba7dc6e5451fcc12832435289fc670377917333079ca10899",
+        "top_level.txt": "3aca19b21f5b6f7d308176f6cc1523743c18838e8c7d5f9155903a3e4f29701d"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/anyio-4.14.2.dist-info",
+      "name": "anyio",
+      "version": "4.14.2",
+      "metadata_hashes": {
+        "METADATA": "c5e6fc4dfd833319913b287be7a30d9935e9208c7ef917630621855aaac4d419",
+        "RECORD": "afe5ebe7ba695c9df0f7c484d6104c6664b0b5b68bfe9cdaccc05ed1735d068b",
+        "top_level.txt": "420952322597f3fe5da685401081dd118cefa8531d4985a60a3ead630d884e44",
+        "entry_points.txt": "fdde98bbaba269998d7b40b2768c22ac4f429a0ef350bda0d3cb50a684b742f7"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/attrs-26.1.0.dist-info",
+      "name": "attrs",
+      "version": "26.1.0",
+      "metadata_hashes": {
+        "METADATA": "4cd40e690f23bf37cbcad34efd6758e062df1df07c86833f7e3ce95bf1fa38cc",
+        "RECORD": "a5151f0461f45abf44fdc57c2ccdb73151bb54a0abfd22133f7ea7ad48f8dc23"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/bitsandbytes-0.50.0.dist-info",
+      "name": "bitsandbytes",
+      "version": "0.50.0",
+      "metadata_hashes": {
+        "METADATA": "a2d5959941b2dec71cfcf15874f0611c0863425a13a155761c72937284b672f3",
+        "RECORD": "123ba5fc7b660a46889b668af9030c61772a3816258593bad03b15b789b9b29d",
+        "top_level.txt": "6caf99ceef89c88221e278e6f234d871bbaa5fe67cd174dc0da978957086d3e3"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/certifi-2026.7.22.dist-info",
+      "name": "certifi",
+      "version": "2026.7.22",
+      "metadata_hashes": {
+        "METADATA": "ef5af1638fbb23676ac3c5777dfcfc2cd9c348fe4172ed5ba3d277655b248090",
+        "RECORD": "54fa8ebe7e5d1cd4a48064f94e706e5f7a6cdcccef364379692ed7657bfed982",
+        "top_level.txt": "28cbb8bd409fb232eb90f6d235d81d7a44bea552730402453bffe723c345ebe5"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/charset_normalizer-3.4.9.dist-info",
+      "name": "charset-normalizer",
+      "version": "3.4.9",
+      "metadata_hashes": {
+        "METADATA": "0dd3de17609b0db64bd1d4643c5bd0dd35b5eb3c5be77f8b17bc190f2f4a2ac0",
+        "RECORD": "8fe956b7cf4be90474889bf4c4f34f0163e4926fc276fae03cc2d01937f0a174",
+        "top_level.txt": "cbae597ff18bb39147b1c187cdc51318095d5dca799845576e1f0ca34665996b",
+        "entry_points.txt": "0034932ab91767786174e5458ba0dc5041d0452d317f10c813fa44cf8c0b2170"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/click-8.4.2.dist-info",
+      "name": "click",
+      "version": "8.4.2",
+      "metadata_hashes": {
+        "METADATA": "194c9dd81d567f9081f026c7e401060fbafa7bc147c8e0a58b3668b40a64c031",
+        "RECORD": "7f16a266eca199fdf07e8fcb977b3dee0c1c1ec2a24e930f9e5188e23c128e59"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/cloudpickle-3.1.2.dist-info",
+      "name": "cloudpickle",
+      "version": "3.1.2",
+      "metadata_hashes": {
+        "METADATA": "3d0263bfe9ee4f23b244bdcaff73acbe7a1957ebf82743b6ae42693adc48d721",
+        "RECORD": "97862f8046fccbf72f48a774dca47e17e45361306c7696a66e9977d10e57f5ed"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/contourpy-1.3.3.dist-info",
+      "name": "contourpy",
+      "version": "1.3.3",
+      "metadata_hashes": {
+        "METADATA": "c43cef86baef09cff9c77975e578fa8cca0c9454df40dc176938b499a63de54a",
+        "RECORD": "ba168c0e5b1ffc80a56f7d1617a3e2bec1d9f17d21a3afdef01aaa17c64018c0"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/cuda_bindings-13.3.1.dist-info",
+      "name": "cuda-bindings",
+      "version": "13.3.1",
+      "metadata_hashes": {
+        "METADATA": "0bfcbe77dade61b1cba9f201c0465f2353f5b50adf4e4f554bca35a35033166f",
+        "RECORD": "90d8a7b5ef9066d07825af1c24d138cba88e534880ea93f6d102e6035bf041dc",
+        "top_level.txt": "539be99efc0da5a245f1b9782a7a1496e3034d1b7427def6162a705e380d4370"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/cuda_pathfinder-1.6.0.dist-info",
+      "name": "cuda-pathfinder",
+      "version": "1.6.0",
+      "metadata_hashes": {
+        "METADATA": "0b224d8df48997cd2d336dbf9debc7a7afa000cc242e1555c5c90ac654cccb7f",
+        "RECORD": "478e1ef69f1220c8f0168a032003438065b5deb0fc0d173c550c76e83b2af51d",
+        "top_level.txt": "539be99efc0da5a245f1b9782a7a1496e3034d1b7427def6162a705e380d4370"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/cuda_toolkit-13.0.3.0.dist-info",
+      "name": "cuda-toolkit",
+      "version": "13.0.3.0",
+      "metadata_hashes": {
+        "METADATA": "3e28bf0013ae8db8cf863ae392897248f4a1ff6c946fe966547fd4b6c44c0057",
+        "RECORD": "be82975316765be12c731f65c0771d402a7a4883988d1a5f459b16c0aab5c477"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/cycler-0.12.1.dist-info",
+      "name": "cycler",
+      "version": "0.12.1",
+      "metadata_hashes": {
+        "METADATA": "23289e19b76f1e01394227696e6af2b6cd1ce79e89731209bf9195148b18ed36",
+        "RECORD": "0dd0246dcaff5aaa3e9bbb1d8fb35134b6d04659180f94e77491162f0e1f2ab3",
+        "top_level.txt": "0fc05554374001e94b6f614e133ee50e973af802f6d7294a3eb321b46eb2cf21"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/datasets-5.0.1.dist-info",
+      "name": "datasets",
+      "version": "5.0.1",
+      "metadata_hashes": {
+        "METADATA": "66ad795b9be09559d4bacbe66615bd2ee0cfe47a8140ab58cdb3122e457c57b5",
+        "RECORD": "f4ec0964c11cbb44de915a08339566b93dca69384d99afa50932a7cbe1ce8b54",
+        "top_level.txt": "f40f39ed8bc2426fc383752378a9163f3f6c0c1a2cd2ddf3376a5fe64ad37a64",
+        "entry_points.txt": "88cfa1e00ece402ad9aabdcbda6c22c8cb4f7858fcc381c01f3988e39cb7b60d"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/dill-0.4.1.dist-info",
+      "name": "dill",
+      "version": "0.4.1",
+      "metadata_hashes": {
+        "METADATA": "040d6c84eddf29c8c14dc2aef214962a919803f557243824dd4f8aa3b49e3868",
+        "RECORD": "8c09402e1d60ce3864d82e8a19b675ec7a9ab32d61bdf154d6680bb3a96358a7",
+        "top_level.txt": "1cb488c9822343326206fb37ffed7a9ed7b31378fa9961935b40d3d710dded7d"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/farama_notifications-0.0.6.dist-info",
+      "name": "Farama-Notifications",
+      "version": "0.0.6",
+      "metadata_hashes": {
+        "METADATA": "aa6a96a09328edb70604a65fca1b2d0b0d444c26801e5cf36f325662835c199c",
+        "RECORD": "9eeabab789291d05b59fc0ae6e4bbe1eb0459923389d200084db712b73ab220e",
+        "top_level.txt": "8ac763954b5200425b747e358f0fda3fd303d6184e450553b469570b4593ef81"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/filelock-3.32.2.dist-info",
+      "name": "filelock",
+      "version": "3.32.2",
+      "metadata_hashes": {
+        "METADATA": "02c1fa9abf083b9bd5792cc1f300088bde118bbb3db9c9f7c19595cb4101d0ba",
+        "RECORD": "0f6f8b0863da55a45d006a5680ef6f6992b9096c48a999645525555c935d2efb"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/fonttools-4.63.0.dist-info",
+      "name": "fonttools",
+      "version": "4.63.0",
+      "metadata_hashes": {
+        "METADATA": "878374d811bfa83c045c55eabbcaa09e646f426fd4777b5e7f716e4e2198fbc1",
+        "RECORD": "fa2fdb8f8bdd1d589cd8686285097f238400d2c7ce91c17c90487c4149355780",
+        "top_level.txt": "ad1811ca5ad7cde92a58eb2b87283389bd76a50ed620b7fb5068ea1309081433",
+        "entry_points.txt": "f2454775dc5f156038e05483e26069982fb8b82ca7427928cfff5a3496f6dbb6"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/frozenlist-1.8.0.dist-info",
+      "name": "frozenlist",
+      "version": "1.8.0",
+      "metadata_hashes": {
+        "METADATA": "946c22dc9f7e2c76f2d698f00a4306dbe49a820e2b3f1a0e22fe5286cbec35f1",
+        "RECORD": "b7af16b3810ad1093a695452a6ee3e0bb562cc931641a899161207b0038003a0",
+        "top_level.txt": "8e2bedc6c3d70379cadd60565b62d6e4cb6efc61edf14640d7735e0acd9c2ae0"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/fsspec-2026.6.0.dist-info",
+      "name": "fsspec",
+      "version": "2026.6.0",
+      "metadata_hashes": {
+        "METADATA": "20c85c024a69a059237c3a7985d381a3745017ae1d634c554b0c5901dde81095",
+        "RECORD": "89b64107d37aac50d5f14017f7b437036c9399d091e142784bade9e5746d1123"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/gymnasium-1.3.0.dist-info",
+      "name": "gymnasium",
+      "version": "1.3.0",
+      "metadata_hashes": {
+        "METADATA": "4e8ca97d517ff8c1eb7d2d97f1661bf2e5a8bd47da10cd9c4be19d5bcb054e48",
+        "RECORD": "2751f56a2b4cf6d22551b7d16a520c22123ab8b09d90193acf0fe7ac1b9c64e0",
+        "top_level.txt": "c263c99270f54c6a82480038c54b3a2a96d8c6684d036421fa70119d699ec76e"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/h11-0.16.0.dist-info",
+      "name": "h11",
+      "version": "0.16.0",
+      "metadata_hashes": {
+        "METADATA": "28f326098ac09fcba79b8f180f96087c841fe2456215cb7b872a9c7d5cd19d64",
+        "RECORD": "ac020206998e31ee6a749a207c7746245805e64814bb88642302a572f557fb24",
+        "top_level.txt": "17b742e23977cde87c4c61c43da589acc6deba859b4b7efd1b0762f98bdd722b"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/hf_xet-1.6.0.dist-info",
+      "name": "hf-xet",
+      "version": "1.6.0",
+      "metadata_hashes": {
+        "METADATA": "becdd6ec73b515dc38c59501956134eb0b903bfed33ffcd99b252361acd926e9",
+        "RECORD": "618ffe3c89e8bdbab7f0c3dd8d507e53ab0d9b1c34d14010036b6e0574b9f09b"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/httpcore-1.0.9.dist-info",
+      "name": "httpcore",
+      "version": "1.0.9",
+      "metadata_hashes": {
+        "METADATA": "fe2d4fda6199128978779e0cf27f3c045c531863fcdd987eacc74f3a18d41c21",
+        "RECORD": "b2dabdfa67b814f4441d3ff8ccb37ffb2f6262970d605b49115641e382c9745f"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/httpx-0.28.1.dist-info",
+      "name": "httpx",
+      "version": "0.28.1",
+      "metadata_hashes": {
+        "METADATA": "febb9b0f8f3e80d57c8199c304f35c4336e8581d1d18d7983c92766b82793b25",
+        "RECORD": "4ae7cd3a2ff47b47f3d728ec4636473c2eb2191f56f979e781d5f1cb8178fce9",
+        "entry_points.txt": "da55647509b12c0d6934c812376795f3da3dd070997b3866370b32eabc8a0d20"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/huggingface_hub-1.27.0.dist-info",
+      "name": "huggingface_hub",
+      "version": "1.27.0",
+      "metadata_hashes": {
+        "METADATA": "91d593f8af5b233228269a61feb757d5fe60730c51597919e4f4e28d2da6d9ca",
+        "RECORD": "e83be59ef5878b5b67b044ba9a899749f137beed023e960cc0f05e45aaf59d3c",
+        "top_level.txt": "f0ace5409018e26894be302cb0e009a1da8a3b0de16ab373ba2c0643da8b4929",
+        "entry_points.txt": "ccfec5fdb052762adc3d0172b07419f45dcb727e7f74248e119c559460ac1b4c"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/hydra_core-1.3.5.dist-info",
+      "name": "hydra-core",
+      "version": "1.3.5",
+      "metadata_hashes": {
+        "METADATA": "b104f662439e6dcdf46f6431f3e1a0342cc50df89b99f2b8c983e650e967f7d5",
+        "RECORD": "999e19752b4334038612f7172d29c01a79cc16e19b269ab755c17ec443472cef",
+        "top_level.txt": "8b3833c8432244bdf18b00e74ca60963b50bd2659c19b23bb6a27da3714c6d02",
+        "entry_points.txt": "ac3c10eb4b78e9f43d824be5b2337e46f41c25d6c352145d4b13c037153fdf61"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/idna-3.18.dist-info",
+      "name": "idna",
+      "version": "3.18",
+      "metadata_hashes": {
+        "METADATA": "46dfe6e5ac462d0f680ecd9abcf66e829b6a2334824b4d9e3979b31135caf281",
+        "RECORD": "734d8b78927be103e79a7127aba1a38ff8fa81999a12519089c191d3d7501172",
+        "entry_points.txt": "ec7de718e1daa778e72c4e5eeeaed8c2bf55abc6b107b5888f9f82ff8376be1c"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/jax-0.11.0.dist-info",
+      "name": "jax",
+      "version": "0.11.0",
+      "metadata_hashes": {
+        "METADATA": "6dc7bd492285a3d0edd0b91c841d92330de177cc586859393e97680688fb127c",
+        "RECORD": "2ed2e60f8ce96c2911a7de253eaea14500bc37d03807116ab621c6dd0812c36a",
+        "top_level.txt": "0da6c087c31743e1ccd04b63283f96c7f0fab53216fbf75eef7a5d1bf7ff2931"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/jaxlib-0.11.0.dist-info",
+      "name": "jaxlib",
+      "version": "0.11.0",
+      "metadata_hashes": {
+        "METADATA": "079396c32938c513a8e1f40408ba35e71799c876785c9dbb752ac3260260384c",
+        "RECORD": "116226ae4f8b7f4460fe8d530f727e90e2c98fc09912303cf461c309a9c96402",
+        "top_level.txt": "088db3268d342a14bb2bdb01fa20505e409be0758ee3843ec6d7bc097521283d"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/jinja2-3.1.6.dist-info",
+      "name": "Jinja2",
+      "version": "3.1.6",
+      "metadata_hashes": {
+        "METADATA": "68c5548fb67c4132a13898d9b31ec50c6bea2abdd915d921f214355c3a6499c8",
+        "RECORD": "1bb3b46d00f55f63d24c3a34a7f955ef6692d4691217a53b15261769607f9f7c",
+        "entry_points.txt": "38bf39818535783f1cb8f9629227c59e05e97818dac65eab209f0a902ff7afe2"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/kiwisolver-1.5.0.dist-info",
+      "name": "kiwisolver",
+      "version": "1.5.0",
+      "metadata_hashes": {
+        "METADATA": "bb843307a98b7bd2a7055f831cbfa2fe7c864716dea9d04c7a5c03e51f648b79",
+        "RECORD": "5d00f69a41ce6bb947fd6727b4ff69a4e30a2b52dd5666b1993ef7d78cdba634",
+        "top_level.txt": "c6ac168fba121e5a488dcc3640c25bf29b9314f7630c13bbf00669f608d387d7"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/latent_proxy-0.1.0.dist-info",
+      "name": "latent-proxy",
+      "version": "0.1.0",
+      "metadata_hashes": {
+        "METADATA": "21f33a7df603ecf74f61a87aae25e1388b5f6e8469233fe57483e0d017ee818d",
+        "RECORD": "f552713eb84e4ab6c286104d1ec801823e918e969acf082aea8c3d02fd718223",
+        "direct_url.json": "cb1c5d26873de45011253e2587a9ec63b74e6127109fe44b14d1cc7785ee7536"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/markdown_it_py-4.2.0.dist-info",
+      "name": "markdown-it-py",
+      "version": "4.2.0",
+      "metadata_hashes": {
+        "METADATA": "72c36ff516755443b1ecb61e17b2567a990230b49a504b0eb0c42d5f82448a9c",
+        "RECORD": "b8e1d9995f136d626a99153f3d5af0ca2986d4e70f84a2ab1644989ef84cfaf0",
+        "entry_points.txt": "4fcd65edf1d0de9965a50e3052d40ae9af20fe9eb0c506e78ca5470a4d96306e"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/markupsafe-3.0.3.dist-info",
+      "name": "MarkupSafe",
+      "version": "3.0.3",
+      "metadata_hashes": {
+        "METADATA": "12b4cc61a7fa288cf7667ee3f213786d9619db57fb33ff6f934afbcb5c12ec81",
+        "RECORD": "cf94542b5c0d5a7bb16c08bcd035ef0c71d9bf579a9cd21e4c52626155144b3c",
+        "top_level.txt": "ab2d0f9637b9209bafb020637a32728430a310075c0cb2bfd9a81571ec7c67a5"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/matplotlib-3.11.1.dist-info",
+      "name": "matplotlib",
+      "version": "3.11.1",
+      "metadata_hashes": {
+        "METADATA": "e42a4867d0c790804bce9ccd38972e1e71e24a81f2dbc9633efc71e63ce69f59",
+        "RECORD": "c3da93eacc259328177dc2c2a65f9f6b26199cedbe22757142e8173fef799e13"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/mdurl-0.1.2.dist-info",
+      "name": "mdurl",
+      "version": "0.1.2",
+      "metadata_hashes": {
+        "METADATA": "b53b29d48f499367053fda3c81e7ce27d2558380ebbf83e66023b02eb7ddd25d",
+        "RECORD": "a3797f66c73175d124fc5a6bee5088b8da9437dc3a71d54d407cf8812bac0de1"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/ml_dtypes-0.5.4.dist-info",
+      "name": "ml_dtypes",
+      "version": "0.5.4",
+      "metadata_hashes": {
+        "METADATA": "51b5729b48ce71736748bbf43d4f355485f42b44977d6016717bbd6b11b7dfc0",
+        "RECORD": "89cf1944c38ac43515d92ce9ea46660456482e9cfd54e66e2853d6441abc930b",
+        "top_level.txt": "99e79e3643352cb993539abfd2cb05b36d40ff8d95028112db89ed0ab3ea012c"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/mpmath-1.3.0.dist-info",
+      "name": "mpmath",
+      "version": "1.3.0",
+      "metadata_hashes": {
+        "METADATA": "44b66ea444b9c0d19ae94815d356bf047ae6b680c19268b5c265687cd6a81406",
+        "RECORD": "89869bb99d259b6078aa20ebadb44d921aa20595ffa58ab929e3082d7f3f5529",
+        "top_level.txt": "054556ae1f0456590e84cd67dd7f52f26b13695702fb7b3a4a3b7ad1abc762eb"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/multidict-6.7.1.dist-info",
+      "name": "multidict",
+      "version": "6.7.1",
+      "metadata_hashes": {
+        "METADATA": "4913fdaae936a309c29b89b98c2dbebd237203fb27ab9e68ae5e4ec17ba3024f",
+        "RECORD": "c6919abe479a026e6e69da0f854343ad0897a276817efcdb47bcbae68004e417",
+        "top_level.txt": "f9eb83125924e7faa499f209ed68aa09a6f4d999521595b29de8ca839f6a6504"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/multipledispatch-1.0.0.dist-info",
+      "name": "multipledispatch",
+      "version": "1.0.0",
+      "metadata_hashes": {
+        "METADATA": "e2011496013a8de2a26c3ce487cd07ab9e9fb82cd0dffbba475c8f07ccda4358",
+        "RECORD": "9c47bb0d79a71dba8795970331e75c18c102bc24b31deb5bbd78d58c373759e2",
+        "top_level.txt": "bd117f8742881e7d250725676495e5cf3eaa28ada632c1671f994b921a39ace2"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/multiprocess-0.70.19.dist-info",
+      "name": "multiprocess",
+      "version": "0.70.19",
+      "metadata_hashes": {
+        "METADATA": "24146d46d724ce041d187426babb43dc5a6a4cd5d1acad0d7fc0d12693376fa5",
+        "RECORD": "181b088e79db1ea4ed27b14ff5b6228672861e3ca254d531a4a6f9324050fd7c",
+        "top_level.txt": "aad25cf0635dbe2eacb8da48497d0cca59fd01724162b36e6acd4c0aa44f3ea8"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/networkx-3.6.1.dist-info",
+      "name": "networkx",
+      "version": "3.6.1",
+      "metadata_hashes": {
+        "METADATA": "aca5d94a97d1f70f301d033addb635f6e66be8973a00aba4127637eed2ef316a",
+        "RECORD": "b9eec012d3da7de578ab44e1effc11626e933a07ecbd50e7d474b4b92648574c",
+        "top_level.txt": "b37324fbb28e96efa40f7f70f1783f297a0fe59fcc56f801faea64cae384e079",
+        "entry_points.txt": "1f68d9683b0327f8bd1f64b05a9c2e15e97c06b67dc472aebe1f83400596f654"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/numpy-2.5.2.dist-info",
+      "name": "numpy",
+      "version": "2.5.2",
+      "metadata_hashes": {
+        "METADATA": "9a895d801184d2176f926af84eb47f2db1af2756afac99d64a2bf482d5d5e024",
+        "RECORD": "656b7b05b0e35dc935d28fc354fbf08598ef801cb34f760bfcd2f34b6a2be4b6",
+        "entry_points.txt": "ec26fade0c8bdac211a6c1dd003a65eb16885b925395423e93fcaa115af4052c"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/numpyro-0.21.0.dist-info",
+      "name": "numpyro",
+      "version": "0.21.0",
+      "metadata_hashes": {
+        "METADATA": "4ef5d0823b19538e79405e8995d2f0b0f04870d99b7a3c6a0b85594e1f74d78e",
+        "RECORD": "c3333aefc474f242a3e78105824274d6849d1c85a48ce5c0b4e26bcc52cb0889",
+        "top_level.txt": "d354d8ce6af062669ef59342c4cac754fd225fca29348b18e2fadc1e9f024a5a"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/nvidia_cublas-13.1.1.3.dist-info",
+      "name": "nvidia-cublas",
+      "version": "13.1.1.3",
+      "metadata_hashes": {
+        "METADATA": "775b12e0b38858a03e93019f6a18104b10fce80f64f969fe9bb7ed6153ab2804",
+        "RECORD": "b77d18a6a9a739817310a2a8ba310d2d9015ae2fdf2012506ed8ed4da8e95e8d",
+        "top_level.txt": "7d3900b6216e2f5ea752b07dcad0c3b69cadcf6b7407836f6139d1cf00213b5e"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/nvidia_cuda_cupti-13.0.85.dist-info",
+      "name": "nvidia-cuda-cupti",
+      "version": "13.0.85",
+      "metadata_hashes": {
+        "METADATA": "ae42b56aa16feaa9994af204b6c82ac546fed7d67cf584cc10d1f2b7119b5eac",
+        "RECORD": "cd0e5fd6b1482324c32a2f1bec026a7476b7fdd5945d74f7c38a5ffa481c071a",
+        "top_level.txt": "7d3900b6216e2f5ea752b07dcad0c3b69cadcf6b7407836f6139d1cf00213b5e"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/nvidia_cuda_nvrtc-13.0.88.dist-info",
+      "name": "nvidia-cuda-nvrtc",
+      "version": "13.0.88",
+      "metadata_hashes": {
+        "METADATA": "27505676fa8577b448021d935306228d06c6236b2bf5247c148425e5130ad4c8",
+        "RECORD": "feb5e212257b3aac517943060c250545f535301d7fa3c191bcbb36ba04744b80",
+        "top_level.txt": "7d3900b6216e2f5ea752b07dcad0c3b69cadcf6b7407836f6139d1cf00213b5e"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/nvidia_cuda_runtime-13.0.96.dist-info",
+      "name": "nvidia-cuda-runtime",
+      "version": "13.0.96",
+      "metadata_hashes": {
+        "METADATA": "30699e3ca76f6f41f5252e7a0fce2c2d303c465b86c1b022e03a2799bd15098b",
+        "RECORD": "443de57800e9c58620fc37b70fc391bbd5ee3c9fb612d453fbbd5aa4635d7a79",
+        "top_level.txt": "7d3900b6216e2f5ea752b07dcad0c3b69cadcf6b7407836f6139d1cf00213b5e"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/nvidia_cudnn_cu13-9.20.0.48.dist-info",
+      "name": "nvidia-cudnn-cu13",
+      "version": "9.20.0.48",
+      "metadata_hashes": {
+        "METADATA": "905598a1f0fa9ec98b73133b7340bb60fb3666262eaaaf87f8fb8e3461261d38",
+        "RECORD": "5def090f7ea54f95e411212231c8041f0b69958d9cb555b58dcc3ad9a6313dd6",
+        "top_level.txt": "7d3900b6216e2f5ea752b07dcad0c3b69cadcf6b7407836f6139d1cf00213b5e"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/nvidia_cufft-12.0.0.61.dist-info",
+      "name": "nvidia-cufft",
+      "version": "12.0.0.61",
+      "metadata_hashes": {
+        "METADATA": "f519e642db9f4983f5e24d131a52972210b3222800a07e099d40926d18d183d8",
+        "RECORD": "b6fdf1b8f8b6efe03c9751b9ab807d9d31c8929c481be08cddcc3a6c2a9cd5c1",
+        "top_level.txt": "7d3900b6216e2f5ea752b07dcad0c3b69cadcf6b7407836f6139d1cf00213b5e"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/nvidia_cufile-1.15.1.6.dist-info",
+      "name": "nvidia-cufile",
+      "version": "1.15.1.6",
+      "metadata_hashes": {
+        "METADATA": "35ef649dd5370d74512351b45aa9ddc81715ae8c806326c2c5ec61d80dc97aca",
+        "RECORD": "169df085952dcba197c3f7893244b063cbd75f3cee5b9a2988d273f0eff87a54",
+        "top_level.txt": "7d3900b6216e2f5ea752b07dcad0c3b69cadcf6b7407836f6139d1cf00213b5e"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/nvidia_curand-10.4.0.35.dist-info",
+      "name": "nvidia-curand",
+      "version": "10.4.0.35",
+      "metadata_hashes": {
+        "METADATA": "0a7d6e8b87aa972f3f2bc454f12fee898e8ef5d1a09d92b418acd38e8582076d",
+        "RECORD": "e43492a8980bf4ea0a405a5abc6eccad605630479441674de42dcf000fece5b1",
+        "top_level.txt": "7d3900b6216e2f5ea752b07dcad0c3b69cadcf6b7407836f6139d1cf00213b5e"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/nvidia_cusolver-12.0.4.66.dist-info",
+      "name": "nvidia-cusolver",
+      "version": "12.0.4.66",
+      "metadata_hashes": {
+        "METADATA": "88d296b4407f82253bf358667db12776dcb521170c7ff5b8eff38eb272ff729f",
+        "RECORD": "7b7c32d787a853ebbe2e854db340780cda70b01515dd584067c30d58f775c4c1",
+        "top_level.txt": "7d3900b6216e2f5ea752b07dcad0c3b69cadcf6b7407836f6139d1cf00213b5e"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/nvidia_cusparse-12.6.3.3.dist-info",
+      "name": "nvidia-cusparse",
+      "version": "12.6.3.3",
+      "metadata_hashes": {
+        "METADATA": "d7b8582e9cf38072a8bb9960822e89f41a64bc7f68995eec783304c828e9734e",
+        "RECORD": "905ef4711e5b313ab35c4c32d1611ac2296622ca891f943dabd995757080bb78",
+        "top_level.txt": "7d3900b6216e2f5ea752b07dcad0c3b69cadcf6b7407836f6139d1cf00213b5e"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/nvidia_cusparselt_cu13-0.8.1.dist-info",
+      "name": "nvidia-cusparselt-cu13",
+      "version": "0.8.1",
+      "metadata_hashes": {
+        "METADATA": "353669bafb80cbf22f1324121ac05049d36a6b0fb44b1fed3fab00b513231171",
+        "RECORD": "018aaeffbbdc374a4a5d0227ba11692c4ee1a0444444d841e6f89c991bfbdeb3",
+        "top_level.txt": "a1f202f9d6cad2cdb68cde79b207d5a5b847593eb765d24b59e49be8aff5f812"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/nvidia_nccl_cu13-2.29.7.dist-info",
+      "name": "nvidia-nccl-cu13",
+      "version": "2.29.7",
+      "metadata_hashes": {
+        "METADATA": "1a0f592f961f6e5b260131f57c59f23c05bec4e78279ab64a585e483894aacb4",
+        "RECORD": "453a21840563dd834b02963b6740d73f06b4283bb3bdde324f3fc0ff9fe4cb58",
+        "top_level.txt": "7d3900b6216e2f5ea752b07dcad0c3b69cadcf6b7407836f6139d1cf00213b5e"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/nvidia_nvjitlink-13.3.33.dist-info",
+      "name": "nvidia-nvjitlink",
+      "version": "13.3.33",
+      "metadata_hashes": {
+        "METADATA": "908bff94497d21be5d218bf2905aec3f0751242e1e4cc9af07d0380bda91e6d0",
+        "RECORD": "b781695bf9f04753a5f0846b24f60a8ec8d244c2ca1b8bdd81d859804658a6c7",
+        "top_level.txt": "7d3900b6216e2f5ea752b07dcad0c3b69cadcf6b7407836f6139d1cf00213b5e"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/nvidia_nvshmem_cu13-3.4.5.dist-info",
+      "name": "nvidia-nvshmem-cu13",
+      "version": "3.4.5",
+      "metadata_hashes": {
+        "METADATA": "825ae32b105cfd50f7b375b9132e551f24dc32896c67c425349f6565d3b3fe46",
+        "RECORD": "b997d9bbc91176e3141888d0741dbf38ed9a821b85e934dc9078cd047966f378",
+        "top_level.txt": "7d3900b6216e2f5ea752b07dcad0c3b69cadcf6b7407836f6139d1cf00213b5e"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/nvidia_nvtx-13.0.85.dist-info",
+      "name": "nvidia-nvtx",
+      "version": "13.0.85",
+      "metadata_hashes": {
+        "METADATA": "4777c4d7b040cdead515e13febe9da861052e4690bdfc2c67664b13aaf605be5",
+        "RECORD": "ff1c34d50e539649776e5a7a6711b833c998dc6022d8bb4d4e466f6eba995d70",
+        "top_level.txt": "7d3900b6216e2f5ea752b07dcad0c3b69cadcf6b7407836f6139d1cf00213b5e"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/omegaconf-2.3.1.dist-info",
+      "name": "omegaconf",
+      "version": "2.3.1",
+      "metadata_hashes": {
+        "METADATA": "24dc07ea1b801810c63c386cc47376727a774cce4493bfddf6454fe8335eb84e",
+        "RECORD": "8bb627f74c071f4573b3ca47fdd60357da6610b07baa223f5f41217c6082dee3",
+        "top_level.txt": "80aa39b2394c9cc2f9afdfa5d5e2d80534b5c59fb102bebb9a505280bf72bd20"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/opt_einsum-3.4.0.dist-info",
+      "name": "opt_einsum",
+      "version": "3.4.0",
+      "metadata_hashes": {
+        "METADATA": "9f6791140c5e1be4f1b189365e6312d711a1eaaeb399b5dd6741f7a4bd99d03b",
+        "RECORD": "48a289eeb4879d9700b018e1c15adcfc84dea85d6b5573c717e567427521b4b7"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/packaging-26.1.dist-info",
+      "name": "packaging",
+      "version": "26.1",
+      "metadata_hashes": {
+        "METADATA": "ee5f52eb5807bfeb71078af418376e49f86be6c2c8d26fcde8ecdc9e73e3a794",
+        "RECORD": "c56fe387946cc693b17d6a442dde9ac7e315d61a4de39c5be6cb4effa8bc868a"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/pandas-3.0.5.dist-info",
+      "name": "pandas",
+      "version": "3.0.5",
+      "metadata_hashes": {
+        "METADATA": "119bd5541f4e2d413f440c82ad75b7b0457602f368b4b02efb467297c3c4a5b1",
+        "RECORD": "63668449b1c3c76202ef63358329b8a022b026adcd9dacecad48f70831f8e544",
+        "entry_points.txt": "3952ca3443ecf90ec85b2a5604be9fc6fe7aff3b78b119c423bcdac28eb2ff4c"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/peft-0.20.0.dist-info",
+      "name": "peft",
+      "version": "0.20.0",
+      "metadata_hashes": {
+        "METADATA": "91c845ca047038d26180f80c2060c0307220c80dc0fc740dd76f8cc90d207a58",
+        "RECORD": "fee596ea529a74121ea9c3a3a65f0499fc453cb28f5f67181c11bb0cd031746b",
+        "top_level.txt": "0ce2a8a877ba7ebf80de0dba3cf5af7f96c72f2f1f1ca85f9543b9c732491146"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/pillow-12.3.0.dist-info",
+      "name": "pillow",
+      "version": "12.3.0",
+      "metadata_hashes": {
+        "METADATA": "8fc07146cab33ef7582361dab6eac596d340b03ec648f18217da7894f73838c8",
+        "RECORD": "3b3fd94822d6677fc40ee7c5925a81e71796ca822b0e0b53e3fadc3a051b3c06",
+        "top_level.txt": "ae266aae4fa1c99aa1e5fd59d19c228b774a7f112c07286ef5c53d20e0c5f8d6"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/pip-26.1.2.dist-info",
+      "name": "pip",
+      "version": "26.1.2",
+      "metadata_hashes": {
+        "METADATA": "17832de47b5dc23e46253ba16462520036f28d9a27d5c30157784952ca4e69b2",
+        "RECORD": "470d579161b1e60d14ce6e7e97d13f1c629f0e2e4b1e16c3c73db2d34a2aa4b1",
+        "entry_points.txt": "5617fcb34218817dfb9ad778bc62fbdc13dcc5d2a7a9e0853f3079f9ddf4c7ca",
+        "direct_url.json": "e8d838aa6e59bae196cde0227b687638ec387d9ba3ce85db8d387c576c249c8e"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/platformdirs-4.11.1.dist-info",
+      "name": "platformdirs",
+      "version": "4.11.1",
+      "metadata_hashes": {
+        "METADATA": "325330db6eb543b318d6117acbe3db029ba55ee145bf935685548262483a5c45",
+        "RECORD": "bfe7e85357ca923cf905b4fa66ea0e505c8a33ca296e60501a3d898bf06c0342"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/propcache-0.5.2.dist-info",
+      "name": "propcache",
+      "version": "0.5.2",
+      "metadata_hashes": {
+        "METADATA": "f534495cdd2f915af8e649783d95fddcb1a05a1ac181850f0c973c0a78f7bbae",
+        "RECORD": "a10027d4cd4c0f38e96c634dfd053ac0bf150038d2b136e0e4560385b5f4d450",
+        "top_level.txt": "a5517f19ba920084cf3225f6ee47d4dd03fdfae7e146f9000e6b9d0f159d177c"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/protobuf-7.35.1.dist-info",
+      "name": "protobuf",
+      "version": "7.35.1",
+      "metadata_hashes": {
+        "METADATA": "1c58cfd7acd805c087ceb1f14c27cdba3c52d074e1d7b05dacf31fdf413c0a8c",
+        "RECORD": "32f08feaa84f4c109bb5c9c38ad01d530227fda6b7400bcce3d3a78f30770118"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/psutil-7.2.2.dist-info",
+      "name": "psutil",
+      "version": "7.2.2",
+      "metadata_hashes": {
+        "METADATA": "525f8ba78523cf7bc3759d62a105e7c57fd679ea702402b9449fb0746aa0217f",
+        "RECORD": "305c47d9965c33fe5c264e86dbd71394fefa94b317e3b49b6ef0f3a08b3c869e",
+        "top_level.txt": "8023619f9ef0ce4b038d20084a680c2746a25f342e964d062616f6f81032620c"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/pyarrow-25.0.0.dist-info",
+      "name": "pyarrow",
+      "version": "25.0.0",
+      "metadata_hashes": {
+        "METADATA": "ec5c33ae4ab245a331da32755edf8d2812bba1eb636c5d29f41f139d2fb90a17",
+        "RECORD": "0a9986c311783e68e0de0bba36a3fa0f4bd71f18dc562d15e55eb6cd94b296b5"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/pydantic-2.13.4.dist-info",
+      "name": "pydantic",
+      "version": "2.13.4",
+      "metadata_hashes": {
+        "METADATA": "d1e56c3412492512fb6b59a9dfc25ab7af2a8204585cd7bca000513023133394",
+        "RECORD": "5ab39411ef9c29b210069e69d264a5a66dc70066ed22b53fa174f5ca8464d4a4"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/pydantic_core-2.46.4.dist-info",
+      "name": "pydantic_core",
+      "version": "2.46.4",
+      "metadata_hashes": {
+        "METADATA": "135fa8b2f89473e9191c7078c2164e3ec6c8927a61c2379c2fddcc07f11f3bae",
+        "RECORD": "686b7c23831f45a252b805f78b917a70d5f9624d1dcd17a2f27985ee10392b33"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/pygments-2.20.0.dist-info",
+      "name": "Pygments",
+      "version": "2.20.0",
+      "metadata_hashes": {
+        "METADATA": "e0528f51b30427fae94723662ba622f8d8db2a4d8d3f1365698d67a52450a845",
+        "RECORD": "ce1e6ec15f1680db17bc2200f7ccffec29843b2ea9dff5cdf15f696614ebf657",
+        "entry_points.txt": "b945f0f9784c281117e2959c0ada6e4d39cf84bde1ece104da35a2e75550b1af"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/pyparsing-3.3.2.dist-info",
+      "name": "pyparsing",
+      "version": "3.3.2",
+      "metadata_hashes": {
+        "METADATA": "3311a8b949d70f71a2b9788a9327f11d9d5a6a8012d6c046ca254ad2de877f45",
+        "RECORD": "c94381d6b03c2a93ba2f635256bcaf29efbd2dfda4d1c4bc78c23c521dec4676"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/python_dateutil-2.9.0.post0.dist-info",
+      "name": "python-dateutil",
+      "version": "2.9.0.post0",
+      "metadata_hashes": {
+        "METADATA": "a9d436da322be808332f98d88325998e87cb693a678a9969feb4cfad729a6e93",
+        "RECORD": "0c26b4b1542dbd1ebd8d2babdd501aed583d6ada9595517f936f00fe4ff9d254",
+        "top_level.txt": "e2d8dd5a485166f17b2c0fc161efcbf60076c3fa766becf9cba02b8da464a2df"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/pyyaml-6.0.3.dist-info",
+      "name": "PyYAML",
+      "version": "6.0.3",
+      "metadata_hashes": {
+        "METADATA": "03c3b415ed38d09faedc49360e930769b40c58f68585e6de00e2e4916a858d34",
+        "RECORD": "dc055c2d5a393702e5d36a3752bd97d380761dd6e9bc50b22234b3bcbe8b4ce3",
+        "top_level.txt": "ae98f42153138ac02387fd6f1b709c7fdbf98e9090c00cfa703d48554e597614"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/regex-2026.7.19.dist-info",
+      "name": "regex",
+      "version": "2026.7.19",
+      "metadata_hashes": {
+        "METADATA": "fd895ec7522cd0bbab71ee4826442162f3f408a5f8d92e759f4ddf1be60dcf73",
+        "RECORD": "451af894d8011a1db5254c67933217c3bd51aae7fa55c93a7ab4fd21edb3a250",
+        "top_level.txt": "6909a20cc84d4c5dba7022b8ffb0fea9a56f85bc42946d30c824e7121933601b"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/requests-2.34.2.dist-info",
+      "name": "requests",
+      "version": "2.34.2",
+      "metadata_hashes": {
+        "METADATA": "8c384ba3e979480faae2859d3c5e6c1276dd2c3616e322e124d52c8cfc556f27",
+        "RECORD": "9fe8a6fba6bb2091ccd8e5c3d279392ba36c03fc42e7854c792c74c98d5b3e91",
+        "top_level.txt": "7cc4959877dbe6b6c63a8eb1bfe3bfb545fa8fe5b28b1b2c13e4a7c1c0d1c4d4"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/rich-15.0.0.dist-info",
+      "name": "rich",
+      "version": "15.0.0",
+      "metadata_hashes": {
+        "METADATA": "fad34fc603fac4481bf81f8dd629492fc302c0ec31909c86644751512afb2e3b",
+        "RECORD": "ee3acd23cbe4ef74867591cee90c13a5f90a59535d839b1cd66d1dd3e6ee50e2"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/safetensors-0.8.0.dist-info",
+      "name": "safetensors",
+      "version": "0.8.0",
+      "metadata_hashes": {
+        "METADATA": "645be7b8d55e91534f991d144dc9e279581ea8dbea1a8c5b0be14e529d01e345",
+        "RECORD": "a451159689dc91e9cf9419dcb19917bc9298c52f8e5c2f2cf01706fb98125a36"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/scipy-1.18.0.dist-info",
+      "name": "scipy",
+      "version": "1.18.0",
+      "metadata_hashes": {
+        "METADATA": "157bd150af3af33b40ec61489be8153752b269fb10c4b45b8cea5104f3235420",
+        "RECORD": "8845df9d41fa1717a7680e08257cd88c5f08ff56574b63a1357d14cf09e4470e"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/sentry_sdk-2.66.1.dist-info",
+      "name": "sentry-sdk",
+      "version": "2.66.1",
+      "metadata_hashes": {
+        "METADATA": "ee3aecb1c0aafd8278aa51d701f633c341592ba1a9e8969c3fe13b3ab1b1642c",
+        "RECORD": "2e81a150fcfbfa6338c8167b7fca3e3465a53f3b9ca7291b387746e8f898fe50",
+        "top_level.txt": "5eb433df45c4f45297498ff218baddf5bb2fd91937f741930c9392ba361a3312",
+        "entry_points.txt": "a9a719133e3452ca50643d48ba4097ca4c7426d226a860ce72d4b929f38b4e4a"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/setuptools-83.0.0-py3.12.egg-info",
+      "name": "setuptools",
+      "version": "83.0.0",
+      "metadata_hashes": {
+        "PKG-INFO": "26e45e90de763c6938d93d1df2ecd6782a0f1514d41cbd22ebef4e0ab6475771",
+        "top_level.txt": "5ac967fb03c175cf0d5cb357b27091c935d48468b4994c3f9746554e16a29be2",
+        "entry_points.txt": "ce482d8697ff15af4d544f69e85293dd793d0d1d5f680711538728820b15ee30"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/shellingham-1.5.4.dist-info",
+      "name": "shellingham",
+      "version": "1.5.4",
+      "metadata_hashes": {
+        "METADATA": "183d80220a37493262795739dd357cc5bb3f49bd390cc9198d5180e5451a07fa",
+        "RECORD": "4f601f28fc1b92239c2113210f513e3b9c74836511db4021d49c4ccf39aecdfe",
+        "top_level.txt": "b8a3102f900ac4f8b83bdfd16ddf37f10784b38226a4640a35b103658aa00609"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/six-1.17.0.dist-info",
+      "name": "six",
+      "version": "1.17.0",
+      "metadata_hashes": {
+        "METADATA": "562042078c2752549f6d8a7c86dbc5dd708088a7be6d80672ec7b07100b72468",
+        "RECORD": "d834e846ba51c0e7371968d0b5a0cdebdaa2f9ea2f0447a40b594fa96ca5d89f",
+        "top_level.txt": "fe2547fe2604b445e70fc9d819062960552f9145bdb043b51986e478a4806a2b"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/sympy-1.14.0.dist-info",
+      "name": "sympy",
+      "version": "1.14.0",
+      "metadata_hashes": {
+        "METADATA": "b756c2fbfd5be05ac5bdb0ebca61f55618f30f633ed92d88a5687429313a7595",
+        "RECORD": "0dea47cfda3fdf647a2ee1944193e38a0944434396d80e7e4fa13d6f8cff9c43",
+        "top_level.txt": "7a55dbe717e32dd8e0492a10164e3fd90bb7969d8221a82517d310b5f2281fba",
+        "entry_points.txt": "4a9faf2c9a26e0f4658467d8e91a54adeed28d89b7dc936af4d0b0086796f9f4"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/tokenizers-0.22.2.dist-info",
+      "name": "tokenizers",
+      "version": "0.22.2",
+      "metadata_hashes": {
+        "METADATA": "15a5ddaf489f592b77e0a934c0eeb46b51130a94064ca129232afdb0a3868efc",
+        "RECORD": "012862935e27bdce6ba7fb960fe241ee649e61392a90cae638042acd34bd39b7"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/torch-2.13.0.dist-info",
+      "name": "torch",
+      "version": "2.13.0",
+      "metadata_hashes": {
+        "METADATA": "63e791c950d477e7107e22f186e91ae81fbca5beec545c013a71edbde72f6c00",
+        "RECORD": "a72ebbd716a936b06b74d0af505ef7183e063af7ca10afaf7fa1ac9bfefeafd0",
+        "top_level.txt": "32c05c7c9c8c535e655b579fbb9c3b4f377831e9eb6078ae6a2c5b1cc7c0a1ca",
+        "entry_points.txt": "72ba54dc1186d950460c57b009875635e78314ee5d4872d276137c1ff61b762e"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/tqdm-4.70.0.dist-info",
+      "name": "tqdm",
+      "version": "4.70.0",
+      "metadata_hashes": {
+        "METADATA": "0d95b85b90428f8776afc4a92b17c5094f78ee98d150b3255acbcdf4e9d57941",
+        "RECORD": "d3ae0ca53277a84bcce573c18b4ec8886ae05131790ba27ad7df288e2caebf73",
+        "top_level.txt": "34b89424d7e673d02dd79b3b254462c2fa8c123522f46e4f30646b98c6333523",
+        "entry_points.txt": "45e2421fb522dd9ca1e8cd7a1383a1b19d6853b5ad31709f6eda3206118edbd6"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/transformers-5.14.1.dist-info",
+      "name": "transformers",
+      "version": "5.14.1",
+      "metadata_hashes": {
+        "METADATA": "be47444bbcf63c6813decf9509d4076972f261699bbddd8c0fdf53fb73b09307",
+        "RECORD": "ced1b7bfd0a1661d54ee126890f8e504e7e69ca913f221ef2a5c2a4f360586bd",
+        "top_level.txt": "18b05a793a3f0927619c7bdbc50d24ce91077652ee03fdf77e822881a5b19ed2",
+        "entry_points.txt": "4dc0659aab98578ef928904af04850367b0b89e816532fd0a0a478474a4c8768"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/triton-3.7.1.dist-info",
+      "name": "triton",
+      "version": "3.7.1",
+      "metadata_hashes": {
+        "METADATA": "c0067ae183ac3e221330fc16dd9539a4bc7f2e56a34245cca63335e9da14a8ce",
+        "RECORD": "c2b1169b3c0019db08d82d8cb293a53da92e4c350bc4aa0c8d4679a921081023",
+        "top_level.txt": "581888672bfa9fd63b30887e1cf1d2bf6c3544393b1052ffffb660411ae61d8b",
+        "entry_points.txt": "8eceb6f3d151935f3f24b99b35f1ac9ad28fefb0fa6986b024e4881efdd7f3d2"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/trl-1.9.2.dist-info",
+      "name": "trl",
+      "version": "1.9.2",
+      "metadata_hashes": {
+        "METADATA": "b76506185fae72b7296dee810755dd6b70beb3858e3ebd771cce207682eed5b5",
+        "RECORD": "e4b6d38bb38d1412ae7b07e8d41f2a9249a398a00ed59707d2808303a0b06d47",
+        "top_level.txt": "414d765618e5a40b4c9c826a88eda7a774644c1fc4a33b7577e83c4037f93f87",
+        "entry_points.txt": "122b9bb90ad94863a8851078c55a22540c96b0fb0e1cf495a5bcd293c601d31d"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/typer-0.27.1.dist-info",
+      "name": "typer",
+      "version": "0.27.1",
+      "metadata_hashes": {
+        "METADATA": "d71011dc4b250b9670d91fbae7882d707a9ef93b22a527d90992a962a5759601",
+        "RECORD": "6a5fd2fb8e4d47a6c6a7d7bba83a78cd76f681c6becda2a3efe5ea56665cdd94",
+        "entry_points.txt": "60ed770728aa59eb9ab3d5742400cb5004591547bf73053fef099336fc41610f"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/typing_extensions-4.16.0.dist-info",
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "metadata_hashes": {
+        "METADATA": "b05084ca1d50879865178d9fff9fabeab61bdfb1f361bfbde95421ffc8f9be46",
+        "RECORD": "78f74ed46a377d6e1debed78b3e994ff9cfe02a529d393d7c8ab80989bd25079"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/typing_inspection-0.4.2.dist-info",
+      "name": "typing-inspection",
+      "version": "0.4.2",
+      "metadata_hashes": {
+        "METADATA": "61096cd0bfe3c7040b6f98c22b02d190fe01936d0ff7616c5134fed02891953a",
+        "RECORD": "4319c4d16400fc6d90b044bac966ce65f5202f2e071da5566d7e67cd96b5127f"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/urllib3-2.7.0.dist-info",
+      "name": "urllib3",
+      "version": "2.7.0",
+      "metadata_hashes": {
+        "METADATA": "66147856d30bbb6bed01c6ce3326d0f48d84ed5f286ac177633a1486b82eace5",
+        "RECORD": "f1d2914c0a48b1523ced71ce642e16967862b6e6a754e0f1c2652b4ffd44cf72"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/wandb-0.28.1.dist-info",
+      "name": "wandb",
+      "version": "0.28.1",
+      "metadata_hashes": {
+        "METADATA": "8a507a5b314dee6d8c072a8d681fb6b7eceaedd1d070e3659563b7bd913316f2",
+        "RECORD": "2d403575cdc4605f8ec0d438f57e4c6bc28f8961174b27573ddb397f872fb49d",
+        "entry_points.txt": "bf8142399f605bb3dce8a2ec9a042aa4288a4eb035c21d971e635ff8d50fd7e2"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/wheel-0.47.0.dist-info",
+      "name": "wheel",
+      "version": "0.47.0",
+      "metadata_hashes": {
+        "METADATA": "d6e8cbbfa21513ed46be4027e61784b131b12c5cafacbde6913ce5ad01767643",
+        "RECORD": "28ebad760bc1d081ed7bb4475adffd1e01da25da66bb9dfaeec958db3f91bad0",
+        "entry_points.txt": "24976d480193bcc2db2244d565400cbc628edfd16d59f09517c9a9fcd1fa7b88"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/xxhash-3.8.1.dist-info",
+      "name": "xxhash",
+      "version": "3.8.1",
+      "metadata_hashes": {
+        "METADATA": "094d7cef90a1a90124a7093cbf4cccfb9eb7336e16db01861be57ab01367076e",
+        "RECORD": "c42e3086c4aec954b587f9244b78f76a6fbece84a79c8be01f3a718050e8c529",
+        "top_level.txt": "d4f3d204ffa09e31b9f44e5b8a0ccc4f3993e815568c7c27a733228ac3d66792"
+      }
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/yarl-1.24.5.dist-info",
+      "name": "yarl",
+      "version": "1.24.5",
+      "metadata_hashes": {
+        "METADATA": "0fd7b817553598246289189dfb95b425a15c9319d1bae355a38860419937e1c7",
+        "RECORD": "6fe50cf6c712b744b38ec39e4cb58c950b1aa0c6509476c740cdd8f62d4ad575",
+        "top_level.txt": "bdfdd226e421fa4ed8b6fb14ad5fce3cead3f4aaa7d023a593b20f63286d1a44"
+      }
+    }
+  ]
+}

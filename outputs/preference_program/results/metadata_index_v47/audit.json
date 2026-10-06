@@ -1,0 +1,21 @@
+{
+  "job_id": "33465269",
+  "state": "COMPLETED",
+  "exit_code": "0:0",
+  "Slurm_elapsed_seconds": 32,
+  "requested_CPUs": 4,
+  "allocated_CPUs": 4,
+  "allocated_CPU_seconds": 128,
+  "host_memory": "8G",
+  "indexed_mapping_seconds": 12.955349922180176,
+  "original_mapping_seconds": 4.994394302368164,
+  "mapping_keys": 105,
+  "equivalence_valid": true,
+  "identity_scope": "metadata/sys.path/Python/source; not complete package contents or immutability",
+  "original_mapping_captured": true,
+  "timing_limitation": "fixed indexed-first order and filesystem cache warming; not causal performance evidence",
+  "full_environment_identity_gate": false,
+  "model_qualification_run": false,
+  "remaining_gate": "Freeze production paths/source and immutable environment custody/verification; review controlled startup integration before preparation. NoautoGPU.",
+  "observed_TotalCPU_seconds": 3.271
+}

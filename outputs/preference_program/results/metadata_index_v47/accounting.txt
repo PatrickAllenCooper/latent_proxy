@@ -1,0 +1,4 @@
+JobID|State|ElapsedRaw|AllocCPUS|CPUTimeRAW|TotalCPU|MaxRSS|ReqTRES|AllocTRES
+33465269|COMPLETED|32|4|128|00:03.271||billing=3,cpu=4,mem=8G,node=1|billing=3,cpu=4,mem=8G,node=1
+33465269.batch|COMPLETED|32|4|128|00:03.269|120.50M||cpu=4,mem=8G,node=1
+33465269.extern|COMPLETED|32|4|128|00:00.001|256K||billing=3,cpu=4,mem=8G,node=1

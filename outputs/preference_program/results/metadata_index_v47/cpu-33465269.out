@@ -1,0 +1,9 @@
+CPUdiagnostic job=33465269 started=2026-10-05T18:31:25-06:00
+{"stage": "start", "at": 1791246686.7160094, "pid": 980607}
+{"stage": "binding_complete", "at": 1791246691.0640104, "digest": "4e8a3331a83fb5933f49865613fa6454cd25ca56a24ebf95fb2af240bfb6fda0"}
+{"stage": "indexed_mapping_start", "at": 1791246691.0657752}
+{"stage": "indexed_mapping_complete", "at": 1791246704.021125, "packages": 105, "directories": 1329, "lookups": 12891, "restored": true}
+{"stage": "unmodified_original_mapping_start", "at": 1791246704.0211658}
+{"stage": "unmodified_original_mapping_complete", "at": 1791246709.0155602, "packages": 105}
+{"stage": "complete", "at": 1791246709.4354272}
+CPUdiagnostic complete=2026-10-05T18:31:49-06:00

@@ -1,0 +1,12 @@
+{
+  "complete": true,
+  "mapping_equal": true,
+  "version_associations_equal": true,
+  "metadata_binding_equal": true,
+  "environment_binding_sha256": "4e8a3331a83fb5933f49865613fa6454cd25ca56a24ebf95fb2af240bfb6fda0",
+  "Path_exists_restored": true,
+  "identity_scope": "Python executable/source/sys.path/distribution metadata; does not cryptographically hash all package contents or prove environment immutability",
+  "runtime_deployment_qualified": false,
+  "model_calls": 0,
+  "GPU_jobs": 0
+}

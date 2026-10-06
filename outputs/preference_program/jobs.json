@@ -1793,7 +1793,37 @@
       "authoritative_mapping_produced": false,
       "environment_identity_produced": false,
       "failure": "Original stdlib package mapping timedout90s; no cache/identity"
+    },
+    {
+      "job_id": "33465269",
+      "name": "lp-metadata-index",
+      "status": "completed",
+      "revision": "dd1ca82",
+      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/metadata-index-v47",
+      "purpose": "Changed CPU-only original/indexed mapping equivalence integration",
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "acpu",
+        "qos": "cpu-normal",
+        "cpus": 4,
+        "memory": "8G",
+        "wall_time": "00:03:00",
+        "GPU_count": 0
+      },
+      "diagnostic_cap_seconds": 90,
+      "next_gate": "Complete integration equality/metadata binding required; noautoqualification/GPU",
+      "exit_code": "0:0",
+      "elapsed": "00:00:32",
+      "allocated_CPUs": 4,
+      "allocated_CPU_seconds": 128,
+      "results_copied": true,
+      "mapping_equivalence": true,
+      "version_associations_equal": true,
+      "metadata_binding_equal": true,
+      "full_environment_identity": false,
+      "GPU_submitted": false,
+      "observed_TotalCPU_seconds": 3.271
     }
   ],
-  "last_checked_at_utc": "2026-10-06T00:20:50.602933+00:00"
+  "last_checked_at_utc": "2026-10-06T00:32:35.069144+00:00"
 }
