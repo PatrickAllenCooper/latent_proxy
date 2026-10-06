@@ -1911,7 +1911,35 @@
       "import_validation_reached": false,
       "GPU_submitted": false,
       "failure": "90s exact source/native staging timeout; preserved partialhashjournal"
+    },
+    {
+      "job_id": "33467478",
+      "name": "lp-combined-index",
+      "status": "failed",
+      "revision": "aed2c05",
+      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/combined-index-v51",
+      "purpose": "CPU-only combined original metadata mapping and source inspection indexing",
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "acpu",
+        "qos": "cpu-normal",
+        "cpus": 4,
+        "memory": "8G",
+        "wall_time": "00:03:00",
+        "GPU_count": 0
+      },
+      "caps": "45s runtime staging; 90s diagnostic; no model responses",
+      "qualification_ready": false,
+      "exit_code": "124:0",
+      "elapsed": "00:01:43",
+      "allocated_CPUs": 4,
+      "allocated_CPU_seconds": 412,
+      "observed_TotalCPU_seconds": 6.732,
+      "results_copied": true,
+      "receipt_checks_passed": true,
+      "process_exit_passed": false,
+      "failure": "Receipt completed before cap, but process failed to terminate by 90s timeout. Post-receipt delay cause unmeasured; no repeat or GPU justified."
     }
   ],
-  "last_checked_at_utc": "2026-10-06T01:53:51.461185+00:00"
+  "last_checked_at_utc": "2026-10-06T02:38:18.745291+00:00"
 }

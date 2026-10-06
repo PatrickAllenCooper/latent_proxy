@@ -115,3 +115,34 @@ scripts/verified_source_cache.py defines a narrower byte-cache contract preservi
 A more directly targeted review-only component scripts/indexed_source_inspection.py applies the already validated directory-existence index to os.path.exists/genericpath.exists during isolated single-threaded startup. It preserves originalfilenames, installed package contents and native references; bytes/file-descriptor/custom path arguments fall back to the original function, symlinks retain original target-existence behavior, directory mutation fails validation, and originals restore on return or exception. Local real-filesystem fixtures passed existence/symlink/bytes equivalence and restoration. This targets the exact inspect stack fromv49without repeating broad content-copy staging. It is not remotely validated or adopted.
 
 Recommended next engineering gate is one separately frozen boundedCPU diagnostic combining validated mapping indexing with this changed inspection-existence component, using the unchanged trustedruntime and source/metadata bindings, periodic stacks and source-origin checks. It must distinguish observed existence semantics from whole-environment immutability and measure actual resource use before production adoption. This is narrower than thefailedfull-builder and introduces no removed runtimefiles; it changes startup filesystem lookup implementation and therefore needs integration evidence. No remote attempts, preparation/modelresponses/GPUjobs were generated while preparing these refinements; frozen90second cap/qualification gates remain unchanged.
+
+## Combined mapping and inspection diagnostic v51 — terminal failure after valid receipt
+
+Frozen revision `aed2c05`; CURC job `33467478`, acpu/cpu-normal,
+account ucb736_asc1. Actual allocation four CPUs, 8 GB, no GPU. Runtime
+archive verified and staged in 2.81 seconds. Original metadata mapping
+completed in 2.90 seconds (12,891 lookups, 1,329 indexed directories).
+AutoTokenizer class import completed in 70.20 seconds; complete receipt was
+written 71.22 seconds after diagnostic start. Inspection indexing handled
+2,316 lookups across 349 directories. The receipt confirms restoration of
+all patched functions, unchanged targeted source hashes, expected module
+origins and unchanged interpreter/distribution metadata. No tokenizer,
+model, chat template or responses were produced.
+
+**Terminal gate failed:** external timeout returned 124 after 90.05 seconds,
+Slurm FAILED 124:0, 103 seconds total, 412 allocated CPU seconds, 6.732
+observed CPU seconds, batch peak RSS 992,600 KiB. A complete JSON receipt
+is not a successful process exit. The post-receipt delay has no captured
+shutdown stack because the diagnostic cancels faulthandler after import.
+Do not infer its cause or bypass it with forced successful exit. Preserve
+this failed run and do not repeat unchanged or submit GPU work.
+
+Next informative engineering step: retain traceback timers through normal
+interpreter termination and timestamp receipt flush, exit initiation and
+shutdown callbacks in a bounded CPU diagnostic, if authorized. This would
+distinguish shutdown I/O or callback delay from dependency import delay.
+Full combined reference equivalence and complete installed package-content
+identity remain unproven; prior local component fixtures and v47 mapping
+equality do not establish those stronger claims. Qualification readiness
+remains false. All logs, accounting, receipt and audit are under
+`outputs/preference_program/results/combined_index_v51` and preserved remotely.

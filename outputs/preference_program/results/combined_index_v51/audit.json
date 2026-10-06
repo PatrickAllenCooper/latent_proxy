@@ -1,0 +1,26 @@
+{
+  "job_id": "33467478",
+  "terminal_state": "FAILED",
+  "exit_code": "124:0",
+  "receipt_checks_passed": true,
+  "process_exit_passed": false,
+  "diagnostic_elapsed_to_receipt_seconds": 71.22180247306824,
+  "import_seconds": 70.19575643539429,
+  "mapping_seconds": 2.9031848907470703,
+  "allocated_CPUs": 4,
+  "memory": "8G",
+  "Slurm_elapsed_seconds": 103,
+  "allocated_CPU_seconds": 412,
+  "observed_TotalCPU_seconds": 6.732,
+  "batch_MaxRSS_KiB": 992600,
+  "qualification_ready": false,
+  "full_package_content_identity": false,
+  "interpretation": "Receipt completed before cap, but process failed to terminate by 90s timeout. Post-receipt delay cause unmeasured; no repeat or GPU justified.",
+  "semantic_equivalence": "Component local fixtures and v47 mapping equality; full combined unmodified reference comparison not run",
+  "artifacts": {
+    "accounting.txt": "aac9815a7ab0be4c3a06cc27cb39ab08e080d1889ae863fd3e63a00fd8e3e92e",
+    "cpu-33467478.out": "7034b9c085cbd74341b2de9f6192b8789b39f094ca9c88773e5b708e2ddfaaaf",
+    "cpu-33467478.err": "6fee1680689969f39d276a19683b8b9526934e530e1a2422fcc01871eb1fa5e4",
+    "startup_receipt.json": "2d63a574319ea53406de86add23f8921b62a258e1eb11d76634c221aa206e4be"
+  }
+}
