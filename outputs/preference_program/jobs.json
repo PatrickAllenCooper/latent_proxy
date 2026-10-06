@@ -1734,6 +1734,24 @@
       "GPU_submitted": false,
       "allocated_CPUs": 9,
       "failure": "BatchEncoding JSON serialization; token-length check invalid; no receipt"
+    },
+    {
+      "job_id": "33464918",
+      "name": "lp-elig-cpu-v3",
+      "status": "submitted",
+      "revision": "c5fbc61",
+      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/eligibility-priority-v45/repair-v3",
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "acpu",
+        "qos": "cpu-normal",
+        "cpus": 4,
+        "memory": "32G",
+        "wall_time": "00:05:00",
+        "GPU_count": 0
+      },
+      "purpose": "Authorized one serialization repair CPU preparation; conditional16responseGPUqualification",
+      "next_gate": "Validate full tokenreceipt before GPU; failure stops"
     }
   ],
   "last_checked_at_utc": "2026-10-05T16:21:45.567272+00:00"
