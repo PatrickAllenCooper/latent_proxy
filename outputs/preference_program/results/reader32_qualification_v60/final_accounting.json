@@ -1,0 +1,15 @@
+{
+  "captured_utc": "2026-10-06T23:02:52Z",
+  "state": "NODE_FAIL",
+  "exit_code": "1:0",
+  "elapsed_seconds": 608,
+  "allocated_CPUs": 1,
+  "final_allocated_CPU_seconds": 608,
+  "final_TotalCPU_seconds": 0,
+  "prior_provisional_CPU_seconds": 191,
+  "prior_observed_TotalCPU_seconds": 55.742,
+  "contradictory_consumption_retained": true,
+  "controller_entry_absent": true,
+  "application_failure": "CPU token equality/length assertion",
+  "GPU_jobs": 0
+}

@@ -2184,7 +2184,7 @@
       "job_id": "33505553",
       "stage": "CPU_integrity",
       "submitted_at_utc": "2026-10-06T20:33:27Z",
-      "status": "STATE_DISAGREEMENT",
+      "status": "NODE_FAIL",
       "account": "ucb736_asc1",
       "partition": "acpu",
       "qos": "cpu-normal",
@@ -2208,7 +2208,14 @@
       "CPU_gate_valid": false,
       "audit": "outputs/preference_program/results/reader32_qualification_v60/CPU_audit.json",
       "provisional_allocated_CPU_seconds": 191,
-      "observed_TotalCPU_seconds": 55.742
+      "observed_TotalCPU_seconds": 55.742,
+      "exit_code": "1:0",
+      "elapsed_seconds": 608,
+      "final_allocated_CPU_seconds": 608,
+      "final_accounting_TotalCPU_seconds": 0,
+      "CPU_accounting_quality": "Final NODE_FAIL zero CPU inconsistent with retained earlier55.742s and hashed65.5GB; retain both snapshots, do not treat zero as no work",
+      "terminal_reconciled": true,
+      "controller_entry_absent": true
     }
   ],
   "last_checked_at_utc": "2026-10-06T20:33:27Z",

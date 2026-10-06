@@ -1,0 +1,39 @@
+{
+  "status": "authorized_changed_CPU_preparation_only",
+  "approval": "2026-10-06T17:50/17:51UTC Sentinel_3b35448af6f88191ae845af85611b7a4 and Sentinel_26b161f00ae08191a870738c7f3bc61c",
+  "source_hashes": {
+    "reader32_v60.py": "a58a82fa141c8862c34634d7af557a2b480200ff570749932c4ad2e1d88833bb",
+    "prepare_eligibility_priority.py": "cbc048bb2c00ee768b10357101db499dd32b70dccae7b6486d95254dd4e1510e",
+    "indexed_startup.py": "7548c1fb1626c9806314334a8f614149156cd2183170bb80381adb5ef9ab1ef2",
+    "indexed_source_inspection.py": "e949fb17bc90c12a4bb713af2f31467672d572b06fd2401f87fedb4ee48d4de2",
+    "indexed_metadata_exists.py": "1c062a9e118449bdeb613c76b7f018a4b940488af6ef9e91ae6755545dabad34",
+    "extract_verified_runtime.py": "fc32ee7ec09543efde0bdf3b8b3a23f71aa8b23e81cbf77468130ca457cc50f9",
+    "reader32_v60_contracts.py": "4740de2b1cdcc6da48bc15718b8b8932ca79821c782b7ec5eaf71d5892d5327b",
+    "prompt_token_ids.py": "7671d7a4337cce807351350e5fbacf5c18d49c9db13d386a8088ea0e2433a854",
+    "diagnose_reader32_token_gate.py": "86d0c9f0c0f4f641da7341ff113fd4525b30e024d566cd67d96dceaf0683b160",
+    "prepare_reader32_v61.py": "e5d72d5a0b7622c21528ff01e8558d1a7ef3866351ea6e8a88bda340e127ba4f",
+    "reader32_v61.py": "1f8d2daf2ad9cb30d264b79aa0251f76ef75d2ad03e838ed9672823a9861452e"
+  },
+  "CPU": {
+    "cpu": 1,
+    "mem_GiB": 2,
+    "wall_seconds": 600
+  },
+  "GPU": {
+    "type": "h200_3g.71gb",
+    "count": 1,
+    "cpu": 6,
+    "host_mem_GiB": 64,
+    "wall_seconds": 300,
+    "startup_seconds": 90,
+    "complete_seconds": 285,
+    "generation_seconds": 10
+  },
+  "advice_hold": true,
+  "retry": false,
+  "local_contract_amendment": "Synthetic timing/memory/partial-export checks; scientific panel, scorer and resource envelope unchanged.",
+  "GPU_admission": false,
+  "cause_specific_continuation": "Full CPU integrity only if first pinned frozen case demonstrates container-only mismatch and all16 normalized_ID gates valid; otherwise stop.",
+  "prior_attempt": "33505553",
+  "original_scientific_registration_sha256": "8b50e09f08b59e77511bc98d470ec355ebc428d7e73ff4cfd54234a37b902a80"
+}
