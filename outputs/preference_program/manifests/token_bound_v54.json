@@ -1,0 +1,16 @@
+{
+  "scope": "Changed constant-call vocabulary bound and partial-ID journaling; one CPU run",
+  "caps": "4CPU8G45s staging90s diagnostic3min wall",
+  "hashes": {
+    "scripts/prepare_eligibility_tokens_v5.py": "9a051f51cd7c31d0f4e538a3fd5e78b73048c996804e9fc1006b2a2fa6840803",
+    "scripts/slurm/prepare_eligibility_tokens_v5.slurm": "5dca3f08e1dfad8393ed4f1ad142df7ef35516d006249c11d5f31eefeb2e3cf0",
+    "scripts/shutdown_trace.py": "f597bc7388f58484d8224c42fb4e3a7467ae300b6bcc693389daf833f607bddd",
+    "scripts/indexed_startup.py": "7548c1fb1626c9806314334a8f614149156cd2183170bb80381adb5ef9ab1ef2",
+    "scripts/indexed_metadata_exists.py": "1c062a9e118449bdeb613c76b7f018a4b940488af6ef9e91ae6755545dabad34",
+    "scripts/indexed_source_inspection.py": "e949fb17bc90c12a4bb713af2f31467672d572b06fd2401f87fedb4ee48d4de2",
+    "scripts/prompt_token_ids.py": "7671d7a4337cce807351350e5fbacf5c18d49c9db13d386a8088ea0e2433a854",
+    "outputs/preference_program/manifests/eligibility_priority_v45/execution_manifest.jsonl": "29adcc6fd1644412eb2a698bb41e93c26a61cf7dc47b9b9a93078b771030c4af",
+    "outputs/preference_program/results/metadata_index_v47/integration/environment_before.json": "503f4d945e55bedefd9bca53ba0daed012d96811877c2006d4a8b2faae421144",
+    "outputs/preference_program/results/startup_diagnostic_v37/cache_receipt.json": "12eba95f8569b4e8739f729fa4495e2100f2716977dbef0d8c9cf512a4c6761a"
+  }
+}
