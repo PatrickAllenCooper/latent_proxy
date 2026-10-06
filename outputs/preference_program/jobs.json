@@ -1823,7 +1823,36 @@
       "full_environment_identity": false,
       "GPU_submitted": false,
       "observed_TotalCPU_seconds": 3.271
+    },
+    {
+      "job_id": "33465529",
+      "name": "lp-index-startup",
+      "status": "failed",
+      "revision": "8d010e5",
+      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/indexed-startup-v48",
+      "purpose": "Changed production-path AutoTokenizer class import only; no loading/tokenization/model",
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "acpu",
+        "qos": "cpu-normal",
+        "cpus": 4,
+        "memory": "8G",
+        "wall_time": "00:03:00",
+        "GPU_count": 0
+      },
+      "caps": "45sstage90sstartup",
+      "next_gate": "Metadata+restoration integration only; fullcontentidentity remainsunqualified; noautoGPU",
+      "exit_code": "124:0",
+      "elapsed": "00:01:42",
+      "allocated_CPUs": 4,
+      "allocated_CPU_seconds": 408,
+      "observed_TotalCPU_seconds": 5.58,
+      "results_copied": true,
+      "metadata_before_valid": true,
+      "startup_ready": false,
+      "GPU_submitted": false,
+      "failure": "Changed AutoTokenizer class import exceeded90scap; no startupreceipt"
     }
   ],
-  "last_checked_at_utc": "2026-10-06T00:32:35.069144+00:00"
+  "last_checked_at_utc": "2026-10-06T00:50:38.430645+00:00"
 }

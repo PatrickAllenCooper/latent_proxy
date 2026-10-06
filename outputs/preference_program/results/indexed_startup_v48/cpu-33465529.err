@@ -1,0 +1,47 @@
+	Command being timed: "timeout --kill-after=2s 45s python /scratch/alpine/paco0228/latent_proxy_runs/verification-runtime-v39/extract_verified_runtime.py"
+	User time (seconds): 0.29
+	System time (seconds): 0.18
+	Percent of CPU this job got: 15%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:03.18
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 37116
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 141
+	Minor (reclaiming a frame) page faults: 3851
+	Voluntary context switches: 396
+	Involuntary context switches: 6
+	Swaps: 0
+	File system inputs: 29624
+	File system outputs: 102512
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+Command exited with non-zero status 124
+	Command being timed: "timeout --kill-after=2s 90s python -u /scratch/alpine/paco0228/latent_proxy_runs/indexed-startup-v48/indexed_startup.py /scratch/alpine/paco0228/latent_proxy_runs/indexed-startup-v48/environment_before.json /scratch/alpine/paco0228/latent_proxy_runs/indexed-startup-v48/startup_receipt.json"
+	User time (seconds): 2.50
+	System time (seconds): 1.04
+	Percent of CPU this job got: 3%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:30.03
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 567960
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 3196
+	Minor (reclaiming a frame) page faults: 75907
+	Voluntary context switches: 18162
+	Involuntary context switches: 162
+	Swaps: 0
+	File system inputs: 723784
+	File system outputs: 4312
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 124
