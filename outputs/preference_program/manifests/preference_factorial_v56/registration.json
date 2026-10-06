@@ -1,0 +1,42 @@
+{
+  "status": "Frozen proposed local design; execution not authorized; no pending owner question",
+  "registered_at_utc": "2026-10-06T04:53:29.672504+00:00",
+  "prior_failed_baseline_commit": "96a9cbb",
+  "prior_interpretive_commit": "da31334",
+  "design": "2semanticcases x2format x2letterassignment x2roworder =16responses",
+  "model_calls_executed": 0,
+  "GPU_jobs_submitted": 0,
+  "advice_panel_blocked": true,
+  "original_qualification_unchanged": true,
+  "seed": 2026100601,
+  "proposed_limits": {
+    "CPU_actual_max": 4,
+    "CPU_memory": "8G",
+    "CPU_diagnostic_seconds": 90,
+    "GPU_GRES": "h200_2g.35gb:1",
+    "GPU_count": 1,
+    "GPU_requested_CPUs": 4,
+    "GPU_host_memory": "32G",
+    "wall_time_minutes": 5,
+    "complete_limit_seconds": 285,
+    "startup_seconds": 90,
+    "peak_framework_GiB": 12,
+    "generation_seconds": 10,
+    "new_tokens": 24,
+    "prompt_tokens": 512,
+    "total_responses": 16
+  },
+  "model_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+  "hashes": {
+    "outputs/preference_program/manifests/preference_factorial_v56/semantic_cases.jsonl": "02cbd5e59526c3edae60f3bbb8c532a6e66295aff648dda2e7cbedccee4c1304",
+    "outputs/preference_program/manifests/preference_factorial_v56/execution_manifest.jsonl": "1ac7fe427e9da457a43902d490114c20616fee3a3adb8060af05e1fa8d753129",
+    "outputs/preference_program/manifests/preference_factorial_v56/paired_contrasts.json": "c871d4f6a09292f22d7ccd3a12ffbf9aa980358655c8304e16f2563f30853f83",
+    "outputs/preference_program/manifests/preference_factorial_v56/analysis_validation.json": "b7cde48d6fc2242d9e84f419d45b2269711a581b55313b6b9f8b41a6e5d7b260",
+    "outputs/preference_program/manifests/preference_factorial_v56/validation.json": "1079a8a333e8b40789a612b723d972a4affc46dd2a1bacd55f6cf7756c7f3e92",
+    "outputs/preference_program/manifests/preference_factorial_v56/design.canvas.tsx": "602bfc6d81e93345762d4709b70fa4abf19769b1317b9755025832097b58b9eb",
+    "scripts/prepare_factorial_preference_assay.py": "0191f3060bd19e92471a276d19d5c68ce7fbe86395d655bf74fa86da14cb8eb6",
+    "scripts/analyze_factorial_preference_assay.py": "d478f5a6129784db63b6455020c50a4aad2e56e777dff6fc28aea6e7bc817a52",
+    "Guidance_Documents/preference_factorial_v56_design.md": "900026e35ffb027475c1922a4027a770648e735249c2148ec7a195bbd6f64303"
+  }
+}

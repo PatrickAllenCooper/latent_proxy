@@ -1,0 +1,12 @@
+{
+  "synthetic_fixture_only": true,
+  "model_calls": 0,
+  "GPU_jobs": 0,
+  "complete_oracle_case_count": 16,
+  "identity_semantic_invariance_fixture": true,
+  "parse_failure_fixture": true,
+  "actual_EOS_mismatch_rejected": true,
+  "partial_result_rejected": true,
+  "per_semantic_block_contrasts": true,
+  "analysis_script_sha256": "d478f5a6129784db63b6455020c50a4aad2e56e777dff6fc28aea6e7bc817a52"
+}

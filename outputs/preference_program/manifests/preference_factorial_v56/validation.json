@@ -1,0 +1,22 @@
+{
+  "seed": 2026100601,
+  "model_calls": 0,
+  "GPU_jobs": 0,
+  "rows": 16,
+  "semantic_cases": 2,
+  "independent_fresh_semantic_signatures": true,
+  "prior_semantic_signatures": 24,
+  "oracle_fixture_assertions": 128,
+  "paired_contrasts_per_factor": 8,
+  "gold_letters_balanced": true,
+  "best_catalog_positions_balanced": true,
+  "scorer_sha256": "cbc048bb2c00ee768b10357101db499dd32b70dccae7b6486d95254dd4e1510e",
+  "generator_sha256": "0191f3060bd19e92471a276d19d5c68ce7fbe86395d655bf74fa86da14cb8eb6",
+  "hashes": {
+    "semantic_cases.jsonl": "02cbd5e59526c3edae60f3bbb8c532a6e66295aff648dda2e7cbedccee4c1304",
+    "execution_manifest.jsonl": "1ac7fe427e9da457a43902d490114c20616fee3a3adb8060af05e1fa8d753129",
+    "paired_contrasts.json": "c871d4f6a09292f22d7ccd3a12ffbf9aa980358655c8304e16f2563f30853f83"
+  },
+  "execution_authorized": false,
+  "advice_panel_blocked": true
+}
