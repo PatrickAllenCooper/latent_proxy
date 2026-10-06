@@ -1,0 +1,30 @@
+{
+  "job_id": "33468730",
+  "receipt_valid": true,
+  "cases": 16,
+  "prompt_lengths": [
+    122
+  ],
+  "journal_equality": true,
+  "three_path_equality": true,
+  "serialization_equality": true,
+  "production_CPU_token_gate_passed": true,
+  "qualification_ready": false,
+  "import_seconds": 7.544708013534546,
+  "tokenizer_load_seconds": 0.22104454040527344,
+  "diagnostic_receipt_seconds": 9.823421478271484,
+  "model_calls": 0,
+  "GPU_count": 0,
+  "full_package_content_identity": false,
+  "terminal_state": "COMPLETED",
+  "exit_code": "0:0",
+  "normal_cleanup_observed": true,
+  "all_observed_exit_handlers_returned": true,
+  "allocated_CPUs": 4,
+  "memory": "8G",
+  "elapsed_seconds": 43,
+  "allocated_CPU_seconds": 172,
+  "observed_TotalCPU_seconds": 6.545,
+  "batch_MaxRSS_KiB": 725816,
+  "interpretation": "Complete CPU token gate passes; single-run timing not a causal estimate or reliability guarantee; GPU/model qualification remains separately gated"
+}

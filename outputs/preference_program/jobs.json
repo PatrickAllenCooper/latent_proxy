@@ -1994,7 +1994,35 @@
       "allocated_CPU_seconds": 420,
       "observed_TotalCPU_seconds": 30.388,
       "failure": "90s cap during case12; no full receipt or terminal cleanup"
+    },
+    {
+      "job_id": "33468730",
+      "name": "lp-token-bound",
+      "status": "completed",
+      "revision": "6846669",
+      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/token-bound-v54",
+      "purpose": "Changed constant-bound tokenization and partial ID journal",
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "acpu",
+        "qos": "cpu-normal",
+        "cpus": 4,
+        "memory": "8G",
+        "wall_time": "00:03:00",
+        "GPU_count": 0
+      },
+      "caps": "45s stage90s diagnostic",
+      "qualification_ready": false,
+      "exit_code": "0:0",
+      "results_copied": true,
+      "complete_token_receipt": true,
+      "production_CPU_token_gate_passed": true,
+      "normal_cleanup_observed": true,
+      "elapsed": "00:00:43",
+      "allocated_CPUs": 4,
+      "allocated_CPU_seconds": 172,
+      "observed_TotalCPU_seconds": 6.545
     }
   ],
-  "last_checked_at_utc": "2026-10-06T02:38:18.745291+00:00"
+  "last_checked_at_utc": "2026-10-06T03:44:21.512382+00:00"
 }

@@ -200,3 +200,30 @@ checks preserve bounds with constant call count; syntax passes. V5 has not
 been submitted or integrated against the real tokenizer. No causal timing
 or shutdown repair claimed; qualification remains gated on complete token
 receipt and successful normal process termination.
+
+## Changed tokenization v54 — complete CPU token gate passed
+
+Frozen `6846669`, job `33468730`, COMPLETED 0:0. Exact frozen source hashes
+verified before submission, same verified runtime archive, interpreter and
+distribution metadata, same cache revision/template and sixteen cases.
+Four actual CPUs, 8 GB, no GPUs/model responses, unchanged 45-second staging
+and 90-second diagnostic caps. Slurm elapsed 43 seconds, 172 allocated CPU
+seconds, 6.545 observed CPU seconds, peak batch RSS 725,816 KiB.
+
+All sixteen prompts produced 122 valid nonnegative integer IDs each, bounded
+by vocabulary size and 512-token ceiling. IDs matched across direct chat
+formatting, mapping output and rendering/re-encoding; all partial journal
+rows equal the final receipt. Exact receipt JSON readback equality, frozen
+manifest/normalizer/preparation/cache hashes, expected chat-template hash,
+targeted source and tokenizer-file hashes before/after, environment metadata
+and patched-function restoration all passed. All observed exit handlers
+returned; final observer found only the main thread and no child processes.
+Terminal process success confirms the production CPU token receipt gate.
+
+Diagnostic receipt took 9.82 seconds, import 7.54 seconds, tokenizer load
+0.221 seconds. This run reused v53's node with potentially warm filesystem
+caches; do not attribute the total speed difference solely to hoisted
+vocabulary-size calls, infer reliability from one pass, or claim the earlier
+shutdown problem was causally repaired. Full installed package-content
+identity remains unproven. GPU/model qualification remains separately gated;
+no model response job was submitted. v53 failure remains preserved.
