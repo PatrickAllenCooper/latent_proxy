@@ -1738,7 +1738,7 @@
     {
       "job_id": "33464918",
       "name": "lp-elig-cpu-v3",
-      "status": "submitted",
+      "status": "failed",
       "revision": "c5fbc61",
       "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/eligibility-priority-v45/repair-v3",
       "allocation": {
@@ -1751,8 +1751,15 @@
         "GPU_count": 0
       },
       "purpose": "Authorized one serialization repair CPU preparation; conditional16responseGPUqualification",
-      "next_gate": "Validate full tokenreceipt before GPU; failure stops"
+      "next_gate": "Validate full tokenreceipt before GPU; failure stops",
+      "exit_code": "124:0",
+      "elapsed": "00:01:47",
+      "CPU_preparation_valid": false,
+      "results_copied": true,
+      "GPU_submitted": false,
+      "allocated_CPUs": 9,
+      "failure": "90s AutoTokenizer import timeout in shared-environment metadata traversal; no tokenreceipt"
     }
   ],
-  "last_checked_at_utc": "2026-10-05T16:21:45.567272+00:00"
+  "last_checked_at_utc": "2026-10-06T00:11:51.774465+00:00"
 }

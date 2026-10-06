@@ -1,0 +1,23 @@
+{
+  "job_id": "33464918",
+  "state": "FAILED",
+  "exit_code": "124:0",
+  "elapsed_seconds": 107,
+  "CPU_preparation_valid": false,
+  "GPU_submitted": false,
+  "token_receipt_exists": false,
+  "registered_model_calls": 0,
+  "requested_CPUs": 4,
+  "allocated_CPUs": 9,
+  "host_memory": "32G",
+  "requested_wall_seconds": 300,
+  "runtime_staging_internal_seconds": 1.1240403652191162,
+  "runtime_staging_process_seconds": 5.01,
+  "import_process_seconds": 90.01,
+  "import_user_seconds": 1.32,
+  "import_system_seconds": 0.43,
+  "import_peak_RSS_KiB": 59640,
+  "observed_stack": "importlib.metadata.packages_distributions -> inferred distribution files -> pathlib.exists/stat on shared conda environment; called by Transformers import_utils line47",
+  "uncertainty": "Two sampled stack positions show metadata filesystem traversal; does not measure all90seconds or prove exclusive root cause. Unchanged runtime staged node-local, dependencies/metadata stillshared. Serialization helper was never exercised.",
+  "next_gate": "No retry/GPU. Review shared environment metadata startup before any new bounded preparation authorization."
+}

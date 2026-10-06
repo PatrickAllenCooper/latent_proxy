@@ -1,0 +1,4 @@
+CPUjob=33464918 node=c3cpu-c15-u19-1 start=2026-10-05T18:09:38-06:00
+{"event": "node_local_runtime_ready", "at_unix": 1791245384.007079, "elapsed_seconds": 1.1240403652191162, "path": "/tmp/latent-proxy-cpu-repair-33464918", "archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282"}
+{"stage": "CPU_start", "at_unix": 1791245384.2660828, "pid": 1357277}
+{"stage": "transformers_import_start", "at_unix": 1791245384.2661898}
