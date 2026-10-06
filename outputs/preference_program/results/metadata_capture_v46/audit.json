@@ -1,0 +1,23 @@
+{
+  "job_id": "33465075",
+  "state": "FAILED",
+  "exit_code": "124:0",
+  "elapsed_seconds": 97,
+  "requested_CPUs": 4,
+  "allocated_CPUs": 4,
+  "allocated_CPU_seconds": 388,
+  "allocated_CPU_hours": 0.10777777777777778,
+  "TotalCPU_seconds": 2.108,
+  "host_memory": "8G",
+  "batch_peak_RSS_KiB": 54024,
+  "diagnostic_process_elapsed_seconds": 90,
+  "diagnostic_process_user_seconds": 0.3,
+  "diagnostic_process_system_seconds": 0.39,
+  "authoritative_mapping_produced": false,
+  "environment_identity_produced": false,
+  "stage_reached": "original_importlib.metadata.packages_distributions; no complete marker",
+  "model_calls": 0,
+  "GPU_jobs": 0,
+  "result": "Original stdlib mapping alone exceeds90s here, independent of Transformers/model/tokenizer. Cache cannot be qualified; no partialreceipt accepted.",
+  "next_gate": "Review a new immutable dependency packaging or exact filesystem-index equivalence strategy; original-mapping unchanged retry not justified."
+}

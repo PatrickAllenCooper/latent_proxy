@@ -1769,7 +1769,7 @@
     {
       "job_id": "33465075",
       "name": "lp-metadata-capture",
-      "status": "submitted",
+      "status": "failed",
       "revision": "b80c436",
       "purpose": "Separate bounded CPU-only authoritative mapping/completeidentity capture; no qualification/model",
       "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/metadata-capture-v46",
@@ -1783,8 +1783,17 @@
         "GPU_count": 0
       },
       "diagnostic_cap_seconds": 90,
-      "next_gate": "Partial cache not usable; require complete immutable identity and production equivalence; noautomaticretry/GPU"
+      "next_gate": "Partial cache not usable; require complete immutable identity and production equivalence; noautomaticretry/GPU",
+      "exit_code": "124:0",
+      "elapsed": "00:01:37",
+      "allocated_CPUs": 4,
+      "allocated_CPU_seconds": 388,
+      "TotalCPU_seconds": 2.108,
+      "results_copied": true,
+      "authoritative_mapping_produced": false,
+      "environment_identity_produced": false,
+      "failure": "Original stdlib package mapping timedout90s; no cache/identity"
     }
   ],
-  "last_checked_at_utc": "2026-10-06T00:11:51.774465+00:00"
+  "last_checked_at_utc": "2026-10-06T00:20:50.602933+00:00"
 }

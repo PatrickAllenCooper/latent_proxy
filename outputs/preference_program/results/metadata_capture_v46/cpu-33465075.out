@@ -1,0 +1,3 @@
+CPUdiagnostic job=33465075 started=2026-10-05T18:18:41-06:00
+{"stage": "start", "at": 1791245921.9180222, "pid": 2398885, "python": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/bin/python", "sys_path": ["/gpfs/alpine1/scratch/paco0228/latent_proxy_runs/metadata-capture-v46", "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python312.zip", "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12", "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/lib-dynload", "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages", "/projects/paco0228/latent_proxy"]}
+{"stage": "original_mapping_start", "at": 1791245921.9180908}
