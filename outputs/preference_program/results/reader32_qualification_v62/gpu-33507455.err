@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/scratch/alpine/paco0228/latent_proxy_runs/reader32-qualification-v62/run_reader32_v62.py", line 104, in <module>
+    try:main()
+        ^^^^^^
+  File "/scratch/alpine/paco0228/latent_proxy_runs/reader32-qualification-v62/run_reader32_v62.py", line 56, in main
+    (dependencies,captures),inspection=inspect_with_index(lambda:indexed_import(deps));Tok,torch,Model=dependencies
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/gpfs/alpine1/scratch/paco0228/latent_proxy_runs/reader32-qualification-v62/indexed_source_inspection.py", line 17, in inspect_with_index
+    result=callable_();index.validate();return result,index.receipt()
+                       ^^^^^^^^^^^^^^^^
+  File "/gpfs/alpine1/scratch/paco0228/latent_proxy_runs/reader32-qualification-v62/indexed_metadata_exists.py", line 45, in validate
+    if self.signature(parent)!=signature:raise DirectoryChanged(str(parent))
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+indexed_metadata_exists.DirectoryChanged: /gpfs/alpine1/scratch/paco0228/latent_proxy_runs/reader32-qualification-v62

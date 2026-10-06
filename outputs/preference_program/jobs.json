@@ -2256,7 +2256,7 @@
     {
       "job_id": "33507455",
       "stage": "frozen_16_response_GPU_qualification",
-      "status": "RUNNING",
+      "status": "FAILED",
       "submitted_at_utc": "2026-10-06T23:13:30Z",
       "source_commit": "8633e8f",
       "source_bundle_sha256": "c7ec1a60e51a3b4653d9226f7410988cd3985750849d4ff6a7ed712e2663bc80",
@@ -2282,7 +2282,20 @@
       "node": "c3gpu-e5-u9",
       "actual_CPUs": 6,
       "actual_GPU_count": 1,
-      "actual_GRES": "gpu:h200_3g.71gb:1"
+      "actual_GRES": "gpu:h200_3g.71gb:1",
+      "exit_code": "1:0",
+      "elapsed_seconds": 65,
+      "final_allocated_CPU_seconds": 390,
+      "observed_TotalCPU_seconds": 5.04,
+      "MaxRSS_KiB": 1267228,
+      "MIG_slice_seconds": 65,
+      "records": 0,
+      "qualified": null,
+      "scientific_result": "incomplete_engineering",
+      "GPU_work_verified": false,
+      "results_copied": true,
+      "custody_verified": true,
+      "audit": "outputs/preference_program/results/reader32_qualification_v62/GPU_audit.json"
     }
   ],
   "last_checked_at_utc": "2026-10-06T20:33:27Z",

@@ -1,0 +1,10 @@
+{
+  "complete": true,
+  "remote_local_SHA256_match": true,
+  "files": {
+    "gpu-33507455.out": "65036468c9df4d0d8ce095cde677c256f889d8fb723905c1ed7119b236142616",
+    "gpu-33507455.err": "8200465a6247399a23514e8270b0c7ee5d265fb76d8ea9efcbcd828c1dd770f3",
+    "gpu-33507455.csv": "479b5d0df51da0a2bff28b29c60bd8c0c7a83949b517703922c137e620169828",
+    "smoke/budget_stop.json": "f006f67febb5ae820f6c665e64ad488e19ef89903c370d0cd07b31705f2f4422"
+  }
+}
