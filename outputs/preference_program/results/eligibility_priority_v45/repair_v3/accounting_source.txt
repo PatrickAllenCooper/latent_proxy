@@ -1,0 +1,10 @@
+JobID|State|ElapsedRaw|AllocCPUS|ReqCPUS|CPUTimeRAW|TotalCPU|UserCPU|SystemCPU|ReqMem|MaxRSS|ReqTRES|AllocTRES
+33464918|FAILED|107|9|9|963|00:04.861|00:03.602|00:01.258|32G||billing=6,cpu=4,mem=32G,node=1|billing=9,cpu=9,mem=32G,node=1
+33464918.batch|FAILED|107|9|9|963|00:04.859|00:03.601|00:01.257||214252K||cpu=9,mem=32G,node=1
+33464918.extern|COMPLETED|107|9|9|963|00:00.001|00:00:00|00:00:00||256K||billing=9,cpu=9,mem=32G,node=1
+   DefMemPerCPU=3840 MaxMemPerCPU=3840
+   TRESBillingWeights=CPU=0.5,Mem=0.141G
+SelectType              = select/cons_tres
+SelectTypeParameters    = CR_CORE_MEMORY
+TaskPlugin              = task/cgroup
+TaskPluginParam         = (null type)

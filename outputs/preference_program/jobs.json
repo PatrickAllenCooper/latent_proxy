@@ -1758,7 +1758,13 @@
       "results_copied": true,
       "GPU_submitted": false,
       "allocated_CPUs": 9,
-      "failure": "90s AutoTokenizer import timeout in shared-environment metadata traversal; no tokenreceipt"
+      "failure": "90s AutoTokenizer import timeout in shared-environment metadata traversal; no tokenreceipt",
+      "allocated_CPU_seconds": 963,
+      "allocated_CPU_hours": 0.2675,
+      "observed_TotalCPU_seconds": 4.861,
+      "application_thread_caps": 4,
+      "scheduler_adjusted_ReqCPUS": 9,
+      "resource_rounding": "32GiB/3840MiB per CPU requires ceil8.533=9 allocated CPUs"
     }
   ],
   "last_checked_at_utc": "2026-10-06T00:11:51.774465+00:00"

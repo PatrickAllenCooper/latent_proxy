@@ -1,0 +1,21 @@
+{
+  "job_id": "33464918",
+  "script_requested_CPUs": 4,
+  "application_thread_caps": 4,
+  "Slurm_ReqTRES_CPUs": 4,
+  "Slurm_AllocTRES_CPUs": 9,
+  "sacct_ReqCPUS_after_scheduler_adjustment": 9,
+  "elapsed_seconds": 107,
+  "allocated_CPU_seconds": 963,
+  "allocated_CPU_hours": 0.2675,
+  "observed_TotalCPU_seconds": 4.861,
+  "requested_memory_MiB": 32768,
+  "acpu_MaxMemPerCPU_MiB": 3840,
+  "memory_minimum_CPUs": 9,
+  "rounding_evidence": "ceil(32768/3840)=9; acpu MaxMemPerCPU3840 and CR_CORE_MEMORY; script/ReqTRES4 versus AllocTRES9. Consistent memory-driven expansion; no admin job_submit hook inspection.",
+  "billing_TRES_units": 9,
+  "allocation_unit_seconds": 963,
+  "billing_note": "Charge actual allocated9\u00d7107=963CPU-seconds once at job level; do not sum batch+extern duplicate allocation records. Not a currency charge or externally verified account invoice.",
+  "CPU_efficiency_observed_percent": 0.5047767393561785,
+  "requested_limits_changed": false
+}
