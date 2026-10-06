@@ -227,3 +227,47 @@ vocabulary-size calls, infer reliability from one pass, or claim the earlier
 shutdown problem was causally repaired. Full installed package-content
 identity remains unproven. GPU/model qualification remains separately gated;
 no model response job was submitted. v53 failure remains preserved.
+
+## Frozen no-advice qualification v55 — engineering valid; scientific gate failed
+
+Original approval-bound hashes rechecked locally, no active duplicate latent
+qualification in Slurm or login worker found. CPU job `33469170` verified
+current model weights, tokenizer/config files, runtime archive, case/token
+and frozen execution source hashes before GPU submission: COMPLETED 0:0,
+25 seconds, three actual CPUs for one requested CPU/8 GB (memory scheduler
+adjustment), 75 allocated CPU seconds, 2.127 observed CPU seconds, 18,304 KiB
+batch RSS. Future simple streaming-hash stages need less host RAM; this
+request was overprovisioned. Existing failed attempts remain preserved.
+
+GPU revision `0932e8f`, job `33469187`: one H200 2g.35gb MIG, four actual CPUs,
+32 GB, ah200/gpu-normal, ucb736_asc1, five-minute requested ceiling. COMPLETED
+0:0, 34 seconds elapsed (136 allocated CPU seconds, 7.615 observed CPU seconds).
+Frozen BF16 SDPA/no quantization/use_cache=False, Qwen2.5-1.5B-Instruct revision,
+16 no-advice cases, greedy 24-token generation and exact CPU token equality
+were retained. Startup reached GPU model work before the stricter 90-second
+limit; complete study receipt at 28.18 seconds within the 285-second limit.
+All output/raw prompts inspected and gold actions recomputed independently
+from priority/eligibility. Sixteen unique records, zero parse failures,
+16 EOS, zero token caps, all provenance hashes match. Normal CUDA allocated
+memory after cleanup 32 MiB; reserved allocator memory still 3,089,104,896
+bytes until process exit, so do not claim all reserved memory was cleared.
+Peak allocated 3,132,609,536 bytes and reserved 3,149,922,304 bytes (<12 GiB).
+Real GPU computation supported by nonzero CUDA event spans (4.245 seconds
+summed across 16 generations), CUDA memory and 32 generated tokens. These
+spans include first-call setup/gaps and are not utilization percentages.
+Host-wide nvidia-smi memory is not attributable to this slice; utilization
+was N/A under MIG. The short smoke met the resource bound; it does not
+justify long allocations or expanded resources.
+
+**Scientific qualification fails: 11/16 (68.75%) versus prespecified16/16.**
+Gold A/B 4/4 each, C 2/4, D 1/4. Top-priority-eligible slice 7/8;
+top-priority-ineligible slice 4/8. Five incorrect choices remain in the raw
+record and audited diagnostics. The small frozen assay shows this checkpoint
+cannot reliably execute the explicit selection rule here, despite valid
+format and decoding; it is not a population-level estimate of preference
+learning. The advice56 panel remains gated and no automatic retry submitted.
+Next decision: retain this checkpoint/assay as a failed baseline and choose
+an independently registered capability or representation follow-up, without
+promoting a favorable reused case into qualification evidence. Full installed
+package-content identity beyond the verified pinned components remains
+unproven; no broader identity claim made.

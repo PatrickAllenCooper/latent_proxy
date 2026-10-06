@@ -1,0 +1,242 @@
+{
+  "job_id": "33469187",
+  "terminal_state": "COMPLETED",
+  "exit_code": "0:0",
+  "engineering_valid": true,
+  "qualification_passed": false,
+  "advice_panel_authorized": false,
+  "correct": 11,
+  "total": 16,
+  "accuracy": 0.6875,
+  "parse_failures": 0,
+  "EOS_records": 16,
+  "length_cap_records": 0,
+  "slices": {
+    "top_priority_eligible": {
+      "n": 8,
+      "correct": 7
+    },
+    "gold_A": {
+      "n": 4,
+      "correct": 4
+    },
+    "gold_B": {
+      "n": 4,
+      "correct": 4
+    },
+    "gold_C": {
+      "n": 4,
+      "correct": 2
+    },
+    "gold_D": {
+      "n": 4,
+      "correct": 1
+    },
+    "top_priority_ineligible": {
+      "n": 8,
+      "correct": 4
+    }
+  },
+  "errors": [
+    {
+      "case_id": "qualification-06",
+      "gold": "C",
+      "response": "A",
+      "eligibility_violation": false,
+      "eligible_priority_error": true,
+      "priority": [
+        "quiet",
+        "spacious",
+        "portable",
+        "durable"
+      ],
+      "options": [
+        {
+          "label": "A",
+          "attribute": "portable",
+          "eligible": true
+        },
+        {
+          "label": "B",
+          "attribute": "quiet",
+          "eligible": false
+        },
+        {
+          "label": "C",
+          "attribute": "spacious",
+          "eligible": true
+        },
+        {
+          "label": "D",
+          "attribute": "durable",
+          "eligible": true
+        }
+      ],
+      "prompt": "User rule: choose an eligible option. Among eligible options, choose the attribute that appears earliest in my priority list. Priority list: quiet, then spacious, then portable, then durable.\nCatalog:\nA: attribute=portable; eligible=yes.\nB: attribute=quiet; eligible=no.\nC: attribute=spacious; eligible=yes.\nD: attribute=durable; eligible=yes.\nReply with exactly one capital letter: A, B, C, or D."
+    },
+    {
+      "case_id": "qualification-07",
+      "gold": "D",
+      "response": "B",
+      "eligibility_violation": true,
+      "eligible_priority_error": false,
+      "priority": [
+        "quiet",
+        "portable",
+        "durable",
+        "spacious"
+      ],
+      "options": [
+        {
+          "label": "A",
+          "attribute": "durable",
+          "eligible": true
+        },
+        {
+          "label": "B",
+          "attribute": "quiet",
+          "eligible": false
+        },
+        {
+          "label": "C",
+          "attribute": "spacious",
+          "eligible": true
+        },
+        {
+          "label": "D",
+          "attribute": "portable",
+          "eligible": true
+        }
+      ],
+      "prompt": "User rule: choose an eligible option. Among eligible options, choose the attribute that appears earliest in my priority list. Priority list: quiet, then portable, then durable, then spacious.\nCatalog:\nA: attribute=durable; eligible=yes.\nB: attribute=quiet; eligible=no.\nC: attribute=spacious; eligible=yes.\nD: attribute=portable; eligible=yes.\nReply with exactly one capital letter: A, B, C, or D."
+    },
+    {
+      "case_id": "qualification-11",
+      "gold": "D",
+      "response": "B",
+      "eligibility_violation": false,
+      "eligible_priority_error": true,
+      "priority": [
+        "spacious",
+        "durable",
+        "quiet",
+        "portable"
+      ],
+      "options": [
+        {
+          "label": "A",
+          "attribute": "quiet",
+          "eligible": false
+        },
+        {
+          "label": "B",
+          "attribute": "durable",
+          "eligible": true
+        },
+        {
+          "label": "C",
+          "attribute": "portable",
+          "eligible": true
+        },
+        {
+          "label": "D",
+          "attribute": "spacious",
+          "eligible": true
+        }
+      ],
+      "prompt": "User rule: choose an eligible option. Among eligible options, choose the attribute that appears earliest in my priority list. Priority list: spacious, then durable, then quiet, then portable.\nCatalog:\nA: attribute=quiet; eligible=no.\nB: attribute=durable; eligible=yes.\nC: attribute=portable; eligible=yes.\nD: attribute=spacious; eligible=yes.\nReply with exactly one capital letter: A, B, C, or D."
+    },
+    {
+      "case_id": "qualification-14",
+      "gold": "C",
+      "response": "B",
+      "eligibility_violation": false,
+      "eligible_priority_error": true,
+      "priority": [
+        "spacious",
+        "quiet",
+        "portable",
+        "durable"
+      ],
+      "options": [
+        {
+          "label": "A",
+          "attribute": "spacious",
+          "eligible": false
+        },
+        {
+          "label": "B",
+          "attribute": "durable",
+          "eligible": true
+        },
+        {
+          "label": "C",
+          "attribute": "quiet",
+          "eligible": true
+        },
+        {
+          "label": "D",
+          "attribute": "portable",
+          "eligible": true
+        }
+      ],
+      "prompt": "User rule: choose an eligible option. Among eligible options, choose the attribute that appears earliest in my priority list. Priority list: spacious, then quiet, then portable, then durable.\nCatalog:\nA: attribute=spacious; eligible=no.\nB: attribute=durable; eligible=yes.\nC: attribute=quiet; eligible=yes.\nD: attribute=portable; eligible=yes.\nReply with exactly one capital letter: A, B, C, or D."
+    },
+    {
+      "case_id": "qualification-15",
+      "gold": "D",
+      "response": "B",
+      "eligibility_violation": false,
+      "eligible_priority_error": true,
+      "priority": [
+        "spacious",
+        "durable",
+        "portable",
+        "quiet"
+      ],
+      "options": [
+        {
+          "label": "A",
+          "attribute": "spacious",
+          "eligible": false
+        },
+        {
+          "label": "B",
+          "attribute": "quiet",
+          "eligible": true
+        },
+        {
+          "label": "C",
+          "attribute": "portable",
+          "eligible": true
+        },
+        {
+          "label": "D",
+          "attribute": "durable",
+          "eligible": true
+        }
+      ],
+      "prompt": "User rule: choose an eligible option. Among eligible options, choose the attribute that appears earliest in my priority list. Priority list: spacious, then durable, then portable, then quiet.\nCatalog:\nA: attribute=spacious; eligible=no.\nB: attribute=quiet; eligible=yes.\nC: attribute=portable; eligible=yes.\nD: attribute=durable; eligible=yes.\nReply with exactly one capital letter: A, B, C, or D."
+    }
+  ],
+  "provenance_hashes_valid": true,
+  "token_equality_valid": true,
+  "resource": {
+    "actual_CPUs": 4,
+    "memory": "32G",
+    "GPU_GRES": "h200_2g.35gb:1",
+    "elapsed_seconds": 34,
+    "allocated_CPU_seconds": 136,
+    "observed_TotalCPU_seconds": 7.615,
+    "batch_MaxRSS_KiB": 1204716,
+    "peak_allocated_bytes": 3132609536,
+    "peak_reserved_bytes": 3149922304,
+    "CUDA_event_span_ms": 4244.542589187622,
+    "generated_tokens": 32,
+    "normal_cleanup_allocated_bytes": 33554432,
+    "normal_cleanup_reserved_bytes": 3089104896
+  },
+  "telemetry_limit": "nvidia-smi host-wide memory and MIG utilization N/A are not attributable to this job. Real device work supported by CUDA event measurements, CUDA framework memory and sixteen generation records.",
+  "conclusion": "Frozen16/16 scientific qualification fails at11/16; do not open advice panel or retry automatically.",
+  "raw_traces_inspected": true
+}

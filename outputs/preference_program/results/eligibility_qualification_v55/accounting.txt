@@ -1,0 +1,7 @@
+JobID|State|ExitCode|Elapsed|AllocCPUS|ReqMem|AllocTRES|TotalCPU|MaxRSS
+33469170|COMPLETED|0:0|00:00:25|3|8G|billing=2,cpu=3,mem=8G,node=1|00:02.127|
+33469170.batch|COMPLETED|0:0|00:00:25|3||cpu=3,mem=8G,node=1|00:02.126|18304K
+33469170.extern|COMPLETED|0:0|00:00:25|3||billing=2,cpu=3,mem=8G,node=1|00:00.001|0
+33469187|COMPLETED|0:0|00:00:34|4|32G|billing=127,cpu=4,gres/gpu:h200_2g.35gb=1,mem=32G,node=1|00:07.615|
+33469187.batch|COMPLETED|0:0|00:00:34|4||cpu=4,gres/gpu:h200_2g.35gb=1,mem=32G,node=1|00:07.614|1204716K
+33469187.extern|COMPLETED|0:0|00:00:34|4||billing=127,cpu=4,gres/gpu:h200_2g.35gb=1,mem=32G,node=1|00:00:00|0

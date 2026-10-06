@@ -1,0 +1,66 @@
+{
+  "complete": true,
+  "started": 1791259626.8486612,
+  "completed": 1791259645.4649296,
+  "freeze_sha256": "c34549881646c7cce9902b2c84ed5fecc74bd3baebae1536e46c9071801e743a",
+  "snapshot": "/gpfs/alpine1/scratch/paco0228/relocated/caches/hf/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "files_verified": [
+    {
+      "file": "config.json",
+      "size": 660,
+      "sha256": "98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670",
+      "read_seconds": 0.0004992485046386719
+    },
+    {
+      "file": "generation_config.json",
+      "size": 242,
+      "sha256": "e558847a8b4402616f1273797b015104dc266fe4b520056fca88823ba8f8ebe6",
+      "read_seconds": 0.00032401084899902344
+    },
+    {
+      "file": "merges.txt",
+      "size": 1671839,
+      "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+      "read_seconds": 0.06606388092041016
+    },
+    {
+      "file": "model.safetensors",
+      "size": 3087467144,
+      "sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+      "read_seconds": 63.50152921676636
+    },
+    {
+      "file": "tokenizer.json",
+      "size": 7031645,
+      "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+      "read_seconds": 0.12070155143737793
+    },
+    {
+      "file": "tokenizer_config.json",
+      "size": 7305,
+      "sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+      "read_seconds": 0.018102645874023438
+    },
+    {
+      "file": "vocab.json",
+      "size": 2776833,
+      "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+      "read_seconds": 0.12270164489746094
+    }
+  ],
+  "remote_hashes": {
+    "run_eligibility_priority_qualification_v3.py": "578592d29eca437d2966981e10b9ca05953f9d1d3b59c1b5b6f414b8d1d981bc",
+    "run_eligibility_priority_v55.slurm": "0d54241762705a0fe1043ecc70f54d636353faa40ed4460cfbc0a67429914ea4",
+    "recheck_qualification_hashes.py": "3dc8945ab062c512f4f0b28ad6c251792696b3cfbc7d7ecd6d02055da368b9b6",
+    "indexed_startup.py": "7548c1fb1626c9806314334a8f614149156cd2183170bb80381adb5ef9ab1ef2",
+    "indexed_metadata_exists.py": "1c062a9e118449bdeb613c76b7f018a4b940488af6ef9e91ae6755545dabad34",
+    "indexed_source_inspection.py": "e949fb17bc90c12a4bb713af2f31467672d572b06fd2401f87fedb4ee48d4de2",
+    "shutdown_trace.py": "f597bc7388f58484d8224c42fb4e3a7467ae300b6bcc693389daf833f607bddd",
+    "prompt_token_ids.py": "7671d7a4337cce807351350e5fbacf5c18d49c9db13d386a8088ea0e2433a854",
+    "manifest.jsonl": "29adcc6fd1644412eb2a698bb41e93c26a61cf7dc47b9b9a93078b771030c4af",
+    "token_receipt.json": "ca9d4600cf4d84c59b517e1b40424be0c162f984e2a8ec98eff4bcf94cad5406",
+    "cache_receipt.json": "12eba95f8569b4e8739f729fa4495e2100f2716977dbef0d8c9cf512a4c6761a"
+  },
+  "CPU_only": true,
+  "model_calls": 0
+}
