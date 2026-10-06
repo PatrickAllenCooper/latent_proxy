@@ -2,12 +2,13 @@
   "status": "authorized_not_submitted_storage_readiness_blocked",
   "approval": "2026-10-06T17:50/17:51UTC Sentinel_3b35448af6f88191ae845af85611b7a4 and Sentinel_26b161f00ae08191a870738c7f3bc61c",
   "source_hashes": {
-    "reader32_v60.py": "fef74e8e844b7de5c9b3f8e6aa0661d7fc813baaac919391f4d06c6a1708c723",
+    "reader32_v60.py": "a58a82fa141c8862c34634d7af557a2b480200ff570749932c4ad2e1d88833bb",
     "prepare_eligibility_priority.py": "cbc048bb2c00ee768b10357101db499dd32b70dccae7b6486d95254dd4e1510e",
     "indexed_startup.py": "7548c1fb1626c9806314334a8f614149156cd2183170bb80381adb5ef9ab1ef2",
     "indexed_source_inspection.py": "e949fb17bc90c12a4bb713af2f31467672d572b06fd2401f87fedb4ee48d4de2",
     "indexed_metadata_exists.py": "1c062a9e118449bdeb613c76b7f018a4b940488af6ef9e91ae6755545dabad34",
-    "extract_verified_runtime.py": "fc32ee7ec09543efde0bdf3b8b3a23f71aa8b23e81cbf77468130ca457cc50f9"
+    "extract_verified_runtime.py": "fc32ee7ec09543efde0bdf3b8b3a23f71aa8b23e81cbf77468130ca457cc50f9",
+    "reader32_v60_contracts.py": "4740de2b1cdcc6da48bc15718b8b8932ca79821c782b7ec5eaf71d5892d5327b"
   },
   "CPU": {
     "cpu": 1,
@@ -25,5 +26,6 @@
     "generation_seconds": 10
   },
   "advice_hold": true,
-  "retry": false
+  "retry": false,
+  "local_contract_amendment": "Synthetic timing/memory/partial-export checks; scientific panel, scorer and resource envelope unchanged."
 }

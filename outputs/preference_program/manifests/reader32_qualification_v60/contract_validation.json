@@ -1,0 +1,25 @@
+{
+  "complete": true,
+  "test_methods": 8,
+  "synthetic_backend_clock_only": true,
+  "model_calls": 0,
+  "remote_probes": 0,
+  "jobs_submitted": 0,
+  "covers": [
+    "actual-memory admission",
+    "startup/complete/response time boundaries",
+    "allocated and reserved memory ceilings",
+    "remaining-time admission",
+    "first frozen case probe and exact16call cap",
+    "partial never qualified or semantic failure",
+    "duplicate/out-of-order fail closed",
+    "partial export and truncated journal preservation"
+  ],
+  "limitations": [
+    "No real CUDA/model/runtime execution",
+    "OS scheduler pauses and blocked filesystem syscalls remain unverified",
+    "Any budget_stop overrides completed receipt for qualification validity"
+  ],
+  "test_sha256": "a64d56e59537b851d020a4fe7b6ee07d141dc1351a0209d381e57bd1e4f6ddd9",
+  "contracts_sha256": "4740de2b1cdcc6da48bc15718b8b8932ca79821c782b7ec5eaf71d5892d5327b"
+}
