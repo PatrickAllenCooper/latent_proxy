@@ -1,0 +1,10 @@
+CPUjob=33465881 node=c3cpu-e2-u8 start=2026-10-05T19:05:54-06:00
+{"event": "node_local_runtime_ready", "at_unix": 1791248759.2096272, "elapsed_seconds": 3.9384546279907227, "path": "/tmp/latent-proxy-cpu-repair-33465881", "archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282"}
+{"stage": "start", "at": 1791248759.6929998, "sys_path": ["/gpfs/alpine1/scratch/paco0228/latent_proxy_runs/import-trace-v49", "/tmp/latent-proxy-cpu-repair-33465881", "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python312.zip", "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12", "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/lib-dynload", "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages", "/projects/paco0228/latent_proxy"]}
+{"stage": "metadata_before_valid", "at": 1791248761.0597227}
+{"stage": "indexed_AutoTokenizer_import_start", "at": 1791248761.0599008}
+{"stage": "indexed_mapping_hook_start", "at": 1791248763.3043118}
+{"stage": "indexed_mapping_hook_complete", "at": 1791248766.925117, "directories": 1329, "lookups": 12891}
+{"stage": "indexed_AutoTokenizer_import_complete", "at": 1791248819.328629}
+{"stage": "complete", "at": 1791248819.6801941}
+CPUjob=33465881 complete=2026-10-05T19:07:21-06:00

@@ -1,0 +1,10 @@
+JobID|State|ElapsedRaw|AllocCPUS|CPUTimeRAW|TotalCPU|MaxRSS|ReqTRES|AllocTRES
+33465881|COMPLETED|95|4|380|00:07.221||billing=3,cpu=4,mem=8G,node=1|billing=3,cpu=4,mem=8G,node=1
+33465881.batch|COMPLETED|95|4|380|00:07.220|1184668K||cpu=4,mem=8G,node=1
+33465881.extern|COMPLETED|95|4|380|00:00.001|0||billing=3,cpu=4,mem=8G,node=1
+{"stage": "indexed_AutoTokenizer_import_start", "at": 1791248761.0599008}
+{"stage": "indexed_mapping_hook_start", "at": 1791248763.3043118}
+{"stage": "indexed_mapping_hook_complete", "at": 1791248766.925117, "directories": 1329, "lookups": 12891}
+{"stage": "indexed_AutoTokenizer_import_complete", "at": 1791248819.328629}
+{"stage": "complete", "at": 1791248819.6801941}
+CPUjob=33465881 complete=2026-10-05T19:07:21-06:00

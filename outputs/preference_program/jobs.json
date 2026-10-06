@@ -1852,7 +1852,36 @@
       "startup_ready": false,
       "GPU_submitted": false,
       "failure": "Changed AutoTokenizer class import exceeded90scap; no startupreceipt"
+    },
+    {
+      "job_id": "33465881",
+      "name": "lp-import-trace",
+      "status": "completed",
+      "revision": "28c2f66",
+      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/import-trace-v49",
+      "purpose": "Changed finer startup instrumentation; no tokenizerloading/model/preparation",
+      "allocation": {
+        "account": "ucb736_asc1",
+        "partition": "acpu",
+        "qos": "cpu-normal",
+        "cpus": 4,
+        "memory": "8G",
+        "wall_time": "00:03:00",
+        "GPU_count": 0
+      },
+      "caps": "45sstage90sstartup",
+      "next_gate": "Trace diagnosis only; noautoGPU/retry",
+      "exit_code": "0:0",
+      "elapsed": "00:01:35",
+      "allocated_CPUs": 4,
+      "allocated_CPU_seconds": 380,
+      "observed_TotalCPU_seconds": 7.221,
+      "results_copied": true,
+      "startup_pass_observed": true,
+      "metadata_binding_valid": true,
+      "full_environment_identity": false,
+      "GPU_submitted": false
     }
   ],
-  "last_checked_at_utc": "2026-10-06T00:50:38.430645+00:00"
+  "last_checked_at_utc": "2026-10-06T01:08:18.302621+00:00"
 }

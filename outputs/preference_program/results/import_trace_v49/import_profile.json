@@ -1,0 +1,207 @@
+{
+  "self_top": [
+    {
+      "module": "triton._C.libtriton",
+      "self_us": 6616711,
+      "cumulative_us": 6619741
+    },
+    {
+      "module": "transformers.utils.import_utils",
+      "self_us": 3633822,
+      "cumulative_us": 3633822
+    },
+    {
+      "module": "transformers.utils.generic",
+      "self_us": 2601205,
+      "cumulative_us": 8397479
+    },
+    {
+      "module": "torch",
+      "self_us": 1531724,
+      "cumulative_us": 6417109
+    },
+    {
+      "module": "torch._C",
+      "self_us": 1034149,
+      "cumulative_us": 1035893
+    },
+    {
+      "module": "torch._dynamo.polyfills.loader",
+      "self_us": 600612,
+      "cumulative_us": 1801452
+    },
+    {
+      "module": "triton.backends",
+      "self_us": 353023,
+      "cumulative_us": 621452
+    },
+    {
+      "module": "torch.utils._debug_mode._mode",
+      "self_us": 263199,
+      "cumulative_us": 263199
+    },
+    {
+      "module": "sympy.utilities",
+      "self_us": 262616,
+      "cumulative_us": 698181
+    },
+    {
+      "module": "torch.distributed.tensor._collective_utils",
+      "self_us": 262296,
+      "cumulative_us": 19780552
+    },
+    {
+      "module": "torch.utils._debug_mode",
+      "self_us": 230758,
+      "cumulative_us": 498739
+    },
+    {
+      "module": "transformers",
+      "self_us": 217665,
+      "cumulative_us": 9110382
+    },
+    {
+      "module": "triton.language.extra",
+      "self_us": 211230,
+      "cumulative_us": 431803
+    },
+    {
+      "module": "filelock._strict",
+      "self_us": 205534,
+      "cumulative_us": 205534
+    },
+    {
+      "module": "sympy.strategies.branch",
+      "self_us": 151520,
+      "cumulative_us": 239234
+    },
+    {
+      "module": "torch.onnx._internal.torchscript_exporter.symbolic_opset9",
+      "self_us": 148647,
+      "cumulative_us": 148647
+    },
+    {
+      "module": "sympy.assumptions.assume",
+      "self_us": 142410,
+      "cumulative_us": 183971
+    },
+    {
+      "module": "sympy.release",
+      "self_us": 142083,
+      "cumulative_us": 142083
+    },
+    {
+      "module": "sympy.polys.polytools",
+      "self_us": 135750,
+      "cumulative_us": 1936037
+    },
+    {
+      "module": "torch.distributed.tensor._ops._pointwise_ops",
+      "self_us": 134467,
+      "cumulative_us": 134467
+    }
+  ],
+  "cumulative_top": [
+    {
+      "module": "transformers.models.auto.auto_factory",
+      "self_us": 17956,
+      "cumulative_us": 42358784
+    },
+    {
+      "module": "transformers.distributed.fsdp",
+      "self_us": 1439,
+      "cumulative_us": 22426662
+    },
+    {
+      "module": "torch.distributed._composable.fsdp",
+      "self_us": 4119,
+      "cumulative_us": 22408848
+    },
+    {
+      "module": "torch.distributed.fsdp",
+      "self_us": 4002,
+      "cumulative_us": 22342018
+    },
+    {
+      "module": "torch.distributed.fsdp._flat_param",
+      "self_us": 5281,
+      "cumulative_us": 21021654
+    },
+    {
+      "module": "torch.distributed.fsdp._fsdp_extensions",
+      "self_us": 1653,
+      "cumulative_us": 20995725
+    },
+    {
+      "module": "torch.distributed.fsdp._shard_utils",
+      "self_us": 1435,
+      "cumulative_us": 20889520
+    },
+    {
+      "module": "torch.distributed.tensor",
+      "self_us": 4256,
+      "cumulative_us": 20888086
+    },
+    {
+      "module": "torch.distributed.tensor._ops",
+      "self_us": 42118,
+      "cumulative_us": 20883830
+    },
+    {
+      "module": "torch.distributed.tensor._ops._conv_ops",
+      "self_us": 3112,
+      "cumulative_us": 20416691
+    },
+    {
+      "module": "torch.distributed.tensor._dtensor_spec",
+      "self_us": 2571,
+      "cumulative_us": 19869195
+    },
+    {
+      "module": "torch.distributed.tensor.placement_types",
+      "self_us": 3011,
+      "cumulative_us": 19866625
+    },
+    {
+      "module": "torch.distributed.tensor._collective_utils",
+      "self_us": 262296,
+      "cumulative_us": 19780552
+    },
+    {
+      "module": "torch.fx.experimental.symbolic_shapes",
+      "self_us": 16254,
+      "cumulative_us": 19518256
+    },
+    {
+      "module": "sympy",
+      "self_us": 5819,
+      "cumulative_us": 19098015
+    },
+    {
+      "module": "transformers.masking_utils",
+      "self_us": 4841,
+      "cumulative_us": 17313705
+    },
+    {
+      "module": "torch._dynamo._trace_wrapped_higher_order_op",
+      "self_us": 36,
+      "cumulative_us": 17255503
+    },
+    {
+      "module": "torch._dynamo",
+      "self_us": 50185,
+      "cumulative_us": 17255467
+    },
+    {
+      "module": "torch._dynamo.aot_compile",
+      "self_us": 66557,
+      "cumulative_us": 15358444
+    },
+    {
+      "module": "torch._dynamo.convert_frame",
+      "self_us": 29167,
+      "cumulative_us": 15253251
+    }
+  ],
+  "warning": "Nested cumulative durations overlap; not additive. Profiling and filesystem cache affect timing."
+}
