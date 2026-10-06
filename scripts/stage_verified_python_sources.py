@@ -34,6 +34,8 @@ def stage_packages(site,destination,packages):
     after=p.stat()
     if (before.st_size,before.st_mtime_ns,before.st_ino)!=(after.st_size,after.st_mtime_ns,after.st_ino) or sha(target)!=digest:raise ValueError('source mutated during staging')
     records.append({'source':str(p),'staged':str(target),'sha256':digest,'bytes':after.st_size,'mode':mode})
+    with (destination/'staging_progress.jsonl').open('a') as journal:journal.write(json.dumps(records[-1])+'\n')
+    if len(records)%100==0:print(json.dumps({'stage':'staging_progress','files':len(records),'bytes':sum(r['bytes'] for r in records)}),flush=True)
  receipt={'packages':list(packages),'files':records,'model_calls':0,'import_equivalence_verified':False,'full_environment_identity':False,'qualification_ready':False}
  (destination/'staging_receipt.json').write_text(json.dumps(receipt,indent=2)+'\n');return receipt
 

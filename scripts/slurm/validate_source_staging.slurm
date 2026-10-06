@@ -22,7 +22,7 @@ echo "CPUjob=$SLURM_JOB_ID node=$(hostname) start=$(date -Is)"
 test ! -e "$ROOT/final"
 /usr/bin/time -v timeout --kill-after=2s 45s python /scratch/alpine/paco0228/latent_proxy_runs/verification-runtime-v39/extract_verified_runtime.py
 export PYTHONPATH="$LOCAL_RUNTIME"
-trap 'test ! -e "$LOCAL_RUNTIME/dependency-sources/staging_receipt.json" || cp "$LOCAL_RUNTIME/dependency-sources/staging_receipt.json" "$ROOT/partial_staging_receipt.json"' EXIT
+trap 'for name in staging_receipt.json staging_progress.jsonl; do test ! -e "$LOCAL_RUNTIME/dependency-sources/$name" || cp "$LOCAL_RUNTIME/dependency-sources/$name" "$ROOT/partial-$name"; done' EXIT
 /usr/bin/time -v timeout --kill-after=2s 90s python -u "$ROOT/validate_source_staging.py" "$LOCAL_RUNTIME/dependency-sources" "$ROOT/environment_before.json" /projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages
 cp -a "$LOCAL_RUNTIME/dependency-sources" "$ROOT/final"
 echo "CPUjob=$SLURM_JOB_ID complete=$(date -Is)"
