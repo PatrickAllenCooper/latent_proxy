@@ -1,0 +1,10 @@
+{
+  "complete": true,
+  "model_calls": 0,
+  "case_scoring_assertions": 144,
+  "runner_syntax_valid": true,
+  "shell_syntax_checked_separately": true,
+  "GPU_resource_guards_present": true,
+  "live_runtime_not_validated": true,
+  "runner_sha256": "fef74e8e844b7de5c9b3f8e6aa0661d7fc813baaac919391f4d06c6a1708c723"
+}

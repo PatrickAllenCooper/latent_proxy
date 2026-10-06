@@ -1,0 +1,14 @@
+{
+  "captured_at": "2026-10-06T17:54:49Z",
+  "transport": "shared authenticated CURC SSH; scheduler reachable",
+  "config_stat_exit": 124,
+  "runtime_stat_exit": 124,
+  "individual_timeout_seconds": 8,
+  "earlier_combined_probe_exit": 124,
+  "earlier_timeout_seconds": 20,
+  "classification": "storage_readiness_blocked",
+  "job_submission": false,
+  "checkpoint_integrity_unverified": true,
+  "other_jobs_preserved": true,
+  "next_check": "Recheck exact checkpoint config and runtime receipt readability; do not request new authentication for a filesystem timeout."
+}
