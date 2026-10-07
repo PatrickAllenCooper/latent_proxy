@@ -1,0 +1,19 @@
+test_budget_arithmetic (test_reader32_v65_diagnostics.DiagnosticTests) ... ok
+test_deadlines_and_caps (test_reader32_v65_diagnostics.DiagnosticTests) ... ok
+test_export_global_cap_unchanged (test_reader32_v65_diagnostics.DiagnosticTests) ... ok
+test_full_schedule_and_no_extra_case (test_reader32_v65_diagnostics.DiagnosticTests) ... ok
+test_missing_stack_explicit (test_reader32_v65_diagnostics.DiagnosticTests) ... ok
+test_model_and_generation_calls_unchanged_except_observer (test_reader32_v65_diagnostics.DiagnosticTests) ... ok
+test_nested_spool_rejected (test_reader32_v65_diagnostics.DiagnosticTests) ... ok
+test_partial_stream_never_scored (test_reader32_v65_diagnostics.DiagnosticTests) ... ok
+test_prompt_new_and_end_protocol (test_reader32_v65_diagnostics.DiagnosticTests) ... ok
+test_protocol_fail_closed (test_reader32_v65_diagnostics.DiagnosticTests) ... ok
+test_reserve_declared_caps (test_reader32_v65_diagnostics.DiagnosticTests) ... ok
+test_stack_samples_5_10_20_and_cancel (test_reader32_v65_diagnostics.DiagnosticTests) ... ok
+test_strict_scientific_gate_preserved (test_reader32_v65_diagnostics.DiagnosticTests) ... ok
+test_unapproved_runner_stops_before_framework_import (test_reader32_v65_diagnostics.DiagnosticTests) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.084s
+
+OK

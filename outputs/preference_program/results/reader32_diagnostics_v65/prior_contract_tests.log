@@ -1,0 +1,13 @@
+test_capacity_admission (test_reader32_v60_contracts.Contracts) ... ok
+test_clock_and_memory_boundaries (test_reader32_v60_contracts.Contracts) ... ok
+test_completed_negative_separate_from_resource_failure (test_reader32_v60_contracts.Contracts) ... ok
+test_first_case_probe_exactly_sixteen (test_reader32_v60_contracts.Contracts) ... ok
+test_order_duplicate_fail_closed (test_reader32_v60_contracts.Contracts) ... ok
+test_partial_export_preserves_raw_and_tolerates_truncated_tail (test_reader32_v60_contracts.Contracts) ... ok
+test_partial_never_semantic_failure (test_reader32_v60_contracts.Contracts) ... ok
+test_response_caps_and_estimated_remaining_time (test_reader32_v60_contracts.Contracts) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.001s
+
+OK

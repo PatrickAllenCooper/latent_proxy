@@ -1,0 +1,16 @@
+{
+  "valid": true,
+  "scope": "pinned-source AST protocol plus separate duck-protocol CPU fixtures; not live CUDA integration",
+  "source_sha256": "ec9e5bce8b654d5ef8169ddf595be18a06a95c87568fcd909d37d88255ffb8f7",
+  "generate_streamer_calls": [
+    "streamer.put(input_ids.cpu())"
+  ],
+  "sample_streamer_calls": [
+    "streamer.end()",
+    "streamer.put(next_tokens.cpu())"
+  ],
+  "GPU_calls": 0,
+  "model_loads": 0,
+  "model_responses": 0,
+  "timing_risk": "Runtime .cpu() token delivery can synchronize GPU and perturb latency."
+}

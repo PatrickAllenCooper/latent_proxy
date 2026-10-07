@@ -2402,6 +2402,17 @@
       "GPU_job": "33483615",
       "correct": 6,
       "records": 16
+    },
+    {
+      "name": "reader32_first_call_diagnostics_v65",
+      "status": "CPU_validated_frozen_for_review_resource_amendment_pending",
+      "source_manifest": "outputs/preference_program/manifests/reader32_qualification_v65/source_manifest.json",
+      "validation": "outputs/preference_program/results/reader32_diagnostics_v65/validation.json",
+      "GPU_jobs": 0,
+      "model_responses": 0,
+      "owner_decision": "first-case30s instead of10s; startup90/rest10/generation270/export285/job300 unchanged total envelope",
+      "automatic_retry": false,
+      "advice_panel_blocked": true
     }
   ],
   "research_analyses": [

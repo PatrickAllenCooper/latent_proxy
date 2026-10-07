@@ -1,0 +1,20 @@
+{
+  "complete": true,
+  "at_utc": "2026-10-07T00:15:50.077228+00:00",
+  "CPU_unit_tests_passed": 14,
+  "CPU_models_loaded": 0,
+  "new_model_responses": 0,
+  "GPU_jobs_submitted": 0,
+  "shell_syntax_valid": true,
+  "frozen_source_AST_parse_valid": true,
+  "frozen_source_manifest_sha256": "4539f534718e14c7de0735152a8d0c8e2f63b6b56212b5c62f0265f9c53f5492",
+  "runtime_protocol": "pinned runtime AST and tensor duck fixtures; live CUDA integration unverified",
+  "scientific_call_AST_equal_except_streamer": true,
+  "approval_refusal_verified_before_framework_import": true,
+  "resource_amendment_approved": false,
+  "retained_allocated_CPU_seconds": 1717,
+  "retained_MIG_slice_seconds": 155,
+  "prior_contract_tests_passed": 8,
+  "source_guard_tests_passed": 3,
+  "total_CPU_tests_passed": 25
+}

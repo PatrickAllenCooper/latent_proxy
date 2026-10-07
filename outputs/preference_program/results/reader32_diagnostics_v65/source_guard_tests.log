@@ -1,0 +1,8 @@
+test_bookkeeping_outside_source_root_preserves_guard (test_reader32_source_directory_contract.SourceDirectory) ... ok
+test_guard_still_rejects_source_entry_mutation (test_reader32_source_directory_contract.SourceDirectory) ... ok
+test_ledger_in_indexed_source_root_fails_closed (test_reader32_source_directory_contract.SourceDirectory) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.002s
+
+OK
