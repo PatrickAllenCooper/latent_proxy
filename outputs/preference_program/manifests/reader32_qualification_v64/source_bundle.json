@@ -1,0 +1,27 @@
+{
+  "source_commit": "ba7595e",
+  "sha256": "10d5c90e8fa5403838162050138ee1b4f954a134287b2ed0542cad816713ad50",
+  "files": {
+    "reader32_v60.py": "a58a82fa141c8862c34634d7af557a2b480200ff570749932c4ad2e1d88833bb",
+    "prepare_eligibility_priority.py": "cbc048bb2c00ee768b10357101db499dd32b70dccae7b6486d95254dd4e1510e",
+    "indexed_startup.py": "7548c1fb1626c9806314334a8f614149156cd2183170bb80381adb5ef9ab1ef2",
+    "indexed_source_inspection.py": "e949fb17bc90c12a4bb713af2f31467672d572b06fd2401f87fedb4ee48d4de2",
+    "indexed_metadata_exists.py": "1c062a9e118449bdeb613c76b7f018a4b940488af6ef9e91ae6755545dabad34",
+    "extract_verified_runtime.py": "fc32ee7ec09543efde0bdf3b8b3a23f71aa8b23e81cbf77468130ca457cc50f9",
+    "reader32_v60_contracts.py": "4740de2b1cdcc6da48bc15718b8b8932ca79821c782b7ec5eaf71d5892d5327b",
+    "prompt_token_ids.py": "7671d7a4337cce807351350e5fbacf5c18d49c9db13d386a8088ea0e2433a854",
+    "diagnose_reader32_token_gate.py": "86d0c9f0c0f4f641da7341ff113fd4525b30e024d566cd67d96dceaf0683b160",
+    "prepare_reader32_v61.py": "e5d72d5a0b7622c21528ff01e8558d1a7ef3866351ea6e8a88bda340e127ba4f",
+    "reader32_v61.py": "1f8d2daf2ad9cb30d264b79aa0251f76ef75d2ad03e838ed9672823a9861452e",
+    "run_reader32_v62.py": "7db6b4d13e6d0fa43752376825696499570f0e4b67aaa63d67c9d50ced22069c",
+    "run_reader32_v64.py": "4806f36ebd10bc9de7a0843099a14b3126e56e49c6ebff0eead9692193cff966",
+    "prepare_reader32_qualification_v60.py": "40fb55bb465ef28d33af53ab4e89fce8ddf4e16bcfeb5b751433d5ac9f85d27e",
+    "registration.json": "8b50e09f08b59e77511bc98d470ec355ebc428d7e73ff4cfd54234a37b902a80",
+    "cases.jsonl": "69c09b0e3591cbc53fd0ef0dc2e1f4d4c0899f7cdf06e345bfd5c711c80b08b0",
+    "prompts.jsonl": "420ff238f20545ab61711f9b72e0f5df6bd198baf5c64cd68cd652dc15ae7bf4",
+    "execution_freeze.json": "1d1397d2b702420aa7e12f9a0c5c33f0ee48d861d35dff0288fbd229d5c25ac4",
+    "cpu_receipt.json": "345add724bbf55f724a4bdb47d6175944df43ffe211a112635275099cccd4bc4",
+    "startup_receipt.json": "5b1db662a5af22dd13119eee9f7fda373543e583bf27b6a54326ea89dd6ae9a9",
+    "gpu.slurm": "a80faf0c3b54d6c90161fa877ec1b001b914a865c51c3afcfae01116dbe74e37"
+  }
+}
