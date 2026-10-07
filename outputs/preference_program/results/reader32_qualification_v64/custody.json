@@ -1,0 +1,35 @@
+{
+  "verified": true,
+  "files": {
+    "gpu-33507794.out": {
+      "local_sha256": "5cd6dc67ece0b48f79d4ed30fe155cd8d7ac867b007d67b77f2ea5fbefb593da",
+      "remote_sha256": "5cd6dc67ece0b48f79d4ed30fe155cd8d7ac867b007d67b77f2ea5fbefb593da",
+      "bytes": 4458,
+      "match": true
+    },
+    "gpu-33507794.err": {
+      "local_sha256": "d4665427e66bb58ef966bac8b0c4ad6b1244e5710b6f530b5d5e1c248e14642e",
+      "remote_sha256": "d4665427e66bb58ef966bac8b0c4ad6b1244e5710b6f530b5d5e1c248e14642e",
+      "bytes": 10227,
+      "match": true
+    },
+    "gpu-33507794.csv": {
+      "local_sha256": "3b72b1e06be7aa79f4a4ecaf0c7f2bb087d75fb3aa2fdc5cd1ef29fa4395b139",
+      "remote_sha256": "3b72b1e06be7aa79f4a4ecaf0c7f2bb087d75fb3aa2fdc5cd1ef29fa4395b139",
+      "bytes": 9324,
+      "match": true
+    },
+    "smoke/budget_stop.json": {
+      "local_sha256": "c28816e45b06fcfdd702fdae9e547ce992b8983cfc63ffdd2627762b0b6bdbba",
+      "remote_sha256": "c28816e45b06fcfdd702fdae9e547ce992b8983cfc63ffdd2627762b0b6bdbba",
+      "bytes": 301,
+      "match": true
+    },
+    "smoke/responses.jsonl": {
+      "local_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "remote_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "match": true
+    }
+  }
+}

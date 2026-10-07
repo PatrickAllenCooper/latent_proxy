@@ -2336,7 +2336,7 @@
     {
       "job_id": "33507794",
       "stage": "changed_isolated_frozen16_GPU_qualification",
-      "status": "RUNNING",
+      "status": "FAILED",
       "submitted_at_utc": "2026-10-07T00:00:04Z",
       "source_commit": "ba7595e",
       "source_bundle_sha256": "10d5c90e8fa5403838162050138ee1b4f954a134287b2ed0542cad816713ad50",
@@ -2368,10 +2368,23 @@
       "actual_device": "NVIDIA H200 NVL MIG 3g.71gb",
       "actual_total_GPU_memory_bytes": 74893492224,
       "memory_budget_bytes": 69793218560,
-      "model_load_started": true
+      "model_load_started": true,
+      "exit_code": "2:0",
+      "ended_at_utc": "2026-10-07T00:01:35Z",
+      "elapsed_seconds": 90,
+      "allocated_CPU_seconds": 540,
+      "MIG_slice_seconds": 90,
+      "records": 0,
+      "generation_calls_attempted": 1,
+      "qualified": null,
+      "classification": "incomplete_resource_or_runtime",
+      "custody_verified": true,
+      "audit": "outputs/preference_program/results/reader32_qualification_v64/GPU_audit.json",
+      "model_load_seconds": 46.18594670295715,
+      "first_generation_stop_seconds": 10.044405937194824
     }
   ],
-  "last_checked_at_utc": "2026-10-06T20:33:27Z",
+  "last_checked_at_utc": "2026-10-07T00:01:35Z",
   "research_designs": [
     {
       "name": "preference_factorial_v56",

@@ -1,0 +1,277 @@
+{
+  "job_id": "33507794",
+  "state": "FAILED",
+  "exit_code": "2:0",
+  "classification": "incomplete_resource_or_runtime",
+  "qualified": null,
+  "completed_records": 0,
+  "generation_calls_attempted": 1,
+  "partial_generated_tokens": "unknown",
+  "events": [
+    {
+      "event": "node_local_runtime_ready",
+      "at_unix": 1791331212.0667098,
+      "elapsed_seconds": 0.22720766067504883,
+      "path": "/tmp/lp-reader32-v64-33507794",
+      "archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282"
+    },
+    {
+      "event": "GPU_process_start",
+      "at": 1791331212.2608588
+    },
+    {
+      "event": "model_load_start",
+      "at": 1791331236.0178866,
+      "total_memory": 74893492224,
+      "budget": 69793218560,
+      "device_name": "NVIDIA H200 NVL MIG 3g.71gb",
+      "device_count": 1,
+      "CUDA_VISIBLE_DEVICES": "0"
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331236.0681393,
+      "phase": "startup",
+      "allocated": 0,
+      "reserved": 0
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331238.0958192,
+      "phase": "startup",
+      "allocated": 3397396480,
+      "reserved": 65531805696
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331240.1301491,
+      "phase": "startup",
+      "allocated": 4938848256,
+      "reserved": 65531805696
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331242.1517174,
+      "phase": "startup",
+      "allocated": 6889269248,
+      "reserved": 65531805696
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331244.1598108,
+      "phase": "startup",
+      "allocated": 9877827584,
+      "reserved": 65531805696
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331246.1916552,
+      "phase": "startup",
+      "allocated": 13715744768,
+      "reserved": 65531805696
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331248.2301598,
+      "phase": "startup",
+      "allocated": 17616574464,
+      "reserved": 65531805696
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331250.2488608,
+      "phase": "startup",
+      "allocated": 18717648896,
+      "reserved": 65531805696
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331252.2748291,
+      "phase": "startup",
+      "allocated": 23467847680,
+      "reserved": 65531805696
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331254.3065872,
+      "phase": "startup",
+      "allocated": 27368689664,
+      "reserved": 65531805696
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331256.3154674,
+      "phase": "startup",
+      "allocated": 29319112704,
+      "reserved": 65531805696
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331258.3393428,
+      "phase": "startup",
+      "allocated": 32244742144,
+      "reserved": 65531805696
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331260.3706214,
+      "phase": "startup",
+      "allocated": 35170375680,
+      "reserved": 65531805696
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331262.4027584,
+      "phase": "startup",
+      "allocated": 37120796672,
+      "reserved": 65531805696
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331264.4140546,
+      "phase": "startup",
+      "allocated": 41032124416,
+      "reserved": 65531805696
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331266.4369032,
+      "phase": "startup",
+      "allocated": 44985395200,
+      "reserved": 65531805696
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331268.4391634,
+      "phase": "startup",
+      "allocated": 48823310336,
+      "reserved": 65531805696
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331270.470836,
+      "phase": "startup",
+      "allocated": 51874805760,
+      "reserved": 65531805696
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331272.498975,
+      "phase": "startup",
+      "allocated": 53709860864,
+      "reserved": 65531805696
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331274.5354826,
+      "phase": "startup",
+      "allocated": 57600217088,
+      "reserved": 65531805696
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331276.5858583,
+      "phase": "startup",
+      "allocated": 61217931264,
+      "reserved": 65531805696
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331278.6227612,
+      "phase": "startup",
+      "allocated": 64835657728,
+      "reserved": 65533902848
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331280.6306698,
+      "phase": "startup",
+      "allocated": 65464815616,
+      "reserved": 65533902848
+    },
+    {
+      "event": "model_loaded",
+      "at": 1791331282.2038333,
+      "allocated": 65527753728,
+      "reserved": 65533902848
+    },
+    {
+      "event": "generation_start",
+      "at": 1791331282.2076113,
+      "case_id": "reader32-fresh-00"
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331282.6690989,
+      "phase": "generation",
+      "allocated": 65527757824,
+      "reserved": 65533902848
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331284.6761024,
+      "phase": "generation",
+      "allocated": 65529040896,
+      "reserved": 65533902848
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331286.6838803,
+      "phase": "generation",
+      "allocated": 65529040896,
+      "reserved": 65533902848
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331288.6905324,
+      "phase": "generation",
+      "allocated": 65529040896,
+      "reserved": 65533902848
+    },
+    {
+      "event": "GPU_memory_progress",
+      "at": 1791331290.6968002,
+      "phase": "generation",
+      "allocated": 65532016640,
+      "reserved": 65554874368
+    },
+    {
+      "event": "STOP_incomplete",
+      "at": 1791331292.2535176,
+      "reason": "time_limit"
+    }
+  ],
+  "model_load_seconds": 46.18594670295715,
+  "generation_to_stop_receipt_seconds": 10.044405937194824,
+  "generation_to_stop_event_seconds": 10.04590630531311,
+  "python_to_loaded_seconds": 69.94297456741333,
+  "requested": {
+    "GPU": "h200_3g.71gb",
+    "count": 1,
+    "CPUs": 6,
+    "host_GiB": 64,
+    "wall_seconds": 300
+  },
+  "observed": {
+    "peak_allocated_bytes": 65569818624,
+    "peak_reserved_bytes": 65588428800,
+    "host_MaxRSS_KiB": 65636028,
+    "elapsed_seconds": 90,
+    "TotalCPU_seconds": 37.08,
+    "allocated_CPU_seconds": 540,
+    "MIG_slice_seconds": 90
+  },
+  "custody_verified": true,
+  "automatic_retry": false,
+  "retained_program_costs": {
+    "allocated_CPU_seconds": 1717,
+    "MIG_slice_seconds": 155,
+    "prior_accounting_disagreement_preserved": true
+  },
+  "limitations": [
+    "no partial tokens or stack",
+    "no completed inference CUDA span",
+    "NVML unavailable/unattributable",
+    "cold versus steady latency unknown"
+  ]
+}

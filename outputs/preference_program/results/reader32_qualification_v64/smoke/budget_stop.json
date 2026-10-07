@@ -1,0 +1,14 @@
+{
+  "complete": false,
+  "qualified": null,
+  "classification": "incomplete_resource_or_runtime",
+  "records": 0,
+  "reason": "time_limit",
+  "at": 1791331292.2520173,
+  "phase": {
+    "name": "generation",
+    "deadline": 1791331292.20761
+  },
+  "allocated": 65569818624,
+  "reserved": 65588428800
+}
