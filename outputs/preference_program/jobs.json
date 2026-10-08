@@ -2409,7 +2409,7 @@
     {
       "job_id": "33560980",
       "stage": "approved_instrumented_reader32_v65",
-      "status": "PENDING",
+      "status": "FAILED",
       "submitted_at_utc": "2026-10-08T19:10:32.963336+00:00",
       "source_commit": "9602b83",
       "review_commit": "e027985",
@@ -2430,7 +2430,20 @@
       "strict_correct_required": 16,
       "automatic_retry": false,
       "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/reader32-qualification-v65",
-      "pending_reason": "Priority"
+      "pending_reason": "Priority",
+      "exit_code": "2:0",
+      "elapsed_seconds": 99,
+      "allocated_CPU_seconds": 594,
+      "MIG_slice_seconds": 99,
+      "model_load_started": false,
+      "generation_calls_attempted": 0,
+      "records": 0,
+      "qualified": null,
+      "classification": "incomplete_resource_or_runtime",
+      "custody_verified": true,
+      "audit": "outputs/preference_program/results/reader32_qualification_v65/GPU_audit.json",
+      "startup_stop_reason": "90_second_startup_limit",
+      "startup_stop_overshoot_seconds": 4.720893383026123
     }
   ],
   "last_checked_at_utc": "2026-10-07T00:01:35Z",
@@ -2454,7 +2467,7 @@
     },
     {
       "name": "reader32_first_call_diagnostics_v65",
-      "status": "GPU_submitted",
+      "status": "approved_single_attempt_consumed_incomplete_startup",
       "source_manifest": "outputs/preference_program/manifests/reader32_qualification_v65/source_manifest.json",
       "validation": "outputs/preference_program/results/reader32_diagnostics_v65/validation.json",
       "GPU_jobs": 1,

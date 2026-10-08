@@ -1,0 +1,11 @@
+{
+  "local_tests": 6,
+  "new_model_calls": 0,
+  "cluster_submissions": 0,
+  "model_generation_AST_unchanged": true,
+  "dependency_import_AST_unchanged": true,
+  "fresh_followup_gate_required": true,
+  "stack_capture_test": "actual local C-backed timer emitted and cancelled; fake sleeping fixture not model",
+  "startup_enforcement": "trace timer does not enforce90s; futureCPUjob needs independent external timeout",
+  "at_utc": "2026-10-08T21:55:53.271935+00:00"
+}

@@ -1,0 +1,24 @@
+{
+  "status": "local_only_no_followup_admission",
+  "diagnostic_followup_admission": false,
+  "files": {
+    "reader32_import_trace.py": "20902a84481ad75f0a2f4758e326d1c0afa09689d4843f1317e28584fdc0d238",
+    "run_reader32_v67_proposal.py": "8fbe3c87b2240d87619ddd38fbc92188d3c379ba9d539138885a599c60fec8d6"
+  },
+  "scope": "startup-stack observability only; no inferred fix",
+  "next_request": "one CPU-only exact guarded-import diagnostic",
+  "resources": {
+    "CPUs": 1,
+    "mem_GiB": 2,
+    "wall_seconds": 120,
+    "startup_seconds": 90,
+    "account": "ucb736_asc1",
+    "partition": "acpu",
+    "qos": "cpu-normal",
+    "attempts": 1,
+    "GPUs": 0
+  },
+  "source_parent": "e027985/9602b83",
+  "scientific_calls_and_caps_unchanged": true,
+  "new_GPU_attempt_requires_fresh_approval": true
+}

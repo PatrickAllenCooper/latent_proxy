@@ -1,0 +1,6 @@
+study_shell_start=1791486835.091344513 generation_deadline=+270 export_deadline=+285 cleanup_deadline=+300
+GPU qualification begins 2026-10-08T13:13:59-06:00 job=33560980
+{"event": "node_local_runtime_ready", "at_unix": 1791486840.553158, "elapsed_seconds": 0.4340202808380127, "path": "/tmp/lp-reader32-v65-33560980", "archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282"}
+{"event": "study_clock", "at": 1791486840.8679683, "shell_start": 1791486835.0913446, "CPU_verification_start": 1791486840.8679671}
+{"event": "GPU_process_start", "at": 1791486840.9821076}
+{"event": "dependency_import_start", "at": 1791486841.9755175}

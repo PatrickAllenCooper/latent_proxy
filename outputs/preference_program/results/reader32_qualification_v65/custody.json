@@ -1,0 +1,12 @@
+{
+  "local_remote_hashes_match": true,
+  "SHA256": {
+    "gpu-33560980.out": "150e0c5cb9072d86f72a9c54d6b640829e822e02b56b5bfcd029e864933db266",
+    "gpu-33560980.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "gpu-33560980.csv": "c650d7c076741607cc305718d78fff8ed105a808ce62a42dbf847f70bac739bd",
+    "budget_stop.json": "1f9869e102671184cf3662b5fec6f7b41866ced03467f8cd5994d5acfb983a15"
+  },
+  "source_hash_mismatches": [],
+  "remote_source_readonly": true,
+  "remote_freeze_sha256": "c251ec76588328b002ed53a970b913e7d9be2ed3d539614b940ded20dc7d72be"
+}

@@ -1,0 +1,11 @@
+test_bad_interval_rejected (test_reader32_import_trace.Trace) ... ok
+test_cancel_after_import_error (test_reader32_import_trace.Trace) ... ok
+test_proposal_imports_and_numeric_guards_identical (test_reader32_import_trace.Trace) ... ok
+test_proposal_model_and_token_calls_identical (test_reader32_import_trace.Trace) ... ok
+test_real_stderr_stack_retained_and_cancellation (test_reader32_import_trace.Trace) ... ok
+test_schedule_and_cancel_on_success (test_reader32_import_trace.Trace) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.162s
+
+OK
