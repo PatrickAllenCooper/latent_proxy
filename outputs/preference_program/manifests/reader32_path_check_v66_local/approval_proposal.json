@@ -1,0 +1,23 @@
+{
+  "status": "local_proposal_no_cluster_admission",
+  "CPU_admission": false,
+  "resources": {
+    "account": "ucb736_asc1",
+    "partition": "acpu",
+    "qos": "cpu-normal",
+    "CPUs": 1,
+    "host_mem_GiB": 2,
+    "wall_seconds": 120,
+    "check_seconds": 90,
+    "attempts": 1,
+    "GPUs": 0
+  },
+  "checker_sha256": "735141d958fb70105b6ddf20e3bb3d07c32a9319225530b8e84a85710552b7ff",
+  "source_freeze_sha256": "c251ec76588328b002ed53a970b913e7d9be2ed3d539614b940ded20dc7d72be",
+  "approval_required": "One new CPU-only Slurm allocation; GPU amendment does not authorize an additional CPU job",
+  "scientific_changes": false,
+  "model_calls": 0,
+  "automatic_retry": false,
+  "resource_basis": "prior v63 CPU gate1CPU2GiB600s completed19s with imports; this stdlib-only24file check uses no weight-content reads or imports; proposal90s check+30s setup/cleanup=120s",
+  "GPU_node_namespace_verified": false
+}

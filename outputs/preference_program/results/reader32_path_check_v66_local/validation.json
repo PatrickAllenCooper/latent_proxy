@@ -1,0 +1,15 @@
+{
+  "at_utc": "2026-10-08T19:06:50.517548+00:00",
+  "CPU_unit_tests_passed": 11,
+  "shell_syntax_valid": true,
+  "Slurm_submissions": 0,
+  "model_calls": 0,
+  "GPU_allocations": 0,
+  "compute_node_identity_unresolved": true,
+  "login_alias_does_not_upgrade_literal_gate": true,
+  "approved_GPU_attempt_consumed": false,
+  "retained_allocated_CPU_seconds": 1717,
+  "retained_MIG_slice_seconds": 155,
+  "proposed_max_added_allocated_CPU_seconds_if_approved": 120,
+  "proposal_manifest_sha256": "f6c1a76982faccdfa64daffc98036c2634238b253702498791672f838410917c"
+}

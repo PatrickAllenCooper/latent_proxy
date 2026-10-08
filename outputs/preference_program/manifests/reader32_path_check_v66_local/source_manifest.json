@@ -1,0 +1,8 @@
+{
+  "files": {
+    "approval_proposal.json": "0f38a97a35d2483790f9c328e8f8e6cad73969c284d6be84bcf7f053a092f30b",
+    "reader32_compute_path_check.py": "735141d958fb70105b6ddf20e3bb3d07c32a9319225530b8e84a85710552b7ff",
+    "reader32_path_check_v66_cpu.slurm": "b32e9f67ac262d511a5d98e1487dde262f66dd499f6dec49d73bd62e223d7ff4"
+  },
+  "status": "review_only_CPU_admission_false"
+}

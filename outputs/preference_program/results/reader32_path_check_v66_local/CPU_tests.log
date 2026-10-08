@@ -1,0 +1,16 @@
+test_alias_equality_does_not_rescue_literal_mismatch (test_reader32_compute_path_check.PathCheck) ... ok
+test_compute_context_required (test_reader32_compute_path_check.PathCheck) ... ok
+test_empty_and_unsafe_members_rejected (test_reader32_compute_path_check.PathCheck) ... ok
+test_literal_match_passes_only_CPU_namespace (test_reader32_compute_path_check.PathCheck) ... ok
+test_missing_file_explicit (test_reader32_compute_path_check.PathCheck) ... ok
+test_never_overwrites_receipt (test_reader32_compute_path_check.PathCheck) ... ok
+test_nonweight_digest_drift_fails (test_reader32_compute_path_check.PathCheck) ... ok
+test_only_standard_library_imports (test_reader32_compute_path_check.PathCheck) ... ok
+test_size_and_timestamp_drift_fail (test_reader32_compute_path_check.PathCheck) ... ok
+test_unapproved_CLI_stops_without_cluster_or_models (test_reader32_compute_path_check.PathCheck) ... ok
+test_weights_never_bulk_read (test_reader32_compute_path_check.PathCheck) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.055s
+
+OK
