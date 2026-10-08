@@ -2409,7 +2409,7 @@
     {
       "job_id": "33560980",
       "stage": "approved_instrumented_reader32_v65",
-      "status": "SUBMITTED",
+      "status": "PENDING",
       "submitted_at_utc": "2026-10-08T19:10:32.963336+00:00",
       "source_commit": "9602b83",
       "review_commit": "e027985",
@@ -2429,7 +2429,8 @@
       "responses_max": 16,
       "strict_correct_required": 16,
       "automatic_retry": false,
-      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/reader32-qualification-v65"
+      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/reader32-qualification-v65",
+      "pending_reason": "Priority"
     }
   ],
   "last_checked_at_utc": "2026-10-07T00:01:35Z",
