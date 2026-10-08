@@ -2386,7 +2386,7 @@
     {
       "job_id": "33560788",
       "stage": "CPU_only_compute_path_identity_v66",
-      "status": "SUBMITTED",
+      "status": "COMPLETED",
       "submitted_at_utc": "2026-10-08T19:09:05.247043+00:00",
       "source_commit": "82cd49f",
       "account": "ucb736_asc1",
@@ -2399,7 +2399,12 @@
       "GPU_count": 0,
       "model_calls": 0,
       "automatic_retry": false,
-      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/reader32-path-check-v66"
+      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/reader32-path-check-v66",
+      "exit_code": "0:0",
+      "elapsed_seconds": 11,
+      "allocated_CPU_seconds": 11,
+      "literal_gate_passed": true,
+      "audit": "outputs/preference_program/results/reader32_path_check_v66/audit.json"
     }
   ],
   "last_checked_at_utc": "2026-10-07T00:01:35Z",

@@ -1,0 +1,17 @@
+{
+  "job_id": "33560788",
+  "status": "COMPLETED",
+  "exit_code": "0:0",
+  "literal_CPU_path_gate_passed": true,
+  "files_matched": 24,
+  "node": "c3cpu-c15-u5-4",
+  "elapsed_seconds": 11,
+  "allocated_CPU_seconds": 11,
+  "TotalCPU_seconds": 0.266,
+  "MaxRSS_KiB": 58500,
+  "remote_local_receipt_SHA256_match": true,
+  "GPU_model_calls": 0,
+  "GPU_namespace_still_checked_by_original_runner": true,
+  "retained_total_allocated_CPU_seconds": 1728,
+  "retained_MIG_seconds": 155
+}
