@@ -1,0 +1,21 @@
+{
+  "authorization": "Patrick approval relayed by sole coordinator 01a11c39-0c89-7152-8a56-432adf15402d on2026-10-08",
+  "scope": "ONE instrumented32B attempt; first cap10to30seconds only; no retry",
+  "review_commit": "e027985",
+  "review_manifest_sha256": "4539f534718e14c7de0735152a8d0c8e2f63b6b56212b5c62f0265f9c53f5492",
+  "frozen_cases": 16,
+  "strict_correct_required": 16,
+  "new_tokens_max": 24,
+  "GPU": "h200_3g.71gb:1",
+  "CPUs": 6,
+  "host_mem_GiB": 64,
+  "wall_seconds": 300,
+  "startup_seconds": 90,
+  "first_case_seconds": 30,
+  "later_case_seconds": 10,
+  "generation_by_seconds": 270,
+  "export_by_seconds": 285,
+  "advice_hold": true,
+  "automatic_retry": false,
+  "bound_at_utc": "2026-10-08T18:15:56.028837+00:00"
+}
