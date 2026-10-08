@@ -2382,6 +2382,24 @@
       "audit": "outputs/preference_program/results/reader32_qualification_v64/GPU_audit.json",
       "model_load_seconds": 46.18594670295715,
       "first_generation_stop_seconds": 10.044405937194824
+    },
+    {
+      "job_id": "33560788",
+      "stage": "CPU_only_compute_path_identity_v66",
+      "status": "SUBMITTED",
+      "submitted_at_utc": "2026-10-08T19:09:05.247043+00:00",
+      "source_commit": "82cd49f",
+      "account": "ucb736_asc1",
+      "partition": "acpu",
+      "qos": "cpu-normal",
+      "CPUs": 1,
+      "host_mem_GiB": 2,
+      "wall_seconds": 120,
+      "check_seconds": 90,
+      "GPU_count": 0,
+      "model_calls": 0,
+      "automatic_retry": false,
+      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/reader32-path-check-v66"
     }
   ],
   "last_checked_at_utc": "2026-10-07T00:01:35Z",
