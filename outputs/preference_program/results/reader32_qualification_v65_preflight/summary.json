@@ -1,0 +1,25 @@
+{
+  "status": "approved_attempt_held_before_GPU_submission",
+  "approval_commit": "9602b83",
+  "source_commit": "e027985",
+  "GPU_jobs_submitted": 0,
+  "model_loads": 0,
+  "model_generations": 0,
+  "case_count": 16,
+  "scientific_gate": "strict16of16_unchanged",
+  "mismatch": "24literal_resolved_paths_only",
+  "sizes_and_mtime_unchanged": true,
+  "same_file_identity_verified_all24": true,
+  "login_host": "login-ci4",
+  "content_change_established": false,
+  "remaining_dependency": "CPU-only compute-node path canonicalization check or separately reviewed samefile-equivalent engineering binding; no frozen guard changed",
+  "approved_GPU_attempt_consumed": false,
+  "additional_Slurm_CPU_or_GPU_charge": 0,
+  "retained_allocated_CPU_seconds": 1717,
+  "retained_MIG_slice_seconds": 155,
+  "hashes": {
+    "preflight_identity_mismatch.json": "bbe30c6ec257375d0ee79efb56d63e0ee680636e5f05c62fcea6ef01e55629e5",
+    "path_alias_diagnostic.json": "07c009d78626ab0e16a57ceda3c4593e8dd498ad3ef81ccd8ac171f99833765d",
+    "preflight.py": "650a9ff030e3b7449691b381719eb1b526cdb1ec478a543b1e31706b45c4e814"
+  }
+}

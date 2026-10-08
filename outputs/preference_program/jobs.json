@@ -2405,14 +2405,18 @@
     },
     {
       "name": "reader32_first_call_diagnostics_v65",
-      "status": "CPU_validated_frozen_for_review_resource_amendment_pending",
+      "status": "approved_GPU_attempt_held_preflight_path_alias",
       "source_manifest": "outputs/preference_program/manifests/reader32_qualification_v65/source_manifest.json",
       "validation": "outputs/preference_program/results/reader32_diagnostics_v65/validation.json",
       "GPU_jobs": 0,
       "model_responses": 0,
-      "owner_decision": "first-case30s instead of10s; startup90/rest10/generation270/export285/job300 unchanged total envelope",
+      "owner_decision": "10to30amendment approved; resolve compute-node literal path gate without weakening identity or consuming GPU",
       "automatic_retry": false,
-      "advice_panel_blocked": true
+      "advice_panel_blocked": true,
+      "resource_amendment_approved": true,
+      "approval_binding": "outputs/preference_program/manifests/reader32_qualification_v65/approved_admission/source/approval_binding.json",
+      "preflight_result": "outputs/preference_program/results/reader32_qualification_v65_preflight/summary.json",
+      "approved_attempt_consumed": false
     }
   ],
   "research_analyses": [

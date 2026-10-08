@@ -1,0 +1,7 @@
+{
+  "remote_local_digests_match": true,
+  "SHA256": {
+    "preflight_identity_mismatch.json": "bbe30c6ec257375d0ee79efb56d63e0ee680636e5f05c62fcea6ef01e55629e5",
+    "path_alias_diagnostic.json": "07c009d78626ab0e16a57ceda3c4593e8dd498ad3ef81ccd8ac171f99833765d"
+  }
+}
