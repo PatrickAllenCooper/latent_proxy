@@ -2405,6 +2405,31 @@
       "allocated_CPU_seconds": 11,
       "literal_gate_passed": true,
       "audit": "outputs/preference_program/results/reader32_path_check_v66/audit.json"
+    },
+    {
+      "job_id": "33560980",
+      "stage": "approved_instrumented_reader32_v65",
+      "status": "SUBMITTED",
+      "submitted_at_utc": "2026-10-08T19:10:32.963336+00:00",
+      "source_commit": "9602b83",
+      "review_commit": "e027985",
+      "CPU_path_check_job": "33560788",
+      "account": "ucb736_asc1",
+      "partition": "ah200",
+      "qos": "gpu-normal",
+      "GRES": "gpu:h200_3g.71gb:1",
+      "CPUs": 6,
+      "host_mem_GiB": 64,
+      "wall_seconds": 300,
+      "startup_seconds": 90,
+      "first_case_seconds": 30,
+      "later_case_seconds": 10,
+      "generation_by_seconds": 270,
+      "export_by_seconds": 285,
+      "responses_max": 16,
+      "strict_correct_required": 16,
+      "automatic_retry": false,
+      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/reader32-qualification-v65"
     }
   ],
   "last_checked_at_utc": "2026-10-07T00:01:35Z",
@@ -2428,10 +2453,10 @@
     },
     {
       "name": "reader32_first_call_diagnostics_v65",
-      "status": "approved_GPU_attempt_held_preflight_path_alias",
+      "status": "GPU_submitted",
       "source_manifest": "outputs/preference_program/manifests/reader32_qualification_v65/source_manifest.json",
       "validation": "outputs/preference_program/results/reader32_diagnostics_v65/validation.json",
-      "GPU_jobs": 0,
+      "GPU_jobs": 1,
       "model_responses": 0,
       "owner_decision": "10to30amendment approved; resolve compute-node literal path gate without weakening identity or consuming GPU",
       "automatic_retry": false,
@@ -2439,7 +2464,8 @@
       "resource_amendment_approved": true,
       "approval_binding": "outputs/preference_program/manifests/reader32_qualification_v65/approved_admission/source/approval_binding.json",
       "preflight_result": "outputs/preference_program/results/reader32_qualification_v65_preflight/summary.json",
-      "approved_attempt_consumed": false
+      "approved_attempt_consumed": true,
+      "GPU_job_id": "33560980"
     }
   ],
   "research_analyses": [
