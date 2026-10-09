@@ -1,0 +1,25 @@
+{
+  "actual_33635575_cause": "unknown; rejected line deliberately not preserved",
+  "cause_branch_known": "non-syscall child-output parser branch, not a syscall grammar failure or 90second timer",
+  "confirmed_local_defects": [
+    "absolute /usr/bin/strace: prefix maps to unexpected child output in old parser",
+    "old writer fd number can be reused by retained trace output then double-closed during cleanup"
+  ],
+  "relationship_to_failed_run": {
+    "absolute_prefix": "plausible unconfirmed cause",
+    "double_close": "latent successful-retention defect; not supported as cause of zero-record failure"
+  },
+  "not_inferred": [
+    "ptrace denial",
+    "native import failure",
+    "filesystem bottleneck"
+  ],
+  "fixture_total": 55,
+  "original_failure_sha256_preserved": "45b542f5fa5e26a3b54aa8f5c774fdfb788b4ad8b7801457e5d3f1c79a6242a7",
+  "local_observer_sha256": "41d46de0c465df63d6cd1e1b3b3c9bd40d0ebd8e9aac8f4a510bcdde800d5ecb",
+  "no_new_compute_charges": true,
+  "no_remote_experiment_or_materialization": true,
+  "confirmed_local_reproducer_error_errno": 9,
+  "upstream_format_reference": "https://github.com/strace/strace/blob/master/src/error_prints.c",
+  "installed_CURC_strace_version_verified": false
+}

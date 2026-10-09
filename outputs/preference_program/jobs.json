@@ -2608,6 +2608,17 @@
       "attempt_used": true,
       "audit_path": "outputs/preference_program/results/reader32_receipt_safe_v68/run/audit.json",
       "next_step": "local tracer compatibility and privacy-preserving error classification review only; any further allocation needs fresh authorization"
+    },
+    {
+      "design": "reader32_capture_compatibility_v69_local",
+      "status": "local_fixture_revision_completed_no_allocation_admission",
+      "job_id": null,
+      "basis_job_id": "33635575",
+      "manifest": "outputs/preference_program/manifests/reader32_capture_compatibility_v69_local/held_manifest.json",
+      "review": "outputs/preference_program/results/reader32_capture_compatibility_v69/local_review.json",
+      "new_CPU_seconds": 0,
+      "cumulative_CPU_seconds": 2425,
+      "cumulative_MIG_seconds": 254
     }
   ],
   "research_analyses": [

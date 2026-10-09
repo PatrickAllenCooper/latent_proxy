@@ -1,0 +1,66 @@
+{
+  "revision": "v69_local_compatibility_only",
+  "local_compatibility_revision_admission": false,
+  "cpu_admission": false,
+  "remote_materialization_ready": false,
+  "allocation_approved": false,
+  "new_job_ids": [],
+  "basis_job_id": "33635575",
+  "basis_capture_sha256": "45b542f5fa5e26a3b54aa8f5c774fdfb788b4ad8b7801457e5d3f1c79a6242a7",
+  "basis_audit_sha256": "993d1d1cd92c4b8393769d6fc0748f090e6bd8fc1199710e99bbed4fae3afb6d",
+  "local_source_hashes": {
+    "scripts/reader32_trace_capture_v69_local.py": "41d46de0c465df63d6cd1e1b3b3c9bd40d0ebd8e9aac8f4a510bcdde800d5ecb",
+    "scripts/reader32_trace_privacy_v68.py": "aaa29c86e01af886a566bd0c53c0b68f9e1a510a6e68910e9f6ee8f1c4b1692e"
+  },
+  "trace_cap_bytes": 10485760,
+  "metadata_budget": {
+    "total": 65536,
+    "stage": 15360,
+    "capture": 46080,
+    "safe_CPU_completion": 3072,
+    "terminal": 1024
+  },
+  "completed_fixtures": {
+    "compatibility": 16,
+    "previous_receipt": 12,
+    "previous_capture_binding": 24,
+    "previous_original_guards": 3
+  },
+  "privacy": "numeric fixed channel/type counters only; no rejected raw text or text hashes",
+  "guard_changes": false,
+  "production_strace_argv_changes": false,
+  "new_capture_control_changes": [
+    "stable stdout/stderr/syscall channel labels",
+    "exact absolute tool-prefix error categories",
+    "bounded exact stderr-only bootstrap grammar",
+    "exact importtime header grammar",
+    "track only still-owned descriptors during cleanup"
+  ],
+  "remote_writes": 0,
+  "framework_imports": 0,
+  "model_calls": 0,
+  "allocated_CPU_seconds_added": 0,
+  "cumulative_allocated_CPU_seconds": 2425,
+  "cumulative_MIG_slice_seconds": 254,
+  "next_proposed_calibration": {
+    "approved": false,
+    "execution_ready": false,
+    "cpus": 1,
+    "memory_MiB": 256,
+    "wall_seconds": 30,
+    "external_check_seconds": 20,
+    "GPUs": 0,
+    "attempts": 1,
+    "account": "ucb736_asc1",
+    "partition": "acpu",
+    "qos": "cpu-normal",
+    "target": "stdlib-only owned toy process and synthetic file; no framework/archive/model/weight stage",
+    "qualification_claim": false,
+    "required_gates": [
+      "independent local source/privacy review",
+      "separate bounded calibration harness/contract and frozen manifests",
+      "live allocation/site identity checks",
+      "fresh explicit allocation authorization"
+    ]
+  }
+}
