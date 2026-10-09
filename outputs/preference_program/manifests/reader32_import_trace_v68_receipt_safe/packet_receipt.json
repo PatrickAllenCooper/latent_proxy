@@ -1,0 +1,18 @@
+{
+  "source_files": 30,
+  "original_baseline_files_preserved": 28,
+  "baseline_source_mismatches": [],
+  "driver_output_only_derivation_sha256": "1d0dcc4da15d09105df923e15fb6a33d58e46c80f2c9772f7e0ce68a9eb62971",
+  "manifest_remote_sha256": "73256c4bbc1c963f539e514a14bc98e417820fec8566cdd794405cf17bafa245",
+  "controller_hashes": {
+    "reader32_import_trace_v68_receipt_safe.slurm": "a8ca01208de5f13dc5667f22b6156977f0ec60d5045d02fcfddd7044699ca7f7",
+    "reader32_trace_capture_v68_receipt_safe.py": "623e2a1d8392c64f20bc909a806830b980ee090545fcd91aa2593999544f1d4c",
+    "reader32_trace_privacy_v68.py": "aaa29c86e01af886a566bd0c53c0b68f9e1a510a6e68910e9f6ee8f1c4b1692e"
+  },
+  "cpu_admission": false,
+  "remote_materialization_ready": false,
+  "approved_attempt_unused": true,
+  "remote_writes": 0,
+  "model_calls": 0,
+  "framework_imports": 0
+}

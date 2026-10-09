@@ -2551,6 +2551,17 @@
         "qos": "cpu-normal"
       },
       "CPU_seconds_added": 0
+    },
+    {
+      "design": "reader32_import_trace_v68_receipt_safe",
+      "status": "approved_unused_local_output_correction_awaiting_independent_review",
+      "job_id": null,
+      "approval_message_id": "Sentinel_4455df170154819198f158ac5465133e",
+      "approved_attempt_unused": true,
+      "packet": "outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe",
+      "review_receipt": "outputs/preference_program/results/reader32_receipt_safe_v68/local_review.json",
+      "CPU_seconds_added": 0,
+      "remote_writes": 0
     }
   ],
   "research_analyses": [

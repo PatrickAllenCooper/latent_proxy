@@ -1,0 +1,11 @@
+{
+  "guard_prefix_statements": 31,
+  "dependency_AST_identical": true,
+  "baseline_top_level_AST_identical": true,
+  "output_tail_only_changed": true,
+  "baseline_driver_sha256": "dc0fa40002d5b98b01825d6579c09f88c84a286486601fbc8a0e82b07a3302b4",
+  "adapter_driver_sha256": "704121c32f798874ef0ad772f1121f22d7e662f19849ee87a3f6ae594dfa2606",
+  "safe_writer_sha256": "81ce8ce8d5e2cb28b25b447c359f6dce6c72e9eaa497f8bf5c895ef4341ed097",
+  "baseline_source_mismatches": [],
+  "allocation_submitted": false
+}

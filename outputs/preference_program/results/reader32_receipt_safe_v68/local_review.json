@@ -1,0 +1,37 @@
+{
+  "status": "LOCAL_CORRECTION_COMPLETE_REQUIRES_INDEPENDENT_REVIEW",
+  "jobs_submitted": 0,
+  "remote_writes_this_revision": 0,
+  "approved_attempt_unused": true,
+  "approval_message_id": "Sentinel_4455df170154819198f158ac5465133e",
+  "cpu_admission": false,
+  "remote_materialization_ready": false,
+  "source_baseline_files_unchanged": 28,
+  "dependency_import_AST_identical": true,
+  "guard_prefix_AST_identical": true,
+  "baseline_top_level_AST_identical": true,
+  "output_tail_only_changed": true,
+  "raw_receipt_generated": false,
+  "test_counts": {
+    "safe_receipt_and_derivation": 12,
+    "existing_v68_capture_binding": 24,
+    "existing_v67_cpu_guards": 3
+  },
+  "model_or_framework_imports_in_fixtures": 0,
+  "metadata_budget": {
+    "total": 65536,
+    "stage": 15360,
+    "capture": 46080,
+    "safe_CPU_completion": 3072,
+    "wrapper_terminal": 1024
+  },
+  "source_mapping": {
+    "baseline_sha256": "dc0fa40002d5b98b01825d6579c09f88c84a286486601fbc8a0e82b07a3302b4",
+    "adapter_sha256": "704121c32f798874ef0ad772f1121f22d7e662f19849ee87a3f6ae594dfa2606",
+    "writer_sha256": "81ce8ce8d5e2cb28b25b447c359f6dce6c72e9eaa497f8bf5c895ef4341ed097"
+  },
+  "remote_packet_preserved": "/scratch/alpine/paco0228/latent_proxy_runs/reader32-import-trace-v68",
+  "next_gate": "Independent review, then authorized separately versioned materialization and live identities; original single CPU attempt remains unused",
+  "previous_allocated_CPU_seconds": 2417,
+  "previous_MIG_slice_seconds": 254
+}

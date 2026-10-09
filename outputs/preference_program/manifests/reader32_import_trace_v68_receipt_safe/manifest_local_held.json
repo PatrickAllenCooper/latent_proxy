@@ -1,0 +1,161 @@
+{
+  "cpu_admission": false,
+  "allocation_submitted": false,
+  "resources": {
+    "cpus": 1,
+    "memory_gib": 2,
+    "wall_seconds": 120,
+    "check_seconds": 90,
+    "attempts": 1,
+    "gpus": 0,
+    "account": "ucb736_asc1",
+    "partition": "acpu",
+    "qos": "cpu-normal"
+  },
+  "diagnostic_source": "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source",
+  "python": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/bin/python",
+  "source_hashes": {
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/reader32_v65_gpu.slurm": "d520eb5ecd4230d9818c71abbd0412cd11ccdc24714b66df80eb3af7c200b48c",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/diagnose_reader32_token_gate.py": "86d0c9f0c0f4f641da7341ff113fd4525b30e024d566cd67d96dceaf0683b160",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/run_reader32_v64.py": "4806f36ebd10bc9de7a0843099a14b3126e56e49c6ebff0eead9692193cff966",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/reader32_v61.py": "1f8d2daf2ad9cb30d264b79aa0251f76ef75d2ad03e838ed9672823a9861452e",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/run_reader32_v65.py": "b945dda009f10b0b6b28387ca93d014532328301e67ccd63602b111a227aaadb",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/prepare_reader32_v61.py": "e5d72d5a0b7622c21528ff01e8558d1a7ef3866351ea6e8a88bda340e127ba4f",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/reader32_v60.py": "a58a82fa141c8862c34634d7af557a2b480200ff570749932c4ad2e1d88833bb",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/prompts.jsonl": "420ff238f20545ab61711f9b72e0f5df6bd198baf5c64cd68cd652dc15ae7bf4",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/reader32_import_diagnostic_v67_cpu.py": "dc0fa40002d5b98b01825d6579c09f88c84a286486601fbc8a0e82b07a3302b4",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/startup_receipt.json": "5b1db662a5af22dd13119eee9f7fda373543e583bf27b6a54326ea89dd6ae9a9",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/indexed_startup.py": "7548c1fb1626c9806314334a8f614149156cd2183170bb80381adb5ef9ab1ef2",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/prepare_eligibility_priority.py": "cbc048bb2c00ee768b10357101db499dd32b70dccae7b6486d95254dd4e1510e",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/cases.jsonl": "69c09b0e3591cbc53fd0ef0dc2e1f4d4c0899f7cdf06e345bfd5c711c80b08b0",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/indexed_metadata_exists.py": "1c062a9e118449bdeb613c76b7f018a4b940488af6ef9e91ae6755545dabad34",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/registration.json": "8b50e09f08b59e77511bc98d470ec355ebc428d7e73ff4cfd54234a37b902a80",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/prepare_reader32_qualification_v60.py": "40fb55bb465ef28d33af53ab4e89fce8ddf4e16bcfeb5b751433d5ac9f85d27e",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/cpu_receipt.json": "345add724bbf55f724a4bdb47d6175944df43ffe211a112635275099cccd4bc4",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/indexed_source_inspection.py": "e949fb17bc90c12a4bb713af2f31467672d572b06fd2401f87fedb4ee48d4de2",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/diagnostic_freeze.json": "9bf8aa222ffe7fddad56d4fd3c7669a920c1f0379008b71c9f219a913e395b4e",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/prompt_token_ids.py": "7671d7a4337cce807351350e5fbacf5c18d49c9db13d386a8088ea0e2433a854",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/reader32_v60_contracts.py": "4740de2b1cdcc6da48bc15718b8b8932ca79821c782b7ec5eaf71d5892d5327b",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/reader32_safe_receipt_v68.py": "81ce8ce8d5e2cb28b25b447c359f6dce6c72e9eaa497f8bf5c895ef4341ed097",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/reader32_import_diagnostic_v67_cpu.slurm": "3b6f86f2b55f7f86fce5af621d33063c3351eb001af9afb4a8700780a8373343",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/reader32_import_diagnostic_v68_receipt_safe.py": "704121c32f798874ef0ad772f1121f22d7e662f19849ee87a3f6ae594dfa2606",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/reader32_import_trace.py": "20902a84481ad75f0a2f4758e326d1c0afa09689d4843f1317e28584fdc0d238",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/run_reader32_v62.py": "7db6b4d13e6d0fa43752376825696499570f0e4b67aaa63d67c9d50ced22069c",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/extract_verified_runtime.py": "fc32ee7ec09543efde0bdf3b8b3a23f71aa8b23e81cbf77468130ca457cc50f9",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/reader32_v65_diagnostics.py": "44eaa6d692580383039e28221b8f91f434e39e0c7d051059ed8f140ddd4eeb27",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/execution_freeze.json": "c251ec76588328b002ed53a970b913e7d9be2ed3d539614b940ded20dc7d72be",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source/approval_binding.json": "dcb72eb05e26c3844cf8176eef2de7a2f0202f3fd5d9d073668b32770b980907",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/controller/reader32_import_trace_v68_receipt_safe.slurm": "a8ca01208de5f13dc5667f22b6156977f0ec60d5045d02fcfddd7044699ca7f7",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/controller/reader32_trace_capture_v68_receipt_safe.py": "623e2a1d8392c64f20bc909a806830b980ee090545fcd91aa2593999544f1d4c",
+    "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/controller/reader32_trace_privacy_v68.py": "aaa29c86e01af886a566bd0c53c0b68f9e1a510a6e68910e9f6ee8f1c4b1692e"
+  },
+  "runtime_roots": [
+    {
+      "path": "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe/source",
+      "verified": true,
+      "identity": "all baseline and diagnostic-only files bound"
+    }
+  ],
+  "verified_symlink_aliases": [],
+  "remote_materialization_ready": false,
+  "remaining_gates": [
+    "independent review of output-only derivative and full packet",
+    "authorized materialization of separately versioned revision",
+    "live source/runtime/identity/admission checks before original approved attempt",
+    "own-child tracing permissions/syntax unknown until sole approved attempt"
+  ],
+  "trace_bytes_limit": 10485760,
+  "metadata_bytes_limit": 65536,
+  "source_baseline": "All 28 existing remote v67 source files match local frozen source; source remains unchanged",
+  "model_calls": 0,
+  "gpu_allocations": 0,
+  "module_labels_scope": "Fixed symbolic import-name whitelist only; label attribution does not verify package content identity",
+  "runtime_descriptor": {
+    "receipt_path": "/scratch/alpine/paco0228/latent_proxy_runs/verification-runtime-v39/runtime_receipt.json",
+    "receipt_sha256": "bfbc150a5fab652386c1a0c38ee02744f54f2f9717063dbe691026a239dceedb",
+    "archive_path": "/scratch/alpine/paco0228/latent_proxy_runs/verification-runtime-v39/transformers.tar",
+    "archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282",
+    "archive_bytes": 52193280,
+    "extractor_sha256": "fc32ee7ec09543efde0bdf3b8b3a23f71aa8b23e81cbf77468130ca457cc50f9",
+    "node_local_recipe": "${SLURM_TMPDIR:-/tmp}/lp-reader32-import-v68-${SLURM_JOB_ID}/transformers",
+    "stage_receipt": "spool/runtime_stage.json; pinned extractor JSON checked before root admission",
+    "python_sha256_from_prior_cpu_receipt": "9d27cfcde7e3128a1b0cd86e7bf8020fc1c8210dbc485bcf878ab7ef8a5c7516",
+    "python_fresh_hash": false,
+    "python_live_metadata": {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/bin/python",
+      "resolved_path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/bin/python3.12",
+      "bytes": 31498184,
+      "mtime_ns": 1786314884972001000,
+      "device": 57,
+      "inode": 13573662539,
+      "is_symlink": true,
+      "sha256": null,
+      "hash_not_read": "bounded-read limit"
+    },
+    "scope": "archive and extractor identity verified; full shared native dependency closure NOT verified"
+  },
+  "shared_exact_files": [
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/PIL/Image.py",
+      "sha256": "04af3f2db7ffdd61e829fa7aa8f5481d394a0a4129a8fd8aa5b13908928fcd6d",
+      "bytes": 153786,
+      "mtime_ns": 1786315095476272000,
+      "label": "PIL/Image.py",
+      "verified_aliases": []
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/torch/__init__.py",
+      "sha256": "cf40c075c95864036e835795756d69b8cccfafa76f3bcde5eba9d06065ccd3d1",
+      "bytes": 111841,
+      "mtime_ns": 1786315263356308000,
+      "label": "torch/__init__.py",
+      "verified_aliases": []
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/torch/distributed/rpc/__init__.py",
+      "sha256": "f11563e66f57c6486aaedd28601dc85619689b1cb14ccba479422e064aef6089",
+      "bytes": 9929,
+      "mtime_ns": 1786315271645828000,
+      "label": "torch/distributed/rpc/__init__.py",
+      "verified_aliases": []
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/torch/_jit_internal.py",
+      "sha256": "9435668ade300edf01802837a34ab91a6a1214388fe9fd13931c0ea01c5f4d75",
+      "bytes": 55176,
+      "mtime_ns": 1786315263386286000,
+      "label": "torch/_jit_internal.py",
+      "verified_aliases": []
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/torch/nn/functional.py",
+      "sha256": "990a8b717645fa603b0dd2957b7b3ed68c5fb937fa205048c096ac8bb532510e",
+      "bytes": 277195,
+      "mtime_ns": 1786315328510824000,
+      "label": "torch/nn/functional.py",
+      "verified_aliases": []
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/PIL/_imaging.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "94310f4a073e9773a067df88513804649f50a974f78bd85a52c52d21170783f2",
+      "bytes": 3402345,
+      "mtime_ns": 1786315095776262000,
+      "label": "PIL/_imaging.cpython-312-x86_64-linux-gnu.so",
+      "verified_aliases": []
+    }
+  ],
+  "evidence_sha256": "45b69d29b26b9ffab1cc71df92729368e80ac53acee03857d3e4d114ee639640",
+  "metadata_budget": {
+    "combined_bytes": 65536,
+    "runtime_stage_max": 15360,
+    "capture_receipt_max": 46080,
+    "CPU_import_receipt_max": 3072,
+    "wrapper_receipt_max": 1024
+  },
+  "driver_name": "reader32_import_diagnostic_v68_receipt_safe.py",
+  "baseline_driver_sha256": "dc0fa40002d5b98b01825d6579c09f88c84a286486601fbc8a0e82b07a3302b4",
+  "derivation_receipt_sha256": "1d0dcc4da15d09105df923e15fb6a33d58e46c80f2c9772f7e0ce68a9eb62971",
+  "approval_message_id": "Sentinel_4455df170154819198f158ac5465133e",
+  "approved_attempt_unused": true,
+  "binding_status": "LOCAL revision only; existing remote v68 source/controller/archive untouched"
+}
