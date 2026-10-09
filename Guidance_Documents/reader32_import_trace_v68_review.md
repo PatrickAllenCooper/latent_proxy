@@ -187,3 +187,37 @@ job, prior33629588 FAILED124/95sec, account has cpu-normal QoS, scratch filesyst
 app PID4016. No unrelated job was changed. Previous charges remain2417 CPUseconds
 and254 MIGseconds. Exact approval/hold details are in
 `outputs/preference_program/results/reader32_trace_binding_v68/approval_and_prelaunch_hold.json`.
+
+## Materialized packet; final privacy review stopped submission
+
+Independent review of4a298ae passed and the existing approval remained unused.
+The exact frozen packet was materialized at the approved v68 remote root with
+archive SHA256 `873466822ae97a27b3f83934a9ac117156687c6958f8f1c0da645427777cbd3b`.
+All source/controller hashes, six exact shared-file identities, Python binary
+hash, runtime receipt hash, unchanged import AST, resource/privacy settings and
+baseline environment passed live prelaunch checks. The source is read-only;
+mutable ledgers/review receipts remain in sibling spool. No framework import,
+model load, generation, new allocation or submission took place.
+
+A subsequent final review found an unhandled output path in the frozen CPU
+baseline: successful completion writes `CPU_import_receipt.json` directly with
+full `captures` and `inspection`, including directory signatures outside the
+verified/sanitized trace labels. This bypasses the capture sink and byte budget.
+The analogous completed v63 `startup_receipt.json` is395827bytes, much larger
+than the entire approved64KiB capture-metadata envelope. Exact v68 output size
+is unknown, but no implementation caps/redacts it. Assuming startup will timeout
+would not make the successful-completion path safe. Therefore submission stopped
+before the approved attempt, as required by the failed-review instruction.
+
+Both local and remote spool ledgers/review receipts record this hold. The remote
+manifest still has `remote_materialization_ready:false`, and no submission receipt
+or active v68 job exists. Previous totals remain2417CPUseconds/254MIGseconds;
+no new compute charge. All remote source, archive and evidence are preserved.
+
+Next local control task: intercept the legacy final receipt before any raw bytes
+are persisted, retain a bounded sanitized summary inside the combined64KiB
+metadata budget, preserve exact framework import statements and startup/scoring
+checks, and fixture-test success/oversize/privacy/failure branches. Revised packet
+needs independent review. The existing authorization remains unused; no new
+spending approval is requested. Report artifacts are under
+`outputs/preference_program/results/reader32_import_trace_v68`.

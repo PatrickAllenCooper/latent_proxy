@@ -1,0 +1,30 @@
+{
+  "status": "BLOCKED_BEFORE_SUBMISSION",
+  "approval_attempt_unused": true,
+  "job_id": null,
+  "jobs_submitted": 0,
+  "CPU_seconds_added": 0,
+  "GPU_allocations": 0,
+  "previous_CPU_seconds": 2417,
+  "previous_MIG_seconds": 254,
+  "materialized_remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/reader32-import-trace-v68",
+  "remote_ready_flag": false,
+  "approved_packet_archive_sha256": "873466822ae97a27b3f83934a9ac117156687c6958f8f1c0da645427777cbd3b",
+  "live_identity_review_passed": true,
+  "privacy_receipt_review_passed": false,
+  "findings": [
+    {
+      "source": "reader32_import_diagnostic_v67_cpu.py main final CPU_import_receipt.json write",
+      "issue": "Complete import writes captures/inspection directory_signatures outside sanitized TraceSink; no output byte cap or redaction on this legacy receipt",
+      "evidence_prior_receipt_bytes": 395827,
+      "evidence_prior_receipt_sha256": "5b1db662a5af22dd13119eee9f7fda373543e583bf27b6a54326ea89dd6ae9a9",
+      "evidence_prior_receipt_fields": [
+        "captures",
+        "inspection"
+      ],
+      "approved_metadata_cap_bytes": 65536,
+      "why_not_waived": "A likely import timeout cannot justify allowing an unsafe complete-success output path."
+    }
+  ],
+  "next_local_work": "Design and fixture-test interception/redaction of the legacy receipt before any raw persistence, preserve unchanged import/source guards, include sanitized receipt in combined64KiB metadata budget, obtain independent review before using the existing authorized sole attempt. No additional spending approval requested."
+}

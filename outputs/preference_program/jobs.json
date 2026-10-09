@@ -2528,6 +2528,29 @@
       "previous_allocated_CPU_seconds": 2417,
       "previous_MIG_slice_seconds": 254,
       "remote_writes": 0
+    },
+    {
+      "design": "reader32_import_trace_v68",
+      "status": "approved_unused_blocked_legacy_receipt_privacy_cap",
+      "job_id": null,
+      "approval_message_id": "Sentinel_4455df170154819198f158ac5465133e",
+      "attempt_used": false,
+      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/reader32-import-trace-v68",
+      "source_commit": "4a298ae",
+      "materialization_review": "outputs/preference_program/results/reader32_import_trace_v68/materialization_review.json",
+      "blocking_review": "outputs/preference_program/results/reader32_import_trace_v68/prelaunch_privacy_hold.json",
+      "resources": {
+        "cpus": 1,
+        "memory_gib": 2,
+        "wall_seconds": 120,
+        "check_seconds": 90,
+        "gpus": 0,
+        "attempts": 1,
+        "account": "ucb736_asc1",
+        "partition": "acpu",
+        "qos": "cpu-normal"
+      },
+      "CPU_seconds_added": 0
     }
   ],
   "research_analyses": [

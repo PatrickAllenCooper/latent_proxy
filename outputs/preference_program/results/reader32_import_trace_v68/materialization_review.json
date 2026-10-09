@@ -1,0 +1,24 @@
+{
+  "at_unix": 1791513451.3911192,
+  "review_passed": true,
+  "issues": [],
+  "source_hashes_valid": true,
+  "fresh_python_sha256": "9d27cfcde7e3128a1b0cd86e7bf8020fc1c8210dbc485bcf878ab7ef8a5c7516",
+  "six_exact_file_bindings_valid": true,
+  "runtime_receipt_sha256": "bfbc150a5fab652386c1a0c38ee02744f54f2f9717063dbe691026a239dceedb",
+  "manifest_pre_materialization_sha256": "3a340bc933f78a02ac6b6257ff71c22b589667ef2139abc05deaa4b60fa2d589",
+  "resources": {
+    "cpus": 1,
+    "memory_gib": 2,
+    "wall_seconds": 120,
+    "check_seconds": 90,
+    "attempts": 1,
+    "gpus": 0,
+    "account": "ucb736_asc1",
+    "partition": "acpu",
+    "qos": "cpu-normal"
+  },
+  "no_framework_imports": true,
+  "no_model_calls": true,
+  "trace_privacy_limits_valid": true
+}
