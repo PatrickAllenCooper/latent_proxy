@@ -2541,6 +2541,46 @@
         "calibration_terminal.json": "dbffeea17b2f74f16886d02ef4bb3842b6a014e70b78c0a3c5f9d6873ccdbbff",
         "cpu-33641938.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
       }
+    },
+    {
+      "job_id": "33642415",
+      "status": "failed_runtime_identity",
+      "exit_code": "1:0",
+      "elapsed_seconds": 7,
+      "allocated_CPU_seconds": 7,
+      "allocated_CPUs": 1,
+      "memory_MiB": 256,
+      "MaxRSS_KiB": 55076,
+      "requested_scheduler_wall_seconds": 60,
+      "outer_application_wall_seconds": 30,
+      "check_seconds": 20,
+      "GPU_seconds": 0,
+      "total_CPU_seconds": 0.188,
+      "source_packet_commit": "d579539",
+      "approval": "user_20261009_correct_and_proceed",
+      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/tracer-calibration-v71",
+      "local_results": "outputs/preference_program/results/reader32_tracer_calibration_v71",
+      "attempts_used": 1,
+      "retry_authorized": false,
+      "failure_stage": 3,
+      "failure_code": 13,
+      "allocation_checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "interpretation": "at least one pinned runtime executable digest differs on compute node; which executable and cause not recorded",
+      "tracing_established": false,
+      "model_calls": 0,
+      "historical_allocated_CPU_seconds": 2437,
+      "historical_MIG_slice_seconds": 254,
+      "custody": {
+        "calibration_failure.json": "37f30e08aec076ef2c1648c5509e77bfd2471eddc0542e99802c1ba623709f6b",
+        "cpu-33642415.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "calibration_terminal.json": "5430bee1b6ff45cb6cdf08b7bfa1fdb4497357be49523cf39be7688a0572da38",
+        "cpu-33642415.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
     }
   ],
   "last_checked_at_utc": "2026-10-07T00:01:35Z",

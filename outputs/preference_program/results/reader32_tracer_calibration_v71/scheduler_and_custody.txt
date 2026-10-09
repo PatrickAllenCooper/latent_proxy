@@ -1,0 +1,7 @@
+33642415|FAILED|1:0|7|1||00:00.188
+33642415.batch|FAILED|1:0|7|1|55076K|00:00.187
+33642415.extern|COMPLETED|0:0|7|1|288K|00:00.001
+37f30e08aec076ef2c1648c5509e77bfd2471eddc0542e99802c1ba623709f6b  /scratch/alpine/paco0228/latent_proxy_runs/tracer-calibration-v71/spool/calibration_failure.json
+5430bee1b6ff45cb6cdf08b7bfa1fdb4497357be49523cf39be7688a0572da38  /scratch/alpine/paco0228/latent_proxy_runs/tracer-calibration-v71/spool/calibration_terminal.json
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /scratch/alpine/paco0228/latent_proxy_runs/tracer-calibration-v71/spool/cpu-33642415.err
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /scratch/alpine/paco0228/latent_proxy_runs/tracer-calibration-v71/spool/cpu-33642415.out
