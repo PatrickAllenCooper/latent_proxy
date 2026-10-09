@@ -2448,7 +2448,7 @@
     {
       "job_id": "33629588",
       "stage": "approved_CPU_guarded_import_diagnostic_v67",
-      "status": "SUBMITTED",
+      "status": "FAILED",
       "submitted_at_utc": "2026-10-09T00:45:37.956198+00:00",
       "source_commit": "457e224",
       "account": "ucb736_asc1",
@@ -2461,7 +2461,14 @@
       "GPUs": 0,
       "model_calls": 0,
       "automatic_retry": false,
-      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/reader32-import-diagnostic-v67"
+      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/reader32-import-diagnostic-v67",
+      "exit_code": "124:0",
+      "elapsed_seconds": 95,
+      "allocated_CPU_seconds": 95,
+      "stack_samples": 3,
+      "guarded_imports_completed": false,
+      "audit": "outputs/preference_program/results/reader32_import_diagnostic_v67/CPU_audit.json",
+      "custody_verified": true
     }
   ],
   "last_checked_at_utc": "2026-10-07T00:01:35Z",

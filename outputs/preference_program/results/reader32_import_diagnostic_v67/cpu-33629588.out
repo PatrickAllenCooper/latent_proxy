@@ -1,0 +1,5 @@
+{"event": "node_local_runtime_ready", "at_unix": 1791506760.9881675, "elapsed_seconds": 9.619678735733032, "path": "/tmp/lp-reader32-import-v67-33629588", "archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282"}
+{"event": "CPU_diagnostic_start", "at": 1791506762.3010736, "shell_start": 1791506749.8086467}
+{"event": "guarded_dependency_import_start", "at": 1791506772.8147848}
+{"event": "dependency_callback_enter", "at": 1791506772.814942}
+{"event": "tokenizer_class_import_start", "at": 1791506772.814961}
