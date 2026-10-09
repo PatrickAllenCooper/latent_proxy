@@ -1,0 +1,70 @@
+{
+  "purpose": "stdlib_owned_tracer_calibration",
+  "calibration_admission": true,
+  "allocation_approved": true,
+  "remote_materialization_ready": true,
+  "fresh_approval_message_id": "user_20261009_correct_and_proceed",
+  "attempts_used": 0,
+  "retry": false,
+  "resources": {
+    "cpus": 1,
+    "memory_MiB": 256,
+    "wall_seconds": 30,
+    "check_seconds": 20,
+    "attempts": 1,
+    "gpus": 0,
+    "account": "ucb736_asc1",
+    "partition": "acpu",
+    "qos": "cpu-normal"
+  },
+  "metadata_budget": {
+    "total": 65536,
+    "preparation": 15360,
+    "capture": 46080,
+    "toy": 3072,
+    "terminal": 1024
+  },
+  "trace_cap_bytes": 10485760,
+  "source_dir": "/scratch/alpine/paco0228/latent_proxy_runs/tracer-calibration-v71/source",
+  "controller_dir": "/scratch/alpine/paco0228/latent_proxy_runs/tracer-calibration-v71/controller",
+  "source_hashes": {
+    "/scratch/alpine/paco0228/latent_proxy_runs/tracer-calibration-v71/source/calibration_input.bin": "0cb68f8cb54703bc074bc210f8a195eea7e5a48bb74e196ae8866e2b66fd5d7b",
+    "/scratch/alpine/paco0228/latent_proxy_runs/tracer-calibration-v71/source/reader32_calibration_toy_v69.py": "dfd54ed66daaf202b3e4b12349d1c592236c0c10f896e2f4b5bc462b22a02941",
+    "/scratch/alpine/paco0228/latent_proxy_runs/tracer-calibration-v71/source/reader32_calibration_contract_v69.py": "7b86654213624ba45ce44a7e61b78a0471005863a6dd9c2ad933c2646992f946",
+    "/scratch/alpine/paco0228/latent_proxy_runs/tracer-calibration-v71/controller/reader32_tracer_calibration_v69.py": "fe76b37ae4c336a5810c42e56a71236c5e39294a8e4e221f623aa6d20fbc1256",
+    "/scratch/alpine/paco0228/latent_proxy_runs/tracer-calibration-v71/controller/reader32_tracer_calibration_v69_held.slurm": "201e2b0d5ff65224979a82cd52b4507445b6288d9b789ff221981afc8a3d50d0",
+    "/scratch/alpine/paco0228/latent_proxy_runs/tracer-calibration-v71/controller/reader32_calibration_terminal_v69.py": "a36b56a9d7024cd34059722345cf8ba9a94e734c8b746d79aab38cfd075dd2c0",
+    "/scratch/alpine/paco0228/latent_proxy_runs/tracer-calibration-v71/controller/reader32_trace_capture_v69_calibration.py": "9b5e7411e10d5297b6ccab5f311e418dab19517fb1d3931b67fa83cd7079846a",
+    "/scratch/alpine/paco0228/latent_proxy_runs/tracer-calibration-v71/controller/reader32_calibration_contract_v69.py": "7b86654213624ba45ce44a7e61b78a0471005863a6dd9c2ad933c2646992f946",
+    "/scratch/alpine/paco0228/latent_proxy_runs/tracer-calibration-v71/controller/reader32_trace_privacy_v68.py": "aaa29c86e01af886a566bd0c53c0b68f9e1a510a6e68910e9f6ee8f1c4b1692e"
+  },
+  "runtime": {
+    "python": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/bin/python",
+    "python_sha256": "9d27cfcde7e3128a1b0cd86e7bf8020fc1c8210dbc485bcf878ab7ef8a5c7516",
+    "python_digest_origin": "verified live before33635575; not freshly verified this local session",
+    "strace": "/usr/bin/strace",
+    "strace_sha256": "e85f6a7cc0d125339704a397eac1a2b2d2eeb243d57608dce277cd6373f3f1b7",
+    "strace_identity_live_verified": true
+  },
+  "payload_sha256": "0cb68f8cb54703bc074bc210f8a195eea7e5a48bb74e196ae8866e2b66fd5d7b",
+  "payload_bytes": 76,
+  "source_max_bytes": 262144,
+  "qualification_established": false,
+  "model_calls": 0,
+  "framework_imports": 0,
+  "required_future_gates": [
+    "independent review",
+    "fresh explicit one-attempt allocation approval",
+    "live site and allocation headroom",
+    "bounded read-only tracer/runtime identity binding",
+    "separate materialization and all frozen hash checks",
+    "compute-node tracing permission/syntax established only by approved calibration"
+  ],
+  "historical_accounting_preserved": {
+    "CPU_seconds": 2425,
+    "MIG_slice_seconds": 254
+  },
+  "no_remote_writes": true,
+  "scheduler_wall_seconds": 60,
+  "outer_watchdog_seconds": 30
+}
