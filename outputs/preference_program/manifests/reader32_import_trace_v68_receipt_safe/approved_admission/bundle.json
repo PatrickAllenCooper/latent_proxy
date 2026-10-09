@@ -1,0 +1,8 @@
+{
+  "archive_sha256": "2fcecd82c38a3abc21142dd27809ab77c15922f25f7ddc519225a07ceccd6ab9",
+  "archive_bytes": 665600,
+  "source_commit": "dcf4a17",
+  "approval_message_id": "Sentinel_4455df170154819198f158ac5465133e",
+  "previous_CPU_seconds": 2417,
+  "previous_MIG_seconds": 254
+}

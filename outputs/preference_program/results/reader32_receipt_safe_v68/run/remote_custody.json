@@ -1,0 +1,64 @@
+{
+  "at_unix": 1791514385.4482725,
+  "job_id": "33635575",
+  "files": {
+    "capture_receipt.json": {
+      "exists": true,
+      "bytes": 667,
+      "sha256": "45b542f5fa5e26a3b54aa8f5c774fdfb788b4ad8b7801457e5d3f1c79a6242a7"
+    },
+    "runtime_stage.json": {
+      "exists": true,
+      "bytes": 240,
+      "sha256": "6f7e816f344594cc3dbbf93df0295e9fac7b169135432bd2dbf79d9281845c68"
+    },
+    "wrapper_terminal.json": {
+      "exists": true,
+      "bytes": 85,
+      "sha256": "904d8140040247b2d451b726d9d9464b61fd8f67013eb377b33efaf8d85c0cdd"
+    },
+    "CPU_import_receipt.json": {
+      "exists": false,
+      "bytes": 0,
+      "sha256": null
+    },
+    "imports.jsonl": {
+      "exists": false,
+      "bytes": 0,
+      "sha256": null
+    },
+    "syscalls.jsonl": {
+      "exists": false,
+      "bytes": 0,
+      "sha256": null
+    },
+    "cpu-33635575.out": {
+      "exists": true,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "cpu-33635575.err": {
+      "exists": true,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "submission_claim": {
+      "exists": true,
+      "bytes": 431,
+      "sha256": "f7031721a97d05e96b1687f0913a9efad1a72fa1589ee600210e36ec5f6439c5"
+    },
+    "submitted_job_id": {
+      "exists": true,
+      "bytes": 9,
+      "sha256": "85653218a308e10ffcdce787959ca023c9f55fcab13c5e180bbdeb930dd6f143"
+    }
+  },
+  "source_hash_mismatches": [],
+  "manifest_sha256": "892d2420fd5f7cddaf7644a8d348a97d5372484ce774582b1cf676c28b596333",
+  "trace_bytes": 0,
+  "captured_metadata_bytes": 992,
+  "metadata_cap_passed": true,
+  "trace_cap_passed": true,
+  "original_remote_source_preserved": true,
+  "CPU_completion_receipt_present": false
+}

@@ -2469,6 +2469,43 @@
       "guarded_imports_completed": false,
       "audit": "outputs/preference_program/results/reader32_import_diagnostic_v67/CPU_audit.json",
       "custody_verified": true
+    },
+    {
+      "job_id": "33635575",
+      "state": "FAILED",
+      "experiment": "reader32_import_trace_v68_receipt_safe",
+      "source_commit": "dcf4a17",
+      "approval_message_id": "Sentinel_4455df170154819198f158ac5465133e",
+      "resources": {
+        "cpus": 1,
+        "memory_gib": 2,
+        "wall_seconds": 120,
+        "check_seconds": 90,
+        "attempts": 1,
+        "gpus": 0,
+        "account": "ucb736_asc1",
+        "partition": "acpu",
+        "qos": "cpu-normal"
+      },
+      "submitted_at_unix": 1791514187.0667148,
+      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/reader32-import-trace-v68",
+      "remote_source": "/scratch/alpine/paco0228/latent_proxy_runs/reader32-import-trace-v68/revision-receipt-safe/source",
+      "manifest_sha256": "892d2420fd5f7cddaf7644a8d348a97d5372484ce774582b1cf676c28b596333",
+      "output_path": "outputs/preference_program/results/reader32_receipt_safe_v68/run",
+      "retry": false,
+      "attempt": 1,
+      "maximum_attempts": 1,
+      "exit_code": "124:0",
+      "elapsed_seconds": 8,
+      "allocated_CPU_seconds": 8,
+      "TotalCPU_seconds": 0.675,
+      "MaxRSS_KiB": 88800,
+      "result_classification": "inconclusive_instrumentation_stop",
+      "terminal_reason": "unexpected child output",
+      "audit_path": "outputs/preference_program/results/reader32_receipt_safe_v68/run/audit.json",
+      "approval_consumed": true,
+      "cumulative_allocated_CPU_seconds": 2425,
+      "cumulative_MIG_slice_seconds": 254
     }
   ],
   "last_checked_at_utc": "2026-10-07T00:01:35Z",
@@ -2562,6 +2599,15 @@
       "review_receipt": "outputs/preference_program/results/reader32_receipt_safe_v68/local_review.json",
       "CPU_seconds_added": 0,
       "remote_writes": 0
+    },
+    {
+      "design": "reader32_import_trace_v68_receipt_safe",
+      "status": "approved_single_attempt_consumed_inconclusive_instrumentation_stop",
+      "job_id": "33635575",
+      "approval_message_id": "Sentinel_4455df170154819198f158ac5465133e",
+      "attempt_used": true,
+      "audit_path": "outputs/preference_program/results/reader32_receipt_safe_v68/run/audit.json",
+      "next_step": "local tracer compatibility and privacy-preserving error classification review only; any further allocation needs fresh authorization"
     }
   ],
   "research_analyses": [

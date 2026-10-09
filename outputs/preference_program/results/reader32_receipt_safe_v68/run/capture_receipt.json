@@ -1,0 +1,24 @@
+{
+  "retained_bytes": 0,
+  "sha256": {},
+  "reason": "unexpected child output",
+  "elapsed": 0.003909824008587748,
+  "wall_time": 1791514206.7146397,
+  "monotonic_time": 129537.038124719,
+  "phase_codes": [
+    "CPU_diagnostic_complete",
+    "CPU_diagnostic_start",
+    "dependency_callback_enter",
+    "guarded_dependency_import_complete",
+    "guarded_dependency_import_start",
+    "model_class_import_complete",
+    "model_class_import_start",
+    "tokenizer_class_import_complete",
+    "tokenizer_class_import_start",
+    "torch_import_complete",
+    "torch_import_start"
+  ],
+  "exit_code": -15,
+  "metadata_limit_bytes": 46080,
+  "raw_trace_persisted": false
+}

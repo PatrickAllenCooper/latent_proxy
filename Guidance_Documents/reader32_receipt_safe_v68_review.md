@@ -73,3 +73,11 @@ causality or model qualification.
 
 Frozen packet: outputs/preference_program/manifests/reader32_import_trace_v68_receipt_safe.
 Results: outputs/preference_program/results/reader32_receipt_safe_v68.
+
+## Execution outcome
+
+The independent review passed; the revised packet was separately materialized
+and live-verified, then the sole approved attempt33635575 ran. It ended after
+8seconds on unexpected child output with no retained trace records. Final audit,
+caps/custody and accounting passed; no retry. The attempt is consumed. See
+`Guidance_Documents/reader32_receipt_safe_v68_results.md` and the run audit.

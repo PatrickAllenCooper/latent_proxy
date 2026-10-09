@@ -1,0 +1,33 @@
+{
+  "review_passed": true,
+  "at_unix": 1791514113.632117,
+  "source_and_controller_hashes_valid": true,
+  "baseline_source_files_preserved": 28,
+  "safe_adapter_guard_prefix_AST_identical": true,
+  "six_shared_file_bindings_valid": true,
+  "fresh_python_sha256": "9d27cfcde7e3128a1b0cd86e7bf8020fc1c8210dbc485bcf878ab7ef8a5c7516",
+  "runtime_receipt_sha256": "bfbc150a5fab652386c1a0c38ee02744f54f2f9717063dbe691026a239dceedb",
+  "manifest_sha256": "f6f5faca0e4262e4d09286b8f350e852a294e102c7cc74dcefe8b99f1a045356",
+  "resources": {
+    "cpus": 1,
+    "memory_gib": 2,
+    "wall_seconds": 120,
+    "check_seconds": 90,
+    "attempts": 1,
+    "gpus": 0,
+    "account": "ucb736_asc1",
+    "partition": "acpu",
+    "qos": "cpu-normal"
+  },
+  "metadata_budget": {
+    "combined_bytes": 65536,
+    "runtime_stage_max": 15360,
+    "capture_receipt_max": 46080,
+    "CPU_import_receipt_max": 3072,
+    "wrapper_receipt_max": 1024
+  },
+  "source_read_only": true,
+  "framework_imports": 0,
+  "model_calls": 0,
+  "allocation_started": false
+}
