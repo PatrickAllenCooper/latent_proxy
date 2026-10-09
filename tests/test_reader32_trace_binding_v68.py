@@ -52,3 +52,13 @@ class BindingFixtures(unittest.TestCase):
   self.assertEqual(sum(remote['metadata_budget'][k] for k in ('runtime_stage_max','capture_receipt_max','wrapper_receipt_max')),65536)
 
 if __name__=='__main__':unittest.main()
+
+class BaselineEnvironmentFixture(unittest.TestCase):
+ def test_child_import_path_and_working_directory_preserved(self):
+  root=Path(__file__).resolve().parents[1]
+  wrapper=(root/'scripts/slurm/reader32_import_trace_v68_held.slurm').read_text()
+  baseline=(root/'scripts/slurm/reader32_import_diagnostic_v67_cpu.slurm').read_text()
+  expected='export PYTHONPATH="$LOCAL_RUNTIME:$SOURCE"'
+  self.assertIn(expected,baseline);self.assertIn(expected,wrapper)
+  self.assertNotIn('$SOURCE:$ROOT/controller',wrapper)
+  self.assertIn('cd "$SOURCE"',baseline);self.assertIn('cd "$SOURCE"',wrapper)

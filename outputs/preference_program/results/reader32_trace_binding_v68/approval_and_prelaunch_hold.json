@@ -1,0 +1,26 @@
+{
+  "approval": "I approve all of the above except for all regarding ACE as I have handled that personally in its chat",
+  "message_id": "Sentinel_4455df170154819198f158ac5465133e",
+  "at_utc": "2026-10-09T02:31:00Z",
+  "via_coordinator_thread": "01a11ce4-a294-72d8-888c-0e04ca50f035",
+  "scope": "one v68 CPU diagnostic only; ACE excluded",
+  "resources": {
+    "cpus": 1,
+    "memory_gib": 2,
+    "wall_seconds": 120,
+    "check_seconds": 90,
+    "attempts": 1,
+    "gpus": 0,
+    "account": "ucb736_asc1",
+    "partition": "acpu",
+    "qos": "cpu-normal"
+  },
+  "attempt_used": false,
+  "jobs_submitted": 0,
+  "GPU_allocations": 0,
+  "model_calls": 0,
+  "prelaunch_review": "FAILED against reviewed542517c: extra controller PYTHONPATH and missing baseline source cwd; corrected locally, revised packet requires independent review",
+  "remote_materialization_performed": false,
+  "cpu_admission_still_false": true,
+  "revised_manifest_sha256": "5462dbd8028b43c835f889463939c5480b5afb4c6ab7c4e2ec9324dfdf2baef2"
+}

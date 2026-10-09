@@ -21,7 +21,8 @@ export SOURCE="$ROOT/source" SPOOL="$ROOT/spool"
 export RUNTIME_RECEIPT=/scratch/alpine/paco0228/latent_proxy_runs/verification-runtime-v39/runtime_receipt.json
 export LOCAL_RUNTIME="${SLURM_TMPDIR:-/tmp}/lp-reader32-import-v68-$SLURM_JOB_ID"
 export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 TOKENIZERS_PARALLELISM=false PYTHONDONTWRITEBYTECODE=1
-export PYTHONPATH="$LOCAL_RUNTIME:$SOURCE:$ROOT/controller"
+export PYTHONPATH="$LOCAL_RUNTIME:$SOURCE"
+cd "$SOURCE"
 export PYTHON ROOT
 REMAINING=$("$PYTHON" -c 'import os,time;print(max(.001,float(os.environ["STUDY_WALL_START"])+90-time.time()))')
 # No raw trace/stderr reaches Slurm logs: capture consumes its child's pipes.

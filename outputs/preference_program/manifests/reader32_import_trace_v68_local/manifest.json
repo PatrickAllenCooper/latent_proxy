@@ -45,7 +45,7 @@
     "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_diagnostic_v67_approved/source/approval_binding.json": "dcb72eb05e26c3844cf8176eef2de7a2f0202f3fd5d9d073668b32770b980907",
     "/Users/pat/code/latent_proxy/scripts/reader32_trace_privacy_v68.py": "aaa29c86e01af886a566bd0c53c0b68f9e1a510a6e68910e9f6ee8f1c4b1692e",
     "/Users/pat/code/latent_proxy/scripts/reader32_trace_capture_v68.py": "1f0fd1e62299f6c4a96d6d4e619eb2063c47ab670195fbfb44e30f3b9ee5f2e3",
-    "/Users/pat/code/latent_proxy/scripts/slurm/reader32_import_trace_v68_held.slurm": "67c77dbf0db585024787730c1f561853e9105dd21f84bdd404f77a6784f7dfd4"
+    "/Users/pat/code/latent_proxy/scripts/slurm/reader32_import_trace_v68_held.slurm": "335feace6ae173fde865ee518b9c9057d87f3f6279dcec1fdac43ca95a0f58bb"
   },
   "runtime_roots": [
     {

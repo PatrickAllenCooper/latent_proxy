@@ -157,3 +157,33 @@ materialization remain false; independent review, fresh allocation approval and
 authorized future upload/verification are still required. Capture metadata is now
 a combined 64 KiB budget (15 KiB stage, 48 KiB capture, 1 KiB wrapper), superseding
 the earlier per-receipt 64 KiB wording. No execution-ready claim or job submission.
+
+## Approved attempt held at prelaunch review
+
+Patrick's approval `Sentinel_4455df170154819198f158ac5465133e` authorizes the exact
+single CPU envelope; ACE is excluded. Approval is recorded locally and unused.
+No remote materialization or submission occurred.
+
+The additional prelaunch review of 542517c found a concrete baseline environment
+mismatch: the wrapper appended the controller directory to the child PYTHONPATH,
+and omitted the prior source working directory. Even though controller modules
+have no intended package overlap, an extra lookup path violates the unchanged
+library-resolution requirement. Therefore the directive to stop on failed review
+was applied before any remote write or allocation.
+
+The wrapper is corrected locally to the exact baseline PYTHONPATH recipe
+`$LOCAL_RUNTIME:$SOURCE` and `cd "$SOURCE"`. Controller scripts are imported from
+their normal script directory without altering the child lookup path. A regression
+fixture compares both settings to the v67 wrapper. All 24 v68 fixtures and three
+existing v67 guards pass; shell syntax passes. Local frozen controller copies,
+manifest hashes and custody receipt have been regenerated. Admission and remote
+materialization flags remain false pending independent review of this revision.
+This is a review hold, not a request for another spending approval; the authorized
+sole attempt is still available after the revised packet passes review.
+
+Live transport and project-scoped scheduler checks succeeded: no active v67/v68
+job, prior33629588 FAILED124/95sec, account has cpu-normal QoS, scratch filesystem
+75 percent used, proposed remote destination absent, writer lock owned by Codex
+app PID4016. No unrelated job was changed. Previous charges remain2417 CPUseconds
+and254 MIGseconds. Exact approval/hold details are in
+`outputs/preference_program/results/reader32_trace_binding_v68/approval_and_prelaunch_hold.json`.

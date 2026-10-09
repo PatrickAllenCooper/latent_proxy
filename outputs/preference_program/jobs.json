@@ -2505,6 +2505,29 @@
       "preflight_result": "outputs/preference_program/results/reader32_qualification_v65_preflight/summary.json",
       "approved_attempt_consumed": true,
       "GPU_job_id": "33560980"
+    },
+    {
+      "design": "reader32_import_trace_v68",
+      "status": "approved_single_attempt_held_for_revised_packet_review",
+      "approval_message_id": "Sentinel_4455df170154819198f158ac5465133e",
+      "attempt_used": false,
+      "job_id": null,
+      "resources": {
+        "cpus": 1,
+        "memory_gib": 2,
+        "wall_seconds": 120,
+        "check_seconds": 90,
+        "attempts": 1,
+        "gpus": 0,
+        "account": "ucb736_asc1",
+        "partition": "acpu",
+        "qos": "cpu-normal"
+      },
+      "packet": "outputs/preference_program/manifests/reader32_import_trace_v68_local",
+      "review_receipt": "outputs/preference_program/results/reader32_trace_binding_v68/approval_and_prelaunch_hold.json",
+      "previous_allocated_CPU_seconds": 2417,
+      "previous_MIG_slice_seconds": 254,
+      "remote_writes": 0
     }
   ],
   "research_analyses": [
