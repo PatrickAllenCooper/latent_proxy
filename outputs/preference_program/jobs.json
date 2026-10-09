@@ -2444,6 +2444,24 @@
       "audit": "outputs/preference_program/results/reader32_qualification_v65/GPU_audit.json",
       "startup_stop_reason": "90_second_startup_limit",
       "startup_stop_overshoot_seconds": 4.720893383026123
+    },
+    {
+      "job_id": "33629588",
+      "stage": "approved_CPU_guarded_import_diagnostic_v67",
+      "status": "SUBMITTED",
+      "submitted_at_utc": "2026-10-09T00:45:37.956198+00:00",
+      "source_commit": "457e224",
+      "account": "ucb736_asc1",
+      "partition": "acpu",
+      "qos": "cpu-normal",
+      "CPUs": 1,
+      "host_mem_GiB": 2,
+      "wall_seconds": 120,
+      "check_seconds": 90,
+      "GPUs": 0,
+      "model_calls": 0,
+      "automatic_retry": false,
+      "remote_root": "/scratch/alpine/paco0228/latent_proxy_runs/reader32-import-diagnostic-v67"
     }
   ],
   "last_checked_at_utc": "2026-10-07T00:01:35Z",
