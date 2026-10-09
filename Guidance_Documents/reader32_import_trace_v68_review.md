@@ -77,3 +77,69 @@ termination. Thus no empirical hypothesis above is resolved by these fixtures.
 Fresh approval boundary: after these local gates pass, request this exact single
 CPU envelope. There is no GPU follow-up admission and no authorization for further
 responses, model loads, changed library resolution, or a retry.
+
+## Local control package completed for independent review
+
+The subsequent local implementation adds `reader32_trace_capture_v68.py` and
+`slurm/reader32_import_trace_v68_held.slurm`. Fifteen v68 fixture tests and three
+existing v67 guard tests pass; `bash -n` passes. No framework import or allocation
+was performed. Manifest: `outputs/preference_program/manifests/reader32_import_trace_v68_local/manifest.json`.
+
+The strict bounded parser accepts timestamps, syscall durations, numeric raw
+read/pread64 arguments, safe lexical path labels, fd associations, import self
+times and fixed module categories. Interrupted syscalls have bounded pending
+state; outside paths, pointer values, decoded buffers, arbitrary stderr and
+unknown syntax are never persisted. Stdout and stderr have separate bounded
+line buffers. FD tracking is per PID; inherited descriptors without a recorded
+open remain unknown. No inference is drawn from those unknown reads. Close
+removes mappings; mmap pointer results are reduced to success/failure.
+
+Lexical redaction makes no filesystem probes. Unverified PIL/Torch package roots
+are explicitly marked `verified:false` and redacted; their content identity is
+not invented. No symlink alias is currently authorized. All frozen source files
+and controller/wrapper hashes are bound; dependency import ASTs must match the
+unchanged v65 baseline. The manifest remains `cpu_admission:false` and
+`remote_materialization_ready:false`. Approved v67 source remains unchanged.
+
+Own-child capture uses a new process group, no shell/attach/elevation, and kills
+only that group on timeout/cap/error. External SIGTERM triggers durable partial
+capture/custody before shutdown. Group cleanup also kills remaining descendants
+after the parent exits. Fixture coverage includes actual timeout and external
+TERM, unrelated-process survival, malformed/oversize/buffer/denial rejection,
+combined cap, custody, lexical no-probe behavior, independent streams, source
+mutation rejection, unchanged imports and CLI authorization hold. The held
+wrapper enforces the shell-start deadline including staging and writes a terminal
+receipt; raw extraction and launcher output are suppressed from Slurm logs.
+
+Combined sanitized trace limit: 10 MiB. Capture receipt: at most 64 KiB; wrapper
+terminal receipt has fixed fields and is below 1 KiB. Source binding manifest is
+preparation metadata, not captured trace. Trace records are flushed/fsynced and
+partial custody receipts fsynced, including the receipt directory. SIGKILL,
+filesystem failure or node loss can still prevent a final receipt; the partial
+record files must then be treated as incomplete.
+
+Instrumentation perturbs startup: importtime logging, strace scheduling and
+per-record fsync add overhead. Import records carry capture monotonic times,
+not exact module-start timestamps; syscall timestamps are wall-clock times.
+Receipt records both clocks for approximate alignment. No calibrated overhead
+estimate exists; a timeout under tracing cannot be compared as an uninstrumented
+performance measurement. Short captures can support a bottleneck hypothesis,
+not promise an exact root cause.
+
+Remaining execution gates are configuration/review, not missing capture code:
+independent review; bind remote materialized source/controller identities;
+bind the node-local Transformers root after verified extraction; determine which
+specific shared package roots/aliases can be verified without changing package
+resolution (otherwise retain their redaction and reduced attribution); and obtain
+fresh approval for the single stated CPU envelope. Compute-node strace permission
+and exact emitted syntax are empirical unknowns: denial/unrecognized output ends
+the sole attempt inconclusively, with no fallback/install/retry. No job submitted.
+
+Final local review additions: the import parser now retains an explicit fixed
+symbolic module-name whitelist (including Pillow Image, Torch RPC/functional/JIT,
+ctypes and the two Qwen2 imports), with all other module names labeled `other`.
+These labels identify import events; they do not claim package content identity.
+Seventeen v68 fixtures now pass, including a parent that exits while its own
+child ignores TERM: group cleanup prevents that child's delayed marker write,
+while the unrelated sentinel remains alive. Three existing v67 guard tests pass.
+No change to previous job charges or raw artifacts.

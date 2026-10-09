@@ -34,7 +34,7 @@ class PrivacyFixtures(unittest.TestCase):
             s.retain('syscalls','denied',result=-1)
             with self.assertRaises(m.TraceStop): s.retain('syscalls','read',result='secret buffer')
             with self.assertRaises(m.TraceStop): s.retain('syscalls','execve')
-            with self.assertRaises(m.TraceStop): s.retain('syscalls','read',path='/secret')
+            with self.assertRaises(m.TraceStop): s.retain('syscalls','futex',path='/secret')
             s.close()
     def test_hold_timeout_envelope(self):
         r={'cpus':1,'memory_gib':2,'wall_seconds':120,'check_seconds':90,'attempts':1,'gpus':0,'account':'ucb736_asc1','partition':'acpu','qos':'cpu-normal'}
@@ -45,6 +45,6 @@ class PrivacyFixtures(unittest.TestCase):
         import ast
         tree=ast.parse(Path(m.__file__).read_text())
         imports=[n.names[0].name for n in ast.walk(tree) if isinstance(n,ast.Import)]
-        self.assertEqual(imports,['hashlib','json'])
+        self.assertEqual(imports,['hashlib','json','os'])
 
 if __name__=='__main__': unittest.main()

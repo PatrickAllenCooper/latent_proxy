@@ -3,6 +3,8 @@ import hashlib
 import json
 from pathlib import Path
 
+MODULE_LABELS = ('PIL.Image', 'torch', 'torch.distributed', 'torch.distributed.rpc', 'torch.nn.functional', 'torch._jit_internal', 'transformers.models.qwen2.tokenization_qwen2', 'transformers.models.qwen2.modeling_qwen2', 'ctypes', 'other')
+
 TRACE_LIMIT = 10 * 1024 * 1024
 MAX_LINE = 8192
 
@@ -18,7 +20,9 @@ class TraceSink:
     """
     def __init__(self, root, verified_roots=(), limit=TRACE_LIMIT):
         self.root = Path(root)
-        self.roots = tuple(Path(p).resolve() for p in verified_roots)
+        self.roots = tuple(Path(p) for p in verified_roots)
+        if any(not p.is_absolute() or '..' in p.parts for p in self.roots):
+            raise TraceStop('invalid lexical root')
         self.limit = min(limit, TRACE_LIMIT)
         self.used = 0
         self.hashes = {}
@@ -30,7 +34,6 @@ class TraceSink:
         p = Path(value)
         if not p.is_absolute() or '..' in p.parts:
             return '[redacted]'
-        p = p.resolve()
         for i, root in enumerate(self.roots):
             try:
                 return 'root%d/%s' % (i, p.relative_to(root))
@@ -38,26 +41,30 @@ class TraceSink:
                 pass
         return '[redacted]'
 
-    def retain(self, channel, kind, duration=None, result=None, path=None):
+    def retain(self, channel, kind, duration=None, result=None, path=None, timestamp=None, fd=None, module=None):
         if channel not in ('syscalls', 'imports'):
             raise TraceStop('unknown channel')
         if kind not in ('openat', 'newfstatat', 'statx', 'read', 'pread64',
                         'mmap', 'futex', 'import', 'timeout', 'denied'):
             raise TraceStop('unknown record kind')
         record = {'kind': kind}
-        for key, value in (('seconds', duration), ('result', result)):
+        for key, value in (('seconds', duration), ('result', result), ('timestamp', timestamp), ('fd', fd)):
             if value is not None:
                 if type(value) not in (int, float):
                     raise TraceStop('numeric field required')
                 record[key] = value
         if path is not None:
             # Read/mmap/futex never accept buffers, pointers or paths.
-            if kind not in ('openat', 'newfstatat', 'statx', 'import'):
+            if kind not in ('openat', 'newfstatat', 'statx', 'import', 'read', 'pread64'):
                 raise TraceStop('path forbidden for record')
             label = self.path_label(path)
             if len(label) > MAX_LINE:
                 raise TraceStop('oversize path')
             record['path'] = label
+        if module is not None:
+            if kind != 'import' or module not in MODULE_LABELS:
+                raise TraceStop('module category forbidden')
+            record['module_label'] = module
         data = (json.dumps(record, allow_nan=False) + '\n').encode()
         if self.used + len(data) > self.limit:
             raise TraceStop('combined trace cap')
@@ -66,6 +73,8 @@ class TraceSink:
             self.hashes[channel] = hashlib.sha256()
         self.files[channel].write(data)
         self.files[channel].flush()
+        import os
+        os.fsync(self.files[channel].fileno())
         self.hashes[channel].update(data)
         self.used += len(data)
 
