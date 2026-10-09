@@ -1,0 +1,11 @@
+{
+  "read_only": true,
+  "remote_writes": 0,
+  "allocations": 0,
+  "mismatches": [],
+  "combined_remote_bytes_read": 61327340,
+  "bounded_full_archive_hash_passes": 1,
+  "second_archive_check": "metadata only; byte identity not rehashed second time",
+  "evidence_sha256": "45b69d29b26b9ffab1cc71df92729368e80ac53acee03857d3e4d114ee639640",
+  "recheck_sha256": "da724571d89dde4fb8ac8eb873e56c9ff1ad3400a731cfc0bc2cf85fa42bf1a9"
+}

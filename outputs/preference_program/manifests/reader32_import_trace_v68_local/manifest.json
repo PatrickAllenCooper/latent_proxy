@@ -43,9 +43,9 @@
     "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_diagnostic_v67_approved/source/reader32_v65_diagnostics.py": "44eaa6d692580383039e28221b8f91f434e39e0c7d051059ed8f140ddd4eeb27",
     "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_diagnostic_v67_approved/source/execution_freeze.json": "c251ec76588328b002ed53a970b913e7d9be2ed3d539614b940ded20dc7d72be",
     "/Users/pat/code/latent_proxy/outputs/preference_program/manifests/reader32_import_diagnostic_v67_approved/source/approval_binding.json": "dcb72eb05e26c3844cf8176eef2de7a2f0202f3fd5d9d073668b32770b980907",
-    "/Users/pat/code/latent_proxy/scripts/reader32_trace_privacy_v68.py": "951c0d9941967ea97393fe9cdc9e0e6f99b88e39da4fe7d7963fefbc839e947d",
-    "/Users/pat/code/latent_proxy/scripts/reader32_trace_capture_v68.py": "8faf2490c9cda9c82c85536a053e004ddeb455ae2a34b050caa84aa54fad5719",
-    "/Users/pat/code/latent_proxy/scripts/slurm/reader32_import_trace_v68_held.slurm": "4f2fec8c009b2ed60fc5761a723ea9fc0c02c09c9bb73c3ce9c42c4fa3e1df98"
+    "/Users/pat/code/latent_proxy/scripts/reader32_trace_privacy_v68.py": "aaa29c86e01af886a566bd0c53c0b68f9e1a510a6e68910e9f6ee8f1c4b1692e",
+    "/Users/pat/code/latent_proxy/scripts/reader32_trace_capture_v68.py": "1f0fd1e62299f6c4a96d6d4e619eb2063c47ab670195fbfb44e30f3b9ee5f2e3",
+    "/Users/pat/code/latent_proxy/scripts/slurm/reader32_import_trace_v68_held.slurm": "67c77dbf0db585024787730c1f561853e9105dd21f84bdd404f77a6784f7dfd4"
   },
   "runtime_roots": [
     {
@@ -67,15 +67,96 @@
   "verified_symlink_aliases": [],
   "remote_materialization_ready": false,
   "remaining_gates": [
-    "remote path/source hash rebinding after independent review",
-    "node-local pinned Transformers root binding to verified extraction receipt",
-    "explicit verification of symlink aliases or redaction of alias paths",
-    "compute-node strace availability/own-child permissions unverified until approved attempt"
+    "independent review",
+    "fresh single CPU approval",
+    "permitted future remote materialization and hash verification",
+    "compute-node strace permissions/syntax tested only in approved sole attempt"
   ],
   "trace_bytes_limit": 10485760,
   "metadata_bytes_limit": 65536,
-  "source_baseline": "v67 approved frozen CPU source; unchanged dependencies imports and guards",
+  "source_baseline": "All 28 existing remote v67 source files match local frozen source; source remains unchanged",
   "model_calls": 0,
   "gpu_allocations": 0,
-  "module_labels_scope": "Fixed symbolic import-name whitelist only; label attribution does not verify package content identity"
+  "module_labels_scope": "Fixed symbolic import-name whitelist only; label attribution does not verify package content identity",
+  "runtime_descriptor": {
+    "receipt_path": "/scratch/alpine/paco0228/latent_proxy_runs/verification-runtime-v39/runtime_receipt.json",
+    "receipt_sha256": "bfbc150a5fab652386c1a0c38ee02744f54f2f9717063dbe691026a239dceedb",
+    "archive_path": "/scratch/alpine/paco0228/latent_proxy_runs/verification-runtime-v39/transformers.tar",
+    "archive_sha256": "8e91c3771d157877b4deb2492e9149f3e802bc71886e4d5e2ee2f4fcdbc1f282",
+    "archive_bytes": 52193280,
+    "extractor_sha256": "fc32ee7ec09543efde0bdf3b8b3a23f71aa8b23e81cbf77468130ca457cc50f9",
+    "node_local_recipe": "${SLURM_TMPDIR:-/tmp}/lp-reader32-import-v68-${SLURM_JOB_ID}/transformers",
+    "stage_receipt": "spool/runtime_stage.json; pinned extractor JSON checked before root admission",
+    "python_sha256_from_prior_cpu_receipt": "9d27cfcde7e3128a1b0cd86e7bf8020fc1c8210dbc485bcf878ab7ef8a5c7516",
+    "python_fresh_hash": false,
+    "python_live_metadata": {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/bin/python",
+      "resolved_path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/bin/python3.12",
+      "bytes": 31498184,
+      "mtime_ns": 1786314884972001000,
+      "device": 57,
+      "inode": 13573662539,
+      "is_symlink": true,
+      "sha256": null,
+      "hash_not_read": "bounded-read limit"
+    },
+    "scope": "archive and extractor identity verified; full shared native dependency closure NOT verified"
+  },
+  "shared_exact_files": [
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/PIL/Image.py",
+      "sha256": "04af3f2db7ffdd61e829fa7aa8f5481d394a0a4129a8fd8aa5b13908928fcd6d",
+      "bytes": 153786,
+      "mtime_ns": 1786315095476272000,
+      "label": "PIL/Image.py",
+      "verified_aliases": []
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/torch/__init__.py",
+      "sha256": "cf40c075c95864036e835795756d69b8cccfafa76f3bcde5eba9d06065ccd3d1",
+      "bytes": 111841,
+      "mtime_ns": 1786315263356308000,
+      "label": "torch/__init__.py",
+      "verified_aliases": []
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/torch/distributed/rpc/__init__.py",
+      "sha256": "f11563e66f57c6486aaedd28601dc85619689b1cb14ccba479422e064aef6089",
+      "bytes": 9929,
+      "mtime_ns": 1786315271645828000,
+      "label": "torch/distributed/rpc/__init__.py",
+      "verified_aliases": []
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/torch/_jit_internal.py",
+      "sha256": "9435668ade300edf01802837a34ab91a6a1214388fe9fd13931c0ea01c5f4d75",
+      "bytes": 55176,
+      "mtime_ns": 1786315263386286000,
+      "label": "torch/_jit_internal.py",
+      "verified_aliases": []
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/torch/nn/functional.py",
+      "sha256": "990a8b717645fa603b0dd2957b7b3ed68c5fb937fa205048c096ac8bb532510e",
+      "bytes": 277195,
+      "mtime_ns": 1786315328510824000,
+      "label": "torch/nn/functional.py",
+      "verified_aliases": []
+    },
+    {
+      "path": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/lib/python3.12/site-packages/PIL/_imaging.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "94310f4a073e9773a067df88513804649f50a974f78bd85a52c52d21170783f2",
+      "bytes": 3402345,
+      "mtime_ns": 1786315095776262000,
+      "label": "PIL/_imaging.cpython-312-x86_64-linux-gnu.so",
+      "verified_aliases": []
+    }
+  ],
+  "evidence_sha256": "45b69d29b26b9ffab1cc71df92729368e80ac53acee03857d3e4d114ee639640",
+  "metadata_budget": {
+    "combined_bytes": 65536,
+    "runtime_stage_max": 15360,
+    "capture_receipt_max": 49152,
+    "wrapper_receipt_max": 1024
+  }
 }

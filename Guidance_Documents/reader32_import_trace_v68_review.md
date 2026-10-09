@@ -143,3 +143,17 @@ Seventeen v68 fixtures now pass, including a parent that exits while its own
 child ignores TERM: group cleanup prevents that child's delayed marker write,
 while the unrelated sentinel remains alive. Three existing v67 guard tests pass.
 No change to previous job charges or raw artifacts.
+
+## Read-only binding completion
+
+The current binding packet and definitive scope/remaining gates are recorded in
+`outputs/preference_program/results/reader32_trace_binding_v68/binding_review.md`.
+23 v68 fixtures plus three unchanged v67 guard fixtures pass. Source/controller
+copies and proposed remote paths are locally frozen; 28 existing remote baseline
+files match, and six exact shared package files are freshly hash-bound. Whole
+shared package roots remain unverified/redacted. Node-local Transformers admission
+requires the pinned extractor's bounded stage receipt. Both admission and remote
+materialization remain false; independent review, fresh allocation approval and
+authorized future upload/verification are still required. Capture metadata is now
+a combined 64 KiB budget (15 KiB stage, 48 KiB capture, 1 KiB wrapper), superseding
+the earlier per-receipt 64 KiB wording. No execution-ready claim or job submission.

@@ -104,3 +104,16 @@ class DescendantFixture(unittest.TestCase):
    p.chunk('stderr:imports',b'import time: 100 | 200 | torch.distributed.rpc\n')
    p.finish();s.close()
    self.assertEqual(json.loads(Path(d,'imports.jsonl').read_text())['module_label'],'torch.distributed.rpc')
+
+class PendingAndDenialFixtures(unittest.TestCase):
+ def test_unfinished_wait_retained_privately(self):
+  with tempfile.TemporaryDirectory() as d:
+   s=TraceSink(d,('/verified',));p=m.Parser(s)
+   p.chunk('syscalls',b'12 123.000001 openat(AT_FDCWD, "/verified/x.so", O_RDONLY <unfinished ...>\n')
+   s.close();row=json.loads(Path(d,'syscalls.jsonl').read_text())
+   self.assertTrue(row['unfinished']);self.assertEqual(row['pid'],12)
+   self.assertNotIn('seconds',row);self.assertEqual(row['path'],'root0/x.so')
+ def test_actual_child_denial_channel(self):
+  with tempfile.TemporaryDirectory() as d:
+   code='import sys;sys.stderr.write("strace: ptrace: Operation not permitted\\n")'
+   self.assertEqual(m.capture([sys.executable,'-c',code],d,(),time.monotonic()+2),'trace unavailable')

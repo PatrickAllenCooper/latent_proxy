@@ -1,0 +1,22 @@
+{
+  "remote_writes": 0,
+  "jobs_submitted": 0,
+  "cpu_admission": false,
+  "remote_materialization_ready": false,
+  "source_files_verified": 28,
+  "source_mismatches": [],
+  "shared_exact_files_hashed": 6,
+  "evidence_sha256": "45b69d29b26b9ffab1cc71df92729368e80ac53acee03857d3e4d114ee639640",
+  "remote_manifest_sha256": "f9cafd5be1ba9c832fbbe5d5c8bc2bba18a7afa49f3695617951fa0c199ef0a5",
+  "controller_hashes": {
+    "reader32_import_trace_v68_held.slurm": "67c77dbf0db585024787730c1f561853e9105dd21f84bdd404f77a6784f7dfd4",
+    "reader32_trace_capture_v68.py": "1f0fd1e62299f6c4a96d6d4e619eb2063c47ab670195fbfb44e30f3b9ee5f2e3",
+    "reader32_trace_privacy_v68.py": "aaa29c86e01af886a566bd0c53c0b68f9e1a510a6e68910e9f6ee8f1c4b1692e"
+  },
+  "full_shared_package_content_verified": false,
+  "archive_verified": true,
+  "unchanged_prior_charges": {
+    "allocated_cpu_seconds": 2417,
+    "MIG_slice_seconds": 254
+  }
+}
