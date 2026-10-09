@@ -1,0 +1,35 @@
+{
+  "state": "local_review_ready_held",
+  "purpose": "stdlib_owned_tracer_calibration",
+  "local_tests_passed": 12,
+  "shell_syntax_passed": true,
+  "packet_bytes": 37766,
+  "remote_manifest_sha256": "803f93ed7651ea084ad318abe7c5c4befc0f89f3bbe0af173b8fcc9c587b31be",
+  "calibration_admission": false,
+  "allocation_approved": false,
+  "remote_materialization_ready": false,
+  "remote_actions": 0,
+  "new_jobs": 0,
+  "new_allocated_CPU_seconds": 0,
+  "new_GPU_seconds": 0,
+  "historical_CPU_seconds": 2425,
+  "historical_MIG_slice_seconds": 254,
+  "proposed_resources": {
+    "cpus": 1,
+    "memory_MiB": 256,
+    "wall_seconds": 30,
+    "check_seconds": 20,
+    "attempts": 1,
+    "gpus": 0
+  },
+  "metadata_cap_bytes": 65536,
+  "trace_cap_bytes": 10485760,
+  "qualification_established": false,
+  "unresolved": [
+    "live tracer identity",
+    "compute-node tracing permission and syntax",
+    "live allocation headroom",
+    "fresh separate allocation admission"
+  ],
+  "consumed_v68_approval_reusable": false
+}
