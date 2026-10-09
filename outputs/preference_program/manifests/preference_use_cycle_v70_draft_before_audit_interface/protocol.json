@@ -1,0 +1,100 @@
+{
+  "GPU_admission": false,
+  "automatic_retry": false,
+  "discovery": {
+    "arms": [
+      "random",
+      "EIG",
+      "decision_focused_AIF"
+    ],
+    "metrics": [
+      "parameter_or_order_error",
+      "decision_regret",
+      "question_count"
+    ],
+    "noise_conditions": "separate future stress experiment",
+    "paired_users": true,
+    "questions_per_user": 8,
+    "status": "design_only; existing domain elicitors retained"
+  },
+  "enforcement_metrics": [
+    "raw_choice_correctness",
+    "normalized_regret",
+    "eligibility_violation",
+    "parse_failure",
+    "tool_calls",
+    "hybrid_correction"
+  ],
+  "fine_tuning": {
+    "new_adapter_arm": true,
+    "starting_checkpoint": {
+      "adapters": false,
+      "do_sample": false,
+      "max_new_tokens": 24,
+      "name": "Qwen/Qwen2.5-32B-Instruct",
+      "precision": "BF16",
+      "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd"
+    },
+    "stated_profile_regression_required": true,
+    "status": "dataset prepared; no training",
+    "training_examples": 48,
+    "training_recipe": "must be frozen in a separate proposal before training",
+    "weight_change_check_required": true
+  },
+  "model": {
+    "adapters": false,
+    "do_sample": false,
+    "max_new_tokens": 24,
+    "name": "Qwen/Qwen2.5-32B-Instruct",
+    "precision": "BF16",
+    "revision": "5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd"
+  },
+  "optimization": {
+    "budget_admission": "future resource proposal required",
+    "candidate_ceiling": 32,
+    "development_feedback_evaluation_ceiling": 256,
+    "heldout_feedback_allowed": false,
+    "optimizer": "GEPA",
+    "status": "not executed; no dependency installed",
+    "validation_evaluations_after_selection": 24
+  },
+  "proxy": {
+    "kind": "deterministic constrained rank reward; not learned RL",
+    "learned_policy": "separate future approximation arm"
+  },
+  "qualification": {
+    "cases_path": "outputs/preference_program/manifests/reader32_qualification_v60/cases.jsonl",
+    "cases_sha256": "69c09b0e3591cbc53fd0ef0dc2e1f4d4c0899f7cdf06e345bfd5c711c80b08b0",
+    "gate": "16/16; zero parse failures/truncation; valid runtime/custody; no prompt tuning",
+    "reuse": "unchanged frozen panel; no completed 32B responses"
+  },
+  "required_output_fields": [
+    "case_id",
+    "arm",
+    "raw_final_output",
+    "tool_trace",
+    "generated_token_ids",
+    "EOS_observed",
+    "length_cap_reached",
+    "model_revision",
+    "config_hash",
+    "seed",
+    "timestamps"
+  ],
+  "smoke": {
+    "arms": [
+      "no_preferences",
+      "explicit_profile",
+      "proxy_tool",
+      "validated_hybrid"
+    ],
+    "final_answers": 32,
+    "independent_cases": 8,
+    "independent_users": 2,
+    "interpretation": "paired descriptive mechanism pilot; not population evidence",
+    "max_tool_calls_per_answer": 2,
+    "model_call_ceiling": 64
+  },
+  "statistics": "user-cluster paired intervals only after adequately powered confirmation; no CI on this two-user smoke",
+  "status": "frozen_preparation_only"
+}

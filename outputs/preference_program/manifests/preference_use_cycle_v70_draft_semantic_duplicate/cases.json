@@ -1,0 +1,3362 @@
+[
+  {
+    "case_id": "development-00-0",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "durable",
+      "quiet",
+      "portable"
+    ],
+    "split": "development",
+    "task_id": "development-00",
+    "user_id": "development-00"
+  },
+  {
+    "case_id": "development-00-1",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "durable",
+      "quiet",
+      "portable"
+    ],
+    "split": "development",
+    "task_id": "development-01",
+    "user_id": "development-00"
+  },
+  {
+    "case_id": "development-00-2",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "durable",
+      "quiet",
+      "portable"
+    ],
+    "split": "development",
+    "task_id": "development-02",
+    "user_id": "development-00"
+  },
+  {
+    "case_id": "development-00-3",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "durable",
+      "quiet",
+      "portable"
+    ],
+    "split": "development",
+    "task_id": "development-03",
+    "user_id": "development-00"
+  },
+  {
+    "case_id": "development-01-0",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "portable",
+      "quiet",
+      "durable"
+    ],
+    "split": "development",
+    "task_id": "development-04",
+    "user_id": "development-01"
+  },
+  {
+    "case_id": "development-01-1",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "portable",
+      "quiet",
+      "durable"
+    ],
+    "split": "development",
+    "task_id": "development-05",
+    "user_id": "development-01"
+  },
+  {
+    "case_id": "development-01-2",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "portable",
+      "quiet",
+      "durable"
+    ],
+    "split": "development",
+    "task_id": "development-06",
+    "user_id": "development-01"
+  },
+  {
+    "case_id": "development-01-3",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "portable",
+      "quiet",
+      "durable"
+    ],
+    "split": "development",
+    "task_id": "development-07",
+    "user_id": "development-01"
+  },
+  {
+    "case_id": "development-02-0",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "quiet",
+      "spacious",
+      "durable"
+    ],
+    "split": "development",
+    "task_id": "development-08",
+    "user_id": "development-02"
+  },
+  {
+    "case_id": "development-02-1",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "quiet",
+      "spacious",
+      "durable"
+    ],
+    "split": "development",
+    "task_id": "development-09",
+    "user_id": "development-02"
+  },
+  {
+    "case_id": "development-02-2",
+    "gold": "D",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "quiet",
+      "spacious",
+      "durable"
+    ],
+    "split": "development",
+    "task_id": "development-10",
+    "user_id": "development-02"
+  },
+  {
+    "case_id": "development-02-3",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "quiet",
+      "spacious",
+      "durable"
+    ],
+    "split": "development",
+    "task_id": "development-11",
+    "user_id": "development-02"
+  },
+  {
+    "case_id": "development-03-0",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "durable",
+      "portable",
+      "quiet"
+    ],
+    "split": "development",
+    "task_id": "development-12",
+    "user_id": "development-03"
+  },
+  {
+    "case_id": "development-03-1",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "durable",
+      "portable",
+      "quiet"
+    ],
+    "split": "development",
+    "task_id": "development-13",
+    "user_id": "development-03"
+  },
+  {
+    "case_id": "development-03-2",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "durable",
+      "portable",
+      "quiet"
+    ],
+    "split": "development",
+    "task_id": "development-14",
+    "user_id": "development-03"
+  },
+  {
+    "case_id": "development-03-3",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "durable",
+      "portable",
+      "quiet"
+    ],
+    "split": "development",
+    "task_id": "development-15",
+    "user_id": "development-03"
+  },
+  {
+    "case_id": "development-04-0",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "quiet",
+      "durable",
+      "portable"
+    ],
+    "split": "development",
+    "task_id": "development-16",
+    "user_id": "development-04"
+  },
+  {
+    "case_id": "development-04-1",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "quiet",
+      "durable",
+      "portable"
+    ],
+    "split": "development",
+    "task_id": "development-17",
+    "user_id": "development-04"
+  },
+  {
+    "case_id": "development-04-2",
+    "gold": "D",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "quiet",
+      "durable",
+      "portable"
+    ],
+    "split": "development",
+    "task_id": "development-18",
+    "user_id": "development-04"
+  },
+  {
+    "case_id": "development-04-3",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "quiet",
+      "durable",
+      "portable"
+    ],
+    "split": "development",
+    "task_id": "development-19",
+    "user_id": "development-04"
+  },
+  {
+    "case_id": "development-05-0",
+    "gold": "D",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "quiet",
+      "portable",
+      "durable"
+    ],
+    "split": "development",
+    "task_id": "development-20",
+    "user_id": "development-05"
+  },
+  {
+    "case_id": "development-05-1",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "quiet",
+      "portable",
+      "durable"
+    ],
+    "split": "development",
+    "task_id": "development-21",
+    "user_id": "development-05"
+  },
+  {
+    "case_id": "development-05-2",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "quiet",
+      "portable",
+      "durable"
+    ],
+    "split": "development",
+    "task_id": "development-22",
+    "user_id": "development-05"
+  },
+  {
+    "case_id": "development-05-3",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "quiet",
+      "portable",
+      "durable"
+    ],
+    "split": "development",
+    "task_id": "development-23",
+    "user_id": "development-05"
+  },
+  {
+    "case_id": "development-06-0",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "quiet",
+      "portable",
+      "spacious"
+    ],
+    "split": "development",
+    "task_id": "development-24",
+    "user_id": "development-06"
+  },
+  {
+    "case_id": "development-06-1",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "quiet",
+      "portable",
+      "spacious"
+    ],
+    "split": "development",
+    "task_id": "development-25",
+    "user_id": "development-06"
+  },
+  {
+    "case_id": "development-06-2",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "quiet",
+      "portable",
+      "spacious"
+    ],
+    "split": "development",
+    "task_id": "development-26",
+    "user_id": "development-06"
+  },
+  {
+    "case_id": "development-06-3",
+    "gold": "D",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "quiet",
+      "portable",
+      "spacious"
+    ],
+    "split": "development",
+    "task_id": "development-27",
+    "user_id": "development-06"
+  },
+  {
+    "case_id": "development-07-0",
+    "gold": "D",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "durable",
+      "spacious",
+      "quiet"
+    ],
+    "split": "development",
+    "task_id": "development-28",
+    "user_id": "development-07"
+  },
+  {
+    "case_id": "development-07-1",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "durable",
+      "spacious",
+      "quiet"
+    ],
+    "split": "development",
+    "task_id": "development-29",
+    "user_id": "development-07"
+  },
+  {
+    "case_id": "development-07-2",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "durable",
+      "spacious",
+      "quiet"
+    ],
+    "split": "development",
+    "task_id": "development-30",
+    "user_id": "development-07"
+  },
+  {
+    "case_id": "development-07-3",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "durable",
+      "spacious",
+      "quiet"
+    ],
+    "split": "development",
+    "task_id": "development-31",
+    "user_id": "development-07"
+  },
+  {
+    "case_id": "development-08-0",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "durable",
+      "quiet",
+      "spacious"
+    ],
+    "split": "development",
+    "task_id": "development-32",
+    "user_id": "development-08"
+  },
+  {
+    "case_id": "development-08-1",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "durable",
+      "quiet",
+      "spacious"
+    ],
+    "split": "development",
+    "task_id": "development-33",
+    "user_id": "development-08"
+  },
+  {
+    "case_id": "development-08-2",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "durable",
+      "quiet",
+      "spacious"
+    ],
+    "split": "development",
+    "task_id": "development-34",
+    "user_id": "development-08"
+  },
+  {
+    "case_id": "development-08-3",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "durable",
+      "quiet",
+      "spacious"
+    ],
+    "split": "development",
+    "task_id": "development-35",
+    "user_id": "development-08"
+  },
+  {
+    "case_id": "development-09-0",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "portable",
+      "durable",
+      "spacious"
+    ],
+    "split": "development",
+    "task_id": "development-36",
+    "user_id": "development-09"
+  },
+  {
+    "case_id": "development-09-1",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "portable",
+      "durable",
+      "spacious"
+    ],
+    "split": "development",
+    "task_id": "development-37",
+    "user_id": "development-09"
+  },
+  {
+    "case_id": "development-09-2",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "portable",
+      "durable",
+      "spacious"
+    ],
+    "split": "development",
+    "task_id": "development-38",
+    "user_id": "development-09"
+  },
+  {
+    "case_id": "development-09-3",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "portable",
+      "durable",
+      "spacious"
+    ],
+    "split": "development",
+    "task_id": "development-39",
+    "user_id": "development-09"
+  },
+  {
+    "case_id": "development-10-0",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "portable",
+      "spacious",
+      "durable"
+    ],
+    "split": "development",
+    "task_id": "development-40",
+    "user_id": "development-10"
+  },
+  {
+    "case_id": "development-10-1",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "portable",
+      "spacious",
+      "durable"
+    ],
+    "split": "development",
+    "task_id": "development-41",
+    "user_id": "development-10"
+  },
+  {
+    "case_id": "development-10-2",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "portable",
+      "spacious",
+      "durable"
+    ],
+    "split": "development",
+    "task_id": "development-42",
+    "user_id": "development-10"
+  },
+  {
+    "case_id": "development-10-3",
+    "gold": "D",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "portable",
+      "spacious",
+      "durable"
+    ],
+    "split": "development",
+    "task_id": "development-43",
+    "user_id": "development-10"
+  },
+  {
+    "case_id": "development-11-0",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "spacious",
+      "portable",
+      "durable"
+    ],
+    "split": "development",
+    "task_id": "development-44",
+    "user_id": "development-11"
+  },
+  {
+    "case_id": "development-11-1",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "spacious",
+      "portable",
+      "durable"
+    ],
+    "split": "development",
+    "task_id": "development-45",
+    "user_id": "development-11"
+  },
+  {
+    "case_id": "development-11-2",
+    "gold": "D",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "spacious",
+      "portable",
+      "durable"
+    ],
+    "split": "development",
+    "task_id": "development-46",
+    "user_id": "development-11"
+  },
+  {
+    "case_id": "development-11-3",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "spacious",
+      "portable",
+      "durable"
+    ],
+    "split": "development",
+    "task_id": "development-47",
+    "user_id": "development-11"
+  },
+  {
+    "case_id": "validation-00-0",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "portable",
+      "spacious",
+      "quiet"
+    ],
+    "split": "validation",
+    "task_id": "validation-00",
+    "user_id": "validation-00"
+  },
+  {
+    "case_id": "validation-00-1",
+    "gold": "D",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "portable",
+      "spacious",
+      "quiet"
+    ],
+    "split": "validation",
+    "task_id": "validation-01",
+    "user_id": "validation-00"
+  },
+  {
+    "case_id": "validation-00-2",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "portable",
+      "spacious",
+      "quiet"
+    ],
+    "split": "validation",
+    "task_id": "validation-02",
+    "user_id": "validation-00"
+  },
+  {
+    "case_id": "validation-00-3",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "portable",
+      "spacious",
+      "quiet"
+    ],
+    "split": "validation",
+    "task_id": "validation-03",
+    "user_id": "validation-00"
+  },
+  {
+    "case_id": "validation-01-0",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "spacious",
+      "quiet",
+      "portable"
+    ],
+    "split": "validation",
+    "task_id": "validation-04",
+    "user_id": "validation-01"
+  },
+  {
+    "case_id": "validation-01-1",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "spacious",
+      "quiet",
+      "portable"
+    ],
+    "split": "validation",
+    "task_id": "validation-05",
+    "user_id": "validation-01"
+  },
+  {
+    "case_id": "validation-01-2",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "spacious",
+      "quiet",
+      "portable"
+    ],
+    "split": "validation",
+    "task_id": "validation-06",
+    "user_id": "validation-01"
+  },
+  {
+    "case_id": "validation-01-3",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "spacious",
+      "quiet",
+      "portable"
+    ],
+    "split": "validation",
+    "task_id": "validation-07",
+    "user_id": "validation-01"
+  },
+  {
+    "case_id": "validation-02-0",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "quiet",
+      "spacious",
+      "portable"
+    ],
+    "split": "validation",
+    "task_id": "validation-08",
+    "user_id": "validation-02"
+  },
+  {
+    "case_id": "validation-02-1",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "quiet",
+      "spacious",
+      "portable"
+    ],
+    "split": "validation",
+    "task_id": "validation-09",
+    "user_id": "validation-02"
+  },
+  {
+    "case_id": "validation-02-2",
+    "gold": "D",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "quiet",
+      "spacious",
+      "portable"
+    ],
+    "split": "validation",
+    "task_id": "validation-10",
+    "user_id": "validation-02"
+  },
+  {
+    "case_id": "validation-02-3",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "quiet",
+      "spacious",
+      "portable"
+    ],
+    "split": "validation",
+    "task_id": "validation-11",
+    "user_id": "validation-02"
+  },
+  {
+    "case_id": "validation-03-0",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "portable",
+      "durable",
+      "quiet"
+    ],
+    "split": "validation",
+    "task_id": "validation-12",
+    "user_id": "validation-03"
+  },
+  {
+    "case_id": "validation-03-1",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "portable",
+      "durable",
+      "quiet"
+    ],
+    "split": "validation",
+    "task_id": "validation-13",
+    "user_id": "validation-03"
+  },
+  {
+    "case_id": "validation-03-2",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "portable",
+      "durable",
+      "quiet"
+    ],
+    "split": "validation",
+    "task_id": "validation-14",
+    "user_id": "validation-03"
+  },
+  {
+    "case_id": "validation-03-3",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "spacious",
+      "portable",
+      "durable",
+      "quiet"
+    ],
+    "split": "validation",
+    "task_id": "validation-15",
+    "user_id": "validation-03"
+  },
+  {
+    "case_id": "validation-04-0",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "portable",
+      "quiet",
+      "spacious"
+    ],
+    "split": "validation",
+    "task_id": "validation-16",
+    "user_id": "validation-04"
+  },
+  {
+    "case_id": "validation-04-1",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "portable",
+      "quiet",
+      "spacious"
+    ],
+    "split": "validation",
+    "task_id": "validation-17",
+    "user_id": "validation-04"
+  },
+  {
+    "case_id": "validation-04-2",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "portable",
+      "quiet",
+      "spacious"
+    ],
+    "split": "validation",
+    "task_id": "validation-18",
+    "user_id": "validation-04"
+  },
+  {
+    "case_id": "validation-04-3",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "portable",
+      "quiet",
+      "spacious"
+    ],
+    "split": "validation",
+    "task_id": "validation-19",
+    "user_id": "validation-04"
+  },
+  {
+    "case_id": "validation-05-0",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "spacious",
+      "portable",
+      "quiet"
+    ],
+    "split": "validation",
+    "task_id": "validation-20",
+    "user_id": "validation-05"
+  },
+  {
+    "case_id": "validation-05-1",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "spacious",
+      "portable",
+      "quiet"
+    ],
+    "split": "validation",
+    "task_id": "validation-21",
+    "user_id": "validation-05"
+  },
+  {
+    "case_id": "validation-05-2",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "spacious",
+      "portable",
+      "quiet"
+    ],
+    "split": "validation",
+    "task_id": "validation-22",
+    "user_id": "validation-05"
+  },
+  {
+    "case_id": "validation-05-3",
+    "gold": "D",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "durable",
+      "spacious",
+      "portable",
+      "quiet"
+    ],
+    "split": "validation",
+    "task_id": "validation-23",
+    "user_id": "validation-05"
+  },
+  {
+    "case_id": "heldout-00-0",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "spacious",
+      "quiet",
+      "durable"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-00",
+    "user_id": "heldout-00"
+  },
+  {
+    "case_id": "heldout-00-1",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "spacious",
+      "quiet",
+      "durable"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-01",
+    "user_id": "heldout-00"
+  },
+  {
+    "case_id": "heldout-00-2",
+    "gold": "D",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "spacious",
+      "quiet",
+      "durable"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-02",
+    "user_id": "heldout-00"
+  },
+  {
+    "case_id": "heldout-00-3",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "spacious",
+      "quiet",
+      "durable"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-03",
+    "user_id": "heldout-00"
+  },
+  {
+    "case_id": "heldout-01-0",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "spacious",
+      "durable",
+      "portable"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-04",
+    "user_id": "heldout-01"
+  },
+  {
+    "case_id": "heldout-01-1",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "spacious",
+      "durable",
+      "portable"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-05",
+    "user_id": "heldout-01"
+  },
+  {
+    "case_id": "heldout-01-2",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "spacious",
+      "durable",
+      "portable"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-06",
+    "user_id": "heldout-01"
+  },
+  {
+    "case_id": "heldout-01-3",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "spacious",
+      "durable",
+      "portable"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-07",
+    "user_id": "heldout-01"
+  },
+  {
+    "case_id": "heldout-02-0",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "spacious",
+      "durable",
+      "quiet"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-08",
+    "user_id": "heldout-02"
+  },
+  {
+    "case_id": "heldout-02-1",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "spacious",
+      "durable",
+      "quiet"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-09",
+    "user_id": "heldout-02"
+  },
+  {
+    "case_id": "heldout-02-2",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "spacious",
+      "durable",
+      "quiet"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-10",
+    "user_id": "heldout-02"
+  },
+  {
+    "case_id": "heldout-02-3",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "spacious",
+      "durable",
+      "quiet"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-11",
+    "user_id": "heldout-02"
+  },
+  {
+    "case_id": "heldout-03-0",
+    "gold": "B",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "durable",
+      "spacious",
+      "portable"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-12",
+    "user_id": "heldout-03"
+  },
+  {
+    "case_id": "heldout-03-1",
+    "gold": "D",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "durable",
+      "spacious",
+      "portable"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-13",
+    "user_id": "heldout-03"
+  },
+  {
+    "case_id": "heldout-03-2",
+    "gold": "D",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "durable",
+      "spacious",
+      "portable"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-14",
+    "user_id": "heldout-03"
+  },
+  {
+    "case_id": "heldout-03-3",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "durable",
+      "spacious",
+      "portable"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-15",
+    "user_id": "heldout-03"
+  },
+  {
+    "case_id": "heldout-04-0",
+    "gold": "D",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "quiet",
+      "durable",
+      "spacious"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-16",
+    "user_id": "heldout-04"
+  },
+  {
+    "case_id": "heldout-04-1",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "quiet",
+      "durable",
+      "spacious"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-17",
+    "user_id": "heldout-04"
+  },
+  {
+    "case_id": "heldout-04-2",
+    "gold": "D",
+    "options": [
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "quiet",
+      "durable",
+      "spacious"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-18",
+    "user_id": "heldout-04"
+  },
+  {
+    "case_id": "heldout-04-3",
+    "gold": "A",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "portable",
+      "quiet",
+      "durable",
+      "spacious"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-19",
+    "user_id": "heldout-04"
+  },
+  {
+    "case_id": "heldout-05-0",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": false,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "durable",
+      "portable",
+      "spacious"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-20",
+    "user_id": "heldout-05"
+  },
+  {
+    "case_id": "heldout-05-1",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "portable",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "durable",
+      "portable",
+      "spacious"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-21",
+    "user_id": "heldout-05"
+  },
+  {
+    "case_id": "heldout-05-2",
+    "gold": "D",
+    "options": [
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "C"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "durable",
+      "portable",
+      "spacious"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-22",
+    "user_id": "heldout-05"
+  },
+  {
+    "case_id": "heldout-05-3",
+    "gold": "C",
+    "options": [
+      {
+        "attribute": "quiet",
+        "eligible": false,
+        "label": "A"
+      },
+      {
+        "attribute": "portable",
+        "eligible": true,
+        "label": "B"
+      },
+      {
+        "attribute": "durable",
+        "eligible": true,
+        "label": "C"
+      },
+      {
+        "attribute": "spacious",
+        "eligible": true,
+        "label": "D"
+      }
+    ],
+    "priority": [
+      "quiet",
+      "durable",
+      "portable",
+      "spacious"
+    ],
+    "split": "heldout",
+    "task_id": "heldout-23",
+    "user_id": "heldout-05"
+  }
+]

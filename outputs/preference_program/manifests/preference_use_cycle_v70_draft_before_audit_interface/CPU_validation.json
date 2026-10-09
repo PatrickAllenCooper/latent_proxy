@@ -1,0 +1,18 @@
+{
+  "datasets": {
+    "development": 48,
+    "heldout": 24,
+    "validation": 24
+  },
+  "errors": 0,
+  "hashes": {
+    "cases.json": "d4a8be4b920f700182b3cfc18cd8513a0fb91a2302a69d673b7a4613b01169d5",
+    "protocol.json": "812ca603e3205e1a62d372b7307eaeca612e3b1054632d87157eb709d9d4d20c",
+    "smoke_requests.json": "6add7f35d10e18463b3c3ff66d210921cf25ebeb67850ad9ace4e9a99c7c6dab",
+    "splits.json": "12eae8b8f2c135772110ffe7057f481337a280e9525c39d3a519f5a990902cbd",
+    "training_examples.json": "a78f463744e9b6fbb87cadfa91b28d67cc484bcba543c2b9d8b10d8e642cdf9f"
+  },
+  "model_calls": 0,
+  "oracle_cases": 2304,
+  "qualification_passed": false
+}

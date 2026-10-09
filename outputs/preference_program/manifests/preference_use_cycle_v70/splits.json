@@ -1,0 +1,1028 @@
+{
+  "development": {
+    "menus": [
+      {
+        "attributes": [
+          "portable",
+          "quiet",
+          "spacious",
+          "durable"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "durable",
+          "spacious",
+          "portable",
+          "quiet"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "quiet",
+          "portable",
+          "spacious",
+          "durable"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "durable",
+          "portable",
+          "quiet",
+          "spacious"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "durable",
+          "quiet",
+          "portable",
+          "spacious"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "portable",
+          "quiet",
+          "durable",
+          "spacious"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "spacious",
+          "portable",
+          "durable",
+          "quiet"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "quiet",
+          "durable",
+          "spacious",
+          "portable"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "quiet",
+          "spacious",
+          "portable",
+          "durable"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "quiet",
+          "spacious",
+          "durable",
+          "portable"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "portable",
+          "spacious",
+          "durable",
+          "quiet"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "portable",
+          "spacious",
+          "durable",
+          "quiet"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "portable",
+          "spacious",
+          "durable",
+          "quiet"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "durable",
+          "portable",
+          "spacious",
+          "quiet"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "portable",
+          "spacious",
+          "quiet",
+          "durable"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "durable",
+          "spacious",
+          "quiet",
+          "portable"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "spacious",
+          "portable",
+          "durable",
+          "quiet"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "portable",
+          "spacious",
+          "durable",
+          "quiet"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "quiet",
+          "spacious",
+          "durable",
+          "portable"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "quiet",
+          "spacious",
+          "portable",
+          "durable"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "durable",
+          "spacious",
+          "quiet",
+          "portable"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "spacious",
+          "durable",
+          "quiet",
+          "portable"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "quiet",
+          "durable",
+          "spacious",
+          "portable"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "portable",
+          "quiet",
+          "spacious",
+          "durable"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "durable",
+          "spacious",
+          "portable",
+          "quiet"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "durable",
+          "spacious",
+          "quiet",
+          "portable"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "spacious",
+          "portable",
+          "quiet",
+          "durable"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "portable",
+          "spacious",
+          "quiet",
+          "durable"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "durable",
+          "quiet",
+          "spacious",
+          "portable"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "portable",
+          "durable",
+          "spacious",
+          "quiet"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "durable",
+          "portable",
+          "spacious",
+          "quiet"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "durable",
+          "quiet",
+          "spacious",
+          "portable"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "spacious",
+          "durable",
+          "portable",
+          "quiet"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "portable",
+          "spacious",
+          "quiet",
+          "durable"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "spacious",
+          "durable",
+          "portable",
+          "quiet"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "spacious",
+          "portable",
+          "durable",
+          "quiet"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "quiet",
+          "portable",
+          "spacious",
+          "durable"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "quiet",
+          "spacious",
+          "portable",
+          "durable"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "durable",
+          "spacious",
+          "quiet",
+          "portable"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "quiet",
+          "durable",
+          "portable",
+          "spacious"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "quiet",
+          "spacious",
+          "durable",
+          "portable"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "portable",
+          "quiet",
+          "spacious",
+          "durable"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "quiet",
+          "portable",
+          "durable",
+          "spacious"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "portable",
+          "durable",
+          "spacious",
+          "quiet"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "spacious",
+          "durable",
+          "quiet",
+          "portable"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "quiet",
+          "portable",
+          "durable",
+          "spacious"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "portable",
+          "durable",
+          "spacious",
+          "quiet"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "spacious",
+          "portable",
+          "quiet",
+          "durable"
+        ],
+        "excluded_index": 3
+      }
+    ],
+    "users": [
+      [
+        "spacious",
+        "durable",
+        "quiet",
+        "portable"
+      ],
+      [
+        "spacious",
+        "portable",
+        "quiet",
+        "durable"
+      ],
+      [
+        "portable",
+        "quiet",
+        "spacious",
+        "durable"
+      ],
+      [
+        "spacious",
+        "durable",
+        "portable",
+        "quiet"
+      ],
+      [
+        "spacious",
+        "quiet",
+        "durable",
+        "portable"
+      ],
+      [
+        "spacious",
+        "quiet",
+        "portable",
+        "durable"
+      ],
+      [
+        "durable",
+        "quiet",
+        "portable",
+        "spacious"
+      ],
+      [
+        "portable",
+        "durable",
+        "spacious",
+        "quiet"
+      ],
+      [
+        "portable",
+        "durable",
+        "quiet",
+        "spacious"
+      ],
+      [
+        "quiet",
+        "portable",
+        "durable",
+        "spacious"
+      ],
+      [
+        "quiet",
+        "portable",
+        "spacious",
+        "durable"
+      ],
+      [
+        "quiet",
+        "spacious",
+        "portable",
+        "durable"
+      ]
+    ]
+  },
+  "heldout": {
+    "menus": [
+      {
+        "attributes": [
+          "portable",
+          "quiet",
+          "durable",
+          "spacious"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "quiet",
+          "durable",
+          "portable",
+          "spacious"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "portable",
+          "quiet",
+          "durable",
+          "spacious"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "spacious",
+          "quiet",
+          "portable",
+          "durable"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "durable",
+          "portable",
+          "spacious",
+          "quiet"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "durable",
+          "portable",
+          "quiet",
+          "spacious"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "spacious",
+          "quiet",
+          "portable",
+          "durable"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "durable",
+          "quiet",
+          "portable",
+          "spacious"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "durable",
+          "portable",
+          "quiet",
+          "spacious"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "durable",
+          "quiet",
+          "spacious",
+          "portable"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "portable",
+          "durable",
+          "quiet",
+          "spacious"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "spacious",
+          "durable",
+          "quiet",
+          "portable"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "portable",
+          "durable",
+          "quiet",
+          "spacious"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "spacious",
+          "quiet",
+          "durable",
+          "portable"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "spacious",
+          "quiet",
+          "durable",
+          "portable"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "spacious",
+          "durable",
+          "portable",
+          "quiet"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "spacious",
+          "portable",
+          "quiet",
+          "durable"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "spacious",
+          "quiet",
+          "portable",
+          "durable"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "portable",
+          "quiet",
+          "spacious",
+          "durable"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "quiet",
+          "portable",
+          "spacious",
+          "durable"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "quiet",
+          "portable",
+          "durable",
+          "spacious"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "spacious",
+          "durable",
+          "portable",
+          "quiet"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "durable",
+          "quiet",
+          "spacious",
+          "portable"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "durable",
+          "portable",
+          "spacious",
+          "quiet"
+        ],
+        "excluded_index": 0
+      }
+    ],
+    "users": [
+      [
+        "portable",
+        "spacious",
+        "quiet",
+        "durable"
+      ],
+      [
+        "quiet",
+        "spacious",
+        "durable",
+        "portable"
+      ],
+      [
+        "portable",
+        "spacious",
+        "durable",
+        "quiet"
+      ],
+      [
+        "quiet",
+        "durable",
+        "spacious",
+        "portable"
+      ],
+      [
+        "portable",
+        "quiet",
+        "durable",
+        "spacious"
+      ],
+      [
+        "quiet",
+        "durable",
+        "portable",
+        "spacious"
+      ]
+    ]
+  },
+  "validation": {
+    "menus": [
+      {
+        "attributes": [
+          "portable",
+          "spacious",
+          "quiet",
+          "durable"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "quiet",
+          "durable",
+          "spacious",
+          "portable"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "durable",
+          "quiet",
+          "portable",
+          "spacious"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "portable",
+          "durable",
+          "quiet",
+          "spacious"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "quiet",
+          "durable",
+          "portable",
+          "spacious"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "quiet",
+          "portable",
+          "spacious",
+          "durable"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "durable",
+          "spacious",
+          "portable",
+          "quiet"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "quiet",
+          "spacious",
+          "durable",
+          "portable"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "spacious",
+          "quiet",
+          "durable",
+          "portable"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "spacious",
+          "portable",
+          "quiet",
+          "durable"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "quiet",
+          "spacious",
+          "portable",
+          "durable"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "spacious",
+          "quiet",
+          "durable",
+          "portable"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "spacious",
+          "quiet",
+          "portable",
+          "durable"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "durable",
+          "quiet",
+          "portable",
+          "spacious"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "durable",
+          "portable",
+          "quiet",
+          "spacious"
+        ],
+        "excluded_index": 1
+      },
+      {
+        "attributes": [
+          "portable",
+          "quiet",
+          "durable",
+          "spacious"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "portable",
+          "durable",
+          "spacious",
+          "quiet"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "spacious",
+          "portable",
+          "durable",
+          "quiet"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "spacious",
+          "durable",
+          "quiet",
+          "portable"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "durable",
+          "spacious",
+          "portable",
+          "quiet"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "quiet",
+          "durable",
+          "spacious",
+          "portable"
+        ],
+        "excluded_index": 0
+      },
+      {
+        "attributes": [
+          "portable",
+          "durable",
+          "quiet",
+          "spacious"
+        ],
+        "excluded_index": 3
+      },
+      {
+        "attributes": [
+          "quiet",
+          "durable",
+          "portable",
+          "spacious"
+        ],
+        "excluded_index": 2
+      },
+      {
+        "attributes": [
+          "quiet",
+          "portable",
+          "durable",
+          "spacious"
+        ],
+        "excluded_index": 2
+      }
+    ],
+    "users": [
+      [
+        "durable",
+        "portable",
+        "spacious",
+        "quiet"
+      ],
+      [
+        "durable",
+        "spacious",
+        "quiet",
+        "portable"
+      ],
+      [
+        "durable",
+        "quiet",
+        "spacious",
+        "portable"
+      ],
+      [
+        "spacious",
+        "portable",
+        "durable",
+        "quiet"
+      ],
+      [
+        "durable",
+        "portable",
+        "quiet",
+        "spacious"
+      ],
+      [
+        "durable",
+        "spacious",
+        "portable",
+        "quiet"
+      ]
+    ]
+  }
+}

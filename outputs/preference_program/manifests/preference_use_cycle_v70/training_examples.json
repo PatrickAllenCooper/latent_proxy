@@ -1,0 +1,626 @@
+[
+  {
+    "case_id": "development-00-0",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: spacious, then durable, then quiet, then portable. Choose the highest-priority eligible option.\nA: attribute=portable; eligible=yes.\nB: attribute=quiet; eligible=no.\nC: attribute=spacious; eligible=yes.\nD: attribute=durable; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "C",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-00-1",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: spacious, then durable, then quiet, then portable. Choose the highest-priority eligible option.\nA: attribute=durable; eligible=yes.\nB: attribute=spacious; eligible=no.\nC: attribute=portable; eligible=yes.\nD: attribute=quiet; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "A",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-00-2",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: spacious, then durable, then quiet, then portable. Choose the highest-priority eligible option.\nA: attribute=quiet; eligible=yes.\nB: attribute=portable; eligible=no.\nC: attribute=spacious; eligible=yes.\nD: attribute=durable; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "C",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-00-3",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: spacious, then durable, then quiet, then portable. Choose the highest-priority eligible option.\nA: attribute=durable; eligible=no.\nB: attribute=portable; eligible=yes.\nC: attribute=quiet; eligible=yes.\nD: attribute=spacious; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "D",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-01-0",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: spacious, then portable, then quiet, then durable. Choose the highest-priority eligible option.\nA: attribute=durable; eligible=yes.\nB: attribute=quiet; eligible=no.\nC: attribute=portable; eligible=yes.\nD: attribute=spacious; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "D",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-01-1",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: spacious, then portable, then quiet, then durable. Choose the highest-priority eligible option.\nA: attribute=portable; eligible=yes.\nB: attribute=quiet; eligible=yes.\nC: attribute=durable; eligible=yes.\nD: attribute=spacious; eligible=no.",
+        "role": "user"
+      },
+      {
+        "content": "A",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-01-2",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: spacious, then portable, then quiet, then durable. Choose the highest-priority eligible option.\nA: attribute=spacious; eligible=yes.\nB: attribute=portable; eligible=no.\nC: attribute=durable; eligible=yes.\nD: attribute=quiet; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "A",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-01-3",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: spacious, then portable, then quiet, then durable. Choose the highest-priority eligible option.\nA: attribute=quiet; eligible=yes.\nB: attribute=durable; eligible=no.\nC: attribute=spacious; eligible=yes.\nD: attribute=portable; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "C",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-02-0",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: portable, then quiet, then spacious, then durable. Choose the highest-priority eligible option.\nA: attribute=quiet; eligible=no.\nB: attribute=spacious; eligible=yes.\nC: attribute=portable; eligible=yes.\nD: attribute=durable; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "C",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-02-1",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: portable, then quiet, then spacious, then durable. Choose the highest-priority eligible option.\nA: attribute=quiet; eligible=yes.\nB: attribute=spacious; eligible=no.\nC: attribute=durable; eligible=yes.\nD: attribute=portable; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "D",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-02-2",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: portable, then quiet, then spacious, then durable. Choose the highest-priority eligible option.\nA: attribute=portable; eligible=no.\nB: attribute=spacious; eligible=yes.\nC: attribute=durable; eligible=yes.\nD: attribute=quiet; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "D",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-02-3",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: portable, then quiet, then spacious, then durable. Choose the highest-priority eligible option.\nA: attribute=portable; eligible=yes.\nB: attribute=spacious; eligible=yes.\nC: attribute=durable; eligible=no.\nD: attribute=quiet; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "A",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-03-0",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: spacious, then durable, then portable, then quiet. Choose the highest-priority eligible option.\nA: attribute=portable; eligible=yes.\nB: attribute=spacious; eligible=yes.\nC: attribute=durable; eligible=yes.\nD: attribute=quiet; eligible=no.",
+        "role": "user"
+      },
+      {
+        "content": "B",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-03-1",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: spacious, then durable, then portable, then quiet. Choose the highest-priority eligible option.\nA: attribute=durable; eligible=yes.\nB: attribute=portable; eligible=yes.\nC: attribute=spacious; eligible=no.\nD: attribute=quiet; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "A",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-03-2",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: spacious, then durable, then portable, then quiet. Choose the highest-priority eligible option.\nA: attribute=portable; eligible=no.\nB: attribute=spacious; eligible=yes.\nC: attribute=quiet; eligible=yes.\nD: attribute=durable; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "B",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-03-3",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: spacious, then durable, then portable, then quiet. Choose the highest-priority eligible option.\nA: attribute=durable; eligible=no.\nB: attribute=spacious; eligible=yes.\nC: attribute=quiet; eligible=yes.\nD: attribute=portable; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "B",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-04-0",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: spacious, then quiet, then durable, then portable. Choose the highest-priority eligible option.\nA: attribute=spacious; eligible=yes.\nB: attribute=portable; eligible=yes.\nC: attribute=durable; eligible=yes.\nD: attribute=quiet; eligible=no.",
+        "role": "user"
+      },
+      {
+        "content": "A",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-04-1",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: spacious, then quiet, then durable, then portable. Choose the highest-priority eligible option.\nA: attribute=portable; eligible=yes.\nB: attribute=spacious; eligible=no.\nC: attribute=durable; eligible=yes.\nD: attribute=quiet; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "D",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-04-2",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: spacious, then quiet, then durable, then portable. Choose the highest-priority eligible option.\nA: attribute=quiet; eligible=yes.\nB: attribute=spacious; eligible=yes.\nC: attribute=durable; eligible=yes.\nD: attribute=portable; eligible=no.",
+        "role": "user"
+      },
+      {
+        "content": "B",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-04-3",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: spacious, then quiet, then durable, then portable. Choose the highest-priority eligible option.\nA: attribute=quiet; eligible=yes.\nB: attribute=spacious; eligible=yes.\nC: attribute=portable; eligible=yes.\nD: attribute=durable; eligible=no.",
+        "role": "user"
+      },
+      {
+        "content": "B",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-05-0",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: spacious, then quiet, then portable, then durable. Choose the highest-priority eligible option.\nA: attribute=durable; eligible=yes.\nB: attribute=spacious; eligible=yes.\nC: attribute=quiet; eligible=no.\nD: attribute=portable; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "B",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-05-1",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: spacious, then quiet, then portable, then durable. Choose the highest-priority eligible option.\nA: attribute=spacious; eligible=no.\nB: attribute=durable; eligible=yes.\nC: attribute=quiet; eligible=yes.\nD: attribute=portable; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "C",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-05-2",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: spacious, then quiet, then portable, then durable. Choose the highest-priority eligible option.\nA: attribute=quiet; eligible=yes.\nB: attribute=durable; eligible=yes.\nC: attribute=spacious; eligible=yes.\nD: attribute=portable; eligible=no.",
+        "role": "user"
+      },
+      {
+        "content": "C",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-05-3",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: spacious, then quiet, then portable, then durable. Choose the highest-priority eligible option.\nA: attribute=portable; eligible=yes.\nB: attribute=quiet; eligible=yes.\nC: attribute=spacious; eligible=yes.\nD: attribute=durable; eligible=no.",
+        "role": "user"
+      },
+      {
+        "content": "C",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-06-0",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: durable, then quiet, then portable, then spacious. Choose the highest-priority eligible option.\nA: attribute=durable; eligible=yes.\nB: attribute=spacious; eligible=yes.\nC: attribute=portable; eligible=yes.\nD: attribute=quiet; eligible=no.",
+        "role": "user"
+      },
+      {
+        "content": "A",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-06-1",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: durable, then quiet, then portable, then spacious. Choose the highest-priority eligible option.\nA: attribute=durable; eligible=yes.\nB: attribute=spacious; eligible=no.\nC: attribute=quiet; eligible=yes.\nD: attribute=portable; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "A",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-06-2",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: durable, then quiet, then portable, then spacious. Choose the highest-priority eligible option.\nA: attribute=spacious; eligible=yes.\nB: attribute=portable; eligible=no.\nC: attribute=quiet; eligible=yes.\nD: attribute=durable; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "D",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-06-3",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: durable, then quiet, then portable, then spacious. Choose the highest-priority eligible option.\nA: attribute=portable; eligible=yes.\nB: attribute=spacious; eligible=yes.\nC: attribute=quiet; eligible=yes.\nD: attribute=durable; eligible=no.",
+        "role": "user"
+      },
+      {
+        "content": "C",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-07-0",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: portable, then durable, then spacious, then quiet. Choose the highest-priority eligible option.\nA: attribute=durable; eligible=yes.\nB: attribute=quiet; eligible=no.\nC: attribute=spacious; eligible=yes.\nD: attribute=portable; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "D",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-07-1",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: portable, then durable, then spacious, then quiet. Choose the highest-priority eligible option.\nA: attribute=portable; eligible=yes.\nB: attribute=durable; eligible=yes.\nC: attribute=spacious; eligible=no.\nD: attribute=quiet; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "A",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-07-2",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: portable, then durable, then spacious, then quiet. Choose the highest-priority eligible option.\nA: attribute=durable; eligible=yes.\nB: attribute=portable; eligible=no.\nC: attribute=spacious; eligible=yes.\nD: attribute=quiet; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "A",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-07-3",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: portable, then durable, then spacious, then quiet. Choose the highest-priority eligible option.\nA: attribute=durable; eligible=no.\nB: attribute=quiet; eligible=yes.\nC: attribute=spacious; eligible=yes.\nD: attribute=portable; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "D",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-08-0",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: portable, then durable, then quiet, then spacious. Choose the highest-priority eligible option.\nA: attribute=spacious; eligible=yes.\nB: attribute=durable; eligible=yes.\nC: attribute=portable; eligible=yes.\nD: attribute=quiet; eligible=no.",
+        "role": "user"
+      },
+      {
+        "content": "C",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-08-1",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: portable, then durable, then quiet, then spacious. Choose the highest-priority eligible option.\nA: attribute=portable; eligible=yes.\nB: attribute=spacious; eligible=no.\nC: attribute=quiet; eligible=yes.\nD: attribute=durable; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "A",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-08-2",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: portable, then durable, then quiet, then spacious. Choose the highest-priority eligible option.\nA: attribute=spacious; eligible=yes.\nB: attribute=durable; eligible=yes.\nC: attribute=portable; eligible=no.\nD: attribute=quiet; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "B",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-08-3",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: portable, then durable, then quiet, then spacious. Choose the highest-priority eligible option.\nA: attribute=spacious; eligible=yes.\nB: attribute=portable; eligible=yes.\nC: attribute=durable; eligible=no.\nD: attribute=quiet; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "B",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-09-0",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: quiet, then portable, then durable, then spacious. Choose the highest-priority eligible option.\nA: attribute=quiet; eligible=no.\nB: attribute=portable; eligible=yes.\nC: attribute=spacious; eligible=yes.\nD: attribute=durable; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "B",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-09-1",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: quiet, then portable, then durable, then spacious. Choose the highest-priority eligible option.\nA: attribute=quiet; eligible=yes.\nB: attribute=spacious; eligible=no.\nC: attribute=portable; eligible=yes.\nD: attribute=durable; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "A",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-09-2",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: quiet, then portable, then durable, then spacious. Choose the highest-priority eligible option.\nA: attribute=durable; eligible=yes.\nB: attribute=spacious; eligible=yes.\nC: attribute=quiet; eligible=yes.\nD: attribute=portable; eligible=no.",
+        "role": "user"
+      },
+      {
+        "content": "C",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-09-3",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: quiet, then portable, then durable, then spacious. Choose the highest-priority eligible option.\nA: attribute=quiet; eligible=yes.\nB: attribute=durable; eligible=no.\nC: attribute=portable; eligible=yes.\nD: attribute=spacious; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "A",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-10-0",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: quiet, then portable, then spacious, then durable. Choose the highest-priority eligible option.\nA: attribute=quiet; eligible=no.\nB: attribute=spacious; eligible=yes.\nC: attribute=durable; eligible=yes.\nD: attribute=portable; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "D",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-10-1",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: quiet, then portable, then spacious, then durable. Choose the highest-priority eligible option.\nA: attribute=portable; eligible=yes.\nB: attribute=quiet; eligible=yes.\nC: attribute=spacious; eligible=no.\nD: attribute=durable; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "B",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-10-2",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: quiet, then portable, then spacious, then durable. Choose the highest-priority eligible option.\nA: attribute=quiet; eligible=yes.\nB: attribute=portable; eligible=no.\nC: attribute=durable; eligible=yes.\nD: attribute=spacious; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "A",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-10-3",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: quiet, then portable, then spacious, then durable. Choose the highest-priority eligible option.\nA: attribute=portable; eligible=yes.\nB: attribute=durable; eligible=no.\nC: attribute=spacious; eligible=yes.\nD: attribute=quiet; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "D",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-11-0",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: quiet, then spacious, then portable, then durable. Choose the highest-priority eligible option.\nA: attribute=spacious; eligible=yes.\nB: attribute=durable; eligible=yes.\nC: attribute=quiet; eligible=no.\nD: attribute=portable; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "A",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-11-1",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: quiet, then spacious, then portable, then durable. Choose the highest-priority eligible option.\nA: attribute=quiet; eligible=yes.\nB: attribute=portable; eligible=yes.\nC: attribute=durable; eligible=yes.\nD: attribute=spacious; eligible=no.",
+        "role": "user"
+      },
+      {
+        "content": "A",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-11-2",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: quiet, then spacious, then portable, then durable. Choose the highest-priority eligible option.\nA: attribute=portable; eligible=no.\nB: attribute=durable; eligible=yes.\nC: attribute=spacious; eligible=yes.\nD: attribute=quiet; eligible=yes.",
+        "role": "user"
+      },
+      {
+        "content": "D",
+        "role": "assistant"
+      }
+    ]
+  },
+  {
+    "case_id": "development-11-3",
+    "messages": [
+      {
+        "content": "Choose an eligible option. Output exactly one capital letter A, B, C, or D. Priority list: quiet, then spacious, then portable, then durable. Choose the highest-priority eligible option.\nA: attribute=spacious; eligible=yes.\nB: attribute=portable; eligible=yes.\nC: attribute=quiet; eligible=yes.\nD: attribute=durable; eligible=no.",
+        "role": "user"
+      },
+      {
+        "content": "C",
+        "role": "assistant"
+      }
+    ]
+  }
+]
