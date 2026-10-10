@@ -1,0 +1,33 @@
+{
+  "purpose": "observed_runtime_identity_only",
+  "identity_diagnostic_admission": false,
+  "allocation_approved": false,
+  "remote_materialization_ready": false,
+  "fresh_approval_message_id": null,
+  "attempts_used": 0,
+  "retry": false,
+  "resources": {
+    "cpus": 1,
+    "memory_MiB": 256,
+    "scheduler_wall_seconds": 60,
+    "application_wall_seconds": 30,
+    "check_seconds": 20,
+    "attempts": 1,
+    "gpus": 0
+  },
+  "runtime_paths": {
+    "python": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/bin/python",
+    "strace": "/usr/bin/strace"
+  },
+  "expected_sha256": {
+    "python": "9d27cfcde7e3128a1b0cd86e7bf8020fc1c8210dbc485bcf878ab7ef8a5c7516",
+    "strace": "e85f6a7cc0d125339704a397eac1a2b2d2eeb243d57608dce277cd6373f3f1b7"
+  },
+  "script_sha256": "d70c67afe4996f28c81868eefd6c682ff7ccb10e71162d4974b79cb8cc3f8829",
+  "wrapper_sha256": "a9353c84c3bca047dcecc403d1e8fa26735d6e82846bfa73e2f46a8ee772d0e2",
+  "receipt_cap_bytes": 1024,
+  "aggregate_runtime_read_cap_bytes": 67108864,
+  "qualification_established": false,
+  "historical_allocated_CPU_seconds": 2437,
+  "historical_MIG_slice_seconds": 254
+}
