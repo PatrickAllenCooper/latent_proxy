@@ -1,0 +1,36 @@
+{
+  "state": "awaiting_independent_CURC_verification",
+  "recipient": "rc-help@colorado.edu",
+  "recipient_source": "https://oit.colorado.edu/services/research-computing",
+  "user_authorization": "Please verify the compute-node tracer identity with CURC and continue with the calibration once it is resolved, within the existing resource limits.",
+  "subject": "Alpine compute-node strace identity verification before bounded calibration (paco0228, job 34817926)",
+  "gmail_message_id": "1a169d92cf6e15cb",
+  "gmail_thread_id": "1a169d92cf6e15cb",
+  "requested_verification": [
+    "approved acpu compute-image strace package/build and expected digest or independent verification procedure",
+    "support for strace -f of owned newly launched child without attach or elevation"
+  ],
+  "expected_login_digest": "e85f6a7cc0d125339704a397eac1a2b2d2eeb243d57608dce277cd6373f3f1b7",
+  "observed_compute_digest": "c6e26537178d0b51356ecf30fceb7be7654a097a61290f812203ea96cfaf04eb",
+  "observed_compute_bytes": 2029832,
+  "support_response_received": false,
+  "trusted_bindings_changed": false,
+  "new_jobs": 0,
+  "allocated_CPU_seconds_this_step": 0,
+  "GPU_allocations": 0,
+  "conditional_calibration_authorized": true,
+  "conditional_resources": {
+    "cpus": 1,
+    "memory_MiB": 256,
+    "scheduler_wall_seconds": 60,
+    "application_wall_seconds": 30,
+    "check_seconds": 20,
+    "gpus": 0,
+    "attempts": 1
+  },
+  "automatic_retry": false,
+  "followup_automation": "curc-tracer-verification-follow-up",
+  "followup_scope": "hourly substantive reply checks only; no broad research resumption",
+  "historical_allocated_CPU_seconds": 2442,
+  "historical_MIG_slice_seconds": 254
+}
