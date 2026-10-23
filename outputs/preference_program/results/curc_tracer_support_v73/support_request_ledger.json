@@ -32,5 +32,9 @@
   "followup_automation": "curc-tracer-verification-follow-up",
   "followup_scope": "hourly substantive reply checks only; no broad research resumption",
   "historical_allocated_CPU_seconds": 2442,
-  "historical_MIG_slice_seconds": 254
+  "historical_MIG_slice_seconds": 254,
+  "curc_ticket_id": "INC1501930",
+  "curc_ticket_gmail_thread_id": "1a169da02d86ef9d",
+  "acknowledgement_received": true,
+  "acknowledgement_only": true
 }
