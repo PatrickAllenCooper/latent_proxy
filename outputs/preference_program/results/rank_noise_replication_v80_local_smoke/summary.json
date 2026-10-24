@@ -1,0 +1,339 @@
+{
+  "estimates": [
+    {
+      "contrast": "joint_gap_correction",
+      "mean": 0.0,
+      "stream_block_interval95": [
+        0.0,
+        0.0
+      ],
+      "order_cluster_interval95": [
+        0.0,
+        0.0
+      ],
+      "independent_stream_blocks": 1,
+      "enumerated_orders": 2,
+      "per_stream_means": [
+        0.0
+      ],
+      "per_order_means": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "contrast": "baseline_AIF_minus_EIG",
+      "mean": 0.08333333333333333,
+      "stream_block_interval95": [
+        0.08333333333333333,
+        0.08333333333333333
+      ],
+      "order_cluster_interval95": [
+        0.0,
+        0.16666666666666666
+      ],
+      "independent_stream_blocks": 1,
+      "enumerated_orders": 2,
+      "per_stream_means": [
+        0.08333333333333333
+      ],
+      "per_order_means": [
+        0.16666666666666666,
+        0.0
+      ]
+    },
+    {
+      "contrast": "matched_AIF_minus_EIG",
+      "mean": 0.08333333333333333,
+      "stream_block_interval95": [
+        0.08333333333333333,
+        0.08333333333333333
+      ],
+      "order_cluster_interval95": [
+        0.0,
+        0.16666666666666666
+      ],
+      "independent_stream_blocks": 1,
+      "enumerated_orders": 2,
+      "per_stream_means": [
+        0.08333333333333333
+      ],
+      "per_order_means": [
+        0.16666666666666666,
+        0.0
+      ]
+    },
+    {
+      "contrast": "AIF_absolute_correction",
+      "mean": 0.0,
+      "stream_block_interval95": [
+        0.0,
+        0.0
+      ],
+      "order_cluster_interval95": [
+        0.0,
+        0.0
+      ],
+      "independent_stream_blocks": 1,
+      "enumerated_orders": 2,
+      "per_stream_means": [
+        0.0
+      ],
+      "per_order_means": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "contrast": "EIG_absolute_correction",
+      "mean": 0.0,
+      "stream_block_interval95": [
+        0.0,
+        0.0
+      ],
+      "order_cluster_interval95": [
+        0.0,
+        0.0
+      ],
+      "independent_stream_blocks": 1,
+      "enumerated_orders": 2,
+      "per_stream_means": [
+        0.0
+      ],
+      "per_order_means": [
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "conditions": [
+    {
+      "condition": "update10_plan10",
+      "arm": "EIG",
+      "questions": 0,
+      "rows": 2,
+      "target_regret": 0.0,
+      "transfer_regret": 0.1388888888888889,
+      "correct": 1.0,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update10_plan10",
+      "arm": "EIG",
+      "questions": 2,
+      "rows": 2,
+      "target_regret": 0.41666666666666663,
+      "transfer_regret": 0.3472222222222222,
+      "correct": 0.0,
+      "entropy": 2.5218059276834417,
+      "true_order_mass": 0.075
+    },
+    {
+      "condition": "update10_plan10",
+      "arm": "EIG",
+      "questions": 4,
+      "rows": 2,
+      "target_regret": 0.0,
+      "transfer_regret": 0.08333333333333333,
+      "correct": 1.0,
+      "entropy": 1.9917720114081563,
+      "true_order_mass": 0.19710905952928767
+    },
+    {
+      "condition": "update10_plan10",
+      "arm": "EIG",
+      "questions": 6,
+      "rows": 2,
+      "target_regret": 0.0,
+      "transfer_regret": 0.0,
+      "correct": 1.0,
+      "entropy": 1.9447658638371352,
+      "true_order_mass": 0.4564687158586197
+    },
+    {
+      "condition": "update10_plan10",
+      "arm": "EIG",
+      "questions": 8,
+      "rows": 2,
+      "target_regret": 0.0,
+      "transfer_regret": 0.0,
+      "correct": 1.0,
+      "entropy": 1.7379666749897549,
+      "true_order_mass": 0.3886681292377512
+    },
+    {
+      "condition": "update10_plan10",
+      "arm": "AIF",
+      "questions": 0,
+      "rows": 2,
+      "target_regret": 0.0,
+      "transfer_regret": 0.1388888888888889,
+      "correct": 1.0,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update10_plan10",
+      "arm": "AIF",
+      "questions": 2,
+      "rows": 2,
+      "target_regret": 0.25,
+      "transfer_regret": 0.2638888888888889,
+      "correct": 0.5,
+      "entropy": 2.545185065153859,
+      "true_order_mass": 0.06298037521872993
+    },
+    {
+      "condition": "update10_plan10",
+      "arm": "AIF",
+      "questions": 4,
+      "rows": 2,
+      "target_regret": 0.5416666666666666,
+      "transfer_regret": 0.5277777777777778,
+      "correct": 0.0,
+      "entropy": 2.7207579980149657,
+      "true_order_mass": 0.03145646103276998
+    },
+    {
+      "condition": "update10_plan10",
+      "arm": "AIF",
+      "questions": 6,
+      "rows": 2,
+      "target_regret": 0.25,
+      "transfer_regret": 0.2638888888888889,
+      "correct": 0.5,
+      "entropy": 2.293068891887784,
+      "true_order_mass": 0.1003960501638485
+    },
+    {
+      "condition": "update10_plan10",
+      "arm": "AIF",
+      "questions": 8,
+      "rows": 2,
+      "target_regret": 0.0,
+      "transfer_regret": 0.08333333333333333,
+      "correct": 1.0,
+      "entropy": 2.2374562245311873,
+      "true_order_mass": 0.2296481190606251
+    },
+    {
+      "condition": "update20_plan20",
+      "arm": "EIG",
+      "questions": 0,
+      "rows": 2,
+      "target_regret": 0.0,
+      "transfer_regret": 0.1388888888888889,
+      "correct": 1.0,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update20_plan20",
+      "arm": "EIG",
+      "questions": 2,
+      "rows": 2,
+      "target_regret": 0.41666666666666663,
+      "transfer_regret": 0.3472222222222222,
+      "correct": 0.0,
+      "entropy": 2.8314382342632936,
+      "true_order_mass": 0.06666666666666667
+    },
+    {
+      "condition": "update20_plan20",
+      "arm": "EIG",
+      "questions": 4,
+      "rows": 2,
+      "target_regret": 0.0,
+      "transfer_regret": 0.08333333333333333,
+      "correct": 1.0,
+      "entropy": 2.546422893965814,
+      "true_order_mass": 0.14986524465767215
+    },
+    {
+      "condition": "update20_plan20",
+      "arm": "EIG",
+      "questions": 6,
+      "rows": 2,
+      "target_regret": 0.0,
+      "transfer_regret": 0.0,
+      "correct": 1.0,
+      "entropy": 2.452854800582875,
+      "true_order_mass": 0.3031301702005126
+    },
+    {
+      "condition": "update20_plan20",
+      "arm": "EIG",
+      "questions": 8,
+      "rows": 2,
+      "target_regret": 0.0,
+      "transfer_regret": 0.0,
+      "correct": 1.0,
+      "entropy": 2.272041057646065,
+      "true_order_mass": 0.2881975768515824
+    },
+    {
+      "condition": "update20_plan20",
+      "arm": "AIF",
+      "questions": 0,
+      "rows": 2,
+      "target_regret": 0.0,
+      "transfer_regret": 0.1388888888888889,
+      "correct": 1.0,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update20_plan20",
+      "arm": "AIF",
+      "questions": 2,
+      "rows": 2,
+      "target_regret": 0.25,
+      "transfer_regret": 0.2638888888888889,
+      "correct": 0.5,
+      "entropy": 2.843651141524825,
+      "true_order_mass": 0.060716868217556244
+    },
+    {
+      "condition": "update20_plan20",
+      "arm": "AIF",
+      "questions": 4,
+      "rows": 2,
+      "target_regret": 0.41666666666666663,
+      "transfer_regret": 0.3472222222222222,
+      "correct": 0.0,
+      "entropy": 2.7179580829658296,
+      "true_order_mass": 0.04558158237244086
+    },
+    {
+      "condition": "update20_plan20",
+      "arm": "AIF",
+      "questions": 6,
+      "rows": 2,
+      "target_regret": 0.0,
+      "transfer_regret": 0.19444444444444442,
+      "correct": 1.0,
+      "entropy": 2.720344093129568,
+      "true_order_mass": 0.11887570271089896
+    },
+    {
+      "condition": "update20_plan20",
+      "arm": "AIF",
+      "questions": 8,
+      "rows": 2,
+      "target_regret": 0.0,
+      "transfer_regret": 0.08333333333333333,
+      "correct": 1.0,
+      "entropy": 2.5220180948724864,
+      "true_order_mass": 0.11807350678022142
+    }
+  ],
+  "records": 40,
+  "trace_records": 64,
+  "unique_orders": 2,
+  "fresh_streams": 1,
+  "paired_scenarios": 2,
+  "elapsed_seconds": 0.04771089553833008,
+  "model_calls": 0,
+  "GPU_allocations": 0
+}

@@ -1,0 +1,35 @@
+{
+  "method": "application_phase_and_Python_audit",
+  "native_syscalls_observed": false,
+  "python_version": "3.13.13 (main, Apr  7 2026, 18:19:01) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "events": [
+    {
+      "phase": "protocol_frozen",
+      "at": 1792875497.194328
+    },
+    {
+      "phase": "simulation_complete",
+      "at": 1792875497.471858
+    },
+    {
+      "phase": "analysis_complete",
+      "at": 1792875497.6800041
+    }
+  ],
+  "audit": {
+    "protocol_opens": 3
+  },
+  "elapsed_seconds": 0.48669910430908203,
+  "peakRSS_KiB": 26288.0,
+  "source_sha256": "a2cefbfc9beef350a0bb9315ed88b7ee61abe0cf9c50dfea1971c3b8af776f46",
+  "kernel_sha256": "e108eb2ceb720cc7cdb6678226e5ea14562c3a9a49af028dd6e6fef86370bd39",
+  "artifacts": {
+    "summary.json": "bac4932caf8977783c03b9e4b48b9bb13ce457c21c31ac7273e0bb52bec7d4a3",
+    "paired_effects.jsonl": "b3cb5c8c7fa1057b23099302b0909b7874aa1d302827a466810c5834dd4433b0",
+    "per_user.jsonl": "ed5457c51a0d897fd7ee644293c7df2f500a73312585acad89b143f2c3ff01cb",
+    "question_traces.jsonl": "2b79092b267b865f4629083a1141c608ad8b1b6af2c4c2a881cbca3e1d93c1c6",
+    "protocol.json": "df498ecfd0f5dfe61e05431a714483a2da6aecbd3ca23bc8d6a8c94b09c22461"
+  },
+  "model_calls": 0,
+  "GPU_allocations": 0
+}

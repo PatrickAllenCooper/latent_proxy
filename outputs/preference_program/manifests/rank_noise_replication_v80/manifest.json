@@ -1,0 +1,22 @@
+{
+  "approval": "user_20261024_larger_fresh_replication",
+  "resources": {
+    "cpus": 1,
+    "memory_MiB": 256,
+    "scheduler_wall_seconds": 60,
+    "application_wall_seconds": 30,
+    "check_seconds": 20,
+    "gpus": 0
+  },
+  "python_sha256": "9d27cfcde7e3128a1b0cd86e7bf8020fc1c8210dbc485bcf878ab7ef8a5c7516",
+  "artifact_budget_bytes": 33554432,
+  "automatic_retry": false,
+  "fixed_stream_count": 30,
+  "hashes": {
+    "source/rank_noise_replication_v80.py": "a2cefbfc9beef350a0bb9315ed88b7ee61abe0cf9c50dfea1971c3b8af776f46",
+    "source/rank_noise_attribution_v79.py": "e108eb2ceb720cc7cdb6678226e5ea14562c3a9a49af028dd6e6fef86370bd39",
+    "source/preference_use_cycle_v70.py": "67739296b71a5b341dbf40ea9c5af0a8a3de862f7aea57e0e4ad881c509e433c",
+    "protocol.json": "93008c7f9d609bd31655baf4c6f9653a6d8cd36155abc632fff035e04d0d91f3",
+    "rank_noise_replication_v80.slurm": "35178bad946c382ed33566685d0f2c497ba015fe1d4da4de98f615eb0c55901d"
+  }
+}

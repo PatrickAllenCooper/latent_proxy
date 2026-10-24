@@ -1,0 +1,61 @@
+{
+  "version": "v80",
+  "seeds": [
+    30101,
+    30102,
+    30103
+  ],
+  "users": 24,
+  "arms": [
+    "EIG",
+    "AIF"
+  ],
+  "configurations": {
+    "update10_plan10": {
+      "update_noise": 0.1,
+      "planner_noise": 0.1
+    },
+    "update20_plan20": {
+      "update_noise": 0.2,
+      "planner_noise": 0.2
+    }
+  },
+  "true_flip_probability": 0.2,
+  "true_preferences": "static",
+  "hazard": 0.1,
+  "AIF_weight": 0.1,
+  "question_budgets": [
+    0,
+    2,
+    4,
+    6,
+    8
+  ],
+  "kernel": "unchanged frozen v79 select/update/predict/utilities/action/risk; pinned Python3.12.13 summation and argmax ties",
+  "primary_estimand": "mean over uniform finite24orders and fresh menu/noise streams of joint-matching change in AIF-minus-EIG transfer-regret gap at8questions",
+  "primary_contrast": "(AIF20-EIG20)-(AIF10-EIG10); negative means correction narrows deficit",
+  "primary_interval": "95% percentile paired stream-block bootstrap,10000resamples; each independent seed block averages all24enumerated orders",
+  "secondary_intervals": "95% preference-order cluster bootstrap,10000resamples after averaging streams; retained for v79 comparison, not human-population inference",
+  "secondary": [
+    "AIF-minus-EIG before/after correction",
+    "AIF absolute correction",
+    "EIG absolute correction",
+    "target regret",
+    "all question-budget curves"
+  ],
+  "stopping": "fixed30streams; no significance-based stopping or tuning; only resource watchdog can terminate",
+  "interpretation": "primary interval below0 supports reduction within this benchmark; crossing0 inconclusive; matched gap crossing0 is not equivalence",
+  "scope": "focused replication of primary hazard10 regime; not a new full factorial, not LLM/RL/human evidence",
+  "resources": {
+    "cpus": 1,
+    "memory_MiB": 256,
+    "scheduler_wall_seconds": 60,
+    "application_wall_seconds": 30,
+    "check_seconds": 20,
+    "gpus": 0
+  },
+  "artifact_cap_bytes": 33554432,
+  "model_calls": 0,
+  "smoke": true,
+  "purpose": "bounded local runtime profiling only; seeds excluded from replication"
+}
