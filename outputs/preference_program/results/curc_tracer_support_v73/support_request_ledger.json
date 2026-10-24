@@ -1,5 +1,5 @@
 {
-  "state": "awaiting_independent_CURC_verification",
+  "state": "awaiting_CURC_ptrace_support_route",
   "recipient": "rc-help@colorado.edu",
   "recipient_source": "https://oit.colorado.edu/services/research-computing",
   "user_authorization": "Please verify the compute-node tracer identity with CURC and continue with the calibration once it is resolved, within the existing resource limits.",
@@ -30,12 +30,15 @@
   },
   "automatic_retry": false,
   "followup_automation": "curc-tracer-verification-follow-up",
-  "followup_scope": "monitor pinned-tracer workaround job34837033; no extra support-gated submission",
-  "historical_allocated_CPU_seconds": 2442,
+  "followup_scope": "check CURC ticket for supported correction; no new compute allocation pending concrete route",
+  "historical_allocated_CPU_seconds": 2458,
   "historical_MIG_slice_seconds": 254,
   "curc_ticket_id": "INC1501930",
   "curc_ticket_gmail_thread_id": "1a169da02d86ef9d",
   "acknowledgement_received": true,
   "acknowledgement_only": true,
-  "conditional_calibration_superseded_by_job": "34837033"
+  "conditional_calibration_superseded_by_job": "34837033",
+  "latest_diagnostic_job": "34861699",
+  "latest_diagnostic": "strace: test_ptrace_get_syscall_info: PTRACE_TRACEME: Operation not permitted",
+  "latest_support_message_id": "1a16f1ff2550ca86"
 }

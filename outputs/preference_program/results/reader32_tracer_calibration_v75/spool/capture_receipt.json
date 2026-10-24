@@ -1,0 +1,52 @@
+{
+  "retained_bytes": 0,
+  "sha256": {},
+  "reason": "tool_permission_error",
+  "elapsed": 0.0055066809873096645,
+  "wall_time": 1792865667.3616414,
+  "monotonic_time": 336876.686601216,
+  "phase_codes": [
+    "calibration_toy_start",
+    "calibration_toy_complete"
+  ],
+  "exit_code": -15,
+  "metadata_limit_bytes": 46080,
+  "raw_trace_persisted": false,
+  "diagnostics": {
+    "channel_bytes": {
+      "1": 0,
+      "2": 152,
+      "3": 0,
+      "4": 0
+    },
+    "channel_lines": {
+      "1": 0,
+      "2": 1,
+      "3": 0,
+      "4": 0
+    },
+    "line_type_counts": {
+      "1": 0,
+      "2": 1,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0,
+      "13": 0,
+      "14": 0,
+      "15": 0
+    },
+    "last_channel_code": 2,
+    "last_type_code": 2,
+    "startup_stderr": [
+      "strace: test_ptrace_get_syscall_info: PTRACE_TRACEME: Operation not permitted"
+    ],
+    "startup_stderr_limit_bytes": 2048
+  }
+}
