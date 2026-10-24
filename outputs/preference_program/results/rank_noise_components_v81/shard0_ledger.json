@@ -32,5 +32,6 @@
   "custody_verified": true,
   "application_instrumentation_verified": true,
   "native_syscalls_observed": false,
-  "attempts_used": 1
+  "attempts_used": 1,
+  "cumulative_allocated_CPU_seconds": 2517
 }

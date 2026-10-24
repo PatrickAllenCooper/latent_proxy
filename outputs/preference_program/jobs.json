@@ -2914,7 +2914,8 @@
       "custody_verified": true,
       "application_instrumentation_verified": true,
       "native_syscalls_observed": false,
-      "attempts_used": 1
+      "attempts_used": 1,
+      "cumulative_allocated_CPU_seconds": 2517
     },
     {
       "job_id": "34866690",
@@ -2935,7 +2936,7 @@
       "expected_endpoint_rows": 14400,
       "expected_query_traces": 23040,
       "automatic_retry": false,
-      "cumulative_prior_allocated_CPU_seconds": 2506,
+      "cumulative_prior_allocated_CPU_seconds": 2517,
       "cumulative_prior_MIG_slice_seconds": 254,
       "exit_code": "0:0",
       "elapsed_seconds": 17,
@@ -2949,7 +2950,8 @@
       "custody_verified": true,
       "application_instrumentation_verified": true,
       "native_syscalls_observed": false,
-      "attempts_used": 1
+      "attempts_used": 1,
+      "cumulative_allocated_CPU_seconds": 2534
     }
   ],
   "last_checked_at_utc": "2026-10-07T00:01:35Z",
