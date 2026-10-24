@@ -1,0 +1,189 @@
+{
+  "conditions": [
+    {
+      "arm": "random",
+      "questions": 0,
+      "rows": 72,
+      "correct": 0.375,
+      "normalized_regret": 0.29050925925925924,
+      "transfer_regret": 0.34413580246913567,
+      "posterior_entropy": 3.178053830347948
+    },
+    {
+      "arm": "random",
+      "questions": 1,
+      "rows": 72,
+      "correct": 0.5277777777777778,
+      "normalized_regret": 0.1597222222222222,
+      "transfer_regret": 0.1724537037037036,
+      "posterior_entropy": 2.4849066497880012
+    },
+    {
+      "arm": "random",
+      "questions": 2,
+      "rows": 72,
+      "correct": 0.6666666666666666,
+      "normalized_regret": 0.10069444444444443,
+      "transfer_regret": 0.11805555555555548,
+      "posterior_entropy": 1.8391418549125882
+    },
+    {
+      "arm": "random",
+      "questions": 4,
+      "rows": 72,
+      "correct": 0.7638888888888888,
+      "normalized_regret": 0.06481481481481483,
+      "transfer_regret": 0.06520061728395062,
+      "posterior_entropy": 1.1512049177245371
+    },
+    {
+      "arm": "random",
+      "questions": 8,
+      "rows": 72,
+      "correct": 0.9027777777777778,
+      "normalized_regret": 0.026620370370370367,
+      "transfer_regret": 0.025848765432098762,
+      "posterior_entropy": 0.4724803454907767
+    },
+    {
+      "arm": "EIG",
+      "questions": 0,
+      "rows": 72,
+      "correct": 0.375,
+      "normalized_regret": 0.29050925925925924,
+      "transfer_regret": 0.34413580246913567,
+      "posterior_entropy": 3.178053830347948
+    },
+    {
+      "arm": "EIG",
+      "questions": 1,
+      "rows": 72,
+      "correct": 0.5277777777777778,
+      "normalized_regret": 0.17824074074074076,
+      "transfer_regret": 0.17862654320987648,
+      "posterior_entropy": 2.4849066497880012
+    },
+    {
+      "arm": "EIG",
+      "questions": 2,
+      "rows": 72,
+      "correct": 0.6111111111111112,
+      "normalized_regret": 0.1284722222222222,
+      "transfer_regret": 0.12152777777777775,
+      "posterior_entropy": 1.791759469228055
+    },
+    {
+      "arm": "EIG",
+      "questions": 4,
+      "rows": 72,
+      "correct": 0.9027777777777778,
+      "normalized_regret": 0.026620370370370367,
+      "transfer_regret": 0.021219135802469136,
+      "posterior_entropy": 0.46209812037329634
+    },
+    {
+      "arm": "EIG",
+      "questions": 8,
+      "rows": 72,
+      "correct": 1.0,
+      "normalized_regret": 0.0,
+      "transfer_regret": 0.0,
+      "posterior_entropy": 0.0
+    },
+    {
+      "arm": "decision_focused",
+      "questions": 0,
+      "rows": 72,
+      "correct": 0.375,
+      "normalized_regret": 0.29050925925925924,
+      "transfer_regret": 0.34413580246913567,
+      "posterior_entropy": 3.178053830347948
+    },
+    {
+      "arm": "decision_focused",
+      "questions": 1,
+      "rows": 72,
+      "correct": 0.625,
+      "normalized_regret": 0.12037037037037039,
+      "transfer_regret": 0.21219135802469133,
+      "posterior_entropy": 2.4849066497880012
+    },
+    {
+      "arm": "decision_focused",
+      "questions": 2,
+      "rows": 72,
+      "correct": 1.0,
+      "normalized_regret": 0.0,
+      "transfer_regret": 0.12731481481481477,
+      "posterior_entropy": 1.8195113489698582
+    },
+    {
+      "arm": "decision_focused",
+      "questions": 4,
+      "rows": 72,
+      "correct": 1.0,
+      "normalized_regret": 0.0,
+      "transfer_regret": 0.09953703703703702,
+      "posterior_entropy": 1.512611227273772
+    },
+    {
+      "arm": "decision_focused",
+      "questions": 8,
+      "rows": 72,
+      "correct": 1.0,
+      "normalized_regret": 0.0,
+      "transfer_regret": 0.09953703703703702,
+      "posterior_entropy": 1.512611227273772
+    },
+    {
+      "arm": "AIF",
+      "questions": 0,
+      "rows": 72,
+      "correct": 0.375,
+      "normalized_regret": 0.29050925925925924,
+      "transfer_regret": 0.34413580246913567,
+      "posterior_entropy": 3.178053830347948
+    },
+    {
+      "arm": "AIF",
+      "questions": 1,
+      "rows": 72,
+      "correct": 0.625,
+      "normalized_regret": 0.12037037037037039,
+      "transfer_regret": 0.21219135802469133,
+      "posterior_entropy": 2.4849066497880012
+    },
+    {
+      "arm": "AIF",
+      "questions": 2,
+      "rows": 72,
+      "correct": 1.0,
+      "normalized_regret": 0.0,
+      "transfer_regret": 0.12731481481481477,
+      "posterior_entropy": 1.8195113489698582
+    },
+    {
+      "arm": "AIF",
+      "questions": 4,
+      "rows": 72,
+      "correct": 1.0,
+      "normalized_regret": 0.0,
+      "transfer_regret": 0.025462962962962965,
+      "posterior_entropy": 0.4332169878499653
+    },
+    {
+      "arm": "AIF",
+      "questions": 8,
+      "rows": 72,
+      "correct": 1.0,
+      "normalized_regret": 0.0,
+      "transfer_regret": 0.0,
+      "posterior_entropy": 0.0
+    }
+  ],
+  "elapsed_seconds": 0.7838170528411865,
+  "records": 1440,
+  "question_trace_records": 2304,
+  "model_calls": 0,
+  "GPU_allocations": 0
+}

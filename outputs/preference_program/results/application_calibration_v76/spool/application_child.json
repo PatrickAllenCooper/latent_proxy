@@ -1,0 +1,1 @@
+{"GPU_allocations": 0, "audit_open_events": 1, "bytes_read": 76, "completed": 1792865941.1768847, "framework_imports": 0, "method": "python_audit_and_owned_read", "model_calls": 0, "native_syscalls_observed": false, "payload_sha256": "0cb68f8cb54703bc074bc210f8a195eea7e5a48bb74e196ae8866e2b66fd5d7b", "started": 1792865941.176716}

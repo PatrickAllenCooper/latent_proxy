@@ -1,0 +1,17 @@
+{
+  "local_tests_passed": 3,
+  "all_truthful_answers_and_posteriors_replayed": true,
+  "paired_zero_question_baselines_equal": true,
+  "unique_preference_orders": 24,
+  "seed_repeats": 3,
+  "independent_users_not_72": true,
+  "scientific_scope": "finite deterministic synthetic order discovery; no LLM/RL/human validation",
+  "Slurm_jobs": 0,
+  "GPU_allocations": 0,
+  "hashes": {
+    "summary.json": "221579f103db9d505499143326f9b7730c978eda5b592e2d30688e0785898863",
+    "per_user.jsonl": "aa078bcb436eb4953008bd9c9608a99ec5544e8c7ae4d1ec1bccc9acd9b4a814",
+    "question_traces.jsonl": "748d8c67c61a26dc562c0cd8972b77f15fea8138f1384bd09c85c7e682c671f5",
+    "protocol.json": "59a0a8efcfbc622f6e3331b88c73955637fa0f1f237b8fc4c4e6219af5025b92"
+  }
+}

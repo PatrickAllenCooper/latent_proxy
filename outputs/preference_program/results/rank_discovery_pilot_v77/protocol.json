@@ -1,0 +1,38 @@
+{
+  "version": "v77",
+  "registered_before_outputs": true,
+  "arms": [
+    "random",
+    "EIG",
+    "decision_focused",
+    "AIF"
+  ],
+  "seeds": [
+    1001,
+    2001,
+    3001
+  ],
+  "question_budgets": [
+    0,
+    1,
+    2,
+    4,
+    8
+  ],
+  "unique_latent_orders": 24,
+  "users": "same24 fully enumerated orders in each seed; not72 independent users",
+  "answer_model": "deterministic truthful pairwise preference",
+  "prior": "uniform over24 total orders",
+  "AIF": "expected terminal normalized-regret reduction +0.1*EIG/log(24); operational active-inference mixture, not a full generative AIF agent",
+  "selection_ties": "lexicographic pair order",
+  "random": "with replacement; all arms share initial prior/menu/answers and maximum8questions",
+  "deployment": "exact posterior expected reward action; no LLM reader",
+  "evaluation": [
+    "targeted final decision",
+    "transfer to other three excluded-option menus"
+  ],
+  "intervals": "none; finite enumerated diagnostic, not a population sample",
+  "model_calls": 0,
+  "GPU_allocations": 0,
+  "source_sha256": "539936afc1a727d59c1930e54f862dfa8d2838ee2187495de0084feed80b88d2"
+}

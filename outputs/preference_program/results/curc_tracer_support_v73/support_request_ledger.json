@@ -1,5 +1,5 @@
 {
-  "state": "awaiting_CURC_ptrace_support_route",
+  "state": "application_instrumentation_adopted_ptrace_not_required_for_this_gate",
   "recipient": "rc-help@colorado.edu",
   "recipient_source": "https://oit.colorado.edu/services/research-computing",
   "user_authorization": "Please verify the compute-node tracer identity with CURC and continue with the calibration once it is resolved, within the existing resource limits.",
@@ -30,7 +30,7 @@
   },
   "automatic_retry": false,
   "followup_automation": "curc-tracer-verification-follow-up",
-  "followup_scope": "check CURC ticket for supported correction; no new compute allocation pending concrete route",
+  "followup_scope": "obsolete for application calibration; no future ptrace submission authorized by old automation",
   "historical_allocated_CPU_seconds": 2458,
   "historical_MIG_slice_seconds": 254,
   "curc_ticket_id": "INC1501930",
@@ -40,5 +40,8 @@
   "conditional_calibration_superseded_by_job": "34837033",
   "latest_diagnostic_job": "34861699",
   "latest_diagnostic": "strace: test_ptrace_get_syscall_info: PTRACE_TRACEME: Operation not permitted",
-  "latest_support_message_id": "1a16f1ff2550ca86"
+  "latest_support_message_id": "1a16f1ff2550ca86",
+  "application_calibration_job": "34861748",
+  "application_calibration_passed": true,
+  "ptrace_support_confirmed": false
 }
