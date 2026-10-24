@@ -1,0 +1,29 @@
+{
+  "approval": "user_20261024_online_noise_planner",
+  "resources": {
+    "cpus": 1,
+    "memory_MiB": 256,
+    "scheduler_wall_seconds": 60,
+    "application_wall_seconds": 30,
+    "check_seconds": 20,
+    "gpus": 0
+  },
+  "python_sha256": "9d27cfcde7e3128a1b0cd86e7bf8020fc1c8210dbc485bcf878ab7ef8a5c7516",
+  "shards": 3,
+  "maximum_concurrency": 1,
+  "maximum_scheduler_CPU_seconds": 180,
+  "fixed_streams": 30,
+  "artifact_cap_per_shard": 33554432,
+  "automatic_retry": false,
+  "hashes": {
+    "source/online_noise_planner_v82.py": "824ba1d200ad746b0185265a186a875745f1cf2c0e58cd8f2c4209a322ec3bc9",
+    "source/rank_noise_attribution_v79.py": "e108eb2ceb720cc7cdb6678226e5ea14562c3a9a49af028dd6e6fef86370bd39",
+    "source/preference_use_cycle_v70.py": "67739296b71a5b341dbf40ea9c5af0a8a3de862f7aea57e0e4ad881c509e433c",
+    "source/analyze_online_noise_planner_v82.py": "d027f197e065b6ed169d9d518b9a4647f23805bd5dbbbd17b8991a07bb0e343d",
+    "protocol_shard1.json": "5f2f2ce42e5075db305ec96a6d63599e268ad8f01643cb836eeee8f4701b0d49",
+    "protocol_shard0.json": "eec69954a76c5a13557a4e838f633f7dcceb79f89b0a86294c9faa8571c53a7e",
+    "protocol_shard2.json": "631fe922135686ce26c9e629f7f4a2966c69f3a5bf31b20e430d0ffb38689e9f",
+    "protocol.json": "af8e957c4001dfcd3508fafd0d88cd120240d553d9f3a0fd76905c5b78b3d78b",
+    "online_noise_planner_v82.slurm": "b79248ab199f6d1888a03f0d3bc0c5b87f69885f408277ee5c2d67f0b80e0e93"
+  }
+}

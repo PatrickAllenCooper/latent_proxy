@@ -1,0 +1,83 @@
+{
+  "version": "v82",
+  "seeds": [
+    70101,
+    70102
+  ],
+  "users": 24,
+  "modes": [
+    "fixed10",
+    "online",
+    "oracle"
+  ],
+  "true_noise_rates": [
+    0.1,
+    0.2,
+    0.3
+  ],
+  "AIF_weight": 0.1,
+  "main_belief_update_noise": 0.1,
+  "main_hazard": 0.1,
+  "core": "frozen v79 selection/action/update; native Python3.12 ties unchanged",
+  "question_budgets": [
+    0,
+    2,
+    4,
+    6,
+    8
+  ],
+  "online_estimator": "sidecar exact joint posterior over24staticunknown preference orders and9noise rates; only past pair/answer input; independent reset per trajectory",
+  "noise_grid": [
+    0.0,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4
+  ],
+  "noise_prior": [
+    0.1001129150390625,
+    0.2669677734375,
+    0.31146240234375,
+    0.2076416015625,
+    0.086517333984375,
+    0.0230712890625,
+    0.00384521484375,
+    0.0003662109375,
+    1.52587890625e-05
+  ],
+  "noise_prior_mean": 0.1,
+  "prior_construction": "epsilon=.05*K,K~Binomial(8,.25); fixed before outputs,no tuning",
+  "planner_estimate": "posterior predictive mean rounded12decimals,used before next answer; no truth-order/flip/noise input",
+  "sidecar_assumptions": "static latent order and constant symmetric response noise,correct for these environments; does not modify main AIF belief state",
+  "common_random_numbers": "potential uniform fixed by fresh seed/user/question/pair across modes/rates; thresholded at actualnoise for response generator only",
+  "primary_endpoint": "transfer normalized regret at8questions,true20percentnoise",
+  "primary_contrasts": [
+    "online-minus-fixed10",
+    "online-minus-oracle"
+  ],
+  "primary_interval": "30pairedstreamblocks averaging24orders;10000bootstrapresamples;two-primary Bonferroni97.5percent intervals",
+  "secondary": [
+    "10/30percentnoise robustness",
+    "target regret",
+    "noise estimate bias/MAE and90percentcredible-interval coverage at every budget",
+    "estimated noise before each query",
+    "oracle-minus-fixed10"
+  ],
+  "interpretation": "interval crossing0 is not oracle equivalence; oracle knows noise only,not preferences,and is a reference rather than guaranteed optimal transfer policy",
+  "stopping": "fixed30freshstreams;three sequential10streamshards;no tuning or optional stopping",
+  "resources": {
+    "cpus": 1,
+    "memory_MiB": 256,
+    "scheduler_wall_seconds": 60,
+    "application_wall_seconds": 30,
+    "check_seconds": 20,
+    "gpus": 0
+  },
+  "artifact_cap_per_shard": 33554432,
+  "scope": "finite synthetic known-static users;no LLM/RL/human evidence",
+  "model_calls": 0
+}
