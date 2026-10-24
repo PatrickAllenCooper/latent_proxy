@@ -1,0 +1,28 @@
+{
+  "approval": "user_20261024_component_replication",
+  "resources": {
+    "cpus": 1,
+    "memory_MiB": 256,
+    "scheduler_wall_seconds": 60,
+    "application_wall_seconds": 30,
+    "check_seconds": 20,
+    "gpus": 0
+  },
+  "python_sha256": "9d27cfcde7e3128a1b0cd86e7bf8020fc1c8210dbc485bcf878ab7ef8a5c7516",
+  "shards": 2,
+  "maximum_concurrency": 1,
+  "maximum_scheduler_CPU_seconds": 120,
+  "fixed_total_streams": 30,
+  "automatic_retry": false,
+  "artifact_budget_per_shard": 33554432,
+  "hashes": {
+    "source/analyze_rank_noise_components_v81.py": "9d2a92ed96f0d52821e77384d857a4fea8e3f7077df7b0a2e9a5151d4b5f1df7",
+    "source/rank_noise_attribution_v79.py": "e108eb2ceb720cc7cdb6678226e5ea14562c3a9a49af028dd6e6fef86370bd39",
+    "source/preference_use_cycle_v70.py": "67739296b71a5b341dbf40ea9c5af0a8a3de862f7aea57e0e4ad881c509e433c",
+    "source/rank_noise_components_v81.py": "e9560f13ebffbd785c504a004bf4215aca8e1162b8e6fc6c365f67fa02333e87",
+    "protocol_shard1.json": "ee121700ccd2f350a99cb151069ca2d0d9f776bbbc138a3de97d75ca805968d0",
+    "protocol_shard0.json": "50ad539f1c7ef4a9a621477a816a0a5ce9bdc37cf38124c69f825e7acc667f1e",
+    "protocol.json": "4118009a986278ef01bfaa66b6151d6746df0b801f92e30136ce3d2edef09523",
+    "rank_noise_components_v81.slurm": "0cad7de3e08e56b060355d0fd11a83da48247f2b971fd4458b85d77f9956c777"
+  }
+}

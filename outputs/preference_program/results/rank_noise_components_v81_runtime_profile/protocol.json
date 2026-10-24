@@ -1,0 +1,70 @@
+{
+  "version": "v81",
+  "seeds": [
+    50101,
+    50102,
+    50103
+  ],
+  "users": 24,
+  "arms": [
+    "EIG",
+    "AIF"
+  ],
+  "configurations": {
+    "update10_plan10": {
+      "update_noise": 0.1,
+      "planner_noise": 0.1
+    },
+    "update20_plan10": {
+      "update_noise": 0.2,
+      "planner_noise": 0.1
+    },
+    "update10_plan20": {
+      "update_noise": 0.1,
+      "planner_noise": 0.2
+    },
+    "update20_plan20": {
+      "update_noise": 0.2,
+      "planner_noise": 0.2
+    }
+  },
+  "true_flip_probability": 0.2,
+  "true_preferences": "static",
+  "hazard": 0.1,
+  "AIF_weight": 0.1,
+  "question_budgets": [
+    0,
+    2,
+    4,
+    6,
+    8
+  ],
+  "kernel": "frozen v79, unchanged native Python3.12 sum/argmax",
+  "primary_outcome": "AIF transfer normalized regret at8questions",
+  "primary_contrasts": [
+    "average_update_effect",
+    "average_planner_effect",
+    "interaction"
+  ],
+  "primary_interval": "30pairedstreamblocks each averaging24orders;10000bootstrap resamples;Bonferroni98.333percent intervals for3primary contrasts,nominal95percent intervals also reported",
+  "secondary": [
+    "conditional update/planner effects at each other level",
+    "joint correction",
+    "EIG effects",
+    "AIF-minus-EIG gap effects",
+    "final target and transfer curves"
+  ],
+  "interpretation": "negative mean reduces regret;interaction identifies dependence,not a unique causal mediation;closed-loop updater changes also change future queries",
+  "scope": "finite24order synthetic domain,not human/LLM/RL evidence",
+  "stopping": "fixed30freshstreams;2sequential15streamshards;no tuning or significance-based stopping",
+  "resources": {
+    "cpus": 1,
+    "memory_MiB": 256,
+    "scheduler_wall_seconds": 60,
+    "application_wall_seconds": 30,
+    "check_seconds": 20,
+    "gpus": 0
+  },
+  "artifact_cap_per_shard": 33554432,
+  "model_calls": 0
+}
