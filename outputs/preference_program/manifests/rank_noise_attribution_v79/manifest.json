@@ -1,0 +1,20 @@
+{
+  "approval": "user_20261024_noise_attribution",
+  "resources": {
+    "cpus": 1,
+    "memory_MiB": 256,
+    "scheduler_wall_seconds": 60,
+    "application_wall_seconds": 30,
+    "check_seconds": 20,
+    "gpus": 0
+  },
+  "python_sha256": "9d27cfcde7e3128a1b0cd86e7bf8020fc1c8210dbc485bcf878ab7ef8a5c7516",
+  "artifact_budget_bytes": 33554432,
+  "automatic_retry": false,
+  "hashes": {
+    "source/rank_noise_attribution_v79.py": "e108eb2ceb720cc7cdb6678226e5ea14562c3a9a49af028dd6e6fef86370bd39",
+    "source/preference_use_cycle_v70.py": "67739296b71a5b341dbf40ea9c5af0a8a3de862f7aea57e0e4ad881c509e433c",
+    "protocol.json": "0d979f9d9bb2d749224bb4b7b7b6dad99c0d2aee12a3106046cd9974bb7128b5",
+    "rank_noise_attribution_v79.slurm": "917996fc41df6038bd274298a8efa85c8e7fa0c4d45753e81cf28d19476721d6"
+  }
+}

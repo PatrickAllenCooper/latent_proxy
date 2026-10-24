@@ -1,0 +1,80 @@
+{
+  "version": "v79",
+  "seeds": [
+    7101
+  ],
+  "users": 2,
+  "arms": [
+    "random",
+    "EIG",
+    "decision_focused",
+    "AIF"
+  ],
+  "conditions": {
+    "update10_plan10": {
+      "update_noise": 0.1,
+      "planner_noise": 0.1
+    },
+    "update20_plan10": {
+      "update_noise": 0.2,
+      "planner_noise": 0.1
+    },
+    "update10_plan20": {
+      "update_noise": 0.1,
+      "planner_noise": 0.2
+    },
+    "update20_plan20": {
+      "update_noise": 0.2,
+      "planner_noise": 0.2
+    }
+  },
+  "true_answer_flip_probability": 0.2,
+  "true_preferences": "static throughout; no drift",
+  "filters": {
+    "static": 0.0,
+    "hazard10": 0.1
+  },
+  "AIF_weight": 0.1,
+  "question_budgets": [
+    0,
+    2,
+    4,
+    6,
+    8
+  ],
+  "common_random_numbers": "fresh potential flip uniform per seed/user/question/pair, identical across all policies, noise assumptions and filters",
+  "prior": "uniform24orders",
+  "selection_and_action_ties": "unchanged native Python3.12 sum/argmax; exact-action replay uses Python3.12+; no tolerance/tie-rule change from v78",
+  "primary_filter": "hazard10 historical failure regime; static is secondary",
+  "primary_endpoint": "transfer normalized regret at8questions",
+  "primary_contrasts": [
+    "AIF-minus-EIG for each of4noise configurations",
+    "update-only change in AIF-minus-EIG gap at planner10",
+    "planner-only change in AIF-minus-EIG gap at updater10",
+    "joint matching change in gap",
+    "update-by-planner interaction in gap"
+  ],
+  "secondary": [
+    "AIF-minus-decision_focused",
+    "per-policy joint matching",
+    "target regret",
+    "true order mass",
+    "entropy",
+    "question selection agreement"
+  ],
+  "mechanistic_scope": "factorial effects on closed-loop policies; changing belief updates also changes later queries; not a fixed-question replay contrast",
+  "interpretation": "report change and residual AIF gap with uncertainty; no binary attribution from nonsignificance",
+  "intervals": "95% percentile24order-cluster resampling after averaging3seed repetitions; unadjusted exploratory contrasts, not human population inference",
+  "qualification": "synthetic finite-order discovery with exact executor; no LLM, learnedRL or general-user capability",
+  "source_sha256": "45c90dda9e1391f76eddf73d61cbe58bf5e9fea05ab88e78353206f4bfc12c7c",
+  "resource_limits": {
+    "CPU": 1,
+    "memory_MiB": 256,
+    "scheduler_wall_seconds": 60,
+    "application_wall_seconds": 30,
+    "check_seconds": 20,
+    "GPU": 0
+  },
+  "model_calls": 0,
+  "smoke": true
+}
