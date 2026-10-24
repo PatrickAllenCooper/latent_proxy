@@ -1,0 +1,32 @@
+{
+  "method": "application_phase_and_Python_audit",
+  "native_syscalls_observed": false,
+  "events": [
+    {
+      "phase": "protocol_frozen",
+      "at": 1792874191.7189422
+    },
+    {
+      "phase": "simulation_complete",
+      "at": 1792874195.2448108
+    },
+    {
+      "phase": "analysis_complete",
+      "at": 1792874196.9998784
+    }
+  ],
+  "audit": {
+    "protocol_opens": 3
+  },
+  "elapsed_seconds": 5.288537502288818,
+  "peakRSS_KiB": 39612.0,
+  "source_sha256": "531a7aebec0bc2f6976922277c5175db31a7ae6f3b6a3ee200c699699d5f798e",
+  "artifacts": {
+    "question_traces.jsonl": "bd2c3cfbe6341df953390b9b8540cde92fd050a43dcf65853727c0d6d42733d3",
+    "protocol.json": "c13b05c026df3a8240d06f34dc3ee88b0d7f10897894592a556364b649b910da",
+    "summary.json": "f8df6a08c421217a9c0dbc3ae035989d8e49557efa8a6431de324be93f693241",
+    "per_user.jsonl": "85efc5680ebd7e479112c9c320ac641416c3cd320d8146456043897f4622615d"
+  },
+  "model_calls": 0,
+  "GPU_allocations": 0
+}

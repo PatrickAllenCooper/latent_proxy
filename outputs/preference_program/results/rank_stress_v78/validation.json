@@ -1,0 +1,27 @@
+{
+  "custody_verified": true,
+  "frozen_source_and_protocol_verified": true,
+  "all18432_noisy_answers_and_posterior_updates_replayed": true,
+  "all11520_endpoint_scores_recomputed": true,
+  "aggregate_metrics_recomputed": true,
+  "all16_primary_contrasts_and_intervals_recomputed": true,
+  "audit_python_version": "3.13.13 (main, Apr  7 2026, 18:19:01) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "compute_python_version": "3.12.13",
+  "old_python39_replay": "failed on near-tied action because floating sum implementation differs; no scientific outputs were changed",
+  "unique_preference_orders": 24,
+  "seed_repeats": 3,
+  "independent_users_not72": true,
+  "native_syscall_claim": false,
+  "confidence_scope": "exploratory order-cluster intervals over finite synthetic panel;16 contrasts, not multiplicity adjusted",
+  "source_hashes": {
+    "results/summary.json": "f8df6a08c421217a9c0dbc3ae035989d8e49557efa8a6431de324be93f693241",
+    "results/application_receipt.json": "080bca001683f092b701a61b0866f1505b973aa987a1fbacca58c367615e4421",
+    "results/per_user.jsonl": "85efc5680ebd7e479112c9c320ac641416c3cd320d8146456043897f4622615d",
+    "results/question_traces.jsonl": "bd2c3cfbe6341df953390b9b8540cde92fd050a43dcf65853727c0d6d42733d3",
+    "results/protocol.json": "c13b05c026df3a8240d06f34dc3ee88b0d7f10897894592a556364b649b910da",
+    "spool/cpu-34864483.out": "ad4fdd6589df77e833ea8b0bc798e55d85c8d7bb1961934a2ee359a2a564b395",
+    "spool/cpu-34864483.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "model_calls": 0,
+  "GPU_allocations": 0
+}
