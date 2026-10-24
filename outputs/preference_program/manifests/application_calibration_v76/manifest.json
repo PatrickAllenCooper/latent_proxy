@@ -1,0 +1,24 @@
+{
+  "purpose": "application_audit_calibration_not_syscall_tracing",
+  "admission": true,
+  "approval": "user_20261024_application_instrumentation",
+  "resources": {
+    "cpus": 1,
+    "memory_MiB": 256,
+    "scheduler_wall_seconds": 60,
+    "application_wall_seconds": 30,
+    "check_seconds": 20,
+    "attempts": 1,
+    "gpus": 0
+  },
+  "attempts_used": 0,
+  "python": "/projects/paco0228/software/anaconda/envs/latent-proxy-env/bin/python",
+  "python_sha256": "9d27cfcde7e3128a1b0cd86e7bf8020fc1c8210dbc485bcf878ab7ef8a5c7516",
+  "source_hashes": {
+    "application_calibration_v76.py": "15bfd2fde76ee2d6385ee8d53f31cc8c126737b73ee79165dc90cf0c84efdcde",
+    "calibration_input.bin": "0cb68f8cb54703bc074bc210f8a195eea7e5a48bb74e196ae8866e2b66fd5d7b"
+  },
+  "native_syscalls_observed": false,
+  "artifact_cap_bytes": 65536,
+  "raw_stderr_cap_bytes": 2048
+}
