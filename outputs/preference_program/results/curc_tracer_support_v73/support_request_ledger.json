@@ -18,7 +18,7 @@
   "new_jobs": 0,
   "allocated_CPU_seconds_this_step": 0,
   "GPU_allocations": 0,
-  "conditional_calibration_authorized": true,
+  "conditional_calibration_authorized": false,
   "conditional_resources": {
     "cpus": 1,
     "memory_MiB": 256,
@@ -30,11 +30,12 @@
   },
   "automatic_retry": false,
   "followup_automation": "curc-tracer-verification-follow-up",
-  "followup_scope": "hourly substantive reply checks only; no broad research resumption",
+  "followup_scope": "monitor pinned-tracer workaround job34837033; no extra support-gated submission",
   "historical_allocated_CPU_seconds": 2442,
   "historical_MIG_slice_seconds": 254,
   "curc_ticket_id": "INC1501930",
   "curc_ticket_gmail_thread_id": "1a169da02d86ef9d",
   "acknowledgement_received": true,
-  "acknowledgement_only": true
+  "acknowledgement_only": true,
+  "conditional_calibration_superseded_by_job": "34837033"
 }
