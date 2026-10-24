@@ -1,0 +1,40 @@
+{
+  "status": "completed",
+  "job_ids": [
+    "34871021",
+    "34871032",
+    "34871063"
+  ],
+  "source_commit": "6f7439e",
+  "fresh_streams": 30,
+  "finite_orders": 24,
+  "true_noise_rates": [
+    0.1,
+    0.2,
+    0.3
+  ],
+  "planner_modes": [
+    "fixed10",
+    "online",
+    "oracle"
+  ],
+  "paired_scenarios_per_true_rate": 720,
+  "raw_endpoints": 32400,
+  "query_and_noise_posterior_updates": 51840,
+  "all_trajectories_and_intervals_replayed": true,
+  "online_uses_only_past_answers_verified": true,
+  "primary_family2_Bonferroni97_5percent": true,
+  "maximum_concurrency": 1,
+  "allocated_CPU_seconds": 42,
+  "consumed_CPU_seconds": 16.223,
+  "maximum_MaxRSS_KiB": 92712,
+  "requested_memory_MiB_per_job": 256,
+  "scheduler_wall_seconds_per_job": 60,
+  "application_wall_seconds_per_job": 30,
+  "check_seconds_per_job": 20,
+  "model_calls": 0,
+  "GPU_allocations": 0,
+  "automatic_retry": false,
+  "cumulative_allocated_CPU_seconds": 2576,
+  "cumulative_MIG_slice_seconds": 254
+}

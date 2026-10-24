@@ -1,0 +1,16 @@
+{
+  "source_sha256": "d027f197e065b6ed169d9d518b9a4647f23805bd5dbbbd17b8991a07bb0e343d",
+  "input_hashes": {
+    "shard0/results/per_user.jsonl": "b23c909bed58dc47fc28a4c0579fdbb2c90d3977c93feb098e848f131f067c9b",
+    "shard1/results/per_user.jsonl": "e590e14058a0223a42dc46703fc5993ecab9ce1e6873305ccd4610c314726c5b",
+    "shard2/results/per_user.jsonl": "3895d69f692dc97ab7cc908a5f3ab70d63737390e981a2b415458dbe0403360c"
+  },
+  "outputs": {
+    "summary.json": "485fbdbde9d52a06437eb61ce0ede7fcae613264e0f47baf22820f9050187a0f",
+    "paired_effects.jsonl": "897e433d9138b378b038287a06ca5f0cc91d88deec0ac5419cf984ae8ccec0de"
+  },
+  "python_version": "3.13.13 (main, Apr  7 2026, 18:19:01) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "elapsed_seconds": 0.24740886688232422,
+  "model_calls": 0,
+  "GPU_allocations": 0
+}

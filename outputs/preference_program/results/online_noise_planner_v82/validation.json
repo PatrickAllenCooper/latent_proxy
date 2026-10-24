@@ -1,0 +1,41 @@
+{
+  "frozen_source_protocol_kernel_and_custody_verified": true,
+  "raw_actions_and_scores_verified": 32400,
+  "joint_noise_and_main_order_updates_replayed": 51840,
+  "online_before_answer_timeline_verified": true,
+  "no_true_noise_or_preferences_needed_to_reconstruct_online_estimates": true,
+  "fixed10_and_oracle10_queries_identical_in_all720trajectories": true,
+  "all_primary_and_secondary_intervals_recomputed": true,
+  "primary_family2_Bonferroni97_5percent_verified": true,
+  "streams": 30,
+  "finite_orders": 24,
+  "true_noise_rates": [
+    0.1,
+    0.2,
+    0.3
+  ],
+  "source_hashes": {
+    "shard0/results/application_receipt.json": "cc3dbbb7fd8696fb2075ab783a119345eca27ec0ddde601e93697da21c8f94d2",
+    "shard0/results/per_user.jsonl": "b23c909bed58dc47fc28a4c0579fdbb2c90d3977c93feb098e848f131f067c9b",
+    "shard0/results/question_traces.jsonl": "de688ccf317c6379c9346ec92546daf79c6df799b52ea7d4f13cc5e63904d277",
+    "shard0/results/protocol.json": "eec69954a76c5a13557a4e838f633f7dcceb79f89b0a86294c9faa8571c53a7e",
+    "shard0/spool/cpu-34871021.out": "494351b344639f1a4eb9d41eca997dff5747a1f1143f33d1392dde454801a5a6",
+    "shard0/spool/cpu-34871021.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "shard1/results/application_receipt.json": "a7c3ad308b047b7ca096a279b809ad8d65167e07cb3344694f94a8f27059e535",
+    "shard1/results/per_user.jsonl": "e590e14058a0223a42dc46703fc5993ecab9ce1e6873305ccd4610c314726c5b",
+    "shard1/results/question_traces.jsonl": "6c84b8fef7922e8da396e301a3c10f758d817a18d1358e29b93a132f6c62b210",
+    "shard1/results/protocol.json": "5f2f2ce42e5075db305ec96a6d63599e268ad8f01643cb836eeee8f4701b0d49",
+    "shard1/spool/cpu-34871032.out": "ae9b0d105b9a3ca3c6f87c7c4c7a23f16a87ce7882c8230b766457bd1af9331a",
+    "shard1/spool/cpu-34871032.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "shard2/results/application_receipt.json": "260327a5df9587c96cf509c5f94bafc596fb0d19aaa9ad71524062cab7c282ed",
+    "shard2/results/per_user.jsonl": "3895d69f692dc97ab7cc908a5f3ab70d63737390e981a2b415458dbe0403360c",
+    "shard2/results/question_traces.jsonl": "d0fc913c1f20b30ec69809c86372c6b0992a6a8851c11deebb83dbea4fe46975",
+    "shard2/results/protocol.json": "631fe922135686ce26c9e629f7f4a2966c69f3a5bf31b20e430d0ffb38689e9f",
+    "shard2/spool/cpu-34871063.out": "4ee7cdfc49f0d73010ef9fdc85f055deccf4fb8c34874d3518c9838a447755f7",
+    "shard2/spool/cpu-34871063.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "audit_python": "3.13.13 (main, Apr  7 2026, 18:19:01) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "model_calls": 0,
+  "GPU_allocations": 0,
+  "scope": "eight-question certainty-equivalent plug-in online learner;notallpossibleonline estimators"
+}
