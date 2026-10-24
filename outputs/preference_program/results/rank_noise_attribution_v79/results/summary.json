@@ -1,0 +1,2373 @@
+{
+  "per_policy_matching": [
+    {
+      "filter": "static",
+      "arm": "random",
+      "contrast": "matched20-minus-assumed10",
+      "mean": 0.002314814814814815,
+      "order_cluster_interval95": [
+        -0.008487654320987652,
+        0.012345679012345678
+      ]
+    },
+    {
+      "filter": "static",
+      "arm": "EIG",
+      "contrast": "matched20-minus-assumed10",
+      "mean": -0.0065586419753086425,
+      "order_cluster_interval95": [
+        -0.028935185185185185,
+        0.012731481481481477
+      ]
+    },
+    {
+      "filter": "static",
+      "arm": "decision_focused",
+      "contrast": "matched20-minus-assumed10",
+      "mean": -0.008873456790123456,
+      "order_cluster_interval95": [
+        -0.043209876543209874,
+        0.023919753086419752
+      ]
+    },
+    {
+      "filter": "static",
+      "arm": "AIF",
+      "contrast": "matched20-minus-assumed10",
+      "mean": 0.0023148148148148147,
+      "order_cluster_interval95": [
+        -0.010802469135802469,
+        0.014660493827160495
+      ]
+    },
+    {
+      "filter": "hazard10",
+      "arm": "random",
+      "contrast": "matched20-minus-assumed10",
+      "mean": -0.028935185185185185,
+      "order_cluster_interval95": [
+        -0.04976851851851852,
+        -0.011188271604938273
+      ]
+    },
+    {
+      "filter": "hazard10",
+      "arm": "EIG",
+      "contrast": "matched20-minus-assumed10",
+      "mean": 0.011188271604938271,
+      "order_cluster_interval95": [
+        -0.012345679012345678,
+        0.03935185185185185
+      ]
+    },
+    {
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "contrast": "matched20-minus-assumed10",
+      "mean": -0.010802469135802467,
+      "order_cluster_interval95": [
+        -0.04513888888888889,
+        0.024691358024691357
+      ]
+    },
+    {
+      "filter": "hazard10",
+      "arm": "AIF",
+      "contrast": "matched20-minus-assumed10",
+      "mean": -0.0320216049382716,
+      "order_cluster_interval95": [
+        -0.07368827160493827,
+        0.00810185185185185
+      ]
+    }
+  ],
+  "factorial_contrasts": [
+    {
+      "filter": "static",
+      "contrast": "update_only",
+      "endpoint": "change_in_AIF_minus_EIG_transfer_gap_at8",
+      "mean": 0.020833333333333332,
+      "order_cluster_interval95": [
+        -0.018132716049382717,
+        0.05362654320987654
+      ],
+      "coefficients": {
+        "update20_plan10": 1,
+        "update10_plan10": -1
+      },
+      "order_clusters": 24,
+      "seed_repeats": 3
+    },
+    {
+      "filter": "static",
+      "contrast": "planner_only",
+      "endpoint": "change_in_AIF_minus_EIG_transfer_gap_at8",
+      "mean": -0.019290123456790122,
+      "order_cluster_interval95": [
+        -0.0474537037037037,
+        0.0065586419753086425
+      ],
+      "coefficients": {
+        "update10_plan20": 1,
+        "update10_plan10": -1
+      },
+      "order_clusters": 24,
+      "seed_repeats": 3
+    },
+    {
+      "filter": "static",
+      "contrast": "joint_matching",
+      "endpoint": "change_in_AIF_minus_EIG_transfer_gap_at8",
+      "mean": 0.008873456790123456,
+      "order_cluster_interval95": [
+        -0.015046296296296294,
+        0.0320216049382716
+      ],
+      "coefficients": {
+        "update20_plan20": 1,
+        "update10_plan10": -1
+      },
+      "order_clusters": 24,
+      "seed_repeats": 3
+    },
+    {
+      "filter": "static",
+      "contrast": "interaction",
+      "endpoint": "change_in_AIF_minus_EIG_transfer_gap_at8",
+      "mean": 0.007330246913580246,
+      "order_cluster_interval95": [
+        -0.04205246913580247,
+        0.06790123456790123
+      ],
+      "coefficients": {
+        "update20_plan20": 1,
+        "update20_plan10": -1,
+        "update10_plan20": -1,
+        "update10_plan10": 1
+      },
+      "order_clusters": 24,
+      "seed_repeats": 3
+    },
+    {
+      "filter": "hazard10",
+      "contrast": "update_only",
+      "endpoint": "change_in_AIF_minus_EIG_transfer_gap_at8",
+      "mean": 0.023919753086419752,
+      "order_cluster_interval95": [
+        -0.030092592592592587,
+        0.07523148148148147
+      ],
+      "coefficients": {
+        "update20_plan10": 1,
+        "update10_plan10": -1
+      },
+      "order_clusters": 24,
+      "seed_repeats": 3
+    },
+    {
+      "filter": "hazard10",
+      "contrast": "planner_only",
+      "endpoint": "change_in_AIF_minus_EIG_transfer_gap_at8",
+      "mean": -0.024691358024691357,
+      "order_cluster_interval95": [
+        -0.06442901234567901,
+        0.014274691358024685
+      ],
+      "coefficients": {
+        "update10_plan20": 1,
+        "update10_plan10": -1
+      },
+      "order_clusters": 24,
+      "seed_repeats": 3
+    },
+    {
+      "filter": "hazard10",
+      "contrast": "joint_matching",
+      "endpoint": "change_in_AIF_minus_EIG_transfer_gap_at8",
+      "mean": -0.043209876543209874,
+      "order_cluster_interval95": [
+        -0.09027777777777778,
+        0.0019290123456790116
+      ],
+      "coefficients": {
+        "update20_plan20": 1,
+        "update10_plan10": -1
+      },
+      "order_clusters": 24,
+      "seed_repeats": 3
+    },
+    {
+      "filter": "hazard10",
+      "contrast": "interaction",
+      "endpoint": "change_in_AIF_minus_EIG_transfer_gap_at8",
+      "mean": -0.042438271604938266,
+      "order_cluster_interval95": [
+        -0.10339506172839506,
+        0.017746913580246916
+      ],
+      "coefficients": {
+        "update20_plan20": 1,
+        "update20_plan10": -1,
+        "update10_plan20": -1,
+        "update10_plan10": 1
+      },
+      "order_clusters": 24,
+      "seed_repeats": 3
+    }
+  ],
+  "conditions": [
+    {
+      "condition": "update10_plan10",
+      "filter": "static",
+      "arm": "random",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "static",
+      "arm": "random",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.22685185185185183,
+      "transfer_regret": 0.22376543209876543,
+      "correct": 0.5,
+      "entropy": 2.544590039786959,
+      "true_order_mass": 0.07913514180153287
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "static",
+      "arm": "random",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.15162037037037035,
+      "transfer_regret": 0.1840277777777778,
+      "correct": 0.6388888888888888,
+      "entropy": 2.0624325730930546,
+      "true_order_mass": 0.1444526088496686
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "static",
+      "arm": "random",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.1284722222222222,
+      "transfer_regret": 0.13503086419753085,
+      "correct": 0.7222222222222222,
+      "entropy": 1.6829767946044263,
+      "true_order_mass": 0.22533401754015975
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "static",
+      "arm": "random",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.12037037037037036,
+      "transfer_regret": 0.1257716049382716,
+      "correct": 0.7361111111111112,
+      "entropy": 1.4333524812162528,
+      "true_order_mass": 0.2626558397271456
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "static",
+      "arm": "EIG",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "static",
+      "arm": "EIG",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.20254629629629628,
+      "transfer_regret": 0.19135802469135801,
+      "correct": 0.5277777777777778,
+      "entropy": 2.4419254160109514,
+      "true_order_mass": 0.09277777777777779
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "static",
+      "arm": "EIG",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.13078703703703703,
+      "transfer_regret": 0.13734567901234568,
+      "correct": 0.6944444444444444,
+      "entropy": 1.753081387903269,
+      "true_order_mass": 0.19994893609990932
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "static",
+      "arm": "EIG",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.13425925925925924,
+      "transfer_regret": 0.12422839506172839,
+      "correct": 0.7083333333333334,
+      "entropy": 1.3360695130491276,
+      "true_order_mass": 0.3025133573646355
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "static",
+      "arm": "EIG",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.08564814814814814,
+      "transfer_regret": 0.0949074074074074,
+      "correct": 0.8055555555555556,
+      "entropy": 0.992082666103754,
+      "true_order_mass": 0.3995980485517572
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "static",
+      "arm": "decision_focused",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "static",
+      "arm": "decision_focused",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.125,
+      "transfer_regret": 0.1882716049382716,
+      "correct": 0.7222222222222222,
+      "entropy": 2.465299428005667,
+      "true_order_mass": 0.0920640094368908
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "static",
+      "arm": "decision_focused",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.06828703703703703,
+      "transfer_regret": 0.14930555555555555,
+      "correct": 0.8194444444444444,
+      "entropy": 2.161356127887922,
+      "true_order_mass": 0.12339445144106831
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "static",
+      "arm": "decision_focused",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.0636574074074074,
+      "transfer_regret": 0.12692901234567902,
+      "correct": 0.8611111111111112,
+      "entropy": 1.9246275209178032,
+      "true_order_mass": 0.171069365902074
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "static",
+      "arm": "decision_focused",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.0636574074074074,
+      "transfer_regret": 0.12924382716049382,
+      "correct": 0.875,
+      "entropy": 1.8057191135551045,
+      "true_order_mass": 0.17015728914024464
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "static",
+      "arm": "AIF",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "static",
+      "arm": "AIF",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.125,
+      "transfer_regret": 0.1882716049382716,
+      "correct": 0.7222222222222222,
+      "entropy": 2.465299428005667,
+      "true_order_mass": 0.0920640094368908
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "static",
+      "arm": "AIF",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.07870370370370369,
+      "transfer_regret": 0.14429012345679013,
+      "correct": 0.8055555555555556,
+      "entropy": 1.8987344033567066,
+      "true_order_mass": 0.1500765576280073
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "static",
+      "arm": "AIF",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.0763888888888889,
+      "transfer_regret": 0.1091820987654321,
+      "correct": 0.8333333333333334,
+      "entropy": 1.4256826181603732,
+      "true_order_mass": 0.2503686214999995
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "static",
+      "arm": "AIF",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.06597222222222222,
+      "transfer_regret": 0.08603395061728394,
+      "correct": 0.8333333333333334,
+      "entropy": 1.095072999719782,
+      "true_order_mass": 0.3386641903517828
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "hazard10",
+      "arm": "random",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "hazard10",
+      "arm": "random",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.2314814814814815,
+      "transfer_regret": 0.20910493827160492,
+      "correct": 0.5138888888888888,
+      "entropy": 2.6065080151712845,
+      "true_order_mass": 0.07768183992653362
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "hazard10",
+      "arm": "random",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.1736111111111111,
+      "transfer_regret": 0.19405864197530864,
+      "correct": 0.625,
+      "entropy": 2.324885906241136,
+      "true_order_mass": 0.13075375416508878
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "hazard10",
+      "arm": "random",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.1527777777777778,
+      "transfer_regret": 0.1388888888888889,
+      "correct": 0.6666666666666666,
+      "entropy": 2.184114565187144,
+      "true_order_mass": 0.18023944014168417
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "hazard10",
+      "arm": "random",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.14351851851851852,
+      "transfer_regret": 0.15007716049382716,
+      "correct": 0.7083333333333334,
+      "entropy": 2.1237879575512157,
+      "true_order_mass": 0.20400181545197674
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "hazard10",
+      "arm": "EIG",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "hazard10",
+      "arm": "EIG",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.18171296296296294,
+      "transfer_regret": 0.2040895061728395,
+      "correct": 0.5694444444444444,
+      "entropy": 2.5218059276834417,
+      "true_order_mass": 0.08961111111111111
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "hazard10",
+      "arm": "EIG",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.14699074074074076,
+      "transfer_regret": 0.1435185185185185,
+      "correct": 0.6805555555555556,
+      "entropy": 2.1325689411224116,
+      "true_order_mass": 0.17169128644090204
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "hazard10",
+      "arm": "EIG",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.12384259259259259,
+      "transfer_regret": 0.11612654320987653,
+      "correct": 0.7222222222222222,
+      "entropy": 1.900397223477495,
+      "true_order_mass": 0.25173568728911655
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "hazard10",
+      "arm": "EIG",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.06828703703703703,
+      "transfer_regret": 0.08873456790123456,
+      "correct": 0.8333333333333334,
+      "entropy": 1.7115736559537174,
+      "true_order_mass": 0.3567772760030691
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.125,
+      "transfer_regret": 0.18055555555555555,
+      "correct": 0.7222222222222222,
+      "entropy": 2.5423886602780743,
+      "true_order_mass": 0.08875774322398683
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.09259259259259259,
+      "transfer_regret": 0.16242283950617284,
+      "correct": 0.7777777777777778,
+      "entropy": 2.5177787880588816,
+      "true_order_mass": 0.09119433341452127
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.1087962962962963,
+      "transfer_regret": 0.16782407407407407,
+      "correct": 0.7777777777777778,
+      "entropy": 2.412025005641722,
+      "true_order_mass": 0.1170814006489938
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.08796296296296297,
+      "transfer_regret": 0.16126543209876543,
+      "correct": 0.8055555555555556,
+      "entropy": 2.292855172739904,
+      "true_order_mass": 0.12082377981854187
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "hazard10",
+      "arm": "AIF",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "hazard10",
+      "arm": "AIF",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.125,
+      "transfer_regret": 0.18055555555555555,
+      "correct": 0.7222222222222222,
+      "entropy": 2.5423886602780743,
+      "true_order_mass": 0.08875774322398683
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "hazard10",
+      "arm": "AIF",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.10416666666666667,
+      "transfer_regret": 0.16666666666666666,
+      "correct": 0.75,
+      "entropy": 2.352622415493082,
+      "true_order_mass": 0.10938145936186944
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "hazard10",
+      "arm": "AIF",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.06018518518518518,
+      "transfer_regret": 0.12191358024691357,
+      "correct": 0.875,
+      "entropy": 2.140743651369383,
+      "true_order_mass": 0.1734591920869926
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "hazard10",
+      "arm": "AIF",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.1076388888888889,
+      "transfer_regret": 0.1412037037037037,
+      "correct": 0.7777777777777778,
+      "entropy": 1.9775988710201753,
+      "true_order_mass": 0.21018243604084583
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "static",
+      "arm": "random",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "static",
+      "arm": "random",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.22685185185185183,
+      "transfer_regret": 0.22376543209876543,
+      "correct": 0.5,
+      "entropy": 2.829681544352811,
+      "true_order_mass": 0.06973654613360496
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "static",
+      "arm": "random",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.13773148148148148,
+      "transfer_regret": 0.18595679012345678,
+      "correct": 0.6666666666666666,
+      "entropy": 2.5039786866589417,
+      "true_order_mass": 0.11456682023647145
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "static",
+      "arm": "random",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.11574074074074076,
+      "transfer_regret": 0.13310185185185183,
+      "correct": 0.7361111111111112,
+      "entropy": 2.2104506628012746,
+      "true_order_mass": 0.17210333708977862
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "static",
+      "arm": "random",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.1076388888888889,
+      "transfer_regret": 0.1280864197530864,
+      "correct": 0.75,
+      "entropy": 1.990320184780412,
+      "true_order_mass": 0.2126693608653553
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "static",
+      "arm": "EIG",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "static",
+      "arm": "EIG",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.20254629629629628,
+      "transfer_regret": 0.19135802469135801,
+      "correct": 0.5277777777777778,
+      "entropy": 2.792564316304431,
+      "true_order_mass": 0.07805555555555556
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "static",
+      "arm": "EIG",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.13078703703703703,
+      "transfer_regret": 0.13734567901234568,
+      "correct": 0.6944444444444444,
+      "entropy": 2.42344440907734,
+      "true_order_mass": 0.14329348225053745
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "static",
+      "arm": "EIG",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.11689814814814814,
+      "transfer_regret": 0.11381172839506173,
+      "correct": 0.7361111111111112,
+      "entropy": 2.0767597774704836,
+      "true_order_mass": 0.22482633921145137
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "static",
+      "arm": "EIG",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.0775462962962963,
+      "transfer_regret": 0.09375,
+      "correct": 0.8055555555555556,
+      "entropy": 1.764523497649578,
+      "true_order_mass": 0.3116594792528767
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "static",
+      "arm": "decision_focused",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "static",
+      "arm": "decision_focused",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.125,
+      "transfer_regret": 0.1882716049382716,
+      "correct": 0.7222222222222222,
+      "entropy": 2.800310205059189,
+      "true_order_mass": 0.07780934343434344
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "static",
+      "arm": "decision_focused",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.08101851851851852,
+      "transfer_regret": 0.16859567901234568,
+      "correct": 0.8055555555555556,
+      "entropy": 2.57238418217043,
+      "true_order_mass": 0.09109905617258557
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "static",
+      "arm": "decision_focused",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.059027777777777776,
+      "transfer_regret": 0.14506172839506173,
+      "correct": 0.8611111111111112,
+      "entropy": 2.338414259154862,
+      "true_order_mass": 0.13439459021836314
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "static",
+      "arm": "decision_focused",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.0474537037037037,
+      "transfer_regret": 0.13541666666666666,
+      "correct": 0.8888888888888888,
+      "entropy": 2.158110566504808,
+      "true_order_mass": 0.15433527061273156
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "static",
+      "arm": "AIF",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "static",
+      "arm": "AIF",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.125,
+      "transfer_regret": 0.1882716049382716,
+      "correct": 0.7222222222222222,
+      "entropy": 2.800310205059189,
+      "true_order_mass": 0.07780934343434344
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "static",
+      "arm": "AIF",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.08101851851851852,
+      "transfer_regret": 0.15625,
+      "correct": 0.8055555555555556,
+      "entropy": 2.5078635844027497,
+      "true_order_mass": 0.10787154614332432
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "static",
+      "arm": "AIF",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.06944444444444445,
+      "transfer_regret": 0.11188271604938271,
+      "correct": 0.8472222222222222,
+      "entropy": 2.1790791508778744,
+      "true_order_mass": 0.18315182318168519
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "static",
+      "arm": "AIF",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.06597222222222222,
+      "transfer_regret": 0.10570987654320987,
+      "correct": 0.8472222222222222,
+      "entropy": 1.8347702745649963,
+      "true_order_mass": 0.2698389839871628
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "hazard10",
+      "arm": "random",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "hazard10",
+      "arm": "random",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.2314814814814815,
+      "transfer_regret": 0.20910493827160492,
+      "correct": 0.5138888888888888,
+      "entropy": 2.8619025108321465,
+      "true_order_mass": 0.06855922215063229
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "hazard10",
+      "arm": "random",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.1527777777777778,
+      "transfer_regret": 0.19753086419753085,
+      "correct": 0.6527777777777778,
+      "entropy": 2.658417175670321,
+      "true_order_mass": 0.1053614669707602
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "hazard10",
+      "arm": "random",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.13657407407407407,
+      "transfer_regret": 0.13271604938271606,
+      "correct": 0.7083333333333334,
+      "entropy": 2.533583408022208,
+      "true_order_mass": 0.1427567424373087
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "hazard10",
+      "arm": "random",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.10300925925925926,
+      "transfer_regret": 0.12114197530864196,
+      "correct": 0.7638888888888888,
+      "entropy": 2.47085535317388,
+      "true_order_mass": 0.16649537279818744
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "hazard10",
+      "arm": "EIG",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "hazard10",
+      "arm": "EIG",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.18171296296296294,
+      "transfer_regret": 0.2040895061728395,
+      "correct": 0.5694444444444444,
+      "entropy": 2.8314382342632936,
+      "true_order_mass": 0.075875
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "hazard10",
+      "arm": "EIG",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.10069444444444445,
+      "transfer_regret": 0.13387345679012347,
+      "correct": 0.75,
+      "entropy": 2.6036624171741978,
+      "true_order_mass": 0.12431093742996592
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "hazard10",
+      "arm": "EIG",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.09259259259259259,
+      "transfer_regret": 0.08256172839506172,
+      "correct": 0.7777777777777778,
+      "entropy": 2.4375273386287186,
+      "true_order_mass": 0.18292178762755823
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "hazard10",
+      "arm": "EIG",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.06481481481481481,
+      "transfer_regret": 0.07484567901234568,
+      "correct": 0.8333333333333334,
+      "entropy": 2.3071815997483136,
+      "true_order_mass": 0.2590275745180222
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.125,
+      "transfer_regret": 0.18055555555555555,
+      "correct": 0.7222222222222222,
+      "entropy": 2.8370981408820475,
+      "true_order_mass": 0.07562762056628515
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.08101851851851852,
+      "transfer_regret": 0.1593364197530864,
+      "correct": 0.8055555555555556,
+      "entropy": 2.7156070053349697,
+      "true_order_mass": 0.08370378042533959
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.059027777777777776,
+      "transfer_regret": 0.16319444444444445,
+      "correct": 0.875,
+      "entropy": 2.6705464493953457,
+      "true_order_mass": 0.09778087197468846
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.08796296296296297,
+      "transfer_regret": 0.16550925925925924,
+      "correct": 0.8333333333333334,
+      "entropy": 2.636396916788863,
+      "true_order_mass": 0.09700366141133959
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "hazard10",
+      "arm": "AIF",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "hazard10",
+      "arm": "AIF",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.125,
+      "transfer_regret": 0.18055555555555555,
+      "correct": 0.7222222222222222,
+      "entropy": 2.8370981408820475,
+      "true_order_mass": 0.07562762056628515
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "hazard10",
+      "arm": "AIF",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.08101851851851852,
+      "transfer_regret": 0.1593364197530864,
+      "correct": 0.8055555555555556,
+      "entropy": 2.7156070053349697,
+      "true_order_mass": 0.08370378042533959
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "hazard10",
+      "arm": "AIF",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.059027777777777776,
+      "transfer_regret": 0.14506172839506173,
+      "correct": 0.875,
+      "entropy": 2.6257211411056747,
+      "true_order_mass": 0.10751319754258234
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "hazard10",
+      "arm": "AIF",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.09722222222222222,
+      "transfer_regret": 0.15123456790123457,
+      "correct": 0.8055555555555556,
+      "entropy": 2.5647755104362164,
+      "true_order_mass": 0.12039817787264664
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "static",
+      "arm": "random",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "static",
+      "arm": "random",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.22685185185185183,
+      "transfer_regret": 0.22376543209876543,
+      "correct": 0.5,
+      "entropy": 2.544590039786959,
+      "true_order_mass": 0.07913514180153287
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "static",
+      "arm": "random",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.15162037037037035,
+      "transfer_regret": 0.1840277777777778,
+      "correct": 0.6388888888888888,
+      "entropy": 2.0624325730930546,
+      "true_order_mass": 0.1444526088496686
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "static",
+      "arm": "random",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.1284722222222222,
+      "transfer_regret": 0.13503086419753085,
+      "correct": 0.7222222222222222,
+      "entropy": 1.6829767946044263,
+      "true_order_mass": 0.22533401754015975
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "static",
+      "arm": "random",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.12037037037037036,
+      "transfer_regret": 0.1257716049382716,
+      "correct": 0.7361111111111112,
+      "entropy": 1.4333524812162528,
+      "true_order_mass": 0.2626558397271456
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "static",
+      "arm": "EIG",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "static",
+      "arm": "EIG",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.20254629629629628,
+      "transfer_regret": 0.19135802469135801,
+      "correct": 0.5277777777777778,
+      "entropy": 2.4419254160109514,
+      "true_order_mass": 0.09277777777777779
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "static",
+      "arm": "EIG",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.13078703703703703,
+      "transfer_regret": 0.13734567901234568,
+      "correct": 0.6944444444444444,
+      "entropy": 1.753081387903269,
+      "true_order_mass": 0.19994893609990932
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "static",
+      "arm": "EIG",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.12037037037037036,
+      "transfer_regret": 0.11265432098765432,
+      "correct": 0.7222222222222222,
+      "entropy": 1.3360695130491276,
+      "true_order_mass": 0.30314802932259993
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "static",
+      "arm": "EIG",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.10069444444444445,
+      "transfer_regret": 0.09567901234567901,
+      "correct": 0.7777777777777778,
+      "entropy": 0.9860383681379464,
+      "true_order_mass": 0.409709996017016
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "static",
+      "arm": "decision_focused",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "static",
+      "arm": "decision_focused",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.125,
+      "transfer_regret": 0.1882716049382716,
+      "correct": 0.7222222222222222,
+      "entropy": 2.465299428005667,
+      "true_order_mass": 0.0920640094368908
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "static",
+      "arm": "decision_focused",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.06828703703703703,
+      "transfer_regret": 0.14969135802469136,
+      "correct": 0.8194444444444444,
+      "entropy": 2.126688396867186,
+      "true_order_mass": 0.12274952948448942
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "static",
+      "arm": "decision_focused",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.06712962962962962,
+      "transfer_regret": 0.13503086419753085,
+      "correct": 0.8333333333333334,
+      "entropy": 1.873614309756315,
+      "true_order_mass": 0.17847158393784696
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "static",
+      "arm": "decision_focused",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.07291666666666667,
+      "transfer_regret": 0.13541666666666666,
+      "correct": 0.8333333333333334,
+      "entropy": 1.6352580388989337,
+      "true_order_mass": 0.21724058254487275
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "static",
+      "arm": "AIF",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "static",
+      "arm": "AIF",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.125,
+      "transfer_regret": 0.1882716049382716,
+      "correct": 0.7222222222222222,
+      "entropy": 2.465299428005667,
+      "true_order_mass": 0.0920640094368908
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "static",
+      "arm": "AIF",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.08912037037037036,
+      "transfer_regret": 0.13233024691358022,
+      "correct": 0.7777777777777778,
+      "entropy": 1.7966072335040286,
+      "true_order_mass": 0.1661703818543927
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "static",
+      "arm": "AIF",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.07407407407407407,
+      "transfer_regret": 0.10030864197530863,
+      "correct": 0.8194444444444444,
+      "entropy": 1.3769922310689668,
+      "true_order_mass": 0.33224497814704823
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "static",
+      "arm": "AIF",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.039351851851851846,
+      "transfer_regret": 0.06751543209876543,
+      "correct": 0.9027777777777778,
+      "entropy": 0.9827845026164643,
+      "true_order_mass": 0.4709248032725242
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "hazard10",
+      "arm": "random",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "hazard10",
+      "arm": "random",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.2314814814814815,
+      "transfer_regret": 0.20910493827160492,
+      "correct": 0.5138888888888888,
+      "entropy": 2.6065080151712845,
+      "true_order_mass": 0.07768183992653362
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "hazard10",
+      "arm": "random",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.1736111111111111,
+      "transfer_regret": 0.19405864197530864,
+      "correct": 0.625,
+      "entropy": 2.324885906241136,
+      "true_order_mass": 0.13075375416508878
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "hazard10",
+      "arm": "random",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.1527777777777778,
+      "transfer_regret": 0.1388888888888889,
+      "correct": 0.6666666666666666,
+      "entropy": 2.184114565187144,
+      "true_order_mass": 0.18023944014168417
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "hazard10",
+      "arm": "random",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.14351851851851852,
+      "transfer_regret": 0.15007716049382716,
+      "correct": 0.7083333333333334,
+      "entropy": 2.1237879575512157,
+      "true_order_mass": 0.20400181545197674
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "hazard10",
+      "arm": "EIG",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "hazard10",
+      "arm": "EIG",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.18171296296296294,
+      "transfer_regret": 0.2040895061728395,
+      "correct": 0.5694444444444444,
+      "entropy": 2.5218059276834417,
+      "true_order_mass": 0.08961111111111111
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "hazard10",
+      "arm": "EIG",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.14699074074074076,
+      "transfer_regret": 0.1435185185185185,
+      "correct": 0.6805555555555556,
+      "entropy": 2.1325689411224116,
+      "true_order_mass": 0.17169128644090204
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "hazard10",
+      "arm": "EIG",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.12384259259259259,
+      "transfer_regret": 0.11612654320987653,
+      "correct": 0.7222222222222222,
+      "entropy": 1.900397223477495,
+      "true_order_mass": 0.25173568728911655
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "hazard10",
+      "arm": "EIG",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.06828703703703703,
+      "transfer_regret": 0.08873456790123456,
+      "correct": 0.8333333333333334,
+      "entropy": 1.7115736559537174,
+      "true_order_mass": 0.3567772760030691
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.125,
+      "transfer_regret": 0.18055555555555555,
+      "correct": 0.7222222222222222,
+      "entropy": 2.5423886602780743,
+      "true_order_mass": 0.08875774322398683
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.08449074074074074,
+      "transfer_regret": 0.16589506172839508,
+      "correct": 0.7916666666666666,
+      "entropy": 2.3472358082681546,
+      "true_order_mass": 0.11470645344953015
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.09143518518518517,
+      "transfer_regret": 0.1435185185185185,
+      "correct": 0.8194444444444444,
+      "entropy": 2.2342950426713903,
+      "true_order_mass": 0.15111223757275835
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.0775462962962963,
+      "transfer_regret": 0.13773148148148148,
+      "correct": 0.8194444444444444,
+      "entropy": 2.173408331942998,
+      "true_order_mass": 0.1564243374790166
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "hazard10",
+      "arm": "AIF",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "hazard10",
+      "arm": "AIF",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.125,
+      "transfer_regret": 0.18055555555555555,
+      "correct": 0.7222222222222222,
+      "entropy": 2.5423886602780743,
+      "true_order_mass": 0.08875774322398683
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "hazard10",
+      "arm": "AIF",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.0925925925925926,
+      "transfer_regret": 0.1554783950617284,
+      "correct": 0.7777777777777778,
+      "entropy": 2.32844239593944,
+      "true_order_mass": 0.11613652605462457
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "hazard10",
+      "arm": "AIF",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.06828703703703703,
+      "transfer_regret": 0.1284722222222222,
+      "correct": 0.8472222222222222,
+      "entropy": 2.0567567398885167,
+      "true_order_mass": 0.18265952206749242
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "hazard10",
+      "arm": "AIF",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.09259259259259259,
+      "transfer_regret": 0.11651234567901232,
+      "correct": 0.7916666666666666,
+      "entropy": 1.9802761827468158,
+      "true_order_mass": 0.21542372700526727
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "static",
+      "arm": "random",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "static",
+      "arm": "random",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.22685185185185183,
+      "transfer_regret": 0.22376543209876543,
+      "correct": 0.5,
+      "entropy": 2.829681544352811,
+      "true_order_mass": 0.06973654613360496
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "static",
+      "arm": "random",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.13773148148148148,
+      "transfer_regret": 0.18595679012345678,
+      "correct": 0.6666666666666666,
+      "entropy": 2.5039786866589417,
+      "true_order_mass": 0.11456682023647145
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "static",
+      "arm": "random",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.11574074074074076,
+      "transfer_regret": 0.13310185185185183,
+      "correct": 0.7361111111111112,
+      "entropy": 2.2104506628012746,
+      "true_order_mass": 0.17210333708977862
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "static",
+      "arm": "random",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.1076388888888889,
+      "transfer_regret": 0.1280864197530864,
+      "correct": 0.75,
+      "entropy": 1.990320184780412,
+      "true_order_mass": 0.2126693608653553
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "static",
+      "arm": "EIG",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "static",
+      "arm": "EIG",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.20254629629629628,
+      "transfer_regret": 0.19135802469135801,
+      "correct": 0.5277777777777778,
+      "entropy": 2.792564316304431,
+      "true_order_mass": 0.07805555555555556
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "static",
+      "arm": "EIG",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.13078703703703703,
+      "transfer_regret": 0.13734567901234568,
+      "correct": 0.6944444444444444,
+      "entropy": 2.42344440907734,
+      "true_order_mass": 0.14329348225053745
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "static",
+      "arm": "EIG",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.10300925925925924,
+      "transfer_regret": 0.10455246913580246,
+      "correct": 0.75,
+      "entropy": 2.0728594048199773,
+      "true_order_mass": 0.21635704437934
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "static",
+      "arm": "EIG",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.0798611111111111,
+      "transfer_regret": 0.08834876543209876,
+      "correct": 0.8055555555555556,
+      "entropy": 1.7305551441288924,
+      "true_order_mass": 0.3177319552698117
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "static",
+      "arm": "decision_focused",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "static",
+      "arm": "decision_focused",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.125,
+      "transfer_regret": 0.1882716049382716,
+      "correct": 0.7222222222222222,
+      "entropy": 2.800310205059189,
+      "true_order_mass": 0.07780934343434344
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "static",
+      "arm": "decision_focused",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.07407407407407407,
+      "transfer_regret": 0.16358024691358022,
+      "correct": 0.8194444444444444,
+      "entropy": 2.5248818257180186,
+      "true_order_mass": 0.10202907804565355
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "static",
+      "arm": "decision_focused",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.07060185185185185,
+      "transfer_regret": 0.13194444444444445,
+      "correct": 0.8472222222222222,
+      "entropy": 2.30847080677409,
+      "true_order_mass": 0.12790836116923646
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "static",
+      "arm": "decision_focused",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.046296296296296294,
+      "transfer_regret": 0.12037037037037036,
+      "correct": 0.9027777777777778,
+      "entropy": 2.148016298552844,
+      "true_order_mass": 0.1548030850967962
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "static",
+      "arm": "AIF",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "static",
+      "arm": "AIF",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.125,
+      "transfer_regret": 0.1882716049382716,
+      "correct": 0.7222222222222222,
+      "entropy": 2.800310205059189,
+      "true_order_mass": 0.07780934343434344
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "static",
+      "arm": "AIF",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.07870370370370369,
+      "transfer_regret": 0.14429012345679013,
+      "correct": 0.8055555555555556,
+      "entropy": 2.4621031018272688,
+      "true_order_mass": 0.11647228718592845
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "static",
+      "arm": "AIF",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.0763888888888889,
+      "transfer_regret": 0.10609567901234568,
+      "correct": 0.8333333333333334,
+      "entropy": 2.12776532118656,
+      "true_order_mass": 0.1948613893958167
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "static",
+      "arm": "AIF",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.06944444444444445,
+      "transfer_regret": 0.08834876543209876,
+      "correct": 0.8472222222222222,
+      "entropy": 1.8400988108109497,
+      "true_order_mass": 0.2813596760547889
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "hazard10",
+      "arm": "random",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "hazard10",
+      "arm": "random",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.2314814814814815,
+      "transfer_regret": 0.20910493827160492,
+      "correct": 0.5138888888888888,
+      "entropy": 2.8619025108321465,
+      "true_order_mass": 0.06855922215063229
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "hazard10",
+      "arm": "random",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.1527777777777778,
+      "transfer_regret": 0.19753086419753085,
+      "correct": 0.6527777777777778,
+      "entropy": 2.658417175670321,
+      "true_order_mass": 0.1053614669707602
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "hazard10",
+      "arm": "random",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.13657407407407407,
+      "transfer_regret": 0.13271604938271606,
+      "correct": 0.7083333333333334,
+      "entropy": 2.533583408022208,
+      "true_order_mass": 0.1427567424373087
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "hazard10",
+      "arm": "random",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.10300925925925926,
+      "transfer_regret": 0.12114197530864196,
+      "correct": 0.7638888888888888,
+      "entropy": 2.47085535317388,
+      "true_order_mass": 0.16649537279818744
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "hazard10",
+      "arm": "EIG",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "hazard10",
+      "arm": "EIG",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.18171296296296294,
+      "transfer_regret": 0.2040895061728395,
+      "correct": 0.5694444444444444,
+      "entropy": 2.8314382342632936,
+      "true_order_mass": 0.075875
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "hazard10",
+      "arm": "EIG",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.13078703703703703,
+      "transfer_regret": 0.15239197530864196,
+      "correct": 0.7083333333333334,
+      "entropy": 2.6162223044350896,
+      "true_order_mass": 0.12570014045625566
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "hazard10",
+      "arm": "EIG",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.12037037037037036,
+      "transfer_regret": 0.11265432098765432,
+      "correct": 0.7361111111111112,
+      "entropy": 2.444230296524438,
+      "true_order_mass": 0.17682711957483765
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "hazard10",
+      "arm": "EIG",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.07175925925925926,
+      "transfer_regret": 0.09992283950617283,
+      "correct": 0.8333333333333334,
+      "entropy": 2.303138915260728,
+      "true_order_mass": 0.24801704204679742
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.125,
+      "transfer_regret": 0.18055555555555555,
+      "correct": 0.7222222222222222,
+      "entropy": 2.8370981408820475,
+      "true_order_mass": 0.07562762056628515
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.08449074074074074,
+      "transfer_regret": 0.15740740740740738,
+      "correct": 0.7916666666666666,
+      "entropy": 2.634019330166259,
+      "true_order_mass": 0.09971151585667035
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.05555555555555555,
+      "transfer_regret": 0.14776234567901234,
+      "correct": 0.8888888888888888,
+      "entropy": 2.577944976664521,
+      "true_order_mass": 0.12204995862646092
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.059027777777777776,
+      "transfer_regret": 0.15046296296296294,
+      "correct": 0.8888888888888888,
+      "entropy": 2.490172255901563,
+      "true_order_mass": 0.1339211463930519
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "hazard10",
+      "arm": "AIF",
+      "questions": 0,
+      "rows": 72,
+      "target_regret": 0.3506944444444444,
+      "transfer_regret": 0.33641975308641975,
+      "correct": 0.2638888888888889,
+      "entropy": 3.1780538303479453,
+      "true_order_mass": 0.041666666666666664
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "hazard10",
+      "arm": "AIF",
+      "questions": 2,
+      "rows": 72,
+      "target_regret": 0.125,
+      "transfer_regret": 0.18055555555555555,
+      "correct": 0.7222222222222222,
+      "entropy": 2.8370981408820475,
+      "true_order_mass": 0.07562762056628515
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "hazard10",
+      "arm": "AIF",
+      "questions": 4,
+      "rows": 72,
+      "target_regret": 0.0925925925925926,
+      "transfer_regret": 0.1554783950617284,
+      "correct": 0.7777777777777778,
+      "entropy": 2.655039233561515,
+      "true_order_mass": 0.09805089441552223
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "hazard10",
+      "arm": "AIF",
+      "questions": 6,
+      "rows": 72,
+      "target_regret": 0.06828703703703703,
+      "transfer_regret": 0.1396604938271605,
+      "correct": 0.8472222222222222,
+      "entropy": 2.4934574092492863,
+      "true_order_mass": 0.1383607749697061
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "hazard10",
+      "arm": "AIF",
+      "questions": 8,
+      "rows": 72,
+      "target_regret": 0.06944444444444445,
+      "transfer_regret": 0.1091820987654321,
+      "correct": 0.8472222222222222,
+      "entropy": 2.3788428725691464,
+      "true_order_mass": 0.18604885755154835
+    }
+  ],
+  "primary_contrasts": [
+    {
+      "condition": "update10_plan10",
+      "filter": "static",
+      "contrast": "AIF-minus-decision_focused",
+      "endpoint": "transfer_regret_at8",
+      "mean": -0.043209876543209874,
+      "order_cluster_interval95": [
+        -0.09374999999999999,
+        0.002700617283950619
+      ],
+      "order_clusters": 24,
+      "seed_repeats": 3,
+      "lower_is_better": true
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "static",
+      "contrast": "AIF-minus-EIG",
+      "endpoint": "transfer_regret_at8",
+      "mean": -0.008873456790123456,
+      "order_cluster_interval95": [
+        -0.052083333333333336,
+        0.0327932098765432
+      ],
+      "order_clusters": 24,
+      "seed_repeats": 3,
+      "lower_is_better": true
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "hazard10",
+      "contrast": "AIF-minus-decision_focused",
+      "endpoint": "transfer_regret_at8",
+      "mean": -0.020061728395061724,
+      "order_cluster_interval95": [
+        -0.06712962962962962,
+        0.030478395061728402
+      ],
+      "order_clusters": 24,
+      "seed_repeats": 3,
+      "lower_is_better": true
+    },
+    {
+      "condition": "update10_plan10",
+      "filter": "hazard10",
+      "contrast": "AIF-minus-EIG",
+      "endpoint": "transfer_regret_at8",
+      "mean": 0.05246913580246914,
+      "order_cluster_interval95": [
+        0.00424382716049383,
+        0.10030864197530864
+      ],
+      "order_clusters": 24,
+      "seed_repeats": 3,
+      "lower_is_better": true
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "static",
+      "contrast": "AIF-minus-decision_focused",
+      "endpoint": "transfer_regret_at8",
+      "mean": -0.029706790123456787,
+      "order_cluster_interval95": [
+        -0.06520061728395062,
+        0.0038580246913580245
+      ],
+      "order_clusters": 24,
+      "seed_repeats": 3,
+      "lower_is_better": true
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "static",
+      "contrast": "AIF-minus-EIG",
+      "endpoint": "transfer_regret_at8",
+      "mean": 0.011959876543209874,
+      "order_cluster_interval95": [
+        -0.030478395061728395,
+        0.05131172839506173
+      ],
+      "order_clusters": 24,
+      "seed_repeats": 3,
+      "lower_is_better": true
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "hazard10",
+      "contrast": "AIF-minus-decision_focused",
+      "endpoint": "transfer_regret_at8",
+      "mean": -0.014274691358024687,
+      "order_cluster_interval95": [
+        -0.038580246913580245,
+        0.014274691358024698
+      ],
+      "order_clusters": 24,
+      "seed_repeats": 3,
+      "lower_is_better": true
+    },
+    {
+      "condition": "update20_plan10",
+      "filter": "hazard10",
+      "contrast": "AIF-minus-EIG",
+      "endpoint": "transfer_regret_at8",
+      "mean": 0.07638888888888888,
+      "order_cluster_interval95": [
+        0.024305555555555552,
+        0.13001543209876543
+      ],
+      "order_clusters": 24,
+      "seed_repeats": 3,
+      "lower_is_better": true
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "static",
+      "contrast": "AIF-minus-decision_focused",
+      "endpoint": "transfer_regret_at8",
+      "mean": -0.06790123456790123,
+      "order_cluster_interval95": [
+        -0.11188271604938271,
+        -0.024305555555555556
+      ],
+      "order_clusters": 24,
+      "seed_repeats": 3,
+      "lower_is_better": true
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "static",
+      "contrast": "AIF-minus-EIG",
+      "endpoint": "transfer_regret_at8",
+      "mean": -0.028163580246913577,
+      "order_cluster_interval95": [
+        -0.06558641975308642,
+        0.010030864197530865
+      ],
+      "order_clusters": 24,
+      "seed_repeats": 3,
+      "lower_is_better": true
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "hazard10",
+      "contrast": "AIF-minus-decision_focused",
+      "endpoint": "transfer_regret_at8",
+      "mean": -0.021219135802469133,
+      "order_cluster_interval95": [
+        -0.06018518518518518,
+        0.016203703703703703
+      ],
+      "order_clusters": 24,
+      "seed_repeats": 3,
+      "lower_is_better": true
+    },
+    {
+      "condition": "update10_plan20",
+      "filter": "hazard10",
+      "contrast": "AIF-minus-EIG",
+      "endpoint": "transfer_regret_at8",
+      "mean": 0.02777777777777778,
+      "order_cluster_interval95": [
+        -0.010802469135802469,
+        0.06635802469135803
+      ],
+      "order_clusters": 24,
+      "seed_repeats": 3,
+      "lower_is_better": true
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "static",
+      "contrast": "AIF-minus-decision_focused",
+      "endpoint": "transfer_regret_at8",
+      "mean": -0.0320216049382716,
+      "order_cluster_interval95": [
+        -0.06867283950617283,
+        0.0038580246913580297
+      ],
+      "order_clusters": 24,
+      "seed_repeats": 3,
+      "lower_is_better": true
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "static",
+      "contrast": "AIF-minus-EIG",
+      "endpoint": "transfer_regret_at8",
+      "mean": 2.8912057932946786e-18,
+      "order_cluster_interval95": [
+        -0.04282407407407407,
+        0.04320987654320988
+      ],
+      "order_clusters": 24,
+      "seed_repeats": 3,
+      "lower_is_better": true
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "hazard10",
+      "contrast": "AIF-minus-decision_focused",
+      "endpoint": "transfer_regret_at8",
+      "mean": -0.04128086419753086,
+      "order_cluster_interval95": [
+        -0.09336419753086418,
+        0.015046296296296294
+      ],
+      "order_clusters": 24,
+      "seed_repeats": 3,
+      "lower_is_better": true
+    },
+    {
+      "condition": "update20_plan20",
+      "filter": "hazard10",
+      "contrast": "AIF-minus-EIG",
+      "endpoint": "transfer_regret_at8",
+      "mean": 0.009259259259259257,
+      "order_cluster_interval95": [
+        -0.03587962962962963,
+        0.053240740740740734
+      ],
+      "order_clusters": 24,
+      "seed_repeats": 3,
+      "lower_is_better": true
+    }
+  ],
+  "records": 11520,
+  "trace_records": 18432,
+  "unique_orders": 24,
+  "seed_repeats": 3,
+  "elapsed_seconds": 5.939283847808838,
+  "model_calls": 0,
+  "GPU_allocations": 0
+}

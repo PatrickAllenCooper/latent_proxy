@@ -1,0 +1,152 @@
+{
+  "custody_and_frozen_protocol_verified": true,
+  "posterior_updates_and_potential_noise_replayed": 18432,
+  "raw_endpoint_actions_and_scores_verified": 11520,
+  "common_response_streams_verified": true,
+  "random_query_invariance_verified": true,
+  "all_primary_factorial_and_matching_contrasts_recomputed": true,
+  "query_agreement": [
+    {
+      "filter": "static",
+      "arm": "EIG",
+      "changed_configuration": "update20_plan10",
+      "query_slot_agreement": 0.8888888888888888,
+      "interpretation": "adaptive trajectories may diverge; not fixed-history equivalence"
+    },
+    {
+      "filter": "static",
+      "arm": "EIG",
+      "changed_configuration": "update10_plan20",
+      "query_slot_agreement": 0.8993055555555556,
+      "interpretation": "adaptive trajectories may diverge; not fixed-history equivalence"
+    },
+    {
+      "filter": "static",
+      "arm": "EIG",
+      "changed_configuration": "update20_plan20",
+      "query_slot_agreement": 0.8385416666666666,
+      "interpretation": "adaptive trajectories may diverge; not fixed-history equivalence"
+    },
+    {
+      "filter": "static",
+      "arm": "decision_focused",
+      "changed_configuration": "update20_plan10",
+      "query_slot_agreement": 0.6006944444444444,
+      "interpretation": "adaptive trajectories may diverge; not fixed-history equivalence"
+    },
+    {
+      "filter": "static",
+      "arm": "decision_focused",
+      "changed_configuration": "update10_plan20",
+      "query_slot_agreement": 0.7170138888888888,
+      "interpretation": "adaptive trajectories may diverge; not fixed-history equivalence"
+    },
+    {
+      "filter": "static",
+      "arm": "decision_focused",
+      "changed_configuration": "update20_plan20",
+      "query_slot_agreement": 0.5677083333333334,
+      "interpretation": "adaptive trajectories may diverge; not fixed-history equivalence"
+    },
+    {
+      "filter": "static",
+      "arm": "AIF",
+      "changed_configuration": "update20_plan10",
+      "query_slot_agreement": 0.4392361111111111,
+      "interpretation": "adaptive trajectories may diverge; not fixed-history equivalence"
+    },
+    {
+      "filter": "static",
+      "arm": "AIF",
+      "changed_configuration": "update10_plan20",
+      "query_slot_agreement": 0.5902777777777778,
+      "interpretation": "adaptive trajectories may diverge; not fixed-history equivalence"
+    },
+    {
+      "filter": "static",
+      "arm": "AIF",
+      "changed_configuration": "update20_plan20",
+      "query_slot_agreement": 0.9357638888888888,
+      "interpretation": "adaptive trajectories may diverge; not fixed-history equivalence"
+    },
+    {
+      "filter": "hazard10",
+      "arm": "EIG",
+      "changed_configuration": "update20_plan10",
+      "query_slot_agreement": 0.6423611111111112,
+      "interpretation": "adaptive trajectories may diverge; not fixed-history equivalence"
+    },
+    {
+      "filter": "hazard10",
+      "arm": "EIG",
+      "changed_configuration": "update10_plan20",
+      "query_slot_agreement": 1.0,
+      "interpretation": "adaptive trajectories may diverge; not fixed-history equivalence"
+    },
+    {
+      "filter": "hazard10",
+      "arm": "EIG",
+      "changed_configuration": "update20_plan20",
+      "query_slot_agreement": 0.8958333333333334,
+      "interpretation": "adaptive trajectories may diverge; not fixed-history equivalence"
+    },
+    {
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "changed_configuration": "update20_plan10",
+      "query_slot_agreement": 0.7829861111111112,
+      "interpretation": "adaptive trajectories may diverge; not fixed-history equivalence"
+    },
+    {
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "changed_configuration": "update10_plan20",
+      "query_slot_agreement": 0.5659722222222222,
+      "interpretation": "adaptive trajectories may diverge; not fixed-history equivalence"
+    },
+    {
+      "filter": "hazard10",
+      "arm": "decision_focused",
+      "changed_configuration": "update20_plan20",
+      "query_slot_agreement": 0.5486111111111112,
+      "interpretation": "adaptive trajectories may diverge; not fixed-history equivalence"
+    },
+    {
+      "filter": "hazard10",
+      "arm": "AIF",
+      "changed_configuration": "update20_plan10",
+      "query_slot_agreement": 0.5694444444444444,
+      "interpretation": "adaptive trajectories may diverge; not fixed-history equivalence"
+    },
+    {
+      "filter": "hazard10",
+      "arm": "AIF",
+      "changed_configuration": "update10_plan20",
+      "query_slot_agreement": 0.6701388888888888,
+      "interpretation": "adaptive trajectories may diverge; not fixed-history equivalence"
+    },
+    {
+      "filter": "hazard10",
+      "arm": "AIF",
+      "changed_configuration": "update20_plan20",
+      "query_slot_agreement": 0.8090277777777778,
+      "interpretation": "adaptive trajectories may diverge; not fixed-history equivalence"
+    }
+  ],
+  "source_hashes": {
+    "results/summary.json": "2aff6be488863954ea6763bdc164a2b5e2863e8214266afbc2021bf80591afcb",
+    "results/application_receipt.json": "f880d278791e9adae8128b0704fdf3756c2ae45ab8722bebb09e1c02d28e26f6",
+    "results/per_user.jsonl": "1a5ec4f8bacfeb47ec3f1c5d5bbf83ff27c900f891e7149b4a6471074ab02d58",
+    "results/question_traces.jsonl": "f1a3e4554ec0fcf8e334012b6713aa18d156e32426915b31c85f3801024380ab",
+    "results/protocol.json": "0d979f9d9bb2d749224bb4b7b7b6dad99c0d2aee12a3106046cd9974bb7128b5",
+    "spool/cpu-34865368.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "spool/cpu-34865368.out": "af1033d04662921c864b8aefd6ccad094f3dd591fd3de8a5e43fc01daf29b6b0"
+  },
+  "audit_python": "3.13.13 (main, Apr  7 2026, 18:19:01) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "compute_python": "3.12.13 | packaged by Anaconda, Inc. | (main, Jul  9 2026, 14:38:16) [GCC 14.3.0]",
+  "unique_latent_orders": 24,
+  "seed_repeats": 3,
+  "interval_scope": "exploratory unadjusted order-cluster bootstrap; not human population inference",
+  "model_calls": 0,
+  "GPU_allocations": 0
+}
