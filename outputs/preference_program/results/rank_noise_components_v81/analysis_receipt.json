@@ -1,0 +1,15 @@
+{
+  "python_version": "3.13.13 (main, Apr  7 2026, 18:19:01) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "elapsed_seconds": 0.2668721675872803,
+  "source_sha256": "9d2a92ed96f0d52821e77384d857a4fea8e3f7077df7b0a2e9a5151d4b5f1df7",
+  "input_hashes": {
+    "shard0/results/per_user.jsonl": "c344c1a0b0ebdc41608fd5d2c580659504ce0e3c2fbe19c10e14592693909f74",
+    "shard1/results/per_user.jsonl": "dd6ee840fd8c26e0f33a1a06a620f77d2b3531670e583f559a9d91e5e776e928"
+  },
+  "outputs": {
+    "summary.json": "5aecfa0944c035363a877a0be57490d8ae58fdf104fe13e42b1b3b36bd6dd3f4",
+    "paired_effects.jsonl": "c9b590d1f1a49987f0030059b691484f269ca89b301d5213b4fd96959dcdcba4"
+  },
+  "model_calls": 0,
+  "GPU_allocations": 0
+}

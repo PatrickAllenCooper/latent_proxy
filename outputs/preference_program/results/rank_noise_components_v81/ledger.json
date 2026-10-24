@@ -1,0 +1,31 @@
+{
+  "status": "completed",
+  "job_ids": [
+    "34866666",
+    "34866690"
+  ],
+  "source_commit": "0fd8ba7",
+  "fresh_streams": 30,
+  "finite_enumerated_orders": 24,
+  "paired_scenarios": 720,
+  "endpoint_rows": 28800,
+  "posterior_updates": 46080,
+  "primary_contrasts": 3,
+  "primary_interval_level": 0.9833333333333333,
+  "primary_adjustment": "Bonferroni over3primary contrasts,paired stream-block bootstrap",
+  "all_raw_records_and_intervals_verified": true,
+  "application_instrumentation_verified": true,
+  "maximum_concurrency": 1,
+  "allocated_CPU_seconds": 28,
+  "consumed_CPU_seconds": 10.674,
+  "maximum_scheduler_RSS_KiB": 70968,
+  "maximum_requested_memory_MiB_per_job": 256,
+  "scheduler_wall_seconds_per_job": 60,
+  "application_wall_seconds_per_job": 30,
+  "check_seconds_per_job": 20,
+  "GPU_allocations": 0,
+  "model_calls": 0,
+  "automatic_retry": false,
+  "cumulative_allocated_CPU_seconds": 2534,
+  "cumulative_MIG_slice_seconds": 254
+}

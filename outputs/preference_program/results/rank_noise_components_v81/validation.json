@@ -1,0 +1,28 @@
+{
+  "frozen_sources_protocols_kernel_and_custody_verified": true,
+  "raw_actions_and_scores_replayed": 28800,
+  "all24weight_posterior_updates_and_noisy_answers_replayed": 46080,
+  "all720paired_effects_and28intervals_recomputed": true,
+  "primary_family3_and_Bonferroni_intervals_verified": true,
+  "common_potential_answers_verified": true,
+  "streams": 30,
+  "finite_orders": 24,
+  "model_calls": 0,
+  "GPU_allocations": 0,
+  "audit_python": "3.13.13 (main, Apr  7 2026, 18:19:01) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "raw_artifact_hashes": {
+    "shard0/results/application_receipt.json": "d56d02b1a2d89d87e249e81647369ebe3ac868d24eb48854dc8f16305d77d3f9",
+    "shard0/results/per_user.jsonl": "c344c1a0b0ebdc41608fd5d2c580659504ce0e3c2fbe19c10e14592693909f74",
+    "shard0/results/question_traces.jsonl": "f6b8b41d87a0e725513f459104f02b5a9210f9035483c04fc7f633f701b49500",
+    "shard0/results/protocol.json": "50ad539f1c7ef4a9a621477a816a0a5ce9bdc37cf38124c69f825e7acc667f1e",
+    "shard0/spool/cpu-34866666.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "shard0/spool/cpu-34866666.out": "0c279fd55dce7bca6cf16129bff4b1a979166ebc0db5e70b403d80a154de6eff",
+    "shard1/results/application_receipt.json": "e913964f56dbc7c7f73393efcb15a8e91a7a5afa246a9df3d6d16f1f0f7325b6",
+    "shard1/results/per_user.jsonl": "dd6ee840fd8c26e0f33a1a06a620f77d2b3531670e583f559a9d91e5e776e928",
+    "shard1/results/question_traces.jsonl": "e9a2c4a547d5f6a5be62e8dcefefae0e64fbe66336bbdf52a0588d2891c132a0",
+    "shard1/results/protocol.json": "ee121700ccd2f350a99cb151069ca2d0d9f776bbbc138a3de97d75ca805968d0",
+    "shard1/spool/cpu-34866690.out": "6c559035d8347c5d402a25ab1d010e7ee88c94cbb5fa2f5fe36cc2b5a09846c4",
+    "shard1/spool/cpu-34866690.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "scope": "finite synthetic domain;stream-block uncertainty;nothuman/LLM/RL evidence"
+}
