@@ -1,0 +1,35 @@
+{
+  "method": "application_phase_and_Python_audit",
+  "native_syscalls_observed": false,
+  "python_version": "3.12.13 | packaged by Anaconda, Inc. | (main, Jul  9 2026, 14:38:16) [GCC 14.3.0]",
+  "events": [
+    {
+      "phase": "protocol_frozen",
+      "at": 1792875552.5475268
+    },
+    {
+      "phase": "simulation_complete",
+      "at": 1792875557.3479526
+    },
+    {
+      "phase": "analysis_complete",
+      "at": 1792875558.308293
+    }
+  ],
+  "audit": {
+    "protocol_opens": 3
+  },
+  "elapsed_seconds": 9.858421087265015,
+  "peakRSS_KiB": 66352.0,
+  "source_sha256": "a2cefbfc9beef350a0bb9315ed88b7ee61abe0cf9c50dfea1971c3b8af776f46",
+  "kernel_sha256": "e108eb2ceb720cc7cdb6678226e5ea14562c3a9a49af028dd6e6fef86370bd39",
+  "artifacts": {
+    "question_traces.jsonl": "797f2f85a4c7bb362065d9238f4927b81e1b0e42009ebccc01c2a5c9a47d4b78",
+    "protocol.json": "93008c7f9d609bd31655baf4c6f9653a6d8cd36155abc632fff035e04d0d91f3",
+    "paired_effects.jsonl": "93a1fcf52da3de0e1a3400552fed7830d0094dd0d32bccb18e5559ccf5237fb2",
+    "summary.json": "2ec0d357e5b9aacccbd8153f550121d2fb3c56f748b309d4ee629d6ec8303068",
+    "per_user.jsonl": "109d6af8d66eb3d9e3cc259050f350ff4b11b957df81fdf4f1de454f3d9e7207"
+  },
+  "model_calls": 0,
+  "GPU_allocations": 0
+}
