@@ -1,0 +1,20 @@
+{
+  "approval": "user_20261024_noisy_changing_experiment",
+  "resources": {
+    "cpus": 1,
+    "memory_MiB": 256,
+    "scheduler_wall_seconds": 60,
+    "application_wall_seconds": 30,
+    "check_seconds": 20,
+    "gpus": 0
+  },
+  "python_sha256": "9d27cfcde7e3128a1b0cd86e7bf8020fc1c8210dbc485bcf878ab7ef8a5c7516",
+  "automatic_retry": false,
+  "artifact_budget_bytes": 33554432,
+  "hashes": {
+    "source/rank_stress_v78.py": "531a7aebec0bc2f6976922277c5175db31a7ae6f3b6a3ee200c699699d5f798e",
+    "source/preference_use_cycle_v70.py": "67739296b71a5b341dbf40ea9c5af0a8a3de862f7aea57e0e4ad881c509e433c",
+    "protocol.json": "c13b05c026df3a8240d06f34dc3ee88b0d7f10897894592a556364b649b910da",
+    "rank_stress_v78.slurm": "6f159efbca769b61d79ca6f4c7dda2b7e92ea739756c6d482812d502e9e49dd3"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "version": "v78",
+  "seeds": [
+    4101
+  ],
+  "users": 2,
+  "arms": [
+    "random",
+    "EIG",
+    "decision_focused",
+    "AIF"
+  ],
+  "conditions": {
+    "clean": {
+      "answer_flip_probability": 0.0,
+      "reverse_order_before_question5": false
+    },
+    "noise10": {
+      "answer_flip_probability": 0.1,
+      "reverse_order_before_question5": false
+    },
+    "noise20": {
+      "answer_flip_probability": 0.2,
+      "reverse_order_before_question5": false
+    },
+    "change_after4": {
+      "answer_flip_probability": 0.0,
+      "reverse_order_before_question5": true
+    }
+  },
+  "filters": {
+    "static": 0.0,
+    "hazard10": 0.1
+  },
+  "inference_answer_flip_probability": 0.1,
+  "AIF_weight": 0.1,
+  "AIF_scope": "operational expected decision-regret reduction plus normalized information gain; not full generative AIF",
+  "question_budgets": [
+    0,
+    2,
+    4,
+    6,
+    8
+  ],
+  "changing_preferences": "only change condition; no answer noise there; reversal after fourth answer, hidden from inference",
+  "common_random_numbers": "potential answer noise fixed by seed/user/question/pair; menus and true trajectories common across arms/filters",
+  "primary_endpoint": "transfer normalized regret at8questions; paired AIF-minus-decision_focused and AIF-minus-EIG in every condition/filter",
+  "secondary": [
+    "target_regret",
+    "correct",
+    "entropy",
+    "true_order_mass",
+    "question_count"
+  ],
+  "intervals": "95% percentile resampling across24preference-order clusters, seed repetitions averaged within cluster; exploratory finite-order uncertainty, not human population inference",
+  "qualification": "synthetic finite preference discovery only; exact executor, no LLM/tool assimilation/RL training",
+  "resource_limits": {
+    "CPU": 1,
+    "memory_MiB": 256,
+    "scheduler_wall_seconds": 60,
+    "application_wall_seconds": 30,
+    "check_seconds": 20,
+    "GPU": 0
+  },
+  "model_calls": 0,
+  "smoke": true
+}
